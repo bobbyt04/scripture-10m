@@ -133,19 +133,19 @@ def build_similarities(c, review_path=REVIEW, parallels_path=PARALLELS):
     review = json.loads(Path(review_path).read_text())
     themes = {}
 
-    def publish(a, b, theme, idea, source):
-        themes.setdefault(theme, []).append({"idea": idea, "score": c.pair_score(a, b), "source": source,
+    def publish(a, b, theme, idea, source, score):
+        themes.setdefault(theme, []).append({"idea": idea, "score": score, "source": source,
                                              "verses": _verses(c, (a, b))})
 
     for cand in review["candidates"]:
         if cand["keep"]:
-            publish(cand["a"], cand["b"], cand["theme"], cand["idea"], "model, reviewed")
+            publish(cand["a"], cand["b"], cand["theme"], cand["idea"], "model, reviewed", cand["score"])
     decisions = review["hand_listed"]
     for p in json.loads(Path(parallels_path).read_text())["parallels"]:
         d = decisions[p["id"]]
         if d["keep"]:
             publish(_key(p["a"]["book"], p["a"]["refs"][0]), _key(p["b"]["book"], p["b"]["refs"][0]),
-                    d["theme"], d.get("idea", p["label"] + "."), "hand-listed")
+                    d["theme"], d.get("idea", p["label"] + "."), "hand-listed", d["score"])
     n = len(review["candidates"])
     kept = sum(cand["keep"] for cand in review["candidates"])
     per_pair = Counter("-".join(sorted((cand["a"].split()[0], cand["b"].split()[0])))
@@ -156,7 +156,8 @@ def build_similarities(c, review_path=REVIEW, parallels_path=PARALLELS):
                   "candidate and kept only real parallels in story or teaching, wrote the one-line note and chose "
                   "the theme; (2) 'hand-listed': known parallels from evals/search_parallels.json, each read and kept "
                   "or left out. Pairs with threatening or theologically contentious verses are left out, and each "
-                  "verse is in at most one pair. 'score' is the model's similarity for the pair."),
+                  "verse is in at most one pair. 'score' is the model's similarity for the pair, as recorded in "
+                  "search/similarities_review.json."),
         "candidates_proposed": n,
         "kept": kept,
         "kept_fraction": round(kept / n, 3) if n else None,

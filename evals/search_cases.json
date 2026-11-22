@@ -1,10 +1,11 @@
 {
- "about": "Modern-language situations with hand-picked relevant verses per book (found by reading and searching the whole corpus by theme, before the pool existed) and the hand-labelled themes a good answer should match ('expected_themes'). All three filled splits were seen during development; only 'final_blind' is held out. An empty list means the book has no fitting verse; that book is then skipped for that case.",
+ "about": "Modern-language situations with hand-picked relevant verses per book (found by reading and searching the whole corpus by theme, before the pool existed) and the hand-labelled themes a good answer should match ('expected_themes'). All four filled splits (dev, dev2, dev3, blind_1) were seen during development; 'blind_1' (formerly 'final_blind') is spent and 'final_blind' is an empty placeholder. An empty list means the book has no fitting verse; that book is then skipped for that case.",
  "splits": {
   "dev": "development: seen while the first bridge and settings were written",
   "dev2": "development: first meant as a test set, but the bridge was written after its queries existed",
   "dev3": "development: written blind by a reviewer as 'blind_test' for the full-corpus design (hit@10 0.43); seen while the pool design, themes and settings were made, so no longer held out",
-  "final_blind": "held out: 50 situations written by an independent reviewer after the scorer was frozen, run and judged by hand before the reviewer read the themes, pool, bridge, safety lists, tests or search code. Expected themes were added afterwards from the reviewer's own judgement. No answer key ('relevant' is empty), so hit@3 is not computed; the number to quote is the hand-judged precision in final_blind_hand_judged"
+  "blind_1": "spent: 50 situations written by an independent reviewer after the round-4 scorer was frozen, run and judged by hand (blind_1_hand_judged, kept as the record of that round). Round 5 was then developed against them and against the judge's other evidence, so they are development cases now. No answer key ('relevant' is empty), so hit@3 is not computed.",
+  "final_blind": "placeholder: empty until a new set of situations is written by someone who has not seen this round's lists."
  },
  "cases": [
   {
@@ -4281,8 +4282,8 @@
    ]
   },
   {
-   "id": "fb_father_died",
-   "split": "final_blind",
+   "id": "b1_father_died",
+   "split": "blind_1",
    "query": "my dad passed away last month and i keep picking up the phone to call him",
    "relevant": {
     "gita": [],
@@ -4294,8 +4295,8 @@
    ]
   },
   {
-   "id": "fb_friend_died_cancer",
-   "split": "final_blind",
+   "id": "b1_friend_died_cancer",
+   "split": "blind_1",
    "query": "lost my best friend from college to cancer at 34. still cant believe it",
    "relevant": {
     "gita": [],
@@ -4308,8 +4309,8 @@
    ]
   },
   {
-   "id": "fb_dog_put_down",
-   "split": "final_blind",
+   "id": "b1_dog_put_down",
+   "split": "blind_1",
    "query": "had to say goodbye to my dog of 14 years on saturday, the house is so quiet",
    "relevant": {
     "gita": [],
@@ -4321,8 +4322,8 @@
    ]
   },
   {
-   "id": "fb_credit_card_debt",
-   "split": "final_blind",
+   "id": "b1_credit_card_debt",
+   "split": "blind_1",
    "query": "drowning in credit card debt and i dont know how ill ever get out",
    "relevant": {
     "gita": [],
@@ -4335,8 +4336,8 @@
    ]
   },
   {
-   "id": "fb_rent_short",
-   "split": "final_blind",
+   "id": "b1_rent_short",
+   "split": "blind_1",
    "query": "rent is due friday and im $600 short",
    "relevant": {
     "gita": [],
@@ -4349,8 +4350,8 @@
    ]
   },
   {
-   "id": "fb_laid_off_11_years",
-   "split": "final_blind",
+   "id": "b1_laid_off_11_years",
+   "split": "blind_1",
    "query": "got laid off today after 11 years. no warning.",
    "relevant": {
     "gita": [],
@@ -4364,8 +4365,8 @@
    ]
   },
   {
-   "id": "fb_boss_belittles",
-   "split": "final_blind",
+   "id": "b1_boss_belittles",
+   "split": "blind_1",
    "query": "my boss belittles me in every meeting in front of everyone",
    "relevant": {
     "gita": [],
@@ -4379,8 +4380,8 @@
    ]
   },
   {
-   "id": "fb_wrong_career_at_40",
-   "split": "final_blind",
+   "id": "b1_wrong_career_at_40",
+   "split": "blind_1",
    "query": "im 40 and i think i chose the wrong career entirely. too late to change?",
    "relevant": {
     "gita": [],
@@ -4395,8 +4396,8 @@
    ]
   },
   {
-   "id": "fb_exams_unprepared",
-   "split": "final_blind",
+   "id": "b1_exams_unprepared",
+   "split": "blind_1",
    "query": "final exams next week and i havent studied enough, freaking out",
    "relevant": {
     "gita": [],
@@ -4409,8 +4410,8 @@
    ]
   },
   {
-   "id": "fb_retirement_fear",
-   "split": "final_blind",
+   "id": "b1_retirement_fear",
+   "split": "blind_1",
    "query": "retiring next month and honestly scared of what my days will look like without work",
    "relevant": {
     "gita": [],
@@ -4424,8 +4425,8 @@
    ]
   },
   {
-   "id": "fb_new_city_alone",
-   "split": "final_blind",
+   "id": "b1_new_city_alone",
+   "split": "blind_1",
    "query": "moved to a new city for work and i dont know a single person here. weekends are the worst",
    "relevant": {
     "gita": [],
@@ -4438,8 +4439,8 @@
    ]
   },
   {
-   "id": "fb_breakup_checking_instagram",
-   "split": "final_blind",
+   "id": "b1_breakup_checking_instagram",
+   "split": "blind_1",
    "query": "she broke up with me after 3 years and i cant stop checking her instagram",
    "relevant": {
     "gita": [],
@@ -4453,8 +4454,8 @@
    ]
   },
   {
-   "id": "fb_marriage_like_roommates",
-   "split": "final_blind",
+   "id": "b1_marriage_like_roommates",
+   "split": "blind_1",
    "query": "my husband and i barely talk anymore, we just live like roommates",
    "relevant": {
     "gita": [],
@@ -4467,8 +4468,8 @@
    ]
   },
   {
-   "id": "fb_new_baby_overwhelmed",
-   "split": "final_blind",
+   "id": "b1_new_baby_overwhelmed",
+   "split": "blind_1",
    "query": "just had our first baby and im exhausted and overwhelmed, is this normal",
    "relevant": {
     "gita": [],
@@ -4481,8 +4482,8 @@
    ]
   },
   {
-   "id": "fb_teen_son_withdrawn",
-   "split": "final_blind",
+   "id": "b1_teen_son_withdrawn",
+   "split": "blind_1",
    "query": "my 15 year old son wont talk to me, slams doors, i feel like ive lost him",
    "relevant": {
     "gita": [],
@@ -4495,8 +4496,8 @@
    ]
   },
   {
-   "id": "fb_caring_for_mother_dementia",
-   "split": "final_blind",
+   "id": "b1_caring_for_mother_dementia",
+   "split": "blind_1",
    "query": "taking care of my mom with dementia while working full time. im running on empty",
    "relevant": {
     "gita": [],
@@ -4510,8 +4511,8 @@
    ]
   },
   {
-   "id": "fb_diabetes_diagnosis",
-   "split": "final_blind",
+   "id": "b1_diabetes_diagnosis",
+   "split": "blind_1",
    "query": "just got diagnosed with diabetes, kind of scared about what comes next",
    "relevant": {
     "gita": [],
@@ -4524,8 +4525,8 @@
    ]
   },
   {
-   "id": "fb_snapped_at_kids",
-   "split": "final_blind",
+   "id": "b1_snapped_at_kids",
+   "split": "blind_1",
    "query": "i snapped at my kids again today over nothing. i have such a short temper",
    "relevant": {
     "gita": [],
@@ -4538,8 +4539,8 @@
    ]
   },
   {
-   "id": "fb_jealous_of_promoted_coworker",
-   "split": "final_blind",
+   "id": "b1_jealous_of_promoted_coworker",
+   "split": "blind_1",
    "query": "my coworker got the promotion i wanted and im so jealous i can barely look at her",
    "relevant": {
     "gita": [],
@@ -4551,8 +4552,8 @@
    ]
   },
   {
-   "id": "fb_too_proud_to_admit_wrong",
-   "split": "final_blind",
+   "id": "b1_too_proud_to_admit_wrong",
+   "split": "blind_1",
    "query": "people say i'm arrogant. maybe im too proud to admit when im wrong",
    "relevant": {
     "gita": [],
@@ -4564,8 +4565,8 @@
    ]
   },
   {
-   "id": "fb_embarrassed_at_party",
-   "split": "final_blind",
+   "id": "b1_embarrassed_at_party",
+   "split": "blind_1",
    "query": "i did something really embarassing at the party and i cant stop replaying it",
    "relevant": {
     "gita": [],
@@ -4579,8 +4580,8 @@
    ]
   },
   {
-   "id": "fb_regret_grandma",
-   "split": "final_blind",
+   "id": "b1_regret_grandma",
+   "split": "blind_1",
    "query": "i regret not spending more time with my grandma before she died",
    "relevant": {
     "gita": [],
@@ -4593,8 +4594,8 @@
    ]
   },
   {
-   "id": "fb_lied_to_wife_about_money",
-   "split": "final_blind",
+   "id": "b1_lied_to_wife_about_money",
+   "split": "blind_1",
    "query": "i lied to my wife about money and now its gotten bigger and bigger",
    "relevant": {
     "gita": [],
@@ -4608,8 +4609,8 @@
    ]
   },
   {
-   "id": "fb_forgive_brother",
-   "split": "final_blind",
+   "id": "b1_forgive_brother",
+   "split": "blind_1",
    "query": "my brother hurt me badly years ago and i want to forgive him but i dont know how",
    "relevant": {
     "gita": [],
@@ -4622,8 +4623,8 @@
    ]
   },
   {
-   "id": "fb_cheated_want_forgiveness",
-   "split": "final_blind",
+   "id": "b1_cheated_want_forgiveness",
+   "split": "blind_1",
    "query": "i cheated on my girlfriend and i want her to forgive me",
    "relevant": {
     "gita": [],
@@ -4637,8 +4638,8 @@
    ]
   },
   {
-   "id": "fb_unsure_god_exists",
-   "split": "final_blind",
+   "id": "b1_unsure_god_exists",
+   "split": "blind_1",
    "query": "not sure i believe in god anymore",
    "relevant": {
     "gita": [],
@@ -4650,8 +4651,8 @@
    ]
   },
   {
-   "id": "fb_god_feels_far",
-   "split": "final_blind",
+   "id": "b1_god_feels_far",
+   "split": "blind_1",
    "query": "i used to pray every day but now god feels so far away",
    "relevant": {
     "gita": [],
@@ -4664,8 +4665,8 @@
    ]
   },
   {
-   "id": "fb_anxious_about_future",
-   "split": "final_blind",
+   "id": "b1_anxious_about_future",
+   "split": "blind_1",
    "query": "so anxious about the future, the economy, my kids, everything",
    "relevant": {
     "gita": [],
@@ -4678,8 +4679,8 @@
    ]
   },
   {
-   "id": "fb_feel_worthless",
-   "split": "final_blind",
+   "id": "b1_feel_worthless",
+   "split": "blind_1",
    "query": "i feel worthless, like nothing i do matters",
    "relevant": {
     "gita": [],
@@ -4692,8 +4693,8 @@
    ]
   },
   {
-   "id": "fb_burnt_out_70_hours",
-   "split": "final_blind",
+   "id": "b1_burnt_out_70_hours",
+   "split": "blind_1",
    "query": "burnt out. working 70 hour weeks. no energy for anything.",
    "relevant": {
     "gita": [],
@@ -4705,8 +4706,8 @@
    ]
   },
   {
-   "id": "fb_cant_sleep_3am",
-   "split": "final_blind",
+   "id": "b1_cant_sleep_3am",
+   "split": "blind_1",
    "query": "cant sleep, mind racing every night at 3am",
    "relevant": {
     "gita": [],
@@ -4719,8 +4720,8 @@
    ]
   },
   {
-   "id": "fb_procrastinating_on_phone",
-   "split": "final_blind",
+   "id": "b1_procrastinating_on_phone",
+   "split": "blind_1",
    "query": "i keep putting off everything important and wasting days on my phone",
    "relevant": {
     "gita": [],
@@ -4733,8 +4734,8 @@
    ]
   },
   {
-   "id": "fb_job_offer_or_family",
-   "split": "final_blind",
+   "id": "b1_job_offer_or_family",
+   "split": "blind_1",
    "query": "trying to decide whether to take a job offer across the country or stay near family",
    "relevant": {
     "gita": [],
@@ -4748,8 +4749,8 @@
    ]
   },
   {
-   "id": "fb_moving_house_kids_grew_up",
-   "split": "final_blind",
+   "id": "b1_moving_house_kids_grew_up",
+   "split": "blind_1",
    "query": "we're moving house next week and i'm stressed about leaving the place where my kids grew up",
    "relevant": {
     "gita": [],
@@ -4763,8 +4764,8 @@
    ]
   },
   {
-   "id": "fb_business_failed_at_50",
-   "split": "final_blind",
+   "id": "b1_business_failed_at_50",
+   "split": "blind_1",
    "query": "my business failed and i lost everything. how do i start over at 50",
    "relevant": {
     "gita": [],
@@ -4778,8 +4779,8 @@
    ]
   },
   {
-   "id": "fb_promotion_stay_humble",
-   "split": "final_blind",
+   "id": "b1_promotion_stay_humble",
+   "split": "blind_1",
    "query": "i finally got the promotion i worked so hard for!! how do i stay humble",
    "relevant": {
     "gita": [],
@@ -4792,8 +4793,8 @@
    ]
   },
   {
-   "id": "fb_grateful_today",
-   "split": "final_blind",
+   "id": "b1_grateful_today",
+   "split": "blind_1",
    "query": "just feeling really grateful today for my family and health",
    "relevant": {
     "gita": [],
@@ -4805,8 +4806,8 @@
    ]
   },
   {
-   "id": "fb_generous_without_enough",
-   "split": "final_blind",
+   "id": "b1_generous_without_enough",
+   "split": "blind_1",
    "query": "i want to be more generous but i always feel like i dont have enough to give",
    "relevant": {
     "gita": [],
@@ -4818,8 +4819,8 @@
    ]
   },
   {
-   "id": "fb_walked_past_homeless",
-   "split": "final_blind",
+   "id": "b1_walked_past_homeless",
+   "split": "blind_1",
    "query": "saw a homeless guy in the cold today and walked past. feel bad, what should i have done",
    "relevant": {
     "gita": [],
@@ -4833,8 +4834,8 @@
    ]
   },
   {
-   "id": "fb_rumours_at_work",
-   "split": "final_blind",
+   "id": "b1_rumours_at_work",
+   "split": "blind_1",
    "query": "someone at work is spreading rumours about me",
    "relevant": {
     "gita": [],
@@ -4848,8 +4849,8 @@
    ]
   },
   {
-   "id": "fb_credit_taken_for_project",
-   "split": "final_blind",
+   "id": "b1_credit_taken_for_project",
+   "split": "blind_1",
    "query": "my manager gave the credit for my project to someone else. so unfair",
    "relevant": {
     "gita": [],
@@ -4862,8 +4863,8 @@
    ]
   },
   {
-   "id": "fb_missing_mum",
-   "split": "final_blind",
+   "id": "b1_missing_mum",
+   "split": "blind_1",
    "query": "missing my mum so much today",
    "relevant": {
     "gita": [],
@@ -4876,8 +4877,8 @@
    ]
   },
   {
-   "id": "fb_cat_died",
-   "split": "final_blind",
+   "id": "b1_cat_died",
+   "split": "blind_1",
    "query": "my cat died this morning",
    "relevant": {
     "gita": [],
@@ -4889,8 +4890,8 @@
    ]
   },
   {
-   "id": "fb_debt_help_terse",
-   "split": "final_blind",
+   "id": "b1_debt_help_terse",
+   "split": "blind_1",
    "query": "so much debt, help",
    "relevant": {
     "gita": [],
@@ -4902,8 +4903,8 @@
    ]
   },
   {
-   "id": "fb_road_rage",
-   "split": "final_blind",
+   "id": "b1_road_rage",
+   "split": "blind_1",
    "query": "how do i stop being so angry all the time when people cut me off in traffic and stuff",
    "relevant": {
     "gita": [],
@@ -4916,8 +4917,8 @@
    ]
   },
   {
-   "id": "fb_lonely_typo",
-   "split": "final_blind",
+   "id": "b1_lonely_typo",
+   "split": "blind_1",
    "query": "i'm so lonley these days",
    "relevant": {
     "gita": [],
@@ -4929,8 +4930,8 @@
    ]
   },
   {
-   "id": "fb_marriage_constant_fights",
-   "split": "final_blind",
+   "id": "b1_marriage_constant_fights",
+   "split": "blind_1",
    "query": "my wife and i fight about everything, money, chores, in-laws. tired of it",
    "relevant": {
     "gita": [],
@@ -4944,8 +4945,8 @@
    ]
   },
   {
-   "id": "fb_guilt_old_words",
-   "split": "final_blind",
+   "id": "b1_guilt_old_words",
+   "split": "blind_1",
    "query": "i feel guilty all the time for things i said years ago",
    "relevant": {
     "gita": [],
@@ -4959,8 +4960,8 @@
    ]
   },
   {
-   "id": "fb_driving_test_third_try",
-   "split": "final_blind",
+   "id": "b1_driving_test_third_try",
+   "split": "blind_1",
    "query": "afraid of failing my driving test again for the third time",
    "relevant": {
     "gita": [],
@@ -4974,8 +4975,8 @@
    ]
   },
   {
-   "id": "fb_rude_neighbour_revenge",
-   "split": "final_blind",
+   "id": "b1_rude_neighbour_revenge",
+   "split": "blind_1",
    "query": "my neighbour keeps being rude to me and i want to get back at him",
    "relevant": {
     "gita": [],
@@ -4990,7 +4991,7 @@
    ]
   }
  ],
- "final_blind_hand_judged": {
+ "blind_1_hand_judged": {
   "precision_of_shown_verses": 0.373,
   "n_verses": 399,
   "n_situations": 50,
@@ -5033,6 +5034,50 @@
    "situations_with_a_fitting_verse_in_any_book": 41,
    "situations_with_a_fitting_verse_in_all_three_books": 10
   },
-  "theme_notes": "notes were shown on 17 of 50 situations; 9 of those showed a note out of place (e.g. the family 'your safety comes first' note on a bereavement, on 'grateful for my family' and on a job decision; the grief note on a parent whose teenager is withdrawn)"
+  "theme_notes": "notes were shown on 17 of 50 situations; 9 of those showed a note out of place (e.g. the family 'your safety comes first' note on a bereavement, on 'grateful for my family' and on a job decision; the grief note on a parent whose teenager is withdrawn)",
+  "note": "History: judged on the round-4 search (before the themes-choose-verses ranking, the distress gate and the round-5 pool removals)."
+ },
+ "blind_1_round5_judged": {
+  "development_number": true,
+  "precision_of_shown_verses": 0.585,
+  "n_verses": 378,
+  "n_situations": 50,
+  "judged_by": "one reviewer (an AI assistant) who saw only the 50 situations and what the round-5 search showed for them; round 5 was developed against these same situations, so this is a development number, not a blind one",
+  "per_book": {
+   "gita": {
+    "shown": 84,
+    "fitting": 0.333,
+    "on_topic": 0.655,
+    "wrong": 0.012,
+    "harmful": 0.0,
+    "situations_empty": 22
+   },
+   "quran": {
+    "shown": 144,
+    "fitting": 0.597,
+    "on_topic": 0.389,
+    "wrong": 0.014,
+    "harmful": 0.0,
+    "situations_empty": 2
+   },
+   "bible": {
+    "shown": 150,
+    "fitting": 0.713,
+    "on_topic": 0.273,
+    "wrong": 0.013,
+    "harmful": 0.0,
+    "situations_empty": 0
+   }
+  },
+  "overall": {
+   "fitting": 0.585,
+   "on_topic": 0.402,
+   "wrong": 0.013,
+   "harmful": 0.0,
+   "situations_with_a_fitting_verse_in_any_book": 49,
+   "situations_with_a_fitting_verse_in_all_three_books": 16
+  },
+  "theme_notes": "7 notes shown (6 grief, 1 self-worth), all judged fine",
+  "patterns": "each theme of each book now shows one fixed set of verses, so different situations in the same theme get identical verses; situations that land in a near theme (a breakup in loneliness, retirement in fear) get on-topic but unhelpful verses; the Gita shows nothing for 22 of 50 situations"
  }
 }

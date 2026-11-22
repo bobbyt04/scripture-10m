@@ -914,3 +914,192 @@ Pool after: gita 108, quran 236, bible 616 verses.
 - quran 9:91: remove (removed). About who is excused from fighting ('not unto the weak nor unto the sick'); found when checking 'diagnosed with something serious', where it read as if illness were a fault to excuse.
 - quran 3:200: remove (removed). 'Endure, outdo all others in endurance' under success and courage; the same endure message the audit removed elsewhere.
 - quran 60:7: retag (dropped hope). Under hope it suggests a person who harms you may come to love you; kept under friendship.
+
+## review-5-final
+
+Applied: gita remove 6; gita retag 8; quran remove 10; quran retag 9; quran display 1; bible remove 17; bible retag 11; bible fix_why 4; bible display 7; sensitive_set remove 6; sensitive_set retag 1.
+Pool after: gita 102, quran 224, bible 597 verses.
+
+- gita 2:12: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'nor verily shall we ever cease to be, hereafter' was shown to 'sometimes i hope i get in a car crash so it's over' and 'disappear permanently'. The note also adds 'never began', which is not in this verse.
+- gita 2:15: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'he is fitted for immortality' under peace_of_mind.
+- gita 2:65: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'In that Peace the extinction of all pains ariseth' was shown to 'whats the least painful way to go' and 'i just want the pain to stop forever'.
+- gita 5:24: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'becoming the Eternal, goeth to the Peace of the Eternal' was shown to 'i'm ready to go. ive made my peace'.
+- gita 5:29: retag (dropped peace_of_mind). Suicidal reader (crisis detection misses ~half of such messages): 'he goeth to Peace' was shown to 'i'm ready to go. ive made my peace'.
+- gita 2:71: retag (dropped peace_of_mind). Suicidal reader (crisis detection misses ~half of such messages): 'he goeth to Peace', the same pattern.
+- gita 18:53: retag (dropped peace_of_mind). Suicidal reader (crisis detection misses ~half of such messages): 'he is fit to become the Eternal'.
+- gita 6:40: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'neither in this world nor in the life to come is there destruction for him' was shown to 'i just want to disappear and never come back, permanently'.
+- gita 6:36: remove (removed). Eating disorder or depression: 'hard to attain by a self that is uncontrolled' (why: 'hard for the undisciplined') was shown to 'i haven't eaten properly in weeks, i'm trying to get thin'. It shames the reader and rewards control.
+- gita 6:16: retag (dropped overwork_rest). Exhausted new parent or depressed reader: 'not ... too much addicted to sleep' was shown for burnout and for 'just had our first baby and im exhausted'.
+- gita 6:17: retag (dropped overwork_rest). 'Yoga killeth out all pain for him who is regulated...' frames exhaustion as poor self-regulation; shown to a caregiver running on empty.
+- gita 6:8: retag (dropped wisdom_learning). Grief: 'a lump of earth, a stone and gold are the same' was shown to 'lost my best friend from college to cancer' through the word 'college'. Dismissive.
+- gita 11:44: retag (dropped love_compassion). Abused partner: 'With the beloved as lover, bear with me' was shown to 'my partner wont let me have my own bank account' and 'boyfriend ... hits me sometimes'.
+- gita 12:13: retag (dropped love_compassion). Abused partner: 'bear no ill-will ... forgiving' was shown to 'my boyfriend grabs me by the throat' and 'hits me sometimes but he says sorry'.
+- quran 93:4: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'the latter portion will be better for thee than the former' was shown to 'everyone would be fine without me honestly, probably better' and 'i'd rather not exist than feel this way'. Also remove it from the sensitive set.
+- quran 10:25: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'Allah summoneth to the abode of peace' was shown to 'thinking of driving into the river' and 'i'm ready to go'.
+- quran 87:8: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'We shall ease thy way unto the state of ease' was shown to 'thinking of driving into the river' and 'i'd rather not exist'. Also remove it from the sensitive set.
+- quran 13:29: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'Joy is for them, and bliss (their) journey's end'.
+- quran 41:30: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'the angels descend upon them, saying: Fear not nor grieve, but hear good tidings of the paradise' is a deathbed scene, tagged fear_anxiety.
+- quran 84:6: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'a work which thou wilt meet (in His presence)'; the note says 'you will meet Him'.
+- quran 9:105: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'Act! ... ye will be brought back' was shown to 'i have a gun in the house and i keep thinking about using it'.
+- quran 58:11: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'Come up higher! go up higher' was shown to 'i googled how high a building needs to be'. The note also leaves out the half of the verse that matched.
+- quran 42:36: retag (no theme left: removed). Suicidal reader (crisis detection misses ~half of such messages): 'what Allah hath is better and more lasting' was shown to 'i've given away my stuff and said my goodbyes'. With no theme left it would be dropped, which is the intent.
+- quran 16:96: retag (no theme left: removed). Suicidal reader (crisis detection misses ~half of such messages): 'That which ye have wasteth away, and that which Allah hath remaineth' was shown to the gun message. With no theme left it would be dropped.
+- quran 53:39: remove (removed). Disabled, poor or ill reader: 'That man hath only that for which he maketh effort' was shown to 'i lost my leg to diabetes and feel like half a person'.
+- quran 12:69: remove (removed). Someone abused by a parent, or bereaved: 'sorrow not for what they did' is the top family_parents verse and appeared for 'my dad passed away', 'missing my mum', 'my parents starve me as punishment' and 'my dad ... hits my little brother'.
+- quran 12:98: retag (dropped family_parents). Someone abused by a parent: 'I shall ask forgiveness for you' is shown for every parent query, including abuse and bereavement.
+- quran 14:40: retag (dropped family_parents). A parent's prayer for posterity was shown to a bereaved child ('missing my mum') and an infertile woman.
+- quran 3:159: retag (dropped anger, love_compassion). Someone being harmed: 'So pardon them and ask forgiveness for them' was shown to 'my boyfriend grabs me by the throat when he's angry' and 'hits me sometimes but he says sorry'.
+- quran 11:90: retag (dropped love_compassion). Abused partner: 'Ask pardon of your Lord' was shown to 'boyfriend makes me feel worthless and hits me'.
+- quran 4:135: retag (dropped temptation_self_control). Addict who just relapsed: 'follow not passion lest ye lapse' was shown to 'relapsed with the blade last night'. Shaming.
+- quran 17:34: retag (dropped honesty). Groomed child: 'keep the covenant ... of the covenant it will be asked' (why: 'keep your commitments') was shown to 'my coach sends me pics and asks me to keep it secret'.
+- quran 25:63: retag (dropped anger). Harassed reader: 'when the foolish ones address them answer: Peace' was shown to 'my boss grabbed my butt and said he'd fire me if i told'.
+- quran 9:102: display (display: trim). The display starts with a lower-case parenthesis: '(there are) others who have acknowledged...'. Judge: Drop the leading '(there are) ' and capitalise 'Others'
+- bible Psalms 37:37: remove (removed). peace_of_mind, suicidal reader: 'the end of that man is peace' (W: 'their end is peace') reads as death bringing peace.
+- bible Psalms 116:7: remove (removed). peace_of_mind/overwork_rest, suicidal or depressed reader: 'Return unto thy rest, O my soul' reads as an invitation to die.
+- bible John 16:22: remove (removed). grief+hope: a parent whose child died yesterday, or a suicidal reader, sees 'I will see you again, and your heart shall rejoice' as a promise of reunion through death.
+- bible Revelation 21:4: remove (removed). hope (its only theme), suicidal reader: 'no more death, neither sorrow... neither shall there be any more pain' is an afterlife-ends-pain promise. Fine for grief if re-added there, not for hope.
+- bible Isaiah 25:8: remove (removed). hope (only theme), suicidal reader: death swallowed up and tears wiped away is afterlife comfort; W also adds 'death will not have the last word', which the verse does not say. Could move to grief.
+- bible Romans 8:18: remove (removed). hope (only theme), suicidal reader: present sufferings 'not worthy to be compared with the glory which shall be revealed' frames what comes after as better; also dismissive of present suffering.
+- bible Ecclesiastes 7:8: remove (removed). patience reader currently being harmed, and any suicidal reader: opens 'Better is the end of a thing than the beginning thereof' (W repeats it).
+- bible Genesis 50:20: remove (removed). betrayal (only theme), someone currently being harmed: 'Ye thought evil against me; but God meant it unto good' tells them the abuse is God's plan.
+- bible Genesis 50:19: remove (removed). forgiveness/betrayal, someone currently being harmed: 'Fear not: for am I in the place of God?' means nothing without the Joseph story, and its point (not mine to punish) discourages seeking justice.
+- bible Luke 23:34: remove (removed). forgiveness (only theme), someone currently being harmed (e.g. a wife being hit): 'forgive them; for they know not what they do' excuses the person harming them.
+- bible James 5:7: remove (removed). patience (only theme), someone currently being harmed: 'Be patient therefore, brethren, unto the coming of the Lord' tells them to endure until the end of time; in context (5:1-6) it is patience under oppression.
+- bible Proverbs 17:22: remove (removed). peace_of_mind, depressed or suicidal reader: 'a broken spirit drieth the bones' after 'a merry heart doeth good like a medicine' implies mood is a choice and blames them.
+- bible Proverbs 15:13: remove (removed). peace_of_mind, depressed or suicidal reader: ends 'by sorrow of the heart the spirit is broken'; it describes their state, it does not comfort.
+- bible John 14:1: retag (dropped grief). Grief, a parent whose child died yesterday: 'Let not your heart be troubled: ye believe in God, believe also in me' reads as an order not to grieve plus a faith test. Fine for fear_anxiety.
+- bible 1 Corinthians 13:5: remove (removed). Anger, someone currently being harmed: 'is not easily provoked, thinketh no evil' tells them not to be upset with, or think badly of, the person hurting them. Removed instead: the real text cannot be shown as a complete sentence.
+- bible Proverbs 25:28: retag (dropped temptation_self_control). An addict who just relapsed: 'no rule over his own spirit is like a city that is broken down' is shaming. Fine for anger.
+- bible Isaiah 40:28: retag (dropped doubt_faith). Someone leaving their religion: 'Hast thou not known? hast thou not heard' is a rhetorical rebuke of the doubter. Fine for overwork_rest.
+- bible Proverbs 31:28: retag (dropped family_parents). Someone abused by a parent: 'Her children arise up, and call her blessed' pressures them to honour the abusive parent.
+- bible Psalms 55:22: retag (dropped money_worry). Someone just evicted: 'he shall never suffer the righteous to be moved' implies being made to move means they are not righteous. Fine for fear_anxiety/suffering.
+- bible Proverbs 31:25: retag (dropped self_worth). Self_worth, a trans teenager: this describes the ideal wife ('her clothing'); it is gendered and about someone else, not the reader's worth.
+- bible James 1:27: retag (dropped grief). Grief, bereaved parent: an instruction to others to visit widows and orphans, plus 'unspotted from the world'; it offers them no comfort.
+- bible Malachi 2:10: retag (dropped family_parents). Someone abused by a parent: 'Have we not all one father?' is about God and broken covenants, off-topic and jarring for them.
+- bible Psalms 121:1: fix_why (new note). W turns the KJV statement into a question ('where does my help come from?'), which comes from modern translations.
+- bible Psalms 126:6: fix_why (new note). 'come home rejoicing' is wording a suicidal reader can take as death; it also reads as the lost child coming back for a bereaved parent (grief tag).
+- bible Jeremiah 29:11: fix_why (new note). Drop 'expected end': 'end' wording is risky for a suicidal (hope) reader and the note does not need it.
+- bible Psalms 127:2: fix_why (new note). 'anxious toil' is ESV wording, not in the KJV text shown.
+- bible Psalms 46:2: display (display: trim). With 'Therefore' cut, 'Will not we fear, though the earth be removed' reads as a question ('won't we be afraid?'), the opposite of the meaning. Judge: Set trim to '' (keep 'Therefore'): shows 'Therefore will not we fear, ...'
+- bible Jeremiah 29:12: display (display: trim). With 'Then' cut, 'Shall ye call upon me' reads as a question. Judge: Set trim to '' (keep 'Then'): shows 'Then shall ye call upon me, ...'
+- bible 2 Corinthians 13:11: display (display: trim). A suicidal (peace_of_mind) reader is shown a verse that opens 'Finally, brethren, farewell.' Judge: Set trim to 'Finally, brethren, farewell. ': shows 'Be perfect, be of good comfort, ...'
+- bible Ecclesiastes 7:14: display (display: trim_end). Suffering_endurance reader: 'to the end that man should find nothing after him' is obscure and reads as 'nothing after death'. Judge: Set trim_end to ': God also hath set the one over against the other, to the end that man should find nothing after him.'
+- bible Malachi 3:6: display (display: trim_end). 'Ye sons of Jacob are not consumed' needs missing context and sounds threatening to someone leaving their religion. Judge: Set trim_end to '; therefore ye sons of Jacob are not consumed.': shows 'I am the LORD, I change not.'
+- bible 2 Corinthians 5:7: display (display: trim, trim_end, fixes). Missing final punctuation and a dangling 'For'. Judge: Display ends 'For we walk by faith, not by sight' with no full stop: add one (the trim_end ':)' removes the colon before the full-stop rule can apply). Also trim 'For '.
+- bible Romans 8:39: remove (removed). Display starts mid-clause. Removed instead: the real text cannot be shown as a complete sentence.
+- bible 1 Corinthians 13:6: remove (removed). Display starts mid-clause. Removed instead: the real text cannot be shown as a complete sentence.
+- bible Galatians 5:22: remove (removed). Display ends mid-list, so the fruit of the Spirit looks complete with two items missing. Removed instead: the real text cannot be shown as a complete sentence.
+- bible 1 Chronicles 28:20: display (display: trim_end). The 'not forsake thee until thou hast finished [the temple]' promise is specific to Solomon and implies being left once the work is done. Judge: Set trim_end to ', until thou hast finished all the work for the service of the house of the LORD.'
+- bible Proverbs 12:24: retag (no theme left: removed). Fat-shamed reader: 'the slothful shall be under tribute' was shown to 'i'm 300 pounds and people treat me like i'm lazy'.
+- bible Colossians 3:19: retag (no theme left: removed). Wife being hit: 'Husbands, love your wives' (with Ephesians 5:25 and Proverbs 31:28) is the whole marriage answer for 'my husband pushed me down the stairs' and 'husband says if i leave he'll ... kill me'. The Bible marriage theme needs verses for the person in pain, not instructions to husbands.
+- bible Isaiah 1:18: retag (dropped guilt_repentance). Rape survivor or trans teen: 'though your sins be as scarlet' surfaced through the word 'though' for 'he forced himself on me' and 'i dont feel like a boy even though...'. Keep it only where guilt was typed (it is reached by BM25 on 'though'/'reason' today).
+- sensitive_set gita 6:9: remove (removed from the sensitive set). Shown for 22 of 25 sensitive queries. To a gay teen or a victim of racism, 'regard ... foes ... the righteous and unrighteous with an even mind' reads as being asked to be even-minded towards those who wrong them, next to 'unrighteous'.
+- sensitive_set gita 12:12: remove (removed from the sensitive set). 'Renunciation of the fruit of action' says nothing to identity, body or faith topics.
+- sensitive_set gita 16:2: remove (removed from the sensitive set). 'Absence of wrath, mildness, modesty' shown to 'im muslim and people look at me differently since the attack' counsels meekness to the person being targeted.
+- sensitive_set quran 93:4: remove (removed from the sensitive set). Afterlife 'better' wording; see the pool item.
+- sensitive_set quran 87:8: remove (removed from the sensitive set). See the pool item.
+- sensitive_set quran 28:22: remove (removed from the sensitive set). Shown for every pregnancy-loss and abortion query: 'perhaps my Lord will guide me in the right road' implies she took a wrong one.
+- sensitive_set quran 28:5: retag (dropped hope). 'Favour unto those who were oppressed' reaches pregnancy-loss queries through the default hope theme and calls the bereaved 'oppressed'. Keep it for race and caste (justice_wronged).
+
+## review-6-sweep
+
+Applied: gita remove 9; gita retag 1; quran remove 26; quran retag 3; bible remove 25; bible retag 10; bible display 1.
+Pool after: gita 93, quran 198, bible 571 verses.
+
+- gita 2:64: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'goeth to peace'.
+- gita 2:71: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'he goeth to Peace' (the final review only dropped peace_of_mind).
+- gita 5:29: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'he goeth to Peace' (the final review only dropped peace_of_mind).
+- gita 4:39: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'he goeth swiftly to the supreme Peace'.
+- gita 5:25: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'obtain the Peace of the Eternal'.
+- gita 5:26: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'The Peace of the Eternal lies near'.
+- gita 18:53: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'he is fit to become the Eternal' (the final review only dropped peace_of_mind).
+- gita 6:17: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'Yoga killeth out all pain'.
+- gita 18:66: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'come unto Me alone ... I will liberate thee' reads as release by death.
+- gita 12:13: retag (dropped kindness_strangers, anger). Someone being harmed by another person: 'bear no ill-will ... forgiving' reached through anger and kindness; kept only under forgiveness.
+- quran 2:156: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'unto Him we are returning' reads as going to God by dying. Painful to lose for grief, but the rule is for every general verse.
+- quran 2:112: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'his reward is with his Lord ... neither shall they grieve': an afterlife reward.
+- quran 2:277: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'their reward is with their Lord ... neither shall they grieve': an afterlife reward.
+- quran 2:262: remove (removed). Suicidal reader (a missed crisis message must be harmless): afterlife reward, reachable through generosity ('given away my stuff').
+- quran 2:274: remove (removed). Suicidal reader (a missed crisis message must be harmless): afterlife reward, reachable through generosity ('given away my stuff').
+- quran 2:245: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'Unto Him ye will return'.
+- quran 6:108: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'unto their Lord is their return'.
+- quran 23:115: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'that ye would not be returned unto Us', under purpose.
+- quran 3:133: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'a paradise as wide as the heavens and the earth'.
+- quran 4:124: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'such will enter paradise'.
+- quran 16:41: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'the reward of the Hereafter is greater'.
+- quran 17:19: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'whoso desireth the Hereafter and striveth for it'.
+- quran 20:131: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'The provision of thy Lord is better and more lasting' (as 42:36 in the final review).
+- quran 16:95: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'that which Allah hath is better for you'.
+- quran 27:89: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'safe from fear that Day'.
+- quran 35:34: remove (removed). Suicidal reader (a missed crisis message must be harmless): the note says these are the words of those in paradise.
+- quran 66:8: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'bring you into Gardens underneath which rivers flow'.
+- quran 28:77: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'Seek the abode of the Hereafter'.
+- quran 25:47: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'sleep repose, and maketh day a resurrection'.
+- quran 3:134: retag (dropped anger). Someone being harmed by another person: 'forgiving toward mankind' under anger, which a victim reaches by describing someone else's anger.
+- quran 3:159: remove (removed). Someone being harmed by another person: 'So pardon them' (the final review only dropped anger and love_compassion).
+- quran 7:199: remove (removed). Someone being harmed by another person: 'Keep to forgiveness' under anger.
+- quran 42:37: remove (removed). Someone being harmed by another person: 'when they are wroth, forgive'.
+- quran 8:61: remove (removed). Someone being harmed by another person: 'If they incline to peace, incline thou also to it' under anger: make peace with the person who harmed you.
+- quran 59:10: retag (dropped anger). Someone being harmed by another person: a prayer against rancour, under anger.
+- quran 2:263: retag (dropped speech_gossip, kindness_strangers). Someone being harmed by another person: 'A kind word with forgiveness' shown to someone others are gossiping about.
+- quran 20:130: remove (removed). Someone being harmed by another person: 'bear with what they say' to someone being gossiped about or harassed.
+- quran 73:10: remove (removed). Someone being harmed by another person: 'Bear with patience what they utter' to someone being gossiped about or harassed.
+- quran 25:63: remove (removed). Someone being harmed by another person: 'when the foolish ones address them answer: Peace' to someone being harassed.
+- bible Psalms 23:4: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'the valley of the shadow of death, I will fear no evil'. Painful to lose for grief, but the rule is for every general verse.
+- bible Psalms 23:6: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'I will dwell in the house of the LORD for ever'.
+- bible Psalms 23:2: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'He maketh me to lie down ... beside the still waters'.
+- bible Matthew 11:28: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'Come unto me ... and I will give you rest' (the judge's example: 'tonight is the night ... im so tired').
+- bible Matthew 11:29: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'ye shall find rest unto your souls'.
+- bible Exodus 33:14: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'I will give thee rest'.
+- bible Job 11:18: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'thou shalt take thy rest in safety'.
+- bible Isaiah 32:18: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'quiet resting places'.
+- bible Psalms 4:8: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'I will both lay me down in peace, and sleep'.
+- bible Psalms 127:2: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'he giveth his beloved sleep'.
+- bible 2 Corinthians 4:18: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'the things which are seen are temporal ... not seen are eternal'.
+- bible Matthew 6:20: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'Lay up for yourselves treasures in heaven'.
+- bible Matthew 5:3: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'theirs is the kingdom of heaven' to the poor in spirit.
+- bible James 1:12: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'he shall receive the crown of life'.
+- bible Proverbs 19:20: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'that thou mayest be wise in thy latter end'.
+- bible 1 Timothy 6:7: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'it is certain we can carry nothing out' (of this world).
+- bible Ruth 1:16: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'whither thou goest, I will go', to a bereaved reader.
+- bible Psalms 61:2: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'lead me to the rock that is higher than I' (cf. 'how high a building needs to be').
+- bible Psalms 126:6: retag (dropped grief). Bereaved parent: 'shall doubtless come again with rejoicing' reads as the dead coming back.
+- bible Jeremiah 29:11: display (display: trim_end). Suicidal reader (a missed crisis message must be harmless): the verse ends 'to give you an expected end'; shown up to 'not of evil.'
+- bible Psalms 37:7: remove (removed). Someone being harmed by another person: 'wait patiently for him: fret not ... because of the man who bringeth wicked devices to pass'.
+- bible 1 Peter 3:9: remove (removed). Someone being harmed by another person: 'Not rendering evil for evil ... but contrariwise blessing' under anger.
+- bible Romans 12:18: retag (dropped anger). Someone being harmed by another person: 'live peaceably with all men' under anger.
+- bible James 3:18: retag (dropped anger). Someone being harmed by another person: 'them that make peace' under anger.
+- bible Leviticus 19:18: retag (dropped anger, love_compassion). Someone being harmed by another person: 'nor bear any grudge' reached through anger and love; kept under forgiveness.
+- bible Proverbs 20:22: retag (dropped anger, justice_wronged). Someone being harmed by another person: 'Say not thou, I will recompense evil; but wait on the LORD' to someone wronged; kept under forgiveness.
+- bible Romans 12:17: retag (dropped anger, justice_wronged). Someone being harmed by another person: 'Recompense to no man evil for evil' to someone wronged; kept under honesty.
+- bible 1 Thessalonians 5:15: retag (dropped anger). Someone being harmed by another person: 'none render evil for evil' under anger; kept under forgiveness.
+- bible Ephesians 4:32: retag (dropped love_compassion). Someone being harmed by another person: 'forgiving one another' reached through love; kept under forgiveness.
+- bible 1 Corinthians 13:4: retag (dropped love_compassion). Someone being harmed by another person: 'Charity suffereth long' is the verse most often used to keep someone in an abusive relationship.
+- bible Ephesians 4:2: remove (removed). Someone being harmed by another person: 'with longsuffering, forbearing one another in love'.
+- bible Titus 3:2: remove (removed). Someone being harmed by another person: 'gentle, shewing all meekness unto all men' to someone being gossiped about.
+- bible Luke 6:37: remove (removed). Someone being harmed by another person: 'forgive, and ye shall be forgiven' to someone being gossiped about.
+- bible Ephesians 5:25: remove (removed). Marriage: an instruction to husbands only ('Husbands, love your wives').
+- bible Proverbs 18:22: remove (removed). Marriage: speaks only to a man looking for a wife.
+- bible Proverbs 31:28: retag (no theme left: removed). Marriage: about a wife praised by her husband and children; gendered, and the final review already took it out of family.
+
+## review-7-flags
+
+Applied: gita remove 1; quran remove 2; bible remove 7.
+Pool after: gita 92, quran 196, bible 566 verses.
+
+- gita 11:55: remove (removed). 'he cometh unto Me' means reaching God at or after death; a suicidal reader could take it as an invitation.
+- quran 59:18: remove (removed). Look to what each soul sends ahead 'for the morrow' (the afterlife); under purpose it points a despairing reader toward death.
+- quran 20:44: remove (removed). Speak gently to Pharaoh, a tyrant: out of context it tells someone being harmed to be gentle with the person harming them.
+- bible Romans 12:21: remove (removed). Under justice_wronged it tells a mistreated reader to keep answering the person harming them with good.
+- bible Proverbs 24:29: remove (removed). Under justice_wronged it tells the harmed person not to answer back.
+- bible Psalms 37:1: remove (removed). Under justice_wronged, 'fret not because of evildoers' dismisses a victim's distress.
+- bible Matthew 5:42: remove (removed). 'From him that would borrow of thee turn not thou away' can pressure someone being financially exploited.
+- bible Psalms 16:11: remove (removed). 'At thy right hand there are pleasures for evermore': a pull toward the afterlife for a despairing reader.
+- bible 1 Corinthians 13:12: remove (removed). 'But then face to face' reads as reunion after death.
+- bible Proverbs 22:24: remove (removed). Under anger it says angry people are to be shunned, shaming the reader who asks for help.
+
+## Round 5: hand edits outside apply_review.py
+
+- bible Ecclesiastes 4:10 added (marriage, friendship; display trims "For " and the closing "but woe to him that is alone ..."), and marriage added to Ecclesiastes 4:12, so the Bible's marriage theme keeps only verses that speak to either spouse (Ecclesiastes 4:9, 4:10, 4:12, Proverbs 15:17, 17:1, Song of Solomon 8:7, Colossians 3:14) after review-6-sweep took out the husband-only and wife-only ones.
+- Priorities: two separate reviewers (AI assistants given only the listed verses, the theme descriptions and these rules) read every theme of every book (search/pool/*.json listed by theme) and chose the 3 to 5 verses each theme should show first, best first, by the rules in review-6-sweep (no afterlife, rest or end wording; nothing telling someone harmed to forgive, wait or submit; no shaming). They are the `priority` field of the pool rows. The verses they flagged instead are removed in review-7-flags.
+- review-5-final applies the blind judge's review-final.json. Where the judge asked for a display that would need words that are not in the verse (prepending "Charity", joining two verses), the verse is removed instead: Romans 8:39, 1 Corinthians 13:5 and 13:6, Galatians 5:22.

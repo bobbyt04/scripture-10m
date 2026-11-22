@@ -69,10 +69,11 @@ PARAMS = {
 SEARCH_PARAMS = {
     "bm25_k1": 1.2,
     "bm25_b": 0.75,
-    "bridge_weight": 0.8,          # a bridge word counts this much of a typed word
-    "theme_weight": 1.0,           # score = theme_weight * theme match + lex_weight * BM25
-    "lex_weight": 0.2,
-    "min_score": 0.3,              # a book's verses below this are not shown
+    "bridge_weight": 0.8,          # a bridge word counts this much of a typed word (BM25 tie break only)
+    "min_theme_score": 0.5,        # query themes scoring below this (relative to the top one) choose no verses
+    "exclusive_themes": ["grief", "gratitude"],  # the first of these that matches is the only theme that chooses verses
+    "theme_fuzzy_min_len": 6,      # unknown words this long may be read as a theme word one typo away
+    "max_query_chars": 500,        # only this much of a query is read
     "sensitive_theme_score": 0.5,  # theme score given to a sensitive topic's gentle themes
     "min_theme_verses": 3,         # a book offers a theme only with at least this many verses for it
 }
@@ -357,8 +358,11 @@ def build_site(pool, verses, lexicon, themes, bridge, safety, sensitive_set, par
             doc = (words(text) if "text" in fields else []) + (words(v["why"]) if "why" in fields else []) \
                 + ([w for t in tags for w in words(theme_data[t]["name"])] if "themes" in fields else [])
             raw[(book, v["ref"])] = doc
-            entries[book].append({"ref": v["ref"], "text": text, "themes": tags, "why": v["why"],
-                                  "sensitive": v["ref"] in sensitive})
+            entry = {"ref": v["ref"], "text": text, "themes": tags, "why": v["why"], "sensitive": v["ref"] in sensitive}
+            prio = {t: n for t, n in v.get("priority", {}).items() if t in tags}
+            if prio:
+                entry["priority"] = prio
+            entries[book].append(entry)
     lex = Lexicon(lexicon)
     vocabulary = base_forms({w for doc in raw.values() for w in doc}, lex)
     for book in BOOKS:
@@ -435,34 +439,55 @@ FIXTURE_QUERIES = [
     "my brother beat me at chess", "I need to cut back on sugar", "my dog was put down", "I don't want to die",
     # no match
     "xyzzy", "!!!", "", "the and of unto",
+    # round 5: fuzzy theme words, notes, non-ASCII input, the distress gate, bereavement vs crisis, exclusive themes
+    "i'm so lonley these days", "i keep procrastinting", "naïve café owner, so stressed about money", "I’m grateful — truly",
+    "我很难过 lonely", "ich bin traurig", "just feeling really grateful today for my family and health",
+    "i have the pills in front of me right now", "everyone would be better off without me", "my boyfriend grabs me by the throat",
+    "bringing a knife to school tomorrow", "tonight is the night i finally do it. im so tired",
+    "my friend's husband died by suicide years ago", "lost my brother to suicide", "my dad passed away and i want to die too",
+    "my best friend's dad passed away from an overdose", "this traffic is killing me", "i could kill for a pizza",
+    "dying of laughter", "had to say goodbye to my dog of 14 years", "my 15 year old son wont talk to me, slams doors",
+    "i want to be more generous but i dont have enough to give", "my brother hurt me badly years ago and i want to forgive him",
 ]
+FIXTURE_K = [("I got laid off and I'm scared about money", 1), ("my mother passed away", 5), ("I'm gay", 4),
+             ("I feel burnt out", 2), ("I want to die", 7)]
 FIXTURE_THEMES = ["grief", "money_worry", "self_worth", "patience"]
 FIXTURE_SIMILAR = [("bible", "Psalms 23:1"), ("quran", "94:5"), ("gita", "2:47")]
 FIXTURE_WORDS = ["I can't sleep, I'm scared & he won't call", "Don’t", "im ok, dont worry", "my friend's dog",
-                 "it's 70 hour weeks", "WON'T", "ma'am isn't here"]
+                 "it's 70 hour weeks", "WON'T", "ma'am isn't here", "naïve café", "can'tstop", "éwon't", "x_y can't",
+                 "über-tired", "I’M", "Straße"]
+
+
+def fixture_case(s, q, k=3):
+    """One search fixture (search/FORMAT.md, "fixtures.json")."""
+    r = s.search(q, k=k)
+    return {
+        "query": q, "k": k, "words": words(q), "crisis_words": s.crisis_words(q), "theme_words": s.theme_tokens(q),
+        "category": r["category"], "topic": r["topic"], "message": r["message"], "no_match": r["no_match"],
+        "themes": [[t["id"], t["score"]] for t in r["themes"]], "notes": [n["theme"] for n in r["notes"]],
+        "terms": [[t, w, src] for t, (w, src) in s.expand(q).items()],
+        "results": {b: [[h["ref"], h["theme"], h["priority"], h["score"], h["matched"]["themes"],
+                         [m["word"] for m in h["matched"]["words"]]] for h in r["results"][b]] for b in BOOKS},
+    }
 
 
 def fixtures(s):
     """Expected outputs for a browser port's tests (search/FORMAT.md, "fixtures.json")."""
     def hits(rows):
         return [[h["ref"], h["score"]] for h in rows]
-    cases = []
-    for q in FIXTURE_QUERIES:
-        r = s.search(q, k=3)
-        cases.append({
-            "query": q, "words": words(q), "category": r["category"], "topic": r["topic"], "no_match": r["no_match"],
-            "themes": [[t["id"], t["score"]] for t in r["themes"]],
-            "terms": [[t, w, src] for t, (w, src) in s.expand(q).items()],
-            "results": {b: [[h["ref"], h["score"], h["matched"]["themes"], [m["word"] for m in h["matched"]["words"]]]
-                            for h in r["results"][b]] for b in BOOKS},
-        })
+    cases = [fixture_case(s, q) for q in FIXTURE_QUERIES] + [fixture_case(s, q, k) for q, k in FIXTURE_K]
+    cases.append(fixture_case(s, "x " * 300 + "I want to die"))          # beyond 500 characters: not read
     return {
         "about": "Expected outputs of the committed artefacts, for testing a port. See search/FORMAT.md for every field.",
         "words": [[t, words(t)] for t in FIXTURE_WORDS],
         "search": cases,
-        "by_theme": [{"theme": t, "results": {b: hits(v) for b, v in s.by_theme(t, k=3).items()}} for t in FIXTURE_THEMES],
+        "by_theme": [{"theme": t, "results": {b: [[h["ref"], h["score"], h["priority"]] for h in v]
+                                              for b, v in s.by_theme(t, k=3).items()}} for t in FIXTURE_THEMES],
         "similar": [{"book": b, "ref": r, "results": {o: hits(v) for o, v in s.similar(b, r, k=3).items()}}
                     for b, r in FIXTURE_SIMILAR],
+        "similar_sensitive_only": [{"book": b, "ref": r, "results": {o: hits(v) for o, v in
+                                                                    s.similar(b, r, k=3, sensitive_only=True).items()}}
+                                   for b, r in FIXTURE_SIMILAR],
     }
 
 

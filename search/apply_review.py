@@ -12,6 +12,12 @@ item has a "ref", an "action" and a "reason":
     display         how the verse is shown: "trim" (leading words to drop), "trim_end"
                     (trailing words to drop), "fixes" ([[wrong, right], ...] for typos in the
                     source). Each is checked against the verse text; data/processed is never changed.
+                    An empty value ("trim": "") removes the field.
+
+An optional "sensitive_set" list holds items whose "ref" is "<book> <ref>":
+"remove" takes the verse out of search/pool/sensitive_set.json (it stays in
+the pool); "retag" drops themes from the pool verse as above. A verse that
+leaves the pool also leaves the sensitive set.
 
 The review file is copied to search/pool/<name>.json as the record, and
 search/pool/REVIEW.md gets a section listing what was applied and anything
@@ -47,6 +53,15 @@ def save_pool(book, rows, directory=POOL):
     """One verse per line, so a diff shows each change."""
     lines = ",\n".join(json.dumps(r, ensure_ascii=False) for r in rows)
     (Path(directory) / f"{book}.json").write_text("[\n" + lines + "\n]\n")
+
+
+def save_sensitive(sens, path):
+    """sensitive_set.json with one verse per line, like the pool files."""
+    parts = [f' "about": {json.dumps(sens["about"], ensure_ascii=False)}']
+    for book in BOOKS:
+        rows = ",\n".join("  " + json.dumps(x, ensure_ascii=False) for x in sens[book])
+        parts.append(f' "{book}": [\n{rows}\n ]')
+    Path(path).write_text("{\n" + ",\n".join(parts) + "\n}\n")
 
 
 def check_display(text, item):
@@ -89,9 +104,12 @@ def apply(review, pool, texts):
                 applied.append((book, item, "new note"))
             elif action == "display":
                 check_display(texts[book][item["ref"]], item)
-                changed = [k for k in ("trim", "trim_end", "fixes") if item.get(k)]
-                for k in changed:
-                    v[k] = item[k]
+                changed = [k for k in ("trim", "trim_end", "fixes") if k in item]
+                for k in changed:                        # an empty value removes the field
+                    if item[k]:
+                        v[k] = item[k]
+                    else:
+                        v.pop(k, None)
                 (applied if changed else skipped).append(
                     (book, item, "display: " + ", ".join(changed) if changed else "display item with no change"))
             else:
@@ -100,10 +118,34 @@ def apply(review, pool, texts):
     return applied, skipped
 
 
+def apply_sensitive(review, pool, sens):
+    """Apply a review's "sensitive_set" items to the sensitive set and the pool, in place. Returns (applied, skipped)."""
+    applied, skipped = [], []
+    for item in review.get("sensitive_set", []):
+        book, ref = item["ref"].split(" ", 1)
+        if item["action"] == "remove":
+            before = len(sens[book])
+            sens[book] = [x for x in sens[book] if x["ref"] != ref]
+            if len(sens[book]) < before:
+                applied.append(("sensitive_set", item, "removed from the sensitive set"))
+            else:
+                skipped.append(("sensitive_set", item, "not in the sensitive set"))
+        elif item["action"] == "retag":
+            a, s = apply({book: [{**item, "ref": ref}]}, pool, {})
+            applied += [("sensitive_set", item, note) for _, _, note in a]
+            skipped += [("sensitive_set", item, note) for _, _, note in s]
+        else:
+            raise ValueError(f"unknown sensitive_set action {item['action']!r} for {item['ref']}")
+    for book in BOOKS:                                   # a verse that left the pool leaves the set too
+        refs = {v["ref"] for v in pool[book]}
+        sens[book] = [x for x in sens[book] if x["ref"] in refs]
+    return applied, skipped
+
+
 def report(name, applied, skipped, pool):
     counts = Counter((b, i["action"]) for b, i, _ in applied)
     lines = [f"\n## {name}\n",
-             "Applied: " + "; ".join(f"{b} {a} {counts[(b, a)]}" for b in BOOKS
+             "Applied: " + "; ".join(f"{b} {a} {counts[(b, a)]}" for b in BOOKS + ("sensitive_set",)
                                      for a in ("remove", "retag", "not_universal", "fix_why", "display")
                                      if counts[(b, a)]) + ".",
              "Pool after: " + ", ".join(f"{b} {len(pool[b])}" for b in BOOKS) + " verses.\n"]
@@ -124,6 +166,11 @@ def main():
     review = json.loads(src.read_text())
     pool = {b: json.loads((POOL / f"{b}.json").read_text()) for b in BOOKS}
     applied, skipped = apply(review, pool, load_texts())
+    sens_path = POOL / "sensitive_set.json"
+    sens = json.loads(sens_path.read_text())
+    a, s = apply_sensitive(review, pool, sens)
+    applied, skipped = applied + a, skipped + s
+    save_sensitive(sens, sens_path)
     for book in BOOKS:
         save_pool(book, pool[book])
     record = POOL / f"{name}.json"

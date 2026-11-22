@@ -38,7 +38,7 @@
    ],
    "keep": true,
    "theme": "Prophets and their stories",
-   "idea": "Pharaoh's dream of seven fat and seven lean cows and seven ears of corn, which Joseph explains."
+   "idea": "A king's dream of seven fat and seven lean cows and seven ears of corn, which Joseph explains."
   },
   {
    "a": "bible Psalms 74:17",
@@ -980,9 +980,10 @@
     "still",
     "wind"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Creation and nature",
-   "idea": "Calming the wind and the sea: in Mark Jesus stills a storm; the Quran says God can calm the wind so ships lie still."
+   "idea": "Calming the wind and the sea: in Mark Jesus stills a storm; the Quran says God can calm the wind so ships lie still.",
+   "dropped_because": "round 5 review: not a real parallel (Jesus stilling a storm is not God's power over the wind for ships)"
   },
   {
    "a": "bible Psalms 104:10",
@@ -1526,9 +1527,10 @@
    "shared_words": [
     "drown"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Prophets and their stories",
-   "idea": "Pharaoh's army is drowned in the sea."
+   "idea": "Pharaoh's army is drowned in the sea.",
+   "dropped_because": "round 5 review: the Quran verse is a threat ('they will be drowned' / 'an enemy to Me')"
   },
   {
    "a": "bible Song of Solomon 1:16",
@@ -1947,9 +1949,10 @@
     "moon",
     "sun"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Death and the life to come",
-   "idea": "The final abode needs no sun or moon: God himself is its light."
+   "idea": "The final abode needs no sun or moon: God himself is its light.",
+   "dropped_because": "round 5 review: the note renders Krishna's 'Me' as 'God'"
   },
   {
    "a": "bible Isaiah 37:31",
@@ -2133,9 +2136,10 @@
    "shared_words": [
     "greater"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "God's knowledge and care",
-   "idea": "Something greater dwells within a person: God in the believer, says 1 John; the Self beyond mind and reason, says the Gita."
+   "idea": "Something greater dwells within a person: God in the believer, says 1 John; the Self beyond mind and reason, says the Gita.",
+   "dropped_because": "round 5 review: not a real parallel (God in the believer vs. the Self beyond reason)"
   },
   {
    "a": "bible Song of Solomon 5:9",
@@ -2365,9 +2369,10 @@
     "never",
     "perish"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Death and the life to come",
-   "idea": "God's own shall never perish."
+   "idea": "God's own shall never perish.",
+   "dropped_because": "round 5 review: the note renders Krishna's 'Me' as 'God'"
   },
   {
    "a": "bible Exodus 26:28",
@@ -2468,9 +2473,10 @@
     "foreigner",
     "stranger"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Humility, giving and self-control",
-   "idea": "Strangers and foreigners are not outsiders; treat all alike."
+   "idea": "Strangers and foreigners are not outsiders; treat all alike.",
+   "dropped_because": "round 5 review: not a real parallel (belonging to God's household vs. even-mindedness to all)"
   },
   {
    "a": "bible Job 15:8",
@@ -2574,9 +2580,10 @@
     "splendour",
     "sun"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Creation and nature",
-   "idea": "The splendour of the sun and the light of the moon come from God."
+   "idea": "The splendour of the sun and the light of the moon come from God.",
+   "dropped_because": "round 5 review: the note renders Krishna's 'Me' as 'God'"
   },
   {
    "a": "quran 22:32",
@@ -2586,9 +2593,10 @@
     "devotion",
     "magnify"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Worship and devotion",
-   "idea": "Honouring God's offerings comes from devotion of the heart."
+   "idea": "Honouring God's offerings comes from devotion of the heart.",
+   "dropped_because": "round 5 review: not a real parallel (honouring sacrificial offerings vs. worshipping Krishna)"
   },
   {
    "a": "quran 36:66",
@@ -2610,7 +2618,7 @@
    ],
    "keep": true,
    "theme": "Guidance and wisdom",
-   "idea": "No effort made toward God is ever lost."
+   "idea": "No sincere effort is ever lost."
   },
   {
    "a": "quran 73:8",
@@ -2620,9 +2628,10 @@
     "devote",
     "thyself"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Worship and devotion",
-   "idea": "Devote yourself to God completely."
+   "idea": "Devote yourself to God completely.",
+   "dropped_because": "round 5 review: the note renders Krishna's 'Me' as 'God'"
   },
   {
    "a": "quran 41:37",
@@ -3135,248 +3144,317 @@
  "hand_listed": {
   "joseph_dream": {
    "keep": false,
-   "why": "already a model pair"
+   "why": "already a model pair",
+   "score": 0.643
   },
   "joseph_pit": {
    "keep": true,
-   "theme": "Prophets and their stories"
+   "theme": "Prophets and their stories",
+   "score": 0.4
   },
   "joseph_coat": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.04
   },
   "joseph_seduction": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": -0.061
   },
   "pharaoh_kine": {
    "keep": false,
-   "why": "Quran 12:43 is already in a model pair"
+   "why": "Quran 12:43 is already in a model pair",
+   "score": 0.371
   },
   "joseph_reveals": {
    "keep": true,
-   "theme": "Prophets and their stories"
+   "theme": "Prophets and their stories",
+   "score": 0.262
   },
   "moses_basket": {
-   "keep": true,
-   "theme": "Prophets and their stories"
+   "keep": false,
+   "theme": "Prophets and their stories",
+   "dropped_because": "round 5 review: the Quran verse is a threat ('they will be drowned' / 'an enemy to Me')",
+   "score": 0.219
   },
   "moses_kills": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": -0.01
   },
   "moses_well": {
    "keep": true,
    "theme": "Prophets and their stories",
-   "idea": "The daughters of the priest of Midian come to water their father's flock, and Moses helps them (seven daughters in Exodus, two women in the Quran)."
+   "idea": "At the water of Midian, Moses meets women who have come to water their father's flock (seven daughters in Exodus, two women in the Quran).",
+   "score": 0.499
   },
   "burning_bush": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.198
   },
   "staff_serpent": {
    "keep": true,
-   "theme": "Prophets and their stories"
+   "theme": "Prophets and their stories",
+   "score": 0.466
   },
   "white_hand": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.506
   },
   "plagues": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.389
   },
   "sea_parted": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.304
   },
   "manna_quails": {
    "keep": true,
-   "theme": "Prophets and their stories"
+   "theme": "Prophets and their stories",
+   "score": 0.322
   },
   "rock_water": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.398
   },
   "golden_calf": {
    "keep": true,
-   "theme": "Prophets and their stories"
+   "theme": "Prophets and their stories",
+   "score": 0.28
   },
   "noah_ark": {
-   "keep": true,
-   "theme": "Prophets and their stories"
+   "keep": false,
+   "theme": "Prophets and their stories",
+   "dropped_because": "round 5 review: the Quran verse is a threat ('they will be drowned' / 'an enemy to Me')",
+   "score": -0.032
   },
   "noah_flood": {
    "keep": true,
-   "theme": "Prophets and their stories"
+   "theme": "Prophets and their stories",
+   "idea": "The flood: the heavens open and the waters pour down.",
+   "score": 0.258
   },
   "abraham_sacrifice": {
    "keep": false,
-   "why": "contentious: Isaac in Genesis, an unnamed son in the Quran"
+   "why": "contentious: Isaac in Genesis, an unnamed son in the Quran",
+   "score": 0.156
   },
   "abraham_guests": {
    "keep": true,
-   "theme": "Prophets and their stories"
+   "theme": "Prophets and their stories",
+   "score": 0.305
   },
   "lot_destroyed": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.353
   },
   "adam_tree": {
    "keep": true,
-   "theme": "Prophets and their stories"
+   "theme": "Prophets and their stories",
+   "score": 0.192
   },
   "cain_abel": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.024
   },
   "six_days": {
    "keep": true,
-   "theme": "Prophets and their stories"
+   "theme": "Prophets and their stories",
+   "score": 0.304
   },
   "jonah_fish": {
    "keep": true,
-   "theme": "Prophets and their stories"
+   "theme": "Prophets and their stories",
+   "score": 0.534
   },
   "david_goliath": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.115
   },
   "drinking_test": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.144
   },
   "sheba": {
    "keep": true,
-   "theme": "Prophets and their stories"
+   "theme": "Prophets and their stories",
+   "idea": "A queen of great power and wealth in the story of Solomon.",
+   "score": 0.11
   },
   "zechariah_son": {
    "keep": true,
-   "theme": "Prophets and their stories"
+   "theme": "Prophets and their stories",
+   "score": 0.393
   },
   "annunciation": {
    "keep": true,
-   "theme": "Prophets and their stories"
+   "theme": "Prophets and their stories",
+   "idea": "Mary is greeted with good news from God.",
+   "score": 0.496
   },
   "jesus_heals": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.301
   },
   "camel_needle": {
    "keep": false,
-   "why": "Quran 7:40 is about those barred from paradise"
+   "why": "Quran 7:40 is about those barred from paradise",
+   "score": 0.496
   },
   "eye_for_eye": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.472
   },
   "alms_secret": {
    "keep": true,
-   "theme": "Humility, giving and self-control"
+   "theme": "Humility, giving and self-control",
+   "score": 0.143
   },
   "scroll": {
    "keep": true,
-   "theme": "Death and the life to come"
+   "theme": "Death and the life to come",
+   "score": 0.352
   },
   "seed_grows": {
    "keep": true,
-   "theme": "Guidance and wisdom"
+   "theme": "Guidance and wisdom",
+   "score": 0.215
   },
   "first_last": {
    "keep": false,
-   "why": "contentious: pairs the Christ of Revelation with Allah"
+   "why": "contentious: pairs the Christ of Revelation with Allah",
+   "score": 0.102
   },
   "mercy_all_sins": {
    "keep": true,
-   "theme": "God's knowledge and care"
+   "theme": "God's knowledge and care",
+   "score": 0.263
   },
   "taste_death": {
    "keep": true,
-   "theme": "Death and the life to come"
+   "theme": "Death and the life to come",
+   "score": 0.049
   },
   "fleeting_grass": {
    "keep": true,
-   "theme": "Death and the life to come"
+   "theme": "Death and the life to come",
+   "score": 0.098
   },
   "god_light": {
    "keep": true,
-   "theme": "God's knowledge and care"
+   "theme": "God's knowledge and care",
+   "score": 0.323
   },
   "equanimity_qg": {
    "keep": true,
-   "theme": "Guidance and wisdom"
+   "theme": "Guidance and wisdom",
+   "score": 0.078
   },
   "soul_not_slain": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.186
   },
   "soul_living_q": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.198
   },
   "body_garment": {
    "keep": true,
-   "theme": "Death and the life to come"
+   "theme": "Death and the life to come",
+   "score": 0.028
   },
   "do_all_for_god": {
-   "keep": true,
-   "theme": "Worship and devotion"
+   "keep": false,
+   "theme": "Worship and devotion",
+   "dropped_because": "round 5 review: the note renders Krishna's 'Me' as 'God'",
+   "score": 0.126
   },
   "do_all_for_god_q": {
    "keep": false,
-   "why": "Gita 9:27 kept in one pair only"
+   "why": "Gita 9:27 kept in one pair only",
+   "score": 0.233
   },
   "devotion_offering": {
-   "keep": true,
-   "theme": "Worship and devotion"
+   "keep": false,
+   "theme": "Worship and devotion",
+   "dropped_because": "round 5 review: the note renders Krishna's 'Me' as 'God'",
+   "score": 0.35
   },
   "devotion_offering_b": {
    "keep": false,
-   "why": "Gita 9:26 kept in one pair only; the note misstated the Gita"
+   "why": "Gita 9:26 kept in one pair only; the note misstated the Gita",
+   "score": 0.297
   },
   "beginning_end": {
    "keep": false,
-   "why": "contentious: pairs Krishna with the Christ of Revelation"
+   "why": "contentious: pairs Krishna with the Christ of Revelation",
+   "score": 0.334
   },
   "beginning_end_q": {
    "keep": false,
-   "why": "contentious: pairs Krishna with Allah as one God"
+   "why": "contentious: pairs Krishna with Allah as one God",
+   "score": 0.091
   },
   "god_in_heart": {
    "keep": true,
-   "theme": "God's knowledge and care"
+   "theme": "God's knowledge and care",
+   "score": 0.016
   },
   "thousand_suns": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.204
   },
   "friend_and_foe": {
    "keep": true,
-   "theme": "Humility, giving and self-control"
+   "theme": "Humility, giving and self-control",
+   "score": 0.061
   },
   "no_return_gift": {
    "keep": false,
-   "why": "Gita 17:20 kept in one pair only"
+   "why": "Gita 17:20 kept in one pair only",
+   "score": 0.194
   },
   "no_return_gift_q": {
    "keep": true,
-   "theme": "Humility, giving and self-control"
+   "theme": "Humility, giving and self-control",
+   "score": 0.073
   },
   "moderation_food": {
    "keep": true,
-   "theme": "Humility, giving and self-control"
+   "theme": "Humility, giving and self-control",
+   "score": 0.012
   },
   "anger_folly": {
    "keep": false,
-   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+   "why": "not published: violent, threatening or contentious verse, or a weak pair",
+   "score": 0.12
   },
   "one_father": {
-   "keep": true,
-   "theme": "God's knowledge and care"
+   "keep": false,
+   "theme": "God's knowledge and care",
+   "dropped_because": "round 5 review: the note renders Krishna's 'Me' as 'God'",
+   "score": 0.048
   },
   "senses_control_q": {
    "keep": true,
-   "theme": "Humility, giving and self-control"
+   "theme": "Humility, giving and self-control",
+   "score": 0.246
   }
  }
 }

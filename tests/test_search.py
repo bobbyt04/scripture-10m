@@ -88,12 +88,14 @@ TINY_POOL = {
 TINY_BRIDGE = {"_replace": ["job"], "stressed": ["weary", "patience", "nonexistentword"], "laid off": ["poor"],
                "job": ["duty"], "sick of waiting": ["patience"], "sick": ["death"], "tired": ["weary"]}
 TINY_SAFETY = {
-    "fuzzy": ["suicide", "myself"], "idioms": ["killing it", "cut back"],
+    "fuzzy": ["suicide", "myself"], "crisis_message": "Kind note.", "idioms": ["killing it", "cut back"],
+    "bereavement": ["died by suicide", "lost my * to suicide"],
     "crisis": {"suicide": ["kill myself", "suicide", "want to die"], "self_harm": ["cut myself", "been cutting"]},
     "sensitive": {"identity": {"themes": ["patience"], "phrases": ["gay"]}},
+    "distress": {"window": 3, "rules": ["pills|meds + how many, how much ! vitamins", "noose", "~6 he|she + hits + me"]},
 }
 TINY_SENSITIVE = {"gita": [{"ref": "1:2", "why": "x"}], "quran": [{"ref": "2:1", "why": "x"}], "bible": []}
-TINY_PARAMS = {"min_theme_verses": 2, "min_score": 0.1}
+TINY_PARAMS = {"min_theme_verses": 2}
 
 
 def tiny_site(**kw):
@@ -279,46 +281,84 @@ def test_bm25_matches_the_formula(tiny):
     assert bm25_index([["a", "b", "a"], ["b"]])["idf"]["a"] == pytest.approx(math.log(1 + 1.5 / 1.5))
 
 
-def test_score_is_theme_weight_times_themes_plus_lex_weight_times_bm25(tiny):
+def test_rank_key_orders_by_theme_then_priority_then_themes_then_bm25(tiny):
     themes = {"patience": 1.0, "money_worry": 0.5}
     q = tiny.expand("patience")
     i = tiny.books["quran"]["index"]["1:1"]
-    score, hit, words_ = tiny.score("quran", i, themes, q)
-    p = tiny.params
-    assert hit == ["patience", "money_worry"]
-    assert score == pytest.approx(p["theme_weight"] * 1.5 + p["lex_weight"] * tiny.bm25("quran", i, q))
+    key, best, prio, hit, terms = tiny.rank_key("quran", i, themes, q)
+    assert hit == ["patience", "money_worry"] and best == "patience" and prio is None
+    assert key == (0, 1000, -1.5, -round4(tiny.bm25("quran", i, q)), i)
+    assert tiny.rank_key("quran", i, {"grief": 1.0}, q) is None                 # off-topic: never shown
 
 
-def test_search_returns_only_on_theme_verses_above_the_threshold(tiny):
+def test_search_returns_only_verses_of_the_query_themes(tiny):
     r = tiny.search("sick of waiting", k=5)
-    assert r["category"] == "general" and r["themes"] == [{"id": "patience", "score": 1.0}]
+    assert r["category"] == "general" and r["themes"] == [{"id": "patience", "score": 1.0}] and r["message"] is None
     assert [h["ref"] for h in r["results"]["quran"]] == ["2:1", "1:2", "1:1"]      # 2:1 has the word twice; 1:2 is shorter than 1:1
     assert r["results"]["gita"] == [] and r["results"]["bible"] == []             # no patience verses there
     h = r["results"]["quran"][0]
     assert h["matched"] == {"themes": ["patience"], "words": [{"word": "patience", "from": "sick of waiting"}]}
     assert h["why"] == "Patience and prayer." and h["text"].startswith("Patience")
+    assert h["theme"] == "patience" and h["priority"] is None
     assert [x["score"] for x in r["results"]["quran"]] == sorted((x["score"] for x in r["results"]["quran"]), reverse=True)
+
+
+def test_hand_set_priority_beats_words_and_the_top_theme_comes_first():
+    pool = {**TINY_POOL, "quran": [dict(v) for v in TINY_POOL["quran"]]}
+    pool["quran"][3]["priority"] = {"patience": 1}                               # 1:2, which has no matching word
+    s = Searcher(tiny_site(pool=pool))
+    r = s.search("sick of waiting", k=5)
+    assert [h["ref"] for h in r["results"]["quran"]] == ["1:2", "2:1", "1:1"]
+    assert r["results"]["quran"][0]["priority"] == 1
+    r = s.search("sick of waiting and money", k=5)                                # patience 1.0 (3 words), money 1/3
+    assert [t["id"] for t in r["themes"]] == ["patience"]                         # below min_theme_score: dropped
+    r = s.search("waiting for money", k=5)                                        # a tie: 1.0 each, id order
+    assert [t["id"] for t in r["themes"]] == ["money_worry", "patience"]
+    assert [h["theme"] for h in r["results"]["quran"]] == ["money_worry"] * 3 + ["patience"]
 
 
 def test_search_notes_ties_and_no_match(tiny):
     r = tiny.search("my mother passed away", k=3)
     assert r["notes"] == [{"theme": "grief", "note": "Grief has no timetable."}]
-    assert [h["ref"] for h in r["results"]["gita"]] == ["1:3", "1:1"]             # equal scores: pool order
-    for q in ["", "!!!", "xyzzy qwerty", "the and of"]:
+    assert [h["ref"] for h in r["results"]["gita"]] == ["1:3", "1:1"]             # equal keys: pool order
+    for q in ["", "!!!", "xyzzy qwerty", "the and of", "shepherd"]:               # no theme: no verses, even if words match
         r = tiny.search(q)
-        assert r["no_match"] and all(v == [] for v in r["results"].values())
+        assert r["no_match"] and r["themes"] == [] and all(v == [] for v in r["results"].values())
 
 
-def test_search_without_themes_uses_words_and_min_score(tiny):
-    r = tiny.search("shepherd", k=3)
-    assert r["themes"] == [] and [h["ref"] for h in r["results"]["bible"]] == ["2:1"]
-    high = Searcher({**tiny_site(), "params": {**tiny.params, "min_score": 100.0}})
-    assert high.search("shepherd")["no_match"]
+def test_grief_is_exclusive(tiny):
+    r = tiny.search("my rent money is gone since my mother passed away", k=5)
+    assert r["themes"] == [{"id": "grief", "score": 1.0}]
+    assert r["results"]["quran"] == [] and r["results"]["bible"] == []            # no grief verses there: nothing else instead
+
+
+def test_theme_typos_and_the_500_character_cap(tiny):
+    assert tiny.query_themes("so impatinet") == {"patience": 1.0}                 # one swap from a theme word (6+ letters)
+    assert tiny.query_themes("my duty") == {"work_effort": 1.0}
+    assert tiny.theme_tokens("griefs")[0] == "griefs"                              # a pool word's form is not a typo
+    long_q = "x " * 300 + "I want to die"
+    assert tiny.classify(long_q) == ("general", None)                              # beyond 500 characters: not read
+    assert tiny.search(long_q)["no_match"]
+
+
+def test_distress_gate_rules_window_vetoes_and_bereavement(tiny):
+    assert tiny.classify("how many pills is it") == ("crisis", "distress")         # any order inside the window
+    assert tiny.classify("pills, how many") == ("crisis", "distress")
+    assert tiny.classify("how many pills of vitamins") == ("general", None)        # vetoed
+    assert tiny.classify("how many days until i refill my pills") == ("general", None)   # too far apart (window 3)
+    assert tiny.classify("he always hits me") == ("crisis", "distress")            # own window of 6
+    assert tiny.classify("I bought a noose") == ("crisis", "distress")
+    assert tiny.classify("my brother died by suicide") == ("general", None)        # bereavement blanked
+    assert tiny.classify("lost my uncle to suicide last year") == ("general", None)
+    assert tiny.classify("my brother died by suicide and I think about suicide") == ("crisis", "suicide")
+    r = tiny.search("I bought a noose")
+    assert r["message"] == "Kind note." and r["notes"] == [] and not r["no_match"]
 
 
 def test_search_crisis_and_sensitive(tiny):
     r = tiny.search("I want to die")
     assert r["category"] == "crisis" and r["themes"] == [] and all(v == [] for v in r["results"].values())
+    assert r["message"] == "Kind note." and r["no_match"] is False
     r = tiny.search("I'm gay", k=5)
     assert r["category"] == "sensitive" and r["themes"] == [{"id": "patience", "score": 0.5}]
     assert [h["ref"] for h in r["results"]["quran"]] == ["2:1"]                   # only the sensitive set
@@ -329,12 +369,18 @@ def test_search_rejects_bad_k(tiny):
     for k in (0, -1, 2.5, True):
         with pytest.raises(ValueError):
             tiny.search("sad", k=k)
+        with pytest.raises(ValueError):
+            tiny.by_theme("grief", k=k)
 
 
 def test_by_theme_themes_and_similar(tiny):
     r = tiny.by_theme("grief", k=3)
     assert [(h["ref"], h["score"]) for h in r["gita"]] == [("1:3", 1.0), ("1:1", 1.0)]
     assert [(h["ref"], h["score"]) for h in tiny.by_theme("work_effort")["gita"]] == [("1:2", 1.0), ("1:1", 0.5)]
+    pool = {**TINY_POOL, "gita": [dict(v) for v in TINY_POOL["gita"]]}
+    pool["gita"][2]["priority"] = {"work_effort": 1}
+    r = Searcher(tiny_site(pool=pool)).by_theme("work_effort")["gita"]
+    assert [(h["ref"], h["priority"]) for h in r] == [("1:1", 1), ("1:2", None)]   # a hand-set priority comes first
     with pytest.raises(ValueError):
         tiny.by_theme("nope")
     t = {x["id"]: x for x in tiny.themes()}
@@ -376,6 +422,21 @@ def test_apply_review_actions(texts):
         AR.apply({"gita": [{"ref": "2:47", "action": "explode"}]}, {"gita": [{"ref": "2:47"}], "quran": [], "bible": []}, texts)
 
 
+def test_apply_review_empty_trim_and_the_sensitive_set(texts):
+    pool = {"gita": [{"ref": "2:47", "themes": ["work_effort", "hope"], "why": "a", "universal": True}],
+            "quran": [{"ref": "94:5", "themes": ["hope"], "why": "d", "universal": True, "trim": "Lo! "}], "bible": []}
+    AR.apply({"quran": [{"ref": "94:5", "action": "display", "trim": "", "reason": "r"}]}, pool, texts)
+    assert "trim" not in pool["quran"][0]                         # an empty value removes the field
+    sens = {"gita": [{"ref": "2:47", "why": "x"}], "quran": [{"ref": "94:5", "why": "y"}, {"ref": "9:9", "why": "z"}],
+            "bible": []}
+    review = {"sensitive_set": [{"ref": "quran 94:5", "action": "remove", "reason": "r"},
+                                {"ref": "gita 2:47", "action": "retag", "drop_themes": ["hope"], "reason": "r"},
+                                {"ref": "bible Psalms 23:1", "action": "remove", "reason": "r"}]}
+    applied, skipped = AR.apply_sensitive(review, pool, sens)
+    assert sens == {"gita": [{"ref": "2:47", "why": "x"}], "quran": [], "bible": []}   # 9:9 is not in the pool: dropped too
+    assert pool["gita"][0]["themes"] == ["work_effort"] and len(applied) == 2 and len(skipped) == 1
+
+
 # ----- the committed pool and artefacts -----
 
 def test_pool_files_are_well_formed(texts):
@@ -383,7 +444,7 @@ def test_pool_files_are_well_formed(texts):
     assert "mortality" not in themes and "laziness_discipline" not in themes and len(themes) == 38
     for book in BOOKS:
         pool = build.load_pool()[book]
-        assert len({v["ref"] for v in pool}) == len(pool) >= 100
+        assert len({v["ref"] for v in pool}) == len(pool) >= 90
         for v in pool:
             assert v["ref"] in texts[book] and v["why"].strip() and v["themes"]
             assert set(v["themes"]) <= themes, (book, v["ref"])
@@ -396,7 +457,7 @@ def test_sensitive_set_follows_its_rules():
     banned = {"guilt_repentance", "temptation_self_control", "forgiveness", "family_parents", "marriage", "illness"}
     for book in BOOKS:
         rows = {v["ref"]: v for v in pools[book]}
-        assert len(sens[book]) >= (6 if book == "gita" else 15) and len(sens[book]) <= 25
+        assert len(sens[book]) >= (3 if book == "gita" else 15) and len(sens[book]) <= 25
         for x in sens[book]:
             v = rows[x["ref"]]
             assert v["universal"] and not set(v["themes"]) & banned and x["why"], (book, x["ref"])
@@ -442,24 +503,35 @@ def test_corpus_model_matches_its_inputs(corpus):
 
 def test_fixtures_match_the_committed_artefacts(s):
     fx = json.loads((ARTIFACTS / "fixtures.json").read_text())
-    assert len(fx["search"]) >= 60
+    assert len(fx["search"]) >= 85
     for text, toks in fx["words"]:
         assert words(text) == toks
     for c in fx["search"]:
-        r = s.search(c["query"], k=3)
-        assert (r["category"], r["topic"], r["no_match"]) == (c["category"], c["topic"], c["no_match"]), c["query"]
+        r = s.search(c["query"], k=c["k"])
+        assert (r["category"], r["topic"], r["message"], r["no_match"]) == \
+            (c["category"], c["topic"], c["message"], c["no_match"]), c["query"]
+        assert s.crisis_words(c["query"]) == c["crisis_words"] and s.theme_tokens(c["query"]) == c["theme_words"]
         assert [[t["id"], t["score"]] for t in r["themes"]] == c["themes"]
+        assert [n["theme"] for n in r["notes"]] == c["notes"]
         assert [[t, w, src] for t, (w, src) in s.expand(c["query"]).items()] == c["terms"]
         for book in BOOKS:
-            got = [[h["ref"], h["score"], h["matched"]["themes"], [m["word"] for m in h["matched"]["words"]]]
-                   for h in r["results"][book]]
+            got = [[h["ref"], h["theme"], h["priority"], h["score"], h["matched"]["themes"],
+                    [m["word"] for m in h["matched"]["words"]]] for h in r["results"][book]]
             assert got == c["results"][book], (c["query"], book)
     for c in fx["by_theme"]:
-        assert {b: [[h["ref"], h["score"]] for h in v] for b, v in s.by_theme(c["theme"]).items()} == c["results"]
+        assert {b: [[h["ref"], h["score"], h["priority"]] for h in v] for b, v in s.by_theme(c["theme"]).items()} == c["results"]
     for c in fx["similar"]:
         assert {b: [[h["ref"], h["score"]] for h in v] for b, v in s.similar(c["book"], c["ref"]).items()} == c["results"]
+    for c in fx["similar_sensitive_only"]:
+        got = s.similar(c["book"], c["ref"], sensitive_only=True)
+        assert {b: [[h["ref"], h["score"]] for h in v] for b, v in got.items()} == c["results"]
     cats = {c["category"] for c in fx["search"]}
     assert cats == {"general", "sensitive", "crisis"} and any(c["no_match"] for c in fx["search"])
+    assert {c["k"] for c in fx["search"]} > {3}                                  # k other than 3 is covered
+    assert any(c["topic"] == "distress" for c in fx["search"])                    # the distress gate is covered
+    assert any(c["notes"] for c in fx["search"])
+    assert any(w != f for c in fx["search"] for w, f in zip(c["words"], c["theme_words"]))   # a fuzzy theme word
+    assert any(not c["query"].isascii() for c in fx["search"])
 
 
 def test_display_text_never_shows_psalm_headings(s):
@@ -469,9 +541,10 @@ def test_display_text_never_shows_psalm_headings(s):
 
 
 @pytest.mark.parametrize("query, book, expected", [
-    ("my shepherd", "bible", {"Psalms 23:1"}),
-    ("with hardship goeth ease", "quran", {"94:5", "94:6"}),
-    ("action without attachment to its fruits", "gita", {"2:47", "4:20", "18:9", "3:19"}),
+    ("I'm drowning in debt", "bible", {"Philippians 4:19", "Psalms 23:1"}),
+    ("so anxious about everything", "bible", {"Isaiah 41:10", "1 Peter 5:7"}),
+    ("my mother passed away", "quran", {"12:86", "13:28"}),
+    ("I keep procrastinating", "gita", {"2:47", "3:8"}),
 ])
 def test_sanity_queries(s, query, book, expected):
     assert expected & {h["ref"] for h in s.search(query, k=3)["results"][book]}
@@ -516,6 +589,23 @@ def test_similarities_are_reviewed_and_well_formed(texts):
     assert not removed & set(seen)
     ideas = " ".join(p["idea"] for p in pairs)
     assert "two women at Midian" not in ideas and "not sacrifice" not in ideas
+    # round 5: wrong pairs, threatening lines and Krishna's "Me" rendered as "God" are out; scores are the review's
+    gone = {("bible", "Mark 4:39"), ("quran", "22:32"), ("bible", "1 John 4:4"), ("bible", "Ephesians 2:19"),
+            ("quran", "11:37"), ("quran", "44:24"), ("quran", "20:39"), ("gita", "15:12"), ("gita", "9:34"), ("gita", "9:26"),
+            ("gita", "9:27"), ("gita", "14:4"), ("gita", "15:6"), ("gita", "9:31")}
+    assert not gone & set(seen)
+    for p in pairs:
+        if {v["book"] for v in p["verses"]} == {"bible", "quran"} and "Pharaoh" in p["idea"]:
+            assert any("Pharaoh" in v["text"] for v in p["verses"] if v["book"] == "quran"), p["idea"]
+    scores = {frozenset((c["a"], c["b"])): c["score"] for c in review["candidates"]}
+    par = {p["id"]: p for p in json.loads(E.PARALLELS.read_text())["parallels"]}
+    for pid, d in review["hand_listed"].items():
+        p = par[pid]
+        if d["keep"]:
+            scores[frozenset((f'{p["a"]["book"]} {p["a"]["refs"][0]}', f'{p["b"]["book"]} {p["b"]["refs"][0]}'))] = d["score"]
+    for p in pairs:
+        a, b = p["verses"]
+        assert p["score"] == scores[frozenset((f'{a["book"]} {a["ref"]}', f'{b["book"]} {b["ref"]}'))]
 
 
 def test_read_u16_unwraps_large_ids(tmp_path):
@@ -620,10 +710,10 @@ def test_case_rows_and_evaluate_on_the_tiny_pool(tiny):
     miss = {**case, "query": "shepherd", "expected_themes": ["grief"], "relevant": {"gita": [], "quran": ["9:9"], "bible": ["2:1"]}}
     r = E.evaluate(tiny, [case, miss])
     assert r["quran"] == {"pairs": 1, "hit@3": 1.0}                # the shepherd case has no quran key in the pool
-    assert r["bible"] == {"pairs": 2, "hit@3": 0.5}
-    assert r["overall"]["pairs"] == 4 and r["overall"]["hit@3"] == pytest.approx(2 / 4)
-    assert r["theme_accuracy"] == 0.5                              # "shepherd" has no theme
-    assert r["empty_book_rate"] == pytest.approx(4 / 6)
+    assert r["bible"] == {"pairs": 2, "hit@3": 0.0}                # "shepherd" has no theme, so no verses
+    assert r["overall"]["pairs"] == 4 and r["overall"]["hit@3"] == pytest.approx(1 / 4)
+    assert r["theme_accuracy"] == 0.5
+    assert r["empty_book_rate"] == pytest.approx(5 / 6)
     assert r["key_verses_outside_pool"] == 2 and r["key_verses_total"] == 6
 
 
@@ -641,11 +731,20 @@ def test_bootstrap_interval():
 
 
 def test_ablation_variants_differ_only_in_their_parts():
-    full, text = E.variant("+ themes (final)"), E.variant("text only")
-    assert full.query_themes("passed away") and not text.query_themes("passed away")
-    assert text.bridge == {} and full.bridge
-    v = text.books["bible"]["verses"][0]
-    assert "why" in v and set(v["terms"]) <= set(full.books["bible"]["verses"][0]["terms"])
+    full, bm, bare = E.variant("+ hand-set priority (final)"), E.variant("+ BM25 tie break"), E.variant("themes, pool order")
+    assert any("priority" in v for v in full.books["bible"]["verses"])
+    assert not any("priority" in v for v in bm.books["bible"]["verses"] + bare.books["bible"]["verses"])
+    assert all(v["terms"] == [] for v in bare.books["bible"]["verses"]) and bm.books["bible"]["verses"][0]["terms"]
+    for s in (full, bm, bare):                                    # the same verses can be shown: only the order differs
+        assert {h["ref"] for h in s.search("my mother passed away", k=500)["results"]["bible"]} == \
+            {h["ref"] for h in full.search("my mother passed away", k=500)["results"]["bible"]}
+
+
+def test_probe_report_counts(tiny):
+    probes = {"x": {"crisis": [{"kind": "suicide", "text": "I want to die"}, {"kind": "suicide", "text": "so sad"}],
+                    "innocent": ["killing it"], "sensitive": ["I'm gay"]}, "first_look": {}}
+    assert E.probe_report(tiny, probes) == {"x": {"crisis": 2, "crisis_caught": 1, "innocent": 1,
+                                                  "innocent_false_alarms": 0, "sensitive": 1, "sensitive_routed": 1}}
 
 
 def test_evaluate_parallels_restores_settings(corpus):
@@ -659,10 +758,11 @@ def test_eval_cases_are_labelled_and_point_at_real_verses(texts):
     doc = json.loads(E.CASES.read_text())
     cases = doc["cases"]
     themes = {k for k in build.load_json(build.THEMES) if not k.startswith("_")}
-    assert {c["split"] for c in cases} == set(E.SPLITS) and set(doc["splits"]) == set(E.SPLITS)
+    assert {c["split"] for c in cases} == set(E.SPLITS) - {"final_blind"} and set(doc["splits"]) == set(E.SPLITS)
     assert len(cases) == 140 and len({c["id"] for c in cases}) == 140
-    assert sum(c["split"] == "final_blind" for c in cases) == 50
-    assert doc["final_blind_hand_judged"]["precision_of_shown_verses"] is not None
+    assert sum(c["split"] == "blind_1" for c in cases) == 50
+    assert not any(c["split"] == "final_blind" for c in cases)      # an empty placeholder for the next held-out set
+    assert doc["blind_1_hand_judged"]["precision_of_shown_verses"] == 0.373
     for c in cases:
         assert c["expected_themes"] and set(c["expected_themes"]) <= themes, c["id"]
         for book in BOOKS:

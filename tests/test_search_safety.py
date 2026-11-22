@@ -172,14 +172,19 @@ HARMFUL = {
 
 
 def check(s, pool_refs, res):
+    query_themes = {t["id"] for t in res["themes"]}
     for book in BOOKS:
         for h in res["results"][book]:
             assert h["ref"] in pool_refs[book] and h["ref"] in s.books[book]["index"], (book, h["ref"])
-            assert math.isfinite(h["score"]) and h["score"] >= s.params["min_score"]
+            assert math.isfinite(h["score"]) and h["score"] >= 0
+            assert h["theme"] in query_themes and h["theme"] in h["themes"]          # themes choose verses
             if res["category"] == "sensitive":
                 assert s.books[book]["verses"][s.books[book]["index"][h["ref"]]]["sensitive"], (book, h["ref"])
+    if not res["themes"]:
+        assert all(res["results"][b] == [] for b in BOOKS)                          # no word-only fallback
     if res["category"] == "crisis":
-        assert all(res["results"][b] == [] for b in BOOKS) and res["themes"] == []
+        assert all(res["results"][b] == [] for b in BOOKS) and res["themes"] == [] and res["notes"] == []
+        assert res["message"] and not res["no_match"]
 
 
 @pytest.mark.parametrize("q", CRISIS + HELD_OUT_CRISIS)
@@ -199,7 +204,7 @@ def test_sensitive_topics_return_only_the_sensitive_set(s, pool_refs, q):
     res = s.search(q)
     assert res["category"] == "sensitive", q
     check(s, pool_refs, res)
-    assert not res["no_match"]
+    assert not res["no_match"], q
 
 
 def test_sensitive_results_depend_on_the_query(s):
@@ -312,3 +317,170 @@ def test_ambiguous_single_words_are_not_theme_phrases():
     themes = build.load_json(build.THEMES)
     singles = {p for k, v in themes.items() if not k.startswith("_") for p in v["phrases"] if " " not in p}
     assert not singles & {"passed", "high", "moved", "fired", "down", "kid", "lost"}
+
+
+# ----- round 5: the probe sets, the distress gate, bereavement, and harmless misses -----
+
+PROBES = json.loads((build.ROOT / "evals" / "search_probes.json").read_text())
+ACCEPTED_MISSES = set(PROBES["accepted"]["missed_crisis"])
+ACCEPTED_ALARMS = set(PROBES["accepted"]["false_alarms"])
+FRESH = ("fresh_1", "fresh_2", "fresh_3")
+PROBE_CRISIS = [p["text"] for split in ("blind_1",) + FRESH for p in PROBES[split]["crisis"]]
+PROBE_NOT_CRISIS = PROBES["blind_1"]["innocent"] + [q for f in FRESH for g in ("innocent", "bereavement") for q in PROBES[f][g]]
+
+
+@pytest.mark.parametrize("q", PROBE_CRISIS)
+def test_probe_crisis_messages_get_no_verses(s, pool_refs, q):
+    res = s.search(q)
+    if q in ACCEPTED_MISSES:
+        assert res["category"] != "crisis", "an accepted miss now fires: take it out of 'accepted'"
+        return
+    assert res["category"] == "crisis", q
+    check(s, pool_refs, res)
+
+
+@pytest.mark.parametrize("q", PROBE_NOT_CRISIS)
+def test_probe_innocent_and_bereaved_messages_are_not_crisis(s, q):
+    want_crisis = q in ACCEPTED_ALARMS                   # known over-firing: when in doubt the gate fires
+    assert (s.classify(q)[0] == "crisis") == want_crisis, q
+
+
+@pytest.mark.parametrize("q", PROBES["blind_1"]["sensitive"])
+def test_probe_sensitive_messages_route_to_the_sensitive_set(s, pool_refs, q):
+    res = s.search(q)
+    assert res["category"] == "sensitive", q
+    check(s, pool_refs, res)
+
+
+@pytest.mark.parametrize("q", [q for f in FRESH for q in PROBES[f]["bereavement"]] + [
+    "my dad passed away last month", "lost my friend to cancer", "my husband died by suicide two years ago",
+    "my friend's dad died of an overdose and i dont know what to say", "lost my brother to suicide last spring",
+    "my son overdosed and died in march", "my uncle was killed in a car crash", "my cat died this morning",
+    "my best friend's dad passed away from an overdose and i dont know what to say",
+])
+def test_a_third_persons_death_goes_to_grief_not_the_gate(s, q):
+    if q in ACCEPTED_ALARMS:
+        return
+    res = s.search(q)
+    assert res["category"] != "crisis", q
+
+
+@pytest.mark.parametrize("q", [
+    "my dad passed away last month", "lost my friend to cancer", "my husband died by suicide two years ago",
+    "my friend's dad died of an overdose and i dont know what to say", "my cat died this morning",
+])
+def test_bereavement_gets_only_grief_verses_and_the_grief_note(s, pool_refs, q):
+    res = s.search(q)
+    assert [t["id"] for t in res["themes"]] == ["grief"], q
+    assert [n["theme"] for n in res["notes"]] == ["grief"]
+    assert res["results"]["bible"] and all(h["theme"] == "grief" for b in BOOKS for h in res["results"][b])
+    check(s, pool_refs, res)
+
+
+@pytest.mark.parametrize("q", [
+    "my husband died by suicide and i want to join him", "my dad passed away and i want to die too",
+    "since my brother overdosed i keep thinking about taking all my pills", "my mom died and i want to kill myself",
+])
+def test_bereavement_with_the_writers_own_danger_still_fires(s, q):
+    assert s.classify(q)[0] == "crisis", q
+
+
+@pytest.mark.parametrize("q", [
+    "this traffic is killing me", "i could kill for a pizza", "dying of laughter", "i'd kill for a cup of coffee",
+    "my feet are killing me", "the deadline is going to kill me", "my phone died", "my brother beat me at chess",
+])
+def test_plain_idioms_do_not_fire(s, q):
+    assert s.classify(q)[0] != "crisis", q
+
+
+@pytest.mark.parametrize("q", [
+    "im so done, ive got the pills right here", "pills in front of me", "have the meds lined up, how many is enough",
+    "im a burden, theyd be better off w/o me", "every1 would be better off without me",
+    "standing on the bridge rn", "said my goodbyes", "giving away all my stuff", "i wont be here much longer",
+    "he grabs me by the throat", "she keeps hitting me", "my bf choked me last night", "he forced himself on me",
+    "coach sends me pics and says keep it secret", "my ex is stalking me", "he threatens to kill me if i leave",
+    "my parents starve me", "im going to bring a knife to school", "i want to poison my roommate",
+])
+def test_distress_gate_handles_typos_slang_and_word_order(s, q):
+    assert s.classify(q)[0] == "crisis", q
+
+
+def test_crisis_result_shape(s):
+    res = s.search("i have the pills in front of me right now")
+    assert res["category"] == "crisis" and res["topic"] in ("suicide", "distress")
+    assert res["message"] == build.load_json(build.SAFETY)["crisis_message"]
+    assert res["themes"] == res["notes"] == [] and not res["no_match"]
+    assert not any(ch.isdigit() for ch in res["message"])                # no helpline numbers (the owner's decision)
+
+
+def test_every_removed_verse_stays_out_of_the_pool(pool_refs):
+    for name in ("review-5-final", "review-6-sweep", "review-7-flags"):
+        review = build.load_json(build.POOL / f"{name}.json")
+        for book in BOOKS:
+            for item in review[book]:
+                if item["action"] == "remove":
+                    assert item["ref"] not in pool_refs[book], (name, book, item["ref"])
+    sens = build.load_json(build.SENSITIVE_SET)
+    assert not {"6:9", "12:12", "16:2"} & {x["ref"] for x in sens["gita"]}
+    assert not {"93:4", "87:8", "28:22"} & {x["ref"] for x in sens["quran"]}
+
+
+DEATH_WORDING = ["give you rest", "give thee rest", "see you again", "ease thy way", "extinction of all pains",
+                 "goeth to peace", "abode of peace", "rest unto your souls", "shadow of death", "house of the lord for ever",
+                 "better for thee than the former", "kingdom of heaven", "paradise", "hereafter", "we are returning",
+                 "no more death", "end of that man is peace", "lay me down in peace", "an expected end"]
+
+
+def test_no_general_verse_reads_as_an_invitation_to_die(s):
+    for book in BOOKS:
+        for v in s.books[book]["verses"]:
+            text = (v["text"] + " " + v["why"]).lower()
+            assert not [w for w in DEATH_WORDING if w in text], (book, v["ref"])
+
+
+def test_forgiveness_and_patience_verses_are_not_reached_by_someone_being_harmed(s):
+    for q in ["my husband hurts me but he always apologizes", "my boyfriend gets angry and yells at me",
+              "someone at work is spreading rumours about me", "my dad is always angry"]:
+        res = s.search(q)
+        assert "forgiveness" not in {t["id"] for t in res["themes"]}, q
+        for book in BOOKS:
+            for h in res["results"][book]:
+                assert not any(w in h["text"].lower() for w in ("forgive", "pardon", "bear with", "longsuffering")), (q, h["ref"])
+    themes = build.load_json(build.THEMES)
+    assert all(not p.startswith("forgive") or p in ("forgive me", "forgiven me") for p in themes["forgiveness"]["phrases"])
+
+
+def test_safety_notes_are_gone_and_notes_only_follow_their_theme(s):
+    themes = build.load_json(build.THEMES)
+    for t in ("family_parents", "marriage", "anger", "suffering_endurance", "forgiveness"):
+        assert "note" not in themes[t], t
+    for q in ["just feeling really grateful today for my family and health", "my dad passed away last month",
+              "my coworker is always angry at everyone"]:
+        notes = {n["theme"] for n in s.search(q)["notes"]}
+        assert notes <= {"grief", "self_worth", "patience", "betrayal"}, (q, notes)
+    assert [t["id"] for t in s.search("just feeling really grateful today for my family and health")["themes"]] == ["gratitude"]
+
+
+@pytest.mark.parametrize("q, theme", [
+    ("i'm so lonley these days", "loneliness"),
+    ("i keep putting off everything important and wasting days on my phone", "work_effort"),
+    ("had to say goodbye to my dog of 14 years on saturday", "grief"),
+    ("my 15 year old son wont talk to me, slams doors, i feel like ive lost him", "parenting"),
+    ("i did something really embarassing at the party and i cant stop replaying it", "fear_anxiety"),
+    ("she broke up with me after 3 years and i cant stop checking her instagram", "loneliness"),
+    ("i want to be more generous but i always feel like i dont have enough to give", "generosity"),
+    ("just feeling really grateful today for my family and health", "gratitude"),
+])
+def test_round_5_theme_detection_fixes(s, q, theme):
+    res = s.search(q)
+    assert res["themes"] and res["themes"][0]["id"] == theme, (q, res["themes"])
+    if q.startswith("my 15"):
+        assert "grief" not in {t["id"] for t in res["themes"]}
+    if "embarassing" in q:
+        assert "temptation_self_control" not in {t["id"] for t in res["themes"]}
+
+
+def test_bible_marriage_speaks_to_either_spouse(s):
+    marriage = {v["ref"] for v in s.books["bible"]["verses"] if "marriage" in v["themes"]}
+    assert not marriage & {"Ephesians 5:25", "Colossians 3:19", "Proverbs 18:22", "Proverbs 31:28"}
+    assert len(marriage) >= 3

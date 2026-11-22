@@ -5,23 +5,27 @@
 1. Situations (evals/search_cases.json). Every case has a modern-language
    situation, hand-picked relevant verses per book (picked from the whole
    corpus, before the pool existed) and the themes a good answer should match.
-   All filled splits (dev, dev2, dev3) were seen during development.
+   All filled splits (dev, dev2, dev3, blind_1) were seen during development.
    - hit@3: for each case and book, is one of the shown verses (top 3) in the
      answer key? Only answer-key verses that are in the published pool count
      (the search cannot show anything else); a book whose key has none is
      skipped, and the number of key verses outside the pool is reported.
    - theme accuracy: is the query's top theme one of the expected themes?
    - empty-book rate: the share of case-book pairs where the book shows nothing.
-   - ablation: the same scorer with less in it: verse text only; + bridge;
-     + why-notes and theme names in the BM25 document; + theme matching (final).
+   - ablation: verses chosen by theme only, in pool order; + the BM25 tie
+     break; + the hand-set priorities (final).
    A 95% bootstrap interval resamples whole cases.
 2. Parallels (evals/search_parallels.json): known parallel passages across
    books. For each one, is the partner among the 10 verses of the other book
    closest to the anchor verse (search/corpus.py, the whole corpus)?
-3. final_blind: new situations to be written by someone else after the
-   scorer is frozen. Their shown verses are judged by hand; the precision
-   is recorded under "final_blind_hand_judged" in search_cases.json and
-   copied into the results file.
+3. blind_1: 50 situations an independent judge wrote and judged by hand in
+   round 5 ("blind_1_hand_judged" in search_cases.json, kept as history); it
+   has since been used for development. final_blind: an empty placeholder for
+   the next held-out set.
+4. Safety probes (evals/search_probes.json): for each probe set, how many
+   crisis messages get the crisis category, and how many innocent or
+   bereaved messages are wrongly sent there. Every set has been used for
+   development; the numbers from each set's first run are in "first_look".
 """
 
 import json
@@ -38,7 +42,8 @@ from search import build  # noqa: E402
 CASES = ROOT / "evals" / "search_cases.json"
 PARALLELS = ROOT / "evals" / "search_parallels.json"
 RESULTS = ROOT / "evals" / "results" / "search.json"
-SPLITS = ("dev", "dev2", "dev3", "final_blind")
+SPLITS = ("dev", "dev2", "dev3", "blind_1", "final_blind")
+PROBES = ROOT / "evals" / "search_probes.json"
 BOOTSTRAP = 1000
 
 
@@ -95,26 +100,40 @@ def evaluate(searcher, cases):
 # ----- ablation -----
 
 def variant(name):
-    """A Searcher with only some parts of the final scorer, built from the same pool."""
+    """A Searcher with only some parts of the final ranking, built from the same pool."""
     verses = build.load_verses()
     pool = build.load_pool()
     lexicon = build.load_json(build.MODEL / "model.json")["lexicon"]
-    themes = build.load_json(build.THEMES)
-    no_phrases = {k: (v if k.startswith("_") else {**v, "phrases": []}) for k, v in themes.items()}
-    bridge = build.load_json(build.BRIDGE)
-    safety = build.load_json(build.SAFETY)
-    sens = build.load_json(build.SENSITIVE_SET)
-    parts = {
-        "text only": (("text",), {}, no_phrases),
-        "+ bridge": (("text",), bridge, no_phrases),
-        "+ why-notes and theme names": (build.DOC_FIELDS, bridge, no_phrases),
-        "+ themes (final)": (build.DOC_FIELDS, bridge, themes),
+    lists = [build.load_json(x) for x in (build.THEMES, build.BRIDGE, build.SAFETY, build.SENSITIVE_SET)]
+    no_priority = {b: [{k: v for k, v in x.items() if k != "priority"} for x in pool[b]] for b in BOOKS}
+    fields, pl = {
+        "themes, pool order": ((), no_priority),
+        "+ BM25 tie break": (build.DOC_FIELDS, no_priority),
+        "+ hand-set priority (final)": (build.DOC_FIELDS, pool),
     }[name]
-    fields, br, th = parts
-    return Searcher(build.build_site(pool, verses, lexicon, th, br, safety, sens, fields=fields))
+    return Searcher(build.build_site(pl, verses, lexicon, *lists, fields=fields))
 
 
-ABLATION = ("text only", "+ bridge", "+ why-notes and theme names", "+ themes (final)")
+ABLATION = ("themes, pool order", "+ BM25 tie break", "+ hand-set priority (final)")
+
+
+def probe_report(searcher, probes):
+    """Per probe set: crisis messages caught, and innocent or bereaved messages sent to crisis."""
+    out = {}
+    for name, d in probes.items():
+        if not isinstance(d, dict) or "crisis" not in d:
+            continue
+        crisis = [p["text"] for p in d["crisis"]]
+        row = {"crisis": len(crisis), "crisis_caught": sum(searcher.classify(q)[0] == "crisis" for q in crisis)}
+        for g in ("innocent", "bereavement"):
+            if g in d:
+                row[g] = len(d[g])
+                row[g + "_false_alarms"] = sum(searcher.classify(q)[0] == "crisis" for q in d[g])
+        if "sensitive" in d:
+            row["sensitive"] = len(d["sensitive"])
+            row["sensitive_routed"] = sum(searcher.classify(q)[0] == "sensitive" for q in d["sensitive"])
+        out[name] = row
+    return out
 
 
 # ----- parallels -----
@@ -160,8 +179,8 @@ def run(searcher=None, corpus=None, out_path=RESULTS, ablation=True):
     cases = case_file["cases"]
     parallels = json.loads(PARALLELS.read_text())["parallels"]
     report = {"situations": {}, "ablation": {}, "parallels": {},
-              "final_blind_hand_judged": case_file.get("final_blind_hand_judged",
-                                                       {"precision_of_shown_verses": None, "judged_by": None, "n_verses": None}),
+              "blind_1_hand_judged": case_file.get("blind_1_hand_judged"),
+              "probes": {}, "probes_first_look": {},
               "examples": []}
     for split in SPLITS:
         sel = [c for c in cases if c["split"] == split]
@@ -184,6 +203,14 @@ def run(searcher=None, corpus=None, out_path=RESULTS, ablation=True):
                                         "theme_accuracy": r["theme_accuracy"], "empty_book_rate": r["empty_book_rate"]}
             print(f"   {name:<30} hit@3 {fmt(r['overall']['hit@3'])} {r['overall']['hit@3_ci95']}  "
                   f"empty-book rate {fmt(r['empty_book_rate'])}")
+    probes = json.loads(PROBES.read_text())
+    report["probes"] = probe_report(searcher, probes)
+    report["probes_first_look"] = probes["first_look"]
+    print("\nSafety probes (all used for development):")
+    for name, row in report["probes"].items():
+        print(f"   {name:<8} crisis caught {row['crisis_caught']}/{row['crisis']}"
+              + "".join(f"  {g} false alarms {row[g + '_false_alarms']}/{row[g]}" for g in ("innocent", "bereavement") if g in row)
+              + (f"  sensitive routed {row['sensitive_routed']}/{row['sensitive']}" if "sensitive" in row else ""))
     for name, w in (("tf-idf only", 0.0), ("vectors only", 1.0), ("mix (used)", None)):
         r = evaluate_parallels(corpus, parallels, w)
         report["parallels"][name] = r

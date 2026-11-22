@@ -2,9 +2,6 @@
  "about": "Hand-picked. The only verses shown when a query names a sensitive topic (sexual orientation, gender identity, pregnancy and pregnancy loss, disability, race, religion or none, caste, eating and body image). Chosen from pool verses still marked universal after the reviews: they affirm dignity, being known, not being forsaken, compassion and comfort. None is tagged guilt_repentance, temptation_self_control, forgiveness, family_parents, marriage or illness, and none has womb, breastfeeding, body or gender words, 'straight', a healing promise, sin, repent or cleanse wording, or creed-specific wording. Results are ranked within this list by the normal scorer. The Gita has only six: most of its universal verses teach detachment from desire, likes and dislikes, or evenness in dishonour, which read badly after such a disclosure, and its verses of being held and loved speak as Krishna ('Me') and so are not universal.",
  "gita": [
   {"ref": "2:40", "why": "No sincere effort is lost, and a little understanding guards against great fear."},
-  {"ref": "6:9", "why": "Strangers, foreigners, friends and foes are to be regarded alike: no one is lesser."},
-  {"ref": "12:12", "why": "Peace follows letting go of what you cannot control."},
-  {"ref": "16:2", "why": "Harmlessness, truth and compassion to all living beings as the marks of goodness."},
   {"ref": "17:15", "why": "Words should not hurt: truthful, pleasant and helpful speech."},
   {"ref": "18:30", "why": "Clear understanding knows what to fear and what not to fear."}
  ],
@@ -18,15 +15,12 @@
   {"ref": "26:62", "why": "Not alone: 'my Lord is with me; He will guide me.'"},
   {"ref": "26:217", "why": "Trust in the Mighty, the Merciful."},
   {"ref": "28:5", "why": "Favour is meant for those who were oppressed."},
-  {"ref": "28:22", "why": "Setting out into the unknown, hoping to be guided."},
   {"ref": "28:24", "why": "An honest prayer of need after helping others."},
   {"ref": "33:3", "why": "God is enough to rely on."},
   {"ref": "42:28", "why": "Saving rain after despair: mercy spread out."},
   {"ref": "57:4", "why": "God is with you wherever you are."},
   {"ref": "65:3", "why": "Whoever trusts in God, He is enough for them."},
-  {"ref": "87:8", "why": "Your way will be eased."},
   {"ref": "93:3", "why": "Your Lord has not forsaken you, nor does He hate you."},
-  {"ref": "93:4", "why": "What comes later will be better than what came before."},
   {"ref": "94:5", "why": "With hardship comes ease."}
  ],
  "bible": [

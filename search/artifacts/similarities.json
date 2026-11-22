@@ -1,22 +1,22 @@
 {
- "about": "Parallels between the books, chosen by a person. Two sources: (1) 'model, reviewed': the search model proposed candidate pairs (each verse's closest verse in another book); a person read every candidate and kept only real parallels in story or teaching, wrote the one-line note and chose the theme; (2) 'hand-listed': known parallels from evals/search_parallels.json, each read and kept or left out. Pairs with threatening or theologically contentious verses are left out, and each verse is in at most one pair. 'score' is the model's similarity for the pair.",
+ "about": "Parallels between the books, chosen by a person. Two sources: (1) 'model, reviewed': the search model proposed candidate pairs (each verse's closest verse in another book); a person read every candidate and kept only real parallels in story or teaching, wrote the one-line note and chose the theme; (2) 'hand-listed': known parallels from evals/search_parallels.json, each read and kept or left out. Pairs with threatening or theologically contentious verses are left out, and each verse is in at most one pair. 'score' is the model's similarity for the pair, as recorded in search/similarities_review.json.",
  "candidates_proposed": 267,
- "kept": 33,
- "kept_fraction": 0.124,
+ "kept": 24,
+ "kept_fraction": 0.09,
  "kept_per_book_pair": {
-  "bible-gita": 7,
-  "bible-quran": 21,
-  "gita-quran": 5
+  "bible-gita": 3,
+  "bible-quran": 19,
+  "gita-quran": 2
  },
- "hand_listed_kept": 33,
- "hand_listed_left_out": 28,
+ "hand_listed_kept": 28,
+ "hand_listed_left_out": 33,
  "themes": [
   {
    "name": "Prophets and their stories",
    "pairs": [
     {
-     "idea": "Pharaoh's dream of seven fat and seven lean cows and seven ears of corn, which Joseph explains.",
-     "score": 0.717,
+     "idea": "A king's dream of seven fat and seven lean cows and seven ears of corn, which Joseph explains.",
+     "score": 0.723,
      "source": "model, reviewed",
      "verses": [
       {
@@ -33,7 +33,7 @@
     },
     {
      "idea": "Joseph's dream of the sun, the moon and eleven stars bowing to him.",
-     "score": 0.643,
+     "score": 0.644,
      "source": "model, reviewed",
      "verses": [
       {
@@ -67,7 +67,7 @@
     },
     {
      "idea": "The God of Abraham, Isaac and Jacob, the God of the fathers.",
-     "score": 0.609,
+     "score": 0.607,
      "source": "model, reviewed",
      "verses": [
       {
@@ -100,24 +100,7 @@
      ]
     },
     {
-     "idea": "Pharaoh's army is drowned in the sea.",
-     "score": 0.513,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Exodus 15:4",
-       "text": "Pharaoh's chariots and his host hath he cast into the sea: his chosen captains also are drowned in the Red sea."
-      },
-      {
-       "book": "quran",
-       "ref": "44:24",
-       "text": "And leave the sea behind at rest, for lo! they are a drowned host."
-      }
-     ]
-    },
-    {
-     "idea": "The daughters of the priest of Midian come to water their father's flock, and Moses helps them (seven daughters in Exodus, two women in the Quran).",
+     "idea": "At the water of Midian, Moses meets women who have come to water their father's flock (seven daughters in Exodus, two women in the Quran).",
      "score": 0.499,
      "source": "hand-listed",
      "verses": [
@@ -134,7 +117,7 @@
      ]
     },
     {
-     "idea": "The angel tells Mary she will bear a son.",
+     "idea": "Mary is greeted with good news from God.",
      "score": 0.496,
      "source": "hand-listed",
      "verses": [
@@ -287,7 +270,7 @@
      ]
     },
     {
-     "idea": "The flood: fountains of the deep and windows of heaven.",
+     "idea": "The flood: the heavens open and the waters pour down.",
      "score": 0.258,
      "source": "hand-listed",
      "verses": [
@@ -300,23 +283,6 @@
        "book": "quran",
        "ref": "54:11",
        "text": "Then opened We the gates of heaven with pouring water"
-      }
-     ]
-    },
-    {
-     "idea": "Baby Moses set adrift and taken in by Pharaoh's house.",
-     "score": 0.219,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Exodus 2:3",
-       "text": "And when she could not longer hide him, she took for him an ark of bulrushes, and daubed it with slime and with pitch, and put the child therein; and she laid it in the flags by the river's brink."
-      },
-      {
-       "book": "quran",
-       "ref": "20:39",
-       "text": "Saying: Throw him into the ark, and throw it into the river, then the river shall throw it on to the bank, and there an enemy to Me and an enemy to him shall take him. And I endued thee with love from Me that thou mightest be trained according to My will,"
       }
      ]
     },
@@ -338,7 +304,7 @@
      ]
     },
     {
-     "idea": "The Queen of Sheba visits Solomon.",
+     "idea": "A queen of great power and wealth in the story of Solomon.",
      "score": 0.11,
      "source": "hand-listed",
      "verses": [
@@ -353,23 +319,6 @@
        "text": "Lo! I found a woman ruling over them, and she hath been given (abundance) of all things, and hers is a mighty throne."
       }
      ]
-    },
-    {
-     "idea": "Noah builds the ark.",
-     "score": -0.032,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Genesis 6:14",
-       "text": "Make thee an ark of gopher wood; rooms shalt thou make in the ark, and shalt pitch it within and without with pitch."
-      },
-      {
-       "book": "quran",
-       "ref": "11:37",
-       "text": "Build the ship under Our eyes and by Our inspiration, and speak not unto Me on behalf of those who do wrong. Lo! they will be drowned."
-      }
-     ]
     }
    ]
   },
@@ -378,7 +327,7 @@
    "pairs": [
     {
      "idea": "God made every kind of animal, each after its kind.",
-     "score": 0.666,
+     "score": 0.679,
      "source": "model, reviewed",
      "verses": [
       {
@@ -394,25 +343,8 @@
      ]
     },
     {
-     "idea": "Calming the wind and the sea: in Mark Jesus stills a storm; the Quran says God can calm the wind so ships lie still.",
-     "score": 0.588,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Mark 4:39",
-       "text": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm."
-      },
-      {
-       "book": "quran",
-       "ref": "42:33",
-       "text": "If He will He calmeth the wind so that they keep still upon its surface - Lo! herein verily are signs for every steadfast grateful (heart)-"
-      }
-     ]
-    },
-    {
      "idea": "A garden of Eden with flowing rivers: the first garden in Genesis, the gardens of the life to come in the Quran.",
-     "score": 0.574,
+     "score": 0.572,
      "source": "model, reviewed",
      "verses": [
       {
@@ -429,7 +361,7 @@
     },
     {
      "idea": "God created human beings male and female.",
-     "score": 0.545,
+     "score": 0.54,
      "source": "model, reviewed",
      "verses": [
       {
@@ -443,23 +375,6 @@
        "text": "Allah created you from dust, then from a little fluid, then He made you pairs (the male and female). No female beareth or bringeth forth save with His knowledge. And no-one groweth old who groweth old, nor is aught lessened of his life, but it is recorded in a Book, Lo! that is easy for Allah."
       }
      ]
-    },
-    {
-     "idea": "The splendour of the sun and the light of the moon come from God.",
-     "score": 0.519,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "quran",
-       "ref": "10:5",
-       "text": "He it is Who appointed the sun a splendour and the moon a light, and measured for her stages, that ye might know the number of the years, and the reckoning. Allah created not (all) that save in truth. He detaileth the revelations for people who have knowledge."
-      },
-      {
-       "book": "gita",
-       "ref": "15:12",
-       "text": "That splendour issuing from the sun that enlighteneth the whole world, that which is in the moon and in fire, that splendour know as from Me."
-      }
-     ]
     }
    ]
   },
@@ -468,7 +383,7 @@
    "pairs": [
     {
      "idea": "Remembering God's marvellous works and wonders.",
-     "score": 0.713,
+     "score": 0.657,
      "source": "model, reviewed",
      "verses": [
       {
@@ -485,7 +400,7 @@
     },
     {
      "idea": "Give thanks and praise to God.",
-     "score": 0.625,
+     "score": 0.616,
      "source": "model, reviewed",
      "verses": [
       {
@@ -502,7 +417,7 @@
     },
     {
      "idea": "What is done for God in secret is rewarded.",
-     "score": 0.61,
+     "score": 0.604,
      "source": "model, reviewed",
      "verses": [
       {
@@ -519,7 +434,7 @@
     },
     {
      "idea": "Keep the covenant and the oath you made with God.",
-     "score": 0.584,
+     "score": 0.595,
      "source": "model, reviewed",
      "verses": [
       {
@@ -536,7 +451,7 @@
     },
     {
      "idea": "Paying one's vows at the house of God.",
-     "score": 0.531,
+     "score": 0.538,
      "source": "model, reviewed",
      "verses": [
       {
@@ -552,42 +467,8 @@
      ]
     },
     {
-     "idea": "Honouring God's offerings comes from devotion of the heart.",
-     "score": 0.531,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "quran",
-       "ref": "22:32",
-       "text": "That (is the command). And whoso magnifieth the offerings consecrated to Allah, it surely is from devotion of the hearts,"
-      },
-      {
-       "book": "gita",
-       "ref": "9:14",
-       "text": "Always magnifying Me, strenuous, firm in vows, prostrating themselves before Me, they worship Me with devotion ever harmonised."
-      }
-     ]
-    },
-    {
-     "idea": "Devote yourself to God completely.",
-     "score": 0.481,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "quran",
-       "ref": "73:8",
-       "text": "So remember the name of thy Lord and devote thyself with a complete devotion -"
-      },
-      {
-       "book": "gita",
-       "ref": "9:34",
-       "text": "On Me fix thy mind, be devoted to Me; sacrifice to Me; prostrate thyself before Me; harmonised thus in the Self, thou shalt come unto Me, having Me as thy supreme goal."
-      }
-     ]
-    },
-    {
      "idea": "Prayer and almsgiving belong to a devout life.",
-     "score": 0.36,
+     "score": 0.383,
      "source": "model, reviewed",
      "verses": [
       {
@@ -601,40 +482,6 @@
        "text": "The Blessed Lord said: Fearlessness, cleanness of life, steadfastness in the Yoga of wisdom, almsgiving, self-restraint and sacrifice and study of the Scriptures, austerity and straightforwardness,"
       }
      ]
-    },
-    {
-     "idea": "God accepts the devotion, not the size of the offering.",
-     "score": 0.35,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "gita",
-       "ref": "9:26",
-       "text": "He who offereth to Me with devotion a leaf, a flower, a fruit, water, that I accept from the striving self, offered as it is with devotion."
-      },
-      {
-       "book": "quran",
-       "ref": "22:37",
-       "text": "Their flesh and their food reach not Allah, but the devotion from you reacheth Him. Thus have We made them subject unto you that ye may magnify Allah that He hath guided you. And give good tidings (O Muhammad) to the good."
-      }
-     ]
-    },
-    {
-     "idea": "Whatever you eat or do, offer it to God.",
-     "score": 0.126,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "gita",
-       "ref": "9:27",
-       "text": "Whatsoever thou doest, whatsoever thou eatest, whatsoever thou offerest, whatsoever thou givest, whatsoever thou doest of austerity, O Kaunteya, do thou that as an offering unto Me."
-      },
-      {
-       "book": "bible",
-       "ref": "1 Corinthians 10:31",
-       "text": "Whether therefore ye eat, or drink, or whatsoever ye do, do all to the glory of God."
-      }
-     ]
     }
    ]
   },
@@ -643,7 +490,7 @@
    "pairs": [
     {
      "idea": "God leads people out of darkness into light, along straight paths.",
-     "score": 0.596,
+     "score": 0.597,
      "source": "model, reviewed",
      "verses": [
       {
@@ -660,7 +507,7 @@
     },
     {
      "idea": "Something better than trade and profit: wisdom, in Proverbs; what God gives, in the Quran.",
-     "score": 0.573,
+     "score": 0.569,
      "source": "model, reviewed",
      "verses": [
       {
@@ -676,8 +523,8 @@
      ]
     },
     {
-     "idea": "No effort made toward God is ever lost.",
-     "score": 0.492,
+     "idea": "No sincere effort is ever lost.",
+     "score": 0.489,
      "source": "model, reviewed",
      "verses": [
       {
@@ -733,7 +580,7 @@
    "pairs": [
     {
      "idea": "God is near to those who come to him with a contrite heart.",
-     "score": 0.564,
+     "score": 0.581,
      "source": "model, reviewed",
      "verses": [
       {
@@ -750,7 +597,7 @@
     },
     {
      "idea": "God's understanding and form are infinite.",
-     "score": 0.541,
+     "score": 0.545,
      "source": "model, reviewed",
      "verses": [
       {
@@ -766,25 +613,8 @@
      ]
     },
     {
-     "idea": "Something greater dwells within a person: God in the believer, says 1 John; the Self beyond mind and reason, says the Gita.",
-     "score": 0.523,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "1 John 4:4",
-       "text": "Ye are of God, little children, and have overcome them: because greater is he that is in you, than he that is in the world."
-      },
-      {
-       "book": "gita",
-       "ref": "3:42",
-       "text": "It is said that the senses are great; greater than the senses is the mind: greater than the mind is the Reason; but what is greater than the Reason, is He."
-      }
-     ]
-    },
-    {
      "idea": "Nothing in heaven or earth is hidden from God.",
-     "score": 0.512,
+     "score": 0.536,
      "source": "model, reviewed",
      "verses": [
       {
@@ -834,23 +664,6 @@
      ]
     },
     {
-     "idea": "The one Father of all beings.",
-     "score": 0.048,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "gita",
-       "ref": "14:4",
-       "text": "In whatsoever wombs mortals are produced, O Kaunteya, the great Eternal is their womb, I their generating father."
-      },
-      {
-       "book": "bible",
-       "ref": "Malachi 2:10",
-       "text": "Have we not all one father? hath not one God created us? why do we deal treacherously every man against his brother, by profaning the covenant of our fathers?"
-      }
-     ]
-    },
-    {
      "idea": "God dwells in the heart / is near.",
      "score": 0.016,
      "source": "hand-listed",
@@ -873,25 +686,8 @@
    "name": "Death and the life to come",
    "pairs": [
     {
-     "idea": "The final abode needs no sun or moon: God himself is its light.",
-     "score": 0.609,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Revelation 21:23",
-       "text": "And the city had no need of the sun, neither of the moon, to shine in it: for the glory of God did lighten it, and the Lamb is the light thereof."
-      },
-      {
-       "book": "gita",
-       "ref": "15:6",
-       "text": "Nor doth the sun lighten there, nor moon, nor fire; having gone thither they return not; that is My supreme abode."
-      }
-     ]
-    },
-    {
      "idea": "The resurrection of the dead.",
-     "score": 0.581,
+     "score": 0.558,
      "source": "model, reviewed",
      "verses": [
       {
@@ -908,7 +704,7 @@
     },
     {
      "idea": "The hour will come when those in the graves are raised.",
-     "score": 0.517,
+     "score": 0.53,
      "source": "model, reviewed",
      "verses": [
       {
@@ -925,7 +721,7 @@
     },
     {
      "idea": "Death is likened to sleep.",
-     "score": 0.503,
+     "score": 0.492,
      "source": "model, reviewed",
      "verses": [
       {
@@ -937,23 +733,6 @@
        "book": "quran",
        "ref": "39:42",
        "text": "Allah receiveth (men's) souls at the time of their death, and that (soul) which dieth not (yet) in its sleep. He keepeth that (soul) for which He hath ordained death and dismisseth the rest till an appointed term. Lo! herein verily are portents for people who take thought."
-      }
-     ]
-    },
-    {
-     "idea": "God's own shall never perish.",
-     "score": 0.494,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "John 10:28",
-       "text": "And I give unto them eternal life; and they shall never perish, neither shall any man pluck them out of my hand."
-      },
-      {
-       "book": "gita",
-       "ref": "9:31",
-       "text": "Speedily he becometh dutiful and goeth to eternal peace; O Kaunteya, know thou for certain that My devotee perisheth never."
       }
      ]
     },
@@ -1032,7 +811,7 @@
    "pairs": [
     {
      "idea": "Take the lower place at a gathering; you will be asked to go up higher.",
-     "score": 0.485,
+     "score": 0.492,
      "source": "model, reviewed",
      "verses": [
       {
@@ -1048,25 +827,8 @@
      ]
     },
     {
-     "idea": "Strangers and foreigners are not outsiders; treat all alike.",
-     "score": 0.42,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Ephesians 2:19",
-       "text": "Now therefore ye are no more strangers and foreigners, but fellowcitizens with the saints, and of the household of God;"
-      },
-      {
-       "book": "gita",
-       "ref": "6:9",
-       "text": "He who regards impartially lovers, friends, and foes, strangers, neutrals, foreigners and relatives, also the righteous and unrighteous, he excelleth."
-      }
-     ]
-    },
-    {
      "idea": "The pride of thinking one's wealth is self-made.",
-     "score": 0.405,
+     "score": 0.424,
      "source": "model, reviewed",
      "verses": [
       {
