@@ -1,0 +1,41 @@
+{
+ "file": "model/scripture-10m.int8.19071496e9.bin",
+ "format": "int8",
+ "bytes": 10868640,
+ "sha256": "19071496e9061612674102d84753bcd6914ccbbea0212236fab7df34365c060b",
+ "checkpoint_step": 11000,
+ "params": 10790400,
+ "config": {
+  "vocab_size": 67,
+  "block_size": 256,
+  "n_layer": 6,
+  "n_head": 6,
+  "n_embd": 384,
+  "dropout": 0.2
+ },
+ "bytes_by_format": {
+  "float16": 21586928,
+  "int8": 10868640
+ },
+ "val_loss_nats": {
+  "float32": {
+   "gita": 1.1029464641267548,
+   "quran": 0.8305345065997549,
+   "bible": 0.7740426216312329,
+   "overall": 0.9025078641192475
+  },
+  "float16": {
+   "gita": 1.1029700506959927,
+   "quran": 0.8305399856938136,
+   "bible": 0.7740486744097165,
+   "overall": 0.9025195702665076
+  },
+  "int8": {
+   "gita": 1.1034066703301915,
+   "quran": 0.8308825947677458,
+   "bible": 0.7746386778216587,
+   "overall": 0.9029759809731986
+  }
+ },
+ "note": "val_loss_nats: mean loss per token on all held-out verses, scored by evals/run.py model_logprobs with the weights of each format dequantised to float32. Written by web/scripts/export_model.py."
+}

@@ -1,5 +1,5 @@
 {
- "about": "Every candidate the model proposed, with the human decision, and the decision for each hand-listed parallel of evals/search_parallels.json. Only pairs marked keep are published. Each verse is in at most one published pair; pairs with threatening or theologically contentious verses are left out.",
+ "about": "Every candidate the model proposed, with the reviewer's decision, and the decision for each hand-listed parallel of evals/search_parallels.json. Only pairs marked keep are published. Each verse is in at most one published pair; pairs with threatening or theologically contentious verses are left out.",
  "candidates": [
   {
    "a": "bible 2 Corinthians 2:10",

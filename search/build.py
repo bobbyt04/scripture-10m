@@ -22,7 +22,7 @@ Two outputs:
 2. search/artifacts/: everything the website loads (search/FORMAT.md):
    search.json (the reviewed pool with display text and BM25 terms, themes,
    bridge, word rules, safety lists, settings), pool_vectors.i8 (the pool
-   verses' vectors, for similar()), similarities.json (hand-reviewed
+   verses' vectors, for similar()), similarities.json (reviewed
    parallels) and fixtures.json (expected results for testing a port).
 
 Re-running the build after the pool shrinks just works: everything is derived
@@ -477,13 +477,20 @@ FIXTURE_SUGGEST = [
     "my brother annoys me, how do i stay calm", "how do i stop losing my temper", "i'm angry at god for letting this happen",
     "i'm depressed and can't get out of bed", "i feel guilty and want to start again",
     "something happened and i feel guilty", "i want to finish my life",
+    "I WANT TO KILL MYSELF",  # the Kelvin sign: full Unicode lower-casing makes it an ASCII k
+    # any number in digits read for the safety check ("num"), an overdose in any order, a small dose for an ache,
+    # a farewell with "my last week", child words as another person, the no-topic safeguard, and a gentle topic
+    # with fewer than 3 sensitive verses left out
+    "i took 30 tylenol an hour ago", "i took 20 pills", "took 2 tylenol for a headache", "i've decided this is my last week",
+    "the kids at school call me names, how do i stop being angry", "I lost my temper and yelled at my kids",
+    "the voices are back", "I'm gay and I feel like a failure",
 ]
 FIXTURE_TOPICS = [("grief", None, False), ("courage", None, False), ("self_worth", None, True), ("loneliness", 2, True),
                   ("patience", 3, False), ("marriage", None, False)]
 FIXTURE_SIMILAR = [("bible", "Psalms 23:1"), ("quran", "94:5"), ("gita", "2:47")]
 FIXTURE_WORDS = ["I can't sleep, I'm scared & he won't call", "Don’t", "im ok, dont worry", "my friend's dog",
                  "it's 70 hour weeks", "WON'T", "ma'am isn't here", "naïve café", "can'tstop", "éwon't", "x_y can't",
-                 "über-tired", "I’M", "Straße"]
+                 "über-tired", "I’M", "Straße", "KILL ME", "İ'M SAD"]
 
 
 def fixture_case(s, q, k=3):

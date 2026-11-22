@@ -615,10 +615,10 @@ def test_round_6_near_misses_do_not_fire(s, q):
     assert s.classify(q)[0] != "crisis", q
 
 
-def test_numbers_up_to_17_are_spelled_out_for_the_safety_check_only(s):
+def test_numbers_in_digits_are_read_as_words_for_the_safety_check_only(s):
     from scripture.search import spell_numbers, words
-    assert words(spell_numbers("i'm 14, he's 25")) == ["i", "fourteen", "he"]
-    assert words(spell_numbers("14yo 007 1 17 18")) == ["fourteen", "yo", "one", "seventeen"]
+    assert words(spell_numbers("i'm 14, he's 25")) == ["i", "fourteen", "he", "num"]
+    assert words(spell_numbers("14yo 007 1 17 18 500mg")) == ["fourteen", "yo", "num", "one", "seventeen", "num", "num", "mg"]
     assert s.crisis_words("im 13") == ["i", "thirteen"]
     assert "fourteen" not in s.theme_tokens("i'm 14")
 

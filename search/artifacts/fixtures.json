@@ -116,6 +116,20 @@
     "stra",
     "e"
    ]
+  ],
+  [
+   "KILL ME",
+   [
+    "kill",
+    "me"
+   ]
+  ],
+  [
+   "İ'M SAD",
+   [
+    "i",
+    "sad"
+   ]
   ]
  ],
  "suggest": [
@@ -248,7 +262,7 @@
    "signal": true,
    "comfort_cue": false,
    "category": "crisis",
-   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "note": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "topics": []
   },
   {
@@ -262,7 +276,7 @@
    "signal": true,
    "comfort_cue": true,
    "category": "crisis",
-   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "note": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "topics": []
   },
   {
@@ -281,7 +295,7 @@
    "signal": true,
    "comfort_cue": false,
    "category": "crisis",
-   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "note": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "topics": []
   },
   {
@@ -292,7 +306,7 @@
    "signal": true,
    "comfort_cue": false,
    "category": "crisis",
-   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "note": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "topics": []
   },
   {
@@ -311,7 +325,7 @@
    "signal": true,
    "comfort_cue": true,
    "category": "crisis",
-   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "note": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "topics": []
   },
   {
@@ -335,7 +349,7 @@
    "signal": true,
    "comfort_cue": false,
    "category": "crisis",
-   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "note": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "topics": []
   },
   {
@@ -816,8 +830,177 @@
    "signal": true,
    "comfort_cue": false,
    "category": "crisis",
-   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "note": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "topics": []
+  },
+  {
+   "query": "I WANT TO KILL MYSELF",
+   "crisis_words": [
+    "i",
+    "want",
+    "to",
+    "kill",
+    "myself"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "crisis",
+   "note": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "topics": []
+  },
+  {
+   "query": "i took 30 tylenol an hour ago",
+   "crisis_words": [
+    "i",
+    "took",
+    "num",
+    "tylenol",
+    "an",
+    "hour",
+    "ago"
+   ],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "crisis",
+   "note": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "topics": []
+  },
+  {
+   "query": "i took 20 pills",
+   "crisis_words": [
+    "i",
+    "took",
+    "num",
+    "pills"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "crisis",
+   "note": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "topics": []
+  },
+  {
+   "query": "took 2 tylenol for a headache",
+   "crisis_words": [
+    "took",
+    "two",
+    "tylenol",
+    "for",
+    "a",
+    "headache"
+   ],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "i've decided this is my last week",
+   "crisis_words": [
+    "i",
+    "decided",
+    "this",
+    "is",
+    "my",
+    "last",
+    "week"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "crisis",
+   "note": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "topics": []
+  },
+  {
+   "query": "the kids at school call me names, how do i stop being angry",
+   "crisis_words": [
+    "the",
+    "kids",
+    "at",
+    "school",
+    "call",
+    "me",
+    "names",
+    "how",
+    "do",
+    "i",
+    "stop",
+    "being",
+    "angry"
+   ],
+   "signal": true,
+   "comfort_cue": true,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "I lost my temper and yelled at my kids",
+   "crisis_words": [
+    "i",
+    "lost",
+    "my",
+    "temper",
+    "and",
+    "yelled",
+    "at",
+    "my",
+    "kids"
+   ],
+   "signal": false,
+   "comfort_cue": true,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "the voices are back",
+   "crisis_words": [
+    "the",
+    "voices",
+    "are",
+    "back"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "crisis",
+   "note": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "topics": []
+  },
+  {
+   "query": "I'm gay and I feel like a failure",
+   "crisis_words": [
+    "i",
+    "gay",
+    "and",
+    "i",
+    "feel",
+    "like",
+    "a",
+    "failure"
+   ],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "sensitive",
+   "note": null,
+   "topics": [
+    {
+     "id": "self_worth",
+     "label": "You are of worth",
+     "blurb": "Verses on dignity and being valued."
+    },
+    {
+     "id": "love_compassion",
+     "label": "Loved and cared for",
+     "blurb": "Verses on being loved as you are."
+    },
+    {
+     "id": "loneliness",
+     "label": "You are not alone",
+     "blurb": "Verses on being known and not forsaken."
+    }
+   ]
   },
   {
    "query": "x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x I want to die",
@@ -4938,6 +5121,7 @@
    ],
    "crisis_words": [
     "working",
+    "num",
     "hour",
     "weeks",
     "and",
@@ -7727,7 +7911,7 @@
    ],
    "category": "crisis",
    "topic": "suicide",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -7792,7 +7976,7 @@
    ],
    "category": "crisis",
    "topic": "abuse",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -7838,7 +8022,7 @@
    ],
    "category": "crisis",
    "topic": "suicide",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -7872,7 +8056,7 @@
    ],
    "category": "crisis",
    "topic": "self_harm",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -7915,7 +8099,7 @@
    ],
    "category": "crisis",
    "topic": "suicide",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -7961,7 +8145,7 @@
    ],
    "category": "crisis",
    "topic": "suicide",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -8001,7 +8185,7 @@
    ],
    "category": "crisis",
    "topic": "harm_to_others",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -8029,7 +8213,7 @@
    ],
    "category": "crisis",
    "topic": "suicide",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -8081,7 +8265,7 @@
    ],
    "category": "crisis",
    "topic": "abuse",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -8139,7 +8323,7 @@
    ],
    "category": "crisis",
    "topic": "suicide",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -10047,7 +10231,7 @@
    ],
    "category": "crisis",
    "topic": "distress",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -10101,7 +10285,7 @@
    ],
    "category": "crisis",
    "topic": "suicide",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -10150,7 +10334,7 @@
    ],
    "category": "crisis",
    "topic": "distress",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -10211,7 +10395,7 @@
    ],
    "category": "crisis",
    "topic": "distress",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -10302,7 +10486,7 @@
    ],
    "category": "crisis",
    "topic": "distress",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -10655,7 +10839,7 @@
    ],
    "category": "crisis",
    "topic": "suicide",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -11729,7 +11913,7 @@
    ],
    "category": "crisis",
    "topic": "distress",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],
@@ -12680,7 +12864,7 @@
    ],
    "category": "crisis",
    "topic": "suicide",
-   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "message": "This page will not show verses for what you wrote. It sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
    "no_match": false,
    "themes": [],
    "notes": [],

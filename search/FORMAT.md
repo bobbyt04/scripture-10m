@@ -20,12 +20,12 @@ eval history only; the site does not call it.
 
 | File | Size | Contents |
 |---|---|---|
-| `search.json` | 509 kB | The reviewed verse pool (display text, themes, hand-set priorities, note, BM25 terms), themes with their labels, blurbs and phrases, word rules, bridge, safety lists (crisis phrases, distress gate, bereavement and idiom blanks, emoji, sensitive topics, the suggestion signals, the crisis message), settings. |
+| `search.json` | 517 kB | The reviewed verse pool (display text, themes, hand-set priorities, note, BM25 terms), themes with their labels, blurbs and phrases, word rules, bridge, safety lists (crisis phrases, distress gate, bereavement and idiom blanks, emoji, sensitive topics, the suggestion signals, the crisis message), settings. |
 | `pool_vectors.i8` | 86 kB | `int8[P][D]`: one row per published pool verse (Gita, then Quran, then Bible, each in `pool` order), for `similar()`. |
-| `similarities.json` | 30 kB | The hand-reviewed cross-book parallels for the similarities page. |
-| `fixtures.json` | 180 kB | Expected outputs for testing a port: 36 `suggest()` calls (crisis, sensitive, general and none, the suppression rule, the comfort-only rule, typos, non-ASCII input, an emoji, the 500-character cap), 6 `topic()` calls (with k, sensitive-only, a topic no book has), `topics()`; and, for the eval history, 92 `search()` calls, 4 `by_theme()` calls and 3 `similar()` calls with and without `sensitive_only`. |
+| `similarities.json` | 30 kB | The reviewed cross-book parallels for the similarities page. |
+| `fixtures.json` | 184 kB | Expected outputs for testing a port: 45 `suggest()` calls (crisis, sensitive, general and none, the suppression rule, the comfort-only rule, the no-topic safeguard, a gentle topic with too few verses, numbers in digits, typos, non-ASCII input, Unicode lower-casing, an emoji, the 500-character cap), 6 `topic()` calls (with k, sensitive-only, a topic no book has), `topics()`; and, for the eval history, 92 `search()` calls, 4 `by_theme()` calls and 3 `similar()` calls with and without `sensitive_only`. |
 
-Total 805 kB. (The full-corpus model in `search/model/`, 6.6 MB, is used
+Total 816 kB. (The full-corpus model in `search/model/`, 6.6 MB, is used
 offline only: to propose parallels, score them, and give pool verses their
 vectors. The site never loads it.)
 
@@ -76,12 +76,14 @@ an all-zero row as zeros** (its cosine with anything is 0, never NaN).
                   "pregnancy": {..., "exclude": {"gita": ["2:40"]}}, ...},   exclude is optional (steps 7 and 9)
     "distress": {"window": 7, "rules": [rule, ...]},
     "suggest": {"max_topics": 4, "max_topics_after_signal": 2,                    step 8
+                "min_sensitive_verses": 3,
                 "never_after_signal": ["courage", "love_compassion", "friendship", "marriage", "family_parents", "forgiveness"],
                 "comfort_only_cues": {"other_person": ["he", "she", "husband|husbands|hubby", "teacher*", "someone", ...],
                                       "passive_event": ["something happened", "said no", "made me", ...],
                                       "mental_health": ["depress*", "trauma*", ...],
                                       "at_god": ["at god|allah|jesus|heaven|lord", ...]},
-                "signals": ["hurt me|myself|us", "pills", "secret*", "fourteen|...", "online", ...]}
+                "signals": ["hurt me|myself|us", "pills", "secret*", "fourteen|...", "online", ...],
+                "safeguard_exempt": ["kill*", "cut", "last", "tonight", ...]}       signals the safeguard skips
   },
   "pool": {
     "gita": [{"ref": "2:47", "text": "...", "themes": [...], "why": "...", "sensitive": false,
@@ -110,8 +112,8 @@ an all-zero row as zeros** (its cosine with anything is 0, never NaN).
   `search()`).
 - A theme's `kind` says whether suggest() may offer it to a message that
   names another person (step 8). The 7 **comfort** topics are grief,
-  fear_anxiety, loneliness, illness, doubt_faith, hope and self_worth: every
-  one of their verses was read and is comfort only, with no instruction to
+  fear_anxiety, loneliness, illness, doubt_faith, hope and self_worth: each
+  of their verses was reviewed as comfort only, with no instruction to
   endure, wait, submit, keep silent, forgive or try harder. The other 31 are
   **self_directed**: their verses ask the reader to change their own
   behaviour or to bear something (anger, forgiveness, guilt_repentance,
@@ -135,7 +137,12 @@ query whose crisis words come after character 500 and must not be read.
 
 ### 1. Words: `words(text)`
 
-1. Lower-case; turn `’` into `'`.
+1. Lower-case; turn `’` into `'`. Lower-casing is full Unicode lower-casing
+   (Python's `str.lower()`, JavaScript's `toLowerCase()`), not ASCII only:
+   the Kelvin sign `K` (U+212A) becomes an ASCII `k`, so "I WANT TO KILL
+   MYSELF" typed with it is still a crisis, and `İ` becomes `i` and a
+   combining dot, which ends the word ("İ'M SAD" → `["i", "sad"]`). The
+   fixtures have both.
 2. Replace `won't` → `will not`, `can't` → `can not`, `ain't` → `is not`
    wherever they start a word (regex `\b(won't|can't|ain't)`).
 3. Replace every `n't` that ends a word (regex `n't\b`) with ` not`.
@@ -175,11 +182,12 @@ Let W = words(query).
    replaces every character that is a key of `emoji` by a space, its word
    and a space (in the order of `emoji`; "🙂🔫" gives `["emojigun"]`, since
    other emoji are not letters and words drops them), and then replaces
-   every maximal run of ASCII digits `[0-9]+` that is exactly one of "1" to
-   "17" (no leading zero) by a space, its English word (one, two, ...,
-   seventeen) and a space; other digits are left alone (and dropped by
-   words). So "i'm 14" gives `["i", "fourteen"]` and "14yo" gives
-   `["fourteen", "yo"]`, while "007" and "18" give nothing. This is only
+   every maximal run of ASCII digits `[0-9]+` by a space, a word and a
+   space: its English word (one, two, ..., seventeen) if it is exactly one
+   of "1" to "17" (no leading zero), otherwise the word `num`. So "i'm 14"
+   gives `["i", "fourteen"]`, "14yo" gives `["fourteen", "yo"]`, and "took
+   30 tylenol", "007" and "18" give `["took", "num", "tylenol"]`, `["num"]`
+   and `["num"]`. This is only
    for the safety check: themes and sensitive topics use W. Copy N into C.
    For every phrase of `idioms` and then of `bereavement`, and every
    position where it matches **N**, replace those words in C by "" (the
@@ -220,8 +228,8 @@ letters that is unknown is replaced by the first word, in sorted (code
 point) order, of the theme words that is one edit away from it, if any.
 Theme words: the alternatives without `*` of every theme phrase that has a
 single slot. Unknown: not an alternative (without `*`) of any slot of any
-theme phrase, not a stopword, and with no term (step 5: `term_of(w)` is
-none). So "lonley" → "lonely", but "honestly" stays (its base "honest" is a
+theme phrase, not in `lexicon.stopwords` (`query_stopwords` play no part
+here), and with no term (step 5: `term_of(w)` is none). So "lonley" → "lonely", but "honestly" stays (its base "honest" is a
 pool term).
 
 Find every (start, end, theme) where a phrase of that theme matches T (end =
@@ -347,12 +355,13 @@ ref or verse text:
    return `{"category": "crisis", "note": crisis_message, "topics": []}`.
 2. S = selection_themes (step 4), in its order: for a sensitive message the
    typed themes and then the topic's gentle themes.
-3. Keep the themes of S that topic() can show something for: for a general
+3. Keep the themes of S that topic() can show enough for: for a general
    message, a theme with at least one verse in some book; for a sensitive
-   one, a theme with at least one `sensitive` verse in some book that no
-   sensitive topic's `exclude` lists (step 9).
+   one, a theme with at least `min_sensitive_verses` (3) `sensitive` verses
+   in all books together that no sensitive topic's `exclude` lists (what
+   topic(sensitive=true) shows, step 9).
 4. **Suppression.** If any phrase of `suggest.signals` matches the crisis
-   words C (step 3: emoji and digits 1 to 17 read as words, idioms and a
+   words C (step 3: emoji and numbers in digits read as words, idioms and a
    third person's death blanked; the signals are first-person harm, a plan
    or farewell, secrecy, an age under 18, contact with an adult or a
    stranger), drop the themes in `never_after_signal` (courage,
@@ -363,21 +372,37 @@ ref or verse text:
 5. **Comfort only.** If any phrase of any list of `suggest.comfort_only_cues`
    matches **W** (the words of step 1, not C), namely another person (a
    third-person pronoun such as he, her, them or their, or a person word
-   such as husband, dad, teacher, boss, friend, guy, someone, people), an
+   such as husband, dad, kids, son, classmate, teacher, boss, friend, guy,
+   someone, people), an
    event done to the writer ("something happened", "said no", "made me",
    "touched", "was hit"), mental-health wording ("depressed", "trauma",
    "panic attack") or anger at God ("angry at god", "why did god"), keep
    only the themes whose `kind` is `comfort`. A self-directed topic ("slow to
    anger appeaseth strife", "if we confess our sins") offered to someone
    being hurt reads as blame. This also holds when the gate did not fire, so
-   "my brother annoys me, how do i stay calm" is offered no topic at all.
+   "my brother annoys me, how do i stay calm" and "the kids at school call
+   me names, how do i stop being angry" are offered no topic at all.
    Steps 4 and 5 both apply; the cap of step 4 is applied after step 5.
 6. Each topic is `{id, label, blurb}`, from the theme's `label` and
    `blurb`; for a sensitive message, from its `gentle_label` and
    `gentle_blurb` where it has them.
 7. The category stays "general" or "sensitive"; a general message with no
    topic left becomes "none" (the site then shows the full list,
-   `topics()`). `note` is null.
+   `topics()`). A sensitive message keeps the category "sensitive" even if
+   no topic were left (its topics would then be empty, never "none"); with
+   the current lists that cannot happen, because every sensitive topic's
+   `themes` include a comfort topic with at least 3 sensitive verses, which
+   neither step 4 nor step 5 removes. `note` is null.
+8. **No-topic safeguard.** If the category is now "none", no theme phrase
+   matched the message at all (step 4's query themes are empty), and a
+   phrase of `suggest.signals` that is not in `suggest.safeguard_exempt`
+   matches the crisis words C, return the crisis result of 1 instead
+   (`{"category": "crisis", "note": crisis_message, "topics": []}`): when
+   in doubt it fires. The exempt signals (kill*, cut, last, tonight, pills,
+   decided ...) also occur in everyday idioms ("killed it last night", "cut
+   from the team"); they were chosen so that no stored innocent, bereaved,
+   sensitive or everyday message reaches the note this way, so this is a
+   development choice, not a held-out result.
 
 ### 9. `topic(id, k=null, sensitive=false)` and `topics()`
 

@@ -8,3 +8,7 @@ node_modules/
 .vercel/
 data/raw/
 *.pt
+web/dist/
+web/src/generated/
+web/test-results/
+web/playwright-report/
