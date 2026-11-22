@@ -1,9 +1,10 @@
 {
- "about": "Modern-language situations with hand-picked relevant verses per book, found by reading and searching the corpus by theme. Both 'dev' and 'dev2' were seen while the bridge and the settings were written: 'dev2' was first meant as a held-out test set, but the bridge was written after its queries existed and covers many of their phrases, so it is not held out. 'blind_test' holds 40 situations written later by someone who had not seen the bridge, lexicon or safety lists (nor the dev cases) while writing the queries and their answer keys; it is reported separately. An empty list means the book has no fitting verse; that book is then skipped for that case.",
+ "about": "Modern-language situations with hand-picked relevant verses per book (found by reading and searching the whole corpus by theme, before the pool existed) and the hand-labelled themes a good answer should match ('expected_themes'). All three filled splits were seen during development; only 'final_blind' will be held out. An empty list means the book has no fitting verse; that book is then skipped for that case.",
  "splits": {
-  "dev": "seen while tuning",
-  "dev2": "seen while tuning (formerly called 'test'; not held out)",
-  "blind_test": "written blind: 40 situations and answer keys by a reviewer who had not seen the bridge, lexicon, safety lists or the earlier cases"
+  "dev": "development: seen while the first bridge and settings were written",
+  "dev2": "development: first meant as a test set, but the bridge was written after its queries existed",
+  "dev3": "development: written blind by a reviewer as 'blind_test' for the full-corpus design (hit@10 0.43); seen while the pool design, themes and settings were made, so no longer held out",
+  "final_blind": "held out: new situations to be written by a different person after the scorer is frozen; empty for now"
  },
  "cases": [
   {
@@ -46,7 +47,11 @@
      "Psalms 55:22",
      "1 Peter 5:7"
     ]
-   }
+   },
+   "expected_themes": [
+    "money_worry",
+    "fear_anxiety"
+   ]
   },
   {
    "id": "breakup",
@@ -85,7 +90,11 @@
      "Isaiah 61:1",
      "Matthew 28:20"
     ]
-   }
+   },
+   "expected_themes": [
+    "loneliness",
+    "hope"
+   ]
   },
   {
    "id": "burnout",
@@ -124,7 +133,10 @@
      "Ecclesiastes 2:22",
      "Ecclesiastes 2:23"
     ]
-   }
+   },
+   "expected_themes": [
+    "overwork_rest"
+   ]
   },
   {
    "id": "dad_cancer",
@@ -164,7 +176,12 @@
      "Revelation 21:4",
      "Psalms 30:2"
     ]
-   }
+   },
+   "expected_themes": [
+    "illness",
+    "fear_anxiety",
+    "grief"
+   ]
   },
   {
    "id": "exams",
@@ -210,7 +227,12 @@
      "Ecclesiastes 9:10",
      "2 Timothy 2:15"
     ]
-   }
+   },
+   "expected_themes": [
+    "fear_anxiety",
+    "wisdom_learning",
+    "failure"
+   ]
   },
   {
    "id": "forgive_brother",
@@ -256,7 +278,10 @@
      "Matthew 5:24",
      "Luke 6:37"
     ]
-   }
+   },
+   "expected_themes": [
+    "forgiveness"
+   ]
   },
   {
    "id": "mother_died",
@@ -304,7 +329,10 @@
      "Job 1:21",
      "Isaiah 25:8"
     ]
-   }
+   },
+   "expected_themes": [
+    "grief"
+   ]
   },
   {
    "id": "no_purpose",
@@ -344,7 +372,10 @@
      "Matthew 22:39",
      "Psalms 139:14"
     ]
-   }
+   },
+   "expected_themes": [
+    "purpose"
+   ]
   },
   {
    "id": "alcohol",
@@ -387,7 +418,10 @@
      "Proverbs 23:20",
      "Proverbs 23:21"
     ]
-   }
+   },
+   "expected_themes": [
+    "temptation_self_control"
+   ]
   },
   {
    "id": "yelled_kids",
@@ -427,7 +461,11 @@
      "Ecclesiastes 7:9",
      "Psalms 37:8"
     ]
-   }
+   },
+   "expected_themes": [
+    "anger",
+    "parenting"
+   ]
   },
   {
    "id": "cheated_partner",
@@ -472,7 +510,11 @@
      "2 Samuel 12:13",
      "Isaiah 1:18"
     ]
-   }
+   },
+   "expected_themes": [
+    "guilt_repentance",
+    "marriage"
+   ]
   },
   {
    "id": "doubt_god",
@@ -514,7 +556,10 @@
      "James 1:6",
      "John 20:27"
     ]
-   }
+   },
+   "expected_themes": [
+    "doubt_faith"
+   ]
   },
   {
    "id": "new_city",
@@ -554,7 +599,11 @@
      "Psalms 25:16",
      "Matthew 25:35"
     ]
-   }
+   },
+   "expected_themes": [
+    "loneliness",
+    "change_uncertainty"
+   ]
   },
   {
    "id": "credit_stolen",
@@ -605,7 +654,10 @@
      "1 Corinthians 3:8",
      "Hebrews 6:10"
     ]
-   }
+   },
+   "expected_themes": [
+    "justice_wronged"
+   ]
   },
   {
    "id": "jealous_friend",
@@ -643,7 +695,10 @@
      "Galatians 6:4",
      "Ecclesiastes 4:4"
     ]
-   }
+   },
+   "expected_themes": [
+    "envy_contentment"
+   ]
   },
   {
    "id": "get_rich",
@@ -701,7 +756,11 @@
      "Ecclesiastes 5:10",
      "Mark 8:36"
     ]
-   }
+   },
+   "expected_themes": [
+    "envy_contentment",
+    "money_worry"
+   ]
   },
   {
    "id": "bullied",
@@ -750,7 +809,10 @@
      "Luke 6:27",
      "Luke 6:28"
     ]
-   }
+   },
+   "expected_themes": [
+    "justice_wronged"
+   ]
   },
   {
    "id": "future_worry",
@@ -793,7 +855,11 @@
      "Luke 12:22",
      "Luke 12:25"
     ]
-   }
+   },
+   "expected_themes": [
+    "fear_anxiety",
+    "change_uncertainty"
+   ]
   },
   {
    "id": "worthless",
@@ -836,7 +902,10 @@
      "Luke 12:7",
      "Zephaniah 3:17"
     ]
-   }
+   },
+   "expected_themes": [
+    "self_worth"
+   ]
   },
   {
    "id": "fear_death",
@@ -884,7 +953,10 @@
      "Philippians 1:21",
      "2 Corinthians 5:8"
     ]
-   }
+   },
+   "expected_themes": [
+    "fear_anxiety"
+   ]
   },
   {
    "id": "lie_boss",
@@ -921,7 +993,10 @@
      "Psalms 15:2",
      "Proverbs 11:3"
     ]
-   }
+   },
+   "expected_themes": [
+    "honesty"
+   ]
   },
   {
    "id": "parenting",
@@ -961,7 +1036,10 @@
      "Psalms 127:3",
      "Proverbs 1:8"
     ]
-   }
+   },
+   "expected_themes": [
+    "parenting"
+   ]
   },
   {
    "id": "marriage",
@@ -998,7 +1076,10 @@
      "Hebrews 13:4",
      "1 Peter 3:7"
     ]
-   }
+   },
+   "expected_themes": [
+    "marriage"
+   ]
   },
   {
    "id": "betrayed",
@@ -1040,7 +1121,10 @@
      "Matthew 5:44",
      "Luke 6:27"
     ]
-   }
+   },
+   "expected_themes": [
+    "betrayal"
+   ]
   },
   {
    "id": "arrogant",
@@ -1086,7 +1170,10 @@
      "Romans 12:16",
      "Matthew 23:12"
     ]
-   }
+   },
+   "expected_themes": [
+    "pride_humility"
+   ]
   },
   {
    "id": "procrastinate",
@@ -1141,7 +1228,11 @@
      "Proverbs 19:15",
      "James 4:17"
     ]
-   }
+   },
+   "expected_themes": [
+    "work_effort",
+    "purpose"
+   ]
   },
   {
    "id": "depressed",
@@ -1196,7 +1287,11 @@
      "2 Corinthians 4:9",
      "Psalms 73:26"
     ]
-   }
+   },
+   "expected_themes": [
+    "hope",
+    "suffering_endurance"
+   ]
   },
   {
    "id": "scared",
@@ -1244,7 +1339,10 @@
      "Psalms 46:2",
      "Psalms 91:5"
     ]
-   }
+   },
+   "expected_themes": [
+    "fear_anxiety"
+   ]
   },
   {
    "id": "charity",
@@ -1311,7 +1409,10 @@
      "Luke 14:13",
      "Proverbs 21:13"
     ]
-   }
+   },
+   "expected_themes": [
+    "generosity"
+   ]
   },
   {
    "id": "grateful",
@@ -1350,7 +1451,10 @@
      "James 1:17",
      "Psalms 9:1"
     ]
-   }
+   },
+   "expected_themes": [
+    "gratitude"
+   ]
   },
   {
    "id": "revenge",
@@ -1396,7 +1500,11 @@
      "Deuteronomy 32:35",
      "Hebrews 10:30"
     ]
-   }
+   },
+   "expected_themes": [
+    "justice_wronged",
+    "anger"
+   ]
   },
   {
    "id": "hospital_pain",
@@ -1446,7 +1554,11 @@
      "Psalms 73:26",
      "Exodus 15:26"
     ]
-   }
+   },
+   "expected_themes": [
+    "illness",
+    "suffering_endurance"
+   ]
   },
   {
    "id": "guilty_past",
@@ -1496,7 +1608,10 @@
      "Proverbs 28:13",
      "Luke 15:7"
     ]
-   }
+   },
+   "expected_themes": [
+    "guilt_repentance"
+   ]
   },
   {
    "id": "impatient",
@@ -1549,7 +1664,10 @@
      "Romans 12:12",
      "Psalms 130:5"
     ]
-   }
+   },
+   "expected_themes": [
+    "patience"
+   ]
   },
   {
    "id": "lust",
@@ -1613,7 +1731,10 @@
      "Proverbs 6:25",
      "Colossians 3:5"
     ]
-   }
+   },
+   "expected_themes": [
+    "temptation_self_control"
+   ]
   },
   {
    "id": "gossip",
@@ -1660,7 +1781,10 @@
      "Matthew 12:36",
      "Exodus 23:1"
     ]
-   }
+   },
+   "expected_themes": [
+    "speech_gossip"
+   ]
   },
   {
    "id": "fail_job",
@@ -1715,7 +1839,12 @@
      "Psalms 37:5",
      "1 Chronicles 28:20"
     ]
-   }
+   },
+   "expected_themes": [
+    "fear_anxiety",
+    "failure",
+    "work_effort"
+   ]
   },
   {
    "id": "aging_parents",
@@ -1759,7 +1888,10 @@
      "Deuteronomy 5:16",
      "Matthew 15:4"
     ]
-   }
+   },
+   "expected_themes": [
+    "family_parents"
+   ]
   },
   {
    "id": "far_from_god",
@@ -1818,7 +1950,10 @@
      "Psalms 139:8",
      "Deuteronomy 4:29"
     ]
-   }
+   },
+   "expected_themes": [
+    "doubt_faith"
+   ]
   },
   {
    "id": "debt",
@@ -1863,7 +1998,10 @@
      "Luke 6:34",
      "Luke 6:35"
     ]
-   }
+   },
+   "expected_themes": [
+    "money_worry"
+   ]
   },
   {
    "id": "war_peace",
@@ -1916,7 +2054,10 @@
      "Proverbs 16:7",
      "Psalms 85:10"
     ]
-   }
+   },
+   "expected_themes": [
+    "peace_of_mind"
+   ]
   },
   {
    "id": "partner_fraud",
@@ -1973,7 +2114,11 @@
      "1 Corinthians 6:7",
      "Amos 8:5"
     ]
-   }
+   },
+   "expected_themes": [
+    "justice_wronged",
+    "betrayal"
+   ]
   },
   {
    "id": "hopeless",
@@ -2030,7 +2175,10 @@
      "Job 11:18",
      "Psalms 130:7"
     ]
-   }
+   },
+   "expected_themes": [
+    "hope"
+   ]
   },
   {
    "id": "work_stress",
@@ -2094,7 +2242,12 @@
      "Colossians 3:23",
      "Ecclesiastes 4:6"
     ]
-   }
+   },
+   "expected_themes": [
+    "overwork_rest",
+    "fear_anxiety",
+    "work_effort"
+   ]
   },
   {
    "id": "comparing",
@@ -2144,7 +2297,10 @@
      "John 21:21",
      "John 21:22"
     ]
-   }
+   },
+   "expected_themes": [
+    "envy_contentment"
+   ]
   },
   {
    "id": "decision",
@@ -2193,7 +2349,11 @@
      "Jeremiah 33:3",
      "Ecclesiastes 7:12"
     ]
-   }
+   },
+   "expected_themes": [
+    "guidance_decisions",
+    "wisdom_learning"
+   ]
   },
   {
    "id": "rebel_son",
@@ -2234,7 +2394,10 @@
      "Proverbs 17:25",
      "Proverbs 19:18"
     ]
-   }
+   },
+   "expected_themes": [
+    "parenting"
+   ]
   },
   {
    "id": "why_suffer",
@@ -2294,7 +2457,10 @@
      "Lamentations 3:32",
      "Lamentations 3:33"
     ]
-   }
+   },
+   "expected_themes": [
+    "suffering_endurance"
+   ]
   },
   {
    "id": "inner_peace",
@@ -2348,7 +2514,10 @@
      "Psalms 37:11",
      "Isaiah 32:17"
     ]
-   }
+   },
+   "expected_themes": [
+    "peace_of_mind"
+   ]
   },
   {
    "id": "unappreciated",
@@ -2405,11 +2574,14 @@
      "Matthew 25:21",
      "Luke 17:10"
     ]
-   }
+   },
+   "expected_themes": [
+    "self_worth"
+   ]
   },
   {
    "id": "blind_grief_mother",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "my mom passed away last month and I can't stop crying, how am I supposed to deal with this",
    "relevant": {
     "gita": [
@@ -2446,11 +2618,14 @@
      "2 Corinthians 1:4",
      "Ecclesiastes 3:4"
     ]
-   }
+   },
+   "expected_themes": [
+    "grief"
+   ]
   },
   {
    "id": "blind_debt",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "I'm drowning in credit card debt and can't keep up with my bills",
    "relevant": {
     "gita": [],
@@ -2474,11 +2649,14 @@
      "Psalms 37:25",
      "Proverbs 3:5"
     ]
-   }
+   },
+   "expected_themes": [
+    "money_worry"
+   ]
   },
   {
    "id": "blind_job_loss",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "got laid off today after 8 years at the company, honestly no idea what to do now",
    "relevant": {
     "gita": [
@@ -2512,11 +2690,15 @@
      "Philippians 4:6",
      "1 Peter 5:7"
     ]
-   }
+   },
+   "expected_themes": [
+    "money_worry",
+    "guidance_decisions"
+   ]
   },
   {
    "id": "blind_career_doubt",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "not sure I picked the right career, I feel stuck in a job I don't really care about",
    "relevant": {
     "gita": [
@@ -2545,11 +2727,15 @@
      "Proverbs 19:21",
      "Ecclesiastes 2:24"
     ]
-   }
+   },
+   "expected_themes": [
+    "purpose",
+    "work_effort"
+   ]
   },
   {
    "id": "blind_exams",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "finals are next week and I'm so stressed I can't focus on studying",
    "relevant": {
     "gita": [
@@ -2579,11 +2765,15 @@
      "Colossians 3:23",
      "Proverbs 2:6"
     ]
-   }
+   },
+   "expected_themes": [
+    "fear_anxiety",
+    "wisdom_learning"
+   ]
   },
   {
    "id": "blind_loneliness_new_city",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "moved to a new city for work and I don't have a single friend here, I feel so alone",
    "relevant": {
     "gita": [
@@ -2613,11 +2803,15 @@
      "Ecclesiastes 4:9",
      "Ecclesiastes 4:10"
     ]
-   }
+   },
+   "expected_themes": [
+    "loneliness",
+    "change_uncertainty"
+   ]
   },
   {
    "id": "blind_friend_silent",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "my best friend just stopped talking to me out of nowhere and I don't know what I did",
    "relevant": {
     "gita": [],
@@ -2640,11 +2834,14 @@
      "Psalms 55:13",
      "Psalms 55:14"
     ]
-   }
+   },
+   "expected_themes": [
+    "friendship"
+   ]
   },
   {
    "id": "blind_marriage_arguing",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "my husband and I keep arguing about everything lately, even small stuff",
    "relevant": {
     "gita": [],
@@ -2673,11 +2870,14 @@
      "Colossians 3:14",
      "Mark 10:9"
     ]
-   }
+   },
+   "expected_themes": [
+    "marriage"
+   ]
   },
   {
    "id": "blind_teen_son",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "my teenage son won't listen to anything I say anymore",
    "relevant": {
     "gita": [],
@@ -2699,11 +2899,14 @@
      "Deuteronomy 6:6",
      "Deuteronomy 6:7"
     ]
-   }
+   },
+   "expected_themes": [
+    "parenting"
+   ]
   },
   {
    "id": "blind_ageing_father",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "my dad is getting old and frail and I'm struggling to look after him",
    "relevant": {
     "gita": [],
@@ -2727,11 +2930,14 @@
      "Galatians 6:9",
      "Matthew 11:28"
     ]
-   }
+   },
+   "expected_themes": [
+    "family_parents"
+   ]
   },
   {
    "id": "blind_diagnosis",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "just got diagnosed with something serious and I'm really scared",
    "relevant": {
     "gita": [
@@ -2767,11 +2973,15 @@
      "Isaiah 43:2",
      "Psalms 46:1"
     ]
-   }
+   },
+   "expected_themes": [
+    "illness",
+    "fear_anxiety"
+   ]
   },
   {
    "id": "blind_drinking",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "I've been drinking way too much every night and I can't seem to cut back",
    "relevant": {
     "gita": [
@@ -2807,11 +3017,14 @@
      "Isaiah 5:11",
      "Titus 2:12"
     ]
-   }
+   },
+   "expected_themes": [
+    "temptation_self_control"
+   ]
   },
   {
    "id": "blind_temper",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "I lose my temper way too easily and end up yelling at people I care about",
    "relevant": {
     "gita": [
@@ -2845,11 +3058,14 @@
      "Proverbs 19:11",
      "Proverbs 22:24"
     ]
-   }
+   },
+   "expected_themes": [
+    "anger"
+   ]
   },
   {
    "id": "blind_envy_online",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "I get so jealous of my friends who seem to have perfect lives on instagram",
    "relevant": {
     "gita": [
@@ -2884,11 +3100,14 @@
      "Proverbs 24:1",
      "1 Timothy 6:6"
     ]
-   }
+   },
+   "expected_themes": [
+    "envy_contentment"
+   ]
   },
   {
    "id": "blind_arrogance",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "people keep telling me I come across as arrogant, like I think I'm better than everyone",
    "relevant": {
     "gita": [
@@ -2923,11 +3142,14 @@
      "Micah 6:8",
      "Matthew 23:12"
     ]
-   }
+   },
+   "expected_themes": [
+    "pride_humility"
+   ]
   },
   {
    "id": "blind_guilt",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "I did something really bad to someone I love and the guilt is eating me alive",
    "relevant": {
     "gita": [
@@ -2964,11 +3186,14 @@
      "2 Corinthians 7:10",
      "James 5:16"
     ]
-   }
+   },
+   "expected_themes": [
+    "guilt_repentance"
+   ]
   },
   {
    "id": "blind_forgive_brother",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "my brother hurt me really badly years ago and I just can't bring myself to forgive him",
    "relevant": {
     "gita": [
@@ -3001,11 +3226,14 @@
      "Romans 12:19",
      "Proverbs 19:11"
     ]
-   }
+   },
+   "expected_themes": [
+    "forgiveness"
+   ]
   },
   {
    "id": "blind_fear_of_death",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "lately I've been really afraid of dying, I lie awake at night thinking about it",
    "relevant": {
     "gita": [
@@ -3045,11 +3273,14 @@
      "Revelation 21:4",
      "Romans 14:8"
     ]
-   }
+   },
+   "expected_themes": [
+    "fear_anxiety"
+   ]
   },
   {
    "id": "blind_doubting_god",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "I'm starting to doubt whether God is even real, and it scares me",
    "relevant": {
     "gita": [
@@ -3083,11 +3314,14 @@
      "James 1:5",
      "Matthew 14:31"
     ]
-   }
+   },
+   "expected_themes": [
+    "doubt_faith"
+   ]
   },
   {
    "id": "blind_no_purpose",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "I feel like I have no direction or purpose in my life right now",
    "relevant": {
     "gita": [
@@ -3120,11 +3354,14 @@
      "Proverbs 19:21",
      "Matthew 6:33"
     ]
-   }
+   },
+   "expected_themes": [
+    "purpose"
+   ]
   },
   {
    "id": "blind_procrastination",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "I procrastinate constantly and waste whole days doing basically nothing",
    "relevant": {
     "gita": [
@@ -3163,11 +3400,15 @@
      "Proverbs 19:15",
      "Ecclesiastes 11:4"
     ]
-   }
+   },
+   "expected_themes": [
+    "work_effort",
+    "purpose"
+   ]
   },
   {
    "id": "blind_temptation",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "I keep getting tempted to do things I know are wrong and I always give in",
    "relevant": {
     "gita": [
@@ -3210,11 +3451,14 @@
      "1 Peter 5:8",
      "1 Peter 5:9"
     ]
-   }
+   },
+   "expected_themes": [
+    "temptation_self_control"
+   ]
   },
   {
    "id": "blind_gratitude",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "things are actually going really well for me right now and I want to remember to be grateful",
    "relevant": {
     "gita": [],
@@ -3241,11 +3485,14 @@
      "Psalms 9:1",
      "Ephesians 5:20"
     ]
-   }
+   },
+   "expected_themes": [
+    "gratitude"
+   ]
   },
   {
    "id": "blind_promotion",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "just got a big promotion at work, how do I keep it from going to my head",
    "relevant": {
     "gita": [
@@ -3284,11 +3531,15 @@
      "Jeremiah 9:24",
      "Matthew 23:12"
     ]
-   }
+   },
+   "expected_themes": [
+    "success",
+    "pride_humility"
+   ]
   },
   {
    "id": "blind_failed_test",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "failed my driving test for the third time and I feel like such a loser",
    "relevant": {
     "gita": [
@@ -3323,11 +3574,14 @@
      "Romans 5:4",
      "2 Corinthians 12:9"
     ]
-   }
+   },
+   "expected_themes": [
+    "failure"
+   ]
   },
   {
    "id": "blind_big_move",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "I'm about to move across the country for a fresh start and I'm really nervous about it",
    "relevant": {
     "gita": [],
@@ -3355,11 +3609,15 @@
      "Psalms 139:10",
      "Hebrews 11:8"
     ]
-   }
+   },
+   "expected_themes": [
+    "change_uncertainty",
+    "fear_anxiety"
+   ]
   },
   {
    "id": "blind_friend_backstabbing",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "found out a close friend has been trashing me behind my back",
    "relevant": {
     "gita": [
@@ -3397,11 +3655,14 @@
      "1 Peter 3:9",
      "Leviticus 19:16"
     ]
-   }
+   },
+   "expected_themes": [
+    "betrayal"
+   ]
   },
   {
    "id": "blind_credit_stolen",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "my coworker took credit for my project and got praised for it, it's so unfair",
    "relevant": {
     "gita": [
@@ -3439,11 +3700,14 @@
      "Matthew 6:4",
      "1 Corinthians 15:58"
     ]
-   }
+   },
+   "expected_themes": [
+    "justice_wronged"
+   ]
   },
   {
    "id": "blind_impatient_waiting",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "I've been waiting forever to hear back about something important and I'm so impatient",
    "relevant": {
     "gita": [
@@ -3481,11 +3745,14 @@
      "Ecclesiastes 7:8",
      "Micah 7:7"
     ]
-   }
+   },
+   "expected_themes": [
+    "patience"
+   ]
   },
   {
    "id": "blind_homeless_stranger",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "walked past a homeless guy today and felt bad, should I be doing more to help people like that",
    "relevant": {
     "gita": [
@@ -3534,11 +3801,15 @@
      "Luke 14:14",
      "Proverbs 22:9"
     ]
-   }
+   },
+   "expected_themes": [
+    "generosity",
+    "kindness_strangers"
+   ]
   },
   {
    "id": "blind_charity_fear",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "I want to give more to charity but I'm worried I won't have enough left for myself",
    "relevant": {
     "gita": [
@@ -3576,11 +3847,15 @@
      "Hebrews 13:16",
      "1 Timothy 6:18"
     ]
-   }
+   },
+   "expected_themes": [
+    "generosity",
+    "money_worry"
+   ]
   },
   {
    "id": "blind_resume_lie",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "thinking about lying on my resume to land this job, everyone does it right",
    "relevant": {
     "gita": [
@@ -3610,11 +3885,14 @@
      "Proverbs 13:11",
      "Proverbs 20:17"
     ]
-   }
+   },
+   "expected_themes": [
+    "honesty"
+   ]
   },
   {
    "id": "blind_overwork",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "working 70 hour weeks and I'm completely burned out and exhausted",
    "relevant": {
     "gita": [
@@ -3656,11 +3934,14 @@
      "Luke 10:41",
      "Luke 10:42"
     ]
-   }
+   },
+   "expected_themes": [
+    "overwork_rest"
+   ]
   },
   {
    "id": "blind_insomnia",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "can't sleep at night because my mind just keeps racing with worries",
    "relevant": {
     "gita": [
@@ -3699,11 +3980,15 @@
      "John 14:27",
      "Psalms 94:19"
     ]
-   }
+   },
+   "expected_themes": [
+    "peace_of_mind",
+    "fear_anxiety"
+   ]
   },
   {
    "id": "blind_money_anxiety",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "constantly anxious about money and what the future holds for me",
    "relevant": {
     "gita": [
@@ -3745,11 +4030,15 @@
      "Luke 12:24",
      "Proverbs 30:8"
     ]
-   }
+   },
+   "expected_themes": [
+    "money_worry",
+    "fear_anxiety"
+   ]
   },
   {
    "id": "blind_office_gossip",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "my coworkers gossip about everyone all day and I keep getting sucked into it",
    "relevant": {
     "gita": [
@@ -3784,11 +4073,14 @@
      "1 Timothy 5:13",
      "Psalms 34:13"
     ]
-   }
+   },
+   "expected_themes": [
+    "speech_gossip"
+   ]
   },
   {
    "id": "blind_never_satisfied",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "I always want more stuff, I'm never satisfied with what I already have",
    "relevant": {
     "gita": [
@@ -3838,11 +4130,14 @@
      "Luke 12:20",
      "Luke 12:21"
     ]
-   }
+   },
+   "expected_themes": [
+    "envy_contentment"
+   ]
   },
   {
    "id": "blind_hostile_coworker",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "there's a guy at work who really doesn't like me and keeps trying to make me look bad",
    "relevant": {
     "gita": [
@@ -3880,11 +4175,14 @@
      "1 Peter 2:12",
      "Proverbs 24:17"
     ]
-   }
+   },
+   "expected_themes": [
+    "justice_wronged"
+   ]
   },
   {
    "id": "blind_public_criticism",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "my boss criticized my work in front of the whole team and I'm so embarrassed",
    "relevant": {
     "gita": [
@@ -3918,11 +4216,15 @@
      "Proverbs 12:16",
      "James 1:19"
     ]
-   }
+   },
+   "expected_themes": [
+    "justice_wronged",
+    "self_worth"
+   ]
   },
   {
    "id": "blind_need_hope",
-   "split": "blind_test",
+   "split": "dev3",
    "query": "everything seems to be going wrong for me this year and I really need some hope",
    "relevant": {
     "gita": [
@@ -3973,7 +4275,10 @@
      "Psalms 34:19",
      "Romans 8:18"
     ]
-   }
+   },
+   "expected_themes": [
+    "hope"
+   ]
   }
  ]
 }

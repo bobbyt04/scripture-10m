@@ -216,3 +216,17 @@ Each `data/processed/<book>.jsonl` file holds one verse per line:
 for each book, plus the combined charset. Training will render each verse as
 `<book-tag>text\n` and sample the three books equally. That is why `<`, `>` and
 newlines are kept out of verse text.
+
+## Known typos in the source texts
+
+`data/processed` keeps the texts exactly as the sources give them. Four typos
+were found while the advice pool was reviewed. They are corrected only in the
+display text of the pool (`search/pool/*.json`, field `fixes`), after checking
+each against the verse:
+
+| Verse | Source text | Shown as |
+|---|---|---|
+| Gita 3:20 | "the welfare of he world" | "the welfare of the world" |
+| Gita 11:44 | "I worship as it fitting" | "I worship as is fitting" |
+| Quran 2:274 | "and their shall no fear come upon them" | "and there shall no fear come upon them" |
+| Quran 28:26 | "the best (man) that thou canst hire in the strong" | "... hire is the strong" |

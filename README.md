@@ -23,95 +23,77 @@ pip install -r requirements-dev.txt
 python -m pytest -q
 ```
 
-## Meaning search
+## Advice search
 
-The advice chat and the similarities page run on a small search engine trained from scratch on the three books. It uses no pre-trained models, embeddings, word lists or outside APIs, only PyTorch and the Python standard library. Every word list in it was written by hand in this repo or derived from the three books.
+Describe a situation in everyday English and the site shows real verses from each book. **The advice search only ever shows verses from a hand-reviewed pool of 960 verses: 108 from the Gita, 236 from the Quran and 616 from the Bible.** Nothing outside the pool can be shown. It matches topics; it does not understand situations.
 
 ```bash
 python -m scripture.search "I got laid off and I'm scared about money"   # top 3 verses from each book
-python search/build.py        # retrain and rewrite search/artifacts/ (about a minute on a CPU)
-python evals/search_eval.py   # benchmark; writes evals/results/search.json
+python search/build.py --site   # rebuild search/artifacts/ after editing the pool or the lists (seconds)
+python search/build.py          # also retrain the full-corpus model in search/model/ (under a minute on a CPU)
+python evals/search_eval.py     # benchmark; writes evals/results/search.json
 ```
 
-How it works (details in [scripture/search.py](scripture/search.py), [search/build.py](search/build.py) and [search/FORMAT.md](search/FORMAT.md)):
+### The pool, and who reviewed it
 
-- **Safety first.** Hand-written phrase lists ([search/safety.json](search/safety.json)) sort each query.
-  - "Crisis" queries (suicide, self-harm, abuse, sexual violence, harming others) get **no verses**, so the site can show help instead.
-  - "Sensitive" queries (sexual orientation and gender, abortion, disability, race, religion as identity, eating and body, addiction relapse, pregnancy loss, widowhood) get verses only from a hand-picked set of gentle verses: 34 from the Gita, 35 from the Quran and 42 from the Bible, each with a one-line reason.
-  - A blocklist keeps verses about violence, curses and hell, sexual violence, bodily horror, polemic against other faiths or peoples, punishment law, slavery and caste, and the subordination of women out of every situational answer. That is 58 of the 701 Gita verses, 1,373 of 6,236 in the Quran and 5,444 of 31,102 in the Bible. It is built from word patterns and verse ranges, and 118 verses that only mention such a word kindly are kept (Psalm 23:4, "love your enemies", "do not despair of the mercy of God").
-  - A query with no known words returns nothing.
-- **Words.** Old forms are reduced to a base word that occurs in the books ("loveth", "loved", "loving" → "love"). Names are never shortened. Filler words are the 120 words found in the most verses (each book weighted equally), minus 22 content words (lord, god, allah, ...), plus a short hand-written list of archaic and modern fillers ([search/lexicon.json](search/lexicon.json)).
-- **Bridge.** [search/bridge.json](search/bridge.json) is a hand-written table of about 640 modern words and phrases, each mapped to words the books do use: "stressed" → troubled, burden, weary; "laid off" → idle, wages, poverty, bread. Words that mean something else in scripture ("job", "kids", "tired") are searched only through their bridge words. Words with a common innocent sense ("passed", "high", "moved", "down") fire only as phrases ("passed away", "got high"). The tests check that every target occurs in the books.
-- **BM25.** Scores how many of the query's words a verse contains, giving rare words more weight. It is computed inside each book, so each book returns its own top verses and the 31,102-verse Bible cannot crowd out the 701-verse Gita. **This is what the site uses** (see below).
-- **Word vectors.** Trained on the three books by counting which words appear near each other (PPMI) and compressing the table with a truncated SVD. A verse vector is a weighted average of its word vectors. The vectors power "similar verses" across books and the optional hybrid ranking.
+- **Chosen.** Three curators read the books by theme and picked 1,054 verses (109 / 277 / 668), each with one or more of 40 themes (grief, money_worry, overwork_rest, ...), a one-line plain-English note on why it may help, and a flag for verses gentle enough for any reader.
+- **Reviewed.** An independent reviewer then read every verse as the people most likely to be hurt by a wrong one (someone bereaved, suicidal, abused by a partner or parent, gay or trans, after a pregnancy loss, disabled, facing racism, of another faith or none). That removed 64 verses, dropped themes from 106, took 108 out of the sensitive pool, rewrote 24 notes and asked for display fixes on 371 verses (Psalm headings, a leading "And" or "Therefore", "Selah", bracketed glosses). A second pass re-read every verse under forgiveness, patience, suffering_endurance, marriage, family_parents, betrayal and anger as someone being harmed at home, and every money_worry verse as someone being evicted, and checked every note against the verse text in our translation (no wording from other translations, no added promises). The owner then dropped two themes entirely (mortality, laziness_discipline). Every decision is recorded in [search/pool/](search/pool/) (`REVIEW.md` and the review files) and applied by `search/apply_review.py`.
+- **A book offers a theme only if it has at least three verses for it.** So the Gita offers nothing for grief, money worries, family, illness, marriage, injustice, betrayal or parenting, and the Quran nothing for marriage, betrayal or patience; for such a query that book says it has nothing fitting.
 
-The artefacts total 7.55 MB. [search/FORMAT.md](search/FORMAT.md) describes them well enough to port the scorer, and `search/artifacts/fixtures.json` holds 30 queries with their expected results to test a port.
+### How a query is answered
+
+Details in [scripture/search.py](scripture/search.py) (plain Python, no dependencies) and [search/FORMAT.md](search/FORMAT.md).
+
+1. **Safety first** ([search/safety.json](search/safety.json), hand-written).
+   - **Crisis** (suicide, self-harm, abuse, threats of violence): no verses at all; the site shows a short kind note. Matching tolerates missing apostrophes and one-letter typos in key words, and everyday idioms ("killing it at work", "cut back on sugar", "my brother beat me at chess") are blanked first so they do not trigger it.
+   - **Sensitive** (sexual orientation, gender identity, pregnancy and pregnancy loss, disability, race, religion or none, caste, eating and body image): only verses from a short hand-picked list ([search/pool/sensitive_set.json](search/pool/sensitive_set.json): 6 Gita, 19 Quran, 23 Bible verses about dignity, being known, not being forsaken and comfort), ranked by the same scorer with the topic's gentle themes added, so results still depend on what was written.
+2. **Themes.** About 1,300 hand-written modern phrases ([search/themes.json](search/themes.json)) spot the query's themes: "passed away" → grief, "70 hour weeks" → overwork_rest. A longer phrase hides shorter ones inside it, so "lost my job" is not read as a bereavement. Some themes carry a short note shown with the results ("If someone is hurting you, your safety comes first.").
+3. **Words.** Query words are reduced to base forms found in the pool ("drinking" → "drink"); a hand-written bridge ([search/bridge.json](search/bridge.json), 641 entries) adds scripture words for modern ones ("stressed" → troubled, burden, weary).
+4. **Score.** For each pool verse: the sum of the query's theme scores over the verse's themes, plus 0.2 × BM25 of the query words against the verse text, its note and its theme names. If the query has themes, a verse must share one. A book whose best verse scores below 0.3 shows nothing rather than a weak match; if no book shows anything, the site offers the themes as chips.
+
+**From scratch:** the word normaliser, BM25 ranking, and the word vectors (PPMI + SVD trained on the three books) used for similarities. **Hand-written:** the pool and its notes, the themes and their phrases, the bridge, and the crisis and sensitive lists. No pre-trained models, outside word lists or APIs.
+
+The site loads 787 kB ([search/FORMAT.md](search/FORMAT.md) describes every field and walks through the scorer step by step); `search/artifacts/fixtures.json` holds expected outputs to test a port.
 
 ### Benchmark
 
-[evals/search_cases.json](evals/search_cases.json) has 90 everyday situations ("my dad has cancer", "I can't forgive my brother"), each with hand-picked verses that fit, per book: 50 in "dev" and "dev2", and 40 in `blind_test`.
+[evals/search_cases.json](evals/search_cases.json) has 90 everyday situations, each with verses that fit, hand-picked from the whole corpus before the pool existed, and the themes a good answer should match.
 
-**Only the blind test is a held-out result.** I saw the dev and dev2 sets while writing the bridge and choosing the settings. The 17 "dev2" situations were first meant as a test set, but the bridge was written after those queries existed and covers many of their exact phrases.
+**History, honestly.** The first design searched all 38,039 verses. Its first reported number (hit@10 0.57) was contaminated: the bridge had been written with those queries in view. A reviewer then wrote 40 blind situations; there the full-corpus design scored hit@10 0.43, and when a person judged the verses it actually showed, only 14% fitted (59% were plainly wrong, some harmful). That is why the design changed to a reviewed pool. All three case sets (dev, dev2, and the former blind test, now dev3) have since been seen while building the pool design, so **every number below is a development number**. A new blind set (`final_blind`, empty for now) will be written by someone else after the scorer is frozen, and the verses shown for it will be judged by hand; that precision will be the number to quote.
 
-Each number is the share of situation–book pairs whose hand-picked answer key has a verse in that book's top 10 (hit@10) or top 3, or the mean of 1 / rank of the first such verse (MRR). The 95% intervals come from a bootstrap that resamples whole situations. Blocklisted verses are never returned, as on the site, so blocklisted verses were taken out of the answer keys (62 in dev and dev2, 21 in the blind test).
+Metrics: hit@3 = is one of the three verses shown for a book in its answer key (only key verses inside the pool count; 1,451 of 2,810 key verses are outside it, and a book with no key verse in the pool is skipped); theme accuracy = is the query's top theme one of the hand-labelled ones; empty-book rate = how often a book shows nothing. Intervals are 95% bootstraps over cases.
 
-Blind test (40 situations, 113 pairs). The situations and their answer keys were written by an independent reviewer, not the author, who had not seen the bridge, the lexicon, the safety lists or the dev cases, and the bridge was not changed afterwards:
-
-| Method | Gita hit@10 | Quran hit@10 | Bible hit@10 | All hit@3 | All hit@10 (95% CI) | All MRR (95% CI) |
+| Cases | Gita hit@3 | Quran hit@3 | Bible hit@3 | All hit@3 (95% CI) | Theme accuracy | Empty-book rate |
 |---|---|---|---|---|---|---|
-| Random order | 0.09 | 0.02 | 0.01 | 0.01 | 0.03 (0.03–0.04) | 0.02 (0.02–0.02) |
-| BM25, no bridge | 0.21 | 0.10 | 0.08 | 0.04 | 0.12 (0.06–0.20) | 0.04 (0.02–0.06) |
-| **BM25 + bridge (used on the site)** | 0.45 | 0.33 | 0.53 | 0.23 | 0.43 (0.34–0.52) | 0.23 (0.16–0.30) |
-| Vectors, no bridge | 0.30 | 0.05 | 0.15 | 0.04 | 0.16 (0.08–0.25) | 0.05 (0.03–0.08) |
-| Vectors + bridge | 0.45 | 0.35 | 0.38 | 0.23 | 0.39 (0.28–0.50) | 0.20 (0.14–0.26) |
-| Hybrid (BM25 + vectors) | 0.64 | 0.35 | 0.53 | 0.28 | 0.50 (0.40–0.60) | 0.25 (0.18–0.31) |
+| dev (33) | 0.71 | 0.70 | 0.78 | 0.73 (0.61–0.84) | 0.91 | 0.08 |
+| dev2 (17) | 0.53 | 0.69 | 0.71 | 0.65 (0.49–0.81) | 0.88 | 0.06 |
+| dev3 (40, formerly blind) | 0.58 | 0.54 | 0.73 | 0.62 (0.50–0.73) | 0.98 | 0.10 |
 
-Dev (33 situations, 95 pairs):
+What each part adds (all 90 cases):
 
-| Method | Gita hit@10 | Quran hit@10 | Bible hit@10 | All hit@3 | All hit@10 (95% CI) | All MRR (95% CI) |
-|---|---|---|---|---|---|---|
-| Random order | 0.13 | 0.02 | 0.01 | 0.02 | 0.05 (0.04–0.06) | 0.03 (0.02–0.03) |
-| BM25, no bridge | 0.28 | 0.18 | 0.24 | 0.15 | 0.23 (0.14–0.33) | 0.13 (0.08–0.19) |
-| **BM25 + bridge (used on the site)** | 0.62 | 0.64 | 0.67 | 0.47 | 0.64 (0.54–0.74) | 0.36 (0.29–0.44) |
-| Vectors, no bridge | 0.38 | 0.15 | 0.21 | 0.13 | 0.24 (0.14–0.35) | 0.13 (0.07–0.20) |
-| Vectors + bridge | 0.55 | 0.52 | 0.67 | 0.34 | 0.58 (0.46–0.69) | 0.33 (0.25–0.41) |
-| Hybrid (BM25 + vectors) | 0.72 | 0.61 | 0.70 | 0.43 | 0.67 (0.57–0.77) | 0.37 (0.29–0.45) |
+| Scorer | hit@3 (95% CI) | Empty-book rate |
+|---|---|---|
+| BM25 on the verse text only | 0.18 (0.12–0.24) | 0.25 |
+| + bridge | 0.46 (0.39–0.52) | 0.03 |
+| + notes and theme names in the document | 0.55 (0.48–0.61) | 0.02 |
+| **+ theme matching (used)** | **0.67 (0.59–0.74)** | 0.09 |
 
-Dev2 (17 situations, 51 pairs; formerly called "test", not held out):
+The weights (0.2 for BM25, 0.3 threshold, 0.8 for bridge words) were chosen on these cases; nearby values change hit@3 by about ±0.02, within the noise. Word vectors were not added to the advice scorer: they are not needed to rank within a small, hand-themed pool, and leaving them out keeps the site's download small.
 
-| Method | Gita hit@10 | Quran hit@10 | Bible hit@10 | All hit@3 | All hit@10 (95% CI) | All MRR (95% CI) |
-|---|---|---|---|---|---|---|
-| Random order | 0.12 | 0.02 | 0.01 | 0.01 | 0.05 (0.04–0.05) | 0.02 (0.02–0.03) |
-| BM25, no bridge | 0.24 | 0.18 | 0.06 | 0.08 | 0.16 (0.06–0.29) | 0.06 (0.02–0.11) |
-| **BM25 + bridge (used on the site)** | 0.71 | 0.65 | 0.47 | 0.29 | 0.61 (0.45–0.77) | 0.28 (0.18–0.37) |
-| Vectors, no bridge | 0.47 | 0.12 | 0.12 | 0.10 | 0.24 (0.12–0.35) | 0.08 (0.03–0.14) |
-| Vectors + bridge | 0.59 | 0.41 | 0.65 | 0.37 | 0.55 (0.39–0.71) | 0.34 (0.23–0.47) |
-| Hybrid (BM25 + vectors) | 0.65 | 0.53 | 0.65 | 0.37 | 0.61 (0.45–0.78) | 0.36 (0.23–0.49) |
-
-What this says:
-
-- **On unseen situations the site finds a fitting verse in the top 10 for 43% of pairs, not about 60%.** The drop from dev (0.64) to the blind test (0.43) is what to expect when the bridge was written with the dev queries in view (the blind answer keys also come from a different person); the blind number is the one to quote.
-- **The hand-written bridge is what makes modern questions work.** Without it, a fitting verse is in the top 10 only 16–24% of the time; with it, about 60%.
-- **The site uses BM25 + bridge, not the hybrid.** Over all 50 dev situations, the hybrid minus BM25 + bridge is +0.021 hit@10 (95% interval -0.034 to +0.077) and +0.033 MRR (-0.019 to +0.079). That is no measurable gain, so the simpler method is used. (In the first version of this PR, the hybrid was even the worst of the three bridged methods on dev2 hit@10; now it ties BM25 + bridge there.)
-- **Vectors alone are the weakest bridged method.** The hybrid beats vectors + bridge by +0.082 hit@10 (+0.028 to +0.144).
-- **The answer keys are incomplete,** so these numbers are a lower bound: several unlisted top hits still fit.
-- **It matches topics, not advice.** "I can't stop drinking" finds verses about wine, not about breaking a habit. Situations about feelings with no word in the books (purpose, burnout) are the weakest.
+**Crisis detection** was tested on phrasings written after the lists were frozen: the first held-out round of 60 caught 28 (47%) and the second of 40 caught 21 (53%), with no false alarms on 100 innocent idioms. Both rounds were then added to the lists and to the tests. Phrase lists generalise poorly to new wording; because the pool holds only gentle verses, a missed crisis message gets gentle verses rather than harmful ones, but it does not get the kind note.
 
 ### Similarities
 
-[search/artifacts/similarities.json](search/artifacts/similarities.json) shows 85 parallels in 7 themes, **chosen by a person, not by the model alone**:
+[search/artifacts/similarities.json](search/artifacts/similarities.json) shows 66 parallels in 7 themes, **chosen by a person, not by the model alone**:
 
-- **Model, reviewed (43).** The model proposed 267 candidate pairs (each verse's closest verse in another book). I read every one and kept 43 (16%) that are real parallels in story or teaching, each with a one-line note on the shared idea. The other 84% shared words or images but not an idea. Every decision is in [search/similarities_review.json](search/similarities_review.json).
-- **Hand-listed (42).** The rest come from the hand-listed parallels below; 19 of those were left out because a verse is on the blocklist or the pair was already there.
+- **Model, reviewed (33).** The model proposed 267 candidate pairs (each verse's closest verse in another book, by word vectors and shared words). A person read every one and kept 33 (12%) real parallels in story or teaching, each with a one-line note. The rest shared words or images but not an idea; that low rate is itself a measure of the model.
+- **Hand-listed (33)** from [evals/search_parallels.json](evals/search_parallels.json); 28 were left out.
+- Pairs with threatening or theologically contentious verses were left out (for example Isaac and the unnamed son of Abraham, Christ and Allah paired as the same God, the camel and the needle in its Quran setting), notes that misstated a verse were corrected, and each verse appears in at most one pair. Every decision is in [search/similarities_review.json](search/similarities_review.json).
 
-The 16% kept rate is itself a measure: on its own, the model's nearest-verse search mostly finds surface coincidences.
+For each anchor of the 61 known parallels (122 lookups, whole corpus), how often is the partner among the 10 closest verses of the other book?
 
-[evals/search_parallels.json](evals/search_parallels.json) lists 61 known parallels: 32 shared Bible–Quran stories (Joseph's dream, Moses' staff, Noah's ark, the annunciation to Mary) and 29 shared teachings, including thematic Gita parallels (the soul is not slain; offer every act to God). For each anchor verse, how often is the parallel among the 10 closest verses of the other book? (This measures the model, so blocklisted verses are allowed here.)
-
-| Similarity | All (122 lookups) | Stories | Teachings |
+| Similarity | All | Stories | Teachings |
 |---|---|---|---|
 | TF-IDF only | 0.37 | 0.48 | 0.24 |
 | Vectors only | 0.47 | 0.53 | 0.40 |
 | Mix (used) | 0.48 | 0.56 | 0.38 |
-
-Word vectors were also trained with skip-gram and negative sampling (`python search/build.py --method sgns`). On the dev set it was worse (vectors-only hit@10 0.44 against 0.60 for PPMI + SVD, in an earlier round) and took minutes instead of seconds to train, so PPMI + SVD is used.

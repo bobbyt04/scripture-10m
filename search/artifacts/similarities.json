@@ -1,157 +1,16 @@
 {
- "about": "Parallels between the books, chosen by a person. Two sources: (1) 'model, reviewed': the search model proposed candidate pairs (each verse's closest verse in another book); a person read every candidate and kept only real parallels in story or teaching, wrote the one-line note and chose the theme; (2) 'hand-listed': the known parallels of evals/search_parallels.json (anchor verses), left out if a verse is on the blocklist. 'score' is the model's similarity for the pair.",
+ "about": "Parallels between the books, chosen by a person. Two sources: (1) 'model, reviewed': the search model proposed candidate pairs (each verse's closest verse in another book); a person read every candidate and kept only real parallels in story or teaching, wrote the one-line note and chose the theme; (2) 'hand-listed': known parallels from evals/search_parallels.json, each read and kept or left out. Pairs with threatening or theologically contentious verses are left out, and each verse is in at most one pair. 'score' is the model's similarity for the pair.",
  "candidates_proposed": 267,
- "kept": 43,
- "kept_fraction": 0.161,
+ "kept": 33,
+ "kept_fraction": 0.124,
  "kept_per_book_pair": {
-  "bible-gita": 8,
-  "bible-quran": 29,
-  "gita-quran": 6
+  "bible-gita": 7,
+  "bible-quran": 21,
+  "gita-quran": 5
  },
- "hand_listed_added": 42,
- "hand_listed_skipped": 19,
+ "hand_listed_kept": 33,
+ "hand_listed_left_out": 28,
  "themes": [
-  {
-   "name": "Creation and nature",
-   "pairs": [
-    {
-     "idea": "Adam was created by God; the Quran compares the creation of Jesus to that of Adam.",
-     "score": 0.741,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Genesis 5:1",
-       "text": "This is the book of the generations of Adam. In the day that God created man, in the likeness of God made he him;"
-      },
-      {
-       "book": "quran",
-       "ref": "3:59",
-       "text": "Lo! the likeness of Jesus with Allah is as the likeness of Adam. He created him of dust, then He said unto him: Be! and he is."
-      }
-     ]
-    },
-    {
-     "idea": "God gives or withholds children; no one is barren except by his will.",
-     "score": 0.671,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Deuteronomy 7:14",
-       "text": "Thou shalt be blessed above all people: there shall not be male or female barren among you, or among your cattle."
-      },
-      {
-       "book": "quran",
-       "ref": "42:50",
-       "text": "Or He mingleth them, males and females, and He maketh barren whom He will. Lo! He is Knower, Powerful."
-      }
-     ]
-    },
-    {
-     "idea": "God made every kind of animal, each after its kind.",
-     "score": 0.666,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Genesis 1:25",
-       "text": "And God made the beast of the earth after his kind, and cattle after their kind, and every thing that creepeth upon the earth after his kind: and God saw that it was good."
-      },
-      {
-       "book": "quran",
-       "ref": "24:45",
-       "text": "Allah hath created every animal of water. Of them is (a kind) that goeth upon its belly and (a kind) that goeth upon two legs and (a kind) that goeth upon four. Allah createth what He will. Lo! Allah is Able to do all things."
-      }
-     ]
-    },
-    {
-     "idea": "God stills the wind and calms the sea.",
-     "score": 0.588,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Mark 4:39",
-       "text": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm."
-      },
-      {
-       "book": "quran",
-       "ref": "42:33",
-       "text": "If He will He calmeth the wind so that they keep still upon its surface - Lo! herein verily are signs for every steadfast grateful (heart)-"
-      }
-     ]
-    },
-    {
-     "idea": "God made, and knows, both the visible and the invisible.",
-     "score": 0.582,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Colossians 1:16",
-       "text": "For by him were all things created, that are in heaven, and that are in earth, visible and invisible, whether they be thrones, or dominions, or principalities, or powers: all things were created by him, and for him:"
-      },
-      {
-       "book": "quran",
-       "ref": "13:9",
-       "text": "He is the Knower of the Invisible and the Visible, the Great, the High Exalted."
-      }
-     ]
-    },
-    {
-     "idea": "The Garden of Eden, watered by rivers.",
-     "score": 0.574,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Genesis 2:10",
-       "text": "And a river went out of Eden to water the garden; and from thence it was parted, and became into four heads."
-      },
-      {
-       "book": "quran",
-       "ref": "20:76",
-       "text": "Gardens of Eden underneath which rivers flow, wherein they will abide for ever. That is the reward of him who groweth."
-      }
-     ]
-    },
-    {
-     "idea": "God created human beings male and female.",
-     "score": 0.545,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Genesis 5:2",
-       "text": "Male and female created he them; and blessed them, and called their name Adam, in the day when they were created."
-      },
-      {
-       "book": "quran",
-       "ref": "35:11",
-       "text": "Allah created you from dust, then from a little fluid, then He made you pairs (the male and female). No female beareth or bringeth forth save with His knowledge. And no-one groweth old who groweth old, nor is aught lessened of his life, but it is recorded in a Book, Lo! that is easy for Allah."
-      }
-     ]
-    },
-    {
-     "idea": "The splendour of the sun and the light of the moon come from God.",
-     "score": 0.519,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "quran",
-       "ref": "10:5",
-       "text": "He it is Who appointed the sun a splendour and the moon a light, and measured for her stages, that ye might know the number of the years, and the reckoning. Allah created not (all) that save in truth. He detaileth the revelations for people who have knowledge."
-      },
-      {
-       "book": "gita",
-       "ref": "15:12",
-       "text": "That splendour issuing from the sun that enlighteneth the whole world, that which is in the moon and in fire, that splendour know as from Me."
-      }
-     ]
-    }
-   ]
-  },
   {
    "name": "Prophets and their stories",
    "pairs": [
@@ -224,23 +83,6 @@
      ]
     },
     {
-     "idea": "Gog and Magog appear in both books.",
-     "score": 0.582,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Ezekiel 38:2",
-       "text": "Son of man, set thy face against Gog, the land of Magog, the chief prince of Meshech and Tubal, and prophesy against him,"
-      },
-      {
-       "book": "quran",
-       "ref": "18:97",
-       "text": "And (Gog and Magog) were not able to surmount, nor could they pierce (it)."
-      }
-     ]
-    },
-    {
      "idea": "Jonah swallowed by the fish.",
      "score": 0.534,
      "source": "hand-listed",
@@ -275,7 +117,7 @@
      ]
     },
     {
-     "idea": "Moses waters the flock of two women at Midian.",
+     "idea": "The daughters of the priest of Midian come to water their father's flock, and Moses helps them (seven daughters in Exodus, two women in the Quran).",
      "score": 0.499,
      "source": "hand-listed",
      "verses": [
@@ -356,23 +198,6 @@
        "book": "quran",
        "ref": "19:7",
        "text": "(It was said unto him): O Zachariah! Lo! We bring thee tidings of a son whose name is John; we have given the same name to none before (him)."
-      }
-     ]
-    },
-    {
-     "idea": "The king's dream of seven fat and seven lean kine.",
-     "score": 0.371,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Genesis 41:2",
-       "text": "And, behold, there came up out of the river seven well favoured kine and fatfleshed; and they fed in a meadow."
-      },
-      {
-       "book": "quran",
-       "ref": "12:43",
-       "text": "And the king said: Lo! I saw in a dream seven fat kine which seven lean were eating, and seven green ears of corn and other (seven) dry. O notables! Expound for me my vision, if ye can interpret dreams."
       }
      ]
     },
@@ -513,23 +338,6 @@
      ]
     },
     {
-     "idea": "Abraham is told to sacrifice his son.",
-     "score": 0.156,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Genesis 22:2",
-       "text": "And he said, Take now thy son, thine only son Isaac, whom thou lovest, and get thee into the land of Moriah; and offer him there for a burnt offering upon one of the mountains which I will tell thee of."
-      },
-      {
-       "book": "quran",
-       "ref": "37:102",
-       "text": "And when (his son) was old enough to walk with him, (Abraham) said: O my dear son, I have seen in a dream that I must sacrifice thee. So look, what thinkest thou? He said: O my father! Do that which thou art commanded. Allah willing, thou shalt find me of the steadfast."
-      }
-     ]
-    },
-    {
      "idea": "The Queen of Sheba visits Solomon.",
      "score": 0.11,
      "source": "hand-listed",
@@ -566,10 +374,100 @@
    ]
   },
   {
+   "name": "Creation and nature",
+   "pairs": [
+    {
+     "idea": "God made every kind of animal, each after its kind.",
+     "score": 0.666,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 1:25",
+       "text": "And God made the beast of the earth after his kind, and cattle after their kind, and every thing that creepeth upon the earth after his kind: and God saw that it was good."
+      },
+      {
+       "book": "quran",
+       "ref": "24:45",
+       "text": "Allah hath created every animal of water. Of them is (a kind) that goeth upon its belly and (a kind) that goeth upon two legs and (a kind) that goeth upon four. Allah createth what He will. Lo! Allah is Able to do all things."
+      }
+     ]
+    },
+    {
+     "idea": "Calming the wind and the sea: in Mark Jesus stills a storm; the Quran says God can calm the wind so ships lie still.",
+     "score": 0.588,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Mark 4:39",
+       "text": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm."
+      },
+      {
+       "book": "quran",
+       "ref": "42:33",
+       "text": "If He will He calmeth the wind so that they keep still upon its surface - Lo! herein verily are signs for every steadfast grateful (heart)-"
+      }
+     ]
+    },
+    {
+     "idea": "A garden of Eden with flowing rivers: the first garden in Genesis, the gardens of the life to come in the Quran.",
+     "score": 0.574,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 2:10",
+       "text": "And a river went out of Eden to water the garden; and from thence it was parted, and became into four heads."
+      },
+      {
+       "book": "quran",
+       "ref": "20:76",
+       "text": "Gardens of Eden underneath which rivers flow, wherein they will abide for ever. That is the reward of him who groweth."
+      }
+     ]
+    },
+    {
+     "idea": "God created human beings male and female.",
+     "score": 0.545,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 5:2",
+       "text": "Male and female created he them; and blessed them, and called their name Adam, in the day when they were created."
+      },
+      {
+       "book": "quran",
+       "ref": "35:11",
+       "text": "Allah created you from dust, then from a little fluid, then He made you pairs (the male and female). No female beareth or bringeth forth save with His knowledge. And no-one groweth old who groweth old, nor is aught lessened of his life, but it is recorded in a Book, Lo! that is easy for Allah."
+      }
+     ]
+    },
+    {
+     "idea": "The splendour of the sun and the light of the moon come from God.",
+     "score": 0.519,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "quran",
+       "ref": "10:5",
+       "text": "He it is Who appointed the sun a splendour and the moon a light, and measured for her stages, that ye might know the number of the years, and the reckoning. Allah created not (all) that save in truth. He detaileth the revelations for people who have knowledge."
+      },
+      {
+       "book": "gita",
+       "ref": "15:12",
+       "text": "That splendour issuing from the sun that enlighteneth the whole world, that which is in the moon and in fire, that splendour know as from Me."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "name": "Worship and devotion",
    "pairs": [
     {
-     "idea": "Remembering God's marvellous works fills the heart with joy.",
+     "idea": "Remembering God's marvellous works and wonders.",
      "score": 0.713,
      "source": "model, reviewed",
      "verses": [
@@ -722,40 +620,6 @@
      ]
     },
     {
-     "idea": "God wants a contrite heart, not sacrifice.",
-     "score": 0.297,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "gita",
-       "ref": "9:26",
-       "text": "He who offereth to Me with devotion a leaf, a flower, a fruit, water, that I accept from the striving self, offered as it is with devotion."
-      },
-      {
-       "book": "bible",
-       "ref": "Psalms 51:16",
-       "text": "For thou desirest not sacrifice; else would I give it: thou delightest not in burnt offering."
-      }
-     ]
-    },
-    {
-     "idea": "My worship, my living and my dying are for God.",
-     "score": 0.233,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "gita",
-       "ref": "9:27",
-       "text": "Whatsoever thou doest, whatsoever thou eatest, whatsoever thou offerest, whatsoever thou givest, whatsoever thou doest of austerity, O Kaunteya, do thou that as an offering unto Me."
-      },
-      {
-       "book": "quran",
-       "ref": "6:162",
-       "text": "Say: Lo! my worship and my sacrifice and my living and my dying are for Allah, Lord of the Worlds."
-      }
-     ]
-    },
-    {
      "idea": "Whatever you eat or do, offer it to God.",
      "score": 0.126,
      "source": "hand-listed",
@@ -795,7 +659,7 @@
      ]
     },
     {
-     "idea": "What God gives is better than trade and profit.",
+     "idea": "Something better than trade and profit: wisdom, in Proverbs; what God gives, in the Quran.",
      "score": 0.573,
      "source": "model, reviewed",
      "verses": [
@@ -808,23 +672,6 @@
        "book": "quran",
        "ref": "62:11",
        "text": "But when they spy some merchandise or pastime they break away to it and leave thee standing. Say: That which Allah hath is better than pastime and than merchandise, and Allah is the Best of providers."
-      }
-     ]
-    },
-    {
-     "idea": "A grain of mustard seed, the smallest of things, as an image of what God does not overlook.",
-     "score": 0.57,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Mark 4:31",
-       "text": "It is like a grain of mustard seed, which, when it is sown in the earth, is less than all the seeds that be in the earth:"
-      },
-      {
-       "book": "quran",
-       "ref": "31:16",
-       "text": "O my dear son! Lo! though it be but the weight of a grain of mustard-seed, and though it be in a rock, or in the heavens, or in the earth, Allah will bring it forth. Lo! Allah is Subtile, Aware."
       }
      ]
     },
@@ -885,23 +732,6 @@
    "name": "God's knowledge and care",
    "pairs": [
     {
-     "idea": "God enlarges and narrows what people have, as he wills.",
-     "score": 0.575,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Job 12:23",
-       "text": "He increaseth the nations, and destroyeth them: he enlargeth the nations, and straiteneth them again."
-      },
-      {
-       "book": "quran",
-       "ref": "39:52",
-       "text": "Know they not that Allah enlargeth providence for whom He will, and straiteneth it (for whom He will). Lo! herein verily are portents for people who believe."
-      }
-     ]
-    },
-    {
      "idea": "God is near to those who come to him with a contrite heart.",
      "score": 0.564,
      "source": "model, reviewed",
@@ -936,24 +766,7 @@
      ]
     },
     {
-     "idea": "God reveals his hidden things only to the messengers he chooses.",
-     "score": 0.531,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Amos 3:7",
-       "text": "Surely the Lord GOD will do nothing, but he revealeth his secret unto his servants the prophets."
-      },
-      {
-       "book": "quran",
-       "ref": "72:26",
-       "text": "(He is) the Knower of the Unseen, and He revealeth unto none His secret,"
-      }
-     ]
-    },
-    {
-     "idea": "Greater than everything within a person is God, who dwells in them.",
+     "idea": "Something greater dwells within a person: God in the believer, says 1 John; the Self beyond mind and reason, says the Gita.",
      "score": 0.523,
      "source": "model, reviewed",
      "verses": [
@@ -983,23 +796,6 @@
        "book": "quran",
        "ref": "14:38",
        "text": "Our Lord! Lo! Thou knowest that which we hide and that which we proclaim. Nothing in the earth or in the heaven is hidden from Allah."
-      }
-     ]
-    },
-    {
-     "idea": "God is the beginning, middle and end.",
-     "score": 0.334,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "gita",
-       "ref": "10:20",
-       "text": "I, O Gudakesha, am the Self, seated in the heart of all beings; I am the beginning, the middle, and also the end of all beings."
-      },
-      {
-       "book": "bible",
-       "ref": "Revelation 1:8",
-       "text": "I am Alpha and Omega, the beginning and the ending, saith the Lord, which is, and which was, and which is to come, the Almighty."
       }
      ]
     },
@@ -1034,40 +830,6 @@
        "book": "quran",
        "ref": "39:53",
        "text": "Say: O My slaves who have been prodigal to their own hurt! Despair not of the mercy of Allah, Who forgiveth all sins. Lo! He is the Forgiving, the Merciful."
-      }
-     ]
-    },
-    {
-     "idea": "God as the first and the last.",
-     "score": 0.102,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Revelation 1:8",
-       "text": "I am Alpha and Omega, the beginning and the ending, saith the Lord, which is, and which was, and which is to come, the Almighty."
-      },
-      {
-       "book": "quran",
-       "ref": "57:3",
-       "text": "He is the First and the Last, and the Outward and the Inward; and He is Knower of all things."
-      }
-     ]
-    },
-    {
-     "idea": "God is the first and the last.",
-     "score": 0.091,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "gita",
-       "ref": "10:20",
-       "text": "I, O Gudakesha, am the Self, seated in the heart of all beings; I am the beginning, the middle, and also the end of all beings."
-      },
-      {
-       "book": "quran",
-       "ref": "57:3",
-       "text": "He is the First and the Last, and the Outward and the Inward; and He is Knower of all things."
       }
      ]
     },
@@ -1141,23 +903,6 @@
        "book": "quran",
        "ref": "50:11",
        "text": "Provision (made) for men; and therewith We quicken a dead land. Even so will be the resurrection of the dead."
-      }
-     ]
-    },
-    {
-     "idea": "A great gulf is fixed between the lost and what they long for.",
-     "score": 0.53,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Luke 16:26",
-       "text": "And beside all this, between us and you there is a great gulf fixed: so that they which would pass from hence to you cannot; neither can they pass to us, that would come from thence."
-      },
-      {
-       "book": "quran",
-       "ref": "34:54",
-       "text": "And a gulf is set between them and that which they desire, as was done for people of their kind of old. Lo! they were in hopeless doubt."
       }
      ]
     },
@@ -1286,40 +1031,6 @@
    "name": "Humility, giving and self-control",
    "pairs": [
     {
-     "idea": "A camel through the eye of a needle.",
-     "score": 0.496,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Matthew 19:24",
-       "text": "And again I say unto you, It is easier for a camel to go through the eye of a needle, than for a rich man to enter into the kingdom of God."
-      },
-      {
-       "book": "quran",
-       "ref": "7:40",
-       "text": "Lo! they who deny Our revelations and scorn them, for them the gates of heaven will nor be opened not will they enter the Garden until the camel goeth through the needle's eye. Thus do We requite the guilty."
-      }
-     ]
-    },
-    {
-     "idea": "Give alms rightly, and the gift is made pure.",
-     "score": 0.491,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Luke 11:41",
-       "text": "But rather give alms of such things as ye have; and, behold, all things are clean unto you."
-      },
-      {
-       "book": "gita",
-       "ref": "17:20",
-       "text": "That alms given to one who does nothing in return, believing that a gift ought to be made in a fit place and time to a worthy person, that alms is accounted pure."
-      }
-     ]
-    },
-    {
      "idea": "Take the lower place at a gathering; you will be asked to go up higher.",
      "score": 0.485,
      "source": "model, reviewed",
@@ -1354,23 +1065,6 @@
      ]
     },
     {
-     "idea": "Restraining the self from desire leads to God.",
-     "score": 0.42,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "quran",
-       "ref": "79:40",
-       "text": "But as for him who feared to stand before his Lord and restrained his soul from lust,"
-      },
-      {
-       "book": "gita",
-       "ref": "12:4",
-       "text": "Restraining and subduing the senses, regarding everything equally, in the welfare of all rejoicing, these also come unto Me."
-      }
-     ]
-    },
-    {
      "idea": "The pride of thinking one's wealth is self-made.",
      "score": 0.405,
      "source": "model, reviewed",
@@ -1401,23 +1095,6 @@
        "book": "quran",
        "ref": "79:40",
        "text": "But as for him who feared to stand before his Lord and restrained his soul from lust,"
-      }
-     ]
-    },
-    {
-     "idea": "Give without expecting anything in return.",
-     "score": 0.194,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "gita",
-       "ref": "17:20",
-       "text": "That alms given to one who does nothing in return, believing that a gift ought to be made in a fit place and time to a worthy person, that alms is accounted pure."
-      },
-      {
-       "book": "bible",
-       "ref": "Luke 6:35",
-       "text": "But love ye your enemies, and do good, and lend, hoping for nothing again; and your reward shall be great, and ye shall be the children of the Highest: for he is kind unto the unthankful and to the evil."
       }
      ]
     },

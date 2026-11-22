@@ -1,0 +1,306 @@
+{
+ "gita": [
+  {
+   "ref": "3:20",
+   "action": "display",
+   "fixes": [
+    [
+     "of he world",
+     "of the world"
+    ]
+   ],
+   "reason": "Typo in the source text ('of he world'); shown as 'of the world'. data/processed is unchanged."
+  },
+  {
+   "ref": "11:44",
+   "action": "display",
+   "fixes": [
+    [
+     "worship as it fitting",
+     "worship as is fitting"
+    ]
+   ],
+   "reason": "Typo in the source text ('worship as it fitting'); shown as 'worship as is fitting'. data/processed is unchanged."
+  },
+  {
+   "ref": "2:16",
+   "action": "retag",
+   "drop_themes": [
+    "mortality"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "3:4",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "6:35",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "6:36",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "12:9",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "13:28",
+   "action": "retag",
+   "drop_themes": [
+    "mortality"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "18:9",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  }
+ ],
+ "quran": [
+  {
+   "ref": "2:274",
+   "action": "display",
+   "fixes": [
+    [
+     "and their shall no fear",
+     "and there shall no fear"
+    ]
+   ],
+   "reason": "Typo in the source text ('and their shall no fear'); shown as 'and there shall no fear'. data/processed is unchanged."
+  },
+  {
+   "ref": "28:26",
+   "action": "display",
+   "fixes": [
+    [
+     "hire in the strong",
+     "hire is the strong"
+    ]
+   ],
+   "reason": "Typo in the source text ('hire in the strong'); shown as 'hire is the strong'. data/processed is unchanged."
+  },
+  {
+   "ref": "65:3",
+   "action": "display",
+   "trim": "And will provide for him from (a quarter) whence he hath no expectation. And ",
+   "reason": "Opens mid-sentence; start at 'Whosoever putteth his trust in Allah' as the first review suggested."
+  },
+  {
+   "ref": "55:13",
+   "action": "remove",
+   "reason": "A refrain ('that ye deny?') that reads as an accusation on its own."
+  },
+  {
+   "ref": "32:7",
+   "action": "remove",
+   "reason": "A fragment that starts mid-sentence."
+  },
+  {
+   "ref": "13:22",
+   "action": "remove",
+   "reason": "Starts mid-sentence and ends with a comma; the reward clause continues in 13:23."
+  },
+  {
+   "ref": "2:148",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "29:6",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "30:54",
+   "action": "retag",
+   "drop_themes": [
+    "mortality"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "62:10",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  }
+ ],
+ "bible": [
+  {
+   "ref": "Luke 23:34",
+   "action": "display",
+   "trim_end": " And they parted his raiment, and cast lots.",
+   "reason": "Trailing words the first review asked to strip."
+  },
+  {
+   "ref": "Revelation 21:5",
+   "action": "display",
+   "trim_end": " And he said unto me, Write: for these words are true and faithful.",
+   "reason": "Trailing words the first review asked to strip."
+  },
+  {
+   "ref": "2 Corinthians 5:7",
+   "action": "display",
+   "trim_end": ":)",
+   "reason": "Trailing words the first review asked to strip."
+  },
+  {
+   "ref": "Psalms 4:4",
+   "action": "display",
+   "trim_end": " Selah.",
+   "reason": "Trailing words the first review asked to strip."
+  },
+  {
+   "ref": "Psalms 32:5",
+   "action": "display",
+   "trim_end": " Selah.",
+   "reason": "Trailing words the first review asked to strip."
+  },
+  {
+   "ref": "Psalms 62:8",
+   "action": "display",
+   "trim_end": " Selah.",
+   "reason": "Trailing words the first review asked to strip."
+  },
+  {
+   "ref": "Habakkuk 3:19",
+   "action": "display",
+   "trim_end": " To the chief singer on my stringed instruments.",
+   "reason": "Trailing words the first review asked to strip."
+  },
+  {
+   "ref": "1 Thessalonians 4:11",
+   "action": "display",
+   "trim_end": " as we commanded you;",
+   "reason": "Trailing words the first review asked to strip."
+  },
+  {
+   "ref": "1 Corinthians 10:24",
+   "action": "remove",
+   "reason": "'Seek every man another's wealth' reads as coveting to a modern reader."
+  },
+  {
+   "ref": "Ecclesiastes 3:12",
+   "action": "remove",
+   "reason": "'There is no good in them' is opaque on its own."
+  },
+  {
+   "ref": "Lamentations 3:23",
+   "action": "remove",
+   "reason": "'They are new every morning' depends on the verse before for 'they'."
+  },
+  {
+   "ref": "Job 8:21",
+   "action": "remove",
+   "reason": "Bildad's speech, conditional on 8:20; his theology is rebuked in Job."
+  },
+  {
+   "ref": "Psalms 103:3",
+   "action": "remove",
+   "reason": "'Healeth all thy diseases' reads as a healing promise."
+  },
+  {
+   "ref": "Psalms 23:4",
+   "action": "retag",
+   "drop_themes": [
+    "mortality"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "Psalms 71:9",
+   "action": "retag",
+   "drop_themes": [
+    "mortality"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "Psalms 71:18",
+   "action": "retag",
+   "drop_themes": [
+    "mortality"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "Psalms 90:12",
+   "action": "retag",
+   "drop_themes": [
+    "mortality"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "Proverbs 4:13",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "Ecclesiastes 11:4",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "Ecclesiastes 11:6",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "Isaiah 46:4",
+   "action": "retag",
+   "drop_themes": [
+    "mortality"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  },
+  {
+   "ref": "1 Timothy 6:7",
+   "action": "retag",
+   "drop_themes": [
+    "mortality"
+   ],
+   "reason": "Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose)."
+  }
+ ]
+}

@@ -1,64 +1,71 @@
-"""Meaning search over the Gita, the Quran and the Bible, trained from scratch.
+"""Advice search: real verses for an everyday situation, from a hand-reviewed pool.
 
-A visitor types a situation in everyday English ("I got laid off and I'm
-scared about money") and gets real verses from each of the three books.
+A visitor types a situation in modern English ("I got laid off and I'm scared
+about money") and gets verses from the Bhagavad Gita, the Quran and the Bible.
+
+The search can only ever return verses from a hand-curated pool
+(search/pool/*.json). Every pool verse was chosen and read by a person, has
+one or more themes (grief, money_worry, ...) and a one-line note on why it
+may help. A book offers a theme only if it has at least three verses for it.
+Nothing outside the pool can be shown.
 
 How a query is answered:
 
-1. Safety first. Hand-written phrase lists (search/safety.json) sort the
-   query into "crisis" (suicide, self-harm, abuse, violence: no verses are
-   returned, so the site can show help instead), "sensitive" (identity,
-   disability, abortion and the like: only a hand-picked set of gentle verses
-   can be returned) or "general".
-2. Words. The query is split into words. Each word is reduced to a base form
-   that occurs in the scriptures ("loveth", "loved", "loving" -> "love"), and
-   filler words ("the", "thou", "unto") are dropped (search/lexicon.json).
-3. Bridge. Many modern words never occur in old scripture English ("stressed",
-   "girlfriend", "laid off"). A hand-written table, search/bridge.json, maps
-   them to words that do ("troubled", "burden", "weary"). Those words are added
-   to the query with a lower weight.
-4. Scores. BM25 counts how many query words a verse contains, weighting rare
-   words more (computed inside each book). Vector similarity compares the
-   meaning of query and verse using word vectors trained on the three books
-   (search/build.py). The two are mixed.
-5. Results. The top verses of each book are returned separately, so the
-   Bible (31,102 verses) cannot crowd out the Gita (701). Verses on the
-   blocklist (violence, curses, polemic, punishment law and the like) are
-   never returned for a situation. A query with no known words returns nothing.
+1. Safety first (search/safety.json, hand-written).
+   - "crisis" (suicide, self-harm, abuse, threats of violence): no verses at
+     all. The site shows a short kind note instead.
+   - "sensitive" (sexual orientation, gender, pregnancy, disability, race,
+     religion, caste, eating and body image): only verses from a short
+     hand-picked list (search/pool/sensitive_set.json), ranked as usual,
+     with the topic's gentle themes (loneliness, self_worth, ...) added.
+   - otherwise "general".
+2. Themes. Hand-written phrases (search/themes.json) spot the themes of the
+   query: "passed away" -> grief, "burnt out" -> overwork_rest. A longer
+   phrase hides the shorter ones inside it ("lost my job" is not "lost my").
+3. Words. The query words are reduced to base forms found in the pool
+   ("drinking" -> "drink"); a hand-written bridge adds scripture words for
+   modern ones ("stressed" -> troubled, burden, weary).
+4. Score, for each pool verse of each book:
+       theme_weight * (sum of the query's theme scores over the verse's themes)
+     + lex_weight * BM25(query words, verse text + note + theme names)
+   If the query has themes, a verse must share one of them. A book whose
+   best verse scores below min_score returns nothing rather than a weak
+   match. If no book returns anything, the result is no_match (the site
+   then offers the themes as chips: by_theme()).
 
-Everything the scorer needs is in search/artifacts/ (see search/FORMAT.md).
-Run `python -m scripture.search "your situation"` to try it.
+This matches topics; it does not understand situations. Everything it needs
+is in search/artifacts/search.json (see search/FORMAT.md). Plain Python, no
+dependencies: run `python -m scripture.search "your situation"` to try it.
 """
 
-import base64
 import json
+import math
 import re
 import sys
+from array import array
 from pathlib import Path
-
-import torch
 
 BOOKS = ("gita", "quran", "bible")
 ROOT = Path(__file__).resolve().parent.parent
 ARTIFACTS = ROOT / "search" / "artifacts"
 
-# Which scoring pieces each method uses (the benchmark compares them).
-METHODS = {
-    "bm25": dict(lexical=True, vectors=False, bridge=False),
-    "bm25+bridge": dict(lexical=True, vectors=False, bridge=True),
-    "vectors": dict(lexical=False, vectors=True, bridge=True),
-    "vectors-no-bridge": dict(lexical=False, vectors=True, bridge=False),
-    "hybrid": dict(lexical=True, vectors=True, bridge=True),
+# Contractions typed without an apostrophe ("dont", "im"). "wont" and "ill" are left alone: both are real words.
+NO_APOSTROPHE = {
+    "cant": "can not", "dont": "do not", "didnt": "did not", "doesnt": "does not", "isnt": "is not",
+    "wasnt": "was not", "arent": "are not", "werent": "were not", "havent": "have not", "hasnt": "has not",
+    "hadnt": "had not", "couldnt": "could not", "wouldnt": "would not", "shouldnt": "should not",
+    "im": "i", "ive": "i", "youre": "you", "theyre": "they", "thats": "that", "whats": "what",
+    "hes": "he", "shes": "she",
 }
 
 
 def words(text):
-    """Lower-case words, with modern contractions spelled out."""
+    """Lower-case words, with modern contractions spelled out ("can't" -> "can not", "I'm" -> "i")."""
     t = text.lower().replace("’", "'")
     t = re.sub(r"\b(won't|can't|ain't)", lambda m: {"won't": "will not", "can't": "can not", "ain't": "is not"}[m.group(1)], t)
     t = re.sub(r"n't\b", " not", t)
     t = re.sub(r"'(m|re|s|ve|ll|d)\b", " ", t)
-    return re.findall(r"[a-z]+", t)
+    return " ".join(NO_APOSTROPHE.get(w, w) for w in re.findall(r"[a-z]+", t)).split()
 
 
 class Lexicon:
@@ -113,118 +120,128 @@ class Lexicon:
         return word
 
 
-def compile_phrases(phrases):
-    """'he|she hits me' -> [['he', 'she'], ['hits'], ['me']]; a trailing * matches a prefix."""
-    return [[alt.split("|") for alt in p.split()] for p in phrases]
+# ----- phrases -----
+
+def compile_phrase(p):
+    """'he|she hits me' -> [['he', 'she'], ['hits'], ['me']]; a trailing * matches any word with that start."""
+    return [alt.split("|") for alt in p.split()]
 
 
-def phrase_in(tokens, phrase):
+def phrase_starts(tokens, phrase):
+    """Positions where a compiled phrase matches consecutive tokens."""
     def ok(tok, alts):
         return any(tok == a or (a.endswith("*") and tok.startswith(a[:-1])) for a in alts)
     n = len(phrase)
-    return any(all(ok(tokens[i + j], phrase[j]) for j in range(n)) for i in range(len(tokens) - n + 1))
+    return [i for i in range(len(tokens) - n + 1) if all(ok(tokens[i + j], phrase[j]) for j in range(n))]
 
 
-def read_u16(path):
-    """A little-endian uint16 file as int64 (torch has no uint16 reader, so read int16 and unwrap)."""
-    raw = torch.frombuffer(bytearray(Path(path).read_bytes()), dtype=torch.int16)
-    return raw.to(torch.int64) & 0xFFFF
+def one_edit_apart(a, b):
+    """True if b is a with one letter added, removed, changed, or two neighbours swapped."""
+    if a == b or abs(len(a) - len(b)) > 1:
+        return False
+    if len(a) == len(b):
+        diff = [i for i in range(len(a)) if a[i] != b[i]]
+        return len(diff) == 1 or (len(diff) == 2 and diff[1] == diff[0] + 1
+                                  and a[diff[0]] == b[diff[1]] and a[diff[1]] == b[diff[0]])
+    short, long_ = (a, b) if len(a) < len(b) else (b, a)
+    return any(long_[:i] + long_[i + 1:] == short for i in range(len(long_)))
 
 
-def unpack_bits(b64, n):
-    """Bitmask (base64, bit i of byte i // 8, least significant bit first) -> bool tensor of length n."""
-    raw = base64.b64decode(b64)
-    return torch.tensor([(raw[i >> 3] >> (i & 7)) & 1 == 1 for i in range(n)], dtype=torch.bool)
+def round4(x):
+    """Round to 4 decimals, halves away from zero (JavaScript: Math.sign(x) * Math.floor(Math.abs(x) * 1e4 + 0.5) / 1e4)."""
+    return math.copysign(math.floor(abs(x) * 1e4 + 0.5), x) / 1e4
 
+
+# ----- the searcher -----
 
 class Searcher:
-    """Answers queries from the artefacts written by search/build.py."""
+    """Answers queries from search/artifacts/search.json (written by search/build.py)."""
 
-    def __init__(self, model, word_vectors, verse_vectors, verse_terms, verses=None):
-        self.params = model["params"]
+    def __init__(self, model, vectors=None):
+        p = self.params = model["params"]
         self.lex = Lexicon(model["lexicon"])
-        self.terms = model["terms"]
-        self.word_term = dict(zip(model["words"], model["word_term"]))
-        self.known = set(model["words"])
-        self.count = torch.tensor(model["count"], dtype=torch.float32)
-        self.wv = _unit(word_vectors)                    # [terms with vectors, dim]
-        self.principal = torch.tensor(model["principal"])
+        self.vocabulary = model["vocabulary"]            # pool word -> term ("" for a filler word)
         self.bridge = model["bridge"]
         self.replace = set(model["bridge_replace"])
-        self.max_phrase = max(len(k.split()) for k in self.bridge)
-        self.crisis = {t: compile_phrases(p) for t, p in model["safety"]["crisis"].items()}
-        self.sensitive = {t: compile_phrases(p) for t, p in model["safety"]["sensitive"].items()}
-        n_all = sum(len(model["books"][b]["refs"]) for b in BOOKS)
-        blocked = unpack_bits(model["blocked"], n_all)
+        self.max_bridge = max((len(k.split()) for k in self.bridge), default=1)
+        self.theme_info = model["themes"]
+        self.theme_phrases = {t: [compile_phrase(x) for x in d["phrases"]] for t, d in model["themes"].items()}
+        safety = model["safety"]
+        self.fuzzy = safety["fuzzy"]
+        self.idioms = [compile_phrase(x) for x in safety["idioms"]]
+        self.crisis = {t: [compile_phrase(x) for x in ps] for t, ps in safety["crisis"].items()}
+        self.sensitive = {t: [compile_phrase(x) for x in d["phrases"]] for t, d in safety["sensitive"].items()}
+        self.sensitive_themes = {t: d["themes"] for t, d in safety["sensitive"].items()}
         self.books = {}
-        start = 0
+        row = 0
         for book in BOOKS:
-            refs = model["books"][book]["refs"]
-            n = len(refs)
-            terms_b = verse_terms[start:start + n]
-            gentle = model["gentle"][book]
-            prior = torch.zeros(n)
-            for rank, i in enumerate(gentle):            # curated order breaks ties
-                prior[i] = 0.01 * (1 - rank / len(gentle))
-            self.books[book] = {
-                "refs": refs,
-                "index": {r: i for i, r in enumerate(refs)},
-                "text": verses[book] if verses else None,
-                "vectors": _unit(verse_vectors[start:start + n]),
-                "terms": terms_b,
-                "blocked": blocked[start:start + n],
-                "gentle": prior > 0,
-                "prior": prior,
-                **_bm25_stats(terms_b, len(self.terms)),
-            }
-            start += n
-        df = sum(b["df"] for b in self.books.values())
-        self.global_idf = torch.log(1 + start / (1 + df))    # IDF over all three books, for similar()
-
-    # ----- loading -----
+            verses = model["pool"][book]
+            b = {"verses": verses, "index": {v["ref"]: i for i, v in enumerate(verses)},
+                 **bm25_index([v["terms"] for v in verses])}
+            if vectors is not None:
+                b["vectors"] = [unit(vectors[row + i]) for i in range(len(verses))]
+            row += len(verses)
+            self.books[book] = b
+        self.k1, self.b = p["bm25_k1"], p["bm25_b"]
 
     @classmethod
-    def load(cls, directory=ARTIFACTS, data_dir=ROOT / "data" / "processed"):
+    def load(cls, directory=ARTIFACTS):
         d = Path(directory)
-        model = json.loads((d / "model.json").read_text())
-        dim = model["dim"]
-        wv = torch.frombuffer(bytearray((d / "word_vectors.i8").read_bytes()), dtype=torch.int8)
-        vv = torch.frombuffer(bytearray((d / "verse_vectors.i8").read_bytes()), dtype=torch.int8)
-        ids = read_u16(d / "verse_terms.u16")
-        offsets = torch.frombuffer(bytearray((d / "verse_offsets.u32").read_bytes()), dtype=torch.int32).tolist()
-        verse_terms = [ids[offsets[i]:offsets[i + 1]] for i in range(len(offsets) - 1)]
-        verses = None
-        if data_dir and Path(data_dir).exists():
-            verses = {}
-            for book in BOOKS:
-                with open(Path(data_dir) / f"{book}.jsonl") as f:
-                    verses[book] = [json.loads(line)["text"] for line in f]
-        return cls(model, wv.float().view(-1, dim), vv.float().view(-1, dim), verse_terms, verses)
+        model = json.loads((d / "search.json").read_text())
+        vectors = None
+        if (d / "pool_vectors.i8").exists():
+            raw = array("b", (d / "pool_vectors.i8").read_bytes())
+            dim = model["dim"]
+            vectors = [raw[i:i + dim].tolist() for i in range(0, len(raw), dim)]
+        return cls(model, vectors)
 
-    # ----- queries -----
+    # ----- understanding the query -----
 
     def classify(self, query):
         """("crisis" | "sensitive" | "general", topic or None)."""
         toks = words(query)
-        for category, lists in (("crisis", self.crisis), ("sensitive", self.sensitive)):
-            for topic, phrases in lists.items():
-                if any(phrase_in(toks, p) for p in phrases):
-                    return category, topic
+        crisis_toks = list(toks)
+        for idiom in self.idioms:                        # "killing it at work" is not a threat
+            for i in phrase_starts(toks, idiom):
+                crisis_toks[i:i + len(idiom)] = [""] * len(idiom)
+        crisis_toks = [next((f for f in self.fuzzy if len(t) >= 5 and one_edit_apart(t, f)), t) for t in crisis_toks]
+        for topic, phrases in self.crisis.items():
+            if any(phrase_starts(crisis_toks, p) for p in phrases):
+                return "crisis", topic
+        for topic, phrases in self.sensitive.items():
+            if any(phrase_starts(toks, p) for p in phrases):
+                return "sensitive", topic
         return "general", None
 
+    def query_themes(self, query):
+        """{theme: score in (0, 1]} from the theme phrases; the best theme scores 1.
+
+        Each match counts its number of words. A match that lies inside a
+        longer match is dropped, so "can't stop crying" (grief) hides
+        "can't stop" (temptation).
+        """
+        toks = words(query)
+        found = {(i, i + len(p), t) for t, phrases in self.theme_phrases.items()
+                 for p in phrases for i in phrase_starts(toks, p)}
+        raw = {}
+        for s, e, t in found:
+            if not any(s2 <= s and e <= e2 and e2 - s2 > e - s for s2, e2, _ in found):
+                raw[t] = raw.get(t, 0) + (e - s)
+        top = max(raw.values(), default=0)
+        return {t: raw[t] / top for t in sorted(raw, key=lambda t: (-raw[t], t))}
+
     def term_of(self, word):
-        """Term id of a lower-case word, or None for filler or unknown words."""
-        t = self.word_term.get(word)
-        if t is None:                                   # not in the books: try a base form that is
-            t = self.word_term.get(self.lex.normalise(word, self.known))
-        return None if t is None or t < 0 else t
+        """Pool term of a lower-case word, or None for filler or unknown words."""
+        t = self.vocabulary.get(word)
+        if t is None:                                    # not in the pool: try a base form that is
+            t = self.vocabulary.get(self.lex.normalise(word, self.vocabulary))
+        return t or None
 
     def expand(self, query, bridge=True):
-        """Turn a query into weighted terms.
+        """Query words as pool terms: {term: (weight, source word)}.
 
-        Returns {term id: (weight, source word)}. Words found in the scriptures
-        get weight 1; words added by the bridge get the bridge weight. A term
-        reached twice keeps its highest weight.
+        A typed word has weight 1, a bridge word bridge_weight. A term reached
+        twice keeps its highest weight (the first source on a tie).
         """
         toks = words(query)
         out = {}
@@ -234,17 +251,16 @@ class Searcher:
                 out[term] = (weight, source)
 
         i = 0
-        beta = self.params["bridge_weight"]
         while i < len(toks):
             key, n = None, 1
             if bridge:                                   # longest bridge phrase starting here
-                for n in range(min(self.max_phrase, len(toks) - i), 0, -1):
+                for n in range(min(self.max_bridge, len(toks) - i), 0, -1):
                     if " ".join(toks[i:i + n]) in self.bridge:
                         key = " ".join(toks[i:i + n])
                         break
             if key:
                 for target in self.bridge[key]:
-                    add(self.term_of(target), beta, key)
+                    add(self.term_of(target), self.params["bridge_weight"], key)
             # A phrase ("laid off") or a word whose scripture meaning differs
             # ("job" is the prophet Job) is searched only through its bridge words.
             if not key or (n == 1 and key not in self.replace):
@@ -254,203 +270,165 @@ class Searcher:
             i += n if key else 1
         return out
 
-    def scores(self, query, book, lexical=True, vectors=True, bridge=True):
-        """Score every verse of one book (no safety rules). Returns (scores tensor, expanded query)."""
-        q = self.expand(query, bridge=bridge)
-        return self._scores(q, book, lexical, vectors), q
+    # ----- scoring -----
 
-    def _scores(self, q, book, lexical=True, vectors=True):
+    def score(self, book, verse_i, themes, q):
+        """(score, matched themes, matched terms) of one pool verse."""
+        v = self.books[book]["verses"][verse_i]
+        hit_themes = [t for t in v["themes"] if t in themes]
+        theme_part = sum(themes[t] for t in hit_themes)
+        lex_part = self.bm25(book, verse_i, q)
+        return (self.params["theme_weight"] * theme_part + self.params["lex_weight"] * lex_part,
+                hit_themes, [t for t in q if t in self.books[book]["tf"][verse_i]])
+
+    def bm25(self, book, i, q):
         b = self.books[book]
-        n = len(b["refs"])
-        lex = self._bm25(q, b) if lexical else torch.zeros(n)
-        vec = self._cosine(q, b) if vectors else torch.zeros(n)
-        if lexical and vectors:
-            a = self.params["alpha"]
-            return a * _scale(lex) + (1 - a) * _scale(vec)
-        return lex if lexical else vec
+        total = 0.0
+        for t, (w, _) in q.items():
+            tf = b["tf"][i].get(t, 0)
+            if tf:
+                norm = tf + self.k1 * (1 - self.b + self.b * b["length"][i] / b["avgdl"])
+                total += w * b["idf"][t] * tf * (self.k1 + 1) / norm
+        return total
 
-    def search(self, query, k=3, method=None):
-        """Top-k verses from each book, after the safety rules.
+    def search(self, query, k=3):
+        """Top-k pool verses from each book.
 
-        Returns {"category", "topic", "no_match", "results": {book: [hit, ...]}}.
-        Each hit has ref, text, score (always > 0) and `matched`: the query
-        words found in the verse, with the word of the query they came from.
+        Returns {"category", "topic", "no_match", "themes": [{"id", "score"}],
+        "notes": [{"theme", "note"}], "results": {book: [hit, ...]}}. "notes"
+        are the short notes of the query's themes that have one (shown with
+        the results). Each hit has ref, text (for display),
+        themes, why, score, and matched = {"themes": [...], "words": [{"word",
+        "from"}]}: the query's themes the verse carries and the query words
+        found in it, with the word of the query each came from.
         """
-        if not isinstance(k, int) or k < 1:
+        if not isinstance(k, int) or isinstance(k, bool) or k < 1:
             raise ValueError(f"k must be a positive integer, got {k!r}")
-        method = method or self.params["method"]
-        if method not in METHODS:
-            raise ValueError(f"unknown method {method!r}; choose from {sorted(METHODS)}")
         category, topic = self.classify(query)
-        out = {"category": category, "topic": topic, "no_match": False, "results": {b: [] for b in BOOKS}}
+        out = {"category": category, "topic": topic, "no_match": False, "themes": [], "notes": [],
+               "results": {b: [] for b in BOOKS}}
         if category == "crisis":
             return out
-        opts = METHODS[method]
-        q = self.expand(query, bridge=opts["bridge"])
+        themes = self.query_themes(query)
+        if category == "sensitive":                     # gentle default themes for the topic, below typed ones
+            for t in self.sensitive_themes[topic]:
+                themes.setdefault(t, self.params["sensitive_theme_score"])
+        out["themes"] = [{"id": t, "score": round4(s)} for t, s in themes.items()]
+        out["notes"] = [{"theme": t, "note": self.theme_info[t]["note"]} for t in themes if "note" in self.theme_info[t]]
+        q = self.expand(query)
         for book in BOOKS:
-            b = self.books[book]
-            s = self._scores(q, book, opts["lexical"], opts["vectors"])
-            allowed = ~b["blocked"]
-            if category == "sensitive":
-                allowed &= b["gentle"]
-                s = s + b["prior"]
-            s = torch.where(allowed, s, torch.full_like(s, float("-inf")))
-            for score, i in _top(s, k):
-                if not score > 0:
+            scored = []
+            for i, v in enumerate(self.books[book]["verses"]):
+                if category == "sensitive" and not v["sensitive"]:
+                    continue
+                s, hit_themes, hit_terms = self.score(book, i, themes, q)
+                if themes and not hit_themes:           # off-topic for this query
+                    continue
+                scored.append((round4(s), i, hit_themes, hit_terms))
+            scored.sort(key=lambda x: (-x[0], x[1]))
+            for s, i, hit_themes, hit_terms in scored[:k]:
+                if s < self.params["min_score"]:
                     break
-                present = set(b["terms"][i].tolist())
-                matched = [{"word": self.terms[t], "from": src}
-                           for t, (w, src) in sorted(q.items(), key=lambda x: -x[1][0]) if t in present]
-                out["results"][book].append({
-                    "ref": b["refs"][i],
-                    "text": b["text"][i] if b["text"] else None,
-                    "score": score,
-                    "matched": matched,
-                })
+                out["results"][book].append(self._hit(book, i, s, {
+                    "themes": hit_themes, "words": [{"word": t, "from": q[t][1]} for t in hit_terms]}))
         out["no_match"] = not any(out["results"].values())
         return out
 
-    def similar(self, book, ref, k=5, books=BOOKS, allow_blocked=False):
-        """The verses closest in meaning to one verse, per book (the verse itself excluded).
+    def by_theme(self, theme, k=3):
+        """Pool verses of one theme per book, for the theme chips.
 
-        Blocklisted verses are left out unless allow_blocked=True.
+        A verse scores 1 / (position of the theme in its list + 1): verses
+        that list the theme first come first; ties keep pool order.
         """
-        if book not in self.books:
-            raise ValueError(f"unknown book {book!r}; choose from {BOOKS}")
-        if ref not in self.books[book]["index"]:
-            raise ValueError(f"unknown verse {book} {ref!r}")
-        if not isinstance(k, int) or k < 1:
-            raise ValueError(f"k must be a positive integer, got {k!r}")
-        for other in books:
-            if other not in self.books:
-                raise ValueError(f"unknown book {other!r}; choose from {BOOKS}")
-        src = self.books[book]
-        i = src["index"][ref]
-        v = src["vectors"][i]
-        lex = self._tfidf(src["terms"][i])
-        lam = self.params["similar_vector_weight"]
+        if theme not in self.theme_info:
+            raise ValueError(f"unknown theme {theme!r}")
         out = {}
-        for other in books:
-            b = self.books[other]
-            s = lam * (b["vectors"] @ v) + (1 - lam) * self._tfidf_scores(lex, b)
-            if not allow_blocked:
-                s = torch.where(b["blocked"], torch.full_like(s, float("-inf")), s)
-            if other == book:
-                s[i] = float("-inf")
-            out[other] = [{"ref": b["refs"][j], "text": b["text"][j] if b["text"] else None, "score": x}
-                          for x, j in _top(s, k) if x > float("-inf")]
+        for book in BOOKS:
+            rows = [(round4(1 / (v["themes"].index(theme) + 1)), i)
+                    for i, v in enumerate(self.books[book]["verses"]) if theme in v["themes"]]
+            rows.sort(key=lambda x: (-x[0], x[1]))
+            out[book] = [self._hit(book, i, s, {"themes": [theme], "words": []}) for s, i in rows[:k]]
         return out
 
-    # ----- scoring pieces -----
+    def themes(self):
+        """Every theme with its display name, description and pool verse count per book."""
+        return [{"id": t, "name": d["name"], "description": d["description"],
+                 "verses": {b: sum(t in v["themes"] for v in self.books[b]["verses"]) for b in BOOKS}}
+                for t, d in self.theme_info.items()]
 
-    def _bm25(self, q, b):
-        k1, bb = self.params["bm25_k1"], self.params["bm25_b"]
-        s = torch.zeros(len(b["refs"]))
-        for t, (w, _) in q.items():
-            rows = b["postings"].get(t)
-            if rows is None:
-                continue
-            docs, tf = rows
-            idf = b["idf"][t]
-            norm = tf + k1 * (1 - bb + bb * b["length"][docs] / b["avgdl"])
-            s.index_add_(0, docs, w * idf * tf * (k1 + 1) / norm)
-        return s
+    def similar(self, book, ref, k=3, sensitive_only=False):
+        """The pool verses closest in meaning to one pool verse, per book (cosine of verse vectors).
 
-    def query_vector(self, q):
-        """Weighted sum of unit word vectors (weight x SIF), minus the shared direction, length 1."""
-        v = torch.zeros(self.wv.shape[1])
-        for t, (w, _) in q.items():
-            if t < self.wv.shape[0]:
-                v += w * self.sif(t) * self.wv[t]
-        v -= (v @ self.principal) * self.principal
-        return v / v.norm() if v.norm() > 0 else v
+        Verse vectors come from word vectors trained on the three books. A
+        verse with no vector (all zeros) scores 0 against everything.
+        """
+        if book not in self.books or ref not in self.books[book]["index"]:
+            raise ValueError(f"not a pool verse: {book} {ref!r}")
+        if not isinstance(k, int) or isinstance(k, bool) or k < 1:
+            raise ValueError(f"k must be a positive integer, got {k!r}")
+        src = self.books[book]["vectors"][self.books[book]["index"][ref]]
+        out = {}
+        for other in BOOKS:
+            b = self.books[other]
+            rows = [(round4(sum(x * y for x, y in zip(src, vec))), j) for j, vec in enumerate(b["vectors"])
+                    if not (other == book and b["verses"][j]["ref"] == ref)
+                    and (b["verses"][j]["sensitive"] or not sensitive_only)]
+            rows.sort(key=lambda x: (-x[0], x[1]))
+            out[other] = [self._hit(other, j, s, {"themes": [], "words": []}) for s, j in rows[:k]]
+        return out
 
-    def sif(self, t):
-        a = self.params["sif_a"]
-        return a / (a + self.count[t] / self.count.sum())
-
-    def _cosine(self, q, b):
-        return b["vectors"] @ self.query_vector(q)
-
-    def _tfidf(self, ids):
-        tf = torch.bincount(ids, minlength=len(self.terms)).float()
-        v = tf * self.global_idf
-        return v / v.norm() if v.norm() > 0 else v
-
-    def _tfidf_scores(self, lex, b):
-        if "tfidf" not in b:
-            rows = torch.cat([torch.full((len(t),), i) for i, t in enumerate(b["terms"])])
-            cols = torch.cat(b["terms"])
-            vals = self.global_idf[cols]
-            m = torch.sparse_coo_tensor(torch.stack([rows, cols]), vals, (len(b["terms"]), len(self.terms)),
-                                        check_invariants=False).coalesce()
-            norms = torch.zeros(len(b["terms"])).index_add_(0, m.indices()[0], m.values() ** 2).sqrt().clamp(min=1e-9)
-            b["tfidf"] = (m, norms)
-        m, norms = b["tfidf"]
-        return torch.sparse.mm(m, lex.unsqueeze(1)).squeeze(1) / norms
+    def _hit(self, book, i, score, matched):
+        v = self.books[book]["verses"][i]
+        return {"ref": v["ref"], "text": v["text"], "themes": v["themes"], "why": v["why"],
+                "score": score, "matched": matched}
 
 
-def _top(s, k):
-    """The k best (score, index) pairs. Scores are rounded to 4 decimals and ties go to the
-    earlier verse, so every platform (and a port) returns the same order."""
-    s = torch.round(s * 1e4) / 1e4
-    order = torch.sort(s, descending=True, stable=True).indices[:k]
-    return [(round(s[i].item(), 4), i.item()) for i in order]
+def bm25_index(docs):
+    """Per-book BM25 statistics: term counts per verse, lengths, and idf = ln(1 + (n - df + 0.5) / (df + 0.5))."""
+    tf = []
+    for terms in docs:
+        c = {}
+        for t in terms:
+            c[t] = c.get(t, 0) + 1
+        tf.append(c)
+    df = {}
+    for c in tf:
+        for t in c:
+            df[t] = df.get(t, 0) + 1
+    n = len(docs)
+    length = [len(d) for d in docs]
+    return {"tf": tf, "length": length, "avgdl": sum(length) / n if n else 1.0,
+            "idf": {t: math.log(1 + (n - d + 0.5) / (d + 0.5)) for t, d in df.items()}}
 
 
-def _unit(m):
-    n = m.norm(dim=1, keepdim=True)
-    return m / n.clamp(min=1e-9)
-
-
-def _scale(s):
-    """Divide by the best score so BM25 and cosine can be mixed."""
-    top = s.max()
-    return s / top if top > 0 else s
-
-
-def _bm25_stats(verse_terms, n_terms):
-    """Per-book document frequencies, verse lengths and postings for BM25."""
-    length = torch.tensor([len(t) for t in verse_terms], dtype=torch.float32)
-    rows = torch.cat([torch.full((len(t),), i) for i, t in enumerate(verse_terms)])
-    cols = torch.cat(verse_terms)
-    keys, tf = torch.unique(rows * n_terms + cols, return_counts=True)
-    docs, terms = keys // n_terms, keys % n_terms
-    df = torch.bincount(terms, minlength=n_terms).float()
-    n = len(verse_terms)
-    idf = torch.log(1 + (n - df + 0.5) / (df + 0.5))
-    order = torch.argsort(terms, stable=True)
-    docs, terms, tf = docs[order], terms[order], tf[order].float()
-    postings = {}
-    bounds = torch.searchsorted(terms, torch.arange(n_terms + 1))
-    for t in torch.nonzero(df).squeeze(1).tolist():
-        lo, hi = bounds[t].item(), bounds[t + 1].item()
-        postings[t] = (docs[lo:hi], tf[lo:hi])
-    return {"length": length, "avgdl": length.mean().item(), "df": df, "idf": idf, "postings": postings}
+def unit(v):
+    """v divided by its length; an all-zero vector stays all zeros (never NaN)."""
+    n = math.sqrt(sum(x * x for x in v))
+    return [x / n for x in v] if n > 0 else [0.0] * len(v)
 
 
 def main(argv):
     if not argv:
         print('usage: python -m scripture.search "describe your situation" [k]')
         return
-    torch.set_num_threads(3)
     k = int(argv[1]) if len(argv) > 1 else 3
     res = Searcher.load().search(argv[0], k=k)
     print(f'category: {res["category"]}' + (f' ({res["topic"]})' if res["topic"] else ""))
     if res["category"] == "crisis":
-        print("No verses for this one. If you are in danger or thinking of harming yourself, please reach out "
-              "to someone you trust or a local emergency or crisis line now.")
+        print("No verses for this one. You matter, and you don't have to carry this alone: "
+              "please talk to someone you trust today.")
         return
+    print("themes: " + (", ".join(f'{t["id"]} {t["score"]:.2f}' for t in res["themes"]) or "none"))
     if res["no_match"]:
-        print("No matching verses: none of these words occur in the books or in the bridge.")
+        print("Nothing in the pool fits these words. Try one of the themes.")
         return
     for book in BOOKS:
         print(f"\n== {book} ==")
+        if not res["results"][book]:
+            print("  (nothing fitting in this book)")
         for h in res["results"][book]:
-            why = ", ".join(m["word"] if m["word"] == m["from"] else f'{m["word"]} ({m["from"]})' for m in h["matched"])
-            print(f'{h["ref"]:>22}  {h["score"]:.3f}  {h["text"]}')
-            if why:
-                print(f'{"":>30}matched: {why}')
+            print(f'{h["ref"]:>18}  {h["score"]:.3f}  {h["text"]}')
+            print(f'{"":>20}why: {h["why"]}  [{", ".join(h["matched"]["themes"] + [m["word"] for m in h["matched"]["words"]])}]')
 
 
 if __name__ == "__main__":

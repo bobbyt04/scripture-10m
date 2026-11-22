@@ -1,5 +1,5 @@
 {
- "about": "Every candidate pair the model proposed (search/similarities.py --propose), with a human decision. Kept pairs are real parallels in story or teaching; the rest were rejected because the verses share words or images but not an idea, or because they are not suitable to show side by side.",
+ "about": "Every candidate the model proposed, with the human decision, and the decision for each hand-listed parallel of evals/search_parallels.json. Only pairs marked keep are published. Each verse is in at most one published pair; pairs with threatening or theologically contentious verses are left out.",
  "candidates": [
   {
    "a": "bible 2 Corinthians 2:10",
@@ -22,9 +22,10 @@
     "create",
     "likeness"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Creation and nature",
-   "idea": "Adam was created by God; the Quran compares the creation of Jesus to that of Adam."
+   "idea": "Adam was created by God; the Quran compares the creation of Jesus to that of Adam.",
+   "dropped_because": "contentious: equates the creation of Jesus with Adam's"
   },
   {
    "a": "bible Genesis 41:26",
@@ -83,9 +84,10 @@
     "female",
     "male"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Creation and nature",
-   "idea": "God gives or withholds children; no one is barren except by his will."
+   "idea": "God gives or withholds children; no one is barren except by his will.",
+   "dropped_because": "contentious: presents barrenness as God's will"
   },
   {
    "a": "bible Job 26:2",
@@ -740,9 +742,10 @@
     "invisible",
     "visible"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Creation and nature",
-   "idea": "God made, and knows, both the visible and the invisible."
+   "idea": "God made, and knows, both the visible and the invisible.",
+   "dropped_because": "contentious: Colossians speaks of Christ, not of God in general"
   },
   {
    "a": "bible Psalms 34:18",
@@ -786,9 +789,10 @@
     "mustard",
     "seed"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Guidance and wisdom",
-   "idea": "A grain of mustard seed, the smallest of things, as an image of what God does not overlook."
+   "idea": "A grain of mustard seed, the smallest of things, as an image of what God does not overlook.",
+   "dropped_because": "wrong: the parable is about growth, the Quran verse about God's knowledge"
   },
   {
    "a": "bible Genesis 5:27",
@@ -821,9 +825,10 @@
     "gog",
     "magog"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Prophets and their stories",
-   "idea": "Gog and Magog appear in both books."
+   "idea": "Gog and Magog appear in both books.",
+   "dropped_because": "only a shared name; the Ezekiel verse is a prophecy against Gog"
   },
   {
    "a": "bible Job 27:7",
@@ -893,7 +898,7 @@
    ],
    "keep": true,
    "theme": "Creation and nature",
-   "idea": "The Garden of Eden, watered by rivers."
+   "idea": "A garden of Eden with flowing rivers: the first garden in Genesis, the gardens of the life to come in the Quran."
   },
   {
    "a": "bible Proverbs 3:14",
@@ -905,7 +910,7 @@
    ],
    "keep": true,
    "theme": "Guidance and wisdom",
-   "idea": "What God gives is better than trade and profit."
+   "idea": "Something better than trade and profit: wisdom, in Proverbs; what God gives, in the Quran."
   },
   {
    "a": "bible Isaiah 40:16",
@@ -938,9 +943,10 @@
     "enlarge",
     "straiten"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "God's knowledge and care",
-   "idea": "God enlarges and narrows what people have, as he wills."
+   "idea": "God enlarges and narrows what people have, as he wills.",
+   "dropped_because": "Job speaks of destroying nations; the note misstated it"
   },
   {
    "a": "bible Mark 15:6",
@@ -976,7 +982,7 @@
    ],
    "keep": true,
    "theme": "Creation and nature",
-   "idea": "God stills the wind and calms the sea."
+   "idea": "Calming the wind and the sea: in Mark Jesus stills a storm; the Quran says God can calm the wind so ships lie still."
   },
   {
    "a": "bible Psalms 104:10",
@@ -1428,9 +1434,10 @@
     "reveal",
     "secret"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "God's knowledge and care",
-   "idea": "God reveals his hidden things only to the messengers he chooses."
+   "idea": "God reveals his hidden things only to the messengers he chooses.",
+   "dropped_because": "misstated: Quran 72:26 says the unseen is revealed to no one"
   },
   {
    "a": "bible Acts 17:27",
@@ -1808,9 +1815,10 @@
     "between",
     "gulf"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Death and the life to come",
-   "idea": "A great gulf is fixed between the lost and what they long for."
+   "idea": "A great gulf is fixed between the lost and what they long for.",
+   "dropped_because": "about the damned; threatening"
   },
   {
    "a": "bible Acts 10:9",
@@ -1894,7 +1902,7 @@
    ],
    "keep": true,
    "theme": "Worship and devotion",
-   "idea": "Remembering God's marvellous works fills the heart with joy."
+   "idea": "Remembering God's marvellous works and wonders."
   },
   {
    "a": "bible Galatians 4:17",
@@ -2127,7 +2135,7 @@
    ],
    "keep": true,
    "theme": "God's knowledge and care",
-   "idea": "Greater than everything within a person is God, who dwells in them."
+   "idea": "Something greater dwells within a person: God in the believer, says 1 John; the Self beyond mind and reason, says the Gita."
   },
   {
    "a": "bible Song of Solomon 5:9",
@@ -2343,9 +2351,10 @@
    "shared_words": [
     "alms"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Humility, giving and self-control",
-   "idea": "Give alms rightly, and the gift is made pure."
+   "idea": "Give alms rightly, and the gift is made pure.",
+   "dropped_because": "Gita 17:20 kept in one pair only"
   },
   {
    "a": "bible John 10:28",
@@ -2886,9 +2895,10 @@
    "shared_words": [
     "restrain"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Humility, giving and self-control",
-   "idea": "Restraining the self from desire leads to God."
+   "idea": "Restraining the self from desire leads to God.",
+   "dropped_because": "Quran 79:40 kept in one pair only"
   },
   {
    "a": "quran 79:35",
@@ -3121,5 +3131,252 @@
    "theme": "",
    "idea": ""
   }
- ]
+ ],
+ "hand_listed": {
+  "joseph_dream": {
+   "keep": false,
+   "why": "already a model pair"
+  },
+  "joseph_pit": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "joseph_coat": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "joseph_seduction": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "pharaoh_kine": {
+   "keep": false,
+   "why": "Quran 12:43 is already in a model pair"
+  },
+  "joseph_reveals": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "moses_basket": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "moses_kills": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "moses_well": {
+   "keep": true,
+   "theme": "Prophets and their stories",
+   "idea": "The daughters of the priest of Midian come to water their father's flock, and Moses helps them (seven daughters in Exodus, two women in the Quran)."
+  },
+  "burning_bush": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "staff_serpent": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "white_hand": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "plagues": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "sea_parted": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "manna_quails": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "rock_water": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "golden_calf": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "noah_ark": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "noah_flood": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "abraham_sacrifice": {
+   "keep": false,
+   "why": "contentious: Isaac in Genesis, an unnamed son in the Quran"
+  },
+  "abraham_guests": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "lot_destroyed": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "adam_tree": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "cain_abel": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "six_days": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "jonah_fish": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "david_goliath": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "drinking_test": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "sheba": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "zechariah_son": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "annunciation": {
+   "keep": true,
+   "theme": "Prophets and their stories"
+  },
+  "jesus_heals": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "camel_needle": {
+   "keep": false,
+   "why": "Quran 7:40 is about those barred from paradise"
+  },
+  "eye_for_eye": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "alms_secret": {
+   "keep": true,
+   "theme": "Humility, giving and self-control"
+  },
+  "scroll": {
+   "keep": true,
+   "theme": "Death and the life to come"
+  },
+  "seed_grows": {
+   "keep": true,
+   "theme": "Guidance and wisdom"
+  },
+  "first_last": {
+   "keep": false,
+   "why": "contentious: pairs the Christ of Revelation with Allah"
+  },
+  "mercy_all_sins": {
+   "keep": true,
+   "theme": "God's knowledge and care"
+  },
+  "taste_death": {
+   "keep": true,
+   "theme": "Death and the life to come"
+  },
+  "fleeting_grass": {
+   "keep": true,
+   "theme": "Death and the life to come"
+  },
+  "god_light": {
+   "keep": true,
+   "theme": "God's knowledge and care"
+  },
+  "equanimity_qg": {
+   "keep": true,
+   "theme": "Guidance and wisdom"
+  },
+  "soul_not_slain": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "soul_living_q": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "body_garment": {
+   "keep": true,
+   "theme": "Death and the life to come"
+  },
+  "do_all_for_god": {
+   "keep": true,
+   "theme": "Worship and devotion"
+  },
+  "do_all_for_god_q": {
+   "keep": false,
+   "why": "Gita 9:27 kept in one pair only"
+  },
+  "devotion_offering": {
+   "keep": true,
+   "theme": "Worship and devotion"
+  },
+  "devotion_offering_b": {
+   "keep": false,
+   "why": "Gita 9:26 kept in one pair only; the note misstated the Gita"
+  },
+  "beginning_end": {
+   "keep": false,
+   "why": "contentious: pairs Krishna with the Christ of Revelation"
+  },
+  "beginning_end_q": {
+   "keep": false,
+   "why": "contentious: pairs Krishna with Allah as one God"
+  },
+  "god_in_heart": {
+   "keep": true,
+   "theme": "God's knowledge and care"
+  },
+  "thousand_suns": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "friend_and_foe": {
+   "keep": true,
+   "theme": "Humility, giving and self-control"
+  },
+  "no_return_gift": {
+   "keep": false,
+   "why": "Gita 17:20 kept in one pair only"
+  },
+  "no_return_gift_q": {
+   "keep": true,
+   "theme": "Humility, giving and self-control"
+  },
+  "moderation_food": {
+   "keep": true,
+   "theme": "Humility, giving and self-control"
+  },
+  "anger_folly": {
+   "keep": false,
+   "why": "not published: violent, threatening or contentious verse, or a weak pair"
+  },
+  "one_father": {
+   "keep": true,
+   "theme": "God's knowledge and care"
+  },
+  "senses_control_q": {
+   "keep": true,
+   "theme": "Humility, giving and self-control"
+  }
+ }
 }
