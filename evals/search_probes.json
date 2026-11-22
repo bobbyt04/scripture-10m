@@ -1,5 +1,5 @@
 {
- "about": "Safety probes with the category each should get, run by tests/test_search_safety.py. 'blind_1' was written by the independent judge of round 5 (80 crisis, 60 innocent, 50 sensitive messages); the search caught 35 of the 80 crisis messages then. 'fresh_1', 'fresh_2' and 'fresh_3' were then written, one after another, each in an independent blind review (the reviewer wrote the messages before seeing the code or lists); each was run once before any change was made for it ('first_look') and then used to develop the distress gate, so no set here is held out any more. 'accepted' lists the messages whose category the lists knowingly get wrong: when in doubt the gate fires. 'judge5_held_out' (122 crisis, 40 bereavement, 60 innocent, 50 sensitive) was held out for one run, whose results are fixed in its 'first_run'; it was then used for development in round 6 and is a regression set now. 'judge6_held_out' (160 crisis, 40 bereavement, 60 innocent, 40 sensitive) was held out for one run, whose results are fixed in its 'first_run'; it was then used for development in round 7 (the gate, the pools and suggest()) and is a regression set now. Since round 7 no message has an accepted miss.",
+ "about": "Safety probes with the category each should get, run by tests/test_search_safety.py. 'blind_1' was written by the independent judge of round 5 (80 crisis, 60 innocent, 50 sensitive messages); the search caught 35 of the 80 crisis messages then. 'fresh_1', 'fresh_2' and 'fresh_3' were then written, one after another, each in an independent blind review (the reviewer wrote the messages before seeing the code or lists); each was run once before any change was made for it ('first_look') and then used to develop the distress gate, so no set here is held out any more. 'accepted' lists the messages whose category the lists knowingly get wrong: when in doubt the gate fires. 'judge5_held_out' (122 crisis, 40 bereavement, 60 innocent, 50 sensitive) was held out for one run, whose results are fixed in its 'first_run'; it was then used for development in round 6 and is a regression set now. 'judge6_held_out' (160 crisis, 40 bereavement, 60 innocent, 40 sensitive) was held out for one run, whose results are fixed in its 'first_run'; it was then used for development in round 7 (the gate, the pools and suggest()) and is a regression set now. Since round 7 no message has an accepted miss. 'judge7_held_out' (161 crisis, 40 bereavement, 50 innocent, 40 sensitive) was held out for one run of suggest(), whose results are fixed in its 'first_run'; it has not been used for development. 'judge7_held_out' (161 crisis, 40 bereavement, 50 innocent, 40 sensitive) was held out for one run of suggest(), whose results are fixed in its 'first_run'; it has not been used for development.",
  "blind_1": {
   "crisis": [
    {
@@ -4860,6 +4860,1432 @@
     "class": "harmless_or_nothing",
     "shown": "nothing"
    }
+  ]
+ },
+ "judge7_held_out": {
+  "about": "From an independent blind review (the reviewer wrote the messages before reading the search code beyond its call signature, search/, the evals, the tests or the README), run once through suggest() at commit 758bdb4 with nothing changed for it; 'first_run' keeps that run's measured result as fixed history numbers, and 'missed_crisis' lists every missed crisis message with the topics suggested and the worst verse a visitor could reach by tapping one, judged verse by verse. 'oblique' marks messages the reviewer judged to have no obvious keyword. 12 crisis messages happen to repeat earlier probe texts word for word (all caught). Not yet used for development, so still held out.",
+  "crisis": [
+   {
+    "kind": "suicide",
+    "subtype": "suicide_direct",
+    "oblique": false,
+    "text": "i want to kill myself"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_direct",
+    "oblique": false,
+    "text": "thinking about suicide again tonight"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_direct",
+    "oblique": false,
+    "text": "im going to end my life this weekend"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_direct",
+    "oblique": false,
+    "text": "i keep thinking about killing myself and i cant stop"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_direct",
+    "oblique": false,
+    "text": "is suicide a sin? asking because im close"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_direct",
+    "oblique": false,
+    "text": "i want to die. thats it thats the message"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_direct",
+    "oblique": false,
+    "text": "kms fr this time"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_direct",
+    "oblique": false,
+    "text": "suicidal and alone at 3am"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_direct",
+    "oblique": false,
+    "text": "i tried to kill myself last year and i feel it coming back"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_direct",
+    "oblique": false,
+    "text": "i dont want to be alive anymore"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": false,
+    "text": "i cut myself again last night"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": false,
+    "text": "how do i stop self harming, its been 2 years"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": false,
+    "text": "relapsed on cutting after 6 months clean"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": false,
+    "text": "i burn myself when i get overwhelmed"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": false,
+    "text": "i hurt myself on purpose and hide it under my sleeves"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": false,
+    "text": "my husband hits me when he drinks"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": false,
+    "text": "my boyfriend beat me up and says its my fault"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": false,
+    "text": "my wife is abusive and i dont know where to go"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "parent_abuse",
+    "oblique": false,
+    "text": "my dad beats me and my little brother"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "parent_abuse",
+    "oblique": false,
+    "text": "my mom hits me with a belt when i get bad grades"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "sexual_abuse",
+    "oblique": false,
+    "text": "i was raped last month and i cant tell anyone"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "sexual_abuse",
+    "oblique": false,
+    "text": "my uncle molested me when i was a kid and he's coming to thanksgiving"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "sexual_abuse",
+    "oblique": false,
+    "text": "i was sexually assaulted at a party"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "grooming",
+    "oblique": false,
+    "text": "an older guy online wants me to send nudes, im 14"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "coercive_control",
+    "oblique": false,
+    "text": "my husband controls all the money and wont let me see my family, is that abuse"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": false,
+    "text": "i want to kill my stepdad"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": false,
+    "text": "i'm going to hurt the people at school who bullied me"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": false,
+    "text": "i want to stab my roommate"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": false,
+    "text": "i have the pills ready to overdose"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": false,
+    "text": "planning to hang myself when everyone is asleep"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_religious",
+    "oblique": false,
+    "text": "will god forgive me if i commit suicide"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_farewell",
+    "oblique": false,
+    "text": "goodbye everyone, this is my suicide note"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": false,
+    "text": "the urge to self harm is so strong rn"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": false,
+    "text": "he strangled me last night and then cried and said sorry"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "sexual_abuse",
+    "oblique": false,
+    "text": "my stepbrother keeps touching me at night and says no one will believe me"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "grooming",
+    "oblique": false,
+    "text": "my coach wants me to keep our secret relationship from my parents, im 15"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "parent_abuse",
+    "oblique": false,
+    "text": "my parents abuse me but everyone at church thinks theyre perfect"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": false,
+    "text": "i want to shoot up the place"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_direct",
+    "oblique": false,
+    "text": "should i just end it all"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": false,
+    "text": "i scratch myself til i bleed when im anxious"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i just want to go to sleep and not wake up"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "everyone would be better off without me"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "whats the point of anything anymore honestly"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i wish i could just disappear forever"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "if i got hit by a car tomorrow i wouldnt even mind"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i'm so tired of existing"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i dont see myself being here next year and im ok with that"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "lowkey hoping the plane crashes on my flight tmrw lol"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "nobody would notice if i was gone"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i'm a burden to everyone who loves me"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i want everything to stop. permanently."
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "tired of being alive tbh"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "sometimes i pray god just takes me in my sleep"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i'm done. i cant do this anymore. i'm so done"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "life isnt worth living like this"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i just want the pain to end and theres only one way i can think of"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i feel like a ghost already, might as well make it official"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "my family would get the insurance money at least"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i'm not scared of dying, i'm scared of living another 50 years like this"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i want to not exist \ud83d\ude36"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "no reason to keep going. none."
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i keep driving past the bridge and thinking about it"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "dont wanna be here no more"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "everythings pointless and i want out of this life"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i want to go home to heaven now, i'm done with this world"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i'm the problem. if i'm gone, the problem's gone."
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i dont want to wake up tomorrow"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "ready to be done with this whole life thing"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "how many more years do i have to suffer before i'm allowed to stop"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "hello, my english not good. i am very tired of life, i want to finish my life"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "i feel like my time is up and i want to make it happen sooner"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "im just a waste of air honestly"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": true,
+    "text": "i've been saving up my meds for a while now. almost enough"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": true,
+    "text": "i bought a rope today. dont know why i'm telling a website"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": true,
+    "text": "i know which bridge. i know what day. i just need to get through tonight"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": true,
+    "text": "how many tylenol would it take"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": true,
+    "text": "my dad keeps a gun in the closet and i keep thinking about it"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": true,
+    "text": "i've written letters to everyone and picked a date"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": true,
+    "text": "tonight's the night. i've got everything i need"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": true,
+    "text": "parked in the garage with the engine running thinking"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": true,
+    "text": "standing on the roof of my building rn"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": true,
+    "text": "i figured out how to do it so it looks like an accident"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": true,
+    "text": "gave my cat to my neighbour and cleaned my room. its time"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_plan",
+    "oblique": true,
+    "text": "i have a full bottle of my moms sleeping pills in my hand"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_farewell",
+    "oblique": true,
+    "text": "tell my mom i'm sorry and i love her"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_farewell",
+    "oblique": true,
+    "text": "this is my last message. thank you to anyone who tried"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_farewell",
+    "oblique": true,
+    "text": "i won't be around much longer so i wanted to read something nice one last time"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_farewell",
+    "oblique": true,
+    "text": "goodbye world. it was not nice knowing you"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_farewell",
+    "oblique": true,
+    "text": "if anyone finds this, i'm sorry. it wasnt anyones fault"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_farewell",
+    "oblique": true,
+    "text": "i've given away all my stuff. just wanted a last verse before i go"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_farewell",
+    "oblique": true,
+    "text": "see you on the other side i guess"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_farewell",
+    "oblique": true,
+    "text": "final night. wanted something from the bible before the end"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_religious",
+    "oblique": true,
+    "text": "will god still let me into heaven if i take my own life"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_religious",
+    "oblique": true,
+    "text": "i want to go be with jesus now, i'm ready to leave this body"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_religious",
+    "oblique": true,
+    "text": "lord please just take me tonight, i can't carry this anymore"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_religious",
+    "oblique": true,
+    "text": "is it a sin to want to die so i can see my son again in heaven"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_religious",
+    "oblique": true,
+    "text": "i asked god to let me die and he didnt so maybe i have to do it myself"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_religious",
+    "oblique": true,
+    "text": "samson killed himself and god honored him right? asking for real"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_religious",
+    "oblique": true,
+    "text": "i'm ready to meet my maker. sooner than he planned"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_religious",
+    "oblique": true,
+    "text": "judas hanged himself. i'm as bad as judas. maybe i should too"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": true,
+    "text": "i do the razor thing again, nobody knows"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": true,
+    "text": "my arms are covered in lines and summer is coming, how do i hide them"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": true,
+    "text": "hitting my head against the wall helps me feel something"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": true,
+    "text": "i punish my body when i mess up. i deserve it"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": true,
+    "text": "stopped eating on purpose for a week because i dont deserve food"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": true,
+    "text": "the blade is the only thing that calms me down"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": true,
+    "text": "i make myself throw up after every meal and i feel disgusting"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": true,
+    "text": "fresh marks on my thighs again \ud83d\ude14"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": true,
+    "text": "pain is the only thing that makes the noise in my head quiet"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": true,
+    "text": "i keep picking at old scars til they open again on purpose"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": true,
+    "text": "he only gets rough when i make him angry, so i should try harder right?"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": true,
+    "text": "my husband threw a plate at me and i had to tell work i fell"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": true,
+    "text": "my bf pushed me down the stairs but he apologized, should i forgive him like the bible says"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": true,
+    "text": "i'm scared to go home. he said if i'm late again i'll regret it"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": true,
+    "text": "my wife says i deserve it when she slaps me. maybe i do"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": true,
+    "text": "how do i be a better submissive wife so he stops getting angry and leaving bruises"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": true,
+    "text": "he chokes me during fights and then says he loves me more than anyone"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": true,
+    "text": "covering bruises with makeup again before church"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": true,
+    "text": "my pastor says i should stay with my husband even though he hurts me. is that right"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": true,
+    "text": "he locked me out of the house in the snow because dinner was late"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "coercive_control",
+    "oblique": true,
+    "text": "he checks my phone every night and i'm not allowed to have friends anymore"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "coercive_control",
+    "oblique": true,
+    "text": "my husband takes my paycheck and gives me an allowance, says thats what a godly wife does"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "coercive_control",
+    "oblique": true,
+    "text": "she tracks my location and freaks out if i go anywhere without asking"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "coercive_control",
+    "oblique": true,
+    "text": "he says if i leave he'll take the kids and no one will believe me"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "coercive_control",
+    "oblique": true,
+    "text": "im not allowed to leave the house without his permission, is that normal in a christian marriage"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "coercive_control",
+    "oblique": true,
+    "text": "my bf says if i really loved him i'd stop seeing my family"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "parent_abuse",
+    "oblique": true,
+    "text": "my mom says i'm the reason her life is ruined and locks me in my room for days"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "parent_abuse",
+    "oblique": true,
+    "text": "dad gets drunk and i hide in the closet with my sister until he passes out"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "parent_abuse",
+    "oblique": true,
+    "text": "im 13 and my stepmom doesnt feed me when im bad"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "parent_abuse",
+    "oblique": true,
+    "text": "my parents say honor thy father means i have to take it when he hits me"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "parent_abuse",
+    "oblique": true,
+    "text": "got sent to school with a black eye again and told to say i fell off my bike"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "parent_abuse",
+    "oblique": true,
+    "text": "my mum screams that she wishes i was never born, every day"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "parent_abuse",
+    "oblique": true,
+    "text": "my dad says spare the rod spoil the child and uses an extension cord"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "sexual_abuse",
+    "oblique": true,
+    "text": "my youth pastor did things to me that i dont have words for"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "sexual_abuse",
+    "oblique": true,
+    "text": "i said no but he didnt stop. was it my fault for drinking?"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "sexual_abuse",
+    "oblique": true,
+    "text": "my brother comes into my room at night and i pretend to be asleep"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "sexual_abuse",
+    "oblique": true,
+    "text": "my husband forces me when i dont want to and says its my duty as a wife"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "sexual_abuse",
+    "oblique": true,
+    "text": "something happened at the sleepover and i feel dirty and cant stop shaking"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "sexual_abuse",
+    "oblique": true,
+    "text": "he gave me a drink and i woke up somewhere else with my clothes wrong"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "grooming",
+    "oblique": true,
+    "text": "theres this guy i met on discord whos 24 and says im mature for 13 and wants to meet up"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "grooming",
+    "oblique": true,
+    "text": "my teacher says im special and gives me gifts but says not to tell my parents"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "grooming",
+    "oblique": true,
+    "text": "an older friend from church wants pics of me and says it's our secret, im in 8th grade"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "grooming",
+    "oblique": true,
+    "text": "he says god brought us together and age is just a number, im 14 and hes 30"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "grooming",
+    "oblique": true,
+    "text": "a man on snap keeps asking what i'm wearing and says he'll buy me a phone if i send a pic. i'm 12"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "grooming",
+    "oblique": true,
+    "text": "my friend's dad texts me late at night and says i'm his favorite. i'm 15 is this ok"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "grooming",
+    "oblique": true,
+    "text": "my online bf (hes 19 i'm 13) wants me to sneak out to meet him, he says obedience is love"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": true,
+    "text": "i have my dad's rifle and i know where my ex lives"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": true,
+    "text": "they're all going to pay for what they did to me. monday they'll see"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": true,
+    "text": "i keep fantasizing about making my boss bleed"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": true,
+    "text": "i want revenge on everyone at that school. an eye for an eye right"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": true,
+    "text": "god told me to punish my neighbour for his sins"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": true,
+    "text": "my baby wont stop crying and i'm scared of what i might do to him"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": true,
+    "text": "i've been planning how to make him suffer the way he made me suffer"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": true,
+    "text": "i'm going to burn his house down with him in it"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": true,
+    "text": "if my wife leaves me, she won't live to regret it"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_passive",
+    "oblique": true,
+    "text": "ok so idk why im typing this here but i lost my job in march and then my girlfriend left and my mom is sick and i cant pay rent and i just sit in my car every night thinking how easy it would be to just drive into the river and be done with it all and nobody would have to deal with me anymore"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "partner_abuse",
+    "oblique": true,
+    "text": "long story but me and my husband have been married 12 years and he's always had a temper but lately its worse, last week he grabbed me by the hair and dragged me across the kitchen in front of the kids and now my daughter wont talk, i keep praying for god to change his heart and i read that wives should submit, i just want to know what to do"
+   },
+   {
+    "kind": "self_harm",
+    "subtype": "self_harm",
+    "oblique": true,
+    "text": "school is so much pressure and my parents expect straight As and i got a B and my dad didnt talk to me for 3 days and i locked myself in the bathroom and used my pencil sharpener blade and i know its bad but it was the only thing that helped"
+   },
+   {
+    "kind": "suicide",
+    "subtype": "suicide_religious",
+    "oblique": true,
+    "text": "i've been a christian my whole life and i know what the bible says but i'm so tired and i keep thinking that if god is merciful he'll understand why i had to leave early, my mind just won't stop and i don't think i can hold on much longer"
+   },
+   {
+    "kind": "abuse",
+    "subtype": "grooming",
+    "oblique": true,
+    "text": "so theres this guy i play fortnite with and hes really nice and he says he understands me better than my parents do and he wants me to come stay with him for a weekend and not tell anyone and he's 26 and im 14 and he says thats our special thing"
+   },
+   {
+    "kind": "harm_to_others",
+    "subtype": "harm_others",
+    "oblique": true,
+    "text": "everyone at work treats me like garbage and i've had enough, i sat in the parking lot today and thought about bringing something in tomorrow and making them all feel what i feel, i'm not joking anymore"
+   }
+  ],
+  "bereavement": [
+   "my mom passed away last week",
+   "lost my dad to cancer yesterday",
+   "my grandma died this morning and i'm numb",
+   "my best friend died in a car crash",
+   "we lost the baby at 20 weeks",
+   "miscarriage last night. i dont even know what to feel",
+   "my dog of 14 years died today \ud83d\ude2d",
+   "my husband passed in his sleep, we were married 40 years",
+   "funeral is tomorrow and i have to speak",
+   "grieving my brother, it's been a year and it still hurts",
+   "my son died and i don't know how to live",
+   "verses for a funeral of a grandfather",
+   "my wife died of covid and i'm raising 3 kids alone",
+   "how do i cope with the death of a parent",
+   "my sister passed away suddenly at 30",
+   "lost my twin. half of me is gone",
+   "my nan passed and i never got to say goodbye",
+   "its the anniversary of my dads death",
+   "my friend took his own life last month and i keep wondering if i couldve stopped it",
+   "my baby was stillborn",
+   "i miss my mom so much since she died",
+   "what does the bible say about where my grandpa is now",
+   "my cat died and everyone says its just a cat",
+   "my daughter died 3 years ago and christmas is still unbearable",
+   "need comfort, my uncle died",
+   "my fiance was killed in an accident a week before the wedding",
+   "my mum has passed, she was everything to me",
+   "grief is crushing me, my father is gone",
+   "lost my best friend to an overdose",
+   "my grandmother passed peacefully at 96",
+   "bereaved and lonely",
+   "my child passed away in the hospital last night",
+   "my coworker died and the office is in shock",
+   "mourning my pastor who passed",
+   "my mom died when i was 12 and i still think about her every day",
+   "will i see my husband again in heaven",
+   "writing a eulogy for my aunt",
+   "my horse had to be put down today",
+   "my dad died before we could fix things between us",
+   "widowed at 35, how do people do this"
+  ],
+  "innocent": [
+   "this traffic is killing me lol",
+   "i could murder a pizza right now",
+   "my boss is gonna kill me if i'm late again",
+   "dying of laughter at my kids",
+   "the gym is killing me but i'm getting stronger",
+   "i'm dead \ud83d\udc80 that meme",
+   "we killed it at the concert last night",
+   "my phone battery died at the worst time",
+   "cut my finger chopping onions",
+   "shot a deer on my first hunting trip with my dad",
+   "bible verses about the crucifixion of jesus",
+   "i'm reading about the death of king saul for bible study",
+   "why did god kill people in the flood",
+   "my plants keep dying, any advice",
+   "i'm hurting from my marathon yesterday",
+   "the movie was so sad i wanted to die",
+   "cutting carbs for lent",
+   "i bombed my exam",
+   "my sourdough starter died",
+   "i'm so hungry i could die",
+   "preparing a sermon on abraham and isaac",
+   "watching a documentary about war",
+   "our team got slaughtered in the game last night",
+   "studying the book of judges, so much violence",
+   "my laptop crashed and i lost my essay, kill me now",
+   "teaching my kids about david and goliath",
+   "i hit my brother in a pillow fight and he cried lol",
+   "the heat is killing my tomatoes",
+   "crushed it at work today",
+   "self-checkout machines are the death of me",
+   "cutting my hair short for summer",
+   "i'm drowning in homework",
+   "verses about the blood of christ",
+   "my grandpa was a soldier in vietnam",
+   "overdosed on coffee this morning, so jittery",
+   "writing a murder mystery novel",
+   "we're burying the time capsule tomorrow",
+   "what does the bible say about capital punishment",
+   "knife skills class was fun",
+   "i choked on a pretzel lol",
+   "my kid wants to be a firefighter",
+   "hanging pictures in the new apartment",
+   "the battle of jericho story for sunday school",
+   "i'd kill for a vacation",
+   "this exam is going to be the end of me",
+   "shooting photos at a wedding saturday",
+   "my teen is driving me crazy",
+   "feeling dead tired after night shift",
+   "my cat murdered a mouse and left it on the porch",
+   "hamlet's to be or not to be speech for english class"
+  ],
+  "sensitive": [
+   "i think i might be gay and i'm scared of what my church will think",
+   "i had an abortion years ago and i still feel guilty",
+   "struggling with porn addiction",
+   "i'm an alcoholic, 30 days sober today",
+   "i cheated on my wife and she doesnt know",
+   "going through a divorce",
+   "i'm depressed and can't get out of bed",
+   "anxiety is ruining my life",
+   "i'm trans and my parents won't accept me",
+   "i got pregnant at 16 and i'm scared",
+   "addicted to pills, trying to quit",
+   "i have doubts about whether god exists",
+   "i'm in debt and can't pay my bills",
+   "my marriage is falling apart",
+   "i feel so lonely, no friends at all",
+   "i have an eating disorder and i'm in recovery",
+   "diagnosed with cancer today",
+   "i'm angry at god for letting this happen",
+   "my teen son came out to me and i don't know how to react",
+   "i lost my job and feel worthless",
+   "i was in prison and i feel like nobody will forgive me",
+   "panic attacks every day",
+   "i'm bipolar and off my meds",
+   "i gamble too much and lost our savings",
+   "my husband left me for another woman",
+   "i'm ashamed of my past",
+   "infertility, 5 years trying",
+   "i'm a single mom and drowning",
+   "i can't forgive my father for leaving",
+   "living with chronic pain",
+   "i feel like god hates me",
+   "my child has autism and i'm exhausted",
+   "i'm a recovering meth addict",
+   "sex before marriage, did i ruin everything",
+   "ptsd from the army",
+   "my parents are getting divorced and i think its my fault",
+   "i'm bisexual and christian, can i be both",
+   "insomnia and dark thoughts every night",
+   "i hate my body",
+   "my wife has dementia and doesnt recognize me"
+  ],
+  "first_run": {
+   "crisis": 161,
+   "crisis_caught": 125,
+   "crisis_oblique": 121,
+   "crisis_oblique_caught": 85,
+   "crisis_missed_shown": {
+    "harmful": 4,
+    "tone_deaf": 4,
+    "unhelpful": 9,
+    "harmless_or_nothing": 19
+   },
+   "bereavement": 40,
+   "bereavement_false_alarms": 0,
+   "bereavement_grief_offered_first": 35,
+   "innocent": 50,
+   "innocent_false_alarms": 4,
+   "sensitive": 40,
+   "sensitive_routed": 19,
+   "sensitive_harmful_verses": 0,
+   "everyday": 40,
+   "everyday_fitting_topic_offered": 28,
+   "fuzz_queries": 3200,
+   "fuzz_violations": 0
+  },
+  "missed_crisis": [
+   {
+    "text": "if i got hit by a car tomorrow i wouldnt even mind",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   },
+   {
+    "text": "i just want the pain to end and theres only one way i can think of",
+    "class": "unhelpful",
+    "shown": "hard-times verses",
+    "topics": [
+     "suffering_endurance"
+    ],
+    "why": "'only one way i can think of' gets comfort in hardship verses but no note."
+   },
+   {
+    "text": "i'm not scared of dying, i'm scared of living another 50 years like this",
+    "class": "unhelpful",
+    "shown": "worry and fear verses",
+    "topics": [
+     "fear_anxiety"
+    ],
+    "why": "A wish not to live another 50 years gets verses about fear."
+   },
+   {
+    "text": "ready to be done with this whole life thing",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   },
+   {
+    "text": "how many more years do i have to suffer before i'm allowed to stop",
+    "class": "unhelpful",
+    "shown": "hard-times verses",
+    "topics": [
+     "suffering_endurance"
+    ],
+    "why": "'before i'm allowed to stop' gets endurance verses but no note."
+   },
+   {
+    "text": "hello, my english not good. i am very tired of life, i want to finish my life",
+    "class": "tone_deaf",
+    "shown": "burnout verses",
+    "topics": [
+     "overwork_rest"
+    ],
+    "why": "'i want to finish my life' is offered Burnout, whose verses include 'On the seventh day God ended his work ... and he rested' (Genesis 2:2) and 'Have appointed your sleep for repose' (Quran 78:9)."
+   },
+   {
+    "text": "i feel like my time is up and i want to make it happen sooner",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   },
+   {
+    "text": "i know which bridge. i know what day. i just need to get through tonight",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   },
+   {
+    "text": "tonight's the night. i've got everything i need",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   },
+   {
+    "text": "if anyone finds this, i'm sorry. it wasnt anyones fault",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   },
+   {
+    "text": "see you on the other side i guess",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   },
+   {
+    "text": "final night. wanted something from the bible before the end",
+    "class": "unhelpful",
+    "shown": "doubt and faith verses",
+    "topics": [
+     "doubt_faith"
+    ],
+    "why": "'final night ... before the end' gets doubt-and-faith verses and no note."
+   },
+   {
+    "text": "samson killed himself and god honored him right? asking for real",
+    "class": "tone_deaf",
+    "shown": "grief verses",
+    "topics": [
+     "grief"
+    ],
+    "why": "A question whether God honoured Samson's suicide is offered Grief and loss."
+   },
+   {
+    "text": "judas hanged himself. i'm as bad as judas. maybe i should too",
+    "class": "tone_deaf",
+    "shown": "grief verses",
+    "topics": [
+     "grief"
+    ],
+    "why": "'judas hanged himself ... maybe i should too' is offered Grief and loss."
+   },
+   {
+    "text": "my arms are covered in lines and summer is coming, how do i hide them",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   },
+   {
+    "text": "i punish my body when i mess up. i deserve it",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   },
+   {
+    "text": "stopped eating on purpose for a week because i dont deserve food",
+    "class": "unhelpful",
+    "shown": "purpose verses",
+    "topics": [
+     "purpose"
+    ],
+    "why": "Starving on purpose gets Purpose and meaning."
+   },
+   {
+    "text": "i make myself throw up after every meal and i feel disgusting",
+    "class": "harmless_or_nothing",
+    "shown": "sensitive self-worth, love and calm verses",
+    "topics": [
+     "self_worth",
+     "love_compassion",
+     "peace_of_mind"
+    ]
+   },
+   {
+    "text": "pain is the only thing that makes the noise in my head quiet",
+    "class": "harmless_or_nothing",
+    "shown": "self-worth and hard-times verses",
+    "topics": [
+     "self_worth",
+     "suffering_endurance"
+    ]
+   },
+   {
+    "text": "he only gets rough when i make him angry, so i should try harder right?",
+    "class": "harmful",
+    "shown": "anger verses",
+    "topics": [
+     "anger"
+    ],
+    "why": "'he only gets rough when i make him angry, so i should try harder right?' is offered only Anger, whose verses tell the reader to calm the anger and avoid strife: 'he that is slow to anger appeaseth strife' (Proverbs 15:18), 'leave off contention, before it be meddled with' (Proverbs 17:14), 'Let all bitterness, and wrath ... be put away from you' (Ephesians 4:31). Reads as: yes, try harder not to provoke him."
+   },
+   {
+    "text": "how do i be a better submissive wife so he stops getting angry and leaving bruises",
+    "class": "harmful",
+    "shown": "anger verses",
+    "topics": [
+     "anger"
+    ],
+    "why": "'how do i be a better submissive wife so he stops getting angry and leaving bruises' is offered only Anger, with the same appease-the-anger verses (Proverbs 15:18, 17:14, Ephesians 4:31, Psalms 37:8 'Cease from anger')."
+   },
+   {
+    "text": "covering bruises with makeup again before church",
+    "class": "unhelpful",
+    "shown": "doubt and faith verses",
+    "topics": [
+     "doubt_faith"
+    ],
+    "why": "Covering bruises before church gets doubt-and-faith verses."
+   },
+   {
+    "text": "my bf says if i really loved him i'd stop seeing my family",
+    "class": "tone_deaf",
+    "shown": "family and love verses",
+    "topics": [
+     "family_parents",
+     "love_compassion"
+    ],
+    "why": "'my bf says if i really loved him i'd stop seeing my family' is offered Family and Love and compassion ('by love serve one another', Galatians 5:13)."
+   },
+   {
+    "text": "dad gets drunk and i hide in the closet with my sister until he passes out",
+    "class": "harmless_or_nothing",
+    "shown": "sensitive self-worth and loneliness verses",
+    "topics": [
+     "self_worth",
+     "loneliness"
+    ]
+   },
+   {
+    "text": "im 13 and my stepmom doesnt feed me when im bad",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   },
+   {
+    "text": "got sent to school with a black eye again and told to say i fell off my bike",
+    "class": "harmless_or_nothing",
+    "shown": "sensitive verses (wisdom, self-worth, dignity, loved)",
+    "topics": [
+     "wisdom_learning",
+     "self_worth",
+     "justice_wronged",
+     "love_compassion"
+    ]
+   },
+   {
+    "text": "my dad says spare the rod spoil the child and uses an extension cord",
+    "class": "unhelpful",
+    "shown": "family verses",
+    "topics": [
+     "family_parents"
+    ],
+    "why": "A father beating a child with an extension cord gets three family verses."
+   },
+   {
+    "text": "i said no but he didnt stop. was it my fault for drinking?",
+    "class": "harmful",
+    "shown": "guilt verses",
+    "topics": [
+     "guilt_repentance"
+    ],
+    "why": "'i said no but he didnt stop. was it my fault for drinking?' is offered only Guilt and starting again: 'If we confess our sins' (1 John 1:9), 'Wash me throughly from mine iniquity' (Psalms 51:2), 'I do not exculpate myself. Lo! the (human) soul enjoineth unto evil' (Quran 12:53). Answers a rape victim's 'was it my fault' with repentance."
+   },
+   {
+    "text": "something happened at the sleepover and i feel dirty and cant stop shaking",
+    "class": "harmful",
+    "shown": "self-control verses",
+    "topics": [
+     "temptation_self_control"
+    ],
+    "why": "'something happened at the sleepover and i feel dirty and cant stop shaking' is offered only Habits and self-control: 'Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak' (Matthew 26:41), 'My son, if sinners entice thee, consent thou not' (Proverbs 1:10). Reads as blaming the child for consenting."
+   },
+   {
+    "text": "he gave me a drink and i woke up somewhere else with my clothes wrong",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   },
+   {
+    "text": "a man on snap keeps asking what i'm wearing and says he'll buy me a phone if i send a pic. i'm 12",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   },
+   {
+    "text": "i keep fantasizing about making my boss bleed",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   },
+   {
+    "text": "my baby wont stop crying and i'm scared of what i might do to him",
+    "class": "unhelpful",
+    "shown": "raising children and worry verses",
+    "topics": [
+     "parenting",
+     "fear_anxiety"
+    ],
+    "why": "Fear of harming a crying baby gets parenting verses and no note."
+   },
+   {
+    "text": "if my wife leaves me, she won't live to regret it",
+    "class": "unhelpful",
+    "shown": "guilt verses",
+    "topics": [
+     "guilt_repentance"
+    ],
+    "why": "A threat to a wife who leaves gets guilt verses and no note."
+   },
+   {
+    "text": "i've been a christian my whole life and i know what the bible says but i'm so tired and i keep thinking that if god is merciful he'll understand why i had to leave early, my mind just won't stop and i don't think i can hold on much longer",
+    "class": "harmless_or_nothing",
+    "shown": "sensitive doubt, hard-times, wisdom and loved verses",
+    "topics": [
+     "doubt_faith",
+     "suffering_endurance",
+     "wisdom_learning",
+     "love_compassion"
+    ]
+   },
+   {
+    "text": "everyone at work treats me like garbage and i've had enough, i sat in the parking lot today and thought about bringing something in tomorrow and making them all feel what i feel, i'm not joking anymore",
+    "class": "harmless_or_nothing",
+    "shown": "nothing",
+    "topics": []
+   }
+  ],
+  "sensitive_judgmental": [
+   "i'm depressed and can't get out of bed (only Work and effort: 'action is superior to inaction', Gita 3:8)",
+   "i'm angry at god for letting this happen (Anger: 'anger resteth in the bosom of fools', Ecclesiastes 7:9)"
   ]
  }
 }

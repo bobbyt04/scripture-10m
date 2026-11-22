@@ -6346,5 +6346,395 @@
     "bible": "F"
    }
   ]
+ },
+ "judge7_blind_hand_judged": {
+  "judged_by": "one independent reviewer (judge 7); the 40 everyday situations were written and saved before reading the search code beyond its call signature, search/, evals/, tests/ or the README, then run once through suggest() at commit 758bdb4; for each, whether a fitting topic was among those suggested, then the best suggested topic was tapped and its verses judged by hand per book; nothing was changed for them",
+  "labels": "per book and situation: F = the verses shown speak to the situation, U = not fitting or judgmental, empty = the book showed nothing; 'tapped' is null when no suggested topic fitted",
+  "n_situations": 40,
+  "fitting_topic_offered": 28,
+  "categories": {
+   "general": 32,
+   "none": 8
+  },
+  "per_book": {
+   "gita": {
+    "situations_shown": 14,
+    "situations_fitting": 12,
+    "situations_empty": 14
+   },
+   "quran": {
+    "situations_shown": 26,
+    "situations_fitting": 23,
+    "situations_empty": 2
+   },
+   "bible": {
+    "situations_shown": 28,
+    "situations_fitting": 26,
+    "situations_empty": 0
+   }
+  },
+  "harmful": 0,
+  "judgmental": [],
+  "situations": [
+   {
+    "query": "starting a new job tomorrow, nervous",
+    "topics": [
+     "work_effort",
+     "fear_anxiety"
+    ],
+    "tapped": "fear_anxiety",
+    "gita": "F",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "verses for a wedding toast",
+    "topics": [],
+    "tapped": null
+   },
+   {
+    "query": "my daughter is graduating high school",
+    "topics": [
+     "parenting",
+     "wisdom_learning"
+    ],
+    "tapped": "parenting",
+    "gita": "",
+    "quran": "U",
+    "bible": "F"
+   },
+   {
+    "query": "we just had a baby!",
+    "topics": [],
+    "tapped": null
+   },
+   {
+    "query": "need patience with my toddler",
+    "topics": [
+     "parenting",
+     "patience"
+    ],
+    "tapped": "patience",
+    "gita": "U",
+    "quran": "",
+    "bible": "U"
+   },
+   {
+    "query": "moving to a new city",
+    "topics": [
+     "change_uncertainty",
+     "loneliness"
+    ],
+    "tapped": "change_uncertainty",
+    "gita": "",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "big exam on friday",
+    "topics": [
+     "failure",
+     "wisdom_learning"
+    ],
+    "tapped": "wisdom_learning",
+    "gita": "F",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "i'm grateful for my family today",
+    "topics": [
+     "gratitude"
+    ],
+    "tapped": "gratitude",
+    "gita": "",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "what to read before a job interview",
+    "topics": [
+     "work_effort"
+    ],
+    "tapped": "work_effort",
+    "gita": "F",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "bible verse for my sons baptism",
+    "topics": [
+     "doubt_faith"
+    ],
+    "tapped": null
+   },
+   {
+    "query": "celebrating 25 years of marriage",
+    "topics": [
+     "gratitude"
+    ],
+    "tapped": "gratitude",
+    "gita": "",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "how to be a better friend",
+    "topics": [
+     "friendship"
+    ],
+    "tapped": "friendship",
+    "gita": "",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "thanksgiving dinner prayer",
+    "topics": [
+     "doubt_faith"
+    ],
+    "tapped": null
+   },
+   {
+    "query": "stressed about money this month",
+    "topics": [
+     "fear_anxiety",
+     "money_worry"
+    ],
+    "tapped": "money_worry",
+    "gita": "",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "i want to be more generous",
+    "topics": [
+     "generosity"
+    ],
+    "tapped": "generosity",
+    "gita": "",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "need motivation to work out",
+    "topics": [
+     "work_effort"
+    ],
+    "tapped": "work_effort",
+    "gita": "F",
+    "quran": "U",
+    "bible": "F"
+   },
+   {
+    "query": "worried about my kids future",
+    "topics": [
+     "fear_anxiety",
+     "parenting",
+     "change_uncertainty"
+    ],
+    "tapped": "fear_anxiety",
+    "gita": "F",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "hard decision about whether to take a job offer",
+    "topics": [
+     "guidance_decisions"
+    ],
+    "tapped": "guidance_decisions",
+    "gita": "F",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "my friend and i had a fight",
+    "topics": [
+     "friendship"
+    ],
+    "tapped": "friendship",
+    "gita": "",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "retirement next month, whats next",
+    "topics": [
+     "change_uncertainty"
+    ],
+    "tapped": "change_uncertainty",
+    "gita": "",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "verses about hard work",
+    "topics": [
+     "work_effort"
+    ],
+    "tapped": "work_effort",
+    "gita": "F",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "feeling lazy and unmotivated",
+    "topics": [
+     "work_effort",
+     "purpose"
+    ],
+    "tapped": "work_effort",
+    "gita": "F",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "going on a mission trip",
+    "topics": [],
+    "tapped": null
+   },
+   {
+    "query": "first day of college",
+    "topics": [
+     "wisdom_learning"
+    ],
+    "tapped": "wisdom_learning",
+    "gita": "F",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "verses about courage",
+    "topics": [],
+    "tapped": null
+   },
+   {
+    "query": "i want to grow in wisdom",
+    "topics": [
+     "wisdom_learning"
+    ],
+    "tapped": "wisdom_learning",
+    "gita": "F",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "my coworker is difficult",
+    "topics": [],
+    "tapped": null
+   },
+   {
+    "query": "birthday verse for my mom",
+    "topics": [
+     "family_parents"
+    ],
+    "tapped": "family_parents",
+    "gita": "",
+    "quran": "",
+    "bible": "U"
+   },
+   {
+    "query": "verses about forgiveness",
+    "topics": [],
+    "tapped": null
+   },
+   {
+    "query": "how to deal with jealousy",
+    "topics": [
+     "envy_contentment"
+    ],
+    "tapped": "envy_contentment",
+    "gita": "F",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "verses on love for a card",
+    "topics": [
+     "love_compassion"
+    ],
+    "tapped": "love_compassion",
+    "gita": "U",
+    "quran": "U",
+    "bible": "F"
+   },
+   {
+    "query": "i'm proud of my son",
+    "topics": [
+     "parenting",
+     "pride_humility"
+    ],
+    "tapped": "parenting",
+    "gita": "",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "starting a business",
+    "topics": [],
+    "tapped": null
+   },
+   {
+    "query": "need peace before surgery",
+    "topics": [
+     "illness",
+     "peace_of_mind"
+    ],
+    "tapped": "peace_of_mind",
+    "gita": "F",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "verses about rest",
+    "topics": [
+     "overwork_rest"
+    ],
+    "tapped": "overwork_rest",
+    "gita": "",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "how to be humble",
+    "topics": [
+     "pride_humility"
+    ],
+    "tapped": "pride_humility",
+    "gita": "",
+    "quran": "F",
+    "bible": "F"
+   },
+   {
+    "query": "verses for a new home blessing",
+    "topics": [],
+    "tapped": null
+   },
+   {
+    "query": "i want to pray more",
+    "topics": [
+     "doubt_faith"
+    ],
+    "tapped": null
+   },
+   {
+    "query": "traveling alone for the first time",
+    "topics": [
+     "loneliness"
+    ],
+    "tapped": null
+   },
+   {
+    "query": "verses about friendship",
+    "topics": [
+     "friendship"
+    ],
+    "tapped": "friendship",
+    "gita": "",
+    "quran": "F",
+    "bible": "F"
+   }
+  ]
  }
 }

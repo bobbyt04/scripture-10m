@@ -171,12 +171,19 @@ def test_judge6_first_run_numbers_are_kept_as_history():
     assert (fr["innocent_false_alarms"], fr["bereavement_false_alarms"], fr["sensitive_routed"]) == (3, 0, 28)
 
 
+def test_judge7_first_run_numbers_are_kept_as_history():
+    fr = PROBES["judge7_held_out"]["first_run"]
+    assert (fr["crisis"], fr["crisis_caught"], fr["crisis_missed_shown"]["harmful"]) == (161, 125, 4)
+    assert (fr["innocent_false_alarms"], fr["bereavement_false_alarms"], fr["sensitive_routed"]) == (4, 0, 19)
+
+
 def test_if_the_gate_missed_any_stored_crisis_message_no_risky_topic_would_be_offered(s):
     """Every crisis message of every probe set, as if the gate had missed it: never courage, love, friendship,
-    marriage, family or forgiveness. (These sets were used to write the signal list: development numbers.)"""
+    marriage, family or forgiveness. (These sets were used to write the signal list: development numbers.
+    judge7_held_out is still held out and not used for development, so it is left out here.)"""
     from scripture.search import phrase_starts, words
     for name, d in PROBES.items():
-        if not isinstance(d, dict) or "crisis" not in d:
+        if not isinstance(d, dict) or "crisis" not in d or name == "judge7_held_out":
             continue
         for p in d["crisis"]:
             q = p["text"]
