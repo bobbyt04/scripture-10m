@@ -1,0 +1,2862 @@
+{
+ "situations": {
+  "dev": {
+   "random": {
+    "gita": {
+     "n": 29,
+     "hit@3": 0.03885713067253972,
+     "hit@10": 0.12343159003653181,
+     "mrr": 0.057199423948725577
+    },
+    "quran": {
+     "n": 33,
+     "hit@3": 0.0061537692957418615,
+     "hit@10": 0.020364517762457558,
+     "mrr": 0.012741551045468376
+    },
+    "bible": {
+     "n": 33,
+     "hit@3": 0.0015775656877569974,
+     "hit@10": 0.005249016260919502,
+     "mrr": 0.0039782642269002785
+    },
+    "overall": {
+     "n": 95,
+     "hit@3": 0.014547272041674886,
+     "hit@10": 0.04657644982979859,
+     "mrr": 0.023268812615802187
+    }
+   },
+   "bm25": {
+    "gita": {
+     "n": 29,
+     "hit@3": 0.20689655172413793,
+     "hit@10": 0.27586206896551724,
+     "mrr": 0.1586298028600751
+    },
+    "quran": {
+     "n": 33,
+     "hit@3": 0.06060606060606061,
+     "hit@10": 0.18181818181818182,
+     "mrr": 0.0790986717654307
+    },
+    "bible": {
+     "n": 33,
+     "hit@3": 0.15151515151515152,
+     "hit@10": 0.24242424242424243,
+     "mrr": 0.1425611253682909
+    },
+    "overall": {
+     "n": 95,
+     "hit@3": 0.1368421052631579,
+     "hit@10": 0.23157894736842105,
+     "mrr": 0.12542144829847354
+    }
+   },
+   "bm25+bridge": {
+    "gita": {
+     "n": 29,
+     "hit@3": 0.3793103448275862,
+     "hit@10": 0.6206896551724138,
+     "mrr": 0.33908287902116896
+    },
+    "quran": {
+     "n": 33,
+     "hit@3": 0.42424242424242425,
+     "hit@10": 0.5757575757575758,
+     "mrr": 0.3157604493754298
+    },
+    "bible": {
+     "n": 33,
+     "hit@3": 0.5151515151515151,
+     "hit@10": 0.696969696969697,
+     "mrr": 0.40875971588984067
+    },
+    "overall": {
+     "n": 95,
+     "hit@3": 0.4421052631578947,
+     "hit@10": 0.631578947368421,
+     "mrr": 0.3551849362670296
+    }
+   },
+   "vectors-no-bridge": {
+    "gita": {
+     "n": 29,
+     "hit@3": 0.20689655172413793,
+     "hit@10": 0.3793103448275862,
+     "mrr": 0.19642475117526098
+    },
+    "quran": {
+     "n": 33,
+     "hit@3": 0.15151515151515152,
+     "hit@10": 0.21212121212121213,
+     "mrr": 0.1254525311849777
+    },
+    "bible": {
+     "n": 33,
+     "hit@3": 0.09090909090909091,
+     "hit@10": 0.24242424242424243,
+     "mrr": 0.12237219433959176
+    },
+    "overall": {
+     "n": 95,
+     "hit@3": 0.14736842105263157,
+     "hit@10": 0.2736842105263158,
+     "mrr": 0.14604772343571956
+    }
+   },
+   "vectors": {
+    "gita": {
+     "n": 29,
+     "hit@3": 0.3448275862068966,
+     "hit@10": 0.5517241379310345,
+     "mrr": 0.3338232275691279
+    },
+    "quran": {
+     "n": 33,
+     "hit@3": 0.3939393939393939,
+     "hit@10": 0.5757575757575758,
+     "mrr": 0.3188835499823367
+    },
+    "bible": {
+     "n": 33,
+     "hit@3": 0.3939393939393939,
+     "hit@10": 0.6666666666666666,
+     "mrr": 0.34198890530134984
+    },
+    "overall": {
+     "n": 95,
+     "hit@3": 0.37894736842105264,
+     "hit@10": 0.6,
+     "mrr": 0.33147015393543533
+    }
+   },
+   "hybrid": {
+    "gita": {
+     "n": 29,
+     "hit@3": 0.3793103448275862,
+     "hit@10": 0.7241379310344828,
+     "mrr": 0.3778211411422105
+    },
+    "quran": {
+     "n": 33,
+     "hit@3": 0.36363636363636365,
+     "hit@10": 0.6363636363636364,
+     "mrr": 0.29732085452254964
+    },
+    "bible": {
+     "n": 33,
+     "hit@3": 0.5454545454545454,
+     "hit@10": 0.7272727272727273,
+     "mrr": 0.41667129696225974
+    },
+    "overall": {
+     "n": 95,
+     "hit@3": 0.43157894736842106,
+     "hit@10": 0.6947368421052632,
+     "mrr": 0.36335320096971374
+    }
+   }
+  },
+  "test": {
+   "random": {
+    "gita": {
+     "n": 17,
+     "hit@3": 0.034853874594599175,
+     "hit@10": 0.1117730896771523,
+     "mrr": 0.05315742186927033
+    },
+    "quran": {
+     "n": 17,
+     "hit@3": 0.0043801169842011935,
+     "hit@10": 0.014528593671457953,
+     "mrr": 0.009583178840357231
+    },
+    "bible": {
+     "n": 17,
+     "hit@3": 0.0013044578896434216,
+     "hit@10": 0.0043418290499412406,
+     "mrr": 0.0033769177910794967
+    },
+    "overall": {
+     "n": 51,
+     "hit@3": 0.013512816489481265,
+     "hit@10": 0.04354783746618384,
+     "mrr": 0.022039172833569022
+    }
+   },
+   "bm25": {
+    "gita": {
+     "n": 17,
+     "hit@3": 0.11764705882352941,
+     "hit@10": 0.23529411764705882,
+     "mrr": 0.08399604915956997
+    },
+    "quran": {
+     "n": 17,
+     "hit@3": 0.0,
+     "hit@10": 0.17647058823529413,
+     "mrr": 0.03591683643036568
+    },
+    "bible": {
+     "n": 17,
+     "hit@3": 0.058823529411764705,
+     "hit@10": 0.11764705882352941,
+     "mrr": 0.040559352117204635
+    },
+    "overall": {
+     "n": 51,
+     "hit@3": 0.058823529411764705,
+     "hit@10": 0.17647058823529413,
+     "mrr": 0.0534907459023801
+    }
+   },
+   "bm25+bridge": {
+    "gita": {
+     "n": 17,
+     "hit@3": 0.47058823529411764,
+     "hit@10": 0.7058823529411765,
+     "mrr": 0.3640526825282977
+    },
+    "quran": {
+     "n": 17,
+     "hit@3": 0.29411764705882354,
+     "hit@10": 0.7058823529411765,
+     "mrr": 0.2517341912828081
+    },
+    "bible": {
+     "n": 17,
+     "hit@3": 0.23529411764705882,
+     "hit@10": 0.4117647058823529,
+     "mrr": 0.2178687975952305
+    },
+    "overall": {
+     "n": 51,
+     "hit@3": 0.3333333333333333,
+     "hit@10": 0.6078431372549019,
+     "mrr": 0.2778852238021121
+    }
+   },
+   "vectors-no-bridge": {
+    "gita": {
+     "n": 17,
+     "hit@3": 0.11764705882352941,
+     "hit@10": 0.35294117647058826,
+     "mrr": 0.17624940885503362
+    },
+    "quran": {
+     "n": 17,
+     "hit@3": 0.058823529411764705,
+     "hit@10": 0.11764705882352941,
+     "mrr": 0.03766143223083601
+    },
+    "bible": {
+     "n": 17,
+     "hit@3": 0.058823529411764705,
+     "hit@10": 0.11764705882352941,
+     "mrr": 0.04001366000634551
+    },
+    "overall": {
+     "n": 51,
+     "hit@3": 0.0784313725490196,
+     "hit@10": 0.19607843137254902,
+     "mrr": 0.08464150036407174
+    }
+   },
+   "vectors": {
+    "gita": {
+     "n": 17,
+     "hit@3": 0.35294117647058826,
+     "hit@10": 0.6470588235294118,
+     "mrr": 0.3859758413169189
+    },
+    "quran": {
+     "n": 17,
+     "hit@3": 0.35294117647058826,
+     "hit@10": 0.5294117647058824,
+     "mrr": 0.2709028709645952
+    },
+    "bible": {
+     "n": 17,
+     "hit@3": 0.35294117647058826,
+     "hit@10": 0.5882352941176471,
+     "mrr": 0.3623062060335313
+    },
+    "overall": {
+     "n": 51,
+     "hit@3": 0.35294117647058826,
+     "hit@10": 0.5882352941176471,
+     "mrr": 0.33972830610501514
+    }
+   },
+   "hybrid": {
+    "gita": {
+     "n": 17,
+     "hit@3": 0.35294117647058826,
+     "hit@10": 0.5882352941176471,
+     "mrr": 0.38282159901897683
+    },
+    "quran": {
+     "n": 17,
+     "hit@3": 0.47058823529411764,
+     "hit@10": 0.6470588235294118,
+     "mrr": 0.33116715690911563
+    },
+    "bible": {
+     "n": 17,
+     "hit@3": 0.35294117647058826,
+     "hit@10": 0.47058823529411764,
+     "mrr": 0.29833161179890255
+    },
+    "overall": {
+     "n": 51,
+     "hit@3": 0.39215686274509803,
+     "hit@10": 0.5686274509803921,
+     "mrr": 0.3374401225756651
+    }
+   }
+  }
+ },
+ "parallels": {
+  "tf-idf only": {
+   "hit@10": 0.36065573770491804,
+   "story_hit@10": 0.46875,
+   "teaching_hit@10": 0.2413793103448276,
+   "trials": 122,
+   "detail": [
+    {
+     "id": "joseph_dream",
+     "from": "bible Genesis 37:9",
+     "rank": 2
+    },
+    {
+     "id": "joseph_dream",
+     "from": "quran 12:4",
+     "rank": 1
+    },
+    {
+     "id": "joseph_pit",
+     "from": "bible Genesis 37:24",
+     "rank": 2
+    },
+    {
+     "id": "joseph_pit",
+     "from": "quran 12:15",
+     "rank": 3
+    },
+    {
+     "id": "joseph_coat",
+     "from": "bible Genesis 37:31",
+     "rank": null
+    },
+    {
+     "id": "joseph_coat",
+     "from": "quran 12:18",
+     "rank": null
+    },
+    {
+     "id": "joseph_seduction",
+     "from": "bible Genesis 39:7",
+     "rank": null
+    },
+    {
+     "id": "joseph_seduction",
+     "from": "quran 12:23",
+     "rank": null
+    },
+    {
+     "id": "pharaoh_kine",
+     "from": "bible Genesis 41:2",
+     "rank": 1
+    },
+    {
+     "id": "pharaoh_kine",
+     "from": "quran 12:43",
+     "rank": 1
+    },
+    {
+     "id": "joseph_reveals",
+     "from": "bible Genesis 45:4",
+     "rank": 3
+    },
+    {
+     "id": "joseph_reveals",
+     "from": "quran 12:90",
+     "rank": 10
+    },
+    {
+     "id": "moses_basket",
+     "from": "bible Exodus 2:3",
+     "rank": 10
+    },
+    {
+     "id": "moses_basket",
+     "from": "quran 20:39",
+     "rank": null
+    },
+    {
+     "id": "moses_kills",
+     "from": "bible Exodus 2:12",
+     "rank": null
+    },
+    {
+     "id": "moses_kills",
+     "from": "quran 28:15",
+     "rank": null
+    },
+    {
+     "id": "moses_well",
+     "from": "bible Exodus 2:16",
+     "rank": 1
+    },
+    {
+     "id": "moses_well",
+     "from": "quran 28:23",
+     "rank": 2
+    },
+    {
+     "id": "burning_bush",
+     "from": "bible Exodus 3:2",
+     "rank": null
+    },
+    {
+     "id": "burning_bush",
+     "from": "quran 20:10",
+     "rank": null
+    },
+    {
+     "id": "staff_serpent",
+     "from": "bible Exodus 4:3",
+     "rank": 3
+    },
+    {
+     "id": "staff_serpent",
+     "from": "quran 20:20",
+     "rank": 1
+    },
+    {
+     "id": "white_hand",
+     "from": "bible Exodus 4:6",
+     "rank": 2
+    },
+    {
+     "id": "white_hand",
+     "from": "quran 7:108",
+     "rank": 2
+    },
+    {
+     "id": "plagues",
+     "from": "bible Exodus 8:6",
+     "rank": null
+    },
+    {
+     "id": "plagues",
+     "from": "quran 7:133",
+     "rank": 3
+    },
+    {
+     "id": "sea_parted",
+     "from": "bible Exodus 14:21",
+     "rank": 2
+    },
+    {
+     "id": "sea_parted",
+     "from": "quran 26:63",
+     "rank": null
+    },
+    {
+     "id": "manna_quails",
+     "from": "bible Exodus 16:13",
+     "rank": 3
+    },
+    {
+     "id": "manna_quails",
+     "from": "quran 2:57",
+     "rank": null
+    },
+    {
+     "id": "rock_water",
+     "from": "bible Exodus 17:6",
+     "rank": 2
+    },
+    {
+     "id": "rock_water",
+     "from": "quran 2:60",
+     "rank": 2
+    },
+    {
+     "id": "golden_calf",
+     "from": "bible Exodus 32:4",
+     "rank": null
+    },
+    {
+     "id": "golden_calf",
+     "from": "quran 20:88",
+     "rank": null
+    },
+    {
+     "id": "noah_ark",
+     "from": "bible Genesis 6:14",
+     "rank": null
+    },
+    {
+     "id": "noah_ark",
+     "from": "quran 11:37",
+     "rank": null
+    },
+    {
+     "id": "noah_flood",
+     "from": "bible Genesis 7:11",
+     "rank": 10
+    },
+    {
+     "id": "noah_flood",
+     "from": "quran 54:11",
+     "rank": null
+    },
+    {
+     "id": "abraham_sacrifice",
+     "from": "bible Genesis 22:2",
+     "rank": null
+    },
+    {
+     "id": "abraham_sacrifice",
+     "from": "quran 37:102",
+     "rank": null
+    },
+    {
+     "id": "abraham_guests",
+     "from": "bible Genesis 18:10",
+     "rank": null
+    },
+    {
+     "id": "abraham_guests",
+     "from": "quran 11:71",
+     "rank": null
+    },
+    {
+     "id": "lot_destroyed",
+     "from": "bible Genesis 19:24",
+     "rank": 2
+    },
+    {
+     "id": "lot_destroyed",
+     "from": "quran 11:82",
+     "rank": null
+    },
+    {
+     "id": "adam_tree",
+     "from": "bible Genesis 3:6",
+     "rank": null
+    },
+    {
+     "id": "adam_tree",
+     "from": "quran 7:22",
+     "rank": null
+    },
+    {
+     "id": "cain_abel",
+     "from": "bible Genesis 4:8",
+     "rank": 6
+    },
+    {
+     "id": "cain_abel",
+     "from": "quran 5:27",
+     "rank": null
+    },
+    {
+     "id": "six_days",
+     "from": "bible Exodus 20:11",
+     "rank": 2
+    },
+    {
+     "id": "six_days",
+     "from": "quran 7:54",
+     "rank": 7
+    },
+    {
+     "id": "jonah_fish",
+     "from": "bible Jonah 1:17",
+     "rank": 2
+    },
+    {
+     "id": "jonah_fish",
+     "from": "quran 37:142",
+     "rank": 1
+    },
+    {
+     "id": "david_goliath",
+     "from": "bible 1 Samuel 17:49",
+     "rank": null
+    },
+    {
+     "id": "david_goliath",
+     "from": "quran 2:251",
+     "rank": null
+    },
+    {
+     "id": "drinking_test",
+     "from": "bible Judges 7:5",
+     "rank": null
+    },
+    {
+     "id": "drinking_test",
+     "from": "quran 2:249",
+     "rank": null
+    },
+    {
+     "id": "sheba",
+     "from": "bible 1 Kings 10:1",
+     "rank": null
+    },
+    {
+     "id": "sheba",
+     "from": "quran 27:23",
+     "rank": null
+    },
+    {
+     "id": "zechariah_son",
+     "from": "bible Luke 1:13",
+     "rank": 3
+    },
+    {
+     "id": "zechariah_son",
+     "from": "quran 19:7",
+     "rank": null
+    },
+    {
+     "id": "annunciation",
+     "from": "bible Luke 1:30",
+     "rank": 2
+    },
+    {
+     "id": "annunciation",
+     "from": "quran 3:45",
+     "rank": 1
+    },
+    {
+     "id": "jesus_heals",
+     "from": "bible Luke 7:22",
+     "rank": null
+    },
+    {
+     "id": "jesus_heals",
+     "from": "quran 3:49",
+     "rank": null
+    },
+    {
+     "id": "camel_needle",
+     "from": "bible Matthew 19:24",
+     "rank": 1
+    },
+    {
+     "id": "camel_needle",
+     "from": "quran 7:40",
+     "rank": 1
+    },
+    {
+     "id": "eye_for_eye",
+     "from": "bible Exodus 21:24",
+     "rank": 1
+    },
+    {
+     "id": "eye_for_eye",
+     "from": "quran 5:45",
+     "rank": 2
+    },
+    {
+     "id": "alms_secret",
+     "from": "bible Matthew 6:3",
+     "rank": null
+    },
+    {
+     "id": "alms_secret",
+     "from": "quran 2:271",
+     "rank": null
+    },
+    {
+     "id": "scroll",
+     "from": "bible Isaiah 34:4",
+     "rank": 4
+    },
+    {
+     "id": "scroll",
+     "from": "quran 21:104",
+     "rank": 1
+    },
+    {
+     "id": "seed_grows",
+     "from": "bible Mark 4:8",
+     "rank": null
+    },
+    {
+     "id": "seed_grows",
+     "from": "quran 2:261",
+     "rank": null
+    },
+    {
+     "id": "first_last",
+     "from": "bible Revelation 1:8",
+     "rank": null
+    },
+    {
+     "id": "first_last",
+     "from": "quran 57:3",
+     "rank": null
+    },
+    {
+     "id": "mercy_all_sins",
+     "from": "bible Psalms 103:3",
+     "rank": null
+    },
+    {
+     "id": "mercy_all_sins",
+     "from": "quran 39:53",
+     "rank": null
+    },
+    {
+     "id": "taste_death",
+     "from": "bible Hebrews 9:27",
+     "rank": null
+    },
+    {
+     "id": "taste_death",
+     "from": "quran 3:185",
+     "rank": null
+    },
+    {
+     "id": "fleeting_grass",
+     "from": "bible Psalms 103:15",
+     "rank": 5
+    },
+    {
+     "id": "fleeting_grass",
+     "from": "quran 18:45",
+     "rank": null
+    },
+    {
+     "id": "god_light",
+     "from": "bible 1 John 1:5",
+     "rank": null
+    },
+    {
+     "id": "god_light",
+     "from": "quran 24:35",
+     "rank": null
+    },
+    {
+     "id": "equanimity_qg",
+     "from": "gita 2:38",
+     "rank": null
+    },
+    {
+     "id": "equanimity_qg",
+     "from": "quran 57:23",
+     "rank": null
+    },
+    {
+     "id": "soul_not_slain",
+     "from": "gita 2:19",
+     "rank": null
+    },
+    {
+     "id": "soul_not_slain",
+     "from": "bible Matthew 10:28",
+     "rank": null
+    },
+    {
+     "id": "soul_living_q",
+     "from": "gita 2:20",
+     "rank": null
+    },
+    {
+     "id": "soul_living_q",
+     "from": "quran 3:169",
+     "rank": 1
+    },
+    {
+     "id": "body_garment",
+     "from": "gita 2:22",
+     "rank": null
+    },
+    {
+     "id": "body_garment",
+     "from": "bible 2 Corinthians 5:1",
+     "rank": null
+    },
+    {
+     "id": "do_all_for_god",
+     "from": "gita 9:27",
+     "rank": null
+    },
+    {
+     "id": "do_all_for_god",
+     "from": "bible 1 Corinthians 10:31",
+     "rank": 3
+    },
+    {
+     "id": "do_all_for_god_q",
+     "from": "gita 9:27",
+     "rank": null
+    },
+    {
+     "id": "do_all_for_god_q",
+     "from": "quran 6:162",
+     "rank": null
+    },
+    {
+     "id": "devotion_offering",
+     "from": "gita 9:26",
+     "rank": 8
+    },
+    {
+     "id": "devotion_offering",
+     "from": "quran 22:37",
+     "rank": 3
+    },
+    {
+     "id": "devotion_offering_b",
+     "from": "gita 9:26",
+     "rank": null
+    },
+    {
+     "id": "devotion_offering_b",
+     "from": "bible Psalms 51:16",
+     "rank": null
+    },
+    {
+     "id": "beginning_end",
+     "from": "gita 10:20",
+     "rank": null
+    },
+    {
+     "id": "beginning_end",
+     "from": "bible Revelation 1:8",
+     "rank": 2
+    },
+    {
+     "id": "beginning_end_q",
+     "from": "gita 10:20",
+     "rank": null
+    },
+    {
+     "id": "beginning_end_q",
+     "from": "quran 57:3",
+     "rank": null
+    },
+    {
+     "id": "god_in_heart",
+     "from": "gita 18:61",
+     "rank": null
+    },
+    {
+     "id": "god_in_heart",
+     "from": "quran 50:16",
+     "rank": null
+    },
+    {
+     "id": "thousand_suns",
+     "from": "gita 11:12",
+     "rank": null
+    },
+    {
+     "id": "thousand_suns",
+     "from": "bible Revelation 1:16",
+     "rank": null
+    },
+    {
+     "id": "friend_and_foe",
+     "from": "gita 12:18",
+     "rank": null
+    },
+    {
+     "id": "friend_and_foe",
+     "from": "bible Matthew 5:44",
+     "rank": null
+    },
+    {
+     "id": "no_return_gift",
+     "from": "gita 17:20",
+     "rank": null
+    },
+    {
+     "id": "no_return_gift",
+     "from": "bible Luke 6:35",
+     "rank": null
+    },
+    {
+     "id": "no_return_gift_q",
+     "from": "gita 17:20",
+     "rank": null
+    },
+    {
+     "id": "no_return_gift_q",
+     "from": "quran 76:9",
+     "rank": null
+    },
+    {
+     "id": "moderation_food",
+     "from": "gita 6:16",
+     "rank": null
+    },
+    {
+     "id": "moderation_food",
+     "from": "quran 7:31",
+     "rank": null
+    },
+    {
+     "id": "anger_folly",
+     "from": "gita 2:63",
+     "rank": null
+    },
+    {
+     "id": "anger_folly",
+     "from": "bible Proverbs 14:17",
+     "rank": null
+    },
+    {
+     "id": "one_father",
+     "from": "gita 14:4",
+     "rank": null
+    },
+    {
+     "id": "one_father",
+     "from": "bible Malachi 2:10",
+     "rank": 5
+    },
+    {
+     "id": "senses_control_q",
+     "from": "gita 2:58",
+     "rank": null
+    },
+    {
+     "id": "senses_control_q",
+     "from": "quran 79:40",
+     "rank": 2
+    }
+   ]
+  },
+  "vectors only": {
+   "hit@10": 0.4262295081967213,
+   "story_hit@10": 0.546875,
+   "teaching_hit@10": 0.29310344827586204,
+   "trials": 122,
+   "detail": [
+    {
+     "id": "joseph_dream",
+     "from": "bible Genesis 37:9",
+     "rank": 1
+    },
+    {
+     "id": "joseph_dream",
+     "from": "quran 12:4",
+     "rank": 1
+    },
+    {
+     "id": "joseph_pit",
+     "from": "bible Genesis 37:24",
+     "rank": 2
+    },
+    {
+     "id": "joseph_pit",
+     "from": "quran 12:15",
+     "rank": 3
+    },
+    {
+     "id": "joseph_coat",
+     "from": "bible Genesis 37:31",
+     "rank": null
+    },
+    {
+     "id": "joseph_coat",
+     "from": "quran 12:18",
+     "rank": null
+    },
+    {
+     "id": "joseph_seduction",
+     "from": "bible Genesis 39:7",
+     "rank": null
+    },
+    {
+     "id": "joseph_seduction",
+     "from": "quran 12:23",
+     "rank": null
+    },
+    {
+     "id": "pharaoh_kine",
+     "from": "bible Genesis 41:2",
+     "rank": 1
+    },
+    {
+     "id": "pharaoh_kine",
+     "from": "quran 12:43",
+     "rank": 1
+    },
+    {
+     "id": "joseph_reveals",
+     "from": "bible Genesis 45:4",
+     "rank": 5
+    },
+    {
+     "id": "joseph_reveals",
+     "from": "quran 12:90",
+     "rank": null
+    },
+    {
+     "id": "moses_basket",
+     "from": "bible Exodus 2:3",
+     "rank": 1
+    },
+    {
+     "id": "moses_basket",
+     "from": "quran 20:39",
+     "rank": null
+    },
+    {
+     "id": "moses_kills",
+     "from": "bible Exodus 2:12",
+     "rank": null
+    },
+    {
+     "id": "moses_kills",
+     "from": "quran 28:15",
+     "rank": null
+    },
+    {
+     "id": "moses_well",
+     "from": "bible Exodus 2:16",
+     "rank": 1
+    },
+    {
+     "id": "moses_well",
+     "from": "quran 28:23",
+     "rank": 1
+    },
+    {
+     "id": "burning_bush",
+     "from": "bible Exodus 3:2",
+     "rank": null
+    },
+    {
+     "id": "burning_bush",
+     "from": "quran 20:10",
+     "rank": null
+    },
+    {
+     "id": "staff_serpent",
+     "from": "bible Exodus 4:3",
+     "rank": 2
+    },
+    {
+     "id": "staff_serpent",
+     "from": "quran 20:20",
+     "rank": 8
+    },
+    {
+     "id": "white_hand",
+     "from": "bible Exodus 4:6",
+     "rank": 2
+    },
+    {
+     "id": "white_hand",
+     "from": "quran 7:108",
+     "rank": 1
+    },
+    {
+     "id": "plagues",
+     "from": "bible Exodus 8:6",
+     "rank": 1
+    },
+    {
+     "id": "plagues",
+     "from": "quran 7:133",
+     "rank": 3
+    },
+    {
+     "id": "sea_parted",
+     "from": "bible Exodus 14:21",
+     "rank": 9
+    },
+    {
+     "id": "sea_parted",
+     "from": "quran 26:63",
+     "rank": 3
+    },
+    {
+     "id": "manna_quails",
+     "from": "bible Exodus 16:13",
+     "rank": 1
+    },
+    {
+     "id": "manna_quails",
+     "from": "quran 2:57",
+     "rank": 6
+    },
+    {
+     "id": "rock_water",
+     "from": "bible Exodus 17:6",
+     "rank": 3
+    },
+    {
+     "id": "rock_water",
+     "from": "quran 2:60",
+     "rank": null
+    },
+    {
+     "id": "golden_calf",
+     "from": "bible Exodus 32:4",
+     "rank": 6
+    },
+    {
+     "id": "golden_calf",
+     "from": "quran 20:88",
+     "rank": 5
+    },
+    {
+     "id": "noah_ark",
+     "from": "bible Genesis 6:14",
+     "rank": null
+    },
+    {
+     "id": "noah_ark",
+     "from": "quran 11:37",
+     "rank": null
+    },
+    {
+     "id": "noah_flood",
+     "from": "bible Genesis 7:11",
+     "rank": 3
+    },
+    {
+     "id": "noah_flood",
+     "from": "quran 54:11",
+     "rank": null
+    },
+    {
+     "id": "abraham_sacrifice",
+     "from": "bible Genesis 22:2",
+     "rank": null
+    },
+    {
+     "id": "abraham_sacrifice",
+     "from": "quran 37:102",
+     "rank": null
+    },
+    {
+     "id": "abraham_guests",
+     "from": "bible Genesis 18:10",
+     "rank": 1
+    },
+    {
+     "id": "abraham_guests",
+     "from": "quran 11:71",
+     "rank": null
+    },
+    {
+     "id": "lot_destroyed",
+     "from": "bible Genesis 19:24",
+     "rank": 1
+    },
+    {
+     "id": "lot_destroyed",
+     "from": "quran 11:82",
+     "rank": 2
+    },
+    {
+     "id": "adam_tree",
+     "from": "bible Genesis 3:6",
+     "rank": null
+    },
+    {
+     "id": "adam_tree",
+     "from": "quran 7:22",
+     "rank": null
+    },
+    {
+     "id": "cain_abel",
+     "from": "bible Genesis 4:8",
+     "rank": 2
+    },
+    {
+     "id": "cain_abel",
+     "from": "quran 5:27",
+     "rank": null
+    },
+    {
+     "id": "six_days",
+     "from": "bible Exodus 20:11",
+     "rank": 6
+    },
+    {
+     "id": "six_days",
+     "from": "quran 7:54",
+     "rank": null
+    },
+    {
+     "id": "jonah_fish",
+     "from": "bible Jonah 1:17",
+     "rank": 1
+    },
+    {
+     "id": "jonah_fish",
+     "from": "quran 37:142",
+     "rank": 1
+    },
+    {
+     "id": "david_goliath",
+     "from": "bible 1 Samuel 17:49",
+     "rank": null
+    },
+    {
+     "id": "david_goliath",
+     "from": "quran 2:251",
+     "rank": null
+    },
+    {
+     "id": "drinking_test",
+     "from": "bible Judges 7:5",
+     "rank": null
+    },
+    {
+     "id": "drinking_test",
+     "from": "quran 2:249",
+     "rank": null
+    },
+    {
+     "id": "sheba",
+     "from": "bible 1 Kings 10:1",
+     "rank": null
+    },
+    {
+     "id": "sheba",
+     "from": "quran 27:23",
+     "rank": null
+    },
+    {
+     "id": "zechariah_son",
+     "from": "bible Luke 1:13",
+     "rank": 1
+    },
+    {
+     "id": "zechariah_son",
+     "from": "quran 19:7",
+     "rank": 3
+    },
+    {
+     "id": "annunciation",
+     "from": "bible Luke 1:30",
+     "rank": 1
+    },
+    {
+     "id": "annunciation",
+     "from": "quran 3:45",
+     "rank": 1
+    },
+    {
+     "id": "jesus_heals",
+     "from": "bible Luke 7:22",
+     "rank": null
+    },
+    {
+     "id": "jesus_heals",
+     "from": "quran 3:49",
+     "rank": null
+    },
+    {
+     "id": "camel_needle",
+     "from": "bible Matthew 19:24",
+     "rank": 1
+    },
+    {
+     "id": "camel_needle",
+     "from": "quran 7:40",
+     "rank": 3
+    },
+    {
+     "id": "eye_for_eye",
+     "from": "bible Exodus 21:24",
+     "rank": 1
+    },
+    {
+     "id": "eye_for_eye",
+     "from": "quran 5:45",
+     "rank": 2
+    },
+    {
+     "id": "alms_secret",
+     "from": "bible Matthew 6:3",
+     "rank": null
+    },
+    {
+     "id": "alms_secret",
+     "from": "quran 2:271",
+     "rank": null
+    },
+    {
+     "id": "scroll",
+     "from": "bible Isaiah 34:4",
+     "rank": null
+    },
+    {
+     "id": "scroll",
+     "from": "quran 21:104",
+     "rank": 3
+    },
+    {
+     "id": "seed_grows",
+     "from": "bible Mark 4:8",
+     "rank": 6
+    },
+    {
+     "id": "seed_grows",
+     "from": "quran 2:261",
+     "rank": null
+    },
+    {
+     "id": "first_last",
+     "from": "bible Revelation 1:8",
+     "rank": null
+    },
+    {
+     "id": "first_last",
+     "from": "quran 57:3",
+     "rank": null
+    },
+    {
+     "id": "mercy_all_sins",
+     "from": "bible Psalms 103:3",
+     "rank": null
+    },
+    {
+     "id": "mercy_all_sins",
+     "from": "quran 39:53",
+     "rank": null
+    },
+    {
+     "id": "taste_death",
+     "from": "bible Hebrews 9:27",
+     "rank": null
+    },
+    {
+     "id": "taste_death",
+     "from": "quran 3:185",
+     "rank": null
+    },
+    {
+     "id": "fleeting_grass",
+     "from": "bible Psalms 103:15",
+     "rank": null
+    },
+    {
+     "id": "fleeting_grass",
+     "from": "quran 18:45",
+     "rank": null
+    },
+    {
+     "id": "god_light",
+     "from": "bible 1 John 1:5",
+     "rank": null
+    },
+    {
+     "id": "god_light",
+     "from": "quran 24:35",
+     "rank": null
+    },
+    {
+     "id": "equanimity_qg",
+     "from": "gita 2:38",
+     "rank": null
+    },
+    {
+     "id": "equanimity_qg",
+     "from": "quran 57:23",
+     "rank": null
+    },
+    {
+     "id": "soul_not_slain",
+     "from": "gita 2:19",
+     "rank": null
+    },
+    {
+     "id": "soul_not_slain",
+     "from": "bible Matthew 10:28",
+     "rank": null
+    },
+    {
+     "id": "soul_living_q",
+     "from": "gita 2:20",
+     "rank": 3
+    },
+    {
+     "id": "soul_living_q",
+     "from": "quran 3:169",
+     "rank": 2
+    },
+    {
+     "id": "body_garment",
+     "from": "gita 2:22",
+     "rank": null
+    },
+    {
+     "id": "body_garment",
+     "from": "bible 2 Corinthians 5:1",
+     "rank": null
+    },
+    {
+     "id": "do_all_for_god",
+     "from": "gita 9:27",
+     "rank": null
+    },
+    {
+     "id": "do_all_for_god",
+     "from": "bible 1 Corinthians 10:31",
+     "rank": null
+    },
+    {
+     "id": "do_all_for_god_q",
+     "from": "gita 9:27",
+     "rank": 6
+    },
+    {
+     "id": "do_all_for_god_q",
+     "from": "quran 6:162",
+     "rank": null
+    },
+    {
+     "id": "devotion_offering",
+     "from": "gita 9:26",
+     "rank": 7
+    },
+    {
+     "id": "devotion_offering",
+     "from": "quran 22:37",
+     "rank": null
+    },
+    {
+     "id": "devotion_offering_b",
+     "from": "gita 9:26",
+     "rank": 10
+    },
+    {
+     "id": "devotion_offering_b",
+     "from": "bible Psalms 51:16",
+     "rank": null
+    },
+    {
+     "id": "beginning_end",
+     "from": "gita 10:20",
+     "rank": null
+    },
+    {
+     "id": "beginning_end",
+     "from": "bible Revelation 1:8",
+     "rank": 1
+    },
+    {
+     "id": "beginning_end_q",
+     "from": "gita 10:20",
+     "rank": null
+    },
+    {
+     "id": "beginning_end_q",
+     "from": "quran 57:3",
+     "rank": null
+    },
+    {
+     "id": "god_in_heart",
+     "from": "gita 18:61",
+     "rank": null
+    },
+    {
+     "id": "god_in_heart",
+     "from": "quran 50:16",
+     "rank": null
+    },
+    {
+     "id": "thousand_suns",
+     "from": "gita 11:12",
+     "rank": 2
+    },
+    {
+     "id": "thousand_suns",
+     "from": "bible Revelation 1:16",
+     "rank": null
+    },
+    {
+     "id": "friend_and_foe",
+     "from": "gita 12:18",
+     "rank": null
+    },
+    {
+     "id": "friend_and_foe",
+     "from": "bible Matthew 5:44",
+     "rank": null
+    },
+    {
+     "id": "no_return_gift",
+     "from": "gita 17:20",
+     "rank": null
+    },
+    {
+     "id": "no_return_gift",
+     "from": "bible Luke 6:35",
+     "rank": 4
+    },
+    {
+     "id": "no_return_gift_q",
+     "from": "gita 17:20",
+     "rank": null
+    },
+    {
+     "id": "no_return_gift_q",
+     "from": "quran 76:9",
+     "rank": null
+    },
+    {
+     "id": "moderation_food",
+     "from": "gita 6:16",
+     "rank": null
+    },
+    {
+     "id": "moderation_food",
+     "from": "quran 7:31",
+     "rank": null
+    },
+    {
+     "id": "anger_folly",
+     "from": "gita 2:63",
+     "rank": null
+    },
+    {
+     "id": "anger_folly",
+     "from": "bible Proverbs 14:17",
+     "rank": 2
+    },
+    {
+     "id": "one_father",
+     "from": "gita 14:4",
+     "rank": null
+    },
+    {
+     "id": "one_father",
+     "from": "bible Malachi 2:10",
+     "rank": null
+    },
+    {
+     "id": "senses_control_q",
+     "from": "gita 2:58",
+     "rank": 9
+    },
+    {
+     "id": "senses_control_q",
+     "from": "quran 79:40",
+     "rank": 4
+    }
+   ]
+  },
+  "hybrid": {
+   "hit@10": 0.4672131147540984,
+   "story_hit@10": 0.5625,
+   "teaching_hit@10": 0.3620689655172414,
+   "trials": 122,
+   "detail": [
+    {
+     "id": "joseph_dream",
+     "from": "bible Genesis 37:9",
+     "rank": 1
+    },
+    {
+     "id": "joseph_dream",
+     "from": "quran 12:4",
+     "rank": 1
+    },
+    {
+     "id": "joseph_pit",
+     "from": "bible Genesis 37:24",
+     "rank": 2
+    },
+    {
+     "id": "joseph_pit",
+     "from": "quran 12:15",
+     "rank": 3
+    },
+    {
+     "id": "joseph_coat",
+     "from": "bible Genesis 37:31",
+     "rank": null
+    },
+    {
+     "id": "joseph_coat",
+     "from": "quran 12:18",
+     "rank": null
+    },
+    {
+     "id": "joseph_seduction",
+     "from": "bible Genesis 39:7",
+     "rank": null
+    },
+    {
+     "id": "joseph_seduction",
+     "from": "quran 12:23",
+     "rank": null
+    },
+    {
+     "id": "pharaoh_kine",
+     "from": "bible Genesis 41:2",
+     "rank": 1
+    },
+    {
+     "id": "pharaoh_kine",
+     "from": "quran 12:43",
+     "rank": 1
+    },
+    {
+     "id": "joseph_reveals",
+     "from": "bible Genesis 45:4",
+     "rank": 3
+    },
+    {
+     "id": "joseph_reveals",
+     "from": "quran 12:90",
+     "rank": null
+    },
+    {
+     "id": "moses_basket",
+     "from": "bible Exodus 2:3",
+     "rank": 2
+    },
+    {
+     "id": "moses_basket",
+     "from": "quran 20:39",
+     "rank": null
+    },
+    {
+     "id": "moses_kills",
+     "from": "bible Exodus 2:12",
+     "rank": null
+    },
+    {
+     "id": "moses_kills",
+     "from": "quran 28:15",
+     "rank": null
+    },
+    {
+     "id": "moses_well",
+     "from": "bible Exodus 2:16",
+     "rank": 1
+    },
+    {
+     "id": "moses_well",
+     "from": "quran 28:23",
+     "rank": 1
+    },
+    {
+     "id": "burning_bush",
+     "from": "bible Exodus 3:2",
+     "rank": null
+    },
+    {
+     "id": "burning_bush",
+     "from": "quran 20:10",
+     "rank": null
+    },
+    {
+     "id": "staff_serpent",
+     "from": "bible Exodus 4:3",
+     "rank": 2
+    },
+    {
+     "id": "staff_serpent",
+     "from": "quran 20:20",
+     "rank": 4
+    },
+    {
+     "id": "white_hand",
+     "from": "bible Exodus 4:6",
+     "rank": 2
+    },
+    {
+     "id": "white_hand",
+     "from": "quran 7:108",
+     "rank": 2
+    },
+    {
+     "id": "plagues",
+     "from": "bible Exodus 8:6",
+     "rank": 3
+    },
+    {
+     "id": "plagues",
+     "from": "quran 7:133",
+     "rank": 3
+    },
+    {
+     "id": "sea_parted",
+     "from": "bible Exodus 14:21",
+     "rank": 4
+    },
+    {
+     "id": "sea_parted",
+     "from": "quran 26:63",
+     "rank": null
+    },
+    {
+     "id": "manna_quails",
+     "from": "bible Exodus 16:13",
+     "rank": 1
+    },
+    {
+     "id": "manna_quails",
+     "from": "quran 2:57",
+     "rank": 9
+    },
+    {
+     "id": "rock_water",
+     "from": "bible Exodus 17:6",
+     "rank": 2
+    },
+    {
+     "id": "rock_water",
+     "from": "quran 2:60",
+     "rank": 5
+    },
+    {
+     "id": "golden_calf",
+     "from": "bible Exodus 32:4",
+     "rank": 5
+    },
+    {
+     "id": "golden_calf",
+     "from": "quran 20:88",
+     "rank": 7
+    },
+    {
+     "id": "noah_ark",
+     "from": "bible Genesis 6:14",
+     "rank": null
+    },
+    {
+     "id": "noah_ark",
+     "from": "quran 11:37",
+     "rank": null
+    },
+    {
+     "id": "noah_flood",
+     "from": "bible Genesis 7:11",
+     "rank": 3
+    },
+    {
+     "id": "noah_flood",
+     "from": "quran 54:11",
+     "rank": null
+    },
+    {
+     "id": "abraham_sacrifice",
+     "from": "bible Genesis 22:2",
+     "rank": null
+    },
+    {
+     "id": "abraham_sacrifice",
+     "from": "quran 37:102",
+     "rank": null
+    },
+    {
+     "id": "abraham_guests",
+     "from": "bible Genesis 18:10",
+     "rank": 2
+    },
+    {
+     "id": "abraham_guests",
+     "from": "quran 11:71",
+     "rank": null
+    },
+    {
+     "id": "lot_destroyed",
+     "from": "bible Genesis 19:24",
+     "rank": 2
+    },
+    {
+     "id": "lot_destroyed",
+     "from": "quran 11:82",
+     "rank": 8
+    },
+    {
+     "id": "adam_tree",
+     "from": "bible Genesis 3:6",
+     "rank": null
+    },
+    {
+     "id": "adam_tree",
+     "from": "quran 7:22",
+     "rank": null
+    },
+    {
+     "id": "cain_abel",
+     "from": "bible Genesis 4:8",
+     "rank": 3
+    },
+    {
+     "id": "cain_abel",
+     "from": "quran 5:27",
+     "rank": null
+    },
+    {
+     "id": "six_days",
+     "from": "bible Exodus 20:11",
+     "rank": 3
+    },
+    {
+     "id": "six_days",
+     "from": "quran 7:54",
+     "rank": null
+    },
+    {
+     "id": "jonah_fish",
+     "from": "bible Jonah 1:17",
+     "rank": 1
+    },
+    {
+     "id": "jonah_fish",
+     "from": "quran 37:142",
+     "rank": 1
+    },
+    {
+     "id": "david_goliath",
+     "from": "bible 1 Samuel 17:49",
+     "rank": null
+    },
+    {
+     "id": "david_goliath",
+     "from": "quran 2:251",
+     "rank": null
+    },
+    {
+     "id": "drinking_test",
+     "from": "bible Judges 7:5",
+     "rank": null
+    },
+    {
+     "id": "drinking_test",
+     "from": "quran 2:249",
+     "rank": null
+    },
+    {
+     "id": "sheba",
+     "from": "bible 1 Kings 10:1",
+     "rank": null
+    },
+    {
+     "id": "sheba",
+     "from": "quran 27:23",
+     "rank": null
+    },
+    {
+     "id": "zechariah_son",
+     "from": "bible Luke 1:13",
+     "rank": 1
+    },
+    {
+     "id": "zechariah_son",
+     "from": "quran 19:7",
+     "rank": 4
+    },
+    {
+     "id": "annunciation",
+     "from": "bible Luke 1:30",
+     "rank": 1
+    },
+    {
+     "id": "annunciation",
+     "from": "quran 3:45",
+     "rank": 1
+    },
+    {
+     "id": "jesus_heals",
+     "from": "bible Luke 7:22",
+     "rank": null
+    },
+    {
+     "id": "jesus_heals",
+     "from": "quran 3:49",
+     "rank": 9
+    },
+    {
+     "id": "camel_needle",
+     "from": "bible Matthew 19:24",
+     "rank": 1
+    },
+    {
+     "id": "camel_needle",
+     "from": "quran 7:40",
+     "rank": 1
+    },
+    {
+     "id": "eye_for_eye",
+     "from": "bible Exodus 21:24",
+     "rank": 1
+    },
+    {
+     "id": "eye_for_eye",
+     "from": "quran 5:45",
+     "rank": 2
+    },
+    {
+     "id": "alms_secret",
+     "from": "bible Matthew 6:3",
+     "rank": null
+    },
+    {
+     "id": "alms_secret",
+     "from": "quran 2:271",
+     "rank": null
+    },
+    {
+     "id": "scroll",
+     "from": "bible Isaiah 34:4",
+     "rank": 4
+    },
+    {
+     "id": "scroll",
+     "from": "quran 21:104",
+     "rank": 2
+    },
+    {
+     "id": "seed_grows",
+     "from": "bible Mark 4:8",
+     "rank": 8
+    },
+    {
+     "id": "seed_grows",
+     "from": "quran 2:261",
+     "rank": 10
+    },
+    {
+     "id": "first_last",
+     "from": "bible Revelation 1:8",
+     "rank": null
+    },
+    {
+     "id": "first_last",
+     "from": "quran 57:3",
+     "rank": null
+    },
+    {
+     "id": "mercy_all_sins",
+     "from": "bible Psalms 103:3",
+     "rank": null
+    },
+    {
+     "id": "mercy_all_sins",
+     "from": "quran 39:53",
+     "rank": null
+    },
+    {
+     "id": "taste_death",
+     "from": "bible Hebrews 9:27",
+     "rank": null
+    },
+    {
+     "id": "taste_death",
+     "from": "quran 3:185",
+     "rank": null
+    },
+    {
+     "id": "fleeting_grass",
+     "from": "bible Psalms 103:15",
+     "rank": 10
+    },
+    {
+     "id": "fleeting_grass",
+     "from": "quran 18:45",
+     "rank": null
+    },
+    {
+     "id": "god_light",
+     "from": "bible 1 John 1:5",
+     "rank": null
+    },
+    {
+     "id": "god_light",
+     "from": "quran 24:35",
+     "rank": null
+    },
+    {
+     "id": "equanimity_qg",
+     "from": "gita 2:38",
+     "rank": null
+    },
+    {
+     "id": "equanimity_qg",
+     "from": "quran 57:23",
+     "rank": null
+    },
+    {
+     "id": "soul_not_slain",
+     "from": "gita 2:19",
+     "rank": null
+    },
+    {
+     "id": "soul_not_slain",
+     "from": "bible Matthew 10:28",
+     "rank": null
+    },
+    {
+     "id": "soul_living_q",
+     "from": "gita 2:20",
+     "rank": 5
+    },
+    {
+     "id": "soul_living_q",
+     "from": "quran 3:169",
+     "rank": 1
+    },
+    {
+     "id": "body_garment",
+     "from": "gita 2:22",
+     "rank": null
+    },
+    {
+     "id": "body_garment",
+     "from": "bible 2 Corinthians 5:1",
+     "rank": null
+    },
+    {
+     "id": "do_all_for_god",
+     "from": "gita 9:27",
+     "rank": null
+    },
+    {
+     "id": "do_all_for_god",
+     "from": "bible 1 Corinthians 10:31",
+     "rank": 6
+    },
+    {
+     "id": "do_all_for_god_q",
+     "from": "gita 9:27",
+     "rank": 9
+    },
+    {
+     "id": "do_all_for_god_q",
+     "from": "quran 6:162",
+     "rank": null
+    },
+    {
+     "id": "devotion_offering",
+     "from": "gita 9:26",
+     "rank": 6
+    },
+    {
+     "id": "devotion_offering",
+     "from": "quran 22:37",
+     "rank": 3
+    },
+    {
+     "id": "devotion_offering_b",
+     "from": "gita 9:26",
+     "rank": null
+    },
+    {
+     "id": "devotion_offering_b",
+     "from": "bible Psalms 51:16",
+     "rank": null
+    },
+    {
+     "id": "beginning_end",
+     "from": "gita 10:20",
+     "rank": null
+    },
+    {
+     "id": "beginning_end",
+     "from": "bible Revelation 1:8",
+     "rank": 1
+    },
+    {
+     "id": "beginning_end_q",
+     "from": "gita 10:20",
+     "rank": null
+    },
+    {
+     "id": "beginning_end_q",
+     "from": "quran 57:3",
+     "rank": null
+    },
+    {
+     "id": "god_in_heart",
+     "from": "gita 18:61",
+     "rank": null
+    },
+    {
+     "id": "god_in_heart",
+     "from": "quran 50:16",
+     "rank": null
+    },
+    {
+     "id": "thousand_suns",
+     "from": "gita 11:12",
+     "rank": 3
+    },
+    {
+     "id": "thousand_suns",
+     "from": "bible Revelation 1:16",
+     "rank": null
+    },
+    {
+     "id": "friend_and_foe",
+     "from": "gita 12:18",
+     "rank": null
+    },
+    {
+     "id": "friend_and_foe",
+     "from": "bible Matthew 5:44",
+     "rank": null
+    },
+    {
+     "id": "no_return_gift",
+     "from": "gita 17:20",
+     "rank": null
+    },
+    {
+     "id": "no_return_gift",
+     "from": "bible Luke 6:35",
+     "rank": 5
+    },
+    {
+     "id": "no_return_gift_q",
+     "from": "gita 17:20",
+     "rank": null
+    },
+    {
+     "id": "no_return_gift_q",
+     "from": "quran 76:9",
+     "rank": null
+    },
+    {
+     "id": "moderation_food",
+     "from": "gita 6:16",
+     "rank": null
+    },
+    {
+     "id": "moderation_food",
+     "from": "quran 7:31",
+     "rank": null
+    },
+    {
+     "id": "anger_folly",
+     "from": "gita 2:63",
+     "rank": null
+    },
+    {
+     "id": "anger_folly",
+     "from": "bible Proverbs 14:17",
+     "rank": 5
+    },
+    {
+     "id": "one_father",
+     "from": "gita 14:4",
+     "rank": null
+    },
+    {
+     "id": "one_father",
+     "from": "bible Malachi 2:10",
+     "rank": 7
+    },
+    {
+     "id": "senses_control_q",
+     "from": "gita 2:58",
+     "rank": null
+    },
+    {
+     "id": "senses_control_q",
+     "from": "quran 79:40",
+     "rank": 3
+    }
+   ]
+  }
+ },
+ "examples": [
+  {
+   "query": "I got laid off and I'm scared about money",
+   "split": "test",
+   "results": {
+    "gita": [
+     {
+      "ref": "1:33",
+      "text": "Those for whose sake we desire kingdom, enjoyments and pleasures, they stand here in battle, abandoning life and riches -",
+      "in_gold": false
+     },
+     {
+      "ref": "16:12",
+      "text": "Held in bondage by a hundred ties of expectation, given over to lust and anger, they strive to obtain by unlawful means hoards of wealth for sensual enjoyments.",
+      "in_gold": false
+     },
+     {
+      "ref": "11:33",
+      "text": "Therefore stand up! win for thyself renown, Conquer thy foes, enjoy the wealth filled realm, By Me they are already overcome, Be thou the outward cause, left-handed one.",
+      "in_gold": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "17:31",
+      "text": "Slay not your children, fearing a fall to poverty, We shall provide for them and for you. Lo! the slaying of them is great sin.",
+      "in_gold": true
+     },
+     {
+      "ref": "23:55",
+      "text": "Think they that in the wealth and sons wherewith We provide them",
+      "in_gold": false
+     },
+     {
+      "ref": "17:100",
+      "text": "Say (unto them): If ye possessed the treasures of the mercy of my Lord, ye would surely hold them back for fear of spending, for man was ever grudging.",
+      "in_gold": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Proverbs 10:15",
+      "text": "The rich man's wealth is his strong city: the destruction of the poor is their poverty.",
+      "in_gold": false
+     },
+     {
+      "ref": "Ezekiel 28:4",
+      "text": "With thy wisdom and with thine understanding thou hast gotten thee riches, and hast gotten gold and silver into thy treasures:",
+      "in_gold": false
+     },
+     {
+      "ref": "Genesis 43:23",
+      "text": "And he said, Peace be to you, fear not: your God, and the God of your father, hath given you treasure in your sacks: I had your money. And he brought Simeon out unto them.",
+      "in_gold": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "my girlfriend broke up with me and I feel so alone",
+   "split": "test",
+   "results": {
+    "gita": [
+     {
+      "ref": "18:66",
+      "text": "Abandoning all duties come unto Me alone for shelter; sorrow not, I will liberate thee from all sins.",
+      "in_gold": false
+     },
+     {
+      "ref": "11:44",
+      "text": "Therefore I fall before Thee; with my body I worship as it fitting; bless Thou me. As father with the son, as friend with friend, With the beloved as lover, bear with me.",
+      "in_gold": false
+     },
+     {
+      "ref": "11:41",
+      "text": "If, thinking Thee but friend, importunate, O Krishna! or O Yadava! O friend! I cried, unknowing of Thy majesty, And careless in the fondness of my love;",
+      "in_gold": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "68:27",
+      "text": "Nay, but we are desolate!",
+      "in_gold": false
+     },
+     {
+      "ref": "93:3",
+      "text": "Thy Lord hath not forsaken thee nor doth He hate thee,",
+      "in_gold": true
+     },
+     {
+      "ref": "7:70",
+      "text": "They said: Hast come unto us that we should serve Allah alone, and forsake what our fathers worshipped? Then bring upon us that wherewith thou threatenest us if thou art of the truthful!",
+      "in_gold": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Job 30:3",
+      "text": "For want and famine they were solitary; fleeing into the wilderness in former time desolate and waste.",
+      "in_gold": false
+     },
+     {
+      "ref": "Isaiah 54:6",
+      "text": "For the LORD hath called thee as a woman forsaken and grieved in spirit, and a wife of youth, when thou wast refused, saith thy God.",
+      "in_gold": false
+     },
+     {
+      "ref": "Jeremiah 17:13",
+      "text": "O LORD, the hope of Israel, all that forsake thee shall be ashamed, and they that depart from me shall be written in the earth, because they have forsaken the LORD, the fountain of living waters.",
+      "in_gold": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I feel burnt out, exhausted from work all the time",
+   "split": "test",
+   "results": {
+    "gita": [
+     {
+      "ref": "6:22",
+      "text": "Which, having obtained, he thinketh there is no greater gain beyond it; wherein, established, he is not shaken even by heavy sorrow;",
+      "in_gold": false
+     },
+     {
+      "ref": "2:3",
+      "text": "Yield not to impotence, O Partha! it doth not befit thee. Shake off this paltry faint-heartedness! Stand up, Parantapa!",
+      "in_gold": false
+     },
+     {
+      "ref": "6:43",
+      "text": "There he recovereth the characteristics belonging to this former body, and with these he again laboureth for perfection, O joy of the Kurus.",
+      "in_gold": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "88:3",
+      "text": "Toiling, weary,",
+      "in_gold": false
+     },
+     {
+      "ref": "101:6",
+      "text": "Then, as for him whose scales are heavy (with good works),",
+      "in_gold": false
+     },
+     {
+      "ref": "94:7",
+      "text": "So when thou art relieved, still toil",
+      "in_gold": true
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Matthew 11:28",
+      "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+      "in_gold": true
+     },
+     {
+      "ref": "Isaiah 49:4",
+      "text": "Then I said, I have laboured in vain, I have spent my strength for nought, and in vain: yet surely my judgment is with the LORD, and my work with my God.",
+      "in_gold": false
+     },
+     {
+      "ref": "Habakkuk 2:13",
+      "text": "Behold, is it not of the LORD of hosts that the people shall labour in the very fire, and the people shall weary themselves for very vanity?",
+      "in_gold": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "my dad has cancer and I'm scared he'll die",
+   "split": "test",
+   "results": {
+    "gita": [
+     {
+      "ref": "13:9",
+      "text": "Dispassion towards the objects of the senses, and also absence of egoism, insight into the pain and evil of birth, death, old age and sickness,",
+      "in_gold": true
+     },
+     {
+      "ref": "17:9",
+      "text": "The passionate desire foods that are bitter, sour, saline, over-hot, pungent, dry and burning and which produce pain, grief and sickness.",
+      "in_gold": false
+     },
+     {
+      "ref": "11:49",
+      "text": "Be not bewildered, be thou not afraid, Because thou hast beheld this awful Form; Cast fear away, and let thy heart rejoice; Behold again Mine own familiar shape.",
+      "in_gold": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "37:89",
+      "text": "Then said: Lo! I feel sick!",
+      "in_gold": false
+     },
+     {
+      "ref": "9:125",
+      "text": "But as for those in whose hearts is disease, it only addeth wickedness to their wickedness, and they die while they are disbelievers.",
+      "in_gold": false
+     },
+     {
+      "ref": "26:80",
+      "text": "And when I sicken, then He healeth me,",
+      "in_gold": true
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Psalms 55:4",
+      "text": "My heart is sore pained within me: and the terrors of death are fallen upon me.",
+      "in_gold": false
+     },
+     {
+      "ref": "2 Chronicles 21:15",
+      "text": "And thou shalt have great sickness by disease of thy bowels, until thy bowels fall out by reason of the sickness day by day.",
+      "in_gold": false
+     },
+     {
+      "ref": "2 Chronicles 21:19",
+      "text": "And it came to pass, that in process of time, after the end of two years, his bowels fell out by reason of his sickness: so he died of sore diseases. And his people made no burning for him, like the burning of his fathers.",
+      "in_gold": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I'm really anxious about my exams next week",
+   "split": "test",
+   "results": {
+    "gita": [
+     {
+      "ref": "18:70",
+      "text": "And he who shall study this sacred dialogue of ours, by him I shall be worshipped with the sacrifice of wisdom. Such is My mind.",
+      "in_gold": false
+     },
+     {
+      "ref": "13:12",
+      "text": "Constancy in the wisdom of the Self, understanding of the object of essential wisdom; that is declared to be the Wisdom; all against it is ignorance.",
+      "in_gold": false
+     },
+     {
+      "ref": "4:34",
+      "text": "Learn thou this by discipleship, by investigation, and by service. The wise, the seers of the essence of things, will instruct thee in wisdom.",
+      "in_gold": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "2:269",
+      "text": "He giveth wisdom unto whom He will, and he unto whom wisdom is given, he truly hath received abundant good. But none remember except men of understanding.",
+      "in_gold": false
+     },
+     {
+      "ref": "70:19",
+      "text": "Lo! man was created anxious,",
+      "in_gold": false
+     },
+     {
+      "ref": "68:37",
+      "text": "Or have ye a scripture wherein ye learn",
+      "in_gold": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Proverbs 30:3",
+      "text": "I neither learned wisdom, nor have the knowledge of the holy.",
+      "in_gold": false
+     },
+     {
+      "ref": "Daniel 1:17",
+      "text": "As for these four children, God gave them knowledge and skill in all learning and wisdom: and Daniel had understanding in all visions and dreams.",
+      "in_gold": false
+     },
+     {
+      "ref": "Proverbs 9:10",
+      "text": "The fear of the LORD is the beginning of wisdom: and the knowledge of the holy is understanding.",
+      "in_gold": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I can't forgive my brother for what he did",
+   "split": "test",
+   "results": {
+    "gita": [
+     {
+      "ref": "1:34",
+      "text": "Teachers, fathers, sons, as well as grandfathers, mother's brothers, fathers-in-law, grandsons, brothers-in-law, and other relatives.",
+      "in_gold": false
+     },
+     {
+      "ref": "12:13",
+      "text": "He who beareth no ill-will to any being, friendly and compassionate, without attachment and egoism, balanced in pleasure and pain, and forgiving,",
+      "in_gold": true
+     },
+     {
+      "ref": "11:42",
+      "text": "If jesting I irreverence showed to Thee, At play, reposing, sitting or at meals, Alone, O sinless One, or with my friends, Forgive my error, O Thou boundless One.",
+      "in_gold": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "85:14",
+      "text": "And He is the Forgiving, the Loving,",
+      "in_gold": false
+     },
+     {
+      "ref": "28:16",
+      "text": "He said: My Lord! Lo! I have wronged my soul, so forgive me. Then He forgave him. Lo! He is the Forgiving, the Merciful.",
+      "in_gold": false
+     },
+     {
+      "ref": "3:129",
+      "text": "Unto Allah belongeth whatsoever is in the heavens and whatsoever is in the earth. He forgiveth whom He will, and punisheth whom He will. Allah is Forgiving, Merciful.",
+      "in_gold": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Mark 11:26",
+      "text": "But if ye do not forgive, neither will your Father which is in heaven forgive your trespasses.",
+      "in_gold": false
+     },
+     {
+      "ref": "Luke 17:3",
+      "text": "Take heed to yourselves: If thy brother trespass against thee, rebuke him; and if he repent, forgive him.",
+      "in_gold": true
+     },
+     {
+      "ref": "Matthew 18:21",
+      "text": "Then came Peter to him, and said, Lord, how oft shall my brother sin against me, and I forgive him? till seven times?",
+      "in_gold": true
+     }
+    ]
+   }
+  },
+  {
+   "query": "my mother passed away last week",
+   "split": "test",
+   "results": {
+    "gita": [
+     {
+      "ref": "2:27",
+      "text": "For certain is death for the born, and certain is birth for the dead; therefore over the inevitable thou shouldst not grieve.",
+      "in_gold": true
+     },
+     {
+      "ref": "2:20",
+      "text": "He is not born, nor doth he die; nor having been, ceaseth he any more to be; unborn, perpetual, eternal and ancient, he is not slain when the body is slaughtered.",
+      "in_gold": true
+     },
+     {
+      "ref": "16:11",
+      "text": "Giving themselves over to unmeasured thought whose end is death, regarding the gratification of desires as the highest, feeling sure that this is all,",
+      "in_gold": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "102:2",
+      "text": "Until ye come to the graves.",
+      "in_gold": false
+     },
+     {
+      "ref": "35:22",
+      "text": "Nor are the living equal with the dead. Lo! Allah maketh whom He will to hear. Thou canst not reach those who are in the graves.",
+      "in_gold": false
+     },
+     {
+      "ref": "39:42",
+      "text": "Allah receiveth (men's) souls at the time of their death, and that (soul) which dieth not (yet) in its sleep. He keepeth that (soul) for which He hath ordained death and dismisseth the rest till an appointed term. Lo! herein verily are portents for people who take thought.",
+      "in_gold": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Matthew 22:27",
+      "text": "And last of all the woman died also.",
+      "in_gold": false
+     },
+     {
+      "ref": "Luke 20:32",
+      "text": "Last of all the woman died also.",
+      "in_gold": false
+     },
+     {
+      "ref": "Proverbs 5:11",
+      "text": "And thou mourn at the last, when thy flesh and thy body are consumed,",
+      "in_gold": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I feel like my life has no purpose",
+   "split": "test",
+   "results": {
+    "gita": [
+     {
+      "ref": "16:13",
+      "text": "\"This to-day by me hath been won, that purpose I shall gain; this wealth is mine already, and also this shall be mine in future.",
+      "in_gold": false
+     },
+     {
+      "ref": "18:59",
+      "text": "Entrenched in egoism, thou thinkest, \"I will not fight;\" to no purpose thy determination; nature will constrain thee.",
+      "in_gold": false
+     },
+     {
+      "ref": "3:16",
+      "text": "He who on earth doth not follow the wheel thus revolving, sinful of life and rejoicing in the senses, he, O son of Pritha, liveth in vain.",
+      "in_gold": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "80:8",
+      "text": "But as for him who cometh unto thee with earnest purpose",
+      "in_gold": false
+     },
+     {
+      "ref": "30:30",
+      "text": "So set thy purpose (O Muhammad) for religion as a man by nature upright - the nature (framed) of Allah, in which He hath created man. There is no altering (the laws of) Allah's creation. That is the right religion, but most men know not -",
+      "in_gold": false
+     },
+     {
+      "ref": "22:73",
+      "text": "O mankind! A similitude is coined, so pay ye heed to it: Lo! those on whom ye call beside Allah will never create a fly though they combine together for the purpose. And if the fly took something from them, they could not rescue it from it. So weak are (both) the seeker and the sought!",
+      "in_gold": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Romans 8:28",
+      "text": "And we know that all things work together for good to them that love God, to them who are the called according to his purpose.",
+      "in_gold": true
+     },
+     {
+      "ref": "Ephesians 3:11",
+      "text": "According to the eternal purpose which he purposed in Christ Jesus our Lord:",
+      "in_gold": false
+     },
+     {
+      "ref": "2 Corinthians 1:17",
+      "text": "When I therefore was thus minded, did I use lightness? or the things that I purpose, do I purpose according to the flesh, that with me there should be yea yea, and nay nay?",
+      "in_gold": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I can't stop drinking, I think I'm an alcoholic",
+   "split": "test",
+   "results": {
+    "gita": [
+     {
+      "ref": "1:6",
+      "text": "Yudhamanyu the strong, and Uttamaujas the brave; Saubhadra and the Draupadeyas, all of great cars.",
+      "in_gold": false
+     },
+     {
+      "ref": "6:34",
+      "text": "For the mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
+      "in_gold": false
+     },
+     {
+      "ref": "7:11",
+      "text": "And I the strength of the strong, devoid of desire and passion. In beings I am desire not contrary to duty, O Lord of the Bharatas.",
+      "in_gold": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "83:25",
+      "text": "They are given to drink of a pure wine, sealed,",
+      "in_gold": false
+     },
+     {
+      "ref": "56:55",
+      "text": "Drinking even as the camel drinketh.",
+      "in_gold": false
+     },
+     {
+      "ref": "37:24",
+      "text": "And stop them, for they must be questioned.",
+      "in_gold": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Deuteronomy 29:6",
+      "text": "Ye have not eaten bread, neither have ye drunk wine or strong drink: that ye might know that I am the LORD your God.",
+      "in_gold": false
+     },
+     {
+      "ref": "Isaiah 24:9",
+      "text": "They shall not drink wine with a song; strong drink shall be bitter to them that drink it.",
+      "in_gold": false
+     },
+     {
+      "ref": "Numbers 6:3",
+      "text": "He shall separate himself from wine and strong drink, and shall drink no vinegar of wine, or vinegar of strong drink, neither shall he drink any liquor of grapes, nor eat moist grapes, or dried.",
+      "in_gold": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I cheated on my partner and I feel terrible",
+   "split": "test",
+   "results": {
+    "gita": [
+     {
+      "ref": "11:44",
+      "text": "Therefore I fall before Thee; with my body I worship as it fitting; bless Thou me. As father with the son, as friend with friend, With the beloved as lover, bear with me.",
+      "in_gold": false
+     },
+     {
+      "ref": "9:18",
+      "text": "The Path, Husband, Lord, Witness, Abode, Shelter, Lover, Origin, Dissolution, Foundation, house, Seed imperishable.",
+      "in_gold": false
+     },
+     {
+      "ref": "16:18",
+      "text": "Given over to egoism, power, insolence, lust and wrath, these malicious ones hate Me in the bodies of others and in their own.",
+      "in_gold": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "55:70",
+      "text": "Wherein (are found) the good and beautiful companions-",
+      "in_gold": false
+     },
+     {
+      "ref": "17:32",
+      "text": "And come not near unto adultery. Lo! it is an abomination and an evil way.",
+      "in_gold": true
+     },
+     {
+      "ref": "26:125",
+      "text": "Lo! I am a faithful messenger unto you,",
+      "in_gold": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Malachi 2:14",
+      "text": "Yet ye say, Wherefore? Because the LORD hath been witness between thee and the wife of thy youth, against whom thou hast dealt treacherously: yet is she thy companion, and the wife of thy covenant.",
+      "in_gold": false
+     },
+     {
+      "ref": "Jeremiah 3:20",
+      "text": "Surely as a wife treacherously departeth from her husband, so have ye dealt treacherously with me, O house of Israel, saith the LORD.",
+      "in_gold": false
+     },
+     {
+      "ref": "Ezekiel 16:32",
+      "text": "But as a wife that committeth adultery, which taketh strangers instead of her husband!",
+      "in_gold": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I moved to a new city and I don't have any friends here",
+   "split": "test",
+   "results": {
+    "gita": [
+     {
+      "ref": "6:9",
+      "text": "He who regards impartially lovers, friends, and foes, strangers, neutrals, foreigners and relatives, also the righteous and unrighteous, he excelleth.",
+      "in_gold": true
+     },
+     {
+      "ref": "11:44",
+      "text": "Therefore I fall before Thee; with my body I worship as it fitting; bless Thou me. As father with the son, as friend with friend, With the beloved as lover, bear with me.",
+      "in_gold": false
+     },
+     {
+      "ref": "11:41",
+      "text": "If, thinking Thee but friend, importunate, O Krishna! or O Yadava! O friend! I cried, unknowing of Thy majesty, And careless in the fondness of my love;",
+      "in_gold": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "39:74",
+      "text": "They say: Praise be to Allah, Who hath fulfilled His promise unto us and hath made us inherit the land, sojourning in the Garden where we will! So bounteous is the wage of workers.",
+      "in_gold": false
+     },
+     {
+      "ref": "14:14",
+      "text": "And verily We shall make you to dwell in the land after them. This is for him who feareth My Majesty and feareth My threats.",
+      "in_gold": false
+     },
+     {
+      "ref": "56:37",
+      "text": "Lovers, friends,",
+      "in_gold": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Leviticus 25:23",
+      "text": "The land shall not be sold for ever: for the land is mine; for ye are strangers and sojourners with me.",
+      "in_gold": false
+     },
+     {
+      "ref": "Leviticus 25:47",
+      "text": "And if a sojourner or stranger wax rich by thee, and thy brother that dwelleth by him wax poor, and sell himself unto the stranger or sojourner by thee, or to the stock of the stranger's family:",
+      "in_gold": false
+     },
+     {
+      "ref": "Leviticus 19:33",
+      "text": "And if a stranger sojourn with thee in your land, ye shall not vex him.",
+      "in_gold": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I'm jealous of my friend's success",
+   "split": "test",
+   "results": {
+    "gita": [
+     {
+      "ref": "4:22",
+      "text": "Content with whatsoever he obtaineth without effort, free from the pairs of opposites, without envy, balanced in success and failure, though acting he is not bound.",
+      "in_gold": true
+     },
+     {
+      "ref": "4:12",
+      "text": "They who long after success in action on earth worship the Shining Ones; for in brief space verily, in this world of men, success is born of action.",
+      "in_gold": false
+     },
+     {
+      "ref": "18:26",
+      "text": "Liberated from attachment, not egoistic, endued with firmness and confidence, unchanged by success or failure, that actor is called pure.",
+      "in_gold": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "113:5",
+      "text": "And from the evil of the envier when he envieth.",
+      "in_gold": true
+     },
+     {
+      "ref": "53:24",
+      "text": "Or shall man have what he coveteth?",
+      "in_gold": false
+     },
+     {
+      "ref": "4:32",
+      "text": "And covet not the thing in which Allah hath made some of you excel others. Unto men a fortune from that which they have earned, and unto women a fortune from that which they have earned. (Envy not one another) but ask Allah of His bounty. Lo! Allah is ever Knower of all things.",
+      "in_gold": true
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Psalms 73:3",
+      "text": "For I was envious at the foolish, when I saw the prosperity of the wicked.",
+      "in_gold": false
+     },
+     {
+      "ref": "Proverbs 24:1",
+      "text": "Be not thou envious against evil men, neither desire to be with them.",
+      "in_gold": true
+     },
+     {
+      "ref": "Matthew 27:18",
+      "text": "For he knew that for envy they had delivered him.",
+      "in_gold": false
+     }
+    ]
+   }
+  }
+ ]
+}
