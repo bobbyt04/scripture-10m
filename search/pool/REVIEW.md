@@ -1,0 +1,1362 @@
+# Pool reviews
+
+Every review applied to search/pool/ by search/apply_review.py, oldest first. The review files themselves are kept next to this one.
+
+- **review-1**: the independent reviewer's read of every verse (remove, retag, not_universal, fix_why, display).
+  All remove, retag, not_universal and fix_why items were applied. 28 display items asked for no prefix trim
+  (typos, trailing words, or "consider excluding"); they are listed under "Not applied" below and were settled
+  in review-2-executor: typo fixes and trailing trims applied there, eight fragments removed. Kept as they are,
+  because they read as complete on their own: Gita 2:12, 2:62, 12:13, 12:18, 18:11 (a trailing comma or
+  semicolon is shown as a full stop), Quran 2:245, 39:18, Bible Micah 7:18, 2 Corinthians 1:4, Hebrews 6:19,
+  James 3:13, Romans 8:39 and Colossians 3:12 (its note glosses "bowels of mercies").
+- **review-2-executor**: those follow-ups, and the owner's decision to drop the mortality and
+  laziness_discipline themes.
+- **review-3-audit**: a second read of every verse: notes checked against the verse text in our translation;
+  forgiveness, patience, suffering_endurance, marriage, family_parents, betrayal and anger read as someone being
+  harmed at home; money_worry read as someone being evicted.
+- **review-4-executor**: three verses found while checking results by hand.
+
+The sensitive set (sensitive_set.json) was chosen after these reviews from verses still marked universal.
+
+## review-1
+
+Applied: gita retag 12; gita not_universal 15; gita fix_why 7; gita display 14; quran remove 27; quran retag 37; quran not_universal 43; quran fix_why 8; quran display 133; bible remove 37; bible retag 57; bible not_universal 50; bible fix_why 9; bible display 196.
+Pool after: gita 109, quran 250, bible 631 verses.
+
+- gita 2:12: retag (dropped grief, mortality). Eternal-soul teaching (from the argument that killing kin is no loss); to a suicidal reader 'we never cease to be' makes death sound unreal, and to a fresh griever it is doctrine, not comfort.
+- gita 2:12: fix_why (new note). Original why adds 'gently' and 'those you love', which the verse (about Arjuna, Krishna and the princes) does not say.
+- gita 2:14: not_universal (not universal). 'Pain is impermanent, endure it bravely' is false and dismissive to someone with chronic pain or disability, and reads as 'put up with it' to an abuse victim.
+- gita 2:15: retag (dropped suffering_endurance). Defines the fit person as one whom pain does not torment, implying those tormented by pain (chronic illness, depression) have failed.
+- gita 3:8: retag (dropped laziness_discipline). 'Action is superior to inaction... inactive, even the body could not be maintained' scolds a depressed reader who cannot get out of bed.
+- gita 3:8: fix_why (new note). 'Idleness' is a judgmental addition not in the text.
+- gita 3:37: retag (dropped temptation_self_control). Calls desire 'all-polluting... our foe'; shown to a relapsed addict or a teen struggling with their sexuality it is shame, not help. Fine under anger.
+- gita 3:34: not_universal (not universal). Says affection and aversion must not rule you and 'obstruct the path'; shown after someone mentions their sexuality it reads as 'suppress your affections'.
+- gita 3:39: not_universal (not universal). Desire as 'the constant enemy'; wrong message for a visitor who has just disclosed their sexuality or gender identity.
+- gita 18:38: not_universal (not universal). Sensual pleasure 'in the end is like venom'; reads as condemnation to an LGBTQ visitor.
+- gita 2:67: not_universal (not universal). Senses the mind yields to drag it away like a gale; desire-control verse unsuitable for the identity-disclosure fallback pool.
+- gita 2:62: not_universal (not universal). Desire-to-anger chain (and the sentence continues into ruin in 2:63); unsuitable for the identity-disclosure pool.
+- gita 2:64: not_universal (not universal). Praises senses 'free from attraction'; reads badly after a disclosure of sexuality.
+- gita 5:28: not_universal (not universal). 'Having for ever cast away desire'; asceticism framed as liberation is not universal.
+- gita 6:16: not_universal (not universal). Body/eating wording (eats too much, abstains to excess); risky for someone with an eating disorder.
+- gita 6:17: retag (dropped laziness_discipline). 'Yoga killeth out all pain for him who is regulated' implies a depressed or ill person's pain comes from being unregulated.
+- gita 6:17: not_universal (not universal). Eating/sleeping regulation and a cure-of-pain claim; not universal.
+- gita 6:17: fix_why (new note). 'Takes away pain' overstates the verse as a health promise.
+- gita 2:60: fix_why (new note). 'Be patient and watchful' is added advice not in the verse.
+- gita 4:15: retag (dropped family_parents). 'Do as our forefathers did' under family_parents pressures someone abused by a parent to follow family example; the verse is about ancestors' work, not family relationships.
+- gita 5:24: retag (dropped gratitude). Verse is about inner happiness, not gratitude; theme mismatch.
+- gita 6:8: retag (dropped money_worry). 'Earth, stone and gold are the same' is dismissive to someone evicted or unable to pay rent.
+- gita 14:24: retag (dropped money_worry). 'A lump of earth, a rock and gold are alike' is dismissive to someone facing eviction or debt.
+- gita 6:9: fix_why (new note). Text says 'impartially' and 'foes'; why softens foes to 'rivals' and turns impartiality into 'equal goodwill', which could be read as 'be warm to people who harm you'.
+- gita 6:34: not_universal (not universal). Addresses Krishna by name; faith-specific for the universal pool.
+- gita 6:40: fix_why (new note). 'No one who does good ever comes to ruin' is a just-world claim that wounds a reader whose life has fallen apart; the verse is about the striver who fails not being lost.
+- gita 11:44: retag (dropped forgiveness, family_parents). 'As father with son... as lover with beloved, bear with me' is a plea for forbearance; under forgiveness/family it echoes an abuser's 'bear with me'. Fine under love_compassion/friendship.
+- gita 11:44: display (display: trim). Leading 'Therefore'; also source typo 'as it fitting' (should be 'is').
+- gita 13:8: not_universal (not universal). Temptation-tagged list including 'purity' and 'self-control'; unsuitable for identity-disclosure pool.
+- gita 17:16: not_universal (not universal). 'Purity of nature' and self-control as mental discipline; unsuitable for identity-disclosure pool.
+- gita 17:20: fix_why (new note). Why says 'to one in need'; the text says 'to a worthy person', and the why drops 'believing a gift ought to be made'.
+- gita 18:66: retag (dropped doubt_faith). 'Abandoning all duties come unto Me alone' is an exclusive call; under doubt_faith it pressures someone leaving their religion.
+- gita 18:73: retag (dropped doubt_faith). Frames doubt as 'delusion destroyed' followed by 'I will do according to Thy word' (Arjuna then goes to war); under doubt_faith it treats questioning as delusion.
+- gita 18:73: display (display: trim). Speaker tag.
+- gita 2:58: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- gita 2:60: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- gita 2:55: display (display: trim). Speaker tag would look broken alone; strip it.
+- gita 2:64: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- gita 3:7: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- gita 3:19: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- gita 3:37: display (display: trim). Speaker tag would look broken alone; strip it.
+- gita 5:2: display (display: trim). Speaker tag would look broken alone; strip it.
+- gita 6:34: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- gita 6:35: display (display: trim). Speaker tag would look broken alone; strip it.
+- gita 6:40: display (display: trim). Speaker tag would look broken alone; strip it.
+- gita 10:1: display (display: trim). Speaker tag would look broken alone; strip it.
+- gita 12:9: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- gita 16:1: display (display: trim). Speaker tag would look broken alone; strip it.
+- quran 1:6: remove (removed). 'Show us the straight path,' is a fragment, and shown to a gay teenager (universal, guidance) the word 'straight' reads as a verdict on them.
+- quran 7:31: remove (removed). 'Eat and drink, but be not prodigal... He loveth not the prodigals' under temptation_self_control tells a relapsed alcoholic to drink in moderation, and under money_worry tells someone in debt God does not love them; the why ('Enjoy food and drink, but do not overdo it') makes it worse.
+- quran 7:201: remove (removed). Calls a tempting thought 'a glamour from the devil'; shown to an addict, someone with intrusive thoughts or a gay teen it demonises them.
+- quran 10:62: remove (removed). Defines the friends of God as those who feel no fear and do not grieve, implying a grieving or anxious reader is not God's friend.
+- quran 14:12: remove (removed). 'We surely will endure the hurt ye do us' tells a domestic-abuse victim to keep bearing the harm done to them.
+- quran 14:41: remove (removed). Prayer for parents' forgiveness 'on the day when the account is cast' (Judgment Day); under family_parents it asks someone abused by a parent to pray for them, and it does not fit forgiveness (forgiving others).
+- quran 15:20: remove (removed). Confusing fragment ('and unto those for whom ye provide not'); 'We have given you livelihoods' is false comfort to someone evicted or unemployed.
+- quran 15:85: remove (removed). Ties 'So forgive' to 'the Hour is surely coming' (apocalyptic threat) and is a bare command to forgive, which pressures an abuse victim.
+- quran 17:20: remove (removed). 'Each do We supply, both these and those' depends on the previous verses and makes no sense alone.
+- quran 17:23: remove (removed). 'Say not Fie unto them nor repulse them' commands someone abused by a parent never to push the parent away; also opens with 'worship none save Him'.
+- quran 17:24: remove (removed). 'Lower unto them the wing of submission... as they did care for me when I was little' tells an abused child to submit to and thank their parents.
+- quran 19:47: remove (removed). Abraham answering a father who threatened to stone him with peace and a prayer; the why ('Answering a harsh father with peace') models placating an abusive parent.
+- quran 21:84: remove (removed). Job's affliction removed and 'his household (that he had lost) and the like thereof' given back: under illness it implies healing follows prayer, and it treats dead children as replaceable.
+- quran 24:12: remove (removed). Context is slander; 'when ye heard it, think good of your own folk and say: It is a manifest untruth' tells a reader to disbelieve accusations against their own people, which is how abuse disclosures get silenced.
+- quran 24:22: remove (removed). 'Let them forgive... Yearn ye not that Allah may forgive you?' makes God's forgiveness depend on forgiving others, which coerces abuse victims; the first sentence is also a confusing double negative.
+- quran 26:80: remove (removed). 'When I sicken, then He healeth me' is the only tag (illness) and is painful to someone with a terminal diagnosis.
+- quran 31:14: remove (removed). Tells the reader to give thanks to their parents (painful to someone abused by a parent); pregnancy-burden imagery after a pregnancy loss; source text reads 'partners' for 'parents'.
+- quran 31:19: remove (removed). 'The harshest of all voices is the voice of the ass' is demeaning, and 'subdue thy voice' under anger/speech silences a victim.
+- quran 41:34: remove (removed). 'Repel the evil deed with one which is better, then lo! he... will become as though he was a bosom friend' tells an abuse victim that being nicer will turn the abuser into a friend.
+- quran 41:53: remove (removed). 'Until it will be manifest unto them that it is the Truth' (aimed at disbelievers); the only tag is doubt_faith, where it pressures someone leaving their religion and alienates other faiths.
+- quran 42:43: remove (removed). 'Whoso is patient and forgiveth... is of the steadfast heart', tagged patience+forgiveness, is the classic message that keeps a domestic-abuse victim enduring and forgiving.
+- quran 46:13: remove (removed). 'Those who say: Our Lord is Allah... no fear shall come upon them'; the only tag, fear_anxiety, implies an anxious reader lacks the right creed, and it shuts out other faiths.
+- quran 46:15: remove (removed). Long verse of pregnancy and weaning imagery plus a duty to parents; harmful after pregnancy loss and to someone abused by a parent.
+- quran 51:56: remove (removed). 'Created... only that they might worship Me' as the answer to purpose alienates a non-religious visitor; 'jinn' is confusing out of context.
+- quran 72:13: remove (removed). 'Whoso believeth... feareth neither loss nor oppression' tells someone who fears an abuser that their fear shows a lack of belief.
+- quran 76:8: remove (removed). 'The needy wretch' is demeaning toward poor people; fragment ending in a comma.
+- quran 94:7: remove (removed). 'So when thou art relieved, still toil' (why: 'keep working') under work/laziness tells a burnt-out or depressed reader to never stop.
+- quran 2:45: fix_why (new note). Why claims 'humility makes hard things bearable'; the verse says prayer is hard except for the humble.
+- quran 2:45: not_universal (not universal). Prescribes prayer, and implies struggling means you are not humble.
+- quran 2:112: retag (dropped fear_anxiety). 'No fear upon those who surrender to Allah' implies an anxious reader has not surrendered enough. Fine under hope.
+- quran 2:277: retag (dropped fear_anxiety). No fear for those who believe, pray and give the poor-due; for an anxious reader it implies anxiety comes from too little observance.
+- quran 2:156: retag (dropped mortality). 'Unto Him we are returning', shown to a suicidal reader, frames death as going home. Fine under grief.
+- quran 2:156: display (display: trim). Begins with a relative clause; trim so the verse starts 'Lo! we are Allah's...'.
+- quran 2:215: retag (dropped family_parents). Says spending must go to parents first; under family_parents it pressures someone financially exploited or abused by a parent.
+- quran 2:215: display (display: trim). Framing and gloss.
+- quran 2:245: fix_why (new note). 'Returned to you many times over' reads as a financial promise (prosperity-gospel style) to visitors.
+- quran 2:273: fix_why (new note). 'Too proud to beg' is a judgment; the verse praises their restraint.
+- quran 2:273: display (display: trim). Leading bracketed gloss.
+- quran 2:32: not_universal (not universal). Angels' speech, 'Thou, only Thou, art the Knower'; exclusive address to God.
+- quran 2:186: not_universal (not universal). 'I answer the prayer of the suppliant' is painful in the universal pool to someone who prayed through a pregnancy loss.
+- quran 1:2: not_universal (not universal). Pure liturgical praise of Allah; not suited to the identity-disclosure pool.
+- quran 2:269: not_universal (not universal). 'None remember except men of understanding': gendered.
+- quran 3:190: retag (dropped doubt_faith). Signs are 'for men of understanding', implying a doubter lacks understanding.
+- quran 3:190: not_universal (not universal). Gendered ('men of understanding') and doctrinal gloss.
+- quran 3:200: retag (dropped suffering_endurance, patience). 'Endure, outdo all others in endurance, be ready' is battle steadfastness; under suffering/patience it pushes an abuse victim to keep enduring.
+- quran 4:1: retag (dropped family_parents). 'Be careful of your duty toward the wombs that bare you' puts a duty on someone abused by a parent; womb imagery.
+- quran 4:28: retag (dropped self_worth). 'Man was created weak' is the wrong message for someone with low self-worth (e.g. a trans teen).
+- quran 4:124: retag (dropped self_worth). 'Whether of male or female, and he (or she) is a believer': binary and conditional on belief, wrong under self_worth for a trans or non-religious teen.
+- quran 4:149: fix_why (new note). Why says 'God sees it'; the verse ends 'Allah is ever Forgiving, Powerful'.
+- quran 7:55: not_universal (not universal). 'Call upon your Lord humbly'; a worship instruction.
+- quran 7:56: not_universal (not universal). 'Call on Him in fear'; mercy is 'nigh unto the good'. Also lowercase 'and' typo.
+- quran 7:55: display (display: trim). Leading bracketed gloss.
+- quran 8:27: retag (dropped betrayal). An instruction not to betray God and His messenger; a betrayed reader is told not to betray, and someone leaving their faith is cast as a betrayer.
+- quran 8:61: retag (dropped forgiveness). 'If they incline to peace, incline thou also' (said of enemies in war) maps onto an abuser's apology cycle under forgiveness.
+- quran 9:105: retag (dropped laziness_discipline). 'Act! Allah will behold your actions... He will tell you what ye used to do' frames a depressed reader's inactivity under surveillance and judgment.
+- quran 9:105: display (display: trim). Framing.
+- quran 10:25: retag (dropped guidance_decisions). 'Leadeth whom He will to a straight path'; for a gay teen deciding whether to come out, 'straight path' reads as a verdict.
+- quran 10:25: not_universal (not universal). 'Straight path' wording and 'whom He will' exclusivity.
+- quran 10:57: retag (dropped illness). 'A balm for that which is in the breasts' (archaic for hearts) under illness can read as a cure claim, e.g. to a breast-cancer patient; it is about guidance for believers.
+- quran 12:69: retag (dropped grief). 'Sorrow not for what they did' is about brothers' wrongdoing, not bereavement; to a bereaved parent it reads as 'do not grieve'.
+- quran 12:69: display (display: trim). Narrative framing.
+- quran 12:83: retag (dropped grief). Jacob hopes God 'will bring them all unto me'; to a parent whose child died it offers false hope of return.
+- quran 12:83: display (display: trim). Bracketed framing and an accusation against the sons; start at '(My course is) comely patience!'.
+- quran 12:86: retag (dropped loneliness). 'I expose my distress only unto Allah' tells a lonely or suicidal reader to share their anguish with no human.
+- quran 12:86: not_universal (not universal). 'Only unto Allah' discourages seeking human help; not universal.
+- quran 12:92: retag (dropped family_parents). Joseph forgiving the brothers who threw him in a pit; under family_parents it models forgiving family abuse.
+- quran 12:92: fix_why (new note). Why quotes 'no blame on you today', which is not Pickthall's wording ('Have no fear this day').
+- quran 12:92: display (display: trim). Speaker tag.
+- quran 12:100: retag (dropped family_parents, forgiveness). Parents prostrating, and the brothers' abuse blamed on Satan ('after Satan had made strife'); under family/forgiveness it excuses family harm and pushes reconciliation.
+- quran 12:53: not_universal (not universal). 'The (human) soul enjoineth unto evil': repentance verse in the identity-disclosure pool implies the disclosed identity is sin.
+- quran 12:67: not_universal (not universal). 'O my sons!': gendered, and 'go in by different gates' is opaque alone.
+- quran 13:22: not_universal (not universal). Regular prayer and 'the (heavenly) Home'; begins as a fragment ('Such as').
+- quran 13:28: not_universal (not universal). 'Who have believed and whose hearts have rest in remembrance of Allah' makes rest conditional on belief; faith-specific.
+- quran 13:28: display (display: trim). Leading relative clause; start at 'Verily in the remembrance...'.
+- quran 16:78: not_universal (not universal). 'Brought you forth from the wombs of your mothers... gave you hearing and sight': womb imagery after pregnancy loss, and alienating to a deaf or blind visitor.
+- quran 17:26: retag (dropped money_worry, family_parents). 'Squander not' implies an evicted reader wasted their money, and 'give the kinsman his due' pressures someone financially exploited by family.
+- quran 17:29: retag (dropped money_worry). Warns that open-handedness leaves you 'rebuked, denuded'; shames someone already broke.
+- quran 17:53: not_universal (not universal). Devil sowing discord, God's 'bondmen'; not universal.
+- quran 17:81: not_universal (not universal). 'Truth hath come and falsehood hath vanished' (said at the destruction of idols) is triumphalist toward other religions.
+- quran 18:10: not_universal (not universal). Prayer of 'the young men' in the cave; gendered and devotional.
+- quran 20:44: retag (dropped anger). Moses told to speak gently to Pharaoh; why 'Speak gently, even to someone hard' tells an angry abuse victim to placate their abuser.
+- quran 20:50: not_universal (not universal). Under self_worth, 'gave unto everything its nature, then guided it aright' can be read to a trans teen as 'your assigned nature is God's'; creedal.
+- quran 20:112: retag (dropped justice_wronged). 'Being a believer, he feareth not injustice' implies a wronged reader suffered injustice for lack of faith.
+- quran 20:114: display (display: trim). The why only covers the closing prayer; strip the Qur'an-revelation framing so it reads 'My Lord! Increase me in knowledge.'.
+- quran 21:47: not_universal (not universal). 'Day of Resurrection' and reckoning; doctrinal.
+- quran 23:62: retag (dropped overwork_rest, illness). 'We task not any soul beyond its scope' is the 'never more than you can handle' platitude, invalidating to a burnt-out or terminally ill reader; also ends with the Record and reckoning.
+- quran 23:96: retag (dropped forgiveness, betrayal). 'Repel evil with that which is better' under forgiveness/betrayal tells an abuse victim to meet harm with kindness. Fine under anger.
+- quran 25:71: not_universal (not universal). Repentance in the identity-disclosure pool; fragment ending with a dash.
+- quran 25:72: not_universal (not universal). Temptation-tagged; 'will not witness vanity' begins as a fragment.
+- quran 25:67: retag (dropped money_worry). 'Neither prodigal nor grudging' implies an evicted reader overspent.
+- quran 27:89: not_universal (not universal). 'Safe from fear that Day' (Judgment Day); doctrinal.
+- quran 28:16: not_universal (not universal). Moses' repentance (after killing a man); repentance verse in the identity-disclosure pool.
+- quran 28:26: not_universal (not universal). 'The best (man)... the strong' is gendered and body-related (alienating to a disabled job-seeker); source typo 'in the strong'.
+- quran 28:77: not_universal (not universal). Hereafter and 'Allah loveth not corrupters'; doctrinal; trailing comma.
+- quran 30:38: retag (dropped family_parents). 'Give to the kinsman his due' frames family as a financial duty, wrong for someone exploited by family.
+- quran 31:16: not_universal (not universal). 'O my dear son!': gendered address.
+- quran 34:39: retag (dropped money_worry). 'My Lord... narroweth (provision) for him' says God made you poor, and 'whatsoever ye spend He replaceth' is a prosperity promise.
+- quran 35:34: retag (dropped grief). Spoken by people already in paradise; to a fresh griever 'praise God who has put grief away from us' is dismissive.
+- quran 35:34: fix_why (new note). The why presents a paradise saying as a present-tense claim.
+- quran 39:53: retag (dropped failure). Frames failure (an exam, a job) as sin needing mercy.
+- quran 41:30: retag (dropped grief). Angels tell those with the right creed 'Fear not nor grieve'; rebukes grief and is creed-conditional.
+- quran 42:25: not_universal (not universal). Repentance verse in the identity-disclosure pool.
+- quran 49:10: retag (dropped family_parents). About believers as brothers; not about family, and gendered.
+- quran 49:13: retag (dropped self_worth). 'We have created you male and female' under self_worth confronts a trans or non-binary teen with a binary. Fine under kindness_strangers.
+- quran 53:39: retag (dropped failure, laziness_discipline). 'Man hath only that for which he maketh effort' implies failure, poverty or depression is the reader's own doing.
+- quran 53:39: not_universal (not universal). Gendered 'man'; blame framing.
+- quran 55:13: not_universal (not universal). 'Which... favours of your Lord... that ye deny?' accuses the reader of denying God.
+- quran 59:18: retag (dropped laziness_discipline). 'What it sendeth on before for the morrow' is preparation for Judgment Day; to a depressed reader it is a threat.
+- quran 59:18: fix_why (new note). Why turns the Judgment-Day 'morrow' into ordinary planning for tomorrow.
+- quran 59:9: not_universal (not universal). 'Entered... the faith' (the Muslims of Medina) is faith-specific; also temptation-tagged.
+- quran 68:32: not_universal (not universal). Spoken by garden-owners after their garden was destroyed as punishment; 'we beseech our Lord'.
+- quran 84:6: not_universal (not universal). 'O man... thou wilt meet (Him)' is gendered, and its context is the Judgment.
+- quran 93:8: retag (dropped money_worry). 'Did He not find thee destitute and enrich thee?' is cruel to someone currently destitute.
+- quran 94:8: retag (dropped laziness_discipline). 'Strive to please thy Lord' continues 'still toil'; pressure on a depressed reader.
+- quran 11:6: fix_why (new note). 'Every creature on earth is provided for' overstates the text and is false comfort to someone homeless.
+- quran 2:32: display (display: trim). Speaker tag.
+- quran 7:128: display (display: trim). Speaker tag.
+- quran 7:151: display (display: trim). Speaker tag.
+- quran 10:58: display (display: trim). Command framing.
+- quran 12:86: display (display: trim). Speaker tag.
+- quran 12:98: display (display: trim). Speaker tag.
+- quran 17:36: display (display: trim). Bracketed gloss.
+- quran 17:80: display (display: trim). Framing.
+- quran 17:81: display (display: trim). Framing.
+- quran 18:109: display (display: trim). Framing.
+- quran 20:25: display (display: trim). Bracketed speaker tag.
+- quran 20:46: display (display: trim). Speaker tag; note 'you twain' (two people) is opaque alone.
+- quran 20:50: display (display: trim). Speaker tag.
+- quran 20:68: display (display: trim). Speaker tag.
+- quran 23:29: display (display: trim). Framing.
+- quran 23:118: display (display: trim). Framing and gloss.
+- quran 26:62: display (display: trim). Speaker tag and exclamations.
+- quran 28:16: display (display: trim). Speaker tag.
+- quran 28:26: display (display: trim). Speaker tag; also source typo 'in the strong' (should be 'is').
+- quran 35:34: display (display: trim). Speaker tag.
+- quran 71:10: display (display: trim). Speaker framing.
+- quran 76:9: display (display: trim). Bracketed speaker tag.
+- quran 8:61: display (display: trim). Leading conjunction.
+- quran 2:112: display (display: trim). Leading 'Nay, but'.
+- quran 20:44: display (display: trim). Leading conjunction.
+- quran 23:62: display (display: trim). Leading conjunction.
+- quran 4:106: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- quran 4:110: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- quran 5:39: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- quran 7:153: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- quran 9:102: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- quran 11:90: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- quran 16:119: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- quran 17:25: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- quran 71:10: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- quran 110:3: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- quran 2:148: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 2:152: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 2:186: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 2:188: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 2:280: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 3:104: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 3:133: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 3:135: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 3:150: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 4:32: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 4:106: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 4:110: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 4:124: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 5:39: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 6:54: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 6:59: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 6:97: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 6:152: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 7:153: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 7:205: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 9:102: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 10:25: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 11:6: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 11:69: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 11:115: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 12:67: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 12:84: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 12:100: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 16:18: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 16:41: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 16:53: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 16:78: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 16:95: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 16:114: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 16:119: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 17:19: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 17:29: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 17:37: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 20:26: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 20:27: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 20:82: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 20:112: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 20:130: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 20:131: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 21:47: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 21:83: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 21:94: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 25:47: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 25:62: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 25:67: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 25:71: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 25:72: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 26:217: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 28:5: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 28:21: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 28:22: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 28:24: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 28:55: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 28:77: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 29:6: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 29:46: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 29:60: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 30:21: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 30:22: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 30:23: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 30:38: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 30:60: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 31:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 31:27: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 33:3: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 33:58: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 42:25: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 42:28: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 42:36: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 42:37: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 42:38: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 45:13: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 51:19: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 53:39: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 53:40: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 59:10: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 62:10: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 70:5: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 73:10: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 74:7: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 78:9: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 87:8: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 90:17: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 93:4: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 93:5: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 93:9: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 93:10: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 93:11: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 94:5: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 94:8: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 99:7: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- quran 110:3: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Exodus 20:12: remove (removed). 'Honour thy father and thy mother: that thy days may be long' is the verse most used against people abused by a parent, with a longevity condition attached.
+- bible Deuteronomy 5:16: remove (removed). Same command to honour parents 'that it may go well with thee'; harmful under family_parents for someone abused by a parent.
+- bible Genesis 50:21: remove (removed). Joseph promises to feed the brothers who sold him; the why ('answers those who hurt him with care') models caring for your abusers, and no remaining tag fits (they are not strangers).
+- bible 2 Kings 20:5: remove (removed). 'I have heard thy prayer... I will heal thee' (why: 'healing is promised') is a false promise to someone terminally ill and implies their prayer went unheard.
+- bible Nehemiah 8:10: remove (removed). 'Eat the fat, and drink the sweet' (drinking and food cues) plus 'neither be ye sorry', which rebukes sorrow under hope.
+- bible Proverbs 1:8: remove (removed). 'My son, hear the instruction of thy father, and forsake not the law of thy mother' commands obedience to parents; harmful to someone abused by a parent.
+- bible Proverbs 6:6: remove (removed). 'Go to the ant, thou sluggard' calls a depressed or burnt-out reader a sluggard.
+- bible Proverbs 10:4: remove (removed). 'He becometh poor that dealeth with a slack hand' says poverty is deserved; tagged for depressed and struggling readers.
+- bible Proverbs 10:22: remove (removed). 'The blessing of the LORD, it maketh rich' under money_worry tells an evicted reader they are not blessed (prosperity gospel).
+- bible Proverbs 11:24: remove (removed). 'Withholdeth more than is meet... tendeth to poverty' (why: 'holds back and grows poor') blames poverty on stinginess.
+- bible Proverbs 13:4: remove (removed). 'The soul of the sluggard desireth, and hath nothing' insults a depressed reader under laziness_discipline.
+- bible Proverbs 17:6: remove (removed). 'The glory of children are their fathers' (abused child) and 'children's children are the crown' (a parent who lost a child, or infertility) under family/parenting.
+- bible Proverbs 17:9: remove (removed). 'He that covereth a transgression seeketh love; but he that repeateth a matter separateth very friends' discourages disclosing abuse.
+- bible Proverbs 23:18: remove (removed). 'For surely there is an end' uses archaic 'end' (meaning future), which a suicidal reader can take as death; the why's 'future' is not what they will read.
+- bible Proverbs 23:22: remove (removed). 'Hearken unto thy father that begat thee', marked universal, commands obedience to a father.
+- bible Proverbs 25:15: remove (removed). 'By long forbearing is a prince persuaded, and a soft tongue breaketh the bone' tells an abuse victim that patience and placating will win over the powerful; violent image.
+- bible Proverbs 27:6: remove (removed). 'Faithful are the wounds of a friend' normalises being hurt by a friend or partner.
+- bible Proverbs 28:13: remove (removed). 'He that covereth his sins shall not prosper' threatens someone who keeps something private (e.g. an abortion) under guilt_repentance.
+- bible Proverbs 29:25: remove (removed). 'The fear of man bringeth a snare: but whoso putteth his trust in the LORD shall be safe' tells someone who fears a violent partner that their fear is the trap and faith will keep them safe.
+- bible Ecclesiastes 7:10: remove (removed). 'Say not... the former days were better... thou dost not enquire wisely' rebukes someone mourning a life lost to death, diagnosis or divorce.
+- bible Jeremiah 29:13: remove (removed). 'Ye shall find me when ye search with all your heart'; the only tag is doubt_faith, where it implies a doubter did not search hard enough.
+- bible Matthew 5:24: remove (removed). 'First be reconciled to thy brother' pressures reconciliation with family (including an abuser) before worship.
+- bible Matthew 6:14: remove (removed). 'If ye forgive men... your Father will forgive you' makes God's forgiveness depend on forgiving (6:15 states the threat), which coerces abuse victims.
+- bible Matthew 18:15: remove (removed). 'Go and tell him his fault between thee and him alone' tells an abuse victim to confront their abuser privately; this is the well-known church cover-up mechanism.
+- bible Matthew 19:14: remove (removed). Modern readers take 'Suffer little children' as 'make children suffer'; it is also tied to child-death consolation, a risk under parenting.
+- bible Mark 11:25: remove (removed). 'Forgive... that your Father also may forgive you': conditional, coercive forgiveness.
+- bible Mark 12:44: remove (removed). Praises a poor widow for giving 'all that she had, even all her living'; can pressure poor visitors to give away money they need.
+- bible Luke 10:41: remove (removed). 'Martha, Martha, thou art careful and troubled' is a rebuke (10:42 completes it); under overwork_rest it scolds the exhausted and anxious.
+- bible Luke 17:3: remove (removed). 'If he repent, forgive him' (and 17:4: seven times a day) describes the domestic-abuse apology cycle.
+- bible John 14:2: remove (removed). 'I go to prepare a place for you', shown to a suicidal reader under mortality, frames death as a prepared home; per the brief, an afterlife verse should not sit under grief, and no tag would remain.
+- bible 1 Corinthians 10:13: remove (removed). 'Will not suffer you to be tempted above that ye are able; but will... make a way to escape' tells an addict who just relapsed that they had an escape and failed to take it.
+- bible 2 Corinthians 4:16: remove (removed). 'Though our outward man perish' is body-abandoning language under mortality/illness, and 'we faint not' under overwork_rest rebukes exhaustion.
+- bible Ephesians 5:20: remove (removed). 'Giving thanks always for all things' asks a bereaved or abused reader to give thanks for what happened to them.
+- bible Philippians 2:14: remove (removed). 'Do all things without murmurings and disputings', marked universal and tagged patience, silences someone complaining about mistreatment.
+- bible 1 Timothy 5:4: remove (removed). 'Requite their parents' is a duty to repay parents; harmful to someone abused by a parent; confusing opening about widows' nephews.
+- bible Hebrews 12:11: remove (removed). 'Chastening' is God's punishment (12:6 'scourgeth every son'); the why 'Discipline is not pleasant at the time, but later yields peace' can endorse corporal punishment to a child-abuse victim and frames depression as chastisement.
+- bible 3 John 1:2: remove (removed). 'Prosper and be in health, even as thy soul prospereth' ties health to the state of your soul, implying a sick person's soul is lacking; the only tag is illness.
+- bible Genesis 50:20: retag (dropped suffering_endurance). 'Ye thought evil against me; but God meant it unto good' tells a child-abuse or bereaved reader their suffering was God's plan.
+- bible Genesis 50:20: not_universal (not universal). Theodicy ('God meant it unto good'); not universal.
+- bible Genesis 50:20: display (display: trim). Leading conjunction.
+- bible Leviticus 19:32: retag (dropped family_parents). 'Honour the face of the old man, and fear thy God' under family_parents is filial pressure.
+- bible Leviticus 19:32: not_universal (not universal). 'Fear thy God' and 'old man'; not universal.
+- bible Deuteronomy 4:29: retag (dropped doubt_faith). 'Thou shalt find him, if thou seek him with all thy heart' implies someone who lost faith did not seek wholeheartedly (and the context is exile as punishment).
+- bible Deuteronomy 4:29: not_universal (not universal). Conditional-on-wholehearted-seeking wording; faith-specific.
+- bible Deuteronomy 4:29: display (display: trim). 'From thence' refers to exile; strip.
+- bible Psalms 30:2: retag (dropped illness). 'I cried unto thee, and thou hast healed me' is painful to someone with a terminal diagnosis. Fine under gratitude.
+- bible Psalms 30:11: retag (dropped grief). 'Turned my mourning into dancing' is premature and minimising to a parent whose child died yesterday. Fine under hope.
+- bible Psalms 42:5: retag (dropped grief). 'Why art thou cast down?' alone reads as questioning a griever's sorrow.
+- bible Psalms 42:11: retag (dropped grief). Same 'Why art thou cast down?' rebuke-shaped line under grief.
+- bible Psalms 103:3: retag (dropped illness). 'Who healeth all thy diseases', next to 'forgiveth all thine iniquities', is a false cure promise and links disease to sin.
+- bible Psalms 103:3: not_universal (not universal). Iniquities and a healing promise; not universal.
+- bible Psalms 103:14: retag (dropped self_worth). 'He remembereth that we are dust' under self_worth tells a low-self-worth reader they are dust.
+- bible Psalms 103:14: fix_why (new note). The why adds 'only', making the verse more demeaning than the text.
+- bible Psalms 147:3: retag (dropped illness). About the broken-hearted; under illness it reads as a cure promise.
+- bible Proverbs 3:5: retag (dropped doubt_faith). 'Lean not unto thine own understanding' tells someone questioning their religion (or deciding to leave a controlling situation) to distrust their own judgment.
+- bible Proverbs 3:5: fix_why (new note). The why adds 'only', softening the text into something it does not say.
+- bible Proverbs 3:5: not_universal (not universal). 'Lean not unto thine own understanding' is unsafe for the identity-disclosure pool.
+- bible Proverbs 3:28: retag (dropped laziness_discipline). About not delaying help to a neighbour; not about laziness, so it mismatches the theme.
+- bible Proverbs 10:12: retag (dropped forgiveness). 'Love covereth all sins' under forgiveness tells an abuse victim to cover up a partner's harm.
+- bible Proverbs 12:24: retag (dropped laziness_discipline). 'The slothful shall be under tribute' shames a depressed reader.
+- bible Proverbs 13:11: retag (dropped money_worry). 'He that gathereth by labour shall increase' implies an evicted reader did not labour.
+- bible Proverbs 13:11: fix_why (new note). The why ('money gained quickly... little by little') follows a modern translation, not the KJV text shown.
+- bible Proverbs 15:1: retag (dropped marriage). 'A soft answer turneth away wrath' under marriage puts the job of preventing a violent spouse's anger on the victim.
+- bible Proverbs 15:16: retag (dropped money_worry). 'Better a little / wisdom / a good name than riches' is dismissive to someone who is being evicted and has nothing. Fine under its other themes.
+- bible Proverbs 16:8: retag (dropped money_worry). 'Better a little / wisdom / a good name than riches' is dismissive to someone who is being evicted and has nothing. Fine under its other themes.
+- bible Proverbs 16:16: retag (dropped money_worry). 'Better a little / wisdom / a good name than riches' is dismissive to someone who is being evicted and has nothing. Fine under its other themes.
+- bible Proverbs 22:1: retag (dropped money_worry). 'Better a little / wisdom / a good name than riches' is dismissive to someone who is being evicted and has nothing. Fine under its other themes.
+- bible Proverbs 21:5: retag (dropped money_worry). 'Every one that is hasty only to want' blames want on haste.
+- bible Proverbs 28:20: retag (dropped money_worry). 'A faithful man shall abound with blessings' implies an evicted reader is unfaithful.
+- bible Proverbs 19:11: retag (dropped forgiveness, patience). 'It is his glory to pass over a transgression' praises an abuse victim for overlooking harm again and again.
+- bible Proverbs 20:7: retag (dropped parenting). 'The just man... his children are blessed after him' implies a parent with a sick or dead child was not just.
+- bible Proverbs 24:17: retag (dropped justice_wronged). Tells a survivor not to be glad when their abuser falls.
+- bible Proverbs 27:10: retag (dropped family_parents). 'Neither go into thy brother's house in the day of thy calamity' discourages turning to family in a crisis.
+- bible Ecclesiastes 4:12: retag (dropped marriage). 'A threefold cord is not quickly broken' (a wedding verse about permanence) pressures a wife being hit to stay.
+- bible Isaiah 25:8: retag (dropped grief, mortality). End-time 'swallow up death' is an afterlife promise; per the brief it should not sit under grief, and under mortality it softens death for a suicidal reader. Fine under hope.
+- bible Isaiah 26:3: retag (dropped fear_anxiety). 'Perfect peace, whose mind is stayed on thee' implies an anxious reader's mind is not stayed on God.
+- bible Isaiah 49:15: retag (dropped parenting). 'Can a woman forget her sucking child... the son of her womb?' is painful under parenting for a mother who lost a pregnancy or child.
+- bible Isaiah 49:15: not_universal (not universal). Breastfeeding and womb imagery shown after a pregnancy-loss disclosure.
+- bible Matthew 7:7: retag (dropped doubt_faith). 'Ask, and it shall be given you' tells someone who left religion over unanswered prayer that they did not ask right.
+- bible Matthew 7:8: retag (dropped doubt_faith). 'Every one that asketh receiveth' implies that unanswered prayer is the asker's fault.
+- bible Matthew 7:7: not_universal (not universal). After a pregnancy-loss disclosure, 'Ask, and it shall be given you' wounds.
+- bible Matthew 7:8: not_universal (not universal). 'Every one that asketh receiveth' wounds anyone whose prayer for a child or a cure was not answered.
+- bible Matthew 14:14: retag (dropped illness). 'He healed their sick' under illness raises 'why not me' for a terminal patient.
+- bible Luke 6:37: retag (dropped forgiveness). 'Forgive, and ye shall be forgiven' is transactional forgiveness pressure. Fine under speech_gossip.
+- bible Luke 12:15: retag (dropped money_worry). Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes.
+- bible Luke 14:28: retag (dropped money_worry). Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes.
+- bible Romans 13:8: retag (dropped money_worry). Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes.
+- bible Philippians 4:11: retag (dropped money_worry). Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes.
+- bible Philippians 4:12: retag (dropped money_worry). Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes.
+- bible 1 Timothy 6:6: retag (dropped money_worry). Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes.
+- bible 1 Timothy 6:8: retag (dropped money_worry). Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes.
+- bible Hebrews 13:5: retag (dropped money_worry). Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes.
+- bible Matthew 6:19: retag (dropped money_worry). Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes.
+- bible Matthew 6:20: retag (dropped money_worry). Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes.
+- bible 1 Corinthians 13:4: retag (dropped marriage, patience). 'Charity suffereth long' under marriage/patience is the line used to keep abused spouses enduring.
+- bible 1 Corinthians 13:5: fix_why (new note). The why adds 'keeps no record of wrongs' (not in the KJV), the phrase most often used to tell victims to forget abuse.
+- bible 2 Corinthians 4:18: retag (dropped mortality). 'Things which are seen are temporal' devalues this life for a suicidal reader.
+- bible Ephesians 4:2: retag (dropped marriage, patience). 'All lowliness and meekness, with longsuffering, forbearing' under marriage tells an abused spouse to be meek and endure.
+- bible Ephesians 4:26: retag (dropped marriage). 'Let not the sun go down upon your wrath' under marriage pressures a victim to make up with an abusive spouse by nightfall.
+- bible Ephesians 4:32: retag (dropped marriage). 'Forgiving one another' under marriage is forgiveness pressure on an abused spouse.
+- bible Colossians 3:13: retag (dropped marriage). 'Forbearing... forgiving' under marriage pressures an abused spouse.
+- bible 1 Peter 4:8: retag (dropped marriage, forgiveness). 'Charity shall cover the multitude of sins' under marriage/forgiveness tells an abused spouse to cover up the harm.
+- bible 2 Timothy 1:7: retag (dropped fear_anxiety). 'Not given us the spirit of fear; but... of a sound mind' tells someone with an anxiety disorder that their anxiety is spiritual failure and their mind unsound.
+- bible 2 Timothy 1:7: not_universal (not universal). 'Sound mind' framing is stigmatising for a mentally ill visitor.
+- bible 2 Timothy 2:15: retag (dropped laziness_discipline). 'A workman that needeth not to be ashamed' shames a depressed reader.
+- bible James 1:22: retag (dropped laziness_discipline). 'Doers of the word... deceiving your own selves' rebukes a depressed reader.
+- bible James 1:22: not_universal (not universal). Faith-specific ('the word').
+- bible James 4:10: retag (dropped failure). Implies a reader who failed needs humbling.
+- bible James 5:13: retag (dropped suffering_endurance). 'Is any among you afflicted? let him pray' can discourage someone in crisis from seeking real help.
+- bible Revelation 21:4: retag (dropped grief, mortality). Afterlife 'no more death... no more pain'; to a suicidal reader it romanticises dying as the end of pain, and per the brief afterlife verses should not sit under grief. Fine under hope.
+- bible Job 23:10: not_universal (not universal). Suffering as God's test ('when he hath tried me'); not universal.
+- bible Job 23:10: fix_why (new note). The why turns Job's personal hope into a promise to the reader.
+- bible Job 28:28: not_universal (not universal). 'The fear of the Lord' and 'unto man'; faith-specific.
+- bible Psalms 1:3: not_universal (not universal). 'Whatsoever he doeth shall prosper' is a just-world promise; gendered.
+- bible Psalms 6:2: not_universal (not universal). Prayer for healing ('heal me; for my bones are vexed'); painful in the universal pool after a pregnancy loss or terminal diagnosis.
+- bible Jeremiah 17:14: not_universal (not universal). 'Heal me, O LORD, and I shall be healed' is a healing promise.
+- bible Psalms 37:4: not_universal (not universal). 'He shall give thee the desires of thine heart' wounds someone who has just disclosed a pregnancy loss.
+- bible Psalms 127:1: not_universal (not universal). 'Except the LORD build the house, they labour in vain' tells a non-religious visitor their work is in vain.
+- bible Ecclesiastes 2:24: not_universal (not universal). 'Eat and drink' framing (alcohol cue) and gendered 'a man'.
+- bible Ecclesiastes 3:13: not_universal (not universal). 'Eat and drink' (alcohol cue) and gendered 'every man'.
+- bible Philippians 2:3: not_universal (not universal). 'Let each esteem other better than themselves' is harmful to a low-self-worth (e.g. trans or depressed) visitor.
+- bible Philippians 4:6: not_universal (not universal). 'Be careful for nothing... by prayer' tells someone with an anxiety disorder to pray it away.
+- bible Proverbs 23:31: not_universal (not universal). Lingering description of red wine 'when it moveth itself aright'; a trigger for someone who just relapsed.
+- bible Psalms 4:4: fix_why (new note). The KJV says 'Stand in awe', not 'In anger'; the why follows another translation.
+- bible Ruth 1:16: fix_why (new note). 'Stay with the one she loves' misstates the relationship (mother-in-law) and, under family/loneliness, can be read as 'stay with your partner'.
+- bible John 1:5: fix_why (new note). The KJV says 'comprehended it not'; 'has not overcome it' is another translation.
+- bible Psalms 143:10: fix_why (new note). 'Level ground' is not in the KJV text.
+- bible Genesis 50:19: display (display: trim). Speaker framing.
+- bible Exodus 33:14: display (display: trim). Speaker framing.
+- bible Exodus 34:6: display (display: trim). Narrative framing; also ends with a comma (continues in 34:7, 'visiting the iniquity of the fathers').
+- bible 1 Samuel 16:7: display (display: trim). 'I have refused him' (Eliab) makes no sense alone; start at 'the Lord seeth not as man seeth'.
+- bible 1 Samuel 18:1: display (display: trim). Narrative framing.
+- bible 1 Kings 19:7: display (display: trim). Narrative framing.
+- bible 1 Chronicles 28:20: display (display: trim). Speaker framing.
+- bible Ruth 1:16: display (display: trim). Speaker framing; ends with a colon.
+- bible Job 28:28: display (display: trim). Speaker framing.
+- bible Isaiah 43:1: display (display: trim). Address to Jacob/Israel.
+- bible Matthew 19:26: display (display: trim). Speaker framing.
+- bible Matthew 22:37: display (display: trim). Speaker framing.
+- bible Matthew 22:39: display (display: trim). Depends on the previous verse.
+- bible Matthew 28:20: display (display: trim). Start at 'I am with you alway'.
+- bible Mark 4:39: display (display: trim). Narrative framing.
+- bible Mark 6:31: display (display: trim). Speaker framing.
+- bible Mark 9:24: display (display: trim). Narrative framing.
+- bible Luke 3:11: display (display: trim). Speaker framing.
+- bible Luke 10:37: display (display: trim). Dialogue fragment.
+- bible Luke 12:15: display (display: trim). Speaker framing.
+- bible Luke 12:22: display (display: trim). Speaker framing.
+- bible Luke 18:1: display (display: trim). Narrative framing; ends with ';'.
+- bible Luke 18:27: display (display: trim). Speaker framing.
+- bible Luke 23:34: display (display: trim). Speaker framing; also strip the trailing 'And they parted his raiment, and cast lots.'
+- bible John 8:11: display (display: trim). Dialogue fragment.
+- bible Acts 10:34: display (display: trim). Speaker framing; ends with a colon.
+- bible 2 Corinthians 12:9: display (display: trim). Speaker framing.
+- bible James 4:6: display (display: trim). Framing.
+- bible Revelation 21:5: display (display: trim). Speaker framing; also strip the trailing 'And he said unto me, Write: for these words are true and faithful.'
+- bible 2 Corinthians 5:7: display (display: trim). Whole verse is wrapped in parentheses; strip '(' and the trailing ':)'.
+- bible 1 Thessalonians 4:11: display (display: trim). Fragment; also strip the trailing 'as we commanded you;'.
+- bible Psalms 25:7: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Psalms 32:1: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Psalms 32:5: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Psalms 34:18: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Psalms 51:2: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Psalms 51:10: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Psalms 51:12: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Psalms 51:17: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Psalms 86:5: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Psalms 103:10: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Psalms 103:12: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Psalms 103:14: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Psalms 141:3: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Proverbs 1:10: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Proverbs 4:23: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Proverbs 4:25: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Proverbs 16:32: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Proverbs 25:28: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Isaiah 1:18: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Isaiah 43:18: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Isaiah 43:25: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Isaiah 57:15: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Micah 7:19: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Luke 15:20: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Philippians 3:13: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Hebrews 8:12: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible 1 John 1:9: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible 1 John 3:20: not_universal (not universal). Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing.
+- bible Genesis 2:2: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Genesis 28:15: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Exodus 23:9: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Leviticus 19:9: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Leviticus 19:33: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Leviticus 19:34: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Deuteronomy 15:11: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Deuteronomy 25:15: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Deuteronomy 31:8: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Job 2:13: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Job 11:18: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Job 14:7: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Job 23:10: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 1:3: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 9:10: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 18:28: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 23:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 23:4: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 27:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 32:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 37:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 37:6: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 37:11: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 39:7: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 40:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 41:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 41:9: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 46:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 46:2: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 55:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 57:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 62:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 71:5: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 71:18: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 86:5: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 86:15: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 90:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 90:17: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 92:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 103:14: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 107:9: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Psalms 121:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 127:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 131:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 133:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 139:1: display (display: trim). Psalm heading shown as part of the verse; strip it.
+- bible Psalms 139:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Proverbs 2:6: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Proverbs 4:18: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Proverbs 8:11: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Proverbs 24:16: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Ecclesiastes 3:13: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Ecclesiastes 4:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Ecclesiastes 7:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Isaiah 2:4: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Isaiah 32:17: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Isaiah 32:18: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Isaiah 40:31: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Isaiah 41:13: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Isaiah 46:4: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Isaiah 54:10: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Isaiah 54:13: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Isaiah 55:8: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Isaiah 55:9: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Isaiah 57:15: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Isaiah 58:10: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Isaiah 58:11: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Jeremiah 17:8: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Jeremiah 29:11: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Jeremiah 29:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Jeremiah 31:25: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Amos 5:24: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Micah 7:7: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Habakkuk 2:3: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Habakkuk 3:18: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Zechariah 7:10: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Malachi 3:6: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 6:3: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 6:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 6:20: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 6:21: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 6:25: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 6:28: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 6:31: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 6:33: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 7:3: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 7:8: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 7:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 10:30: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 11:30: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 14:14: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 23:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 25:35: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Matthew 25:40: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Mark 12:31: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Luke 1:37: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Luke 6:31: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Luke 10:33: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Luke 12:7: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Luke 12:34: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Luke 14:28: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Luke 15:10: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Luke 15:20: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible John 1:5: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible John 8:32: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible John 16:22: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Romans 5:5: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Romans 8:18: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Romans 8:25: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Romans 8:26: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Romans 12:2: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Romans 12:3: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Romans 15:7: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Romans 15:13: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 1 Corinthians 4:7: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 1 Corinthians 12:26: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 1 Corinthians 13:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 1 Corinthians 13:13: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 1 Corinthians 15:58: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 2 Corinthians 5:17: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 2 Corinthians 9:6: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 2 Corinthians 10:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Galatians 5:13: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Galatians 5:14: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Galatians 5:22: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Galatians 6:4: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Galatians 6:9: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Ephesians 4:25: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Ephesians 4:32: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Ephesians 5:2: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Ephesians 5:18: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Ephesians 6:4: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Philippians 4:7: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Philippians 4:19: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Colossians 3:14: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Colossians 3:15: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Colossians 3:23: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 1 Thessalonians 2:7: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 1 Thessalonians 5:11: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 2 Thessalonians 3:13: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 2 Thessalonians 3:16: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 1 Timothy 6:6: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 1 Timothy 6:7: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 1 Timothy 6:8: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 2 Timothy 1:7: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Hebrews 4:15: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Hebrews 8:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Hebrews 10:24: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Hebrews 10:36: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Hebrews 11:1: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Hebrews 12:1: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Hebrews 12:12: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Hebrews 13:16: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible James 1:4: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible James 1:19: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible James 1:20: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible James 1:22: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible James 3:17: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible James 3:18: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 1 Peter 4:8: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 1 John 3:20: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible 1 John 4:16: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+- bible Revelation 21:4: display (display: trim). Leading conjunction makes the verse read as a continuation; strip and capitalise.
+
+Not applied:
+
+- gita 3:20: display: display item with no change. Source typo 'he world' (should be 'the world'); fix text before display.
+- gita 12:13: display: display item with no change. Incomplete sentence ending in a comma ('He who... forgiving,'); main clause is in 12:14.
+- gita 12:18: display: display item with no change. Incomplete sentence ending in a comma; main clause continues in 12:19.
+- gita 2:62: display: display item with no change. Ends mid-sentence with ';' (the chain continues to destruction in 2:63).
+- gita 2:12: display: display item with no change. Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse.
+- gita 18:11: display: display item with no change. Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse.
+- quran 2:274: display: display item with no change. Source typo 'their shall' (should be 'there shall').
+- quran 65:3: display: display item with no change. Opens mid-sentence with no subject ('And will provide for him...'; the subject is in 65:2); trim 'And will provide for him from (a quarter) whence he hath no expectation. And ' or exclude.
+- quran 2:245: display: display item with no change. Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse.
+- quran 13:22: display: display item with no change. Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse.
+- quran 32:7: display: display item with no change. Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse.
+- quran 39:18: display: display item with no change. Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse.
+- quran 55:13: display: display item with no change. Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse.
+- bible Psalms 4:4: display: display item with no change. Strip the trailing 'Selah.'
+- bible Psalms 32:5: display: display item with no change. Strip the trailing 'Selah.'
+- bible Psalms 62:8: display: display item with no change. Strip the trailing 'Selah.'
+- bible Habakkuk 3:19: display: display item with no change. Strip the trailing musical note 'To the chief singer on my stringed instruments.'
+- bible Colossians 3:12: display: display item with no change. 'Bowels of mercies' will look odd or gross to modern readers; consider excluding or glossing.
+- bible 1 Corinthians 10:24: display: display item with no change. 'Seek... every man another's wealth' reads as coveting to a modern reader (wealth = well-being); consider excluding.
+- bible Ecclesiastes 3:12: display: display item with no change. 'There is no good in them' is opaque alone and reads as 'there is no good in people'.
+- bible Lamentations 3:23: display: display item with no change. 'They are new every morning' depends on 3:22 for 'they' (his compassions).
+- bible Romans 8:39: display: display item with no change. Begins 'Nor height, nor depth', a fragment of 8:38-39; the why itself starts with '...'.
+- bible Job 8:21: display: display item with no change. Begins 'Till', a fragment of Bildad's speech, conditional on 8:20; Bildad's theology is the one God rebukes.
+- bible Psalms 103:3: display: display item with no change. Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse.
+- bible Micah 7:18: display: display item with no change. Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse.
+- bible 2 Corinthians 1:4: display: display item with no change. Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse.
+- bible Hebrews 6:19: display: display item with no change. Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse.
+- bible James 3:13: display: display item with no change. Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse.
+
+## review-2-executor
+
+Applied: gita retag 7; gita display 2; quran remove 3; quran retag 4; quran display 3; bible remove 5; bible retag 9; bible display 8.
+Pool after: gita 109, quran 247, bible 626 verses.
+
+- gita 3:20: display (display: fixes). Typo in the source text ('of he world'); shown as 'of the world'. data/processed is unchanged.
+- gita 11:44: display (display: fixes). Typo in the source text ('worship as it fitting'); shown as 'worship as is fitting'. data/processed is unchanged.
+- gita 2:16: retag (dropped mortality). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- gita 3:4: retag (dropped laziness_discipline). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- gita 6:35: retag (dropped laziness_discipline). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- gita 6:36: retag (dropped laziness_discipline). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- gita 12:9: retag (dropped laziness_discipline). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- gita 13:28: retag (dropped mortality). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- gita 18:9: retag (dropped laziness_discipline). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- quran 2:274: display (display: fixes). Typo in the source text ('and their shall no fear'); shown as 'and there shall no fear'. data/processed is unchanged.
+- quran 28:26: display (display: fixes). Typo in the source text ('hire in the strong'); shown as 'hire is the strong'. data/processed is unchanged.
+- quran 65:3: display (display: trim). Opens mid-sentence; start at 'Whosoever putteth his trust in Allah' as the first review suggested.
+- quran 55:13: remove (removed). A refrain ('that ye deny?') that reads as an accusation on its own.
+- quran 32:7: remove (removed). A fragment that starts mid-sentence.
+- quran 13:22: remove (removed). Starts mid-sentence and ends with a comma; the reward clause continues in 13:23.
+- quran 2:148: retag (dropped laziness_discipline). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- quran 29:6: retag (dropped laziness_discipline). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- quran 30:54: retag (dropped mortality). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- quran 62:10: retag (dropped laziness_discipline). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- bible Luke 23:34: display (display: trim_end). Trailing words the first review asked to strip.
+- bible Revelation 21:5: display (display: trim_end). Trailing words the first review asked to strip.
+- bible 2 Corinthians 5:7: display (display: trim_end). Trailing words the first review asked to strip.
+- bible Psalms 4:4: display (display: trim_end). Trailing words the first review asked to strip.
+- bible Psalms 32:5: display (display: trim_end). Trailing words the first review asked to strip.
+- bible Psalms 62:8: display (display: trim_end). Trailing words the first review asked to strip.
+- bible Habakkuk 3:19: display (display: trim_end). Trailing words the first review asked to strip.
+- bible 1 Thessalonians 4:11: display (display: trim_end). Trailing words the first review asked to strip.
+- bible 1 Corinthians 10:24: remove (removed). 'Seek every man another's wealth' reads as coveting to a modern reader.
+- bible Ecclesiastes 3:12: remove (removed). 'There is no good in them' is opaque on its own.
+- bible Lamentations 3:23: remove (removed). 'They are new every morning' depends on the verse before for 'they'.
+- bible Job 8:21: remove (removed). Bildad's speech, conditional on 8:20; his theology is rebuked in Job.
+- bible Psalms 103:3: remove (removed). 'Healeth all thy diseases' reads as a healing promise.
+- bible Psalms 23:4: retag (dropped mortality). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- bible Psalms 71:9: retag (dropped mortality). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- bible Psalms 71:18: retag (dropped mortality). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- bible Psalms 90:12: retag (dropped mortality). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- bible Proverbs 4:13: retag (dropped laziness_discipline). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- bible Ecclesiastes 11:4: retag (dropped laziness_discipline). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- bible Ecclesiastes 11:6: retag (dropped laziness_discipline). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- bible Isaiah 46:4: retag (dropped mortality). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+- bible 1 Timothy 6:7: retag (dropped mortality). Owner's decision: the mortality and laziness_discipline themes are dropped (fear of one's own death maps to fear_anxiety and hope; procrastination to work_effort and purpose).
+
+## review-3-audit
+
+Applied: gita remove 1; gita retag 2; gita fix_why 8; quran remove 9; quran retag 16; quran fix_why 22; bible remove 10; bible retag 29; bible fix_why 56.
+Pool after: gita 108, quran 238, bible 616 verses.
+
+- gita 2:14: remove (removed). Commands 'endure them bravely' for pain that will pass; tagged only suffering_endurance/patience, reads as 'put up with it' to someone being harmed.
+- gita 6:7: retag (dropped suffering_endurance). Staying even in pain and dishonour, shown for hardship, implies quietly bearing mistreatment.
+- gita 6:26: fix_why (new note). Note added 'gently'; the text says rein it in and control it.
+- gita 6:32: fix_why (new note). 'Feel others' joy and pain as your own' is wording from other translations.
+- gita 6:40: fix_why (new note). 'Even if they fall short' is not in the text on the page.
+- gita 9:26: fix_why (new note). 'With love' and 'gladly' go beyond 'with devotion... I accept'.
+- gita 11:44: fix_why (new note). Note did not say who speaks; it is Arjuna's plea to God.
+- gita 12:10: fix_why (new note). 'Is enough' changes the promise; the text says you will attain perfection.
+- gita 12:18: retag (dropped suffering_endurance). Being alike to foe and friend, in disgrace and in pain, implies treating a harmer the same and bearing it.
+- gita 18:38: fix_why (new note). 'Not worth chasing' moralises beyond the text, which only classifies the pleasure.
+- gita 18:73: fix_why (new note). Note hid that Arjuna is speaking and dropped what he resolves.
+- quran 2:32: fix_why (new note). Note dropped that the knowledge is what God taught.
+- quran 2:45: retag (dropped patience, suffering_endurance). 'Seek help in patience' shown to someone being harmed reads as 'be more patient with it'.
+- quran 2:153: remove (removed). Only patience/suffering_endurance; 'seek help in steadfastness, God is with the steadfast' tells a harmed person to endure. Note also imported 'patient'.
+- quran 2:245: fix_why (new note). 'Nothing given is lost' is not what the text says.
+- quran 2:255: fix_why (new note). 'You are held' is a promise the text does not make.
+- quran 3:134: retag (dropped forgiveness). 'Control their wrath and are forgiving' under forgiveness tells a harmed person to swallow anger and forgive; keep for own temper (anger).
+- quran 3:135: fix_why (new note). 'They find it' adds a guarantee not on the page and drops 'will not repeat'.
+- quran 4:149: retag (dropped forgiveness). 'Forgive evil' under forgiveness reads as forgiving harm done to you.
+- quran 4:114: fix_why (new note). Note said 'the only good in whispering'; the text says 'much of', not all.
+- quran 7:128: remove (removed). Only patience/suffering_endurance; text is 'Seek help in Allah and endure'.
+- quran 7:199: retag (dropped forgiveness). 'Keep to forgiveness' is literally 'keep forgiving'; keep under anger.
+- quran 11:88: fix_why (new note). 'Success' is from other translations; Pickthall says 'welfare', and the speaker was unnamed.
+- quran 11:115: retag (dropped patience). 'Have patience, God does not lose the wages of the good' implies enduring for reward.
+- quran 12:83: retag (dropped patience). Patience in hope that God brings them all back implies waiting for a harmer to return or change.
+- quran 12:84: fix_why (new note). Note said he 'openly mourned' but the text says he suppressed it; 'deep sorrow is human' moralises.
+- quran 12:92: retag (dropped betrayal). Shown for betrayal, a model of forgiving those who wronged you pushes forgiveness on a harmed person; keep under forgiveness.
+- quran 12:100: retag (dropped betrayal). Reunion with the family who harmed him implies reconciling with those who betrayed you.
+- quran 12:100: fix_why (new note). 'Sees kindness in it all' implies the strife itself was kindness; the text names specific kindnesses.
+- quran 16:41: fix_why (new note). Note dropped 'for the cause of Allah', turning a specific promise into a general one about anyone driven from home.
+- quran 16:96: retag (dropped patience). 'Pay those who are steadfast' implies enduring for reward.
+- quran 16:127: remove (removed). Only theme patience; 'Endure thou patiently... be not in distress because of that which they devise' tells a harmed person to bear what others do.
+- quran 17:53: fix_why (new note). Note said 'harsh words sow discord'; the text says the devil does.
+- quran 20:44: fix_why (new note). 'Even to someone hard' is not on the page and implies gentleness will change a hard person.
+- quran 20:68: fix_why (new note). 'You will rise above this' adds a future promise; the text says 'thou art the higher'.
+- quran 20:130: retag (dropped patience). 'Bear with what they say' under patience tells someone being verbally abused to put up with it.
+- quran 23:62: remove (removed). Only theme suffering_endurance; 'no soul tasked beyond its scope' shown for hardship says 'you can bear this', a known harmful message to abuse victims.
+- quran 23:96: remove (removed). Only theme anger; 'Repel evil with that which is better' answers anger at someone's evil with 'be nicer to them', not about own temper.
+- quran 25:63: fix_why (new note). 'Gently' is not in the text; it says 'modestly'.
+- quran 26:62: fix_why (new note). 'Even when trapped' adds context not on the page.
+- quran 30:23: fix_why (new note). 'Signs of care' adds meaning; the text says portents for those who heed.
+- quran 30:60: remove (removed). Only theme patience; 'have patience' shown to someone being harmed reads as 'wait it out'.
+- quran 31:12: fix_why (new note). 'Wisdom begins with gratitude' is a moral the text does not state.
+- quran 31:17: retag (dropped patience). 'Persevere whatever may befall thee' tells a harmed person to persevere through it.
+- quran 31:17: fix_why (new note). Text says 'persevere', not 'be patient', and includes forbidding wrong.
+- quran 39:10: remove (removed). Only patience/suffering_endurance; 'the steadfast will be paid without stint' implies enduring for reward. Note also imported 'patient'.
+- quran 42:37: retag (dropped forgiveness). 'When they are wroth, forgive' under forgiveness tells a harmed person to forgive instead of being angry; keep for own temper.
+- quran 60:7: retag (dropped forgiveness). 'God may ordain love between you and those at enmity' implies the harmer may change if you forgive.
+- quran 65:3: fix_why (new note). 'Provides from where you never expected' is from the previous verse, not on the page.
+- quran 65:7: retag (dropped money_worry). Tells the person of measured provision to spend from it; not care for someone being evicted.
+- quran 68:32: fix_why (new note). 'After losing everything' adds context not on the page.
+- quran 70:5: remove (removed). Only theme patience; 'be patient with a patience fair to see' reads as 'endure it gracefully'.
+- quran 73:10: retag (dropped patience, betrayal). 'Bear with patience what they utter' tells someone abused or betrayed to put up with it; keep under speech_gossip.
+- quran 74:7: remove (removed). Only theme patience; a bare 'be patient' reads as 'endure it' to someone being harmed.
+- quran 90:17: retag (dropped patience). 'Exhort one another to perseverance' under patience implies persevering through harm.
+- quran 93:3: fix_why (new note). Text says 'hate', not 'dislike'.
+- quran 93:9: fix_why (new note). Text says 'oppress', not 'be harsh with'.
+- quran 94:8: fix_why (new note). Text says 'strive to please thy Lord'.
+- bible Genesis 50:19: fix_why (new note). Verse on page does not mention revenge; note read the wider story into it.
+- bible Genesis 50:20: fix_why (new note). Note dropped who speaks and generalised the claim beyond the verse.
+- bible Genesis 50:20: retag (dropped forgiveness). Under forgiveness it frames harm done to you as meant for good, which reads as excusing an abuser.
+- bible Deuteronomy 31:8: fix_why (new note). Note was garbled ('You are gone before') and misstated who goes before.
+- bible Ruth 1:16: retag (dropped family_parents). Refusing to leave a family member reads as 'stay' to someone harmed by a parent or in-law.
+- bible 1 Kings 19:7: fix_why (new note). Verse says 'arise and eat'; 'rest' is not in the text.
+- bible Job 23:10: retag (dropped suffering_endurance). Frames suffering as a test that refines you, which implies enduring harm.
+- bible Job 31:32: fix_why (new note). Note turned Job's description of his own conduct into a command.
+- bible Psalms 23:4: fix_why (new note). 'Darkest valley' is modern-translation wording, not KJV.
+- bible Psalms 25:16: fix_why (new note). 'Lonely' is modern-translation wording; KJV says 'desolate'.
+- bible Psalms 34:5: fix_why (new note). 'Radiant' is modern-translation wording; KJV says 'lightened'.
+- bible Psalms 37:6: fix_why (new note). 'Shine like the dawn' is modern-translation wording; KJV says light and noonday.
+- bible Psalms 37:8: fix_why (new note). 'Fretting only leads to harm' imports modern wording and adds 'only'.
+- bible Psalms 42:11: fix_why (new note). 'Help will come' adds a promise the verse does not state.
+- bible Psalms 55:12: fix_why (new note). Verse says 'not an enemy', not 'not a stranger', and the wrong is reproach.
+- bible Psalms 62:1: fix_why (new note). 'Quietly' is not in the KJV text.
+- bible Psalms 62:5: fix_why (new note). 'Quietly' is not in the KJV; the verse's own word is 'only'.
+- bible Psalms 71:18: fix_why (new note). 'Pass on what I know' misstates what the psalmist wants to show.
+- bible Psalms 94:19: fix_why (new note). 'Anxious' is modern-translation wording; KJV says 'multitude of my thoughts'.
+- bible Psalms 131:2: fix_why (new note). 'Resting with its mother' is not in the KJV; it says 'weaned child'.
+- bible Psalms 133:1: retag (dropped family_parents). 'Good to dwell together in unity' reads as 'keep the family together' to someone harmed at home.
+- bible Proverbs 4:18: fix_why (new note). 'Like dawn' is modern-translation wording; KJV says 'shining light'.
+- bible Proverbs 4:23: fix_why (new note). 'Guard your heart, for everything you do flows from it' is NIV wording.
+- bible Proverbs 10:12: remove (removed). 'Love covereth all sins' reads as cover up abuse; harmful under both love_compassion and anger.
+- bible Proverbs 12:18: fix_why (new note). 'Careless' and 'brings healing' are not in the KJV text.
+- bible Proverbs 12:25: fix_why (new note). KJV says 'good word', not 'kind word'.
+- bible Proverbs 14:30: fix_why (new note). KJV says 'sound heart', not 'calm heart'.
+- bible Proverbs 14:31: fix_why (new note). Old note reversed the verse's logic and dropped the oppression half.
+- bible Proverbs 15:1: retag (dropped anger). 'Soft answer turneth away wrath' implies a victim can calm an abuser by being gentler.
+- bible Proverbs 15:1: fix_why (new note). KJV says 'soft', not 'gentle'.
+- bible Proverbs 15:4: fix_why (new note). KJV says 'wholesome', not 'gentle'.
+- bible Proverbs 16:24: fix_why (new note). KJV says 'health to the bones', not 'healing'.
+- bible Proverbs 17:27: fix_why (new note). KJV text says 'excellent spirit', not 'cool spirit'.
+- bible Proverbs 18:22: fix_why (new note). Note added 'good spouse' and 'gift'; text says a wife and favour of the LORD.
+- bible Proverbs 19:11: remove (removed). Only theme is anger; 'glory to pass over a transgression' tells a harmed person to overlook offences.
+- bible Proverbs 20:22: fix_why (new note). Note dropped who saves; text says the LORD.
+- bible Proverbs 22:26: remove (removed). Only theme is money_worry; advice against guaranteeing debts is not care or provision for someone in crisis.
+- bible Proverbs 22:29: fix_why (new note). KJV says 'diligent', not 'skilled'.
+- bible Proverbs 23:4: retag (dropped money_worry). 'Labour not to be rich' is not care or provision for someone facing eviction.
+- bible Proverbs 23:5: retag (dropped money_worry). 'Riches fly away' is not care or provision for someone facing eviction.
+- bible Proverbs 27:10: fix_why (new note). Note blurred the text's comparison of a near neighbour and a distant brother.
+- bible Proverbs 30:8: fix_why (new note). Note added 'only' and dropped the first half of the prayer.
+- bible Proverbs 31:25: fix_why (new note). 'Dignity' and 'laugh at the days to come' are NIV wording, not KJV.
+- bible Ecclesiastes 3:11: fix_why (new note). Text says he made it so; note dropped who acts.
+- bible Ecclesiastes 5:10: retag (dropped money_worry). 'Lover of silver never satisfied' implies greed and blames, not care.
+- bible Ecclesiastes 5:12: retag (dropped money_worry). 'Whether he eat little or much' is a be-content-with-little message.
+- bible Ecclesiastes 7:12: retag (dropped money_worry). 'Money is a defence' offers no care or provision to someone being evicted.
+- bible Ecclesiastes 9:11: fix_why (new note). Note added 'always', which the text lacks.
+- bible Ecclesiastes 11:1: fix_why (new note). Text says 'find it after many days', not that it comes back to you.
+- bible Isaiah 40:31: fix_why (new note). Note dropped 'upon the LORD'.
+- bible Isaiah 43:2: fix_why (new note). Note added 'deep' and dropped 'I will be with thee'.
+- bible Jeremiah 29:11: fix_why (new note). 'Plans', 'harm' and 'a future and hope' are NIV wording, not KJV.
+- bible Habakkuk 3:18: fix_why (new note). 'Yet' comes from verse 17, which is not on the page.
+- bible Matthew 6:12: remove (removed). Only theme is forgiveness; 'as we forgive our debtors' ties being forgiven to forgiving whoever harms you.
+- bible Matthew 6:21: retag (dropped money_worry). 'Where your treasure is' implies misplaced values, not care.
+- bible Matthew 6:25: retag (dropped money_worry). Alone it only says do not worry about food or clothes; no provision is stated, reads as dismissive to someone evicted.
+- bible Matthew 6:28: retag (dropped money_worry). On the page it only says lilies do not toil; the provision line is in a later verse.
+- bible Matthew 6:31: retag (dropped money_worry). Alone it only says take no thought about food or clothes; no provision is stated.
+- bible Matthew 6:33: retag (dropped money_worry). Ties provision to seeking the kingdom first, implying lack comes from lack of faith.
+- bible Matthew 6:33: fix_why (new note). Note replaced 'kingdom of God' with 'what is right'.
+- bible Matthew 11:29: fix_why (new note). Note turned Jesus describing himself into a command to learn gentleness and humility.
+- bible Luke 10:37: fix_why (new note). Page text is only 'Go, and do thou likewise'; note added words not shown.
+- bible Romans 5:5: fix_why (new note). 'Does not disappoint' is modern-translation wording; KJV says 'maketh not ashamed'.
+- bible Romans 8:39: fix_why (new note). Note began with a stray ellipsis.
+- bible Romans 12:10: fix_why (new note). 'Honour others above yourselves' is NIV wording; KJV says 'in honour preferring one another'.
+- bible 1 Corinthians 13:4: fix_why (new note). 'Love is patient' is modern-translation wording; KJV says 'suffereth long'.
+- bible Galatians 5:22: fix_why (new note). Note swapped in modern-translation words (patience, kindness).
+- bible Galatians 6:1: fix_why (new note). Note used 'gently' and 'slipped'; KJV says 'spirit of meekness' and 'overtaken in a fault'.
+- bible Galatians 6:9: fix_why (new note). Note dropped the KJV condition 'if we faint not' and made the reaping unconditional.
+- bible Ephesians 4:29: fix_why (new note). Note added 'only' and 'harmful'.
+- bible Philippians 4:5: fix_why (new note). KJV says 'moderation', not 'gentleness'.
+- bible Colossians 3:19: fix_why (new note). KJV says 'bitter', not 'harsh'.
+- bible Titus 3:2: fix_why (new note). 'Courteous' is not in the KJV text; it says 'shewing all meekness'.
+- bible James 1:12: fix_why (new note). KJV says 'temptation', not 'trial'; note left out what the verse promises.
+- bible James 3:18: fix_why (new note). 'Reap goodness' is not in the verse.
+- bible 1 Peter 4:8: remove (removed). Says love 'shall cover the multitude of sins' (note: 'love covers many wrongs'); reads as cover up abuse, and the verse is universal so it shows widely.
+- bible Colossians 3:13: remove (removed). Only theme is forgiveness and the verse says 'forbearing one another' and forgive; tells a harmed person to put up with it and forgive.
+- bible Hebrews 10:36: remove (removed). Only theme is patience; 'ye have need of patience' (endurance) reads as stay and endure.
+- bible Hebrews 12:1: remove (removed). Themes are only suffering_endurance and patience; 'run with patience the race that is set before us' reads as accept and endure your situation.
+- bible James 1:4: remove (removed). Only theme is patience; 'let patience have her perfect work' (endurance of trials) reads as keep enduring.
+- bible James 5:11: remove (removed). Themes are only suffering_endurance and patience; 'we count them happy which endure' and the patience of Job read as keep enduring.
+- bible Romans 8:18: retag (dropped suffering_endurance). Present sufferings 'not worthy to be compared' with future glory reads as endure harm now for later reward; keep hope.
+- bible Romans 12:12: retag (dropped patience, suffering_endurance). 'Patient in tribulation' reads as endure it; keep hope.
+- bible Galatians 6:9: retag (dropped patience, suffering_endurance). Keep doing good without growing weary reads as keep being nice to the abuser; keep work_effort.
+- bible 2 Thessalonians 3:13: retag (dropped patience). 'Be not weary in well doing' under patience reads as keep enduring; keep work_effort.
+- bible James 1:12: retag (dropped suffering_endurance). Blessed is the man that endureth reads as endure abuse; keep temptation_self_control.
+- bible Colossians 3:12: retag (dropped patience). Command to 'put on' longsuffering reads as suffer long; keep the compassion and kindness themes.
+- bible Galatians 5:22: retag (dropped patience). Longsuffering as a virtue reads as suffer long under patience; keep love and peace themes.
+- bible Galatians 6:1: retag (dropped forgiveness). Restoring the one at fault meekly reads as be gentle with and restore the offender; keep guilt_repentance and pride_humility.
+- bible Luke 23:34: retag (dropped betrayal). Under betrayal, 'they know not what they do' excuses the one who betrayed or harmed you; keep forgiveness.
+- bible 1 Peter 3:9: retag (dropped forgiveness). Answer railing with blessing reads as be nicer to the abuser; keep anger (not retaliating oneself).
+- bible Romans 12:21: retag (dropped anger). 'Overcome evil with good' implies being good to the abuser will change them, like the coals of fire verse before it; keep justice_wronged.
+- bible Luke 12:34: retag (dropped money_worry). About where your heart is, not care or provision; to someone being evicted it reads as a rebuke for caring about money.
+- bible 1 Timothy 6:7: retag (dropped money_worry). Brought nothing and carry nothing out is a be-content message, not provision.
+- bible 1 Timothy 6:17: retag (dropped money_worry). Addressed to the rich about pride; no care or provision for someone in need.
+
+## review-4-executor
+
+Applied: quran remove 2; quran retag 1.
+Pool after: gita 108, quran 236, bible 616 verses.
+
+- quran 9:91: remove (removed). About who is excused from fighting ('not unto the weak nor unto the sick'); found when checking 'diagnosed with something serious', where it read as if illness were a fault to excuse.
+- quran 3:200: remove (removed). 'Endure, outdo all others in endurance' under success and courage; the same endure message the audit removed elsewhere.
+- quran 60:7: retag (dropped hope). Under hope it suggests a person who harms you may come to love you; kept under friendship.
+
+## review-5-final
+
+Applied: gita remove 6; gita retag 8; quran remove 10; quran retag 9; quran display 1; bible remove 17; bible retag 11; bible fix_why 4; bible display 7; sensitive_set remove 6; sensitive_set retag 1.
+Pool after: gita 102, quran 224, bible 597 verses.
+
+- gita 2:12: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'nor verily shall we ever cease to be, hereafter' was shown to 'sometimes i hope i get in a car crash so it's over' and 'disappear permanently'. The note also adds 'never began', which is not in this verse.
+- gita 2:15: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'he is fitted for immortality' under peace_of_mind.
+- gita 2:65: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'In that Peace the extinction of all pains ariseth' was shown to 'whats the least painful way to go' and 'i just want the pain to stop forever'.
+- gita 5:24: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'becoming the Eternal, goeth to the Peace of the Eternal' was shown to 'i'm ready to go. ive made my peace'.
+- gita 5:29: retag (dropped peace_of_mind). Suicidal reader (crisis detection misses ~half of such messages): 'he goeth to Peace' was shown to 'i'm ready to go. ive made my peace'.
+- gita 2:71: retag (dropped peace_of_mind). Suicidal reader (crisis detection misses ~half of such messages): 'he goeth to Peace', the same pattern.
+- gita 18:53: retag (dropped peace_of_mind). Suicidal reader (crisis detection misses ~half of such messages): 'he is fit to become the Eternal'.
+- gita 6:40: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'neither in this world nor in the life to come is there destruction for him' was shown to 'i just want to disappear and never come back, permanently'.
+- gita 6:36: remove (removed). Eating disorder or depression: 'hard to attain by a self that is uncontrolled' (why: 'hard for the undisciplined') was shown to 'i haven't eaten properly in weeks, i'm trying to get thin'. It shames the reader and rewards control.
+- gita 6:16: retag (dropped overwork_rest). Exhausted new parent or depressed reader: 'not ... too much addicted to sleep' was shown for burnout and for 'just had our first baby and im exhausted'.
+- gita 6:17: retag (dropped overwork_rest). 'Yoga killeth out all pain for him who is regulated...' frames exhaustion as poor self-regulation; shown to a caregiver running on empty.
+- gita 6:8: retag (dropped wisdom_learning). Grief: 'a lump of earth, a stone and gold are the same' was shown to 'lost my best friend from college to cancer' through the word 'college'. Dismissive.
+- gita 11:44: retag (dropped love_compassion). Abused partner: 'With the beloved as lover, bear with me' was shown to 'my partner wont let me have my own bank account' and 'boyfriend ... hits me sometimes'.
+- gita 12:13: retag (dropped love_compassion). Abused partner: 'bear no ill-will ... forgiving' was shown to 'my boyfriend grabs me by the throat' and 'hits me sometimes but he says sorry'.
+- quran 93:4: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'the latter portion will be better for thee than the former' was shown to 'everyone would be fine without me honestly, probably better' and 'i'd rather not exist than feel this way'. Also remove it from the sensitive set.
+- quran 10:25: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'Allah summoneth to the abode of peace' was shown to 'thinking of driving into the river' and 'i'm ready to go'.
+- quran 87:8: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'We shall ease thy way unto the state of ease' was shown to 'thinking of driving into the river' and 'i'd rather not exist'. Also remove it from the sensitive set.
+- quran 13:29: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'Joy is for them, and bliss (their) journey's end'.
+- quran 41:30: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'the angels descend upon them, saying: Fear not nor grieve, but hear good tidings of the paradise' is a deathbed scene, tagged fear_anxiety.
+- quran 84:6: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'a work which thou wilt meet (in His presence)'; the note says 'you will meet Him'.
+- quran 9:105: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'Act! ... ye will be brought back' was shown to 'i have a gun in the house and i keep thinking about using it'.
+- quran 58:11: remove (removed). Suicidal reader (crisis detection misses ~half of such messages): 'Come up higher! go up higher' was shown to 'i googled how high a building needs to be'. The note also leaves out the half of the verse that matched.
+- quran 42:36: retag (no theme left: removed). Suicidal reader (crisis detection misses ~half of such messages): 'what Allah hath is better and more lasting' was shown to 'i've given away my stuff and said my goodbyes'. With no theme left it would be dropped, which is the intent.
+- quran 16:96: retag (no theme left: removed). Suicidal reader (crisis detection misses ~half of such messages): 'That which ye have wasteth away, and that which Allah hath remaineth' was shown to the gun message. With no theme left it would be dropped.
+- quran 53:39: remove (removed). Disabled, poor or ill reader: 'That man hath only that for which he maketh effort' was shown to 'i lost my leg to diabetes and feel like half a person'.
+- quran 12:69: remove (removed). Someone abused by a parent, or bereaved: 'sorrow not for what they did' is the top family_parents verse and appeared for 'my dad passed away', 'missing my mum', 'my parents starve me as punishment' and 'my dad ... hits my little brother'.
+- quran 12:98: retag (dropped family_parents). Someone abused by a parent: 'I shall ask forgiveness for you' is shown for every parent query, including abuse and bereavement.
+- quran 14:40: retag (dropped family_parents). A parent's prayer for posterity was shown to a bereaved child ('missing my mum') and an infertile woman.
+- quran 3:159: retag (dropped anger, love_compassion). Someone being harmed: 'So pardon them and ask forgiveness for them' was shown to 'my boyfriend grabs me by the throat when he's angry' and 'hits me sometimes but he says sorry'.
+- quran 11:90: retag (dropped love_compassion). Abused partner: 'Ask pardon of your Lord' was shown to 'boyfriend makes me feel worthless and hits me'.
+- quran 4:135: retag (dropped temptation_self_control). Addict who just relapsed: 'follow not passion lest ye lapse' was shown to 'relapsed with the blade last night'. Shaming.
+- quran 17:34: retag (dropped honesty). Groomed child: 'keep the covenant ... of the covenant it will be asked' (why: 'keep your commitments') was shown to 'my coach sends me pics and asks me to keep it secret'.
+- quran 25:63: retag (dropped anger). Harassed reader: 'when the foolish ones address them answer: Peace' was shown to 'my boss grabbed my butt and said he'd fire me if i told'.
+- quran 9:102: display (display: trim). The display starts with a lower-case parenthesis: '(there are) others who have acknowledged...'. Judge: Drop the leading '(there are) ' and capitalise 'Others'
+- bible Psalms 37:37: remove (removed). peace_of_mind, suicidal reader: 'the end of that man is peace' (W: 'their end is peace') reads as death bringing peace.
+- bible Psalms 116:7: remove (removed). peace_of_mind/overwork_rest, suicidal or depressed reader: 'Return unto thy rest, O my soul' reads as an invitation to die.
+- bible John 16:22: remove (removed). grief+hope: a parent whose child died yesterday, or a suicidal reader, sees 'I will see you again, and your heart shall rejoice' as a promise of reunion through death.
+- bible Revelation 21:4: remove (removed). hope (its only theme), suicidal reader: 'no more death, neither sorrow... neither shall there be any more pain' is an afterlife-ends-pain promise. Fine for grief if re-added there, not for hope.
+- bible Isaiah 25:8: remove (removed). hope (only theme), suicidal reader: death swallowed up and tears wiped away is afterlife comfort; W also adds 'death will not have the last word', which the verse does not say. Could move to grief.
+- bible Romans 8:18: remove (removed). hope (only theme), suicidal reader: present sufferings 'not worthy to be compared with the glory which shall be revealed' frames what comes after as better; also dismissive of present suffering.
+- bible Ecclesiastes 7:8: remove (removed). patience reader currently being harmed, and any suicidal reader: opens 'Better is the end of a thing than the beginning thereof' (W repeats it).
+- bible Genesis 50:20: remove (removed). betrayal (only theme), someone currently being harmed: 'Ye thought evil against me; but God meant it unto good' tells them the abuse is God's plan.
+- bible Genesis 50:19: remove (removed). forgiveness/betrayal, someone currently being harmed: 'Fear not: for am I in the place of God?' means nothing without the Joseph story, and its point (not mine to punish) discourages seeking justice.
+- bible Luke 23:34: remove (removed). forgiveness (only theme), someone currently being harmed (e.g. a wife being hit): 'forgive them; for they know not what they do' excuses the person harming them.
+- bible James 5:7: remove (removed). patience (only theme), someone currently being harmed: 'Be patient therefore, brethren, unto the coming of the Lord' tells them to endure until the end of time; in context (5:1-6) it is patience under oppression.
+- bible Proverbs 17:22: remove (removed). peace_of_mind, depressed or suicidal reader: 'a broken spirit drieth the bones' after 'a merry heart doeth good like a medicine' implies mood is a choice and blames them.
+- bible Proverbs 15:13: remove (removed). peace_of_mind, depressed or suicidal reader: ends 'by sorrow of the heart the spirit is broken'; it describes their state, it does not comfort.
+- bible John 14:1: retag (dropped grief). Grief, a parent whose child died yesterday: 'Let not your heart be troubled: ye believe in God, believe also in me' reads as an order not to grieve plus a faith test. Fine for fear_anxiety.
+- bible 1 Corinthians 13:5: remove (removed). Anger, someone currently being harmed: 'is not easily provoked, thinketh no evil' tells them not to be upset with, or think badly of, the person hurting them. Removed instead: the real text cannot be shown as a complete sentence.
+- bible Proverbs 25:28: retag (dropped temptation_self_control). An addict who just relapsed: 'no rule over his own spirit is like a city that is broken down' is shaming. Fine for anger.
+- bible Isaiah 40:28: retag (dropped doubt_faith). Someone leaving their religion: 'Hast thou not known? hast thou not heard' is a rhetorical rebuke of the doubter. Fine for overwork_rest.
+- bible Proverbs 31:28: retag (dropped family_parents). Someone abused by a parent: 'Her children arise up, and call her blessed' pressures them to honour the abusive parent.
+- bible Psalms 55:22: retag (dropped money_worry). Someone just evicted: 'he shall never suffer the righteous to be moved' implies being made to move means they are not righteous. Fine for fear_anxiety/suffering.
+- bible Proverbs 31:25: retag (dropped self_worth). Self_worth, a trans teenager: this describes the ideal wife ('her clothing'); it is gendered and about someone else, not the reader's worth.
+- bible James 1:27: retag (dropped grief). Grief, bereaved parent: an instruction to others to visit widows and orphans, plus 'unspotted from the world'; it offers them no comfort.
+- bible Malachi 2:10: retag (dropped family_parents). Someone abused by a parent: 'Have we not all one father?' is about God and broken covenants, off-topic and jarring for them.
+- bible Psalms 121:1: fix_why (new note). W turns the KJV statement into a question ('where does my help come from?'), which comes from modern translations.
+- bible Psalms 126:6: fix_why (new note). 'come home rejoicing' is wording a suicidal reader can take as death; it also reads as the lost child coming back for a bereaved parent (grief tag).
+- bible Jeremiah 29:11: fix_why (new note). Drop 'expected end': 'end' wording is risky for a suicidal (hope) reader and the note does not need it.
+- bible Psalms 127:2: fix_why (new note). 'anxious toil' is ESV wording, not in the KJV text shown.
+- bible Psalms 46:2: display (display: trim). With 'Therefore' cut, 'Will not we fear, though the earth be removed' reads as a question ('won't we be afraid?'), the opposite of the meaning. Judge: Set trim to '' (keep 'Therefore'): shows 'Therefore will not we fear, ...'
+- bible Jeremiah 29:12: display (display: trim). With 'Then' cut, 'Shall ye call upon me' reads as a question. Judge: Set trim to '' (keep 'Then'): shows 'Then shall ye call upon me, ...'
+- bible 2 Corinthians 13:11: display (display: trim). A suicidal (peace_of_mind) reader is shown a verse that opens 'Finally, brethren, farewell.' Judge: Set trim to 'Finally, brethren, farewell. ': shows 'Be perfect, be of good comfort, ...'
+- bible Ecclesiastes 7:14: display (display: trim_end). Suffering_endurance reader: 'to the end that man should find nothing after him' is obscure and reads as 'nothing after death'. Judge: Set trim_end to ': God also hath set the one over against the other, to the end that man should find nothing after him.'
+- bible Malachi 3:6: display (display: trim_end). 'Ye sons of Jacob are not consumed' needs missing context and sounds threatening to someone leaving their religion. Judge: Set trim_end to '; therefore ye sons of Jacob are not consumed.': shows 'I am the LORD, I change not.'
+- bible 2 Corinthians 5:7: display (display: trim, trim_end, fixes). Missing final punctuation and a dangling 'For'. Judge: Display ends 'For we walk by faith, not by sight' with no full stop: add one (the trim_end ':)' removes the colon before the full-stop rule can apply). Also trim 'For '.
+- bible Romans 8:39: remove (removed). Display starts mid-clause. Removed instead: the real text cannot be shown as a complete sentence.
+- bible 1 Corinthians 13:6: remove (removed). Display starts mid-clause. Removed instead: the real text cannot be shown as a complete sentence.
+- bible Galatians 5:22: remove (removed). Display ends mid-list, so the fruit of the Spirit looks complete with two items missing. Removed instead: the real text cannot be shown as a complete sentence.
+- bible 1 Chronicles 28:20: display (display: trim_end). The 'not forsake thee until thou hast finished [the temple]' promise is specific to Solomon and implies being left once the work is done. Judge: Set trim_end to ', until thou hast finished all the work for the service of the house of the LORD.'
+- bible Proverbs 12:24: retag (no theme left: removed). Fat-shamed reader: 'the slothful shall be under tribute' was shown to 'i'm 300 pounds and people treat me like i'm lazy'.
+- bible Colossians 3:19: retag (no theme left: removed). Wife being hit: 'Husbands, love your wives' (with Ephesians 5:25 and Proverbs 31:28) is the whole marriage answer for 'my husband pushed me down the stairs' and 'husband says if i leave he'll ... kill me'. The Bible marriage theme needs verses for the person in pain, not instructions to husbands.
+- bible Isaiah 1:18: retag (dropped guilt_repentance). Rape survivor or trans teen: 'though your sins be as scarlet' surfaced through the word 'though' for 'he forced himself on me' and 'i dont feel like a boy even though...'. Keep it only where guilt was typed (it is reached by BM25 on 'though'/'reason' today).
+- sensitive_set gita 6:9: remove (removed from the sensitive set). Shown for 22 of 25 sensitive queries. To a gay teen or a victim of racism, 'regard ... foes ... the righteous and unrighteous with an even mind' reads as being asked to be even-minded towards those who wrong them, next to 'unrighteous'.
+- sensitive_set gita 12:12: remove (removed from the sensitive set). 'Renunciation of the fruit of action' says nothing to identity, body or faith topics.
+- sensitive_set gita 16:2: remove (removed from the sensitive set). 'Absence of wrath, mildness, modesty' shown to 'im muslim and people look at me differently since the attack' counsels meekness to the person being targeted.
+- sensitive_set quran 93:4: remove (removed from the sensitive set). Afterlife 'better' wording; see the pool item.
+- sensitive_set quran 87:8: remove (removed from the sensitive set). See the pool item.
+- sensitive_set quran 28:22: remove (removed from the sensitive set). Shown for every pregnancy-loss and abortion query: 'perhaps my Lord will guide me in the right road' implies she took a wrong one.
+- sensitive_set quran 28:5: retag (dropped hope). 'Favour unto those who were oppressed' reaches pregnancy-loss queries through the default hope theme and calls the bereaved 'oppressed'. Keep it for race and caste (justice_wronged).
+
+## review-6-sweep
+
+Applied: gita remove 9; gita retag 1; quran remove 26; quran retag 3; bible remove 25; bible retag 10; bible display 1.
+Pool after: gita 93, quran 198, bible 571 verses.
+
+- gita 2:64: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'goeth to peace'.
+- gita 2:71: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'he goeth to Peace' (the final review only dropped peace_of_mind).
+- gita 5:29: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'he goeth to Peace' (the final review only dropped peace_of_mind).
+- gita 4:39: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'he goeth swiftly to the supreme Peace'.
+- gita 5:25: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'obtain the Peace of the Eternal'.
+- gita 5:26: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'The Peace of the Eternal lies near'.
+- gita 18:53: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'he is fit to become the Eternal' (the final review only dropped peace_of_mind).
+- gita 6:17: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'Yoga killeth out all pain'.
+- gita 18:66: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'come unto Me alone ... I will liberate thee' reads as release by death.
+- gita 12:13: retag (dropped kindness_strangers, anger). Someone being harmed by another person: 'bear no ill-will ... forgiving' reached through anger and kindness; kept only under forgiveness.
+- quran 2:156: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'unto Him we are returning' reads as going to God by dying. Painful to lose for grief, but the rule is for every general verse.
+- quran 2:112: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'his reward is with his Lord ... neither shall they grieve': an afterlife reward.
+- quran 2:277: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'their reward is with their Lord ... neither shall they grieve': an afterlife reward.
+- quran 2:262: remove (removed). Suicidal reader (a missed crisis message must be harmless): afterlife reward, reachable through generosity ('given away my stuff').
+- quran 2:274: remove (removed). Suicidal reader (a missed crisis message must be harmless): afterlife reward, reachable through generosity ('given away my stuff').
+- quran 2:245: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'Unto Him ye will return'.
+- quran 6:108: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'unto their Lord is their return'.
+- quran 23:115: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'that ye would not be returned unto Us', under purpose.
+- quran 3:133: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'a paradise as wide as the heavens and the earth'.
+- quran 4:124: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'such will enter paradise'.
+- quran 16:41: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'the reward of the Hereafter is greater'.
+- quran 17:19: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'whoso desireth the Hereafter and striveth for it'.
+- quran 20:131: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'The provision of thy Lord is better and more lasting' (as 42:36 in the final review).
+- quran 16:95: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'that which Allah hath is better for you'.
+- quran 27:89: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'safe from fear that Day'.
+- quran 35:34: remove (removed). Suicidal reader (a missed crisis message must be harmless): the note says these are the words of those in paradise.
+- quran 66:8: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'bring you into Gardens underneath which rivers flow'.
+- quran 28:77: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'Seek the abode of the Hereafter'.
+- quran 25:47: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'sleep repose, and maketh day a resurrection'.
+- quran 3:134: retag (dropped anger). Someone being harmed by another person: 'forgiving toward mankind' under anger, which a victim reaches by describing someone else's anger.
+- quran 3:159: remove (removed). Someone being harmed by another person: 'So pardon them' (the final review only dropped anger and love_compassion).
+- quran 7:199: remove (removed). Someone being harmed by another person: 'Keep to forgiveness' under anger.
+- quran 42:37: remove (removed). Someone being harmed by another person: 'when they are wroth, forgive'.
+- quran 8:61: remove (removed). Someone being harmed by another person: 'If they incline to peace, incline thou also to it' under anger: make peace with the person who harmed you.
+- quran 59:10: retag (dropped anger). Someone being harmed by another person: a prayer against rancour, under anger.
+- quran 2:263: retag (dropped speech_gossip, kindness_strangers). Someone being harmed by another person: 'A kind word with forgiveness' shown to someone others are gossiping about.
+- quran 20:130: remove (removed). Someone being harmed by another person: 'bear with what they say' to someone being gossiped about or harassed.
+- quran 73:10: remove (removed). Someone being harmed by another person: 'Bear with patience what they utter' to someone being gossiped about or harassed.
+- quran 25:63: remove (removed). Someone being harmed by another person: 'when the foolish ones address them answer: Peace' to someone being harassed.
+- bible Psalms 23:4: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'the valley of the shadow of death, I will fear no evil'. Painful to lose for grief, but the rule is for every general verse.
+- bible Psalms 23:6: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'I will dwell in the house of the LORD for ever'.
+- bible Psalms 23:2: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'He maketh me to lie down ... beside the still waters'.
+- bible Matthew 11:28: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'Come unto me ... and I will give you rest' (the judge's example: 'tonight is the night ... im so tired').
+- bible Matthew 11:29: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'ye shall find rest unto your souls'.
+- bible Exodus 33:14: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'I will give thee rest'.
+- bible Job 11:18: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'thou shalt take thy rest in safety'.
+- bible Isaiah 32:18: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'quiet resting places'.
+- bible Psalms 4:8: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'I will both lay me down in peace, and sleep'.
+- bible Psalms 127:2: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'he giveth his beloved sleep'.
+- bible 2 Corinthians 4:18: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'the things which are seen are temporal ... not seen are eternal'.
+- bible Matthew 6:20: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'Lay up for yourselves treasures in heaven'.
+- bible Matthew 5:3: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'theirs is the kingdom of heaven' to the poor in spirit.
+- bible James 1:12: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'he shall receive the crown of life'.
+- bible Proverbs 19:20: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'that thou mayest be wise in thy latter end'.
+- bible 1 Timothy 6:7: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'it is certain we can carry nothing out' (of this world).
+- bible Ruth 1:16: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'whither thou goest, I will go', to a bereaved reader.
+- bible Psalms 61:2: remove (removed). Suicidal reader (a missed crisis message must be harmless): 'lead me to the rock that is higher than I' (cf. 'how high a building needs to be').
+- bible Psalms 126:6: retag (dropped grief). Bereaved parent: 'shall doubtless come again with rejoicing' reads as the dead coming back.
+- bible Jeremiah 29:11: display (display: trim_end). Suicidal reader (a missed crisis message must be harmless): the verse ends 'to give you an expected end'; shown up to 'not of evil.'
+- bible Psalms 37:7: remove (removed). Someone being harmed by another person: 'wait patiently for him: fret not ... because of the man who bringeth wicked devices to pass'.
+- bible 1 Peter 3:9: remove (removed). Someone being harmed by another person: 'Not rendering evil for evil ... but contrariwise blessing' under anger.
+- bible Romans 12:18: retag (dropped anger). Someone being harmed by another person: 'live peaceably with all men' under anger.
+- bible James 3:18: retag (dropped anger). Someone being harmed by another person: 'them that make peace' under anger.
+- bible Leviticus 19:18: retag (dropped anger, love_compassion). Someone being harmed by another person: 'nor bear any grudge' reached through anger and love; kept under forgiveness.
+- bible Proverbs 20:22: retag (dropped anger, justice_wronged). Someone being harmed by another person: 'Say not thou, I will recompense evil; but wait on the LORD' to someone wronged; kept under forgiveness.
+- bible Romans 12:17: retag (dropped anger, justice_wronged). Someone being harmed by another person: 'Recompense to no man evil for evil' to someone wronged; kept under honesty.
+- bible 1 Thessalonians 5:15: retag (dropped anger). Someone being harmed by another person: 'none render evil for evil' under anger; kept under forgiveness.
+- bible Ephesians 4:32: retag (dropped love_compassion). Someone being harmed by another person: 'forgiving one another' reached through love; kept under forgiveness.
+- bible 1 Corinthians 13:4: retag (dropped love_compassion). Someone being harmed by another person: 'Charity suffereth long' is the verse most often used to keep someone in an abusive relationship.
+- bible Ephesians 4:2: remove (removed). Someone being harmed by another person: 'with longsuffering, forbearing one another in love'.
+- bible Titus 3:2: remove (removed). Someone being harmed by another person: 'gentle, shewing all meekness unto all men' to someone being gossiped about.
+- bible Luke 6:37: remove (removed). Someone being harmed by another person: 'forgive, and ye shall be forgiven' to someone being gossiped about.
+- bible Ephesians 5:25: remove (removed). Marriage: an instruction to husbands only ('Husbands, love your wives').
+- bible Proverbs 18:22: remove (removed). Marriage: speaks only to a man looking for a wife.
+- bible Proverbs 31:28: retag (no theme left: removed). Marriage: about a wife praised by her husband and children; gendered, and the final review already took it out of family.
+
+## review-7-flags
+
+Applied: gita remove 1; quran remove 2; bible remove 7.
+Pool after: gita 92, quran 196, bible 566 verses.
+
+- gita 11:55: remove (removed). 'he cometh unto Me' means reaching God at or after death; a suicidal reader could take it as an invitation.
+- quran 59:18: remove (removed). Look to what each soul sends ahead 'for the morrow' (the afterlife); under purpose it points a despairing reader toward death.
+- quran 20:44: remove (removed). Speak gently to Pharaoh, a tyrant: out of context it tells someone being harmed to be gentle with the person harming them.
+- bible Romans 12:21: remove (removed). Under justice_wronged it tells a mistreated reader to keep answering the person harming them with good.
+- bible Proverbs 24:29: remove (removed). Under justice_wronged it tells the harmed person not to answer back.
+- bible Psalms 37:1: remove (removed). Under justice_wronged, 'fret not because of evildoers' dismisses a victim's distress.
+- bible Matthew 5:42: remove (removed). 'From him that would borrow of thee turn not thou away' can pressure someone being financially exploited.
+- bible Psalms 16:11: remove (removed). 'At thy right hand there are pleasures for evermore': a pull toward the afterlife for a despairing reader.
+- bible 1 Corinthians 13:12: remove (removed). 'But then face to face' reads as reunion after death.
+- bible Proverbs 22:24: remove (removed). Under anger it says angry people are to be shunned, shaming the reader who asks for help.
+
+## Round 5: hand edits outside apply_review.py
+
+- bible Ecclesiastes 4:10 added (marriage, friendship; display trims "For " and the closing "but woe to him that is alone ..."), and marriage added to Ecclesiastes 4:12, so the Bible's marriage theme keeps only verses that speak to either spouse (Ecclesiastes 4:9, 4:10, 4:12, Proverbs 15:17, 17:1, Song of Solomon 8:7, Colossians 3:14) after review-6-sweep took out the husband-only and wife-only ones.
+- Priorities: two separate independent reviewers (given only the listed verses, the theme descriptions and these rules) read every theme of every book (search/pool/*.json listed by theme) and chose the 3 to 5 verses each theme should show first, best first, by the rules in review-6-sweep (no afterlife, rest or end wording; nothing telling someone harmed to forgive, wait or submit; no shaming). They are the `priority` field of the pool rows. The verses they flagged instead are removed in review-7-flags.
+- review-5-final applies the blind judge's review-final.json. Where the judge asked for a display that would need words that are not in the verse (prepending "Charity", joining two verses), the verse is removed instead: Romans 8:39, 1 Corinthians 13:5 and 13:6, Galatians 5:22.
+
+## review-8-judge5
+
+Applied: gita remove 4; gita retag 3; quran remove 5; bible remove 14; bible retag 1.
+Pool after: gita 88, quran 191, bible 551 verses.
+
+- gita 4:11: remove (removed). Judge 5 (high, shown to a missed crisis message): 'However men approach Me, even so do I welcome them' was shown to 'will god forgive me if i take my own way out' and to 'i want to go to allah now'; reads as permission.
+- gita 18:64: remove (removed). Judge 5 (high, shown to a missed crisis message): 'most secret of all; beloved art thou of Me' shown to a 14-year-old being groomed; mirrors the secrecy-and-special-love script.
+- gita 18:63: remove (removed). Judge 5 (high, shown to a missed crisis message): 'wisdom, more secret than secrecy itself ... act thou as thou listest': secrecy for a groomed child, 'do as you please' for someone seeking guidance in crisis.
+- gita 4:34: retag (dropped guidance_decisions). Judge 5 (medium, shown to a missed crisis message): 'Learn thou this by discipleship ... and by service. The wise ... will instruct thee' shown to a child kept back alone by a teacher.
+- gita 9:27: retag (dropped purpose). Judge 5 (medium, shown to a missed crisis message): 'Whatsoever thou doest, whatsoever thou eatest ... as an offering unto Me' shown to a deliberate overdose.
+- gita 2:16: remove (removed). Judge 5 (medium): 'the real never ceaseth to be' is the same death-is-unreal teaching review-1 removed in 2:12.
+- gita 2:56: retag (dropped suffering_endurance). Judge 5 (medium, shown to a missed crisis message): 'free from anxiety amid pains, indifferent' shown to 'i just want the pain to end'; reads as bear it.
+- quran 23:29: remove (removed). Judge 5 (medium): 'Cause me to land at a blessed landing-place' reads as departing this life (sweep rule 1).
+- quran 12:83: remove (removed). Judge 5 (medium): 'comely patience! It may be that Allah will bring them all unto me': patience plus reunion with the lost (sweep rules 1 and 2).
+- quran 31:17: remove (removed). Judge 5 (medium): 'persevere whatever may befall thee' to a son: the endure message review-4 removed in 3:200.
+- quran 3:134: remove (removed). Judge 5 (low): 'forgiving toward mankind' reached by generosity, against sweep rule 2.
+- quran 4:149: remove (removed). Judge 5 (low): 'or forgive evil' reached by generosity, against sweep rule 2.
+- bible Matthew 6:25: remove (removed). Judge 5 (high): 'Take no thought for your life' read literally by a suicidal visitor under anxiety.
+- bible Luke 12:22: remove (removed). Judge 5 (high): Same words: 'Take no thought for your life'.
+- bible Romans 12:12: remove (removed). Judge 5 (medium): 'patient in tribulation' under the broad hope theme reads as endure it.
+- bible Proverbs 27:10: remove (removed). Judge 5 (medium): 'neither go into thy brother's house in the day of thy calamity' tells someone in danger not to go to family.
+- bible 1 Corinthians 13:4: remove (removed). Judge 5 (medium): 'Charity suffereth long' is the verse most often used to keep abused partners in place.
+- bible Ecclesiastes 4:12: retag (dropped marriage). Judge 5 (medium): 'a threefold cord is not quickly broken' under marriage reads as stay; 4:9 and 4:10 already showed for 'my wife wants a divorce'.
+- bible Job 23:10: remove (removed). Judge 5 (low): 'when he hath tried me, I shall come forth as gold' frames suffering as a test to pass.
+- bible Philippians 4:11: remove (removed). Judge 5 (low): 'in whatsoever state I am, therewith to be content'.
+- bible Philippians 4:12: remove (removed). Judge 5 (low): 'I know both how to be abased ... and to suffer need'.
+- bible Lamentations 3:26: remove (removed). Judge 5 (low): 'quietly wait'.
+- bible Romans 12:18: remove (removed). Judge 5 (low): 'live peaceably with all men' to someone harmed.
+- bible Proverbs 17:1: remove (removed). Judge 5 (low): 'a dry morsel, and quietness therewith, than an house full ... with strife' under family and marriage.
+- bible Proverbs 3:5: remove (removed). Judge 5 (low): 'lean not unto thine own understanding' echoes gaslighting ('he tells me im crazy').
+- bible Psalms 90:12: remove (removed). Judge 5 (low): 'Teach us to number our days'.
+- bible Ephesians 5:2: remove (removed). Judge 5 (low): 'given himself for us an offering and a sacrifice'.
+
+## review-9-sweep
+
+Applied: gita remove 16; quran remove 19; bible remove 68.
+Pool after: gita 72, quran 172, bible 483 verses.
+
+- gita 4:34: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'Learn thou this by discipleship ... and by service'.
+- gita 13:8: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'service of the teacher'.
+- gita 3:21: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'Whatsoever a great man doeth, that other men also do'.
+- gita 18:73: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'I will do according to Thy word'.
+- gita 9:26: remove (removed). Welcomes the reader however or whenever they come to God: any offering 'I accept'.
+- gita 9:27: remove (removed). 'whatsoever thou doest': reads as act as you wish ('whatsoever thou doest ... do thou that as an offering unto Me'); judge 5 saw it shown to a deliberate overdose.
+- gita 9:30: remove (removed). Welcomes the reader however or whenever they come to God: 'he too must be accounted righteous, for he hath rightly resolved'.
+- gita 7:21: remove (removed). Welcomes the reader however or whenever they come to God: 'any devotee ... any such aspect'.
+- gita 6:31: remove (removed). Welcomes the reader however or whenever they come to God: 'whatever his mode of living'.
+- gita 4:36: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'thou shalt cross over all sin'.
+- gita 8:14: remove (removed). Welcomes the reader however or whenever they come to God: 'of him I am easily reached'.
+- gita 12:9: remove (removed). Welcomes the reader however or whenever they come to God: 'seek to reach Me'.
+- gita 12:11: remove (removed). Welcomes the reader however or whenever they come to God: 'if even to do this thou hast not strength ... taking refuge in union with Me'.
+- gita 10:1: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'I will declare to thee who art beloved' (judge 5 saw it shown to a groomed 14-year-old).
+- gita 11:44: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'With the beloved as lover, bear with me'.
+- gita 5:28: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'solely pursuing liberation ... verily is liberated'.
+- quran 2:186: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'I answer the prayer of the suppliant when he crieth unto Me' (judge 5 saw it shown to 'i want to go to allah now').
+- quran 12:92: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Have no fear this day! May Allah forgive you' (judge 5 saw it shown to 'will god forgive me if i take my own way out').
+- quran 12:98: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'I shall ask forgiveness for you of my Lord'.
+- quran 39:53: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'prodigal to their own hurt ... Who forgiveth all sins'.
+- quran 4:106: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Seek forgiveness of Allah. Lo! Allah is ever Forgiving'.
+- quran 4:110: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'wrongeth his own soul, then seeketh pardon of Allah, will find Allah Forgiving'.
+- quran 11:90: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Ask pardon of your Lord ... Merciful, Loving'.
+- quran 28:16: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'I have wronged my soul, so forgive me. Then He forgave him'.
+- quran 71:10: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Seek pardon of your Lord. Lo! He was ever Forgiving'.
+- quran 110:3: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'He is ever ready to show mercy'.
+- quran 42:38: remove (removed). Welcomes the reader however or whenever they come to God: 'those who answer the call of their Lord'.
+- quran 39:18: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'hear advice and follow the best thereof' (judge 5 saw it shown to a child kept back by a teacher).
+- quran 7:55: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'Call upon your Lord humbly and in secret'.
+- quran 2:148: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'Wheresoever ye may be, Allah will bring you all together'.
+- quran 2:110: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'whatever of good ye send before (you) for your souls, ye will find it with Allah' (like 59:18, removed in review-7-flags).
+- quran 45:15: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'afterward unto your Lord ye will be brought back'.
+- quran 17:80: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'to go out with a firm outgoing' (like 23:29, removed in review-8-judge5).
+- quran 26:83: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'unite me to the righteous'.
+- quran 68:32: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'better than this in place thereof'.
+- bible Psalms 27:10: remove (removed). Says parents will forsake or forget the reader: 'When my father and my mother forsake me' (judge 5 saw it shown to a groomed 14-year-old).
+- bible Isaiah 49:15: remove (removed). Says parents will forsake or forget the reader: 'Can a woman forget her sucking child ... yea, they may forget'.
+- bible Psalms 86:5: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'ready to forgive; and plenteous in mercy unto all them that call upon thee'.
+- bible Psalms 103:10: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'He hath not dealt with us after our sins'.
+- bible Psalms 103:12: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'so far hath he removed our transgressions from us'.
+- bible Isaiah 1:18: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Come now ... though your sins be as scarlet, they shall be as white as snow'.
+- bible Isaiah 43:25: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'blotteth out thy transgressions for mine own sake'.
+- bible Isaiah 44:22: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'I have blotted out ... thy sins: return unto me'.
+- bible Micah 7:18: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'pardoneth iniquity, and passeth by the transgression'.
+- bible Micah 7:19: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'cast all their sins into the depths of the sea'.
+- bible Hebrews 8:12: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'their sins and their iniquities will I remember no more'.
+- bible John 8:11: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Neither do I condemn thee: go'.
+- bible Matthew 7:7: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Ask, and it shall be given you ... knock, and it shall be opened'.
+- bible Matthew 7:8: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Every one that asketh receiveth'.
+- bible Jeremiah 29:12: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'call upon me ... and I will hearken unto you'.
+- bible Jeremiah 33:3: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Call unto me, and I will answer thee'.
+- bible Psalms 37:4: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'he shall give thee the desires of thine heart'.
+- bible Psalms 37:5: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Commit thy way unto the LORD ... he shall bring it to pass' (to someone with a plan).
+- bible Proverbs 16:3: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Commit thy works unto the LORD, and thy thoughts shall be established'.
+- bible Luke 15:20: remove (removed). Welcomes the reader however or whenever they come to God: the father runs to the returning son 'and kissed him'.
+- bible Hebrews 4:16: remove (removed). Welcomes the reader however or whenever they come to God: 'come boldly unto the throne of grace'.
+- bible Deuteronomy 4:29: remove (removed). Welcomes the reader however or whenever they come to God: 'Thou shalt seek the LORD thy God, thou shalt find him'.
+- bible Psalms 100:4: remove (removed). Welcomes the reader however or whenever they come to God: 'Enter into his gates with thanksgiving' (to a goodbye that says thank you).
+- bible Hebrews 11:8: remove (removed). Welcomes the reader however or whenever they come to God: 'called to go out ... obeyed; and he went out, not knowing whither'.
+- bible Psalms 1:3: remove (removed). 'whatsoever thou doest': reads as act as you wish: 'whatsoever he doeth shall prosper'.
+- bible Colossians 3:23: remove (removed). 'whatsoever thou doest': reads as act as you wish: 'Whatsoever ye do, do it heartily, as to the Lord' (like Gita 9:27).
+- bible Leviticus 19:32: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'rise up before the hoary head, and honour the face of the old man'.
+- bible Job 12:12: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'With the ancient is wisdom'.
+- bible Proverbs 4:13: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'Take fast hold of instruction; let her not go'.
+- bible Proverbs 10:17: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'he that refuseth reproof erreth'.
+- bible Proverbs 15:31: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'The ear that heareth the reproof of life'.
+- bible 1 Corinthians 13:11: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'when I became a man, I put away childish things' (the 'mature for my age' script).
+- bible Proverbs 11:13: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'he that is of a faithful spirit concealeth the matter'.
+- bible Proverbs 21:23: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'Whoso keepeth his mouth and his tongue keepeth his soul from troubles'.
+- bible Proverbs 10:19: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'he that refraineth his lips is wise'.
+- bible Proverbs 17:27: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'He that hath knowledge spareth his words'.
+- bible Psalms 91:1: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'He that dwelleth in the secret place'.
+- bible Mark 6:31: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'Come ye yourselves apart into a desert place' (being taken aside alone).
+- bible 1 Samuel 18:1: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'the soul of Jonathan was knit with the soul of David, and Jonathan loved him'.
+- bible Proverbs 18:24: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'a friend that sticketh closer than a brother' (closer than family).
+- bible Song of Solomon 8:7: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'Many waters cannot quench love' (the 'our love' script).
+- bible Jeremiah 31:3: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'I have loved thee with an everlasting love: therefore with lovingkindness have I drawn thee'.
+- bible Isaiah 43:1: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'I have called thee by thy name; thou art mine'.
+- bible 1 John 4:7: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'Beloved, let us love one another ... every one that loveth is born of God' (to the 'our love' script).
+- bible 1 John 4:11: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'Beloved, if God so loved us, we ought also to love one another'.
+- bible Hebrews 13:2: remove (removed). Welcoming strangers ('Be not forgetful to entertain strangers'), shown by judge 5 to 'i would welcome death'; to a child invited to meet a stranger it reads as go.
+- bible Matthew 6:28: remove (removed). Says not to care about one's life, body or tomorrow: 'Why take ye thought for raiment?'.
+- bible Matthew 6:31: remove (removed). Says not to care about one's life, body or tomorrow: 'Take no thought, saying, What shall we eat?'.
+- bible Matthew 6:34: remove (removed). Says not to care about one's life, body or tomorrow: 'Take therefore no thought for the morrow'.
+- bible Psalms 39:7: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'Now, Lord, what wait I for?'.
+- bible Hebrews 6:19: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'entereth into that within the veil'.
+- bible Matthew 5:8: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'they shall see God'.
+- bible Luke 12:32: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'to give you the kingdom'.
+- bible Romans 12:2: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'Be not conformed to this world' (to 'i dont want to be in this world').
+- bible Proverbs 3:24: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'thou shalt lie down, and thy sleep shall be sweet' (the 'sleep and never wake up' wording).
+- bible Isaiah 43:2: remove (removed). 'When thou passest through the waters ... when thou walkest through the fire, thou shalt not be burned': to someone thinking of water or fire it reads as safe to go.
+- bible Habakkuk 3:19: remove (removed). 'he will make me to walk upon mine high places': to someone asking which building is tall enough.
+- bible Luke 14:28: remove (removed). 'counteth the cost, whether he have sufficient to finish it': to someone with a plan.
+- bible Proverbs 3:3: remove (removed). 'bind them about thy neck': to someone with a rope.
+- bible Proverbs 3:7: remove (removed). 'Be not wise in thine own eyes': the gaslighting echo judge 5 found in Proverbs 3:5.
+- bible Proverbs 23:4: remove (removed). 'cease from thine own wisdom': the gaslighting echo judge 5 found in Proverbs 3:5.
+- bible Romans 12:16: remove (removed). 'Be not wise in your own conceits': the gaslighting echo judge 5 found in Proverbs 3:5.
+- bible Philippians 2:3: remove (removed). 'let each esteem other better than themselves': to 'im a waste of space' it confirms it.
+- bible Proverbs 15:1: remove (removed). 'A soft answer turneth away wrath': tells someone being harmed to answer softly (review-6-sweep rule 2).
+- bible Romans 12:17: remove (removed). 'Recompense to no man evil for evil' under honesty: tells someone harmed not to answer back (review-6-sweep rule 2).
+- bible Colossians 3:12: remove (removed). 'meekness, longsuffering': the 'suffereth long' reading judge 5 found in 1 Corinthians 13:4.
+- bible Hebrews 13:5: remove (removed). 'be content with such things as ye have': the 'stay content' reading judge 5 found in Philippians 4:11.
+- bible 1 Timothy 6:8: remove (removed). 'Having food and raiment let us be therewith content': the 'stay content' reading judge 5 found in Philippians 4:11.
+
+## Round 6: notes outside apply_review.py
+
+- review-8-judge5 applies judge 5's whole removal list (high, medium and low; the 'consider' items are removed too). Where the judge named a theme to drop, only that theme was dropped (Gita 4:34, 9:27 and 2:56, Ecclesiastes 4:12); Gita 4:34 and 9:27 were then removed by review-9-sweep anyway.
+- Judge 5's seven similarities pairs are marked keep: false in search/similarities_review.json, each with the judge's reason.
+- review-9-sweep is the executor's read of every remaining verse under every theme it carries (the test is in its 'about').
+- Sensitive topics: Gita 2:40 stays in the sensitive set, but the pregnancy topic (abortion, pregnancy loss) no longer shows it (safety.json 'exclude'); any mention of divorce now routes to the divorce topic, so Ecclesiastes 4:9 ('Two are better than one') is not shown for it.
+
+## review-10-judge6
+
+Applied: gita remove 4; gita retag 4; quran remove 3; bible remove 21; bible retag 3.
+Pool after: gita 68, quran 169, bible 462 verses.
+
+- gita 18:26: retag (dropped courage). Judge 6 (medium, shown to a missed crisis message): 'endued with firmness and confidence' shown to the sleeping-tablets message (drop the courage theme only).
+- gita 16:1: retag (dropped courage). Judge 6 (medium, shown to a missed crisis message): Opens with 'Fearlessness' for the sleeping-tablets message (drop the courage theme only).
+- gita 10:9: remove (removed). Judge 6 (high, shown to a missed crisis message): 'illumining each other, ever conversing about Me, they are content and joyful' shown to 'my youth pastor texts me late at night and says god brought us together'.
+- gita 12:14: remove (removed). Judge 6 (high, shown to a missed crisis message): 'resolute, with mind and Reason dedicated to Me, he, My devotee, is dear to Me' shown to 'god told me to punish the unbelievers in my town'.
+- gita 2:57: retag (dropped peace_of_mind). Judge 6 (low): 'whatever hap of fair and foul, who neither likes nor dislikes' reads as accept abuse with equanimity.
+- gita 12:18: remove (removed). Judge 6 (low): 'Alike to foe and friend ... pleasures and pains' same reading.
+- gita 14:24: retag (dropped peace_of_mind, pride_humility). Judge 6 (low): 'the same to loved and unloved, firm, the same in censure and in praise' same reading.
+- gita 6:25: remove (removed). Judge 6 (low): 'let him not think of anything' shown to the teen holding breath under bathwater.
+- quran 20:68: remove (removed). Judge 6 (high, shown to a missed crisis message): 'Fear not! Lo! thou art the higher.' shown to the sleeping-tablets message.
+- quran 30:21: remove (removed). Judge 6 (high, shown to a missed crisis message): 'helpmeets ... that ye might find rest in them ... love and mercy' shown to the groomed 14-year-old.
+- quran 60:7: remove (removed). Judge 6 (medium, shown to a missed crisis message): 'Allah will ordain love between you and those ... at enmity' shown to the Roblox adult; to an abused reader it reads as reconcile.
+- bible 1 John 3:18: remove (removed). Judge 6 (high, shown to a missed crisis message): 'let us not love in word ... but in deed' answers a 14-year-old told 'if you loved him you'd send photos'; reproduced with other wording.
+- bible 1 Chronicles 28:20: remove (removed). Judge 6 (high): 'Be strong and of good courage, and do it' to someone asking for courage to carry out a plan.
+- bible Joshua 1:9: remove (removed). Judge 6 (high, shown to a missed crisis message): 'be not afraid ... the LORD thy God is with thee whithersoever thou goest' shown to 'stocked up on sleeping tablets, just need the courage'. Keep only under fear_anxiety/change_uncertainty if courage cannot be gated.
+- bible Deuteronomy 31:6: remove (removed). Judge 6 (high, shown to a missed crisis message): Same output: 'Be strong and of a good courage, fear not ... he that doth go with thee'.
+- bible Philippians 4:13: retag (dropped courage). Judge 6 (medium): 'I can do all things through Christ which strengtheneth me' under courage reads as strength to act on a plan.
+- bible Deuteronomy 31:8: retag (dropped courage). Judge 6 (medium): 'The LORD, he it is that doth go before thee ... fear not' under courage for a planning message.
+- bible John 14:27: remove (removed). Judge 6 (high, shown to a missed crisis message): Farewell-discourse 'Peace I leave with you ... let not your heart be troubled, neither let it be afraid' shown to 'i'm not crying for help, i've just decided. i want a verse about peace'.
+- bible John 14:1: remove (removed). Judge 6 (medium): Same reading as John 14:27 for a decided person ('Let not your heart be troubled').
+- bible Ecclesiastes 4:9: remove (removed). Judge 6 (high, shown to a missed crisis message): 'Two are better than one' answers 'the bible says submit to my husband so do i just take the beatings'; under friendship it endorses an adult 'friend' of a child.
+- bible Ecclesiastes 4:10: remove (removed). Judge 6 (high, shown to a missed crisis message): Same output as 4:9 ('If they fall, the one will lift up his fellow') for the beaten wife and the Roblox adult.
+- bible Colossians 3:14: remove (removed). Judge 6 (high, shown to a missed crisis message): 'put on charity, which is the bond of perfectness' answers 'do i just take the beatings'.
+- bible Ecclesiastes 4:12: remove (removed). Judge 6 (medium): 'a threefold cord is not quickly broken' reads as stay bound to the person harming you.
+- bible Proverbs 17:17: remove (removed). Judge 6 (high, shown to a missed crisis message): 'A friend loveth at all times' shown to an adult from Roblox who sent a child money, a Snapchat man asking a child to his flat, and 'delete our messages'.
+- bible Proverbs 27:9: remove (removed). Judge 6 (high, shown to a missed crisis message): 'the sweetness of a man's friend by hearty counsel' shown to the Roblox adult who wants to meet a child.
+- bible Romans 8:31: retag (dropped courage). Judge 6 (medium): 'If God be for us, who can be against us?' validates someone who says God told them to punish people.
+- bible Exodus 18:18: remove (removed). Judge 6 (medium): 'Thou wilt surely wear away ... this thing is too heavy for thee; thou art not able' agrees with 'life is too heavy'.
+- bible 1 Thessalonians 4:11: remove (removed). Judge 6 (medium): 'study to be quiet' is the kind of keep-quiet verse round 6 said it removed; to an abused child it reads as stay silent.
+- bible Romans 15:1: remove (removed). Judge 6 (medium): 'bear the infirmities of the weak, and not to please ourselves' reads as bear with the person harming you (a rule round 5 states).
+- bible 1 Corinthians 13:8: remove (removed). Judge 6 (low): 'Charity never faileth' to an abused partner reads as keep loving him.
+- bible Habakkuk 2:3: remove (removed). Judge 6 (low): 'an appointed time ... it will surely come, it will not tarry' to someone with a picked date.
+- bible Ecclesiastes 3:1: remove (removed). Judge 6 (low): 'a time to every purpose' to 'its time' farewell messages.
+- bible Luke 10:37: remove (removed). Judge 6 (low): Bare 'Go, and do thou likewise.' out of context.
+- bible Psalms 139:10: remove (removed). Judge 6 (low): 'Even there shall thy hand lead me' (the 'there' is Sheol in 139:8) to someone wanting to go to God.
+- bible Isaiah 43:18: remove (removed). Judge 6 (low): 'Remember ye not the former things' to an abuse survivor reads as forget it.
+
+## review-11-sweep
+
+Applied: gita retag 2; quran retag 2; bible remove 4; bible retag 6.
+Pool after: gita 68, quran 169, bible 457 verses.
+
+- gita 18:30: retag (dropped courage). Shown with the courage verses to 'stocked up on sleeping tablets, just need the courage' (judge 6's harmful output); 'fear and fearlessness ... what ought to be done' reads as resolve.
+- gita 17:16: retag (dropped peace_of_mind). 'silence, self-control' under Peace of mind reads as keep quiet to an abused child (round 6's keep-quiet rule); kept under self-control.
+- quran 20:46: retag (dropped courage). Shown to the sleeping-tablets message (judge 6's harmful output): 'Fear not. Lo! I am with you' under Courage is the same reading as Quran 20:68, which the judge removed.
+- quran 26:62: retag (dropped courage). Shown to the sleeping-tablets message (judge 6's harmful output): 'my Lord is with me. He will guide me' under Courage reads as going ahead.
+- bible 2 Timothy 1:7: retag (no theme left: removed). Shown to the sleeping-tablets message (judge 6's harmful output): 'not the spirit of fear; but of power' under Courage reads as nerve to act.
+- bible Psalms 27:14: retag (dropped courage). 'be of good courage, and he shall strengthen thine heart' is Deuteronomy 31:6's wording; kept under patience and hope, where 'wait on the LORD' leads.
+- bible Psalms 31:24: retag (dropped courage). 'Be of good courage, and he shall strengthen your heart' (Deuteronomy 31:6's wording); kept under hope.
+- bible Isaiah 41:10: retag (dropped courage). 'Fear thou not; for I am with thee ... I will strengthen thee' under Courage is the reading the judge gave for Joshua 1:9; kept under fear_anxiety and loneliness.
+- bible Isaiah 41:13: retag (dropped courage). 'Fear not; I will help thee' under Courage, same reading; kept under fear_anxiety.
+- bible 2 Chronicles 15:7: remove (removed). 'Be ye strong therefore, and let not your hands be weak: for your work shall be rewarded' is 1 Chronicles 28:20's 'be strong ... and do it', which the judge removed.
+- bible Psalms 118:6: retag (dropped courage). 'The LORD is on my side; I will not fear: what can man do unto me?' is Romans 8:31's reading under Courage (validates 'god told me to punish them'); kept under fear_anxiety.
+- bible Genesis 28:15: remove (removed). 'I am with thee, and will keep thee in all places whither thou goest' is Joshua 1:9's 'whithersoever thou goest', which the judge removed.
+- bible 2 Corinthians 13:11: remove (removed). 'Finally, brethren, farewell ... live in peace' reads as a farewell blessing, like John 14:27, which the judge removed.
+- bible Jeremiah 29:11: remove (removed). 'to give you an expected end' to someone with a picked date reads like Habakkuk 2:3's 'appointed time', which the judge removed.
+
+## review-12-judge7
+
+Applied: gita remove 1; gita retag 3; quran add 1; quran remove 4; quran retag 12; bible remove 5; bible retag 15.
+Pool after: gita 67, quran 162, bible 447 verses.
+
+- gita 17:16: remove (removed). Sweep: 'silence, self-control ... austerity of the mind' is a keep-silent verse (round 7 kept it under self-control only); to a child told to keep a secret it reads as stay quiet.
+- gita 6:35: retag (dropped fear_anxiety). Comfort pass: 'it may be curbed by constant practice' tells a frightened reader to try harder; kept under patience and peace of mind.
+- gita 2:56: retag (dropped fear_anxiety). Comfort pass: 'free from anxiety amid pains, indifferent amid pleasures' holds up being unmoved by pain as the ideal, which reads as bear it to someone being hurt; kept under peace of mind and anger.
+- gita 12:10: retag (dropped doubt_faith). Comfort pass: 'if thou art not equal to constant practice, be intent on My service' is an instruction to do more; kept under work and patience.
+- quran 12:53: retag (no theme left: removed). Judge 7 (medium): 'I do not exculpate myself. Lo! the (human) soul enjoineth unto evil' answers a victim's 'was it my fault' with yes (shown to 'i said no but he didnt stop. was it my fault for drinking?').
+- quran 16:91: retag (no theme left: removed). Judge 7 (low): 'break not your oaths' can read to a groomed child as: keep your promise to him.
+- quran 8:27: retag (no theme left: removed). Judge 7 (low): 'nor knowingly betray your trusts' reads the same as 16:91 to a child told to keep a secret.
+- quran 94:6: remove (removed). Judge 7 (quality): the same text as 94:5 ('Lo! with hardship goeth ease'), shown twice in a row under the same topic; 94:5 is kept (it is in the sensitive set, which carries no illness verses, so it does not take 94:6's illness theme).
+- quran 26:80: add (added). Takes 94:6's place under Illness, so the Quran still offers that topic (three verses): Abraham's 'when I sicken, then He healeth me', pure comfort.
+- quran 6:152: remove (removed). Sweep: 'if ye give your word, do justice thereunto, and fulfil the covenant' is a keep-your-promise verse (judge 7's reading of 16:91).
+- quran 17:34: remove (removed). Sweep: 'keep the covenant. Lo! of the covenant it will be asked' is a keep-your-promise verse.
+- quran 94:8: remove (removed). Sweep: 'Strive to please thy Lord', a bare try-harder line under Purpose; to someone depressed or blamed it reads as do more.
+- quran 29:69: retag (dropped guidance_decisions). Sweep: 'those who strive in Us, We surely guide' makes guidance depend on trying harder; kept under work and effort, where it belongs.
+- quran 19:96: retag (dropped loneliness). Comfort pass: love is promised to 'those who believe and do good works'; under Loneliness that reads as earn it; kept under love and compassion.
+- quran 4:40: retag (dropped hope). Comfort pass: hope tied to good deeds ('if there is a good deed, He will double it') reads as try harder; kept under justice.
+- quran 6:160: retag (dropped hope). Comfort pass: reward for good deeds, punishment for ill ones; under Hope it reads as try harder; kept under work and effort.
+- quran 16:97: retag (dropped hope). Comfort pass: 'Whosoever doeth right ... we shall quicken with good life' makes hope depend on conduct; kept under work and effort.
+- quran 16:128: retag (dropped hope). Comfort pass: 'Allah is with those who keep their duty unto Him' makes God's nearness depend on duty; kept under kindness.
+- quran 99:7: retag (dropped hope). Comfort pass: 'Whoso doeth good an atom's weight will see it' is about deeds, not hope; kept under work and effort.
+- quran 7:56: retag (no theme left: removed). Comfort pass: 'Work not confusion in the earth ... call on Him in fear' is an instruction; it has no other theme, so it leaves the pool.
+- quran 65:7: retag (dropped hope). Comfort pass: opens with 'let him spend of that which Allah hath given him', an instruction; kept under generosity.
+- bible Proverbs 15:18: retag (no theme left: removed). Judge 7 (medium, shown to a missed crisis message): 'he that is slow to anger appeaseth strife' reads to a victim who thinks she provokes him as: appease him. It has no other theme, so it leaves the pool.
+- bible Proverbs 17:14: retag (no theme left: removed). Judge 7 (medium): 'leave off contention, before it be meddled with' reads as: don't push back. No other theme: it leaves the pool.
+- bible Proverbs 1:10: retag (no theme left: removed). Judge 7 (medium, shown to a missed crisis message): 'if sinners entice thee, consent thou not' implies consent to a sexually abused child who feels dirty. No other theme: it leaves the pool.
+- bible Matthew 26:41: retag (no theme left: removed). Judge 7 (medium, shown to a missed crisis message): 'the spirit indeed is willing, but the flesh is weak' reads as blame for an assault victim. No other theme: it leaves the pool.
+- bible Psalms 141:3: remove (removed). Judge 7 (medium): 'keep the door of my lips' is a keep-silent verse; a child told to keep a secret can read it as: stay quiet.
+- bible Ecclesiastes 5:2: remove (removed). Judge 7 (low): 'let thy words be few' also reads as keep quiet.
+- bible Galatians 5:13: retag (dropped love_compassion). Judge 7 (low): 'by love serve one another' was offered to someone told 'if you loved me you'd stop seeing your family'; kept under kindness.
+- bible 1 Peter 5:6: remove (removed). Judge 7 (low): 'Humble yourselves therefore under the mighty hand' can read as submit, for an abused reader.
+- bible 1 Timothy 4:12: retag (dropped self_worth). Judge 7 (low): 'be thou an example ... in purity' under Self-worth can shame a sexual-abuse survivor; kept under purpose.
+- bible Ecclesiastes 7:14: remove (removed). Judge 7 (quality): the display text was cut off at 'in the day of adversity consider'; the full verse ends 'to the end that man should find nothing after him', which is no comfort under Hard times, so the verse is removed rather than shown whole.
+- bible Psalms 131:2: remove (removed). Sweep: 'I have behaved and quieted myself, as a child that is weaned' is a keep-quiet verse, and its picture is a child.
+- bible Galatians 6:4: retag (dropped self_worth). Comfort pass: 'Let every man prove his own work' makes worth depend on effort; kept under envy and work.
+- bible Psalms 27:14: retag (dropped hope). Comfort pass: 'Wait on the LORD: be of good courage ... wait, I say' tells the reader to wait it out; kept under patience.
+- bible Psalms 31:24: retag (no theme left: removed). Comfort pass: 'Be of good courage' (Deuteronomy 31:6's wording, removed from Courage in round 7); no other theme, so it leaves the pool.
+- bible Psalms 40:1: retag (dropped hope). Comfort pass: 'I waited patiently' holds up waiting patiently; kept under patience.
+- bible Psalms 62:5: retag (dropped hope). Comfort pass: 'My soul, wait thou only upon God' is an instruction to wait; kept under patience.
+- bible Romans 8:25: retag (dropped hope). Comfort pass: 'with patience wait for it'; kept under patience.
+- bible Lamentations 3:25: retag (dropped hope). Comfort pass: God is good 'unto them that wait for him' makes goodness depend on waiting; kept under patience.
+- bible Isaiah 58:10: retag (dropped hope). Comfort pass: 'If thou draw out thy soul to the hungry ... then shall thy light rise' makes hope depend on doing more; kept under generosity.
+- bible Proverbs 4:18: retag (dropped hope). Comfort pass: 'The path of the just' makes hope depend on being just; kept under purpose.

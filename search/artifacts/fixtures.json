@@ -1,0 +1,14037 @@
+{
+ "about": "Expected outputs of the committed artefacts, for testing a port. See search/FORMAT.md for every field. 'suggest', 'topic' and 'topics' are the site contract; 'search' is kept for the eval history only.",
+ "words": [
+  [
+   "I can't sleep, I'm scared & he won't call",
+   [
+    "i",
+    "can",
+    "not",
+    "sleep",
+    "i",
+    "scared",
+    "he",
+    "will",
+    "not",
+    "call"
+   ]
+  ],
+  [
+   "Don’t",
+   [
+    "do",
+    "not"
+   ]
+  ],
+  [
+   "im ok, dont worry",
+   [
+    "i",
+    "ok",
+    "do",
+    "not",
+    "worry"
+   ]
+  ],
+  [
+   "my friend's dog",
+   [
+    "my",
+    "friend",
+    "dog"
+   ]
+  ],
+  [
+   "it's 70 hour weeks",
+   [
+    "it",
+    "hour",
+    "weeks"
+   ]
+  ],
+  [
+   "WON'T",
+   [
+    "will",
+    "not"
+   ]
+  ],
+  [
+   "ma'am isn't here",
+   [
+    "ma",
+    "am",
+    "is",
+    "not",
+    "here"
+   ]
+  ],
+  [
+   "naïve café",
+   [
+    "na",
+    "ve",
+    "caf"
+   ]
+  ],
+  [
+   "can'tstop",
+   [
+    "can",
+    "notstop"
+   ]
+  ],
+  [
+   "éwon't",
+   [
+    "wo",
+    "not"
+   ]
+  ],
+  [
+   "x_y can't",
+   [
+    "x",
+    "y",
+    "can",
+    "not"
+   ]
+  ],
+  [
+   "über-tired",
+   [
+    "ber",
+    "tired"
+   ]
+  ],
+  [
+   "I’M",
+   [
+    "i"
+   ]
+  ],
+  [
+   "Straße",
+   [
+    "stra",
+    "e"
+   ]
+  ]
+ ],
+ "suggest": [
+  {
+   "query": "I got laid off and I'm scared about money",
+   "crisis_words": [
+    "i",
+    "got",
+    "laid",
+    "off",
+    "and",
+    "i",
+    "scared",
+    "about",
+    "money"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "general",
+   "note": null,
+   "topics": [
+    {
+     "id": "money_worry",
+     "label": "Money worries",
+     "blurb": "For debt, bills and money stress."
+    },
+    {
+     "id": "fear_anxiety",
+     "label": "Worry and fear",
+     "blurb": "For when worry or fear takes hold."
+    }
+   ]
+  },
+  {
+   "query": "my best friend just stopped talking to me",
+   "crisis_words": [
+    "my",
+    "best",
+    "friend",
+    "just",
+    "stopped",
+    "talking",
+    "to",
+    "me"
+   ],
+   "signal": false,
+   "comfort_cue": true,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "my mother passed away",
+   "crisis_words": [
+    "my",
+    "",
+    "",
+    "away"
+   ],
+   "signal": false,
+   "comfort_cue": true,
+   "category": "general",
+   "note": null,
+   "topics": [
+    {
+     "id": "grief",
+     "label": "Grief and loss",
+     "blurb": "For missing someone who has died."
+    }
+   ]
+  },
+  {
+   "query": "I feel burnt out and my boss keeps yelling",
+   "crisis_words": [
+    "i",
+    "feel",
+    "burnt",
+    "out",
+    "and",
+    "my",
+    "boss",
+    "keeps",
+    "yelling"
+   ],
+   "signal": true,
+   "comfort_cue": true,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "I want to forgive my brother",
+   "crisis_words": [
+    "i",
+    "want",
+    "to",
+    "forgive",
+    "my",
+    "brother"
+   ],
+   "signal": false,
+   "comfort_cue": true,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "I'm getting married next month",
+   "crisis_words": [
+    "i",
+    "getting",
+    "married",
+    "next",
+    "month"
+   ],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "I want to die",
+   "crisis_words": [
+    "i",
+    "want",
+    "to",
+    "die"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "crisis",
+   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "topics": []
+  },
+  {
+   "query": "my husband hits me",
+   "crisis_words": [
+    "my",
+    "husband",
+    "hits",
+    "me"
+   ],
+   "signal": true,
+   "comfort_cue": true,
+   "category": "crisis",
+   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "topics": []
+  },
+  {
+   "query": "stocked up on sleeping tablets, just need the courage",
+   "crisis_words": [
+    "stocked",
+    "up",
+    "on",
+    "sleeping",
+    "tablets",
+    "just",
+    "need",
+    "the",
+    "courage"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "crisis",
+   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "topics": []
+  },
+  {
+   "query": "🙂🔫",
+   "crisis_words": [
+    "emojigun"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "crisis",
+   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "topics": []
+  },
+  {
+   "query": "a guy online wants to meet me, im 14",
+   "crisis_words": [
+    "a",
+    "guy",
+    "online",
+    "wants",
+    "to",
+    "meet",
+    "me",
+    "i",
+    "fourteen"
+   ],
+   "signal": true,
+   "comfort_cue": true,
+   "category": "crisis",
+   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "topics": []
+  },
+  {
+   "query": "i'm not crying for help, i've just decided. i want a verse about peace",
+   "crisis_words": [
+    "i",
+    "not",
+    "crying",
+    "for",
+    "help",
+    "i",
+    "just",
+    "decided",
+    "i",
+    "want",
+    "a",
+    "verse",
+    "about",
+    "peace"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "crisis",
+   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "topics": []
+  },
+  {
+   "query": "I'm gay and my parents rejected me",
+   "crisis_words": [
+    "i",
+    "gay",
+    "and",
+    "my",
+    "parents",
+    "rejected",
+    "me"
+   ],
+   "signal": false,
+   "comfort_cue": true,
+   "category": "sensitive",
+   "note": null,
+   "topics": [
+    {
+     "id": "loneliness",
+     "label": "You are not alone",
+     "blurb": "Verses on being known and not forsaken."
+    },
+    {
+     "id": "self_worth",
+     "label": "You are of worth",
+     "blurb": "Verses on dignity and being valued."
+    }
+   ]
+  },
+  {
+   "query": "I lost the pregnancy last week",
+   "crisis_words": [
+    "i",
+    "lost",
+    "the",
+    "pregnancy",
+    "last",
+    "week"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "sensitive",
+   "note": null,
+   "topics": [
+    {
+     "id": "grief",
+     "label": "Loss and comfort",
+     "blurb": "Verses to keep you company after a loss."
+    },
+    {
+     "id": "hope",
+     "label": "Hope",
+     "blurb": "Verses for hard days."
+    }
+   ]
+  },
+  {
+   "query": "my wife wants a divorce and i'm crushed",
+   "crisis_words": [
+    "my",
+    "wife",
+    "wants",
+    "a",
+    "divorce",
+    "and",
+    "i",
+    "crushed"
+   ],
+   "signal": false,
+   "comfort_cue": true,
+   "category": "sensitive",
+   "note": null,
+   "topics": [
+    {
+     "id": "self_worth",
+     "label": "You are of worth",
+     "blurb": "Verses on dignity and being valued."
+    },
+    {
+     "id": "loneliness",
+     "label": "You are not alone",
+     "blurb": "Verses on being known and not forsaken."
+    },
+    {
+     "id": "hope",
+     "label": "Hope",
+     "blurb": "Verses for hard days."
+    }
+   ]
+  },
+  {
+   "query": "xyzzy",
+   "crisis_words": [
+    "xyzzy"
+   ],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "",
+   "crisis_words": [],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "the and of unto",
+   "crisis_words": [
+    "the",
+    "and",
+    "of",
+    "unto"
+   ],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "i'm 14 and my best friend stopped talking to me",
+   "crisis_words": [
+    "i",
+    "fourteen",
+    "and",
+    "my",
+    "best",
+    "friend",
+    "stopped",
+    "talking",
+    "to",
+    "me"
+   ],
+   "signal": true,
+   "comfort_cue": true,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "i need the courage to tell my family",
+   "crisis_words": [
+    "i",
+    "need",
+    "the",
+    "courage",
+    "to",
+    "tell",
+    "my",
+    "family"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "i want to forgive him for hurting me",
+   "crisis_words": [
+    "i",
+    "want",
+    "to",
+    "forgive",
+    "him",
+    "for",
+    "hurting",
+    "me"
+   ],
+   "signal": true,
+   "comfort_cue": true,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "i love my family but i feel so alone at home",
+   "crisis_words": [
+    "i",
+    "love",
+    "my",
+    "family",
+    "but",
+    "i",
+    "feel",
+    "so",
+    "alone",
+    "at",
+    "home"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "general",
+   "note": null,
+   "topics": [
+    {
+     "id": "loneliness",
+     "label": "Loneliness",
+     "blurb": "For feeling alone or left out."
+    }
+   ]
+  },
+  {
+   "query": "i'm so lonley these days",
+   "crisis_words": [
+    "i",
+    "so",
+    "lonley",
+    "these",
+    "days"
+   ],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "general",
+   "note": null,
+   "topics": [
+    {
+     "id": "loneliness",
+     "label": "Loneliness",
+     "blurb": "For feeling alone or left out."
+    }
+   ]
+  },
+  {
+   "query": "i keep procrastinting",
+   "crisis_words": [
+    "i",
+    "keep",
+    "procrastinting"
+   ],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "我很难过 lonely",
+   "crisis_words": [
+    "lonely"
+   ],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "general",
+   "note": null,
+   "topics": [
+    {
+     "id": "loneliness",
+     "label": "Loneliness",
+     "blurb": "For feeling alone or left out."
+    }
+   ]
+  },
+  {
+   "query": "naïve café owner, so stressed about money",
+   "crisis_words": [
+    "na",
+    "ve",
+    "caf",
+    "owner",
+    "so",
+    "stressed",
+    "about",
+    "money"
+   ],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "general",
+   "note": null,
+   "topics": [
+    {
+     "id": "fear_anxiety",
+     "label": "Worry and fear",
+     "blurb": "For when worry or fear takes hold."
+    },
+    {
+     "id": "money_worry",
+     "label": "Money worries",
+     "blurb": "For debt, bills and money stress."
+    }
+   ]
+  },
+  {
+   "query": "my dog destroyed the couch, i could kill him",
+   "crisis_words": [
+    "my",
+    "dog",
+    "destroyed",
+    "the",
+    "couch",
+    "i",
+    "could",
+    "kill",
+    "him"
+   ],
+   "signal": true,
+   "comfort_cue": true,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "my friend jumped off a building last week",
+   "crisis_words": [
+    "",
+    "",
+    "",
+    "",
+    "a",
+    "building",
+    "last",
+    "week"
+   ],
+   "signal": true,
+   "comfort_cue": true,
+   "category": "general",
+   "note": null,
+   "topics": [
+    {
+     "id": "grief",
+     "label": "Grief and loss",
+     "blurb": "For missing someone who has died."
+    }
+   ]
+  },
+  {
+   "query": "my brother annoys me, how do i stay calm",
+   "crisis_words": [
+    "my",
+    "brother",
+    "annoys",
+    "me",
+    "how",
+    "do",
+    "i",
+    "stay",
+    "calm"
+   ],
+   "signal": false,
+   "comfort_cue": true,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "how do i stop losing my temper",
+   "crisis_words": [
+    "how",
+    "do",
+    "i",
+    "stop",
+    "losing",
+    "my",
+    "temper"
+   ],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "general",
+   "note": null,
+   "topics": [
+    {
+     "id": "anger",
+     "label": "Anger",
+     "blurb": "For anger that is hard to hold."
+    }
+   ]
+  },
+  {
+   "query": "i'm angry at god for letting this happen",
+   "crisis_words": [
+    "i",
+    "angry",
+    "at",
+    "god",
+    "for",
+    "letting",
+    "this",
+    "happen"
+   ],
+   "signal": true,
+   "comfort_cue": true,
+   "category": "general",
+   "note": null,
+   "topics": [
+    {
+     "id": "doubt_faith",
+     "label": "Doubt and faith",
+     "blurb": "For feeling far from God, or unsure."
+    }
+   ]
+  },
+  {
+   "query": "i'm depressed and can't get out of bed",
+   "crisis_words": [
+    "i",
+    "depressed",
+    "and",
+    "can",
+    "not",
+    "get",
+    "out",
+    "of",
+    "bed"
+   ],
+   "signal": false,
+   "comfort_cue": true,
+   "category": "sensitive",
+   "note": null,
+   "topics": [
+    {
+     "id": "self_worth",
+     "label": "You are of worth",
+     "blurb": "Verses on dignity and being valued."
+    },
+    {
+     "id": "hope",
+     "label": "Hope",
+     "blurb": "Verses for hard days."
+    }
+   ]
+  },
+  {
+   "query": "i feel guilty and want to start again",
+   "crisis_words": [
+    "i",
+    "feel",
+    "guilty",
+    "and",
+    "want",
+    "to",
+    "start",
+    "again"
+   ],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "general",
+   "note": null,
+   "topics": [
+    {
+     "id": "guilt_repentance",
+     "label": "Guilt and starting again",
+     "blurb": "For regret, and making a fresh start."
+    }
+   ]
+  },
+  {
+   "query": "something happened and i feel guilty",
+   "crisis_words": [
+    "something",
+    "happened",
+    "and",
+    "i",
+    "feel",
+    "guilty"
+   ],
+   "signal": false,
+   "comfort_cue": true,
+   "category": "none",
+   "note": null,
+   "topics": []
+  },
+  {
+   "query": "i want to finish my life",
+   "crisis_words": [
+    "i",
+    "want",
+    "to",
+    "finish",
+    "my",
+    "life"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "crisis",
+   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "topics": []
+  },
+  {
+   "query": "x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x I want to die",
+   "crisis_words": [
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x"
+   ],
+   "signal": false,
+   "comfort_cue": false,
+   "category": "none",
+   "note": null,
+   "topics": []
+  }
+ ],
+ "topic": [
+  {
+   "theme": "grief",
+   "k": null,
+   "sensitive": false,
+   "label": "Grief and loss",
+   "blurb": "For missing someone who has died.",
+   "note": "Grief has no timetable. These verses are here to keep you company, not to hurry you.",
+   "books": {
+    "gita": {
+     "verses": [],
+     "nothing": "The Bhagavad Gita has no verse for this topic in the reviewed selection."
+    },
+    "quran": {
+     "verses": [
+      [
+       "12:86",
+       1
+      ],
+      [
+       "13:28",
+       2
+      ],
+      [
+       "10:57",
+       3
+      ],
+      [
+       "12:84",
+       4
+      ],
+      [
+       "93:3",
+       5
+      ],
+      [
+       "93:5",
+       null
+      ],
+      [
+       "94:5",
+       null
+      ]
+     ],
+     "nothing": null
+    },
+    "bible": {
+     "verses": [
+      [
+       "Psalms 34:18",
+       1
+      ],
+      [
+       "Matthew 5:4",
+       2
+      ],
+      [
+       "Psalms 147:3",
+       3
+      ],
+      [
+       "Psalms 56:8",
+       4
+      ],
+      [
+       "John 11:35",
+       5
+      ],
+      [
+       "Job 2:13",
+       null
+      ],
+      [
+       "Psalms 38:9",
+       null
+      ],
+      [
+       "Psalms 68:5",
+       null
+      ],
+      [
+       "Psalms 119:28",
+       null
+      ],
+      [
+       "Psalms 126:5",
+       null
+      ],
+      [
+       "Ecclesiastes 3:4",
+       null
+      ],
+      [
+       "Isaiah 61:1",
+       null
+      ],
+      [
+       "Isaiah 61:3",
+       null
+      ],
+      [
+       "Isaiah 66:13",
+       null
+      ],
+      [
+       "Romans 8:26",
+       null
+      ],
+      [
+       "Romans 12:15",
+       null
+      ],
+      [
+       "1 Corinthians 12:26",
+       null
+      ],
+      [
+       "2 Corinthians 1:3",
+       null
+      ],
+      [
+       "2 Corinthians 1:4",
+       null
+      ],
+      [
+       "Psalms 62:8",
+       null
+      ],
+      [
+       "Jeremiah 31:25",
+       null
+      ],
+      [
+       "John 14:18",
+       null
+      ]
+     ],
+     "nothing": null
+    }
+   }
+  },
+  {
+   "theme": "courage",
+   "k": null,
+   "sensitive": false,
+   "label": "Courage",
+   "blurb": "For facing everyday fears.",
+   "note": null,
+   "books": {
+    "gita": {
+     "verses": [],
+     "nothing": "The Bhagavad Gita has no verse for this topic in the reviewed selection."
+    },
+    "quran": {
+     "verses": [
+      [
+       "20:27",
+       5
+      ],
+      [
+       "28:21",
+       null
+      ],
+      [
+       "47:7",
+       null
+      ]
+     ],
+     "nothing": null
+    },
+    "bible": {
+     "verses": [
+      [
+       "Psalms 27:1",
+       4
+      ],
+      [
+       "Psalms 16:8",
+       null
+      ],
+      [
+       "Psalms 28:7",
+       null
+      ],
+      [
+       "Psalms 138:3",
+       null
+      ],
+      [
+       "Proverbs 31:25",
+       null
+      ],
+      [
+       "Hebrews 12:12",
+       null
+      ],
+      [
+       "Psalms 18:2",
+       null
+      ],
+      [
+       "Psalms 112:7",
+       null
+      ],
+      [
+       "Isaiah 12:2",
+       null
+      ],
+      [
+       "Isaiah 35:3",
+       null
+      ],
+      [
+       "John 16:33",
+       null
+      ]
+     ],
+     "nothing": null
+    }
+   }
+  },
+  {
+   "theme": "self_worth",
+   "k": null,
+   "sensitive": true,
+   "label": "You are of worth",
+   "blurb": "Verses on dignity and being valued.",
+   "note": "However you feel today, you are worth caring for.",
+   "books": {
+    "gita": {
+     "verses": [],
+     "nothing": "The Bhagavad Gita has no verse for this topic in the reviewed selection."
+    },
+    "quran": {
+     "verses": [
+      [
+       "17:70",
+       1
+      ],
+      [
+       "93:3",
+       2
+      ]
+     ],
+     "nothing": null
+    },
+    "bible": {
+     "verses": [
+      [
+       "Psalms 139:17",
+       null
+      ],
+      [
+       "Luke 12:6",
+       null
+      ],
+      [
+       "Psalms 139:1",
+       null
+      ],
+      [
+       "Acts 10:34",
+       null
+      ]
+     ],
+     "nothing": null
+    }
+   }
+  },
+  {
+   "theme": "loneliness",
+   "k": 2,
+   "sensitive": true,
+   "label": "You are not alone",
+   "blurb": "Verses on being known and not forsaken.",
+   "note": null,
+   "books": {
+    "gita": {
+     "verses": [],
+     "nothing": "The Bhagavad Gita has no verse for this topic in the reviewed selection."
+    },
+    "quran": {
+     "verses": [
+      [
+       "57:4",
+       1
+      ],
+      [
+       "93:3",
+       3
+      ]
+     ],
+     "nothing": null
+    },
+    "bible": {
+     "verses": [
+      [
+       "Deuteronomy 31:8",
+       1
+      ],
+      [
+       "Isaiah 41:10",
+       3
+      ]
+     ],
+     "nothing": null
+    }
+   }
+  },
+  {
+   "theme": "patience",
+   "k": 3,
+   "sensitive": false,
+   "label": "Waiting",
+   "blurb": "For waiting on things to change.",
+   "note": "Patience here is about waiting for things to change, not about putting up with someone who harms you.",
+   "books": {
+    "gita": {
+     "verses": [
+      [
+       "6:35",
+       2
+      ],
+      [
+       "6:26",
+       3
+      ],
+      [
+       "12:10",
+       null
+      ]
+     ],
+     "nothing": null
+    },
+    "quran": {
+     "verses": [],
+     "nothing": "The Quran has no verse for this topic in the reviewed selection."
+    },
+    "bible": {
+     "verses": [
+      [
+       "Psalms 27:14",
+       1
+      ],
+      [
+       "Lamentations 3:25",
+       2
+      ],
+      [
+       "Isaiah 40:31",
+       3
+      ]
+     ],
+     "nothing": null
+    }
+   }
+  },
+  {
+   "theme": "marriage",
+   "k": null,
+   "sensitive": false,
+   "label": "Marriage and partners",
+   "blurb": "On life with a husband, wife or partner.",
+   "note": null,
+   "books": {
+    "gita": {
+     "verses": [],
+     "nothing": "The Bhagavad Gita has no verse for this topic in the reviewed selection."
+    },
+    "quran": {
+     "verses": [],
+     "nothing": "The Quran has no verse for this topic in the reviewed selection."
+    },
+    "bible": {
+     "verses": [],
+     "nothing": "The Bible has no verse for this topic in the reviewed selection."
+    }
+   }
+  }
+ ],
+ "topics": [
+  {
+   "id": "grief",
+   "label": "Grief and loss",
+   "blurb": "For missing someone who has died.",
+   "verses": {
+    "gita": 0,
+    "quran": 7,
+    "bible": 22
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 2,
+    "bible": 4
+   }
+  },
+  {
+   "id": "fear_anxiety",
+   "label": "Worry and fear",
+   "blurb": "For when worry or fear takes hold.",
+   "verses": {
+    "gita": 3,
+    "quran": 12,
+    "bible": 43
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 7,
+    "bible": 5
+   }
+  },
+  {
+   "id": "anger",
+   "label": "Anger",
+   "blurb": "For anger that is hard to hold.",
+   "verses": {
+    "gita": 6,
+    "quran": 3,
+    "bible": 12
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "forgiveness",
+   "label": "Forgiveness",
+   "blurb": "On wanting to forgive, or to be forgiven.",
+   "verses": {
+    "gita": 0,
+    "quran": 3,
+    "bible": 13
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "guilt_repentance",
+   "label": "Guilt and starting again",
+   "blurb": "For regret, and making a fresh start.",
+   "verses": {
+    "gita": 0,
+    "quran": 12,
+    "bible": 18
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "money_worry",
+   "label": "Money worries",
+   "blurb": "For debt, bills and money stress.",
+   "verses": {
+    "gita": 0,
+    "quran": 6,
+    "bible": 6
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 2,
+    "bible": 0
+   }
+  },
+  {
+   "id": "work_effort",
+   "label": "Work and effort",
+   "blurb": "On doing your work well.",
+   "verses": {
+    "gita": 18,
+    "quran": 17,
+    "bible": 19
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "overwork_rest",
+   "label": "Burnout",
+   "blurb": "For exhaustion and needing a break.",
+   "verses": {
+    "gita": 0,
+    "quran": 6,
+    "bible": 8
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "purpose",
+   "label": "Purpose and meaning",
+   "blurb": "For feeling without direction.",
+   "verses": {
+    "gita": 4,
+    "quran": 3,
+    "bible": 20
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "patience",
+   "label": "Waiting",
+   "blurb": "For waiting on things to change.",
+   "verses": {
+    "gita": 4,
+    "quran": 0,
+    "bible": 15
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "gratitude",
+   "label": "Gratitude",
+   "blurb": "On giving thanks for what is good.",
+   "verses": {
+    "gita": 0,
+    "quran": 13,
+    "bible": 21
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "pride_humility",
+   "label": "Pride and humility",
+   "blurb": "On ego and staying humble.",
+   "verses": {
+    "gita": 0,
+    "quran": 7,
+    "bible": 28
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "envy_contentment",
+   "label": "Envy and contentment",
+   "blurb": "For comparing yourself and wanting more.",
+   "verses": {
+    "gita": 6,
+    "quran": 4,
+    "bible": 17
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "temptation_self_control",
+   "label": "Habits and self-control",
+   "blurb": "For cravings, habits and giving in.",
+   "verses": {
+    "gita": 12,
+    "quran": 0,
+    "bible": 7
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "loneliness",
+   "label": "Loneliness",
+   "blurb": "For feeling alone or left out.",
+   "verses": {
+    "gita": 0,
+    "quran": 9,
+    "bible": 14
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 6,
+    "bible": 7
+   }
+  },
+  {
+   "id": "family_parents",
+   "label": "Family",
+   "blurb": "On parents, brothers, sisters and relatives.",
+   "verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 3
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "parenting",
+   "label": "Raising children",
+   "blurb": "On being a parent.",
+   "verses": {
+    "gita": 0,
+    "quran": 4,
+    "bible": 6
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "friendship",
+   "label": "Friendship",
+   "blurb": "On friends and falling out.",
+   "verses": {
+    "gita": 0,
+    "quran": 4,
+    "bible": 14
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 1
+   }
+  },
+  {
+   "id": "illness",
+   "label": "Illness and healing",
+   "blurb": "For sickness, pain and waiting for news.",
+   "verses": {
+    "gita": 0,
+    "quran": 3,
+    "bible": 8
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "doubt_faith",
+   "label": "Doubt and faith",
+   "blurb": "For feeling far from God, or unsure.",
+   "verses": {
+    "gita": 6,
+    "quran": 4,
+    "bible": 14
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 1,
+    "bible": 0
+   }
+  },
+  {
+   "id": "hope",
+   "label": "Hope",
+   "blurb": "For hard days that need encouragement.",
+   "verses": {
+    "gita": 3,
+    "quran": 9,
+    "bible": 48
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 3,
+    "bible": 2
+   }
+  },
+  {
+   "id": "justice_wronged",
+   "label": "Being treated unfairly",
+   "blurb": "For being cheated, bullied or mistreated.",
+   "verses": {
+    "gita": 0,
+    "quran": 13,
+    "bible": 17
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 1,
+    "bible": 1
+   }
+  },
+  {
+   "id": "honesty",
+   "label": "Honesty",
+   "blurb": "On telling the truth.",
+   "verses": {
+    "gita": 4,
+    "quran": 14,
+    "bible": 25
+   },
+   "sensitive_verses": {
+    "gita": 1,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "generosity",
+   "label": "Generosity",
+   "blurb": "On giving and helping others.",
+   "verses": {
+    "gita": 0,
+    "quran": 18,
+    "bible": 33
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "kindness_strangers",
+   "label": "Kindness to others",
+   "blurb": "On neighbours, strangers and newcomers.",
+   "verses": {
+    "gita": 8,
+    "quran": 18,
+    "bible": 42
+   },
+   "sensitive_verses": {
+    "gita": 1,
+    "quran": 1,
+    "bible": 2
+   }
+  },
+  {
+   "id": "courage",
+   "label": "Courage",
+   "blurb": "For facing everyday fears.",
+   "verses": {
+    "gita": 0,
+    "quran": 3,
+    "bible": 11
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "guidance_decisions",
+   "label": "Making decisions",
+   "blurb": "For not knowing which way to choose.",
+   "verses": {
+    "gita": 3,
+    "quran": 6,
+    "bible": 19
+   },
+   "sensitive_verses": {
+    "gita": 1,
+    "quran": 1,
+    "bible": 0
+   }
+  },
+  {
+   "id": "failure",
+   "label": "Failure and setbacks",
+   "blurb": "For mistakes and things that went wrong.",
+   "verses": {
+    "gita": 4,
+    "quran": 5,
+    "bible": 11
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 1,
+    "bible": 1
+   }
+  },
+  {
+   "id": "success",
+   "label": "Success",
+   "blurb": "On doing well and staying grounded.",
+   "verses": {
+    "gita": 4,
+    "quran": 5,
+    "bible": 7
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "change_uncertainty",
+   "label": "Change and the unknown",
+   "blurb": "For new beginnings and an uncertain future.",
+   "verses": {
+    "gita": 0,
+    "quran": 5,
+    "bible": 17
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 1,
+    "bible": 2
+   }
+  },
+  {
+   "id": "love_compassion",
+   "label": "Love and compassion",
+   "blurb": "On mercy, kindness and care.",
+   "verses": {
+    "gita": 6,
+    "quran": 4,
+    "bible": 42
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 3
+   }
+  },
+  {
+   "id": "speech_gossip",
+   "label": "Words and gossip",
+   "blurb": "On gossip and speaking kindly.",
+   "verses": {
+    "gita": 0,
+    "quran": 13,
+    "bible": 22
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "wisdom_learning",
+   "label": "Wisdom and learning",
+   "blurb": "On study and growing wiser.",
+   "verses": {
+    "gita": 6,
+    "quran": 13,
+    "bible": 22
+   },
+   "sensitive_verses": {
+    "gita": 1,
+    "quran": 0,
+    "bible": 0
+   }
+  },
+  {
+   "id": "peace_of_mind",
+   "label": "Peace of mind",
+   "blurb": "For a restless or racing mind.",
+   "verses": {
+    "gita": 18,
+    "quran": 9,
+    "bible": 38
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 3,
+    "bible": 1
+   }
+  },
+  {
+   "id": "suffering_endurance",
+   "label": "Hard times",
+   "blurb": "For hardship and holding on.",
+   "verses": {
+    "gita": 0,
+    "quran": 4,
+    "bible": 41
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 2,
+    "bible": 4
+   }
+  },
+  {
+   "id": "self_worth",
+   "label": "Self-worth",
+   "blurb": "For feeling not good enough.",
+   "verses": {
+    "gita": 0,
+    "quran": 5,
+    "bible": 21
+   },
+   "sensitive_verses": {
+    "gita": 0,
+    "quran": 2,
+    "bible": 4
+   }
+  }
+ ],
+ "search": [
+  {
+   "query": "I got laid off and I'm scared about money",
+   "k": 3,
+   "words": [
+    "i",
+    "got",
+    "laid",
+    "off",
+    "and",
+    "i",
+    "scared",
+    "about",
+    "money"
+   ],
+   "crisis_words": [
+    "i",
+    "got",
+    "laid",
+    "off",
+    "and",
+    "i",
+    "scared",
+    "about",
+    "money"
+   ],
+   "theme_words": [
+    "i",
+    "got",
+    "laid",
+    "off",
+    "and",
+    "i",
+    "scared",
+    "about",
+    "money"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "money_worry",
+     1.0
+    ],
+    [
+     "fear_anxiety",
+     0.6667
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "idle",
+     0.8,
+     "laid off"
+    ],
+    [
+     "labour",
+     0.8,
+     "laid off"
+    ],
+    [
+     "wage",
+     0.8,
+     "laid off"
+    ],
+    [
+     "poverty",
+     0.8,
+     "laid off"
+    ],
+    [
+     "need",
+     0.8,
+     "laid off"
+    ],
+    [
+     "bread",
+     0.8,
+     "laid off"
+    ],
+    [
+     "sustenance",
+     0.8,
+     "laid off"
+    ],
+    [
+     "afraid",
+     0.8,
+     "scared"
+    ],
+    [
+     "fear",
+     0.8,
+     "scared"
+    ],
+    [
+     "terror",
+     0.8,
+     "scared"
+    ],
+    [
+     "silver",
+     0.8,
+     "money"
+    ],
+    [
+     "gold",
+     0.8,
+     "money"
+    ],
+    [
+     "rich",
+     0.8,
+     "money"
+    ],
+    [
+     "wealth",
+     0.8,
+     "money"
+    ],
+    [
+     "treasure",
+     0.8,
+     "money"
+    ],
+    [
+     "money",
+     1.0,
+     "money"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "2:40",
+      "fear_anxiety",
+      1,
+      3.1424,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "fear"
+      ]
+     ],
+     [
+      "12:15",
+      "fear_anxiety",
+      4,
+      5.1081,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "need",
+       "fear"
+      ]
+     ],
+     [
+      "6:34",
+      "fear_anxiety",
+      5,
+      1.9222,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "fear"
+      ]
+     ]
+    ],
+    "quran": [
+     [
+      "65:3",
+      "money_worry",
+      1,
+      4.4049,
+      [
+       "money_worry",
+       "fear_anxiety"
+      ],
+      [
+       "fear",
+       "money"
+      ]
+     ],
+     [
+      "29:60",
+      "money_worry",
+      2,
+      3.2924,
+      [
+       "money_worry"
+      ],
+      [
+       "money"
+      ]
+     ],
+     [
+      "28:24",
+      "money_worry",
+      3,
+      5.3191,
+      [
+       "money_worry"
+      ],
+      [
+       "need",
+       "money"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Philippians 4:19",
+      "money_worry",
+      1,
+      11.5168,
+      [
+       "money_worry"
+      ],
+      [
+       "need",
+       "rich",
+       "money"
+      ]
+     ],
+     [
+      "Psalms 23:1",
+      "money_worry",
+      2,
+      4.6477,
+      [
+       "money_worry"
+      ],
+      [
+       "money"
+      ]
+     ],
+     [
+      "Matthew 6:26",
+      "money_worry",
+      3,
+      4.738,
+      [
+       "fear_anxiety",
+       "money_worry"
+      ],
+      [
+       "fear",
+       "money"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my girlfriend broke up with me",
+   "k": 3,
+   "words": [
+    "my",
+    "girlfriend",
+    "broke",
+    "up",
+    "with",
+    "me"
+   ],
+   "crisis_words": [
+    "my",
+    "girlfriend",
+    "broke",
+    "up",
+    "with",
+    "me"
+   ],
+   "theme_words": [
+    "my",
+    "girlfriend",
+    "broke",
+    "up",
+    "with",
+    "me"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "loneliness",
+     1.0
+    ],
+    [
+     "love_compassion",
+     0.5
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "beloved",
+     0.8,
+     "girlfriend"
+    ],
+    [
+     "love",
+     0.8,
+     "girlfriend"
+    ],
+    [
+     "woman",
+     0.8,
+     "girlfriend"
+    ],
+    [
+     "forsaken",
+     0.8,
+     "broke up"
+    ],
+    [
+     "forsake",
+     0.8,
+     "broke up"
+    ],
+    [
+     "part",
+     0.8,
+     "broke up"
+    ],
+    [
+     "depart",
+     0.8,
+     "broke up"
+    ],
+    [
+     "alone",
+     0.8,
+     "broke up"
+    ],
+    [
+     "sorrow",
+     0.8,
+     "broke up"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "6:32",
+      "love_compassion",
+      1,
+      1.7913,
+      [
+       "love_compassion"
+      ],
+      [
+       "love"
+      ]
+     ],
+     [
+      "9:29",
+      "love_compassion",
+      2,
+      2.0991,
+      [
+       "love_compassion"
+      ],
+      [
+       "love"
+      ]
+     ],
+     [
+      "6:29",
+      "love_compassion",
+      4,
+      1.972,
+      [
+       "love_compassion"
+      ],
+      [
+       "love"
+      ]
+     ]
+    ],
+    "quran": [
+     [
+      "57:4",
+      "loneliness",
+      1,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "50:16",
+      "loneliness",
+      2,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "93:3",
+      "loneliness",
+      3,
+      5.5899,
+      [
+       "loneliness"
+      ],
+      [
+       "forsaken"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Deuteronomy 31:8",
+      "loneliness",
+      1,
+      4.4812,
+      [
+       "loneliness"
+      ],
+      [
+       "forsake"
+      ]
+     ],
+     [
+      "Matthew 28:20",
+      "loneliness",
+      2,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "Isaiah 41:10",
+      "loneliness",
+      3,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I feel burnt out",
+   "k": 3,
+   "words": [
+    "i",
+    "feel",
+    "burnt",
+    "out"
+   ],
+   "crisis_words": [
+    "i",
+    "feel",
+    "burnt",
+    "out"
+   ],
+   "theme_words": [
+    "i",
+    "feel",
+    "burnt",
+    "out"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "overwork_rest",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "weary",
+     0.8,
+     "burnt out"
+    ],
+    [
+     "faint",
+     0.8,
+     "burnt out"
+    ],
+    [
+     "labour",
+     0.8,
+     "burnt out"
+    ],
+    [
+     "rest",
+     0.8,
+     "burnt out"
+    ],
+    [
+     "strength",
+     0.8,
+     "burnt out"
+    ],
+    [
+     "toil",
+     0.8,
+     "burnt out"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "20:26",
+      "overwork_rest",
+      1,
+      2.8369,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest"
+      ]
+     ],
+     [
+      "78:9",
+      "overwork_rest",
+      2,
+      3.641,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest"
+      ]
+     ],
+     [
+      "10:67",
+      "overwork_rest",
+      3,
+      3.5293,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Isaiah 40:29",
+      "overwork_rest",
+      2,
+      10.4625,
+      [
+       "overwork_rest"
+      ],
+      [
+       "faint",
+       "rest",
+       "strength"
+      ]
+     ],
+     [
+      "Jeremiah 31:25",
+      "overwork_rest",
+      4,
+      7.2544,
+      [
+       "overwork_rest"
+      ],
+      [
+       "weary",
+       "rest"
+      ]
+     ],
+     [
+      "Matthew 11:30",
+      "overwork_rest",
+      5,
+      3.3212,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my dad has cancer",
+   "k": 3,
+   "words": [
+    "my",
+    "dad",
+    "has",
+    "cancer"
+   ],
+   "crisis_words": [
+    "my",
+    "dad",
+    "has",
+    "cancer"
+   ],
+   "theme_words": [
+    "my",
+    "dad",
+    "has",
+    "cancer"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "family_parents",
+     1.0
+    ],
+    [
+     "illness",
+     0.5
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "father",
+     0.8,
+     "dad"
+    ],
+    [
+     "parent",
+     0.8,
+     "dad"
+    ],
+    [
+     "sickness",
+     0.8,
+     "cancer"
+    ],
+    [
+     "sick",
+     0.8,
+     "cancer"
+    ],
+    [
+     "heal",
+     0.8,
+     "cancer"
+    ],
+    [
+     "affliction",
+     0.8,
+     "cancer"
+    ],
+    [
+     "death",
+     0.8,
+     "cancer"
+    ],
+    [
+     "pain",
+     0.8,
+     "cancer"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "21:83",
+      "illness",
+      1,
+      3.14,
+      [
+       "illness"
+      ],
+      [
+       "heal"
+      ]
+     ],
+     [
+      "4:28",
+      "illness",
+      2,
+      3.2149,
+      [
+       "illness"
+      ],
+      [
+       "heal"
+      ]
+     ],
+     [
+      "26:80",
+      "illness",
+      3,
+      5.4792,
+      [
+       "illness"
+      ],
+      [
+       "heal"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Proverbs 15:17",
+      "family_parents",
+      3,
+      3.3949,
+      [
+       "family_parents"
+      ],
+      [
+       "parent"
+      ]
+     ],
+     [
+      "Proverbs 24:3",
+      "family_parents",
+      4,
+      3.889,
+      [
+       "family_parents"
+      ],
+      [
+       "parent"
+      ]
+     ],
+     [
+      "Psalms 68:5",
+      "family_parents",
+      null,
+      7.4632,
+      [
+       "family_parents"
+      ],
+      [
+       "father",
+       "parent"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm anxious about my exams",
+   "k": 3,
+   "words": [
+    "i",
+    "anxious",
+    "about",
+    "my",
+    "exams"
+   ],
+   "crisis_words": [
+    "i",
+    "anxious",
+    "about",
+    "my",
+    "exams"
+   ],
+   "theme_words": [
+    "i",
+    "anxious",
+    "about",
+    "my",
+    "exams"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "fear_anxiety",
+     1.0
+    ],
+    [
+     "failure",
+     0.5
+    ],
+    [
+     "wisdom_learning",
+     0.5
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "anxiety",
+     0.8,
+     "anxious"
+    ],
+    [
+     "careful",
+     0.8,
+     "anxious"
+    ],
+    [
+     "trouble",
+     0.8,
+     "anxious"
+    ],
+    [
+     "fear",
+     0.8,
+     "anxious"
+    ],
+    [
+     "afraid",
+     0.8,
+     "anxious"
+    ],
+    [
+     "thought",
+     0.8,
+     "anxious"
+    ],
+    [
+     "anxious",
+     1.0,
+     "anxious"
+    ],
+    [
+     "study",
+     0.8,
+     "exams"
+    ],
+    [
+     "knowledge",
+     0.8,
+     "exams"
+    ],
+    [
+     "learn",
+     0.8,
+     "exams"
+    ],
+    [
+     "wisdom",
+     0.8,
+     "exams"
+    ],
+    [
+     "understand",
+     0.8,
+     "exams"
+    ],
+    [
+     "diligent",
+     0.8,
+     "exams"
+    ],
+    [
+     "prove",
+     0.8,
+     "exams"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "2:40",
+      "fear_anxiety",
+      1,
+      8.9657,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety",
+       "fear",
+       "knowledge",
+       "wisdom"
+      ]
+     ],
+     [
+      "12:15",
+      "fear_anxiety",
+      4,
+      8.7575,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety",
+       "fear",
+       "anxious"
+      ]
+     ],
+     [
+      "6:34",
+      "fear_anxiety",
+      5,
+      4.0016,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety",
+       "fear"
+      ]
+     ]
+    ],
+    "quran": [
+     [
+      "20:46",
+      "fear_anxiety",
+      1,
+      5.9683,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety",
+       "fear"
+      ]
+     ],
+     [
+      "13:28",
+      "fear_anxiety",
+      2,
+      4.0416,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety",
+       "fear"
+      ]
+     ],
+     [
+      "20:25",
+      "fear_anxiety",
+      3,
+      4.9419,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety",
+       "fear"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Isaiah 41:10",
+      "fear_anxiety",
+      1,
+      4.4916,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety",
+       "fear"
+      ]
+     ],
+     [
+      "1 Peter 5:7",
+      "fear_anxiety",
+      2,
+      4.3605,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety",
+       "fear"
+      ]
+     ],
+     [
+      "Philippians 4:6",
+      "fear_anxiety",
+      3,
+      12.473,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety",
+       "careful",
+       "fear",
+       "anxious"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I can't forgive my brother",
+   "k": 3,
+   "words": [
+    "i",
+    "can",
+    "not",
+    "forgive",
+    "my",
+    "brother"
+   ],
+   "crisis_words": [
+    "i",
+    "can",
+    "not",
+    "forgive",
+    "my",
+    "brother"
+   ],
+   "theme_words": [
+    "i",
+    "can",
+    "not",
+    "forgive",
+    "my",
+    "brother"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "family_parents",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "forgive",
+     1.0,
+     "forgive"
+    ],
+    [
+     "brother",
+     1.0,
+     "brother"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": [
+     [
+      "Proverbs 15:17",
+      "family_parents",
+      3,
+      0.0,
+      [
+       "family_parents"
+      ],
+      []
+     ],
+     [
+      "Proverbs 24:3",
+      "family_parents",
+      4,
+      0.0,
+      [
+       "family_parents"
+      ],
+      []
+     ],
+     [
+      "Psalms 68:5",
+      "family_parents",
+      null,
+      0.0,
+      [
+       "family_parents"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my mother passed away",
+   "k": 3,
+   "words": [
+    "my",
+    "mother",
+    "passed",
+    "away"
+   ],
+   "crisis_words": [
+    "my",
+    "",
+    "",
+    "away"
+   ],
+   "theme_words": [
+    "my",
+    "mother",
+    "passed",
+    "away"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "grief",
+     1.0
+    ]
+   ],
+   "notes": [
+    "grief"
+   ],
+   "terms": [
+    [
+     "mother",
+     1.0,
+     "mother"
+    ],
+    [
+     "die",
+     0.8,
+     "passed away"
+    ],
+    [
+     "death",
+     0.8,
+     "passed away"
+    ],
+    [
+     "depart",
+     0.8,
+     "passed away"
+    ],
+    [
+     "sleep",
+     0.8,
+     "passed away"
+    ],
+    [
+     "mourn",
+     0.8,
+     "passed away"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "12:86",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "13:28",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "10:57",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 34:18",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Matthew 5:4",
+      "grief",
+      2,
+      5.756,
+      [
+       "grief"
+      ],
+      [
+       "mourn"
+      ]
+     ],
+     [
+      "Psalms 147:3",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I feel like my life has no purpose",
+   "k": 3,
+   "words": [
+    "i",
+    "feel",
+    "like",
+    "my",
+    "life",
+    "has",
+    "no",
+    "purpose"
+   ],
+   "crisis_words": [
+    "i",
+    "feel",
+    "like",
+    "my",
+    "life",
+    "has",
+    "no",
+    "purpose"
+   ],
+   "theme_words": [
+    "i",
+    "feel",
+    "like",
+    "my",
+    "life",
+    "has",
+    "no",
+    "purpose"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "purpose",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "life",
+     1.0,
+     "life"
+    ],
+    [
+     "purpose",
+     1.0,
+     "purpose"
+    ],
+    [
+     "vain",
+     0.8,
+     "purpose"
+    ],
+    [
+     "create",
+     0.8,
+     "purpose"
+    ],
+    [
+     "call",
+     0.8,
+     "purpose"
+    ],
+    [
+     "duty",
+     0.8,
+     "purpose"
+    ],
+    [
+     "work",
+     0.8,
+     "purpose"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "3:20",
+      "purpose",
+      2,
+      3.7638,
+      [
+       "purpose"
+      ],
+      [
+       "purpose",
+       "work"
+      ]
+     ],
+     [
+      "2:47",
+      "purpose",
+      3,
+      3.9526,
+      [
+       "purpose"
+      ],
+      [
+       "purpose",
+       "work"
+      ]
+     ],
+     [
+      "3:19",
+      "purpose",
+      4,
+      7.8392,
+      [
+       "purpose"
+      ],
+      [
+       "purpose",
+       "duty",
+       "work"
+      ]
+     ]
+    ],
+    "quran": [
+     [
+      "20:50",
+      "purpose",
+      2,
+      4.3285,
+      [
+       "purpose"
+      ],
+      [
+       "purpose"
+      ]
+     ],
+     [
+      "3:104",
+      "purpose",
+      4,
+      3.7502,
+      [
+       "purpose"
+      ],
+      [
+       "purpose"
+      ]
+     ],
+     [
+      "18:46",
+      "purpose",
+      null,
+      7.6858,
+      [
+       "purpose"
+      ],
+      [
+       "life",
+       "purpose"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 138:8",
+      "purpose",
+      2,
+      4.6701,
+      [
+       "purpose"
+      ],
+      [
+       "purpose",
+       "work"
+      ]
+     ],
+     [
+      "Philippians 1:6",
+      "purpose",
+      3,
+      5.598,
+      [
+       "purpose"
+      ],
+      [
+       "purpose",
+       "work"
+      ]
+     ],
+     [
+      "Micah 6:8",
+      "purpose",
+      4,
+      2.339,
+      [
+       "purpose"
+      ],
+      [
+       "purpose"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm jealous of my friend's success",
+   "k": 3,
+   "words": [
+    "i",
+    "jealous",
+    "of",
+    "my",
+    "friend",
+    "success"
+   ],
+   "crisis_words": [
+    "i",
+    "jealous",
+    "of",
+    "my",
+    "friend",
+    "success"
+   ],
+   "theme_words": [
+    "i",
+    "jealous",
+    "of",
+    "my",
+    "friend",
+    "success"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "envy_contentment",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "envy",
+     0.8,
+     "jealous"
+    ],
+    [
+     "covet",
+     0.8,
+     "jealous"
+    ],
+    [
+     "envious",
+     0.8,
+     "jealous"
+    ],
+    [
+     "friend",
+     1.0,
+     "friend"
+    ],
+    [
+     "prosper",
+     0.8,
+     "success"
+    ],
+    [
+     "success",
+     1.0,
+     "success"
+    ],
+    [
+     "fruit",
+     0.8,
+     "success"
+    ],
+    [
+     "reward",
+     0.8,
+     "success"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "4:22",
+      "envy_contentment",
+      1,
+      6.8364,
+      [
+       "envy_contentment"
+      ],
+      [
+       "envy",
+       "success"
+      ]
+     ],
+     [
+      "2:70",
+      "envy_contentment",
+      2,
+      1.7591,
+      [
+       "envy_contentment"
+      ],
+      [
+       "envy"
+      ]
+     ],
+     [
+      "2:55",
+      "envy_contentment",
+      3,
+      1.7913,
+      [
+       "envy_contentment"
+      ],
+      [
+       "envy"
+      ]
+     ]
+    ],
+    "quran": [
+     [
+      "4:32",
+      "envy_contentment",
+      1,
+      8.3154,
+      [
+       "envy_contentment"
+      ],
+      [
+       "envy",
+       "covet"
+      ]
+     ],
+     [
+      "10:58",
+      "envy_contentment",
+      2,
+      2.9345,
+      [
+       "envy_contentment"
+      ],
+      [
+       "envy"
+      ]
+     ],
+     [
+      "93:5",
+      "envy_contentment",
+      3,
+      3.4115,
+      [
+       "envy_contentment"
+      ],
+      [
+       "envy"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "1 Timothy 6:6",
+      "envy_contentment",
+      3,
+      2.94,
+      [
+       "envy_contentment"
+      ],
+      [
+       "envy"
+      ]
+     ],
+     [
+      "Galatians 6:4",
+      "envy_contentment",
+      4,
+      2.3892,
+      [
+       "envy_contentment"
+      ],
+      [
+       "envy"
+      ]
+     ],
+     [
+      "Proverbs 14:30",
+      "envy_contentment",
+      5,
+      3.8428,
+      [
+       "envy_contentment"
+      ],
+      [
+       "envy"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I keep procrastinating",
+   "k": 3,
+   "words": [
+    "i",
+    "keep",
+    "procrastinating"
+   ],
+   "crisis_words": [
+    "i",
+    "keep",
+    "procrastinating"
+   ],
+   "theme_words": [
+    "i",
+    "keep",
+    "procrastinating"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "work_effort",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "idle",
+     0.8,
+     "procrastinating"
+    ],
+    [
+     "diligent",
+     0.8,
+     "procrastinating"
+    ],
+    [
+     "morrow",
+     0.8,
+     "procrastinating"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "2:47",
+      "work_effort",
+      1,
+      0.0,
+      [
+       "work_effort"
+      ],
+      []
+     ],
+     [
+      "2:48",
+      "work_effort",
+      2,
+      0.0,
+      [
+       "work_effort"
+      ],
+      []
+     ],
+     [
+      "3:8",
+      "work_effort",
+      3,
+      0.0,
+      [
+       "work_effort"
+      ],
+      []
+     ]
+    ],
+    "quran": [
+     [
+      "21:94",
+      "work_effort",
+      1,
+      0.0,
+      [
+       "work_effort"
+      ],
+      []
+     ],
+     [
+      "53:40",
+      "work_effort",
+      2,
+      0.0,
+      [
+       "work_effort"
+      ],
+      []
+     ],
+     [
+      "20:26",
+      "work_effort",
+      3,
+      0.0,
+      [
+       "work_effort"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Galatians 6:9",
+      "work_effort",
+      2,
+      0.0,
+      [
+       "work_effort"
+      ],
+      []
+     ],
+     [
+      "1 Corinthians 15:58",
+      "work_effort",
+      3,
+      0.0,
+      [
+       "work_effort"
+      ],
+      []
+     ],
+     [
+      "Proverbs 22:29",
+      "work_effort",
+      null,
+      5.3902,
+      [
+       "work_effort"
+      ],
+      [
+       "diligent"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I want to help the poor",
+   "k": 3,
+   "words": [
+    "i",
+    "want",
+    "to",
+    "help",
+    "the",
+    "poor"
+   ],
+   "crisis_words": [
+    "i",
+    "want",
+    "to",
+    "help",
+    "the",
+    "poor"
+   ],
+   "theme_words": [
+    "i",
+    "want",
+    "to",
+    "help",
+    "the",
+    "poor"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "generosity",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "help",
+     1.0,
+     "help"
+    ],
+    [
+     "poverty",
+     0.8,
+     "poor"
+    ],
+    [
+     "poor",
+     1.0,
+     "poor"
+    ],
+    [
+     "needy",
+     0.8,
+     "poor"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "2:261",
+      "generosity",
+      1,
+      0.0,
+      [
+       "generosity"
+      ],
+      []
+     ],
+     [
+      "34:39",
+      "generosity",
+      2,
+      0.0,
+      [
+       "generosity"
+      ],
+      []
+     ],
+     [
+      "3:92",
+      "generosity",
+      3,
+      0.0,
+      [
+       "generosity"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "2 Corinthians 9:7",
+      "generosity",
+      1,
+      0.0,
+      [
+       "generosity"
+      ],
+      []
+     ],
+     [
+      "Acts 20:35",
+      "generosity",
+      2,
+      0.0,
+      [
+       "generosity"
+      ],
+      []
+     ],
+     [
+      "Proverbs 11:25",
+      "generosity",
+      3,
+      0.0,
+      [
+       "generosity"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm grateful for my life",
+   "k": 3,
+   "words": [
+    "i",
+    "grateful",
+    "for",
+    "my",
+    "life"
+   ],
+   "crisis_words": [
+    "i",
+    "grateful",
+    "for",
+    "my",
+    "life"
+   ],
+   "theme_words": [
+    "i",
+    "grateful",
+    "for",
+    "my",
+    "life"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "gratitude",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "thank",
+     0.8,
+     "grateful"
+    ],
+    [
+     "thankful",
+     0.8,
+     "grateful"
+    ],
+    [
+     "thanksgiving",
+     0.8,
+     "grateful"
+    ],
+    [
+     "praise",
+     0.8,
+     "grateful"
+    ],
+    [
+     "bounty",
+     0.8,
+     "grateful"
+    ],
+    [
+     "favour",
+     0.8,
+     "grateful"
+    ],
+    [
+     "grateful",
+     1.0,
+     "grateful"
+    ],
+    [
+     "life",
+     1.0,
+     "life"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "16:18",
+      "gratitude",
+      1,
+      3.6717,
+      [
+       "gratitude"
+      ],
+      [
+       "favour"
+      ]
+     ],
+     [
+      "2:152",
+      "gratitude",
+      2,
+      3.6456,
+      [
+       "gratitude"
+      ],
+      [
+       "thank"
+      ]
+     ],
+     [
+      "93:11",
+      "gratitude",
+      3,
+      3.2817,
+      [
+       "gratitude"
+      ],
+      [
+       "bounty"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 107:1",
+      "gratitude",
+      1,
+      4.9433,
+      [
+       "gratitude"
+      ],
+      [
+       "thank"
+      ]
+     ],
+     [
+      "1 Thessalonians 5:18",
+      "gratitude",
+      2,
+      5.3824,
+      [
+       "gratitude"
+      ],
+      [
+       "thank"
+      ]
+     ],
+     [
+      "Psalms 103:2",
+      "gratitude",
+      3,
+      0.0,
+      [
+       "gratitude"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I feel guilty about my past",
+   "k": 3,
+   "words": [
+    "i",
+    "feel",
+    "guilty",
+    "about",
+    "my",
+    "past"
+   ],
+   "crisis_words": [
+    "i",
+    "feel",
+    "guilty",
+    "about",
+    "my",
+    "past"
+   ],
+   "theme_words": [
+    "i",
+    "feel",
+    "guilty",
+    "about",
+    "my",
+    "past"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "guilt_repentance",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "guilt",
+     0.8,
+     "guilty"
+    ],
+    [
+     "sin",
+     0.8,
+     "guilty"
+    ],
+    [
+     "iniquity",
+     0.8,
+     "guilty"
+    ],
+    [
+     "transgression",
+     0.8,
+     "guilty"
+    ],
+    [
+     "repent",
+     0.8,
+     "guilty"
+    ],
+    [
+     "forgive",
+     0.8,
+     "guilty"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "42:25",
+      "guilt_repentance",
+      5,
+      2.2458,
+      [
+       "guilt_repentance"
+      ],
+      [
+       "guilt"
+      ]
+     ],
+     [
+      "3:135",
+      "guilt_repentance",
+      null,
+      8.8637,
+      [
+       "guilt_repentance"
+      ],
+      [
+       "guilt",
+       "sin",
+       "forgive"
+      ]
+     ],
+     [
+      "7:153",
+      "guilt_repentance",
+      null,
+      8.5005,
+      [
+       "guilt_repentance"
+      ],
+      [
+       "guilt",
+       "repent",
+       "forgive"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "1 John 1:9",
+      "guilt_repentance",
+      1,
+      12.2414,
+      [
+       "guilt_repentance"
+      ],
+      [
+       "guilt",
+       "sin",
+       "forgive"
+      ]
+     ],
+     [
+      "Psalms 51:10",
+      "guilt_repentance",
+      3,
+      2.2289,
+      [
+       "guilt_repentance"
+      ],
+      [
+       "guilt"
+      ]
+     ],
+     [
+      "2 Corinthians 5:17",
+      "guilt_repentance",
+      4,
+      2.4128,
+      [
+       "guilt_repentance"
+      ],
+      [
+       "guilt"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I want inner peace and a calm mind",
+   "k": 3,
+   "words": [
+    "i",
+    "want",
+    "inner",
+    "peace",
+    "and",
+    "a",
+    "calm",
+    "mind"
+   ],
+   "crisis_words": [
+    "i",
+    "want",
+    "inner",
+    "peace",
+    "and",
+    "a",
+    "calm",
+    "mind"
+   ],
+   "theme_words": [
+    "i",
+    "want",
+    "inner",
+    "peace",
+    "and",
+    "a",
+    "calm",
+    "mind"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "peace_of_mind",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "peace",
+     0.8,
+     "inner peace"
+    ],
+    [
+     "rest",
+     0.8,
+     "inner peace"
+    ],
+    [
+     "still",
+     0.8,
+     "inner peace"
+    ],
+    [
+     "heart",
+     0.8,
+     "inner peace"
+    ],
+    [
+     "mind",
+     1.0,
+     "mind"
+    ],
+    [
+     "calm",
+     1.0,
+     "calm"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "6:19",
+      "peace_of_mind",
+      1,
+      5.7406,
+      [
+       "peace_of_mind"
+      ],
+      [
+       "peace",
+       "mind",
+       "calm"
+      ]
+     ],
+     [
+      "2:70",
+      "peace_of_mind",
+      2,
+      5.5689,
+      [
+       "peace_of_mind"
+      ],
+      [
+       "peace",
+       "mind",
+       "calm"
+      ]
+     ],
+     [
+      "6:35",
+      "peace_of_mind",
+      3,
+      2.5655,
+      [
+       "peace_of_mind"
+      ],
+      [
+       "peace",
+       "mind"
+      ]
+     ]
+    ],
+    "quran": [
+     [
+      "13:28",
+      "peace_of_mind",
+      1,
+      10.9778,
+      [
+       "peace_of_mind"
+      ],
+      [
+       "peace",
+       "rest",
+       "heart",
+       "mind"
+      ]
+     ],
+     [
+      "20:25",
+      "peace_of_mind",
+      2,
+      6.9666,
+      [
+       "peace_of_mind"
+      ],
+      [
+       "peace",
+       "mind"
+      ]
+     ],
+     [
+      "10:57",
+      "peace_of_mind",
+      3,
+      7.5565,
+      [
+       "peace_of_mind"
+      ],
+      [
+       "peace",
+       "heart",
+       "mind"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Philippians 4:7",
+      "peace_of_mind",
+      1,
+      8.5324,
+      [
+       "peace_of_mind"
+      ],
+      [
+       "peace",
+       "heart",
+       "mind"
+      ]
+     ],
+     [
+      "Isaiah 26:3",
+      "peace_of_mind",
+      3,
+      7.0172,
+      [
+       "peace_of_mind"
+      ],
+      [
+       "peace",
+       "mind"
+      ]
+     ],
+     [
+      "Psalms 94:19",
+      "peace_of_mind",
+      5,
+      4.0325,
+      [
+       "peace_of_mind"
+      ],
+      [
+       "peace",
+       "mind"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "should I lie to my boss",
+   "k": 3,
+   "words": [
+    "should",
+    "i",
+    "lie",
+    "to",
+    "my",
+    "boss"
+   ],
+   "crisis_words": [
+    "should",
+    "i",
+    "lie",
+    "to",
+    "my",
+    "boss"
+   ],
+   "theme_words": [
+    "should",
+    "i",
+    "lie",
+    "to",
+    "my",
+    "boss"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "honesty",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "lie",
+     0.8,
+     "lie to"
+    ],
+    [
+     "false",
+     0.8,
+     "lie to"
+    ],
+    [
+     "falsehood",
+     0.8,
+     "lie to"
+    ],
+    [
+     "deceit",
+     0.8,
+     "lie to"
+    ],
+    [
+     "truth",
+     0.8,
+     "lie to"
+    ],
+    [
+     "liar",
+     0.8,
+     "lie to"
+    ],
+    [
+     "master",
+     0.8,
+     "boss"
+    ],
+    [
+     "lord",
+     0.8,
+     "boss"
+    ],
+    [
+     "servant",
+     0.8,
+     "boss"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "17:15",
+      "honesty",
+      1,
+      0.0,
+      [
+       "honesty"
+      ],
+      []
+     ],
+     [
+      "16:2",
+      "honesty",
+      2,
+      3.6942,
+      [
+       "honesty"
+      ],
+      [
+       "truth"
+      ]
+     ],
+     [
+      "16:1",
+      "honesty",
+      3,
+      0.0,
+      [
+       "honesty"
+      ],
+      []
+     ]
+    ],
+    "quran": [
+     [
+      "33:70",
+      "honesty",
+      1,
+      0.0,
+      [
+       "honesty"
+      ],
+      []
+     ],
+     [
+      "2:42",
+      "honesty",
+      2,
+      9.8562,
+      [
+       "honesty"
+      ],
+      [
+       "falsehood",
+       "truth"
+      ]
+     ],
+     [
+      "9:119",
+      "honesty",
+      4,
+      0.0,
+      [
+       "honesty"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Proverbs 10:9",
+      "honesty",
+      1,
+      0.0,
+      [
+       "honesty"
+      ],
+      []
+     ],
+     [
+      "Ephesians 4:25",
+      "honesty",
+      2,
+      8.6,
+      [
+       "honesty"
+      ],
+      [
+       "lie",
+       "truth"
+      ]
+     ],
+     [
+      "John 8:32",
+      "honesty",
+      3,
+      4.9528,
+      [
+       "honesty"
+      ],
+      [
+       "truth"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm drowning in debt",
+   "k": 3,
+   "words": [
+    "i",
+    "drowning",
+    "in",
+    "debt"
+   ],
+   "crisis_words": [
+    "i",
+    "drowning",
+    "in",
+    "debt"
+   ],
+   "theme_words": [
+    "i",
+    "drowning",
+    "in",
+    "debt"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "money_worry",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "burden",
+     0.8,
+     "drowning in"
+    ],
+    [
+     "deep",
+     0.8,
+     "drowning in"
+    ],
+    [
+     "water",
+     0.8,
+     "drowning in"
+    ],
+    [
+     "debt",
+     1.0,
+     "debt"
+    ],
+    [
+     "debtor",
+     0.8,
+     "debt"
+    ],
+    [
+     "pay",
+     0.8,
+     "debt"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "65:3",
+      "money_worry",
+      1,
+      0.0,
+      [
+       "money_worry"
+      ],
+      []
+     ],
+     [
+      "29:60",
+      "money_worry",
+      2,
+      0.0,
+      [
+       "money_worry"
+      ],
+      []
+     ],
+     [
+      "28:24",
+      "money_worry",
+      3,
+      2.9961,
+      [
+       "money_worry"
+      ],
+      [
+       "water"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Philippians 4:19",
+      "money_worry",
+      1,
+      0.0,
+      [
+       "money_worry"
+      ],
+      []
+     ],
+     [
+      "Psalms 23:1",
+      "money_worry",
+      2,
+      0.0,
+      [
+       "money_worry"
+      ],
+      []
+     ],
+     [
+      "Matthew 6:26",
+      "money_worry",
+      3,
+      0.0,
+      [
+       "money_worry"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I've been drinking way too much every night",
+   "k": 3,
+   "words": [
+    "i",
+    "been",
+    "drinking",
+    "way",
+    "too",
+    "much",
+    "every",
+    "night"
+   ],
+   "crisis_words": [
+    "i",
+    "been",
+    "drinking",
+    "way",
+    "too",
+    "much",
+    "every",
+    "night"
+   ],
+   "theme_words": [
+    "i",
+    "been",
+    "drinking",
+    "way",
+    "too",
+    "much",
+    "every",
+    "night"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "temptation_self_control",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "wine",
+     0.8,
+     "drinking"
+    ],
+    [
+     "drunk",
+     0.8,
+     "drinking"
+    ],
+    [
+     "drink",
+     1.0,
+     "drinking"
+    ],
+    [
+     "strong",
+     0.8,
+     "drinking"
+    ],
+    [
+     "way",
+     1.0,
+     "way"
+    ],
+    [
+     "burden",
+     0.8,
+     "too much"
+    ],
+    [
+     "trouble",
+     0.8,
+     "too much"
+    ],
+    [
+     "many",
+     0.8,
+     "too much"
+    ],
+    [
+     "careful",
+     0.8,
+     "too much"
+    ],
+    [
+     "night",
+     1.0,
+     "night"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "6:26",
+      "temptation_self_control",
+      1,
+      0.0,
+      [
+       "temptation_self_control"
+      ],
+      []
+     ],
+     [
+      "2:60",
+      "temptation_self_control",
+      2,
+      0.0,
+      [
+       "temptation_self_control"
+      ],
+      []
+     ],
+     [
+      "2:58",
+      "temptation_self_control",
+      3,
+      0.0,
+      [
+       "temptation_self_control"
+      ],
+      []
+     ]
+    ],
+    "quran": [],
+    "bible": [
+     [
+      "Psalms 51:10",
+      "temptation_self_control",
+      2,
+      0.0,
+      [
+       "temptation_self_control"
+      ],
+      []
+     ],
+     [
+      "Hebrews 4:15",
+      "temptation_self_control",
+      3,
+      0.0,
+      [
+       "temptation_self_control"
+      ],
+      []
+     ],
+     [
+      "Proverbs 4:23",
+      "temptation_self_control",
+      4,
+      0.0,
+      [
+       "temptation_self_control"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "working 70 hour weeks and completely burned out",
+   "k": 3,
+   "words": [
+    "working",
+    "hour",
+    "weeks",
+    "and",
+    "completely",
+    "burned",
+    "out"
+   ],
+   "crisis_words": [
+    "working",
+    "hour",
+    "weeks",
+    "and",
+    "completely",
+    "burned",
+    "out"
+   ],
+   "theme_words": [
+    "working",
+    "hour",
+    "weeks",
+    "and",
+    "completely",
+    "burned",
+    "out"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "overwork_rest",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "work",
+     1.0,
+     "working"
+    ],
+    [
+     "weary",
+     0.8,
+     "burned out"
+    ],
+    [
+     "faint",
+     0.8,
+     "burned out"
+    ],
+    [
+     "labour",
+     0.8,
+     "burned out"
+    ],
+    [
+     "rest",
+     0.8,
+     "burned out"
+    ],
+    [
+     "strength",
+     0.8,
+     "burned out"
+    ],
+    [
+     "toil",
+     0.8,
+     "burned out"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "20:26",
+      "overwork_rest",
+      1,
+      5.5178,
+      [
+       "overwork_rest"
+      ],
+      [
+       "work",
+       "rest"
+      ]
+     ],
+     [
+      "78:9",
+      "overwork_rest",
+      2,
+      3.641,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest"
+      ]
+     ],
+     [
+      "10:67",
+      "overwork_rest",
+      3,
+      3.5293,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Isaiah 40:29",
+      "overwork_rest",
+      2,
+      10.4625,
+      [
+       "overwork_rest"
+      ],
+      [
+       "faint",
+       "rest",
+       "strength"
+      ]
+     ],
+     [
+      "Jeremiah 31:25",
+      "overwork_rest",
+      4,
+      7.2544,
+      [
+       "overwork_rest"
+      ],
+      [
+       "weary",
+       "rest"
+      ]
+     ],
+     [
+      "Matthew 11:30",
+      "overwork_rest",
+      5,
+      3.3212,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I lose my temper way too easily",
+   "k": 3,
+   "words": [
+    "i",
+    "lose",
+    "my",
+    "temper",
+    "way",
+    "too",
+    "easily"
+   ],
+   "crisis_words": [
+    "i",
+    "lose",
+    "my",
+    "temper",
+    "way",
+    "too",
+    "easily"
+   ],
+   "theme_words": [
+    "i",
+    "lose",
+    "my",
+    "temper",
+    "way",
+    "too",
+    "easily"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "anger",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "lose",
+     1.0,
+     "lose"
+    ],
+    [
+     "way",
+     1.0,
+     "way"
+    ],
+    [
+     "easily",
+     1.0,
+     "easily"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "2:62",
+      "anger",
+      1,
+      0.0,
+      [
+       "anger"
+      ],
+      []
+     ],
+     [
+      "2:56",
+      "anger",
+      2,
+      0.0,
+      [
+       "anger"
+      ],
+      []
+     ],
+     [
+      "16:2",
+      "anger",
+      3,
+      0.0,
+      [
+       "anger"
+      ],
+      []
+     ]
+    ],
+    "quran": [
+     [
+      "17:53",
+      "anger",
+      1,
+      0.0,
+      [
+       "anger"
+      ],
+      []
+     ],
+     [
+      "28:55",
+      "anger",
+      2,
+      0.0,
+      [
+       "anger"
+      ],
+      []
+     ],
+     [
+      "5:8",
+      "anger",
+      3,
+      0.0,
+      [
+       "anger"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "James 1:19",
+      "anger",
+      1,
+      0.0,
+      [
+       "anger"
+      ],
+      []
+     ],
+     [
+      "Ephesians 4:26",
+      "anger",
+      2,
+      0.0,
+      [
+       "anger"
+      ],
+      []
+     ],
+     [
+      "Psalms 4:4",
+      "anger",
+      3,
+      0.0,
+      [
+       "anger"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my best friend just stopped talking to me",
+   "k": 3,
+   "words": [
+    "my",
+    "best",
+    "friend",
+    "just",
+    "stopped",
+    "talking",
+    "to",
+    "me"
+   ],
+   "crisis_words": [
+    "my",
+    "best",
+    "friend",
+    "just",
+    "stopped",
+    "talking",
+    "to",
+    "me"
+   ],
+   "theme_words": [
+    "my",
+    "best",
+    "friend",
+    "just",
+    "stopped",
+    "talking",
+    "to",
+    "me"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "friendship",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "friend",
+     0.8,
+     "best friend"
+    ],
+    [
+     "brother",
+     0.8,
+     "best friend"
+    ],
+    [
+     "love",
+     0.8,
+     "best friend"
+    ],
+    [
+     "stop",
+     1.0,
+     "stopped"
+    ],
+    [
+     "talk",
+     1.0,
+     "talking"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "49:10",
+      "friendship",
+      2,
+      3.9448,
+      [
+       "friendship"
+      ],
+      [
+       "brother"
+      ]
+     ],
+     [
+      "90:17",
+      "friendship",
+      3,
+      2.7061,
+      [
+       "friendship"
+      ],
+      [
+       "love"
+      ]
+     ],
+     [
+      "9:119",
+      "friendship",
+      5,
+      0.0,
+      [
+       "friendship"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Proverbs 27:17",
+      "friendship",
+      5,
+      3.675,
+      [
+       "friendship"
+      ],
+      [
+       "friend"
+      ]
+     ],
+     [
+      "Proverbs 16:28",
+      "friendship",
+      null,
+      5.1372,
+      [
+       "friendship"
+      ],
+      [
+       "friend"
+      ]
+     ],
+     [
+      "Job 2:13",
+      "friendship",
+      null,
+      3.1545,
+      [
+       "friendship"
+      ],
+      [
+       "friend"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm stressed out at work",
+   "k": 3,
+   "words": [
+    "i",
+    "stressed",
+    "out",
+    "at",
+    "work"
+   ],
+   "crisis_words": [
+    "i",
+    "stressed",
+    "out",
+    "at",
+    "work"
+   ],
+   "theme_words": [
+    "i",
+    "stressed",
+    "out",
+    "at",
+    "work"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "fear_anxiety",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "trouble",
+     0.8,
+     "stressed out"
+    ],
+    [
+     "burden",
+     0.8,
+     "stressed out"
+    ],
+    [
+     "weary",
+     0.8,
+     "stressed out"
+    ],
+    [
+     "careful",
+     0.8,
+     "stressed out"
+    ],
+    [
+     "distress",
+     0.8,
+     "stressed out"
+    ],
+    [
+     "anxiety",
+     0.8,
+     "stressed out"
+    ],
+    [
+     "work",
+     1.0,
+     "work"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "2:40",
+      "fear_anxiety",
+      1,
+      3.4316,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety",
+       "work"
+      ]
+     ],
+     [
+      "12:15",
+      "fear_anxiety",
+      4,
+      2.6433,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ],
+     [
+      "6:34",
+      "fear_anxiety",
+      5,
+      2.0794,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ]
+    ],
+    "quran": [
+     [
+      "20:46",
+      "fear_anxiety",
+      1,
+      2.5086,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ],
+     [
+      "13:28",
+      "fear_anxiety",
+      2,
+      2.0515,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ],
+     [
+      "20:25",
+      "fear_anxiety",
+      3,
+      2.5086,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Isaiah 41:10",
+      "fear_anxiety",
+      1,
+      1.8145,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ],
+     [
+      "1 Peter 5:7",
+      "fear_anxiety",
+      2,
+      2.2623,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ],
+     [
+      "Philippians 4:6",
+      "fear_anxiety",
+      3,
+      5.4396,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "careful",
+       "anxiety"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm getting married next month",
+   "k": 3,
+   "words": [
+    "i",
+    "getting",
+    "married",
+    "next",
+    "month"
+   ],
+   "crisis_words": [
+    "i",
+    "getting",
+    "married",
+    "next",
+    "month"
+   ],
+   "theme_words": [
+    "i",
+    "getting",
+    "married",
+    "next",
+    "month"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": true,
+   "themes": [
+    [
+     "marriage",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "husband",
+     0.8,
+     "getting married"
+    ],
+    [
+     "love",
+     0.8,
+     "getting married"
+    ],
+    [
+     "cleave",
+     0.8,
+     "getting married"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "I'm afraid of dying",
+   "k": 3,
+   "words": [
+    "i",
+    "afraid",
+    "of",
+    "dying"
+   ],
+   "crisis_words": [
+    "i",
+    "afraid",
+    "of",
+    "dying"
+   ],
+   "theme_words": [
+    "i",
+    "afraid",
+    "of",
+    "dying"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "fear_anxiety",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "afraid",
+     1.0,
+     "afraid"
+    ],
+    [
+     "death",
+     0.8,
+     "dying"
+    ],
+    [
+     "die",
+     1.0,
+     "dying"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "2:40",
+      "fear_anxiety",
+      1,
+      0.0,
+      [
+       "fear_anxiety"
+      ],
+      []
+     ],
+     [
+      "12:15",
+      "fear_anxiety",
+      4,
+      0.0,
+      [
+       "fear_anxiety"
+      ],
+      []
+     ],
+     [
+      "6:34",
+      "fear_anxiety",
+      5,
+      0.0,
+      [
+       "fear_anxiety"
+      ],
+      []
+     ]
+    ],
+    "quran": [
+     [
+      "20:46",
+      "fear_anxiety",
+      1,
+      0.0,
+      [
+       "fear_anxiety"
+      ],
+      []
+     ],
+     [
+      "13:28",
+      "fear_anxiety",
+      2,
+      0.0,
+      [
+       "fear_anxiety"
+      ],
+      []
+     ],
+     [
+      "20:25",
+      "fear_anxiety",
+      3,
+      0.0,
+      [
+       "fear_anxiety"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Isaiah 41:10",
+      "fear_anxiety",
+      1,
+      0.0,
+      [
+       "fear_anxiety"
+      ],
+      []
+     ],
+     [
+      "1 Peter 5:7",
+      "fear_anxiety",
+      2,
+      0.0,
+      [
+       "fear_anxiety"
+      ],
+      []
+     ],
+     [
+      "Philippians 4:6",
+      "fear_anxiety",
+      3,
+      0.0,
+      [
+       "fear_anxiety"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "nobody appreciates my work",
+   "k": 3,
+   "words": [
+    "nobody",
+    "appreciates",
+    "my",
+    "work"
+   ],
+   "crisis_words": [
+    "nobody",
+    "appreciates",
+    "my",
+    "work"
+   ],
+   "theme_words": [
+    "nobody",
+    "appreciates",
+    "my",
+    "work"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "self_worth",
+     1.0
+    ]
+   ],
+   "notes": [
+    "self_worth"
+   ],
+   "terms": [
+    [
+     "thank",
+     0.8,
+     "appreciates"
+    ],
+    [
+     "reward",
+     0.8,
+     "appreciates"
+    ],
+    [
+     "recompense",
+     0.8,
+     "appreciates"
+    ],
+    [
+     "labour",
+     0.8,
+     "appreciates"
+    ],
+    [
+     "work",
+     1.0,
+     "work"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "17:70",
+      "self_worth",
+      1,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "93:3",
+      "self_worth",
+      2,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "95:4",
+      "self_worth",
+      3,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 139:14",
+      "self_worth",
+      1,
+      2.822,
+      [
+       "self_worth"
+      ],
+      [
+       "work"
+      ]
+     ],
+     [
+      "Isaiah 49:16",
+      "self_worth",
+      3,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Luke 12:7",
+      "self_worth",
+      4,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "the Lord is my shepherd",
+   "k": 3,
+   "words": [
+    "the",
+    "lord",
+    "is",
+    "my",
+    "shepherd"
+   ],
+   "crisis_words": [
+    "the",
+    "lord",
+    "is",
+    "my",
+    "shepherd"
+   ],
+   "theme_words": [
+    "the",
+    "lord",
+    "is",
+    "my",
+    "shepherd"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "doubt_faith",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "lord",
+     1.0,
+     "lord"
+    ],
+    [
+     "shepherd",
+     1.0,
+     "shepherd"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "6:30",
+      "doubt_faith",
+      1,
+      0.0,
+      [
+       "doubt_faith"
+      ],
+      []
+     ],
+     [
+      "13:28",
+      "doubt_faith",
+      null,
+      3.3594,
+      [
+       "doubt_faith"
+      ],
+      [
+       "lord"
+      ]
+     ],
+     [
+      "7:16",
+      "doubt_faith",
+      null,
+      3.2955,
+      [
+       "doubt_faith"
+      ],
+      [
+       "lord"
+      ]
+     ]
+    ],
+    "quran": [
+     [
+      "93:3",
+      "doubt_faith",
+      2,
+      2.4033,
+      [
+       "doubt_faith"
+      ],
+      [
+       "lord"
+      ]
+     ],
+     [
+      "13:28",
+      "doubt_faith",
+      3,
+      0.0,
+      [
+       "doubt_faith"
+      ],
+      []
+     ],
+     [
+      "3:8",
+      "doubt_faith",
+      4,
+      1.6102,
+      [
+       "doubt_faith"
+      ],
+      [
+       "lord"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Mark 9:24",
+      "doubt_faith",
+      1,
+      1.4852,
+      [
+       "doubt_faith"
+      ],
+      [
+       "lord"
+      ]
+     ],
+     [
+      "Psalms 145:18",
+      "doubt_faith",
+      2,
+      1.878,
+      [
+       "doubt_faith"
+      ],
+      [
+       "lord"
+      ]
+     ],
+     [
+      "Psalms 42:11",
+      "doubt_faith",
+      3,
+      0.0,
+      [
+       "doubt_faith"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "with hardship goeth ease",
+   "k": 3,
+   "words": [
+    "with",
+    "hardship",
+    "goeth",
+    "ease"
+   ],
+   "crisis_words": [
+    "with",
+    "hardship",
+    "goeth",
+    "ease"
+   ],
+   "theme_words": [
+    "with",
+    "hardship",
+    "goeth",
+    "ease"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "suffering_endurance",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "hardship",
+     1.0,
+     "hardship"
+    ],
+    [
+     "ease",
+     1.0,
+     "ease"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "94:5",
+      "suffering_endurance",
+      1,
+      11.4643,
+      [
+       "suffering_endurance"
+      ],
+      [
+       "hardship",
+       "ease"
+      ]
+     ],
+     [
+      "4:28",
+      "suffering_endurance",
+      2,
+      0.0,
+      [
+       "suffering_endurance"
+      ],
+      []
+     ],
+     [
+      "42:28",
+      "suffering_endurance",
+      3,
+      0.0,
+      [
+       "suffering_endurance"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 46:1",
+      "suffering_endurance",
+      1,
+      0.0,
+      [
+       "suffering_endurance"
+      ],
+      []
+     ],
+     [
+      "2 Corinthians 4:8",
+      "suffering_endurance",
+      2,
+      0.0,
+      [
+       "suffering_endurance"
+      ],
+      []
+     ],
+     [
+      "Psalms 34:18",
+      "suffering_endurance",
+      3,
+      0.0,
+      [
+       "suffering_endurance"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "God",
+   "k": 3,
+   "words": [
+    "god"
+   ],
+   "crisis_words": [
+    "god"
+   ],
+   "theme_words": [
+    "god"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "doubt_faith",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "god",
+     1.0,
+     "god"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "6:30",
+      "doubt_faith",
+      1,
+      3.7897,
+      [
+       "doubt_faith"
+      ],
+      [
+       "god"
+      ]
+     ],
+     [
+      "9:29",
+      "doubt_faith",
+      null,
+      4.4725,
+      [
+       "doubt_faith"
+      ],
+      [
+       "god"
+      ]
+     ],
+     [
+      "7:16",
+      "doubt_faith",
+      null,
+      0.0,
+      [
+       "doubt_faith"
+      ],
+      []
+     ]
+    ],
+    "quran": [
+     [
+      "93:3",
+      "doubt_faith",
+      2,
+      0.0,
+      [
+       "doubt_faith"
+      ],
+      []
+     ],
+     [
+      "13:28",
+      "doubt_faith",
+      3,
+      1.1313,
+      [
+       "doubt_faith"
+      ],
+      [
+       "god"
+      ]
+     ],
+     [
+      "3:8",
+      "doubt_faith",
+      4,
+      0.0,
+      [
+       "doubt_faith"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Mark 9:24",
+      "doubt_faith",
+      1,
+      0.0,
+      [
+       "doubt_faith"
+      ],
+      []
+     ],
+     [
+      "Psalms 145:18",
+      "doubt_faith",
+      2,
+      0.0,
+      [
+       "doubt_faith"
+      ],
+      []
+     ],
+     [
+      "Psalms 42:11",
+      "doubt_faith",
+      3,
+      2.4503,
+      [
+       "doubt_faith"
+      ],
+      [
+       "god"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "help",
+   "k": 3,
+   "words": [
+    "help"
+   ],
+   "crisis_words": [
+    "help"
+   ],
+   "theme_words": [
+    "help"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": true,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "help",
+     1.0,
+     "help"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "I just got promoted",
+   "k": 3,
+   "words": [
+    "i",
+    "just",
+    "got",
+    "promoted"
+   ],
+   "crisis_words": [
+    "i",
+    "just",
+    "got",
+    "promoted"
+   ],
+   "theme_words": [
+    "i",
+    "just",
+    "got",
+    "promoted"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "success",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [
+     [
+      "18:26",
+      "success",
+      1,
+      0.0,
+      [
+       "success"
+      ],
+      []
+     ],
+     [
+      "2:48",
+      "success",
+      2,
+      0.0,
+      [
+       "success"
+      ],
+      []
+     ],
+     [
+      "2:47",
+      "success",
+      3,
+      0.0,
+      [
+       "success"
+      ],
+      []
+     ]
+    ],
+    "quran": [
+     [
+      "87:14",
+      "success",
+      1,
+      0.0,
+      [
+       "success"
+      ],
+      []
+     ],
+     [
+      "62:10",
+      "success",
+      2,
+      0.0,
+      [
+       "success"
+      ],
+      []
+     ],
+     [
+      "3:104",
+      "success",
+      3,
+      0.0,
+      [
+       "success"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 90:17",
+      "success",
+      2,
+      0.0,
+      [
+       "success"
+      ],
+      []
+     ],
+     [
+      "Psalms 127:1",
+      "success",
+      3,
+      0.0,
+      [
+       "success"
+      ],
+      []
+     ],
+     [
+      "1 Corinthians 4:7",
+      "success",
+      4,
+      0.0,
+      [
+       "success"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I failed my exam",
+   "k": 3,
+   "words": [
+    "i",
+    "failed",
+    "my",
+    "exam"
+   ],
+   "crisis_words": [
+    "i",
+    "failed",
+    "my",
+    "exam"
+   ],
+   "theme_words": [
+    "i",
+    "failed",
+    "my",
+    "exam"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "failure",
+     1.0
+    ],
+    [
+     "wisdom_learning",
+     0.5
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "fail",
+     1.0,
+     "failed"
+    ],
+    [
+     "fall",
+     0.8,
+     "failed"
+    ],
+    [
+     "strength",
+     0.8,
+     "failed"
+    ],
+    [
+     "courage",
+     0.8,
+     "failed"
+    ],
+    [
+     "study",
+     0.8,
+     "exam"
+    ],
+    [
+     "knowledge",
+     0.8,
+     "exam"
+    ],
+    [
+     "learn",
+     0.8,
+     "exam"
+    ],
+    [
+     "wisdom",
+     0.8,
+     "exam"
+    ],
+    [
+     "understand",
+     0.8,
+     "exam"
+    ],
+    [
+     "diligent",
+     0.8,
+     "exam"
+    ],
+    [
+     "prove",
+     0.8,
+     "exam"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "2:48",
+      "failure",
+      1,
+      0.0,
+      [
+       "failure"
+      ],
+      []
+     ],
+     [
+      "2:47",
+      "failure",
+      2,
+      0.0,
+      [
+       "failure"
+      ],
+      []
+     ],
+     [
+      "18:26",
+      "failure",
+      3,
+      0.0,
+      [
+       "failure"
+      ],
+      []
+     ]
+    ],
+    "quran": [
+     [
+      "94:5",
+      "failure",
+      1,
+      0.0,
+      [
+       "failure"
+      ],
+      []
+     ],
+     [
+      "21:94",
+      "failure",
+      3,
+      0.0,
+      [
+       "failure"
+      ],
+      []
+     ],
+     [
+      "18:30",
+      "failure",
+      4,
+      0.0,
+      [
+       "failure"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 37:24",
+      "failure",
+      1,
+      4.159,
+      [
+       "failure"
+      ],
+      [
+       "fall"
+      ]
+     ],
+     [
+      "Micah 7:8",
+      "failure",
+      2,
+      4.0021,
+      [
+       "failure"
+      ],
+      [
+       "fall"
+      ]
+     ],
+     [
+      "Psalms 145:14",
+      "failure",
+      3,
+      4.3286,
+      [
+       "failure"
+      ],
+      [
+       "fall"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm gay",
+   "k": 3,
+   "words": [
+    "i",
+    "gay"
+   ],
+   "crisis_words": [
+    "i",
+    "gay"
+   ],
+   "theme_words": [
+    "i",
+    "gay"
+   ],
+   "category": "sensitive",
+   "topic": "sexuality_gender",
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "self_worth",
+     0.5
+    ],
+    [
+     "love_compassion",
+     0.5
+    ],
+    [
+     "loneliness",
+     0.5
+    ]
+   ],
+   "notes": [
+    "self_worth"
+   ],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "93:3",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "loneliness",
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "17:70",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "2:115",
+      "loneliness",
+      null,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 139:1",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "loneliness",
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Psalms 139:17",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth",
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "Luke 12:6",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm gay and my parents rejected me",
+   "k": 3,
+   "words": [
+    "i",
+    "gay",
+    "and",
+    "my",
+    "parents",
+    "rejected",
+    "me"
+   ],
+   "crisis_words": [
+    "i",
+    "gay",
+    "and",
+    "my",
+    "parents",
+    "rejected",
+    "me"
+   ],
+   "theme_words": [
+    "i",
+    "gay",
+    "and",
+    "my",
+    "parents",
+    "rejected",
+    "me"
+   ],
+   "category": "sensitive",
+   "topic": "sexuality_gender",
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "family_parents",
+     1.0
+    ],
+    [
+     "loneliness",
+     1.0
+    ],
+    [
+     "self_worth",
+     0.5
+    ],
+    [
+     "love_compassion",
+     0.5
+    ]
+   ],
+   "notes": [
+    "self_worth"
+   ],
+   "terms": [
+    [
+     "parent",
+     1.0,
+     "parents"
+    ],
+    [
+     "reject",
+     1.0,
+     "rejected"
+    ],
+    [
+     "despise",
+     0.8,
+     "rejected"
+    ],
+    [
+     "forsaken",
+     0.8,
+     "rejected"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "93:3",
+      "loneliness",
+      null,
+      5.5899,
+      [
+       "loneliness",
+       "self_worth"
+      ],
+      [
+       "forsaken"
+      ]
+     ],
+     [
+      "2:115",
+      "loneliness",
+      null,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "6:59",
+      "loneliness",
+      null,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 139:1",
+      "loneliness",
+      null,
+      0.0,
+      [
+       "loneliness",
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Psalms 139:17",
+      "loneliness",
+      null,
+      0.0,
+      [
+       "self_worth",
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "Deuteronomy 31:8",
+      "loneliness",
+      null,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I lost the pregnancy last week",
+   "k": 3,
+   "words": [
+    "i",
+    "lost",
+    "the",
+    "pregnancy",
+    "last",
+    "week"
+   ],
+   "crisis_words": [
+    "i",
+    "lost",
+    "the",
+    "pregnancy",
+    "last",
+    "week"
+   ],
+   "theme_words": [
+    "i",
+    "lost",
+    "the",
+    "pregnancy",
+    "last",
+    "week"
+   ],
+   "category": "sensitive",
+   "topic": "pregnancy",
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "grief",
+     0.5
+    ],
+    [
+     "hope",
+     0.5
+    ],
+    [
+     "love_compassion",
+     0.5
+    ]
+   ],
+   "notes": [
+    "grief"
+   ],
+   "terms": [
+    [
+     "lost",
+     1.0,
+     "lost"
+    ],
+    [
+     "child",
+     0.8,
+     "pregnancy"
+    ],
+    [
+     "bear",
+     0.8,
+     "pregnancy"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "94:5",
+      "grief",
+      null,
+      0.0,
+      [
+       "hope",
+       "grief"
+      ],
+      []
+     ],
+     [
+      "93:3",
+      "grief",
+      null,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "42:28",
+      "hope",
+      null,
+      0.0,
+      [
+       "hope"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Romans 12:15",
+      "grief",
+      null,
+      0.0,
+      [
+       "grief",
+       "love_compassion"
+      ],
+      []
+     ],
+     [
+      "Psalms 56:8",
+      "grief",
+      null,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Psalms 62:8",
+      "grief",
+      null,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm the only brown kid in my class",
+   "k": 3,
+   "words": [
+    "i",
+    "the",
+    "only",
+    "brown",
+    "kid",
+    "in",
+    "my",
+    "class"
+   ],
+   "crisis_words": [
+    "i",
+    "the",
+    "only",
+    "brown",
+    "kid",
+    "in",
+    "my",
+    "class"
+   ],
+   "theme_words": [
+    "i",
+    "the",
+    "only",
+    "brown",
+    "kid",
+    "in",
+    "my",
+    "class"
+   ],
+   "category": "sensitive",
+   "topic": "race",
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "self_worth",
+     1.0
+    ],
+    [
+     "justice_wronged",
+     0.5
+    ],
+    [
+     "love_compassion",
+     0.5
+    ]
+   ],
+   "notes": [
+    "self_worth"
+   ],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "17:70",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "93:3",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "28:5",
+      "justice_wronged",
+      null,
+      0.0,
+      [
+       "justice_wronged"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 139:1",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Psalms 139:17",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Luke 12:6",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm blind",
+   "k": 3,
+   "words": [
+    "i",
+    "blind"
+   ],
+   "crisis_words": [
+    "i",
+    "blind"
+   ],
+   "theme_words": [
+    "i",
+    "blind"
+   ],
+   "category": "sensitive",
+   "topic": "disability",
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "self_worth",
+     0.5
+    ],
+    [
+     "suffering_endurance",
+     0.5
+    ],
+    [
+     "hope",
+     0.5
+    ]
+   ],
+   "notes": [
+    "self_worth"
+   ],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "17:70",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "93:3",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "42:28",
+      "suffering_endurance",
+      null,
+      0.0,
+      [
+       "hope",
+       "suffering_endurance"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 139:1",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Psalms 139:17",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Luke 12:6",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my friend is Christian and I'm Muslim",
+   "k": 3,
+   "words": [
+    "my",
+    "friend",
+    "is",
+    "christian",
+    "and",
+    "i",
+    "muslim"
+   ],
+   "crisis_words": [
+    "my",
+    "friend",
+    "is",
+    "christian",
+    "and",
+    "i",
+    "muslim"
+   ],
+   "theme_words": [
+    "my",
+    "friend",
+    "is",
+    "christian",
+    "and",
+    "i",
+    "muslim"
+   ],
+   "category": "sensitive",
+   "topic": "religion",
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "friendship",
+     1.0
+    ],
+    [
+     "love_compassion",
+     0.5
+    ],
+    [
+     "kindness_strangers",
+     0.5
+    ],
+    [
+     "peace_of_mind",
+     0.5
+    ],
+    [
+     "loneliness",
+     0.5
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "friend",
+     1.0,
+     "friend"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "17:15",
+      "kindness_strangers",
+      null,
+      0.0,
+      [
+       "kindness_strangers"
+      ],
+      []
+     ]
+    ],
+    "quran": [
+     [
+      "28:24",
+      "kindness_strangers",
+      null,
+      0.0,
+      [
+       "loneliness",
+       "kindness_strangers"
+      ],
+      []
+     ],
+     [
+      "2:115",
+      "peace_of_mind",
+      null,
+      0.0,
+      [
+       "loneliness",
+       "peace_of_mind"
+      ],
+      []
+     ],
+     [
+      "6:59",
+      "peace_of_mind",
+      null,
+      0.0,
+      [
+       "loneliness",
+       "peace_of_mind"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Romans 12:15",
+      "friendship",
+      null,
+      0.0,
+      [
+       "friendship",
+       "love_compassion"
+      ],
+      []
+     ],
+     [
+      "Psalms 145:9",
+      "love_compassion",
+      null,
+      0.0,
+      [
+       "love_compassion"
+      ],
+      []
+     ],
+     [
+      "Isaiah 54:10",
+      "love_compassion",
+      null,
+      0.0,
+      [
+       "love_compassion"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I hate my body",
+   "k": 3,
+   "words": [
+    "i",
+    "hate",
+    "my",
+    "body"
+   ],
+   "crisis_words": [
+    "i",
+    "hate",
+    "my",
+    "body"
+   ],
+   "theme_words": [
+    "i",
+    "hate",
+    "my",
+    "body"
+   ],
+   "category": "sensitive",
+   "topic": "eating_body",
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "self_worth",
+     0.5
+    ],
+    [
+     "love_compassion",
+     0.5
+    ],
+    [
+     "peace_of_mind",
+     0.5
+    ]
+   ],
+   "notes": [
+    "self_worth"
+   ],
+   "terms": [
+    [
+     "hate",
+     1.0,
+     "hate"
+    ],
+    [
+     "body",
+     1.0,
+     "body"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "93:3",
+      "self_worth",
+      null,
+      6.9874,
+      [
+       "self_worth"
+      ],
+      [
+       "hate"
+      ]
+     ],
+     [
+      "17:70",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "2:115",
+      "peace_of_mind",
+      null,
+      0.0,
+      [
+       "peace_of_mind"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 139:1",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Psalms 139:17",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Luke 12:6",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm from a different caste",
+   "k": 3,
+   "words": [
+    "i",
+    "from",
+    "a",
+    "different",
+    "caste"
+   ],
+   "crisis_words": [
+    "i",
+    "from",
+    "a",
+    "different",
+    "caste"
+   ],
+   "theme_words": [
+    "i",
+    "from",
+    "a",
+    "different",
+    "caste"
+   ],
+   "category": "sensitive",
+   "topic": "caste",
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "self_worth",
+     0.5
+    ],
+    [
+     "justice_wronged",
+     0.5
+    ],
+    [
+     "love_compassion",
+     0.5
+    ]
+   ],
+   "notes": [
+    "self_worth"
+   ],
+   "terms": [
+    [
+     "different",
+     1.0,
+     "different"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "17:70",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "93:3",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "28:5",
+      "justice_wronged",
+      null,
+      0.0,
+      [
+       "justice_wronged"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 139:1",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Psalms 139:17",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Luke 12:6",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I want to die",
+   "k": 3,
+   "words": [
+    "i",
+    "want",
+    "to",
+    "die"
+   ],
+   "crisis_words": [
+    "i",
+    "want",
+    "to",
+    "die"
+   ],
+   "theme_words": [
+    "i",
+    "want",
+    "to",
+    "die"
+   ],
+   "category": "crisis",
+   "topic": "suicide",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "life",
+     0.8,
+     "want to die"
+    ],
+    [
+     "hope",
+     0.8,
+     "want to die"
+    ],
+    [
+     "despair",
+     0.8,
+     "want to die"
+    ],
+    [
+     "soul",
+     0.8,
+     "want to die"
+    ],
+    [
+     "mercy",
+     0.8,
+     "want to die"
+    ],
+    [
+     "comfort",
+     0.8,
+     "want to die"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "my husband hits me",
+   "k": 3,
+   "words": [
+    "my",
+    "husband",
+    "hits",
+    "me"
+   ],
+   "crisis_words": [
+    "my",
+    "husband",
+    "hits",
+    "me"
+   ],
+   "theme_words": [
+    "my",
+    "husband",
+    "hits",
+    "me"
+   ],
+   "category": "crisis",
+   "topic": "abuse",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "husband",
+     1.0,
+     "husband"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "thinking of jumping off the roof",
+   "k": 3,
+   "words": [
+    "thinking",
+    "of",
+    "jumping",
+    "off",
+    "the",
+    "roof"
+   ],
+   "crisis_words": [
+    "thinking",
+    "of",
+    "jumping",
+    "off",
+    "the",
+    "roof"
+   ],
+   "theme_words": [
+    "thinking",
+    "of",
+    "jumping",
+    "off",
+    "the",
+    "roof"
+   ],
+   "category": "crisis",
+   "topic": "suicide",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "I've been cutting again",
+   "k": 3,
+   "words": [
+    "i",
+    "been",
+    "cutting",
+    "again"
+   ],
+   "crisis_words": [
+    "i",
+    "been",
+    "cutting",
+    "again"
+   ],
+   "theme_words": [
+    "i",
+    "been",
+    "cutting",
+    "again"
+   ],
+   "category": "crisis",
+   "topic": "self_harm",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "cut",
+     1.0,
+     "cutting"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "I want to kil myself",
+   "k": 3,
+   "words": [
+    "i",
+    "want",
+    "to",
+    "kil",
+    "myself"
+   ],
+   "crisis_words": [
+    "i",
+    "want",
+    "to",
+    "kil",
+    "myself"
+   ],
+   "theme_words": [
+    "i",
+    "want",
+    "to",
+    "kil",
+    "myself"
+   ],
+   "category": "crisis",
+   "topic": "suicide",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "i dont want to be here anymore",
+   "k": 3,
+   "words": [
+    "i",
+    "do",
+    "not",
+    "want",
+    "to",
+    "be",
+    "here",
+    "anymore"
+   ],
+   "crisis_words": [
+    "i",
+    "do",
+    "not",
+    "want",
+    "to",
+    "be",
+    "here",
+    "anymore"
+   ],
+   "theme_words": [
+    "i",
+    "do",
+    "not",
+    "want",
+    "to",
+    "be",
+    "here",
+    "anymore"
+   ],
+   "category": "crisis",
+   "topic": "suicide",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "I'm going to kill that guy",
+   "k": 3,
+   "words": [
+    "i",
+    "going",
+    "to",
+    "kill",
+    "that",
+    "guy"
+   ],
+   "crisis_words": [
+    "i",
+    "going",
+    "to",
+    "kill",
+    "that",
+    "guy"
+   ],
+   "theme_words": [
+    "i",
+    "going",
+    "to",
+    "kill",
+    "that",
+    "guy"
+   ],
+   "category": "crisis",
+   "topic": "harm_to_others",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "sucidal thoughts",
+   "k": 3,
+   "words": [
+    "sucidal",
+    "thoughts"
+   ],
+   "crisis_words": [
+    "suicidal",
+    "thoughts"
+   ],
+   "theme_words": [
+    "sucidal",
+    "thoughts"
+   ],
+   "category": "crisis",
+   "topic": "suicide",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "thought",
+     1.0,
+     "thoughts"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "my stepdad comes into my room at night",
+   "k": 3,
+   "words": [
+    "my",
+    "stepdad",
+    "comes",
+    "into",
+    "my",
+    "room",
+    "at",
+    "night"
+   ],
+   "crisis_words": [
+    "my",
+    "stepdad",
+    "comes",
+    "into",
+    "my",
+    "room",
+    "at",
+    "night"
+   ],
+   "theme_words": [
+    "my",
+    "stepdad",
+    "comes",
+    "into",
+    "my",
+    "room",
+    "at",
+    "night"
+   ],
+   "category": "crisis",
+   "topic": "abuse",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "night",
+     1.0,
+     "night"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "I took a bunch of pills last night on purpose",
+   "k": 3,
+   "words": [
+    "i",
+    "took",
+    "a",
+    "bunch",
+    "of",
+    "pills",
+    "last",
+    "night",
+    "on",
+    "purpose"
+   ],
+   "crisis_words": [
+    "i",
+    "took",
+    "a",
+    "bunch",
+    "of",
+    "pills",
+    "last",
+    "night",
+    "on",
+    "purpose"
+   ],
+   "theme_words": [
+    "i",
+    "took",
+    "a",
+    "bunch",
+    "of",
+    "pills",
+    "last",
+    "night",
+    "on",
+    "purpose"
+   ],
+   "category": "crisis",
+   "topic": "suicide",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "took",
+     1.0,
+     "took"
+    ],
+    [
+     "night",
+     1.0,
+     "night"
+    ],
+    [
+     "purpose",
+     1.0,
+     "purpose"
+    ],
+    [
+     "vain",
+     0.8,
+     "purpose"
+    ],
+    [
+     "create",
+     0.8,
+     "purpose"
+    ],
+    [
+     "call",
+     0.8,
+     "purpose"
+    ],
+    [
+     "duty",
+     0.8,
+     "purpose"
+    ],
+    [
+     "work",
+     0.8,
+     "purpose"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "I'm killing it at work",
+   "k": 3,
+   "words": [
+    "i",
+    "killing",
+    "it",
+    "at",
+    "work"
+   ],
+   "crisis_words": [
+    "i",
+    "",
+    "",
+    "at",
+    "work"
+   ],
+   "theme_words": [
+    "i",
+    "killing",
+    "it",
+    "at",
+    "work"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "success",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "work",
+     1.0,
+     "work"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "18:26",
+      "success",
+      1,
+      1.5706,
+      [
+       "success"
+      ],
+      [
+       "work"
+      ]
+     ],
+     [
+      "2:48",
+      "success",
+      2,
+      1.4966,
+      [
+       "success"
+      ],
+      [
+       "work"
+      ]
+     ],
+     [
+      "2:47",
+      "success",
+      3,
+      1.6311,
+      [
+       "success"
+      ],
+      [
+       "work"
+      ]
+     ]
+    ],
+    "quran": [
+     [
+      "87:14",
+      "success",
+      1,
+      0.0,
+      [
+       "success"
+      ],
+      []
+     ],
+     [
+      "62:10",
+      "success",
+      2,
+      2.0243,
+      [
+       "success"
+      ],
+      [
+       "work"
+      ]
+     ],
+     [
+      "3:104",
+      "success",
+      3,
+      0.0,
+      [
+       "success"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 90:17",
+      "success",
+      2,
+      4.436,
+      [
+       "success"
+      ],
+      [
+       "work"
+      ]
+     ],
+     [
+      "Psalms 127:1",
+      "success",
+      3,
+      2.1061,
+      [
+       "success"
+      ],
+      [
+       "work"
+      ]
+     ],
+     [
+      "1 Corinthians 4:7",
+      "success",
+      4,
+      0.0,
+      [
+       "success"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I could murder a pizza",
+   "k": 3,
+   "words": [
+    "i",
+    "could",
+    "murder",
+    "a",
+    "pizza"
+   ],
+   "crisis_words": [
+    "i",
+    "could",
+    "murder",
+    "a",
+    "pizza"
+   ],
+   "theme_words": [
+    "i",
+    "could",
+    "murder",
+    "a",
+    "pizza"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": true,
+   "themes": [],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "I'm dead tired",
+   "k": 3,
+   "words": [
+    "i",
+    "dead",
+    "tired"
+   ],
+   "crisis_words": [
+    "i",
+    "",
+    ""
+   ],
+   "theme_words": [
+    "i",
+    "dead",
+    "tired"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "overwork_rest",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "weary",
+     0.8,
+     "tired"
+    ],
+    [
+     "faint",
+     0.8,
+     "tired"
+    ],
+    [
+     "rest",
+     0.8,
+     "tired"
+    ],
+    [
+     "labour",
+     0.8,
+     "tired"
+    ],
+    [
+     "strength",
+     0.8,
+     "tired"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "20:26",
+      "overwork_rest",
+      1,
+      2.8369,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest"
+      ]
+     ],
+     [
+      "78:9",
+      "overwork_rest",
+      2,
+      3.641,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest"
+      ]
+     ],
+     [
+      "10:67",
+      "overwork_rest",
+      3,
+      3.5293,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Isaiah 40:29",
+      "overwork_rest",
+      2,
+      10.4625,
+      [
+       "overwork_rest"
+      ],
+      [
+       "faint",
+       "rest",
+       "strength"
+      ]
+     ],
+     [
+      "Jeremiah 31:25",
+      "overwork_rest",
+      4,
+      7.2544,
+      [
+       "overwork_rest"
+      ],
+      [
+       "weary",
+       "rest"
+      ]
+     ],
+     [
+      "Matthew 11:30",
+      "overwork_rest",
+      5,
+      3.3212,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I bombed my presentation",
+   "k": 3,
+   "words": [
+    "i",
+    "bombed",
+    "my",
+    "presentation"
+   ],
+   "crisis_words": [
+    "i",
+    "bombed",
+    "my",
+    "presentation"
+   ],
+   "theme_words": [
+    "i",
+    "bombed",
+    "my",
+    "presentation"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "courage",
+     1.0
+    ],
+    [
+     "failure",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [
+     [
+      "2:48",
+      "failure",
+      1,
+      0.0,
+      [
+       "failure"
+      ],
+      []
+     ],
+     [
+      "2:47",
+      "failure",
+      2,
+      0.0,
+      [
+       "failure"
+      ],
+      []
+     ],
+     [
+      "18:26",
+      "failure",
+      3,
+      0.0,
+      [
+       "failure"
+      ],
+      []
+     ]
+    ],
+    "quran": [
+     [
+      "20:27",
+      "courage",
+      5,
+      0.0,
+      [
+       "courage"
+      ],
+      []
+     ],
+     [
+      "28:21",
+      "courage",
+      null,
+      0.0,
+      [
+       "courage"
+      ],
+      []
+     ],
+     [
+      "47:7",
+      "courage",
+      null,
+      0.0,
+      [
+       "courage"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 27:1",
+      "courage",
+      4,
+      0.0,
+      [
+       "courage"
+      ],
+      []
+     ],
+     [
+      "Psalms 16:8",
+      "courage",
+      null,
+      0.0,
+      [
+       "courage"
+      ],
+      []
+     ],
+     [
+      "Psalms 18:2",
+      "courage",
+      null,
+      0.0,
+      [
+       "courage"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my brother beat me at chess",
+   "k": 3,
+   "words": [
+    "my",
+    "brother",
+    "beat",
+    "me",
+    "at",
+    "chess"
+   ],
+   "crisis_words": [
+    "my",
+    "brother",
+    "",
+    "",
+    "",
+    "chess"
+   ],
+   "theme_words": [
+    "my",
+    "brother",
+    "beat",
+    "me",
+    "at",
+    "chess"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "family_parents",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "brother",
+     1.0,
+     "brother"
+    ],
+    [
+     "beat",
+     1.0,
+     "beat"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": [
+     [
+      "Proverbs 15:17",
+      "family_parents",
+      3,
+      0.0,
+      [
+       "family_parents"
+      ],
+      []
+     ],
+     [
+      "Proverbs 24:3",
+      "family_parents",
+      4,
+      0.0,
+      [
+       "family_parents"
+      ],
+      []
+     ],
+     [
+      "Psalms 68:5",
+      "family_parents",
+      null,
+      0.0,
+      [
+       "family_parents"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I need to cut back on sugar",
+   "k": 3,
+   "words": [
+    "i",
+    "need",
+    "to",
+    "cut",
+    "back",
+    "on",
+    "sugar"
+   ],
+   "crisis_words": [
+    "i",
+    "need",
+    "to",
+    "",
+    "",
+    "on",
+    "sugar"
+   ],
+   "theme_words": [
+    "i",
+    "need",
+    "to",
+    "cut",
+    "back",
+    "on",
+    "sugar"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "temptation_self_control",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "need",
+     1.0,
+     "need"
+    ],
+    [
+     "cut",
+     1.0,
+     "cut"
+    ],
+    [
+     "back",
+     1.0,
+     "back"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "6:26",
+      "temptation_self_control",
+      1,
+      2.8453,
+      [
+       "temptation_self_control"
+      ],
+      [
+       "back"
+      ]
+     ],
+     [
+      "2:60",
+      "temptation_self_control",
+      2,
+      0.0,
+      [
+       "temptation_self_control"
+      ],
+      []
+     ],
+     [
+      "2:58",
+      "temptation_self_control",
+      3,
+      2.9535,
+      [
+       "temptation_self_control"
+      ],
+      [
+       "back"
+      ]
+     ]
+    ],
+    "quran": [],
+    "bible": [
+     [
+      "Psalms 51:10",
+      "temptation_self_control",
+      2,
+      0.0,
+      [
+       "temptation_self_control"
+      ],
+      []
+     ],
+     [
+      "Hebrews 4:15",
+      "temptation_self_control",
+      3,
+      0.0,
+      [
+       "temptation_self_control"
+      ],
+      []
+     ],
+     [
+      "Proverbs 4:23",
+      "temptation_self_control",
+      4,
+      0.0,
+      [
+       "temptation_self_control"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my dog was put down",
+   "k": 3,
+   "words": [
+    "my",
+    "dog",
+    "was",
+    "put",
+    "down"
+   ],
+   "crisis_words": [
+    "my",
+    "dog",
+    "was",
+    "put",
+    "down"
+   ],
+   "theme_words": [
+    "my",
+    "dog",
+    "was",
+    "put",
+    "down"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "grief",
+     1.0
+    ]
+   ],
+   "notes": [
+    "grief"
+   ],
+   "terms": [
+    [
+     "put",
+     1.0,
+     "put"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "12:86",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "13:28",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "10:57",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 34:18",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Matthew 5:4",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Psalms 147:3",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I don't want to die",
+   "k": 3,
+   "words": [
+    "i",
+    "do",
+    "not",
+    "want",
+    "to",
+    "die"
+   ],
+   "crisis_words": [
+    "i",
+    "do",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "theme_words": [
+    "i",
+    "do",
+    "not",
+    "want",
+    "to",
+    "die"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": true,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "life",
+     0.8,
+     "want to die"
+    ],
+    [
+     "hope",
+     0.8,
+     "want to die"
+    ],
+    [
+     "despair",
+     0.8,
+     "want to die"
+    ],
+    [
+     "soul",
+     0.8,
+     "want to die"
+    ],
+    [
+     "mercy",
+     0.8,
+     "want to die"
+    ],
+    [
+     "comfort",
+     0.8,
+     "want to die"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "xyzzy",
+   "k": 3,
+   "words": [
+    "xyzzy"
+   ],
+   "crisis_words": [
+    "xyzzy"
+   ],
+   "theme_words": [
+    "xyzzy"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": true,
+   "themes": [],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "!!!",
+   "k": 3,
+   "words": [],
+   "crisis_words": [],
+   "theme_words": [],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": true,
+   "themes": [],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "",
+   "k": 3,
+   "words": [],
+   "crisis_words": [],
+   "theme_words": [],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": true,
+   "themes": [],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "the and of unto",
+   "k": 3,
+   "words": [
+    "the",
+    "and",
+    "of",
+    "unto"
+   ],
+   "crisis_words": [
+    "the",
+    "and",
+    "of",
+    "unto"
+   ],
+   "theme_words": [
+    "the",
+    "and",
+    "of",
+    "unto"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": true,
+   "themes": [],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "i'm so lonley these days",
+   "k": 3,
+   "words": [
+    "i",
+    "so",
+    "lonley",
+    "these",
+    "days"
+   ],
+   "crisis_words": [
+    "i",
+    "so",
+    "lonley",
+    "these",
+    "days"
+   ],
+   "theme_words": [
+    "i",
+    "so",
+    "lonely",
+    "these",
+    "days"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "loneliness",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "day",
+     1.0,
+     "days"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "57:4",
+      "loneliness",
+      1,
+      2.7385,
+      [
+       "loneliness"
+      ],
+      [
+       "day"
+      ]
+     ],
+     [
+      "50:16",
+      "loneliness",
+      2,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "93:3",
+      "loneliness",
+      3,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Deuteronomy 31:8",
+      "loneliness",
+      1,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "Matthew 28:20",
+      "loneliness",
+      2,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "Isaiah 41:10",
+      "loneliness",
+      3,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "i keep procrastinting",
+   "k": 3,
+   "words": [
+    "i",
+    "keep",
+    "procrastinting"
+   ],
+   "crisis_words": [
+    "i",
+    "keep",
+    "procrastinting"
+   ],
+   "theme_words": [
+    "i",
+    "keep",
+    "procrastinting"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": true,
+   "themes": [],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "naïve café owner, so stressed about money",
+   "k": 3,
+   "words": [
+    "na",
+    "ve",
+    "caf",
+    "owner",
+    "so",
+    "stressed",
+    "about",
+    "money"
+   ],
+   "crisis_words": [
+    "na",
+    "ve",
+    "caf",
+    "owner",
+    "so",
+    "stressed",
+    "about",
+    "money"
+   ],
+   "theme_words": [
+    "na",
+    "ve",
+    "caf",
+    "owner",
+    "so",
+    "stressed",
+    "about",
+    "money"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "fear_anxiety",
+     1.0
+    ],
+    [
+     "money_worry",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "owner",
+     1.0,
+     "owner"
+    ],
+    [
+     "trouble",
+     0.8,
+     "stressed"
+    ],
+    [
+     "burden",
+     0.8,
+     "stressed"
+    ],
+    [
+     "weary",
+     0.8,
+     "stressed"
+    ],
+    [
+     "careful",
+     0.8,
+     "stressed"
+    ],
+    [
+     "distress",
+     0.8,
+     "stressed"
+    ],
+    [
+     "anxiety",
+     0.8,
+     "stressed"
+    ],
+    [
+     "silver",
+     0.8,
+     "money"
+    ],
+    [
+     "gold",
+     0.8,
+     "money"
+    ],
+    [
+     "rich",
+     0.8,
+     "money"
+    ],
+    [
+     "wealth",
+     0.8,
+     "money"
+    ],
+    [
+     "treasure",
+     0.8,
+     "money"
+    ],
+    [
+     "money",
+     1.0,
+     "money"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "2:40",
+      "fear_anxiety",
+      1,
+      2.2003,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ],
+     [
+      "12:15",
+      "fear_anxiety",
+      4,
+      2.6433,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ],
+     [
+      "6:34",
+      "fear_anxiety",
+      5,
+      2.0794,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ]
+    ],
+    "quran": [
+     [
+      "20:46",
+      "fear_anxiety",
+      1,
+      2.5086,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ],
+     [
+      "13:28",
+      "fear_anxiety",
+      2,
+      2.0515,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ],
+     [
+      "20:25",
+      "fear_anxiety",
+      3,
+      2.5086,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Isaiah 41:10",
+      "fear_anxiety",
+      1,
+      1.8145,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ],
+     [
+      "1 Peter 5:7",
+      "fear_anxiety",
+      2,
+      2.2623,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "anxiety"
+      ]
+     ],
+     [
+      "Philippians 4:6",
+      "fear_anxiety",
+      3,
+      5.4396,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "careful",
+       "anxiety"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I’m grateful — truly",
+   "k": 3,
+   "words": [
+    "i",
+    "grateful",
+    "truly"
+   ],
+   "crisis_words": [
+    "i",
+    "grateful",
+    "truly"
+   ],
+   "theme_words": [
+    "i",
+    "grateful",
+    "truly"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "gratitude",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "thank",
+     0.8,
+     "grateful"
+    ],
+    [
+     "thankful",
+     0.8,
+     "grateful"
+    ],
+    [
+     "thanksgiving",
+     0.8,
+     "grateful"
+    ],
+    [
+     "praise",
+     0.8,
+     "grateful"
+    ],
+    [
+     "bounty",
+     0.8,
+     "grateful"
+    ],
+    [
+     "favour",
+     0.8,
+     "grateful"
+    ],
+    [
+     "grateful",
+     1.0,
+     "grateful"
+    ],
+    [
+     "truly",
+     1.0,
+     "truly"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "16:18",
+      "gratitude",
+      1,
+      3.6717,
+      [
+       "gratitude"
+      ],
+      [
+       "favour"
+      ]
+     ],
+     [
+      "2:152",
+      "gratitude",
+      2,
+      3.6456,
+      [
+       "gratitude"
+      ],
+      [
+       "thank"
+      ]
+     ],
+     [
+      "93:11",
+      "gratitude",
+      3,
+      3.2817,
+      [
+       "gratitude"
+      ],
+      [
+       "bounty"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 107:1",
+      "gratitude",
+      1,
+      4.9433,
+      [
+       "gratitude"
+      ],
+      [
+       "thank"
+      ]
+     ],
+     [
+      "1 Thessalonians 5:18",
+      "gratitude",
+      2,
+      5.3824,
+      [
+       "gratitude"
+      ],
+      [
+       "thank"
+      ]
+     ],
+     [
+      "Psalms 103:2",
+      "gratitude",
+      3,
+      0.0,
+      [
+       "gratitude"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "我很难过 lonely",
+   "k": 3,
+   "words": [
+    "lonely"
+   ],
+   "crisis_words": [
+    "lonely"
+   ],
+   "theme_words": [
+    "lonely"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "loneliness",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "alone",
+     0.8,
+     "lonely"
+    ],
+    [
+     "desolate",
+     0.8,
+     "lonely"
+    ],
+    [
+     "forsaken",
+     0.8,
+     "lonely"
+    ],
+    [
+     "friend",
+     0.8,
+     "lonely"
+    ],
+    [
+     "forsake",
+     0.8,
+     "lonely"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "57:4",
+      "loneliness",
+      1,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "50:16",
+      "loneliness",
+      2,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "93:3",
+      "loneliness",
+      3,
+      5.5899,
+      [
+       "loneliness"
+      ],
+      [
+       "forsaken"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Deuteronomy 31:8",
+      "loneliness",
+      1,
+      4.4812,
+      [
+       "loneliness"
+      ],
+      [
+       "forsake"
+      ]
+     ],
+     [
+      "Matthew 28:20",
+      "loneliness",
+      2,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "Isaiah 41:10",
+      "loneliness",
+      3,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "ich bin traurig",
+   "k": 3,
+   "words": [
+    "ich",
+    "bin",
+    "traurig"
+   ],
+   "crisis_words": [
+    "ich",
+    "bin",
+    "traurig"
+   ],
+   "theme_words": [
+    "ich",
+    "bin",
+    "traurig"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": true,
+   "themes": [],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "just feeling really grateful today for my family and health",
+   "k": 3,
+   "words": [
+    "just",
+    "feeling",
+    "really",
+    "grateful",
+    "today",
+    "for",
+    "my",
+    "family",
+    "and",
+    "health"
+   ],
+   "crisis_words": [
+    "just",
+    "feeling",
+    "really",
+    "grateful",
+    "today",
+    "for",
+    "my",
+    "family",
+    "and",
+    "health"
+   ],
+   "theme_words": [
+    "just",
+    "feeling",
+    "really",
+    "grateful",
+    "today",
+    "for",
+    "my",
+    "family",
+    "and",
+    "health"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "gratitude",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "thank",
+     0.8,
+     "grateful"
+    ],
+    [
+     "thankful",
+     0.8,
+     "grateful"
+    ],
+    [
+     "thanksgiving",
+     0.8,
+     "grateful"
+    ],
+    [
+     "praise",
+     0.8,
+     "grateful"
+    ],
+    [
+     "bounty",
+     0.8,
+     "grateful"
+    ],
+    [
+     "favour",
+     0.8,
+     "grateful"
+    ],
+    [
+     "grateful",
+     1.0,
+     "grateful"
+    ],
+    [
+     "family",
+     1.0,
+     "family"
+    ],
+    [
+     "health",
+     1.0,
+     "health"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "16:18",
+      "gratitude",
+      1,
+      3.6717,
+      [
+       "gratitude"
+      ],
+      [
+       "favour"
+      ]
+     ],
+     [
+      "2:152",
+      "gratitude",
+      2,
+      3.6456,
+      [
+       "gratitude"
+      ],
+      [
+       "thank"
+      ]
+     ],
+     [
+      "93:11",
+      "gratitude",
+      3,
+      3.2817,
+      [
+       "gratitude"
+      ],
+      [
+       "bounty"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 107:1",
+      "gratitude",
+      1,
+      4.9433,
+      [
+       "gratitude"
+      ],
+      [
+       "thank"
+      ]
+     ],
+     [
+      "1 Thessalonians 5:18",
+      "gratitude",
+      2,
+      5.3824,
+      [
+       "gratitude"
+      ],
+      [
+       "thank"
+      ]
+     ],
+     [
+      "Psalms 103:2",
+      "gratitude",
+      3,
+      0.0,
+      [
+       "gratitude"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "i have the pills in front of me right now",
+   "k": 3,
+   "words": [
+    "i",
+    "have",
+    "the",
+    "pills",
+    "in",
+    "front",
+    "of",
+    "me",
+    "right",
+    "now"
+   ],
+   "crisis_words": [
+    "i",
+    "have",
+    "the",
+    "pills",
+    "in",
+    "front",
+    "of",
+    "me",
+    "right",
+    "now"
+   ],
+   "theme_words": [
+    "i",
+    "have",
+    "the",
+    "pills",
+    "in",
+    "front",
+    "of",
+    "me",
+    "right",
+    "now"
+   ],
+   "category": "crisis",
+   "topic": "distress",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "front",
+     1.0,
+     "front"
+    ],
+    [
+     "now",
+     1.0,
+     "now"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "everyone would be better off without me",
+   "k": 3,
+   "words": [
+    "everyone",
+    "would",
+    "be",
+    "better",
+    "off",
+    "without",
+    "me"
+   ],
+   "crisis_words": [
+    "everyone",
+    "would",
+    "be",
+    "better",
+    "off",
+    "without",
+    "me"
+   ],
+   "theme_words": [
+    "everyone",
+    "would",
+    "be",
+    "better",
+    "off",
+    "without",
+    "me"
+   ],
+   "category": "crisis",
+   "topic": "suicide",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "better",
+     1.0,
+     "better"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "my boyfriend grabs me by the throat",
+   "k": 3,
+   "words": [
+    "my",
+    "boyfriend",
+    "grabs",
+    "me",
+    "by",
+    "the",
+    "throat"
+   ],
+   "crisis_words": [
+    "my",
+    "boyfriend",
+    "grabs",
+    "me",
+    "by",
+    "the",
+    "throat"
+   ],
+   "theme_words": [
+    "my",
+    "boyfriend",
+    "grabs",
+    "me",
+    "by",
+    "the",
+    "throat"
+   ],
+   "category": "crisis",
+   "topic": "distress",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "beloved",
+     0.8,
+     "boyfriend"
+    ],
+    [
+     "love",
+     0.8,
+     "boyfriend"
+    ],
+    [
+     "man",
+     0.8,
+     "boyfriend"
+    ],
+    [
+     "husband",
+     0.8,
+     "boyfriend"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "bringing a knife to school tomorrow",
+   "k": 3,
+   "words": [
+    "bringing",
+    "a",
+    "knife",
+    "to",
+    "school",
+    "tomorrow"
+   ],
+   "crisis_words": [
+    "bringing",
+    "a",
+    "knife",
+    "to",
+    "school",
+    "tomorrow"
+   ],
+   "theme_words": [
+    "bringing",
+    "a",
+    "knife",
+    "to",
+    "school",
+    "tomorrow"
+   ],
+   "category": "crisis",
+   "topic": "distress",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "bring",
+     1.0,
+     "bringing"
+    ],
+    [
+     "learn",
+     0.8,
+     "school"
+    ],
+    [
+     "instruction",
+     0.8,
+     "school"
+    ],
+    [
+     "young",
+     0.8,
+     "school"
+    ],
+    [
+     "knowledge",
+     0.8,
+     "school"
+    ],
+    [
+     "morrow",
+     0.8,
+     "tomorrow"
+    ],
+    [
+     "tomorrow",
+     1.0,
+     "tomorrow"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "tonight is the night i finally do it. im so tired",
+   "k": 3,
+   "words": [
+    "tonight",
+    "is",
+    "the",
+    "night",
+    "i",
+    "finally",
+    "do",
+    "it",
+    "i",
+    "so",
+    "tired"
+   ],
+   "crisis_words": [
+    "tonight",
+    "is",
+    "the",
+    "night",
+    "i",
+    "finally",
+    "do",
+    "it",
+    "i",
+    "so",
+    "tired"
+   ],
+   "theme_words": [
+    "tonight",
+    "is",
+    "the",
+    "night",
+    "i",
+    "finally",
+    "do",
+    "it",
+    "i",
+    "so",
+    "tired"
+   ],
+   "category": "crisis",
+   "topic": "distress",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "night",
+     1.0,
+     "night"
+    ],
+    [
+     "finally",
+     1.0,
+     "finally"
+    ],
+    [
+     "weary",
+     0.8,
+     "tired"
+    ],
+    [
+     "faint",
+     0.8,
+     "tired"
+    ],
+    [
+     "rest",
+     0.8,
+     "tired"
+    ],
+    [
+     "labour",
+     0.8,
+     "tired"
+    ],
+    [
+     "strength",
+     0.8,
+     "tired"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "my friend's husband died by suicide years ago",
+   "k": 3,
+   "words": [
+    "my",
+    "friend",
+    "husband",
+    "died",
+    "by",
+    "suicide",
+    "years",
+    "ago"
+   ],
+   "crisis_words": [
+    "my",
+    "friend",
+    "",
+    "",
+    "",
+    "",
+    "years",
+    "ago"
+   ],
+   "theme_words": [
+    "my",
+    "friend",
+    "husband",
+    "died",
+    "by",
+    "suicide",
+    "years",
+    "ago"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "grief",
+     1.0
+    ]
+   ],
+   "notes": [
+    "grief"
+   ],
+   "terms": [
+    [
+     "friend",
+     1.0,
+     "friend"
+    ],
+    [
+     "husband",
+     1.0,
+     "husband"
+    ],
+    [
+     "die",
+     1.0,
+     "died"
+    ],
+    [
+     "death",
+     0.8,
+     "died"
+    ],
+    [
+     "mourn",
+     0.8,
+     "died"
+    ],
+    [
+     "year",
+     1.0,
+     "years"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "12:86",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "13:28",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "10:57",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 34:18",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Matthew 5:4",
+      "grief",
+      2,
+      5.756,
+      [
+       "grief"
+      ],
+      [
+       "mourn"
+      ]
+     ],
+     [
+      "Psalms 147:3",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "lost my brother to suicide",
+   "k": 3,
+   "words": [
+    "lost",
+    "my",
+    "brother",
+    "to",
+    "suicide"
+   ],
+   "crisis_words": [
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "theme_words": [
+    "lost",
+    "my",
+    "brother",
+    "to",
+    "suicide"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "grief",
+     1.0
+    ]
+   ],
+   "notes": [
+    "grief"
+   ],
+   "terms": [
+    [
+     "lost",
+     1.0,
+     "lost"
+    ],
+    [
+     "brother",
+     1.0,
+     "brother"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "12:86",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "13:28",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "10:57",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 34:18",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Matthew 5:4",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Psalms 147:3",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my dad passed away and i want to die too",
+   "k": 3,
+   "words": [
+    "my",
+    "dad",
+    "passed",
+    "away",
+    "and",
+    "i",
+    "want",
+    "to",
+    "die",
+    "too"
+   ],
+   "crisis_words": [
+    "my",
+    "",
+    "",
+    "away",
+    "and",
+    "i",
+    "want",
+    "to",
+    "die",
+    "too"
+   ],
+   "theme_words": [
+    "my",
+    "dad",
+    "passed",
+    "away",
+    "and",
+    "i",
+    "want",
+    "to",
+    "die",
+    "too"
+   ],
+   "category": "crisis",
+   "topic": "suicide",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "father",
+     0.8,
+     "dad"
+    ],
+    [
+     "parent",
+     0.8,
+     "dad"
+    ],
+    [
+     "die",
+     0.8,
+     "passed away"
+    ],
+    [
+     "death",
+     0.8,
+     "passed away"
+    ],
+    [
+     "depart",
+     0.8,
+     "passed away"
+    ],
+    [
+     "sleep",
+     0.8,
+     "passed away"
+    ],
+    [
+     "mourn",
+     0.8,
+     "passed away"
+    ],
+    [
+     "life",
+     0.8,
+     "want to die"
+    ],
+    [
+     "hope",
+     0.8,
+     "want to die"
+    ],
+    [
+     "despair",
+     0.8,
+     "want to die"
+    ],
+    [
+     "soul",
+     0.8,
+     "want to die"
+    ],
+    [
+     "mercy",
+     0.8,
+     "want to die"
+    ],
+    [
+     "comfort",
+     0.8,
+     "want to die"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "my best friend's dad passed away from an overdose",
+   "k": 3,
+   "words": [
+    "my",
+    "best",
+    "friend",
+    "dad",
+    "passed",
+    "away",
+    "from",
+    "an",
+    "overdose"
+   ],
+   "crisis_words": [
+    "my",
+    "best",
+    "friend",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "theme_words": [
+    "my",
+    "best",
+    "friend",
+    "dad",
+    "passed",
+    "away",
+    "from",
+    "an",
+    "overdosed"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "grief",
+     1.0
+    ]
+   ],
+   "notes": [
+    "grief"
+   ],
+   "terms": [
+    [
+     "friend",
+     0.8,
+     "best friend"
+    ],
+    [
+     "brother",
+     0.8,
+     "best friend"
+    ],
+    [
+     "love",
+     0.8,
+     "best friend"
+    ],
+    [
+     "father",
+     0.8,
+     "dad"
+    ],
+    [
+     "parent",
+     0.8,
+     "dad"
+    ],
+    [
+     "die",
+     0.8,
+     "passed away"
+    ],
+    [
+     "death",
+     0.8,
+     "passed away"
+    ],
+    [
+     "depart",
+     0.8,
+     "passed away"
+    ],
+    [
+     "sleep",
+     0.8,
+     "passed away"
+    ],
+    [
+     "mourn",
+     0.8,
+     "passed away"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "12:86",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "13:28",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "10:57",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 34:18",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Matthew 5:4",
+      "grief",
+      2,
+      5.756,
+      [
+       "grief"
+      ],
+      [
+       "mourn"
+      ]
+     ],
+     [
+      "Psalms 147:3",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "this traffic is killing me",
+   "k": 3,
+   "words": [
+    "this",
+    "traffic",
+    "is",
+    "killing",
+    "me"
+   ],
+   "crisis_words": [
+    "this",
+    "traffic",
+    "is",
+    "",
+    ""
+   ],
+   "theme_words": [
+    "this",
+    "traffic",
+    "is",
+    "killing",
+    "me"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": true,
+   "themes": [],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "i could kill for a pizza",
+   "k": 3,
+   "words": [
+    "i",
+    "could",
+    "kill",
+    "for",
+    "a",
+    "pizza"
+   ],
+   "crisis_words": [
+    "i",
+    "could",
+    "",
+    "",
+    "",
+    "pizza"
+   ],
+   "theme_words": [
+    "i",
+    "could",
+    "kill",
+    "for",
+    "a",
+    "pizza"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": true,
+   "themes": [],
+   "notes": [],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "dying of laughter",
+   "k": 3,
+   "words": [
+    "dying",
+    "of",
+    "laughter"
+   ],
+   "crisis_words": [
+    "",
+    "",
+    ""
+   ],
+   "theme_words": [
+    "dying",
+    "of",
+    "laughter"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "illness",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "death",
+     0.8,
+     "dying"
+    ],
+    [
+     "die",
+     1.0,
+     "dying"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "21:83",
+      "illness",
+      1,
+      0.0,
+      [
+       "illness"
+      ],
+      []
+     ],
+     [
+      "4:28",
+      "illness",
+      2,
+      0.0,
+      [
+       "illness"
+      ],
+      []
+     ],
+     [
+      "26:80",
+      "illness",
+      3,
+      0.0,
+      [
+       "illness"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Jeremiah 17:14",
+      "illness",
+      1,
+      0.0,
+      [
+       "illness"
+      ],
+      []
+     ],
+     [
+      "Psalms 41:3",
+      "illness",
+      2,
+      0.0,
+      [
+       "illness"
+      ],
+      []
+     ],
+     [
+      "Isaiah 40:29",
+      "illness",
+      3,
+      0.0,
+      [
+       "illness"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "had to say goodbye to my dog of 14 years",
+   "k": 3,
+   "words": [
+    "had",
+    "to",
+    "say",
+    "goodbye",
+    "to",
+    "my",
+    "dog",
+    "of",
+    "years"
+   ],
+   "crisis_words": [
+    "had",
+    "to",
+    "say",
+    "goodbye",
+    "to",
+    "my",
+    "dog",
+    "of",
+    "fourteen",
+    "years"
+   ],
+   "theme_words": [
+    "had",
+    "to",
+    "say",
+    "goodbye",
+    "to",
+    "my",
+    "dog",
+    "of",
+    "years"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "grief",
+     1.0
+    ]
+   ],
+   "notes": [
+    "grief"
+   ],
+   "terms": [
+    [
+     "year",
+     1.0,
+     "years"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "12:86",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "13:28",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "10:57",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 34:18",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Matthew 5:4",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Psalms 147:3",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my 15 year old son wont talk to me, slams doors",
+   "k": 3,
+   "words": [
+    "my",
+    "year",
+    "old",
+    "son",
+    "wont",
+    "talk",
+    "to",
+    "me",
+    "slams",
+    "doors"
+   ],
+   "crisis_words": [
+    "my",
+    "fifteen",
+    "year",
+    "old",
+    "son",
+    "wont",
+    "talk",
+    "to",
+    "me",
+    "slams",
+    "doors"
+   ],
+   "theme_words": [
+    "my",
+    "year",
+    "old",
+    "son",
+    "wont",
+    "talk",
+    "to",
+    "me",
+    "slams",
+    "doors"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "parenting",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "year",
+     1.0,
+     "year"
+    ],
+    [
+     "old",
+     1.0,
+     "old"
+    ],
+    [
+     "son",
+     1.0,
+     "son"
+    ],
+    [
+     "talk",
+     1.0,
+     "talk"
+    ],
+    [
+     "door",
+     1.0,
+     "doors"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "14:40",
+      "parenting",
+      1,
+      0.0,
+      [
+       "parenting"
+      ],
+      []
+     ],
+     [
+      "12:67",
+      "parenting",
+      2,
+      5.0294,
+      [
+       "parenting"
+      ],
+      [
+       "son"
+      ]
+     ],
+     [
+      "31:16",
+      "parenting",
+      4,
+      3.2187,
+      [
+       "parenting"
+      ],
+      [
+       "son"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Isaiah 54:13",
+      "parenting",
+      1,
+      0.0,
+      [
+       "parenting"
+      ],
+      []
+     ],
+     [
+      "Psalms 103:13",
+      "parenting",
+      2,
+      0.0,
+      [
+       "parenting"
+      ],
+      []
+     ],
+     [
+      "1 Thessalonians 2:7",
+      "parenting",
+      3,
+      0.0,
+      [
+       "parenting"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "i want to be more generous but i dont have enough to give",
+   "k": 3,
+   "words": [
+    "i",
+    "want",
+    "to",
+    "be",
+    "more",
+    "generous",
+    "but",
+    "i",
+    "do",
+    "not",
+    "have",
+    "enough",
+    "to",
+    "give"
+   ],
+   "crisis_words": [
+    "i",
+    "want",
+    "to",
+    "be",
+    "more",
+    "generous",
+    "but",
+    "i",
+    "do",
+    "not",
+    "have",
+    "enough",
+    "to",
+    "give"
+   ],
+   "theme_words": [
+    "i",
+    "want",
+    "to",
+    "be",
+    "more",
+    "generous",
+    "but",
+    "i",
+    "do",
+    "not",
+    "have",
+    "enough",
+    "to",
+    "give"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "generosity",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "generous",
+     1.0,
+     "generous"
+    ],
+    [
+     "enough",
+     1.0,
+     "enough"
+    ],
+    [
+     "give",
+     1.0,
+     "give"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "2:261",
+      "generosity",
+      1,
+      2.6198,
+      [
+       "generosity"
+      ],
+      [
+       "give"
+      ]
+     ],
+     [
+      "34:39",
+      "generosity",
+      2,
+      0.0,
+      [
+       "generosity"
+      ],
+      []
+     ],
+     [
+      "3:92",
+      "generosity",
+      3,
+      2.3907,
+      [
+       "generosity"
+      ],
+      [
+       "give"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "2 Corinthians 9:7",
+      "generosity",
+      1,
+      3.1845,
+      [
+       "generosity"
+      ],
+      [
+       "give"
+      ]
+     ],
+     [
+      "Acts 20:35",
+      "generosity",
+      2,
+      3.3024,
+      [
+       "generosity"
+      ],
+      [
+       "give"
+      ]
+     ],
+     [
+      "Proverbs 11:25",
+      "generosity",
+      3,
+      5.6959,
+      [
+       "generosity"
+      ],
+      [
+       "generous"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my brother hurt me badly years ago and i want to forgive him",
+   "k": 3,
+   "words": [
+    "my",
+    "brother",
+    "hurt",
+    "me",
+    "badly",
+    "years",
+    "ago",
+    "and",
+    "i",
+    "want",
+    "to",
+    "forgive",
+    "him"
+   ],
+   "crisis_words": [
+    "my",
+    "brother",
+    "hurt",
+    "me",
+    "badly",
+    "years",
+    "ago",
+    "and",
+    "i",
+    "want",
+    "to",
+    "forgive",
+    "him"
+   ],
+   "theme_words": [
+    "my",
+    "brother",
+    "hurt",
+    "me",
+    "badly",
+    "years",
+    "ago",
+    "and",
+    "i",
+    "want",
+    "to",
+    "forgive",
+    "him"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "forgiveness",
+     1.0
+    ],
+    [
+     "family_parents",
+     0.6667
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "brother",
+     1.0,
+     "brother"
+    ],
+    [
+     "pain",
+     0.8,
+     "hurt me"
+    ],
+    [
+     "grief",
+     0.8,
+     "hurt me"
+    ],
+    [
+     "broken",
+     0.8,
+     "hurt me"
+    ],
+    [
+     "year",
+     1.0,
+     "years"
+    ],
+    [
+     "forgive",
+     1.0,
+     "forgive"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "59:10",
+      "forgiveness",
+      1,
+      6.8489,
+      [
+       "forgiveness"
+      ],
+      [
+       "brother",
+       "forgive"
+      ]
+     ],
+     [
+      "2:263",
+      "forgiveness",
+      4,
+      0.0,
+      [
+       "forgiveness"
+      ],
+      []
+     ],
+     [
+      "2:280",
+      "forgiveness",
+      null,
+      2.2561,
+      [
+       "forgiveness"
+      ],
+      [
+       "forgive"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "1 John 1:9",
+      "forgiveness",
+      3,
+      7.0018,
+      [
+       "forgiveness"
+      ],
+      [
+       "forgive"
+      ]
+     ],
+     [
+      "Psalms 103:8",
+      "forgiveness",
+      5,
+      0.0,
+      [
+       "forgiveness"
+      ],
+      []
+     ],
+     [
+      "Ephesians 4:32",
+      "forgiveness",
+      null,
+      6.8673,
+      [
+       "forgiveness"
+      ],
+      [
+       "forgive"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "a guy online wants to meet me, im 14",
+   "k": 3,
+   "words": [
+    "a",
+    "guy",
+    "online",
+    "wants",
+    "to",
+    "meet",
+    "me",
+    "i"
+   ],
+   "crisis_words": [
+    "a",
+    "guy",
+    "online",
+    "wants",
+    "to",
+    "meet",
+    "me",
+    "i",
+    "fourteen"
+   ],
+   "theme_words": [
+    "a",
+    "guy",
+    "online",
+    "wants",
+    "to",
+    "meet",
+    "me",
+    "i"
+   ],
+   "category": "crisis",
+   "topic": "distress",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "meet",
+     1.0,
+     "meet"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "my friend jumped off a building last week",
+   "k": 3,
+   "words": [
+    "my",
+    "friend",
+    "jumped",
+    "off",
+    "a",
+    "building",
+    "last",
+    "week"
+   ],
+   "crisis_words": [
+    "",
+    "",
+    "",
+    "",
+    "a",
+    "building",
+    "last",
+    "week"
+   ],
+   "theme_words": [
+    "my",
+    "friend",
+    "jumped",
+    "off",
+    "a",
+    "building",
+    "last",
+    "week"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "grief",
+     1.0
+    ]
+   ],
+   "notes": [
+    "grief"
+   ],
+   "terms": [
+    [
+     "friend",
+     1.0,
+     "friend"
+    ],
+    [
+     "build",
+     1.0,
+     "building"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "12:86",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "13:28",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "10:57",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 34:18",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Matthew 5:4",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Psalms 147:3",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "im pregnant and considering an abortion, im scared",
+   "k": 3,
+   "words": [
+    "i",
+    "pregnant",
+    "and",
+    "considering",
+    "an",
+    "abortion",
+    "i",
+    "scared"
+   ],
+   "crisis_words": [
+    "i",
+    "pregnant",
+    "and",
+    "considering",
+    "an",
+    "abortion",
+    "i",
+    "scared"
+   ],
+   "theme_words": [
+    "i",
+    "pregnant",
+    "and",
+    "considering",
+    "an",
+    "abortion",
+    "i",
+    "scared"
+   ],
+   "category": "sensitive",
+   "topic": "pregnancy",
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "fear_anxiety",
+     1.0
+    ],
+    [
+     "parenting",
+     1.0
+    ],
+    [
+     "grief",
+     0.5
+    ],
+    [
+     "hope",
+     0.5
+    ],
+    [
+     "love_compassion",
+     0.5
+    ]
+   ],
+   "notes": [
+    "grief"
+   ],
+   "terms": [
+    [
+     "child",
+     0.8,
+     "pregnant"
+    ],
+    [
+     "bear",
+     0.8,
+     "pregnant"
+    ],
+    [
+     "consider",
+     1.0,
+     "considering"
+    ],
+    [
+     "afraid",
+     0.8,
+     "scared"
+    ],
+    [
+     "fear",
+     0.8,
+     "scared"
+    ],
+    [
+     "terror",
+     0.8,
+     "scared"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "65:3",
+      "fear_anxiety",
+      null,
+      1.6834,
+      [
+       "hope",
+       "fear_anxiety"
+      ],
+      [
+       "fear"
+      ]
+     ],
+     [
+      "20:46",
+      "fear_anxiety",
+      null,
+      3.4597,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "fear"
+      ]
+     ],
+     [
+      "26:62",
+      "fear_anxiety",
+      null,
+      2.5031,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "fear"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 62:8",
+      "fear_anxiety",
+      null,
+      1.6829,
+      [
+       "fear_anxiety",
+       "grief"
+      ],
+      [
+       "fear"
+      ]
+     ],
+     [
+      "Isaiah 41:10",
+      "fear_anxiety",
+      null,
+      2.6771,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "fear"
+      ]
+     ],
+     [
+      "Deuteronomy 31:8",
+      "fear_anxiety",
+      null,
+      2.6375,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "fear"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I got laid off and I'm scared about money",
+   "k": 1,
+   "words": [
+    "i",
+    "got",
+    "laid",
+    "off",
+    "and",
+    "i",
+    "scared",
+    "about",
+    "money"
+   ],
+   "crisis_words": [
+    "i",
+    "got",
+    "laid",
+    "off",
+    "and",
+    "i",
+    "scared",
+    "about",
+    "money"
+   ],
+   "theme_words": [
+    "i",
+    "got",
+    "laid",
+    "off",
+    "and",
+    "i",
+    "scared",
+    "about",
+    "money"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "money_worry",
+     1.0
+    ],
+    [
+     "fear_anxiety",
+     0.6667
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "idle",
+     0.8,
+     "laid off"
+    ],
+    [
+     "labour",
+     0.8,
+     "laid off"
+    ],
+    [
+     "wage",
+     0.8,
+     "laid off"
+    ],
+    [
+     "poverty",
+     0.8,
+     "laid off"
+    ],
+    [
+     "need",
+     0.8,
+     "laid off"
+    ],
+    [
+     "bread",
+     0.8,
+     "laid off"
+    ],
+    [
+     "sustenance",
+     0.8,
+     "laid off"
+    ],
+    [
+     "afraid",
+     0.8,
+     "scared"
+    ],
+    [
+     "fear",
+     0.8,
+     "scared"
+    ],
+    [
+     "terror",
+     0.8,
+     "scared"
+    ],
+    [
+     "silver",
+     0.8,
+     "money"
+    ],
+    [
+     "gold",
+     0.8,
+     "money"
+    ],
+    [
+     "rich",
+     0.8,
+     "money"
+    ],
+    [
+     "wealth",
+     0.8,
+     "money"
+    ],
+    [
+     "treasure",
+     0.8,
+     "money"
+    ],
+    [
+     "money",
+     1.0,
+     "money"
+    ]
+   ],
+   "results": {
+    "gita": [
+     [
+      "2:40",
+      "fear_anxiety",
+      1,
+      3.1424,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "fear"
+      ]
+     ]
+    ],
+    "quran": [
+     [
+      "65:3",
+      "money_worry",
+      1,
+      4.4049,
+      [
+       "money_worry",
+       "fear_anxiety"
+      ],
+      [
+       "fear",
+       "money"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Philippians 4:19",
+      "money_worry",
+      1,
+      11.5168,
+      [
+       "money_worry"
+      ],
+      [
+       "need",
+       "rich",
+       "money"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my mother passed away",
+   "k": 5,
+   "words": [
+    "my",
+    "mother",
+    "passed",
+    "away"
+   ],
+   "crisis_words": [
+    "my",
+    "",
+    "",
+    "away"
+   ],
+   "theme_words": [
+    "my",
+    "mother",
+    "passed",
+    "away"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "grief",
+     1.0
+    ]
+   ],
+   "notes": [
+    "grief"
+   ],
+   "terms": [
+    [
+     "mother",
+     1.0,
+     "mother"
+    ],
+    [
+     "die",
+     0.8,
+     "passed away"
+    ],
+    [
+     "death",
+     0.8,
+     "passed away"
+    ],
+    [
+     "depart",
+     0.8,
+     "passed away"
+    ],
+    [
+     "sleep",
+     0.8,
+     "passed away"
+    ],
+    [
+     "mourn",
+     0.8,
+     "passed away"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "12:86",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "13:28",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "10:57",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "12:84",
+      "grief",
+      4,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "93:3",
+      "grief",
+      5,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 34:18",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Matthew 5:4",
+      "grief",
+      2,
+      5.756,
+      [
+       "grief"
+      ],
+      [
+       "mourn"
+      ]
+     ],
+     [
+      "Psalms 147:3",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Psalms 56:8",
+      "grief",
+      4,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "John 11:35",
+      "grief",
+      5,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm gay",
+   "k": 4,
+   "words": [
+    "i",
+    "gay"
+   ],
+   "crisis_words": [
+    "i",
+    "gay"
+   ],
+   "theme_words": [
+    "i",
+    "gay"
+   ],
+   "category": "sensitive",
+   "topic": "sexuality_gender",
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "self_worth",
+     0.5
+    ],
+    [
+     "love_compassion",
+     0.5
+    ],
+    [
+     "loneliness",
+     0.5
+    ]
+   ],
+   "notes": [
+    "self_worth"
+   ],
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "93:3",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "loneliness",
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "17:70",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "2:115",
+      "loneliness",
+      null,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "6:59",
+      "loneliness",
+      null,
+      0.0,
+      [
+       "loneliness"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 139:1",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "loneliness",
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Psalms 139:17",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth",
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "Luke 12:6",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Acts 10:34",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I feel burnt out",
+   "k": 2,
+   "words": [
+    "i",
+    "feel",
+    "burnt",
+    "out"
+   ],
+   "crisis_words": [
+    "i",
+    "feel",
+    "burnt",
+    "out"
+   ],
+   "theme_words": [
+    "i",
+    "feel",
+    "burnt",
+    "out"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "overwork_rest",
+     1.0
+    ]
+   ],
+   "notes": [],
+   "terms": [
+    [
+     "weary",
+     0.8,
+     "burnt out"
+    ],
+    [
+     "faint",
+     0.8,
+     "burnt out"
+    ],
+    [
+     "labour",
+     0.8,
+     "burnt out"
+    ],
+    [
+     "rest",
+     0.8,
+     "burnt out"
+    ],
+    [
+     "strength",
+     0.8,
+     "burnt out"
+    ],
+    [
+     "toil",
+     0.8,
+     "burnt out"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "20:26",
+      "overwork_rest",
+      1,
+      2.8369,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest"
+      ]
+     ],
+     [
+      "78:9",
+      "overwork_rest",
+      2,
+      3.641,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Isaiah 40:29",
+      "overwork_rest",
+      2,
+      10.4625,
+      [
+       "overwork_rest"
+      ],
+      [
+       "faint",
+       "rest",
+       "strength"
+      ]
+     ],
+     [
+      "Jeremiah 31:25",
+      "overwork_rest",
+      4,
+      7.2544,
+      [
+       "overwork_rest"
+      ],
+      [
+       "weary",
+       "rest"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I want to die",
+   "k": 7,
+   "words": [
+    "i",
+    "want",
+    "to",
+    "die"
+   ],
+   "crisis_words": [
+    "i",
+    "want",
+    "to",
+    "die"
+   ],
+   "theme_words": [
+    "i",
+    "want",
+    "to",
+    "die"
+   ],
+   "category": "crisis",
+   "topic": "suicide",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "life",
+     0.8,
+     "want to die"
+    ],
+    [
+     "hope",
+     0.8,
+     "want to die"
+    ],
+    [
+     "despair",
+     0.8,
+     "want to die"
+    ],
+    [
+     "soul",
+     0.8,
+     "want to die"
+    ],
+    [
+     "mercy",
+     0.8,
+     "want to die"
+    ],
+    [
+     "comfort",
+     0.8,
+     "want to die"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x I want to die",
+   "k": 3,
+   "words": [
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "i",
+    "want",
+    "to",
+    "die"
+   ],
+   "crisis_words": [
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x"
+   ],
+   "theme_words": [
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x",
+    "x"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": true,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "life",
+     0.8,
+     "want to die"
+    ],
+    [
+     "hope",
+     0.8,
+     "want to die"
+    ],
+    [
+     "despair",
+     0.8,
+     "want to die"
+    ],
+    [
+     "soul",
+     0.8,
+     "want to die"
+    ],
+    [
+     "mercy",
+     0.8,
+     "want to die"
+    ],
+    [
+     "comfort",
+     0.8,
+     "want to die"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  }
+ ],
+ "by_theme": [
+  {
+   "theme": "grief",
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "12:86",
+      1.0,
+      1
+     ],
+     [
+      "13:28",
+      0.3333,
+      2
+     ],
+     [
+      "10:57",
+      0.5,
+      3
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 34:18",
+      1.0,
+      1
+     ],
+     [
+      "Matthew 5:4",
+      1.0,
+      2
+     ],
+     [
+      "Psalms 147:3",
+      1.0,
+      3
+     ]
+    ]
+   }
+  },
+  {
+   "theme": "money_worry",
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "65:3",
+      1.0,
+      1
+     ],
+     [
+      "29:60",
+      1.0,
+      2
+     ],
+     [
+      "28:24",
+      1.0,
+      3
+     ]
+    ],
+    "bible": [
+     [
+      "Philippians 4:19",
+      1.0,
+      1
+     ],
+     [
+      "Psalms 23:1",
+      1.0,
+      2
+     ],
+     [
+      "Matthew 6:26",
+      0.5,
+      3
+     ]
+    ]
+   }
+  },
+  {
+   "theme": "self_worth",
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "17:70",
+      1.0,
+      1
+     ],
+     [
+      "93:3",
+      0.5,
+      2
+     ],
+     [
+      "95:4",
+      1.0,
+      3
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 139:14",
+      1.0,
+      1
+     ],
+     [
+      "Isaiah 49:16",
+      1.0,
+      3
+     ],
+     [
+      "Luke 12:7",
+      1.0,
+      4
+     ]
+    ]
+   }
+  },
+  {
+   "theme": "patience",
+   "results": {
+    "gita": [
+     [
+      "6:35",
+      1.0,
+      2
+     ],
+     [
+      "6:26",
+      1.0,
+      3
+     ],
+     [
+      "12:10",
+      0.5,
+      null
+     ]
+    ],
+    "quran": [],
+    "bible": [
+     [
+      "Psalms 27:14",
+      1.0,
+      1
+     ],
+     [
+      "Lamentations 3:25",
+      1.0,
+      2
+     ],
+     [
+      "Isaiah 40:31",
+      0.3333,
+      3
+     ]
+    ]
+   }
+  }
+ ],
+ "similar": [
+  {
+   "book": "bible",
+   "ref": "Psalms 23:1",
+   "results": {
+    "gita": [
+     [
+      "7:16",
+      0.0244
+     ],
+     [
+      "6:9",
+      0.02
+     ],
+     [
+      "16:1",
+      0.0184
+     ]
+    ],
+    "quran": [
+     [
+      "31:12",
+      0.2321
+     ],
+     [
+      "76:9",
+      0.2041
+     ],
+     [
+      "2:152",
+      0.184
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 139:1",
+      0.7754
+     ],
+     [
+      "Psalms 62:1",
+      0.7145
+     ],
+     [
+      "Psalms 40:1",
+      0.6756
+     ]
+    ]
+   }
+  },
+  {
+   "book": "quran",
+   "ref": "94:5",
+   "results": {
+    "gita": [
+     [
+      "4:22",
+      0.2821
+     ],
+     [
+      "2:40",
+      0.2646
+     ],
+     [
+      "4:20",
+      0.1554
+     ]
+    ],
+    "quran": [
+     [
+      "20:26",
+      0.6826
+     ],
+     [
+      "65:7",
+      0.5432
+     ],
+     [
+      "20:25",
+      0.4536
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 27:13",
+      0.3436
+     ],
+     [
+      "Matthew 11:30",
+      0.3296
+     ],
+     [
+      "Proverbs 16:9",
+      0.2719
+     ]
+    ]
+   }
+  },
+  {
+   "book": "gita",
+   "ref": "2:47",
+   "results": {
+    "gita": [
+     [
+      "4:18",
+      0.9239
+     ],
+     [
+      "18:11",
+      0.8868
+     ],
+     [
+      "3:8",
+      0.8442
+     ]
+    ],
+    "quran": [
+     [
+      "28:55",
+      0.4012
+     ],
+     [
+      "25:62",
+      0.3498
+     ],
+     [
+      "9:102",
+      0.3145
+     ]
+    ],
+    "bible": [
+     [
+      "Philippians 4:5",
+      0.4088
+     ],
+     [
+      "Proverbs 1:5",
+      0.3843
+     ],
+     [
+      "Hebrews 13:3",
+      0.3766
+     ]
+    ]
+   }
+  }
+ ],
+ "similar_sensitive_only": [
+  {
+   "book": "bible",
+   "ref": "Psalms 23:1",
+   "results": {
+    "gita": [
+     [
+      "2:40",
+      -0.0073
+     ],
+     [
+      "17:15",
+      -0.013
+     ],
+     [
+      "18:30",
+      -0.1202
+     ]
+    ],
+    "quran": [
+     [
+      "93:3",
+      0.0611
+     ],
+     [
+      "28:24",
+      0.0578
+     ],
+     [
+      "26:62",
+      -0.0003
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 139:1",
+      0.7754
+     ],
+     [
+      "Psalms 46:1",
+      0.604
+     ],
+     [
+      "Psalms 139:7",
+      0.1811
+     ]
+    ]
+   }
+  },
+  {
+   "book": "quran",
+   "ref": "94:5",
+   "results": {
+    "gita": [
+     [
+      "2:40",
+      0.2646
+     ],
+     [
+      "17:15",
+      0.1224
+     ],
+     [
+      "18:30",
+      0.0472
+     ]
+    ],
+    "quran": [
+     [
+      "20:25",
+      0.4536
+     ],
+     [
+      "42:28",
+      0.3377
+     ],
+     [
+      "28:5",
+      0.2595
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 25:16",
+      0.2692
+     ],
+     [
+      "Psalms 9:9",
+      0.2481
+     ],
+     [
+      "Deuteronomy 31:8",
+      0.1486
+     ]
+    ]
+   }
+  },
+  {
+   "book": "gita",
+   "ref": "2:47",
+   "results": {
+    "gita": [
+     [
+      "18:30",
+      0.5019
+     ],
+     [
+      "17:15",
+      0.2211
+     ],
+     [
+      "2:40",
+      0.1686
+     ]
+    ],
+    "quran": [
+     [
+      "6:59",
+      0.2604
+     ],
+     [
+      "28:5",
+      0.1385
+     ],
+     [
+      "20:25",
+      0.1241
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 9:9",
+      0.2726
+     ],
+     [
+      "Psalms 139:17",
+      0.1665
+     ],
+     [
+      "Psalms 62:8",
+      0.1339
+     ]
+    ]
+   }
+  }
+ ]
+}

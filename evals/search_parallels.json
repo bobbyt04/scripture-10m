@@ -1,0 +1,1256 @@
+{
+ "about": "Known parallels between the books, chosen by hand. 'story' = the same figure or event told in the Bible and the Quran; 'teaching' = a shared teaching or image (including Gita parallels, which are thematic). The first ref on each side is the anchor used as the query; any ref on the other side counts as a hit.",
+ "parallels": [
+  {
+   "id": "joseph_dream",
+   "label": "Joseph's dream: sun, moon and stars bow to him",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Genesis 37:9"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "12:4"
+    ]
+   }
+  },
+  {
+   "id": "joseph_pit",
+   "label": "Joseph's brothers throw him into a pit/well",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Genesis 37:24",
+     "Genesis 37:20",
+     "Genesis 37:22"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "12:15",
+     "12:10"
+    ]
+   }
+  },
+  {
+   "id": "joseph_coat",
+   "label": "The brothers bring Joseph's shirt with false blood",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Genesis 37:31",
+     "Genesis 37:32"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "12:18"
+    ]
+   }
+  },
+  {
+   "id": "joseph_seduction",
+   "label": "Joseph and his master's wife",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Genesis 39:7",
+     "Genesis 39:12",
+     "Genesis 39:8"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "12:23",
+     "12:25"
+    ]
+   }
+  },
+  {
+   "id": "pharaoh_kine",
+   "label": "The king's dream of seven fat and seven lean kine",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Genesis 41:2",
+     "Genesis 41:3",
+     "Genesis 41:4",
+     "Genesis 41:18",
+     "Genesis 41:19",
+     "Genesis 41:20",
+     "Genesis 41:26"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "12:43",
+     "12:46"
+    ]
+   }
+  },
+  {
+   "id": "joseph_reveals",
+   "label": "Joseph makes himself known to his brothers",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Genesis 45:4",
+     "Genesis 45:3"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "12:90",
+     "12:89"
+    ]
+   }
+  },
+  {
+   "id": "moses_basket",
+   "label": "Baby Moses set adrift and taken in by Pharaoh's house",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Exodus 2:3",
+     "Exodus 2:5",
+     "Exodus 2:6"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "20:39",
+     "28:7",
+     "28:8",
+     "28:9"
+    ]
+   }
+  },
+  {
+   "id": "moses_kills",
+   "label": "Moses kills an Egyptian and flees",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Exodus 2:12",
+     "Exodus 2:15"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "28:15",
+     "28:21"
+    ]
+   }
+  },
+  {
+   "id": "moses_well",
+   "label": "Moses waters the flock of two women at Midian",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Exodus 2:16",
+     "Exodus 2:17"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "28:23",
+     "28:24"
+    ]
+   }
+  },
+  {
+   "id": "burning_bush",
+   "label": "God speaks to Moses from the fire at the holy valley",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Exodus 3:2",
+     "Exodus 3:4",
+     "Exodus 3:5"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "20:10",
+     "20:11",
+     "20:12",
+     "28:29",
+     "28:30",
+     "27:7",
+     "27:8"
+    ]
+   }
+  },
+  {
+   "id": "staff_serpent",
+   "label": "Moses' staff becomes a serpent",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Exodus 4:3",
+     "Exodus 7:10",
+     "Exodus 7:12"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "20:20",
+     "7:107",
+     "26:32",
+     "28:31",
+     "20:69",
+     "7:117"
+    ]
+   }
+  },
+  {
+   "id": "white_hand",
+   "label": "Moses' hand comes out white",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Exodus 4:6"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "7:108",
+     "20:22",
+     "27:12",
+     "28:32",
+     "26:33"
+    ]
+   }
+  },
+  {
+   "id": "plagues",
+   "label": "Plagues on Egypt: frogs, lice, blood",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Exodus 8:6",
+     "Exodus 8:17",
+     "Exodus 7:20",
+     "Exodus 10:14"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "7:133"
+    ]
+   }
+  },
+  {
+   "id": "sea_parted",
+   "label": "The sea is parted for Moses",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Exodus 14:21",
+     "Exodus 14:22",
+     "Exodus 14:16"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "26:63",
+     "20:77",
+     "2:50"
+    ]
+   }
+  },
+  {
+   "id": "manna_quails",
+   "label": "Manna and quails in the wilderness",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Exodus 16:13",
+     "Exodus 16:15",
+     "Numbers 11:31"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "2:57",
+     "7:160",
+     "20:80"
+    ]
+   }
+  },
+  {
+   "id": "rock_water",
+   "label": "Water from the rock struck by Moses",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Exodus 17:6",
+     "Numbers 20:11"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "2:60",
+     "7:160"
+    ]
+   }
+  },
+  {
+   "id": "golden_calf",
+   "label": "The golden calf",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Exodus 32:4",
+     "Exodus 32:8",
+     "Exodus 32:20"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "20:88",
+     "7:148",
+     "2:51",
+     "2:93",
+     "20:97"
+    ]
+   }
+  },
+  {
+   "id": "noah_ark",
+   "label": "Noah builds the ark",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Genesis 6:14",
+     "Genesis 6:22"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "11:37",
+     "11:38",
+     "23:27"
+    ]
+   }
+  },
+  {
+   "id": "noah_flood",
+   "label": "The flood: fountains of the deep and windows of heaven",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Genesis 7:11",
+     "Genesis 7:12",
+     "Genesis 7:19"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "54:11",
+     "54:12",
+     "11:40",
+     "11:44",
+     "23:27"
+    ]
+   }
+  },
+  {
+   "id": "abraham_sacrifice",
+   "label": "Abraham is told to sacrifice his son",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Genesis 22:2",
+     "Genesis 22:10",
+     "Genesis 22:12",
+     "Genesis 22:13"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "37:102",
+     "37:103",
+     "37:105",
+     "37:107"
+    ]
+   }
+  },
+  {
+   "id": "abraham_guests",
+   "label": "Messengers tell Abraham of a son; his wife laughs",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Genesis 18:10",
+     "Genesis 18:12",
+     "Genesis 18:11"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "11:71",
+     "11:72",
+     "51:28",
+     "51:29"
+    ]
+   }
+  },
+  {
+   "id": "lot_destroyed",
+   "label": "Lot's town destroyed with fire and stones",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Genesis 19:24",
+     "Genesis 19:25"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "11:82",
+     "15:74",
+     "7:84",
+     "27:58",
+     "26:173"
+    ]
+   }
+  },
+  {
+   "id": "adam_tree",
+   "label": "Adam and his wife eat from the forbidden tree",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Genesis 3:6",
+     "Genesis 3:7",
+     "Genesis 2:17"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "7:22",
+     "20:121",
+     "2:35",
+     "7:19"
+    ]
+   }
+  },
+  {
+   "id": "cain_abel",
+   "label": "Cain kills his brother Abel",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Genesis 4:8",
+     "Genesis 4:4"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "5:27",
+     "5:30"
+    ]
+   }
+  },
+  {
+   "id": "six_days",
+   "label": "Heaven and earth created in six days",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Exodus 20:11",
+     "Genesis 2:2",
+     "Exodus 31:17"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "7:54",
+     "10:3",
+     "25:59",
+     "32:4",
+     "50:38",
+     "57:4",
+     "11:7"
+    ]
+   }
+  },
+  {
+   "id": "jonah_fish",
+   "label": "Jonah swallowed by the fish",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Jonah 1:17",
+     "Jonah 2:10",
+     "Jonah 1:15"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "37:142",
+     "37:145",
+     "21:87",
+     "37:140"
+    ]
+   }
+  },
+  {
+   "id": "david_goliath",
+   "label": "David slays Goliath",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "1 Samuel 17:49",
+     "1 Samuel 17:50"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "2:251"
+    ]
+   }
+  },
+  {
+   "id": "drinking_test",
+   "label": "The army tested by how they drink at the river",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Judges 7:5",
+     "Judges 7:6"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "2:249"
+    ]
+   }
+  },
+  {
+   "id": "sheba",
+   "label": "The Queen of Sheba visits Solomon",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "1 Kings 10:1",
+     "2 Chronicles 9:1"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "27:23",
+     "27:44",
+     "27:42"
+    ]
+   }
+  },
+  {
+   "id": "zechariah_son",
+   "label": "Zechariah is promised a son in old age",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Luke 1:13",
+     "Luke 1:18",
+     "Luke 1:20"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "19:7",
+     "19:8",
+     "3:39",
+     "3:40",
+     "19:10"
+    ]
+   }
+  },
+  {
+   "id": "annunciation",
+   "label": "The angel tells Mary she will bear a son",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Luke 1:30",
+     "Luke 1:31",
+     "Luke 1:34",
+     "Luke 1:35"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "3:45",
+     "3:47",
+     "19:19",
+     "19:20",
+     "19:21"
+    ]
+   }
+  },
+  {
+   "id": "jesus_heals",
+   "label": "Jesus heals the blind and the leper and raises the dead",
+   "kind": "story",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Luke 7:22",
+     "Matthew 11:5"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "3:49",
+     "5:110"
+    ]
+   }
+  },
+  {
+   "id": "camel_needle",
+   "label": "A camel through the eye of a needle",
+   "kind": "teaching",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Matthew 19:24",
+     "Mark 10:25",
+     "Luke 18:25"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "7:40"
+    ]
+   }
+  },
+  {
+   "id": "eye_for_eye",
+   "label": "An eye for an eye",
+   "kind": "teaching",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Exodus 21:24",
+     "Leviticus 24:20",
+     "Deuteronomy 19:21"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "5:45"
+    ]
+   }
+  },
+  {
+   "id": "alms_secret",
+   "label": "Giving alms in secret",
+   "kind": "teaching",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Matthew 6:3",
+     "Matthew 6:4"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "2:271",
+     "2:274"
+    ]
+   }
+  },
+  {
+   "id": "scroll",
+   "label": "The heavens rolled up like a scroll",
+   "kind": "teaching",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Isaiah 34:4",
+     "Revelation 6:14"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "21:104"
+    ]
+   }
+  },
+  {
+   "id": "seed_grows",
+   "label": "Charity or faith as a seed that grows manifold",
+   "kind": "teaching",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Mark 4:8",
+     "Mark 4:20",
+     "Mark 4:28",
+     "Matthew 13:23"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "2:261",
+     "48:29"
+    ]
+   }
+  },
+  {
+   "id": "first_last",
+   "label": "God as the first and the last",
+   "kind": "teaching",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Revelation 1:8",
+     "Revelation 22:13",
+     "Isaiah 44:6",
+     "Revelation 1:11"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "57:3"
+    ]
+   }
+  },
+  {
+   "id": "mercy_all_sins",
+   "label": "God's mercy forgives all sins",
+   "kind": "teaching",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Psalms 103:3",
+     "Psalms 103:12",
+     "Isaiah 1:18",
+     "1 John 1:9"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "39:53"
+    ]
+   }
+  },
+  {
+   "id": "taste_death",
+   "label": "Every soul will die",
+   "kind": "teaching",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Hebrews 9:27",
+     "Ecclesiastes 3:2",
+     "Psalms 89:48"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "3:185",
+     "21:35",
+     "29:57"
+    ]
+   }
+  },
+  {
+   "id": "fleeting_grass",
+   "label": "Life is like grass that withers",
+   "kind": "teaching",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "Psalms 103:15",
+     "Psalms 103:16",
+     "Isaiah 40:6",
+     "Isaiah 40:7",
+     "James 1:10",
+     "James 1:11",
+     "1 Peter 1:24"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "18:45",
+     "57:20",
+     "10:24",
+     "39:21"
+    ]
+   }
+  },
+  {
+   "id": "god_light",
+   "label": "God is light",
+   "kind": "teaching",
+   "a": {
+    "book": "bible",
+    "refs": [
+     "1 John 1:5",
+     "Psalms 27:1",
+     "John 8:12",
+     "Psalms 36:9"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "24:35"
+    ]
+   }
+  },
+  {
+   "id": "equanimity_qg",
+   "label": "Do not grieve over loss or exult over gain",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "2:38",
+     "12:18",
+     "2:48",
+     "5:20"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "57:23"
+    ]
+   }
+  },
+  {
+   "id": "soul_not_slain",
+   "label": "The soul is not killed when the body is killed",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "2:19",
+     "2:20",
+     "2:23"
+    ]
+   },
+   "b": {
+    "book": "bible",
+    "refs": [
+     "Matthew 10:28",
+     "Luke 12:4"
+    ]
+   }
+  },
+  {
+   "id": "soul_living_q",
+   "label": "Those slain are not dead but living",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "2:20",
+     "2:19"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "3:169",
+     "2:154"
+    ]
+   }
+  },
+  {
+   "id": "body_garment",
+   "label": "The body as a garment or house the self leaves",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "2:22"
+    ]
+   },
+   "b": {
+    "book": "bible",
+    "refs": [
+     "2 Corinthians 5:1",
+     "2 Corinthians 5:2",
+     "2 Corinthians 5:4",
+     "2 Peter 1:14"
+    ]
+   }
+  },
+  {
+   "id": "do_all_for_god",
+   "label": "Whatever you eat or do, offer it to God",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "9:27"
+    ]
+   },
+   "b": {
+    "book": "bible",
+    "refs": [
+     "1 Corinthians 10:31",
+     "Colossians 3:17",
+     "Colossians 3:23"
+    ]
+   }
+  },
+  {
+   "id": "do_all_for_god_q",
+   "label": "My worship, my living and my dying are for God",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "9:27",
+     "18:57"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "6:162"
+    ]
+   }
+  },
+  {
+   "id": "devotion_offering",
+   "label": "God accepts the devotion, not the size of the offering",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "9:26"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "22:37"
+    ]
+   }
+  },
+  {
+   "id": "devotion_offering_b",
+   "label": "God wants a contrite heart, not sacrifice",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "9:26"
+    ]
+   },
+   "b": {
+    "book": "bible",
+    "refs": [
+     "Psalms 51:16",
+     "Psalms 51:17",
+     "Hosea 6:6",
+     "1 Samuel 15:22",
+     "Mark 12:43"
+    ]
+   }
+  },
+  {
+   "id": "beginning_end",
+   "label": "God is the beginning, middle and end",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "10:20",
+     "10:32",
+     "11:16"
+    ]
+   },
+   "b": {
+    "book": "bible",
+    "refs": [
+     "Revelation 1:8",
+     "Revelation 22:13",
+     "Revelation 21:6",
+     "Isaiah 44:6"
+    ]
+   }
+  },
+  {
+   "id": "beginning_end_q",
+   "label": "God is the first and the last",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "10:20",
+     "10:32"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "57:3"
+    ]
+   }
+  },
+  {
+   "id": "god_in_heart",
+   "label": "God dwells in the heart / is near",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "18:61",
+     "10:20",
+     "13:17",
+     "15:15"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "50:16",
+     "2:186",
+     "8:24"
+    ]
+   }
+  },
+  {
+   "id": "thousand_suns",
+   "label": "A vision of God brighter than the sun",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "11:12"
+    ]
+   },
+   "b": {
+    "book": "bible",
+    "refs": [
+     "Revelation 1:16",
+     "Matthew 17:2",
+     "Acts 26:13",
+     "Revelation 21:23"
+    ]
+   }
+  },
+  {
+   "id": "friend_and_foe",
+   "label": "Treat friend and foe alike / love your enemies",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "12:18",
+     "6:9"
+    ]
+   },
+   "b": {
+    "book": "bible",
+    "refs": [
+     "Matthew 5:44",
+     "Matthew 5:45",
+     "Luke 6:35"
+    ]
+   }
+  },
+  {
+   "id": "no_return_gift",
+   "label": "Give without expecting anything in return",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "17:20"
+    ]
+   },
+   "b": {
+    "book": "bible",
+    "refs": [
+     "Luke 6:35",
+     "Luke 14:12",
+     "Luke 14:13",
+     "Luke 14:14"
+    ]
+   }
+  },
+  {
+   "id": "no_return_gift_q",
+   "label": "Give without expecting reward or thanks",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "17:20",
+     "2:47"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "76:9",
+     "92:19",
+     "92:20"
+    ]
+   }
+  },
+  {
+   "id": "moderation_food",
+   "label": "Moderation in eating",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "6:16",
+     "6:17"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "7:31",
+     "20:81"
+    ]
+   }
+  },
+  {
+   "id": "anger_folly",
+   "label": "Anger leads to foolishness",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "2:63",
+     "2:62"
+    ]
+   },
+   "b": {
+    "book": "bible",
+    "refs": [
+     "Proverbs 14:17",
+     "Proverbs 14:29",
+     "James 1:20",
+     "Ecclesiastes 7:9"
+    ]
+   }
+  },
+  {
+   "id": "one_father",
+   "label": "The one Father of all beings",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "14:4",
+     "9:17"
+    ]
+   },
+   "b": {
+    "book": "bible",
+    "refs": [
+     "Malachi 2:10",
+     "Ephesians 4:6",
+     "1 Corinthians 8:6"
+    ]
+   }
+  },
+  {
+   "id": "senses_control_q",
+   "label": "Restrain the self from desire",
+   "kind": "teaching",
+   "a": {
+    "book": "gita",
+    "refs": [
+     "2:58",
+     "2:61",
+     "3:41"
+    ]
+   },
+   "b": {
+    "book": "quran",
+    "refs": [
+     "79:40",
+     "12:53"
+    ]
+   }
+  }
+ ]
+}

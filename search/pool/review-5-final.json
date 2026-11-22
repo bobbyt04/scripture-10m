@@ -1,0 +1,518 @@
+{
+ "about": "The blind judge's final review (scratchpad review-final.json), as applied. Display items the judge wrote as prose are turned into display fields; where no grammatical display of the real verse text exists (it starts or ends mid-sentence), the verse is removed instead.",
+ "gita": [
+  {
+   "ref": "2:12",
+   "action": "remove",
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'nor verily shall we ever cease to be, hereafter' was shown to 'sometimes i hope i get in a car crash so it's over' and 'disappear permanently'. The note also adds 'never began', which is not in this verse."
+  },
+  {
+   "ref": "2:15",
+   "action": "remove",
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'he is fitted for immortality' under peace_of_mind."
+  },
+  {
+   "ref": "2:65",
+   "action": "remove",
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'In that Peace the extinction of all pains ariseth' was shown to 'whats the least painful way to go' and 'i just want the pain to stop forever'."
+  },
+  {
+   "ref": "5:24",
+   "action": "remove",
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'becoming the Eternal, goeth to the Peace of the Eternal' was shown to 'i'm ready to go. ive made my peace'."
+  },
+  {
+   "ref": "5:29",
+   "action": "retag",
+   "drop_themes": [
+    "peace_of_mind"
+   ],
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'he goeth to Peace' was shown to 'i'm ready to go. ive made my peace'."
+  },
+  {
+   "ref": "2:71",
+   "action": "retag",
+   "drop_themes": [
+    "peace_of_mind"
+   ],
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'he goeth to Peace', the same pattern."
+  },
+  {
+   "ref": "18:53",
+   "action": "retag",
+   "drop_themes": [
+    "peace_of_mind"
+   ],
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'he is fit to become the Eternal'."
+  },
+  {
+   "ref": "6:40",
+   "action": "remove",
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'neither in this world nor in the life to come is there destruction for him' was shown to 'i just want to disappear and never come back, permanently'."
+  },
+  {
+   "ref": "6:36",
+   "action": "remove",
+   "reason": "Eating disorder or depression: 'hard to attain by a self that is uncontrolled' (why: 'hard for the undisciplined') was shown to 'i haven't eaten properly in weeks, i'm trying to get thin'. It shames the reader and rewards control."
+  },
+  {
+   "ref": "6:16",
+   "action": "retag",
+   "drop_themes": [
+    "overwork_rest"
+   ],
+   "reason": "Exhausted new parent or depressed reader: 'not ... too much addicted to sleep' was shown for burnout and for 'just had our first baby and im exhausted'."
+  },
+  {
+   "ref": "6:17",
+   "action": "retag",
+   "drop_themes": [
+    "overwork_rest"
+   ],
+   "reason": "'Yoga killeth out all pain for him who is regulated...' frames exhaustion as poor self-regulation; shown to a caregiver running on empty."
+  },
+  {
+   "ref": "6:8",
+   "action": "retag",
+   "drop_themes": [
+    "wisdom_learning"
+   ],
+   "reason": "Grief: 'a lump of earth, a stone and gold are the same' was shown to 'lost my best friend from college to cancer' through the word 'college'. Dismissive."
+  },
+  {
+   "ref": "11:44",
+   "action": "retag",
+   "drop_themes": [
+    "love_compassion"
+   ],
+   "reason": "Abused partner: 'With the beloved as lover, bear with me' was shown to 'my partner wont let me have my own bank account' and 'boyfriend ... hits me sometimes'."
+  },
+  {
+   "ref": "12:13",
+   "action": "retag",
+   "drop_themes": [
+    "love_compassion"
+   ],
+   "reason": "Abused partner: 'bear no ill-will ... forgiving' was shown to 'my boyfriend grabs me by the throat' and 'hits me sometimes but he says sorry'."
+  }
+ ],
+ "quran": [
+  {
+   "ref": "93:4",
+   "action": "remove",
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'the latter portion will be better for thee than the former' was shown to 'everyone would be fine without me honestly, probably better' and 'i'd rather not exist than feel this way'. Also remove it from the sensitive set."
+  },
+  {
+   "ref": "10:25",
+   "action": "remove",
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'Allah summoneth to the abode of peace' was shown to 'thinking of driving into the river' and 'i'm ready to go'."
+  },
+  {
+   "ref": "87:8",
+   "action": "remove",
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'We shall ease thy way unto the state of ease' was shown to 'thinking of driving into the river' and 'i'd rather not exist'. Also remove it from the sensitive set."
+  },
+  {
+   "ref": "13:29",
+   "action": "remove",
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'Joy is for them, and bliss (their) journey's end'."
+  },
+  {
+   "ref": "41:30",
+   "action": "remove",
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'the angels descend upon them, saying: Fear not nor grieve, but hear good tidings of the paradise' is a deathbed scene, tagged fear_anxiety."
+  },
+  {
+   "ref": "84:6",
+   "action": "remove",
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'a work which thou wilt meet (in His presence)'; the note says 'you will meet Him'."
+  },
+  {
+   "ref": "9:105",
+   "action": "remove",
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'Act! ... ye will be brought back' was shown to 'i have a gun in the house and i keep thinking about using it'."
+  },
+  {
+   "ref": "58:11",
+   "action": "remove",
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'Come up higher! go up higher' was shown to 'i googled how high a building needs to be'. The note also leaves out the half of the verse that matched."
+  },
+  {
+   "ref": "42:36",
+   "action": "retag",
+   "drop_themes": [
+    "envy_contentment"
+   ],
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'what Allah hath is better and more lasting' was shown to 'i've given away my stuff and said my goodbyes'. With no theme left it would be dropped, which is the intent."
+  },
+  {
+   "ref": "16:96",
+   "action": "retag",
+   "drop_themes": [
+    "envy_contentment"
+   ],
+   "reason": "Suicidal reader (crisis detection misses ~half of such messages): 'That which ye have wasteth away, and that which Allah hath remaineth' was shown to the gun message. With no theme left it would be dropped."
+  },
+  {
+   "ref": "53:39",
+   "action": "remove",
+   "reason": "Disabled, poor or ill reader: 'That man hath only that for which he maketh effort' was shown to 'i lost my leg to diabetes and feel like half a person'."
+  },
+  {
+   "ref": "12:69",
+   "action": "remove",
+   "reason": "Someone abused by a parent, or bereaved: 'sorrow not for what they did' is the top family_parents verse and appeared for 'my dad passed away', 'missing my mum', 'my parents starve me as punishment' and 'my dad ... hits my little brother'."
+  },
+  {
+   "ref": "12:98",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "Someone abused by a parent: 'I shall ask forgiveness for you' is shown for every parent query, including abuse and bereavement."
+  },
+  {
+   "ref": "14:40",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "A parent's prayer for posterity was shown to a bereaved child ('missing my mum') and an infertile woman."
+  },
+  {
+   "ref": "3:159",
+   "action": "retag",
+   "drop_themes": [
+    "anger",
+    "love_compassion"
+   ],
+   "reason": "Someone being harmed: 'So pardon them and ask forgiveness for them' was shown to 'my boyfriend grabs me by the throat when he's angry' and 'hits me sometimes but he says sorry'."
+  },
+  {
+   "ref": "11:90",
+   "action": "retag",
+   "drop_themes": [
+    "love_compassion"
+   ],
+   "reason": "Abused partner: 'Ask pardon of your Lord' was shown to 'boyfriend makes me feel worthless and hits me'."
+  },
+  {
+   "ref": "4:135",
+   "action": "retag",
+   "drop_themes": [
+    "temptation_self_control"
+   ],
+   "reason": "Addict who just relapsed: 'follow not passion lest ye lapse' was shown to 'relapsed with the blade last night'. Shaming."
+  },
+  {
+   "ref": "17:34",
+   "action": "retag",
+   "drop_themes": [
+    "honesty"
+   ],
+   "reason": "Groomed child: 'keep the covenant ... of the covenant it will be asked' (why: 'keep your commitments') was shown to 'my coach sends me pics and asks me to keep it secret'."
+  },
+  {
+   "ref": "25:63",
+   "action": "retag",
+   "drop_themes": [
+    "anger"
+   ],
+   "reason": "Harassed reader: 'when the foolish ones address them answer: Peace' was shown to 'my boss grabbed my butt and said he'd fire me if i told'."
+  },
+  {
+   "ref": "9:102",
+   "action": "display",
+   "trim": "And (there are) ",
+   "reason": "The display starts with a lower-case parenthesis: '(there are) others who have acknowledged...'. Judge: Drop the leading '(there are) ' and capitalise 'Others'"
+  }
+ ],
+ "bible": [
+  {
+   "ref": "Psalms 37:37",
+   "action": "remove",
+   "reason": "peace_of_mind, suicidal reader: 'the end of that man is peace' (W: 'their end is peace') reads as death bringing peace."
+  },
+  {
+   "ref": "Psalms 116:7",
+   "action": "remove",
+   "reason": "peace_of_mind/overwork_rest, suicidal or depressed reader: 'Return unto thy rest, O my soul' reads as an invitation to die."
+  },
+  {
+   "ref": "John 16:22",
+   "action": "remove",
+   "reason": "grief+hope: a parent whose child died yesterday, or a suicidal reader, sees 'I will see you again, and your heart shall rejoice' as a promise of reunion through death."
+  },
+  {
+   "ref": "Revelation 21:4",
+   "action": "remove",
+   "reason": "hope (its only theme), suicidal reader: 'no more death, neither sorrow... neither shall there be any more pain' is an afterlife-ends-pain promise. Fine for grief if re-added there, not for hope."
+  },
+  {
+   "ref": "Isaiah 25:8",
+   "action": "remove",
+   "reason": "hope (only theme), suicidal reader: death swallowed up and tears wiped away is afterlife comfort; W also adds 'death will not have the last word', which the verse does not say. Could move to grief."
+  },
+  {
+   "ref": "Romans 8:18",
+   "action": "remove",
+   "reason": "hope (only theme), suicidal reader: present sufferings 'not worthy to be compared with the glory which shall be revealed' frames what comes after as better; also dismissive of present suffering."
+  },
+  {
+   "ref": "Ecclesiastes 7:8",
+   "action": "remove",
+   "reason": "patience reader currently being harmed, and any suicidal reader: opens 'Better is the end of a thing than the beginning thereof' (W repeats it)."
+  },
+  {
+   "ref": "Genesis 50:20",
+   "action": "remove",
+   "reason": "betrayal (only theme), someone currently being harmed: 'Ye thought evil against me; but God meant it unto good' tells them the abuse is God's plan."
+  },
+  {
+   "ref": "Genesis 50:19",
+   "action": "remove",
+   "reason": "forgiveness/betrayal, someone currently being harmed: 'Fear not: for am I in the place of God?' means nothing without the Joseph story, and its point (not mine to punish) discourages seeking justice."
+  },
+  {
+   "ref": "Luke 23:34",
+   "action": "remove",
+   "reason": "forgiveness (only theme), someone currently being harmed (e.g. a wife being hit): 'forgive them; for they know not what they do' excuses the person harming them."
+  },
+  {
+   "ref": "James 5:7",
+   "action": "remove",
+   "reason": "patience (only theme), someone currently being harmed: 'Be patient therefore, brethren, unto the coming of the Lord' tells them to endure until the end of time; in context (5:1-6) it is patience under oppression."
+  },
+  {
+   "ref": "Proverbs 17:22",
+   "action": "remove",
+   "reason": "peace_of_mind, depressed or suicidal reader: 'a broken spirit drieth the bones' after 'a merry heart doeth good like a medicine' implies mood is a choice and blames them."
+  },
+  {
+   "ref": "Proverbs 15:13",
+   "action": "remove",
+   "reason": "peace_of_mind, depressed or suicidal reader: ends 'by sorrow of the heart the spirit is broken'; it describes their state, it does not comfort."
+  },
+  {
+   "ref": "John 14:1",
+   "action": "retag",
+   "drop_themes": [
+    "grief"
+   ],
+   "reason": "Grief, a parent whose child died yesterday: 'Let not your heart be troubled: ye believe in God, believe also in me' reads as an order not to grieve plus a faith test. Fine for fear_anxiety."
+  },
+  {
+   "ref": "1 Corinthians 13:5",
+   "action": "remove",
+   "reason": "Anger, someone currently being harmed: 'is not easily provoked, thinketh no evil' tells them not to be upset with, or think badly of, the person hurting them. Removed instead: the real text cannot be shown as a complete sentence."
+  },
+  {
+   "ref": "Proverbs 25:28",
+   "action": "retag",
+   "drop_themes": [
+    "temptation_self_control"
+   ],
+   "reason": "An addict who just relapsed: 'no rule over his own spirit is like a city that is broken down' is shaming. Fine for anger."
+  },
+  {
+   "ref": "Isaiah 40:28",
+   "action": "retag",
+   "drop_themes": [
+    "doubt_faith"
+   ],
+   "reason": "Someone leaving their religion: 'Hast thou not known? hast thou not heard' is a rhetorical rebuke of the doubter. Fine for overwork_rest."
+  },
+  {
+   "ref": "Proverbs 31:28",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "Someone abused by a parent: 'Her children arise up, and call her blessed' pressures them to honour the abusive parent."
+  },
+  {
+   "ref": "Psalms 55:22",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Someone just evicted: 'he shall never suffer the righteous to be moved' implies being made to move means they are not righteous. Fine for fear_anxiety/suffering."
+  },
+  {
+   "ref": "Proverbs 31:25",
+   "action": "retag",
+   "drop_themes": [
+    "self_worth"
+   ],
+   "reason": "Self_worth, a trans teenager: this describes the ideal wife ('her clothing'); it is gendered and about someone else, not the reader's worth."
+  },
+  {
+   "ref": "James 1:27",
+   "action": "retag",
+   "drop_themes": [
+    "grief"
+   ],
+   "reason": "Grief, bereaved parent: an instruction to others to visit widows and orphans, plus 'unspotted from the world'; it offers them no comfort."
+  },
+  {
+   "ref": "Malachi 2:10",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "Someone abused by a parent: 'Have we not all one father?' is about God and broken covenants, off-topic and jarring for them."
+  },
+  {
+   "ref": "Psalms 121:1",
+   "action": "fix_why",
+   "new_why": "I lift my eyes to the hills, from where my help comes.",
+   "reason": "W turns the KJV statement into a question ('where does my help come from?'), which comes from modern translations."
+  },
+  {
+   "ref": "Psalms 126:6",
+   "action": "fix_why",
+   "new_why": "One who goes out weeping, carrying seed, will return rejoicing with the harvest.",
+   "reason": "'come home rejoicing' is wording a suicidal reader can take as death; it also reads as the lost child coming back for a bereaved parent (grief tag)."
+  },
+  {
+   "ref": "Jeremiah 29:11",
+   "action": "fix_why",
+   "new_why": "The Lord's thoughts toward you are of peace and not of evil.",
+   "reason": "Drop 'expected end': 'end' wording is risky for a suicidal (hope) reader and the note does not need it."
+  },
+  {
+   "ref": "Psalms 127:2",
+   "action": "fix_why",
+   "new_why": "It is vain to rise early, stay up late and eat the bread of sorrows; he gives his beloved sleep.",
+   "reason": "'anxious toil' is ESV wording, not in the KJV text shown."
+  },
+  {
+   "ref": "Psalms 46:2",
+   "action": "display",
+   "trim": "",
+   "reason": "With 'Therefore' cut, 'Will not we fear, though the earth be removed' reads as a question ('won't we be afraid?'), the opposite of the meaning. Judge: Set trim to '' (keep 'Therefore'): shows 'Therefore will not we fear, ...'"
+  },
+  {
+   "ref": "Jeremiah 29:12",
+   "action": "display",
+   "trim": "",
+   "reason": "With 'Then' cut, 'Shall ye call upon me' reads as a question. Judge: Set trim to '' (keep 'Then'): shows 'Then shall ye call upon me, ...'"
+  },
+  {
+   "ref": "2 Corinthians 13:11",
+   "action": "display",
+   "trim": "Finally, brethren, farewell. ",
+   "reason": "A suicidal (peace_of_mind) reader is shown a verse that opens 'Finally, brethren, farewell.' Judge: Set trim to 'Finally, brethren, farewell. ': shows 'Be perfect, be of good comfort, ...'"
+  },
+  {
+   "ref": "Ecclesiastes 7:14",
+   "action": "display",
+   "trim_end": ": God also hath set the one over against the other, to the end that man should find nothing after him.",
+   "reason": "Suffering_endurance reader: 'to the end that man should find nothing after him' is obscure and reads as 'nothing after death'. Judge: Set trim_end to ': God also hath set the one over against the other, to the end that man should find nothing after him.'"
+  },
+  {
+   "ref": "Malachi 3:6",
+   "action": "display",
+   "trim_end": "; therefore ye sons of Jacob are not consumed.",
+   "reason": "'Ye sons of Jacob are not consumed' needs missing context and sounds threatening to someone leaving their religion. Judge: Set trim_end to '; therefore ye sons of Jacob are not consumed.': shows 'I am the LORD, I change not.'"
+  },
+  {
+   "ref": "2 Corinthians 5:7",
+   "action": "display",
+   "trim": "(For ",
+   "trim_end": ")",
+   "fixes": [
+    [
+     "sight:)",
+     "sight.)"
+    ]
+   ],
+   "reason": "Missing final punctuation and a dangling 'For'. Judge: Display ends 'For we walk by faith, not by sight' with no full stop: add one (the trim_end ':)' removes the colon before the full-stop rule can apply). Also trim 'For '."
+  },
+  {
+   "ref": "Romans 8:39",
+   "action": "remove",
+   "reason": "Display starts mid-clause. Removed instead: the real text cannot be shown as a complete sentence."
+  },
+  {
+   "ref": "1 Corinthians 13:6",
+   "action": "remove",
+   "reason": "Display starts mid-clause. Removed instead: the real text cannot be shown as a complete sentence."
+  },
+  {
+   "ref": "Galatians 5:22",
+   "action": "remove",
+   "reason": "Display ends mid-list, so the fruit of the Spirit looks complete with two items missing. Removed instead: the real text cannot be shown as a complete sentence."
+  },
+  {
+   "ref": "1 Chronicles 28:20",
+   "action": "display",
+   "trim_end": ", until thou hast finished all the work for the service of the house of the LORD.",
+   "reason": "The 'not forsake thee until thou hast finished [the temple]' promise is specific to Solomon and implies being left once the work is done. Judge: Set trim_end to ', until thou hast finished all the work for the service of the house of the LORD.'"
+  },
+  {
+   "ref": "Proverbs 12:24",
+   "action": "retag",
+   "drop_themes": [
+    "work_effort"
+   ],
+   "reason": "Fat-shamed reader: 'the slothful shall be under tribute' was shown to 'i'm 300 pounds and people treat me like i'm lazy'."
+  },
+  {
+   "ref": "Colossians 3:19",
+   "action": "retag",
+   "drop_themes": [
+    "marriage"
+   ],
+   "reason": "Wife being hit: 'Husbands, love your wives' (with Ephesians 5:25 and Proverbs 31:28) is the whole marriage answer for 'my husband pushed me down the stairs' and 'husband says if i leave he'll ... kill me'. The Bible marriage theme needs verses for the person in pain, not instructions to husbands."
+  },
+  {
+   "ref": "Isaiah 1:18",
+   "action": "retag",
+   "drop_themes": [
+    "guilt_repentance"
+   ],
+   "reason": "Rape survivor or trans teen: 'though your sins be as scarlet' surfaced through the word 'though' for 'he forced himself on me' and 'i dont feel like a boy even though...'. Keep it only where guilt was typed (it is reached by BM25 on 'though'/'reason' today)."
+  }
+ ],
+ "sensitive_set": [
+  {
+   "ref": "gita 6:9",
+   "action": "remove",
+   "reason": "Shown for 22 of 25 sensitive queries. To a gay teen or a victim of racism, 'regard ... foes ... the righteous and unrighteous with an even mind' reads as being asked to be even-minded towards those who wrong them, next to 'unrighteous'."
+  },
+  {
+   "ref": "gita 12:12",
+   "action": "remove",
+   "reason": "'Renunciation of the fruit of action' says nothing to identity, body or faith topics."
+  },
+  {
+   "ref": "gita 16:2",
+   "action": "remove",
+   "reason": "'Absence of wrath, mildness, modesty' shown to 'im muslim and people look at me differently since the attack' counsels meekness to the person being targeted."
+  },
+  {
+   "ref": "quran 93:4",
+   "action": "remove",
+   "reason": "Afterlife 'better' wording; see the pool item."
+  },
+  {
+   "ref": "quran 87:8",
+   "action": "remove",
+   "reason": "See the pool item."
+  },
+  {
+   "ref": "quran 28:22",
+   "action": "remove",
+   "reason": "Shown for every pregnancy-loss and abortion query: 'perhaps my Lord will guide me in the right road' implies she took a wrong one."
+  },
+  {
+   "ref": "quran 28:5",
+   "action": "retag",
+   "drop_themes": [
+    "hope"
+   ],
+   "reason": "'Favour unto those who were oppressed' reaches pregnancy-loss queries through the default hope theme and calls the bereaved 'oppressed'. Keep it for race and caste (justice_wronged)."
+  }
+ ]
+}

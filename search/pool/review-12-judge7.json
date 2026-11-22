@@ -1,0 +1,50 @@
+{
+ "about": "Round 8. Judge 7's verse list (its review.json, made after the held-out run of suggest() at 758bdb4), applied in full, medium, low and quality items alike; its 'keep, fix routing' items (Genesis 2:2, Gita 3:8, Ecclesiastes 7:9) stay and are fixed by the new suggest() rule instead (search/FORMAT.md step 8). Then one more pass over every published verse for keep-silent, keep-your-promise and try-harder wording, and a reading of every verse of the seven topics suggest() may offer to a message that names another person (search/themes.json 'kind': 'comfort'): a verse that tells the reader to endure, wait, submit, be silent, forgive or try harder loses that comfort theme, so that every verse left under those topics is comfort only. Quran 94:5 and 94:6 have the same text and were shown one after the other; 94:6 is removed, and 26:80 ('when I sicken, then He healeth me') takes its place under Illness.",
+ "gita": [
+  {"ref": "17:16", "action": "remove", "reason": "Sweep: 'silence, self-control ... austerity of the mind' is a keep-silent verse (round 7 kept it under self-control only); to a child told to keep a secret it reads as stay quiet."},
+  {"ref": "6:35", "action": "retag", "drop_themes": ["fear_anxiety"], "reason": "Comfort pass: 'it may be curbed by constant practice' tells a frightened reader to try harder; kept under patience and peace of mind."},
+  {"ref": "2:56", "action": "retag", "drop_themes": ["fear_anxiety"], "reason": "Comfort pass: 'free from anxiety amid pains, indifferent amid pleasures' holds up being unmoved by pain as the ideal, which reads as bear it to someone being hurt; kept under peace of mind and anger."},
+  {"ref": "12:10", "action": "retag", "drop_themes": ["doubt_faith"], "reason": "Comfort pass: 'if thou art not equal to constant practice, be intent on My service' is an instruction to do more; kept under work and patience."}
+ ],
+ "quran": [
+  {"ref": "12:53", "action": "retag", "drop_themes": ["guilt_repentance", "temptation_self_control"], "reason": "Judge 7 (medium): 'I do not exculpate myself. Lo! the (human) soul enjoineth unto evil' answers a victim's 'was it my fault' with yes (shown to 'i said no but he didnt stop. was it my fault for drinking?')."},
+  {"ref": "16:91", "action": "retag", "drop_themes": ["honesty"], "reason": "Judge 7 (low): 'break not your oaths' can read to a groomed child as: keep your promise to him."},
+  {"ref": "8:27", "action": "retag", "drop_themes": ["honesty"], "reason": "Judge 7 (low): 'nor knowingly betray your trusts' reads the same as 16:91 to a child told to keep a secret."},
+  {"ref": "94:6", "action": "remove", "reason": "Judge 7 (quality): the same text as 94:5 ('Lo! with hardship goeth ease'), shown twice in a row under the same topic; 94:5 is kept (it is in the sensitive set, which carries no illness verses, so it does not take 94:6's illness theme)."},
+  {"ref": "26:80", "action": "add", "themes": ["illness"], "why": "When I fall ill, it is God who heals me.", "trim": "And ", "priority": {"illness": 3}, "reason": "Takes 94:6's place under Illness, so the Quran still offers that topic (three verses): Abraham's 'when I sicken, then He healeth me', pure comfort."},
+  {"ref": "6:152", "action": "remove", "reason": "Sweep: 'if ye give your word, do justice thereunto, and fulfil the covenant' is a keep-your-promise verse (judge 7's reading of 16:91)."},
+  {"ref": "17:34", "action": "remove", "reason": "Sweep: 'keep the covenant. Lo! of the covenant it will be asked' is a keep-your-promise verse."},
+  {"ref": "94:8", "action": "remove", "reason": "Sweep: 'Strive to please thy Lord', a bare try-harder line under Purpose; to someone depressed or blamed it reads as do more."},
+  {"ref": "29:69", "action": "retag", "drop_themes": ["guidance_decisions"], "reason": "Sweep: 'those who strive in Us, We surely guide' makes guidance depend on trying harder; kept under work and effort, where it belongs."},
+  {"ref": "19:96", "action": "retag", "drop_themes": ["loneliness"], "reason": "Comfort pass: love is promised to 'those who believe and do good works'; under Loneliness that reads as earn it; kept under love and compassion."},
+  {"ref": "4:40", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: hope tied to good deeds ('if there is a good deed, He will double it') reads as try harder; kept under justice."},
+  {"ref": "6:160", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: reward for good deeds, punishment for ill ones; under Hope it reads as try harder; kept under work and effort."},
+  {"ref": "16:97", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: 'Whosoever doeth right ... we shall quicken with good life' makes hope depend on conduct; kept under work and effort."},
+  {"ref": "16:128", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: 'Allah is with those who keep their duty unto Him' makes God's nearness depend on duty; kept under kindness."},
+  {"ref": "99:7", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: 'Whoso doeth good an atom's weight will see it' is about deeds, not hope; kept under work and effort."},
+  {"ref": "7:56", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: 'Work not confusion in the earth ... call on Him in fear' is an instruction; it has no other theme, so it leaves the pool."},
+  {"ref": "65:7", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: opens with 'let him spend of that which Allah hath given him', an instruction; kept under generosity."}
+ ],
+ "bible": [
+  {"ref": "Proverbs 15:18", "action": "retag", "drop_themes": ["anger"], "reason": "Judge 7 (medium, shown to a missed crisis message): 'he that is slow to anger appeaseth strife' reads to a victim who thinks she provokes him as: appease him. It has no other theme, so it leaves the pool."},
+  {"ref": "Proverbs 17:14", "action": "retag", "drop_themes": ["anger"], "reason": "Judge 7 (medium): 'leave off contention, before it be meddled with' reads as: don't push back. No other theme: it leaves the pool."},
+  {"ref": "Proverbs 1:10", "action": "retag", "drop_themes": ["temptation_self_control"], "reason": "Judge 7 (medium, shown to a missed crisis message): 'if sinners entice thee, consent thou not' implies consent to a sexually abused child who feels dirty. No other theme: it leaves the pool."},
+  {"ref": "Matthew 26:41", "action": "retag", "drop_themes": ["temptation_self_control"], "reason": "Judge 7 (medium, shown to a missed crisis message): 'the spirit indeed is willing, but the flesh is weak' reads as blame for an assault victim. No other theme: it leaves the pool."},
+  {"ref": "Psalms 141:3", "action": "remove", "reason": "Judge 7 (medium): 'keep the door of my lips' is a keep-silent verse; a child told to keep a secret can read it as: stay quiet."},
+  {"ref": "Ecclesiastes 5:2", "action": "remove", "reason": "Judge 7 (low): 'let thy words be few' also reads as keep quiet."},
+  {"ref": "Galatians 5:13", "action": "retag", "drop_themes": ["love_compassion"], "reason": "Judge 7 (low): 'by love serve one another' was offered to someone told 'if you loved me you'd stop seeing your family'; kept under kindness."},
+  {"ref": "1 Peter 5:6", "action": "remove", "reason": "Judge 7 (low): 'Humble yourselves therefore under the mighty hand' can read as submit, for an abused reader."},
+  {"ref": "1 Timothy 4:12", "action": "retag", "drop_themes": ["self_worth"], "reason": "Judge 7 (low): 'be thou an example ... in purity' under Self-worth can shame a sexual-abuse survivor; kept under purpose."},
+  {"ref": "Ecclesiastes 7:14", "action": "remove", "reason": "Judge 7 (quality): the display text was cut off at 'in the day of adversity consider'; the full verse ends 'to the end that man should find nothing after him', which is no comfort under Hard times, so the verse is removed rather than shown whole."},
+  {"ref": "Psalms 131:2", "action": "remove", "reason": "Sweep: 'I have behaved and quieted myself, as a child that is weaned' is a keep-quiet verse, and its picture is a child."},
+  {"ref": "Galatians 6:4", "action": "retag", "drop_themes": ["self_worth"], "reason": "Comfort pass: 'Let every man prove his own work' makes worth depend on effort; kept under envy and work."},
+  {"ref": "Psalms 27:14", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: 'Wait on the LORD: be of good courage ... wait, I say' tells the reader to wait it out; kept under patience."},
+  {"ref": "Psalms 31:24", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: 'Be of good courage' (Deuteronomy 31:6's wording, removed from Courage in round 7); no other theme, so it leaves the pool."},
+  {"ref": "Psalms 40:1", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: 'I waited patiently' holds up waiting patiently; kept under patience."},
+  {"ref": "Psalms 62:5", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: 'My soul, wait thou only upon God' is an instruction to wait; kept under patience."},
+  {"ref": "Romans 8:25", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: 'with patience wait for it'; kept under patience."},
+  {"ref": "Lamentations 3:25", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: God is good 'unto them that wait for him' makes goodness depend on waiting; kept under patience."},
+  {"ref": "Isaiah 58:10", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: 'If thou draw out thy soul to the hungry ... then shall thy light rise' makes hope depend on doing more; kept under generosity."},
+  {"ref": "Proverbs 4:18", "action": "retag", "drop_themes": ["hope"], "reason": "Comfort pass: 'The path of the just' makes hope depend on being just; kept under purpose."}
+ ]
+}

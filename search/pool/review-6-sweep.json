@@ -1,0 +1,432 @@
+{
+ "about": "Executor's sweep after the final blind review, applying two rules to every general pool verse: (1) remove any verse whose plain reading to a suicidal reader is death, the afterlife, rest, the end, going to peace, 'it is better after', seeing someone again or ease of the way; (2) remove any verse, or the theme that reaches it, that tells a reader to forgive, be patient with, submit to or bear with someone who harms them, unless only the forgiveness theme reaches it (whose phrases now need the visitor to want to forgive or to be forgiven). Also: the Bible marriage theme keeps only verses that speak to either spouse.",
+ "gita": [
+  {
+   "ref": "2:64",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'goeth to peace'."
+  },
+  {
+   "ref": "2:71",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'he goeth to Peace' (the final review only dropped peace_of_mind)."
+  },
+  {
+   "ref": "5:29",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'he goeth to Peace' (the final review only dropped peace_of_mind)."
+  },
+  {
+   "ref": "4:39",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'he goeth swiftly to the supreme Peace'."
+  },
+  {
+   "ref": "5:25",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'obtain the Peace of the Eternal'."
+  },
+  {
+   "ref": "5:26",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'The Peace of the Eternal lies near'."
+  },
+  {
+   "ref": "18:53",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'he is fit to become the Eternal' (the final review only dropped peace_of_mind)."
+  },
+  {
+   "ref": "6:17",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'Yoga killeth out all pain'."
+  },
+  {
+   "ref": "18:66",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'come unto Me alone ... I will liberate thee' reads as release by death."
+  },
+  {
+   "ref": "12:13",
+   "action": "retag",
+   "drop_themes": [
+    "kindness_strangers",
+    "anger"
+   ],
+   "reason": "Someone being harmed by another person: 'bear no ill-will ... forgiving' reached through anger and kindness; kept only under forgiveness."
+  }
+ ],
+ "quran": [
+  {
+   "ref": "2:156",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'unto Him we are returning' reads as going to God by dying. Painful to lose for grief, but the rule is for every general verse."
+  },
+  {
+   "ref": "2:112",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'his reward is with his Lord ... neither shall they grieve': an afterlife reward."
+  },
+  {
+   "ref": "2:277",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'their reward is with their Lord ... neither shall they grieve': an afterlife reward."
+  },
+  {
+   "ref": "2:262",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): afterlife reward, reachable through generosity ('given away my stuff')."
+  },
+  {
+   "ref": "2:274",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): afterlife reward, reachable through generosity ('given away my stuff')."
+  },
+  {
+   "ref": "2:245",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'Unto Him ye will return'."
+  },
+  {
+   "ref": "6:108",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'unto their Lord is their return'."
+  },
+  {
+   "ref": "23:115",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'that ye would not be returned unto Us', under purpose."
+  },
+  {
+   "ref": "3:133",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'a paradise as wide as the heavens and the earth'."
+  },
+  {
+   "ref": "4:124",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'such will enter paradise'."
+  },
+  {
+   "ref": "16:41",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'the reward of the Hereafter is greater'."
+  },
+  {
+   "ref": "17:19",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'whoso desireth the Hereafter and striveth for it'."
+  },
+  {
+   "ref": "20:131",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'The provision of thy Lord is better and more lasting' (as 42:36 in the final review)."
+  },
+  {
+   "ref": "16:95",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'that which Allah hath is better for you'."
+  },
+  {
+   "ref": "27:89",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'safe from fear that Day'."
+  },
+  {
+   "ref": "35:34",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): the note says these are the words of those in paradise."
+  },
+  {
+   "ref": "66:8",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'bring you into Gardens underneath which rivers flow'."
+  },
+  {
+   "ref": "28:77",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'Seek the abode of the Hereafter'."
+  },
+  {
+   "ref": "25:47",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'sleep repose, and maketh day a resurrection'."
+  },
+  {
+   "ref": "3:134",
+   "action": "retag",
+   "drop_themes": [
+    "anger"
+   ],
+   "reason": "Someone being harmed by another person: 'forgiving toward mankind' under anger, which a victim reaches by describing someone else's anger."
+  },
+  {
+   "ref": "3:159",
+   "action": "remove",
+   "reason": "Someone being harmed by another person: 'So pardon them' (the final review only dropped anger and love_compassion)."
+  },
+  {
+   "ref": "7:199",
+   "action": "remove",
+   "reason": "Someone being harmed by another person: 'Keep to forgiveness' under anger."
+  },
+  {
+   "ref": "42:37",
+   "action": "remove",
+   "reason": "Someone being harmed by another person: 'when they are wroth, forgive'."
+  },
+  {
+   "ref": "8:61",
+   "action": "remove",
+   "reason": "Someone being harmed by another person: 'If they incline to peace, incline thou also to it' under anger: make peace with the person who harmed you."
+  },
+  {
+   "ref": "59:10",
+   "action": "retag",
+   "drop_themes": [
+    "anger"
+   ],
+   "reason": "Someone being harmed by another person: a prayer against rancour, under anger."
+  },
+  {
+   "ref": "2:263",
+   "action": "retag",
+   "drop_themes": [
+    "speech_gossip",
+    "kindness_strangers"
+   ],
+   "reason": "Someone being harmed by another person: 'A kind word with forgiveness' shown to someone others are gossiping about."
+  },
+  {
+   "ref": "20:130",
+   "action": "remove",
+   "reason": "Someone being harmed by another person: 'bear with what they say' to someone being gossiped about or harassed."
+  },
+  {
+   "ref": "73:10",
+   "action": "remove",
+   "reason": "Someone being harmed by another person: 'Bear with patience what they utter' to someone being gossiped about or harassed."
+  },
+  {
+   "ref": "25:63",
+   "action": "remove",
+   "reason": "Someone being harmed by another person: 'when the foolish ones address them answer: Peace' to someone being harassed."
+  }
+ ],
+ "bible": [
+  {
+   "ref": "Psalms 23:4",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'the valley of the shadow of death, I will fear no evil'. Painful to lose for grief, but the rule is for every general verse."
+  },
+  {
+   "ref": "Psalms 23:6",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'I will dwell in the house of the LORD for ever'."
+  },
+  {
+   "ref": "Psalms 23:2",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'He maketh me to lie down ... beside the still waters'."
+  },
+  {
+   "ref": "Matthew 11:28",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'Come unto me ... and I will give you rest' (the judge's example: 'tonight is the night ... im so tired')."
+  },
+  {
+   "ref": "Matthew 11:29",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'ye shall find rest unto your souls'."
+  },
+  {
+   "ref": "Exodus 33:14",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'I will give thee rest'."
+  },
+  {
+   "ref": "Job 11:18",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'thou shalt take thy rest in safety'."
+  },
+  {
+   "ref": "Isaiah 32:18",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'quiet resting places'."
+  },
+  {
+   "ref": "Psalms 4:8",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'I will both lay me down in peace, and sleep'."
+  },
+  {
+   "ref": "Psalms 127:2",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'he giveth his beloved sleep'."
+  },
+  {
+   "ref": "2 Corinthians 4:18",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'the things which are seen are temporal ... not seen are eternal'."
+  },
+  {
+   "ref": "Matthew 6:20",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'Lay up for yourselves treasures in heaven'."
+  },
+  {
+   "ref": "Matthew 5:3",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'theirs is the kingdom of heaven' to the poor in spirit."
+  },
+  {
+   "ref": "James 1:12",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'he shall receive the crown of life'."
+  },
+  {
+   "ref": "Proverbs 19:20",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'that thou mayest be wise in thy latter end'."
+  },
+  {
+   "ref": "1 Timothy 6:7",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'it is certain we can carry nothing out' (of this world)."
+  },
+  {
+   "ref": "Ruth 1:16",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'whither thou goest, I will go', to a bereaved reader."
+  },
+  {
+   "ref": "Psalms 61:2",
+   "action": "remove",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): 'lead me to the rock that is higher than I' (cf. 'how high a building needs to be')."
+  },
+  {
+   "ref": "Psalms 126:6",
+   "action": "retag",
+   "drop_themes": [
+    "grief"
+   ],
+   "reason": "Bereaved parent: 'shall doubtless come again with rejoicing' reads as the dead coming back."
+  },
+  {
+   "ref": "Jeremiah 29:11",
+   "action": "display",
+   "trim_end": ", to give you an expected end.",
+   "reason": "Suicidal reader (a missed crisis message must be harmless): the verse ends 'to give you an expected end'; shown up to 'not of evil.'"
+  },
+  {
+   "ref": "Psalms 37:7",
+   "action": "remove",
+   "reason": "Someone being harmed by another person: 'wait patiently for him: fret not ... because of the man who bringeth wicked devices to pass'."
+  },
+  {
+   "ref": "1 Peter 3:9",
+   "action": "remove",
+   "reason": "Someone being harmed by another person: 'Not rendering evil for evil ... but contrariwise blessing' under anger."
+  },
+  {
+   "ref": "Romans 12:18",
+   "action": "retag",
+   "drop_themes": [
+    "anger"
+   ],
+   "reason": "Someone being harmed by another person: 'live peaceably with all men' under anger."
+  },
+  {
+   "ref": "James 3:18",
+   "action": "retag",
+   "drop_themes": [
+    "anger"
+   ],
+   "reason": "Someone being harmed by another person: 'them that make peace' under anger."
+  },
+  {
+   "ref": "Leviticus 19:18",
+   "action": "retag",
+   "drop_themes": [
+    "anger",
+    "love_compassion"
+   ],
+   "reason": "Someone being harmed by another person: 'nor bear any grudge' reached through anger and love; kept under forgiveness."
+  },
+  {
+   "ref": "Proverbs 20:22",
+   "action": "retag",
+   "drop_themes": [
+    "anger",
+    "justice_wronged"
+   ],
+   "reason": "Someone being harmed by another person: 'Say not thou, I will recompense evil; but wait on the LORD' to someone wronged; kept under forgiveness."
+  },
+  {
+   "ref": "Romans 12:17",
+   "action": "retag",
+   "drop_themes": [
+    "anger",
+    "justice_wronged"
+   ],
+   "reason": "Someone being harmed by another person: 'Recompense to no man evil for evil' to someone wronged; kept under honesty."
+  },
+  {
+   "ref": "1 Thessalonians 5:15",
+   "action": "retag",
+   "drop_themes": [
+    "anger"
+   ],
+   "reason": "Someone being harmed by another person: 'none render evil for evil' under anger; kept under forgiveness."
+  },
+  {
+   "ref": "Ephesians 4:32",
+   "action": "retag",
+   "drop_themes": [
+    "love_compassion"
+   ],
+   "reason": "Someone being harmed by another person: 'forgiving one another' reached through love; kept under forgiveness."
+  },
+  {
+   "ref": "1 Corinthians 13:4",
+   "action": "retag",
+   "drop_themes": [
+    "love_compassion"
+   ],
+   "reason": "Someone being harmed by another person: 'Charity suffereth long' is the verse most often used to keep someone in an abusive relationship."
+  },
+  {
+   "ref": "Ephesians 4:2",
+   "action": "remove",
+   "reason": "Someone being harmed by another person: 'with longsuffering, forbearing one another in love'."
+  },
+  {
+   "ref": "Titus 3:2",
+   "action": "remove",
+   "reason": "Someone being harmed by another person: 'gentle, shewing all meekness unto all men' to someone being gossiped about."
+  },
+  {
+   "ref": "Luke 6:37",
+   "action": "remove",
+   "reason": "Someone being harmed by another person: 'forgive, and ye shall be forgiven' to someone being gossiped about."
+  },
+  {
+   "ref": "Ephesians 5:25",
+   "action": "remove",
+   "reason": "Marriage: an instruction to husbands only ('Husbands, love your wives')."
+  },
+  {
+   "ref": "Proverbs 18:22",
+   "action": "remove",
+   "reason": "Marriage: speaks only to a man looking for a wife."
+  },
+  {
+   "ref": "Proverbs 31:28",
+   "action": "retag",
+   "drop_themes": [
+    "marriage"
+   ],
+   "reason": "Marriage: about a wife praised by her husband and children; gendered, and the final review already took it out of family."
+  }
+ ]
+}
