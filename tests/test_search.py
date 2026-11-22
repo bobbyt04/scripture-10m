@@ -758,11 +758,12 @@ def test_eval_cases_are_labelled_and_point_at_real_verses(texts):
     doc = json.loads(E.CASES.read_text())
     cases = doc["cases"]
     themes = {k for k in build.load_json(build.THEMES) if not k.startswith("_")}
-    assert {c["split"] for c in cases} == set(E.SPLITS) - {"final_blind"} and set(doc["splits"]) == set(E.SPLITS)
-    assert len(cases) == 140 and len({c["id"] for c in cases}) == 140
+    assert {c["split"] for c in cases} == set(E.SPLITS) and set(doc["splits"]) == set(E.SPLITS)
+    assert len(cases) == 190 and len({c["id"] for c in cases}) == 190
     assert sum(c["split"] == "blind_1" for c in cases) == 50
-    assert not any(c["split"] == "final_blind" for c in cases)      # an empty placeholder for the next held-out set
+    assert sum(c["split"] == "final_blind" for c in cases) == 50    # judge 5's held-out set, judged once by hand
     assert doc["blind_1_hand_judged"]["precision_of_shown_verses"] == 0.373
+    assert doc["final_blind_hand_judged"]["precision_of_shown_verses"] == 0.573
     for c in cases:
         assert c["expected_themes"] and set(c["expected_themes"]) <= themes, c["id"]
         for book in BOOKS:

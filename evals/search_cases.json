@@ -1,11 +1,11 @@
 {
- "about": "Modern-language situations with hand-picked relevant verses per book (found by reading and searching the whole corpus by theme, before the pool existed) and the hand-labelled themes a good answer should match ('expected_themes'). All four filled splits (dev, dev2, dev3, blind_1) were seen during development; 'blind_1' (formerly 'final_blind') is spent and 'final_blind' is an empty placeholder. An empty list means the book has no fitting verse; that book is then skipped for that case.",
+ "about": "Modern-language situations with hand-picked relevant verses per book (found by reading and searching the whole corpus by theme, before the pool existed) and the hand-labelled themes a good answer should match ('expected_themes'). All four filled splits (dev, dev2, dev3, blind_1) were seen during development; 'blind_1' (formerly 'final_blind') is spent. 'final_blind' holds 50 situations written and judged by hand by judge 5 (final_blind_hand_judged); nothing has been changed for them yet. An empty list means the book has no fitting verse; that book is then skipped for that case.",
  "splits": {
   "dev": "development: seen while the first bridge and settings were written",
   "dev2": "development: first meant as a test set, but the bridge was written after its queries existed",
   "dev3": "development: written blind by a reviewer as 'blind_test' for the full-corpus design (hit@10 0.43); seen while the pool design, themes and settings were made, so no longer held out",
   "blind_1": "spent: 50 situations written by an independent reviewer after the round-4 scorer was frozen, run and judged by hand (blind_1_hand_judged, kept as the record of that round). Round 5 was then developed against them and against the judge's other evidence, so they are development cases now. No answer key ('relevant' is empty), so hit@3 is not computed.",
-  "final_blind": "placeholder: empty until a new set of situations is written by someone who has not seen this round's lists."
+  "final_blind": "held out: 50 everyday situations written by an independent judge (judge 5) before reading the lists, the pool, the tests or the search code, run once at commit 5a0202e and judged by hand (final_blind_hand_judged). No answer key ('relevant' is empty), so hit@3 is not computed. Spent once anything is changed while looking at them."
  },
  "cases": [
   {
@@ -4989,6 +4989,691 @@
     "kindness_strangers",
     "forgiveness"
    ]
+  },
+  {
+   "id": "fb_interview_nerves",
+   "split": "final_blind",
+   "query": "i have a job interview tomorrow and i'm really nervous",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "fear_anxiety",
+    "work_effort"
+   ]
+  },
+  {
+   "id": "fb_coworker_takes_credit",
+   "split": "final_blind",
+   "query": "my coworker takes credit for my work",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "justice_wronged",
+    "work_effort"
+   ]
+  },
+  {
+   "id": "fb_failed_driving_test",
+   "split": "final_blind",
+   "query": "i failed my driving test for the second time",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "failure"
+   ]
+  },
+  {
+   "id": "fb_job_in_other_city",
+   "split": "final_blind",
+   "query": "i can't decide whether to take a new job in another city",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "guidance_decisions",
+    "change_uncertainty"
+   ]
+  },
+  {
+   "id": "fb_messy_roommate",
+   "split": "final_blind",
+   "query": "my roommate never cleans up after himself",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "anger",
+    "patience"
+   ]
+  },
+  {
+   "id": "fb_exam_stress",
+   "split": "final_blind",
+   "query": "i'm stressed about final exams",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "fear_anxiety",
+    "work_effort"
+   ]
+  },
+  {
+   "id": "fb_teen_son_silent",
+   "split": "final_blind",
+   "query": "my teenage son won't talk to me",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "parenting"
+   ]
+  },
+  {
+   "id": "fb_argued_best_friend",
+   "split": "final_blind",
+   "query": "i got into an argument with my best friend",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "friendship",
+    "forgiveness"
+   ]
+  },
+  {
+   "id": "fb_lonely_new_city",
+   "split": "final_blind",
+   "query": "i feel lonely since moving to a new city",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "loneliness",
+    "change_uncertainty"
+   ]
+  },
+  {
+   "id": "fb_cant_pay_bills",
+   "split": "final_blind",
+   "query": "i'm struggling to pay my bills this month",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "money_worry"
+   ]
+  },
+  {
+   "id": "fb_procrastinating",
+   "split": "final_blind",
+   "query": "i keep procrastinating on everything",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "work_effort",
+    "temptation_self_control"
+   ]
+  },
+  {
+   "id": "fb_boss_yells",
+   "split": "final_blind",
+   "query": "my boss yells at me in front of everyone",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "justice_wronged",
+    "anger"
+   ]
+  },
+  {
+   "id": "fb_jealous_of_friends",
+   "split": "final_blind",
+   "query": "i'm jealous of my friends' success",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "envy_contentment"
+   ]
+  },
+  {
+   "id": "fb_lied_to_parents",
+   "split": "final_blind",
+   "query": "i lied to my parents and feel bad",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "guilt_repentance",
+    "honesty"
+   ]
+  },
+  {
+   "id": "fb_worry_insomnia",
+   "split": "final_blind",
+   "query": "i can't sleep because i'm worried about the future",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "fear_anxiety",
+    "peace_of_mind"
+   ]
+  },
+  {
+   "id": "fb_sister_estranged",
+   "split": "final_blind",
+   "query": "my sister and i haven't spoken in years",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "family_parents",
+    "forgiveness"
+   ]
+  },
+  {
+   "id": "fb_college_rejection",
+   "split": "final_blind",
+   "query": "i got rejected from my dream college",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "failure"
+   ]
+  },
+  {
+   "id": "fb_new_business_fear",
+   "split": "final_blind",
+   "query": "i'm starting a new business and scared it will fail",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "fear_anxiety",
+    "courage"
+   ]
+  },
+  {
+   "id": "fb_loud_neighbour",
+   "split": "final_blind",
+   "query": "my neighbor is rude and plays loud music",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "anger",
+    "patience"
+   ]
+  },
+  {
+   "id": "fb_not_good_enough_at_job",
+   "split": "final_blind",
+   "query": "i feel like i'm not good enough at my job",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "self_worth",
+    "work_effort"
+   ]
+  },
+  {
+   "id": "fb_patience_with_kids",
+   "split": "final_blind",
+   "query": "i want to be more patient with my kids",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "patience",
+    "parenting"
+   ]
+  },
+  {
+   "id": "fb_friend_betrayed_trust",
+   "split": "final_blind",
+   "query": "my friend betrayed my trust",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "betrayal",
+    "friendship"
+   ]
+  },
+  {
+   "id": "fb_always_angry",
+   "split": "final_blind",
+   "query": "i'm angry all the time and snap at people",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "anger"
+   ]
+  },
+  {
+   "id": "fb_becoming_a_father",
+   "split": "final_blind",
+   "query": "i'm about to become a father and i'm terrified",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "fear_anxiety",
+    "parenting"
+   ]
+  },
+  {
+   "id": "fb_instagram_comparison",
+   "split": "final_blind",
+   "query": "i keep comparing myself to people on instagram",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "envy_contentment",
+    "self_worth"
+   ]
+  },
+  {
+   "id": "fb_critical_mother_in_law",
+   "split": "final_blind",
+   "query": "my mother-in-law criticises everything i do",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "family_parents",
+    "patience"
+   ]
+  },
+  {
+   "id": "fb_bad_investment",
+   "split": "final_blind",
+   "query": "i lost a lot of money in a bad investment",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "money_worry"
+   ]
+  },
+  {
+   "id": "fb_after_graduation",
+   "split": "final_blind",
+   "query": "i don't know what to do with my life after graduating",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "purpose",
+    "guidance_decisions"
+   ]
+  },
+  {
+   "id": "fb_wedding_nerves",
+   "split": "final_blind",
+   "query": "i'm getting married next month and feel anxious",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "marriage",
+    "fear_anxiety"
+   ]
+  },
+  {
+   "id": "fb_kids_fighting",
+   "split": "final_blind",
+   "query": "my kids are fighting constantly",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "parenting"
+   ]
+  },
+  {
+   "id": "fb_want_to_apologise",
+   "split": "final_blind",
+   "query": "i hurt someone's feelings and want to apologise",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "guilt_repentance",
+    "forgiveness"
+   ]
+  },
+  {
+   "id": "fb_retirement_identity",
+   "split": "final_blind",
+   "query": "i'm retiring and don't know who i am without work",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "purpose",
+    "change_uncertainty"
+   ]
+  },
+  {
+   "id": "fb_unappreciated_by_family",
+   "split": "final_blind",
+   "query": "i feel unappreciated by my family",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "self_worth",
+    "family_parents"
+   ]
+  },
+  {
+   "id": "fb_laid_off",
+   "split": "final_blind",
+   "query": "i got laid off today",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "money_worry",
+    "work_effort"
+   ]
+  },
+  {
+   "id": "fb_forgiving_dad",
+   "split": "final_blind",
+   "query": "i want to forgive my dad but it's hard",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "forgiveness",
+    "family_parents"
+   ]
+  },
+  {
+   "id": "fb_too_many_responsibilities",
+   "split": "final_blind",
+   "query": "i'm overwhelmed with too many responsibilities",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "overwork_rest"
+   ]
+  },
+  {
+   "id": "fb_promotion_impostor",
+   "split": "final_blind",
+   "query": "i got a promotion and feel like a fraud",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "self_worth",
+    "success"
+   ]
+  },
+  {
+   "id": "fb_friend_borrows_money",
+   "split": "final_blind",
+   "query": "my friend keeps asking to borrow money",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "friendship",
+    "generosity"
+   ]
+  },
+  {
+   "id": "fb_caring_for_sick_mother",
+   "split": "final_blind",
+   "query": "i'm caring for my sick mother and exhausted",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "overwork_rest",
+    "family_parents",
+    "illness"
+   ]
+  },
+  {
+   "id": "fb_stop_gossiping",
+   "split": "final_blind",
+   "query": "i want to stop gossiping about people",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "speech_gossip"
+   ]
+  },
+  {
+   "id": "fb_unpopular_work_decision",
+   "split": "final_blind",
+   "query": "i have to make a tough decision at work that will upset people",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "guidance_decisions",
+    "courage"
+   ]
+  },
+  {
+   "id": "fb_kids_moving_out",
+   "split": "final_blind",
+   "query": "i'm sad that my kids are moving out",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "change_uncertainty",
+    "parenting"
+   ]
+  },
+  {
+   "id": "fb_too_proud_to_ask",
+   "split": "final_blind",
+   "query": "i'm too proud to ask for help",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "pride_humility"
+   ]
+  },
+  {
+   "id": "fb_road_rage",
+   "split": "final_blind",
+   "query": "someone cut me off in traffic and i was furious",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "anger"
+   ]
+  },
+  {
+   "id": "fb_be_more_grateful",
+   "split": "final_blind",
+   "query": "i want to be more grateful",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "gratitude"
+   ]
+  },
+  {
+   "id": "fb_health_test_worry",
+   "split": "final_blind",
+   "query": "i'm worried about my health after some tests",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "fear_anxiety",
+    "illness"
+   ]
+  },
+  {
+   "id": "fb_stuck_in_rut",
+   "split": "final_blind",
+   "query": "i feel stuck in a rut",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "purpose"
+   ]
+  },
+  {
+   "id": "fb_rude_to_waiter",
+   "split": "final_blind",
+   "query": "i was rude to a waiter and feel ashamed",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "guilt_repentance"
+   ]
+  },
+  {
+   "id": "fb_let_team_down",
+   "split": "final_blind",
+   "query": "my team lost the championship and i let them down",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "failure"
+   ]
+  },
+  {
+   "id": "fb_skipping_gym",
+   "split": "final_blind",
+   "query": "i keep putting off going to the gym and feel lazy",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "temptation_self_control",
+    "work_effort"
+   ]
   }
  ],
  "blind_1_hand_judged": {
@@ -5079,5 +5764,315 @@
   },
   "theme_notes": "7 notes shown (6 grief, 1 self-worth), all judged fine",
   "patterns": "each theme of each book now shows one fixed set of verses, so different situations in the same theme get identical verses; situations that land in a near theme (a breakup in loneliness, retirement in fear) get on-topic but unhelpful verses; the Gita shows nothing for 22 of 50 situations"
+ },
+ "final_blind_hand_judged": {
+  "precision_of_shown_verses": 0.573,
+  "n_verses": 384,
+  "n_situations": 50,
+  "judged_by": "one independent reviewer (an AI assistant, judge 5); the 50 situations were written and saved before reading the search code beyond its call signature, search/, evals/, tests/ or the README search section, then run once through the search at commit 5a0202e and every shown verse judged by hand; nothing was changed for them",
+  "labels": "fitting = a thoughtful person would say it speaks to the situation; on_topic = right subject but does not help; wrong; harmful = could wound this visitor",
+  "per_book": {
+   "gita": {
+    "shown": 105,
+    "fitting": 0.448,
+    "on_topic": 0.371,
+    "wrong": 0.181,
+    "harmful": 0.0,
+    "situations_with_a_fitting_verse": 23,
+    "situations_empty": 15
+   },
+   "quran": {
+    "shown": 135,
+    "fitting": 0.607,
+    "on_topic": 0.296,
+    "wrong": 0.096,
+    "harmful": 0.0,
+    "situations_with_a_fitting_verse": 34,
+    "situations_empty": 5
+   },
+   "bible": {
+    "shown": 144,
+    "fitting": 0.632,
+    "on_topic": 0.271,
+    "wrong": 0.097,
+    "harmful": 0.0,
+    "situations_with_a_fitting_verse": 36,
+    "situations_empty": 2
+   }
+  },
+  "overall": {
+   "fitting": 0.573,
+   "on_topic": 0.307,
+   "wrong": 0.12,
+   "harmful": 0.0,
+   "situations_with_a_fitting_verse_in_any_book": 40,
+   "situations_with_a_fitting_verse_in_all_three_books": 20,
+   "top_theme_in_expected": 40
+  },
+  "categories": {
+   "general": 48,
+   "crisis": 1,
+   "sensitive": 1
+  },
+  "case_labels": {
+   "interview_nerves": {
+    "gita": "FFU",
+    "quran": "UUF",
+    "bible": "UUU"
+   },
+   "coworker_takes_credit": {
+    "gita": "",
+    "quran": "UWF",
+    "bible": "UFU"
+   },
+   "failed_driving_test": {
+    "gita": "FFU",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "job_in_other_city": {
+    "gita": "WWW",
+    "quran": "WWU",
+    "bible": "WWW"
+   },
+   "messy_roommate": {
+    "gita": "WWU",
+    "quran": "UUU",
+    "bible": "UUU"
+   },
+   "exam_stress": {
+    "gita": "FFU",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "teen_son_silent": {
+    "gita": "",
+    "quran": "UWU",
+    "bible": "UFU"
+   },
+   "argued_best_friend": {
+    "gita": "WWU",
+    "quran": "FFU",
+    "bible": "FUF"
+   },
+   "lonely_new_city": {
+    "gita": "UUW",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "cant_pay_bills": {
+    "gita": "UWU",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "procrastinating": {
+    "gita": "FFF",
+    "quran": "UUF",
+    "bible": "FFU"
+   },
+   "boss_yells": {
+    "gita": "",
+    "quran": "UWU",
+    "bible": "FFU"
+   },
+   "jealous_of_friends": {
+    "gita": "FFU",
+    "quran": "FFU",
+    "bible": "FFF"
+   },
+   "lied_to_parents": {
+    "gita": "",
+    "quran": "FFF",
+    "bible": "UWU"
+   },
+   "worry_insomnia": {
+    "gita": "UFF",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "sister_estranged": {
+    "gita": "",
+    "quran": "",
+    "bible": "FWU"
+   },
+   "college_rejection": {
+    "gita": "FFU",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "new_business_fear": {
+    "gita": "FFU",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "loud_neighbour": {
+    "gita": "UUU",
+    "quran": "WWW",
+    "bible": "WWW"
+   },
+   "not_good_enough_at_job": {
+    "gita": "FFU",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "patience_with_kids": {
+    "gita": "UFU",
+    "quran": "UWU",
+    "bible": "UFF"
+   },
+   "friend_betrayed_trust": {
+    "gita": "WWU",
+    "quran": "UUU",
+    "bible": "UUU"
+   },
+   "always_angry": {
+    "gita": "FUF",
+    "quran": "FFU",
+    "bible": "FFF"
+   },
+   "becoming_a_father": {
+    "gita": "UFF",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "instagram_comparison": {
+    "gita": "FFU",
+    "quran": "FFU",
+    "bible": "FFF"
+   },
+   "critical_mother_in_law": {
+    "gita": "",
+    "quran": "",
+    "bible": "UWU"
+   },
+   "bad_investment": {
+    "gita": "",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "after_graduation": {
+    "gita": "FFF",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "wedding_nerves": {
+    "gita": "UFF",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "kids_fighting": {
+    "gita": "",
+    "quran": "UWU",
+    "bible": "FUU"
+   },
+   "want_to_apologise": {
+    "gita": "",
+    "quran": "",
+    "bible": ""
+   },
+   "retirement_identity": {
+    "gita": "",
+    "quran": "UFU",
+    "bible": "UFU"
+   },
+   "unappreciated_by_family": {
+    "gita": "UUW",
+    "quran": "FFU",
+    "bible": "UWU"
+   },
+   "laid_off": {
+    "gita": "",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "forgiving_dad": {
+    "gita": "",
+    "quran": "UFU",
+    "bible": "UUU"
+   },
+   "too_many_responsibilities": {
+    "gita": "UFW",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "promotion_impostor": {
+    "gita": "WWW",
+    "quran": "WWW",
+    "bible": "WWW"
+   },
+   "friend_borrows_money": {
+    "gita": "WWU",
+    "quran": "UUU",
+    "bible": "UUU"
+   },
+   "caring_for_sick_mother": {
+    "gita": "",
+    "quran": "",
+    "bible": "UWU"
+   },
+   "stop_gossiping": {
+    "gita": "",
+    "quran": "FFF",
+    "bible": "UFF"
+   },
+   "unpopular_work_decision": {
+    "gita": "FFF",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "kids_moving_out": {
+    "gita": "UUW",
+    "quran": "UFF",
+    "bible": "UFF"
+   },
+   "too_proud_to_ask": {
+    "gita": "FFU",
+    "quran": "FFU",
+    "bible": "FFF"
+   },
+   "road_rage": {
+    "gita": "FUF",
+    "quran": "FFU",
+    "bible": "FFF"
+   },
+   "be_more_grateful": {
+    "gita": "UFU",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "health_test_worry": {
+    "gita": "UFF",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "stuck_in_rut": {
+    "gita": "UFF",
+    "quran": "FUU",
+    "bible": "FFF"
+   },
+   "rude_to_waiter": {
+    "gita": "UUU",
+    "quran": "FFF",
+    "bible": "FFF"
+   },
+   "let_team_down": {
+    "gita": "",
+    "quran": "",
+    "bible": ""
+   },
+   "skipping_gym": {
+    "gita": "FFF",
+    "quran": "UUU",
+    "bible": "FFU"
+   }
+  },
+  "case_notes": {
+   "job_in_other_city": "work_effort verses for a relocation decision; guidance theme not used",
+   "loud_neighbour": "rude neighbour mapped to hospitality-to-strangers verses",
+   "want_to_apologise": "false crisis alarm (harm_to_others) for wanting to apologise",
+   "retirement_identity": "retirement routed to sensitive/sexuality_gender",
+   "promotion_impostor": "impostor feelings mapped to honesty verses; Proverbs 10:9 reads as an accusation"
+  },
+  "note": "First and only run; a held-out number. Labels per verse in display order: F fitting, U on topic, W wrong, H harmful; an empty string means the book showed nothing. One situation ('i hurt someone's feelings and want to apologise') got the crisis note (harm_to_others) and one ('i'm retiring and don't know who i am without work') was routed to the sensitive list as sexuality_gender."
  }
 }
