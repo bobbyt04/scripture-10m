@@ -1,0 +1,807 @@
+{
+  "model": "Scripture-10M",
+  "checkpoint": "/Users/bobby/bobby-projects/gpt-from-scratch/out/best.pt",
+  "step": 11000,
+  "config": {
+    "vocab_size": 67,
+    "block_size": 256,
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 384,
+    "dropout": 0.2
+  },
+  "params": 10790400,
+  "train_args": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 384,
+    "dropout": 0.2,
+    "block_size": 256,
+    "batch_size": 64,
+    "lr": 0.001,
+    "min_lr": 0.0001,
+    "warmup_iters": 200,
+    "max_iters": 12000,
+    "weight_decay": 0.1,
+    "beta1": 0.9,
+    "beta2": 0.99,
+    "grad_clip": 1.0,
+    "eval_interval": 500,
+    "eval_iters": 40,
+    "log_interval": 50,
+    "seed": 1337,
+    "sampling": "verse",
+    "device": "auto",
+    "data_dir": "/Users/bobby/bobby-projects/gpt-from-scratch/data/processed",
+    "out_dir": "out",
+    "resume": false
+  },
+  "date": "2026-11-22T17:26:31+00:00",
+  "git": {
+    "commit": "c50732f45428c3cb44f28876fa7dba8400328a98",
+    "dirty": false
+  },
+  "eval_args": {
+    "ckpt": "/Users/bobby/bobby-projects/gpt-from-scratch/out/best.pt",
+    "out": "/Users/bobby/bobby-projects/gpt-from-scratch/.claude/worktrees/agent-afff6609b0bb625cb/evals/results/model.json",
+    "samples": 50,
+    "chars": 400,
+    "temperature": 1.0,
+    "top_k": null,
+    "window": 50,
+    "classifier_n": 5,
+    "seed": 0,
+    "device": "auto",
+    "data_dir": "data/processed"
+  },
+  "notes": {
+    "loss": "Mean loss per token on the held-out verses (5% of each book, at least 50 verses). Tokens are characters plus one tag token per verse, so bpc = nats / ln 2. 'overall' is the mean of the three books, as in training. Every baseline is fitted on the same book's training text. The n-gram baselines use interpolated Witten-Bell smoothing; a stronger smoothing such as Kneser-Ney would lower them further. 'best_baseline' is the lowest of them per book. best.pt was chosen by this same validation loss; there is no separate test split. 'ci95_nats' is a 95% bootstrap interval from resampling held-out verses. Some held-out verses also occur word for word in training (see 'duplicates'); the '_dedup' numbers leave those verses out.",
+    "memorisation": "Share of 50-character windows of generated text (tags removed) found verbatim in each book's training text, and in any of them. 'heldout_real' is the same measure on real held-out verses, for reference: scripture repeats itself, so it is not zero.",
+    "style": "5-gram classifiers, one per book, each fitted on 92,324 characters of training verses (all of the smallest book, a random subset of the others) without tags; highest likelihood wins. The control rows test the classifier itself: uniform noise should spread over the books, and text with one book's statistics should go to that book. Real held-out chunks overlap by three quarters, so they are not independent. Uniform noise is classified as: gita 22/50, quran 24/50, bible 4/50. unigram text: 63/150 sent to its own book. bigram text: 121/150 sent to its own book. real held-out, 10% of characters corrupted: 263/264 sent to its own book. real held-out text: 264/264 sent to its own book. The classifier is not fully fair: uniform noise goes to bible 4/50 times; unigram text imitating quran is sent to quran only 10/50 times. Read the generated row against these controls.",
+    "wellformed": "real_word_frac: generated words that appear in the training text of any book. Verse lengths count only verses finished within 400 characters, so very long verses are under-represented."
+  },
+  "loss": {
+    "val_tokens": {
+      "gita": 6829,
+      "quran": 38029,
+      "bible": 209314
+    },
+    "duplicates": {
+      "gita": {
+        "val_verses": 50,
+        "also_in_train": 0,
+        "val_tokens": 6829,
+        "tokens_in_duplicates": 0
+      },
+      "quran": {
+        "val_verses": 312,
+        "also_in_train": 7,
+        "val_tokens": 38029,
+        "tokens_in_duplicates": 398
+      },
+      "bible": {
+        "val_verses": 1555,
+        "also_in_train": 14,
+        "val_tokens": 209314,
+        "tokens_in_duplicates": 1140
+      }
+    },
+    "models": [
+      {
+        "name": "Scripture-10M",
+        "gita": {
+          "nats": 1.1029464641267548,
+          "bpc": 1.5912153941616862,
+          "ci95_nats": [
+            1.039701021690581,
+            1.1675098101467132
+          ],
+          "nats_dedup": 1.1029464641267548,
+          "bpc_dedup": 1.5912153941616862
+        },
+        "quran": {
+          "nats": 0.8305345065997549,
+          "bpc": 1.1982080139586284,
+          "ci95_nats": [
+            0.8043742974658368,
+            0.8550703228358006
+          ],
+          "nats_dedup": 0.8360846765596717,
+          "bpc_dedup": 1.2062152166358913
+        },
+        "bible": {
+          "nats": 0.7740426216312329,
+          "bpc": 1.116707451664072,
+          "ci95_nats": [
+            0.7635033673184575,
+            0.7838249833148964
+          ],
+          "nats_dedup": 0.775735269462916,
+          "bpc_dedup": 1.1191494262968127
+        },
+        "overall": {
+          "nats": 0.9025078641192475,
+          "bpc": 1.302043619928129,
+          "nats_dedup": 0.9049221367164475,
+          "bpc_dedup": 1.3055266790314635
+        }
+      },
+      {
+        "name": "uniform",
+        "gita": {
+          "nats": 4.204692840576172,
+          "bpc": 6.066089509560572,
+          "ci95_nats": [
+            4.204692840576172,
+            4.204692840576172
+          ],
+          "nats_dedup": 4.204692840576172,
+          "bpc_dedup": 6.066089509560572
+        },
+        "quran": {
+          "nats": 4.204692840576172,
+          "bpc": 6.066089509560572,
+          "ci95_nats": [
+            4.204692840576172,
+            4.204692840576172
+          ],
+          "nats_dedup": 4.204692840576172,
+          "bpc_dedup": 6.066089509560572
+        },
+        "bible": {
+          "nats": 4.204692840576172,
+          "bpc": 6.066089509560572,
+          "ci95_nats": [
+            4.204692840576172,
+            4.204692840576172
+          ],
+          "nats_dedup": 4.204692840576172,
+          "bpc_dedup": 6.066089509560572
+        },
+        "overall": {
+          "nats": 4.204692840576172,
+          "bpc": 6.066089509560572,
+          "nats_dedup": 4.204692840576172,
+          "bpc_dedup": 6.066089509560572
+        }
+      },
+      {
+        "name": "unigram",
+        "gita": {
+          "nats": 3.1059946311309314,
+          "bpc": 4.48100305136034,
+          "ci95_nats": [
+            3.0776441250706363,
+            3.1399847125363762
+          ],
+          "nats_dedup": 3.1059946311309314,
+          "bpc_dedup": 4.48100305136034
+        },
+        "quran": {
+          "nats": 3.0831428944619406,
+          "bpc": 4.448034964192287,
+          "ci95_nats": [
+            3.071199001515029,
+            3.095925924635962
+          ],
+          "nats_dedup": 3.0824677551233037,
+          "bpc_dedup": 4.447060944016526
+        },
+        "bible": {
+          "nats": 3.0414439761254153,
+          "bpc": 4.387876141497747,
+          "ci95_nats": [
+            3.0368012604843795,
+            3.046196372617444
+          ],
+          "nats_dedup": 3.04085786463575,
+          "bpc_dedup": 4.387030561358199
+        },
+        "overall": {
+          "nats": 3.0768605005727623,
+          "bpc": 4.438971385683458,
+          "nats_dedup": 3.076440083629995,
+          "bpc_dedup": 4.438364852245022
+        }
+      },
+      {
+        "name": "2-gram",
+        "gita": {
+          "nats": 2.3686261548993746,
+          "bpc": 3.4172052073932213,
+          "ci95_nats": [
+            2.3352061481092443,
+            2.40413394964859
+          ],
+          "nats_dedup": 2.3686261548993746,
+          "bpc_dedup": 3.4172052073932213
+        },
+        "quran": {
+          "nats": 2.2851695195792474,
+          "bpc": 3.296802733487595,
+          "ci95_nats": [
+            2.2732016310853678,
+            2.2967633253729898
+          ],
+          "nats_dedup": 2.285817644989055,
+          "bpc_dedup": 3.2977377808021986
+        },
+        "bible": {
+          "nats": 2.243978876664875,
+          "bpc": 3.2373771972240024,
+          "ci95_nats": [
+            2.2376404198076805,
+            2.250751752819872
+          ],
+          "nats_dedup": 2.244293278004684,
+          "bpc_dedup": 3.2378307824777934
+        },
+        "overall": {
+          "nats": 2.299258183714499,
+          "bpc": 3.317128379368273,
+          "nats_dedup": 2.299579025964371,
+          "bpc_dedup": 3.3175912568910713
+        }
+      },
+      {
+        "name": "3-gram",
+        "gita": {
+          "nats": 1.8524656019151686,
+          "bpc": 2.6725429373004026,
+          "ci95_nats": [
+            1.7975126949297484,
+            1.91226887892372
+          ],
+          "nats_dedup": 1.8524656019151686,
+          "bpc_dedup": 2.6725429373004026
+        },
+        "quran": {
+          "nats": 1.71099365415921,
+          "bpc": 2.468442059847978,
+          "ci95_nats": [
+            1.6923716284129684,
+            1.7273096914098722
+          ],
+          "nats_dedup": 1.7116407094930772,
+          "bpc_dedup": 2.4693755633693293
+        },
+        "bible": {
+          "nats": 1.723419660675018,
+          "bpc": 2.4863689978263888,
+          "ci95_nats": [
+            1.7156207218674417,
+            1.7317096263147171
+          ],
+          "nats_dedup": 1.7242492259594957,
+          "bpc_dedup": 2.4875658075483984
+        },
+        "overall": {
+          "nats": 1.7622929722497986,
+          "bpc": 2.542451331658256,
+          "nats_dedup": 1.7627851791225806,
+          "bpc_dedup": 2.5431614360727104
+        }
+      },
+      {
+        "name": "4-gram",
+        "gita": {
+          "nats": 1.483796162283804,
+          "bpc": 2.1406653650169196,
+          "ci95_nats": [
+            1.4140667077077758,
+            1.5572491665848591
+          ],
+          "nats_dedup": 1.483796162283804,
+          "bpc_dedup": 2.1406653650169196
+        },
+        "quran": {
+          "nats": 1.3256115907389079,
+          "bpc": 1.9124532681039526,
+          "ci95_nats": [
+            1.3052283712253612,
+            1.3440249263164137
+          ],
+          "nats_dedup": 1.3276590483047384,
+          "bpc_dedup": 1.9154071249806068
+        },
+        "bible": {
+          "nats": 1.3412932240884887,
+          "bpc": 1.9350770827704318,
+          "ci95_nats": [
+            1.3336653861664143,
+            1.3491611185125127
+          ],
+          "nats_dedup": 1.3421971799066066,
+          "bpc_dedup": 1.9363812153464133
+        },
+        "overall": {
+          "nats": 1.3835669923704002,
+          "bpc": 1.9960652386304347,
+          "nats_dedup": 1.3845507968317163,
+          "bpc_dedup": 1.9974845684479798
+        }
+      },
+      {
+        "name": "5-gram",
+        "gita": {
+          "nats": 1.3707279877340277,
+          "bpc": 1.9775424703115898,
+          "ci95_nats": [
+            1.29301185878532,
+            1.4508081218799
+          ],
+          "nats_dedup": 1.3707279877340277,
+          "bpc_dedup": 1.9775424703115898
+        },
+        "quran": {
+          "nats": 1.1505879592759833,
+          "bpc": 1.6599475429540138,
+          "ci95_nats": [
+            1.1277653098505294,
+            1.1724649348544043
+          ],
+          "nats_dedup": 1.153501955676338,
+          "bpc_dedup": 1.6641515511099736
+        },
+        "bible": {
+          "nats": 1.1435465954320974,
+          "bpc": 1.6497890022553447,
+          "ci95_nats": [
+            1.1356617590318363,
+            1.151566153454394
+          ],
+          "nats_dedup": 1.1444725830839768,
+          "bpc_dedup": 1.6511249200486355
+        },
+        "overall": {
+          "nats": 1.2216208474807029,
+          "bpc": 1.7624263385069827,
+          "nats_dedup": 1.222900842164781,
+          "bpc_dedup": 1.7642729804900665
+        }
+      },
+      {
+        "name": "6-gram",
+        "gita": {
+          "nats": 1.4042177425173943,
+          "bpc": 2.02585797345814,
+          "ci95_nats": [
+            1.3189716893678518,
+            1.4917731957027238
+          ],
+          "nats_dedup": 1.4042177425173943,
+          "bpc_dedup": 2.02585797345814
+        },
+        "quran": {
+          "nats": 1.0964425772570974,
+          "bpc": 1.5818322688283286,
+          "ci95_nats": [
+            1.0697157060170057,
+            1.1221123782357556
+          ],
+          "nats_dedup": 1.1004998036410452,
+          "bpc_dedup": 1.5876856092122138
+        },
+        "bible": {
+          "nats": 1.0639552795074907,
+          "bpc": 1.5349630054730878,
+          "ci95_nats": [
+            1.0549951636732924,
+            1.0731592140496073
+          ],
+          "nats_dedup": 1.0651300015714495,
+          "bpc_dedup": 1.536657771169184
+        },
+        "overall": {
+          "nats": 1.1882051997606606,
+          "bpc": 1.7142177492531854,
+          "nats_dedup": 1.1899491825766297,
+          "bpc_dedup": 1.7167337846131794
+        }
+      },
+      {
+        "name": "7-gram",
+        "gita": {
+          "nats": 1.4719194342901405,
+          "bpc": 2.123530868438474,
+          "ci95_nats": [
+            1.3777568616324343,
+            1.5639222159018111
+          ],
+          "nats_dedup": 1.4719194342901405,
+          "bpc_dedup": 2.123530868438474
+        },
+        "quran": {
+          "nats": 1.091650869594743,
+          "bpc": 1.5749192959464602,
+          "ci95_nats": [
+            1.0593469733567504,
+            1.122296103215559
+          ],
+          "nats_dedup": 1.0970621585111737,
+          "bpc_dedup": 1.5827261356310123
+        },
+        "bible": {
+          "nats": 1.0387413082194317,
+          "bpc": 1.4985869341346885,
+          "ci95_nats": [
+            1.0283065210100377,
+            1.0489937505370042
+          ],
+          "nats_dedup": 1.040255943678015,
+          "bpc_dedup": 1.500772091199541
+        },
+        "overall": {
+          "nats": 1.200770537368105,
+          "bpc": 1.732345699506541,
+          "nats_dedup": 1.203079178826443,
+          "bpc_dedup": 1.7356763650896758
+        }
+      },
+      {
+        "name": "8-gram",
+        "gita": {
+          "nats": 1.5436249699075093,
+          "bpc": 2.226980089077939,
+          "ci95_nats": [
+            1.447352308142771,
+            1.6384712024373296
+          ],
+          "nats_dedup": 1.5436249699075093,
+          "bpc_dedup": 2.226980089077939
+        },
+        "quran": {
+          "nats": 1.1119336115766618,
+          "bpc": 1.604181107219405,
+          "ci95_nats": [
+            1.0750912010523956,
+            1.1470399648946359
+          ],
+          "nats_dedup": 1.118539020330591,
+          "bpc_dedup": 1.613710697671743
+        },
+        "bible": {
+          "nats": 1.0441561956191716,
+          "bpc": 1.5063989653332652,
+          "ci95_nats": [
+            1.0319735349797001,
+            1.0569838259078492
+          ],
+          "nats_dedup": 1.0460808349682111,
+          "bpc_dedup": 1.5091756329776245
+        },
+        "overall": {
+          "nats": 1.2332382590344475,
+          "bpc": 1.7791867205435363,
+          "nats_dedup": 1.2360816084021036,
+          "bpc_dedup": 1.7832888065757686
+        }
+      }
+    ],
+    "best_baseline": {
+      "gita": "5-gram",
+      "quran": "7-gram",
+      "bible": "7-gram",
+      "overall": "6-gram"
+    }
+  },
+  "memorisation": {
+    "gita": {
+      "generated": {
+        "texts": 50,
+        "windows": 17445,
+        "copied_from": {
+          "gita": 0.0,
+          "quran": 0.0,
+          "bible": 0.0
+        },
+        "copied_from_any": 0.0,
+        "longest_run": 35,
+        "longest_run_source": "quran",
+        "longest_run_text": "Say (unto them, O Muhammad): It is ",
+        "median_longest_run": {
+          "gita": 18.0,
+          "quran": 19.0,
+          "bible": 20.5
+        }
+      },
+      "heldout_real": {
+        "texts": 16,
+        "windows": 5616,
+        "copied_from": {
+          "gita": 0.0,
+          "quran": 0.0,
+          "bible": 0.0
+        },
+        "copied_from_any": 0.0,
+        "longest_run": 47,
+        "longest_run_source": "gita",
+        "longest_run_text": "ught to be done and what ought not to be done, ",
+        "median_longest_run": {
+          "gita": 26.0,
+          "quran": 17.0,
+          "bible": 19.0
+        }
+      }
+    },
+    "quran": {
+      "generated": {
+        "texts": 50,
+        "windows": 17392,
+        "copied_from": {
+          "gita": 0.0,
+          "quran": 0.0014949402023919044,
+          "bible": 0.0
+        },
+        "copied_from_any": 0.0014949402023919044,
+        "longest_run": 72,
+        "longest_run_source": "quran",
+        "longest_run_text": " belongeth whatsoever is in the heavens and whatsoever is in the earth. ",
+        "median_longest_run": {
+          "gita": 14.0,
+          "quran": 29.0,
+          "bible": 21.0
+        }
+      },
+      "heldout_real": {
+        "texts": 50,
+        "windows": 17550,
+        "copied_from": {
+          "gita": 0.0,
+          "quran": 0.01943019943019943,
+          "bible": 0.0
+        },
+        "copied_from_any": 0.01943019943019943,
+        "longest_run": 115,
+        "longest_run_source": "quran",
+        "longest_run_text": " twain. Say: Hath He forbidden the two males or the two females, or that which the wombs of the two females contain",
+        "median_longest_run": {
+          "gita": 14.5,
+          "quran": 43.0,
+          "bible": 22.0
+        }
+      }
+    },
+    "bible": {
+      "generated": {
+        "texts": 50,
+        "windows": 17442,
+        "copied_from": {
+          "gita": 0.0,
+          "quran": 0.0,
+          "bible": 0.0029813094828574703
+        },
+        "copied_from_any": 0.0029813094828574703,
+        "longest_run": 95,
+        "longest_run_source": "bible",
+        "longest_run_text": ".\nAnd the LORD spake unto Moses, saying,\nSpeak unto the children of Israel, and say unto them, ",
+        "median_longest_run": {
+          "gita": 14.0,
+          "quran": 19.0,
+          "bible": 32.5
+        }
+      },
+      "heldout_real": {
+        "texts": 50,
+        "windows": 17550,
+        "copied_from": {
+          "gita": 0.0,
+          "quran": 0.0,
+          "bible": 0.009686609686609686
+        },
+        "copied_from_any": 0.009686609686609686,
+        "longest_run": 106,
+        "longest_run_source": "bible",
+        "longest_run_text": " Jehoshaphat said, Is there not here a prophet of the LORD besides, that we might enquire of him?\nAnd the ",
+        "median_longest_run": {
+          "gita": 14.5,
+          "quran": 18.0,
+          "bible": 37.0
+        }
+      }
+    }
+  },
+  "style": {
+    "classifier": {
+      "order": 5,
+      "train_chars_per_book": 92324
+    },
+    "rows": {
+      "generated": {
+        "gita": {
+          "n": 50,
+          "counts": {
+            "gita": 39,
+            "quran": 7,
+            "bible": 4
+          },
+          "own_book": 0.78
+        },
+        "quran": {
+          "n": 50,
+          "counts": {
+            "gita": 0,
+            "quran": 50,
+            "bible": 0
+          },
+          "own_book": 1.0
+        },
+        "bible": {
+          "n": 50,
+          "counts": {
+            "gita": 0,
+            "quran": 1,
+            "bible": 49
+          },
+          "own_book": 0.98
+        }
+      },
+      "real held-out text": {
+        "gita": {
+          "n": 64,
+          "counts": {
+            "gita": 64,
+            "quran": 0,
+            "bible": 0
+          },
+          "own_book": 1.0
+        },
+        "quran": {
+          "n": 100,
+          "counts": {
+            "gita": 0,
+            "quran": 100,
+            "bible": 0
+          },
+          "own_book": 1.0
+        },
+        "bible": {
+          "n": 100,
+          "counts": {
+            "gita": 0,
+            "quran": 0,
+            "bible": 100
+          },
+          "own_book": 1.0
+        }
+      },
+      "real held-out, 10% of characters corrupted": {
+        "gita": {
+          "n": 64,
+          "counts": {
+            "gita": 64,
+            "quran": 0,
+            "bible": 0
+          },
+          "own_book": 1.0
+        },
+        "quran": {
+          "n": 100,
+          "counts": {
+            "gita": 0,
+            "quran": 100,
+            "bible": 0
+          },
+          "own_book": 1.0
+        },
+        "bible": {
+          "n": 100,
+          "counts": {
+            "gita": 1,
+            "quran": 0,
+            "bible": 99
+          },
+          "own_book": 0.99
+        }
+      },
+      "unigram text": {
+        "gita": {
+          "n": 50,
+          "counts": {
+            "gita": 27,
+            "quran": 5,
+            "bible": 18
+          },
+          "own_book": 0.54
+        },
+        "quran": {
+          "n": 50,
+          "counts": {
+            "gita": 21,
+            "quran": 10,
+            "bible": 19
+          },
+          "own_book": 0.2
+        },
+        "bible": {
+          "n": 50,
+          "counts": {
+            "gita": 21,
+            "quran": 3,
+            "bible": 26
+          },
+          "own_book": 0.52
+        }
+      },
+      "bigram text": {
+        "gita": {
+          "n": 50,
+          "counts": {
+            "gita": 47,
+            "quran": 0,
+            "bible": 3
+          },
+          "own_book": 0.94
+        },
+        "quran": {
+          "n": 50,
+          "counts": {
+            "gita": 7,
+            "quran": 38,
+            "bible": 5
+          },
+          "own_book": 0.76
+        },
+        "bible": {
+          "n": 50,
+          "counts": {
+            "gita": 12,
+            "quran": 2,
+            "bible": 36
+          },
+          "own_book": 0.72
+        }
+      }
+    },
+    "uniform_noise": {
+      "n": 50,
+      "counts": {
+        "gita": 22,
+        "quran": 24,
+        "bible": 4
+      }
+    },
+    "verdict": "Uniform noise is classified as: gita 22/50, quran 24/50, bible 4/50. unigram text: 63/150 sent to its own book. bigram text: 121/150 sent to its own book. real held-out, 10% of characters corrupted: 263/264 sent to its own book. real held-out text: 264/264 sent to its own book. The classifier is not fully fair: uniform noise goes to bible 4/50 times; unigram text imitating quran is sent to quran only 10/50 times. Read the generated row against these controls."
+  },
+  "wellformed": {
+    "gita": {
+      "real_word_frac": 0.9559158134243458,
+      "words": 3516,
+      "mean_verse_chars": 150.43396226415095,
+      "complete_verses": 106,
+      "real_mean_verse_chars": 134.58
+    },
+    "quran": {
+      "real_word_frac": 0.9880223582645727,
+      "words": 3757,
+      "mean_verse_chars": 94.40506329113924,
+      "complete_verses": 158,
+      "real_mean_verse_chars": 119.88782051282051
+    },
+    "bible": {
+      "real_word_frac": 0.99264898923602,
+      "words": 3809,
+      "mean_verse_chars": 140.2685185185185,
+      "complete_verses": 108,
+      "real_mean_verse_chars": 132.60707395498392
+    }
+  },
+  "samples": {
+    "gita": [
+      "<gita>But he, born of service three, know the one and being; if these know the love of by their good conscience, and such are born of you in those that receive fire from the love of God, or justified, descending from the declaration of the knowledge of the Visible, Jesus, our brother, a mighty people and a mercy for ever:\n<bible>Let us be perfect as God, and Christ Jesus and the Lord of the Father, giving us ",
+      "<gita>Know thy listener touching what is beforehand action contended supreme and actions,\n<gita>Firmness, action from duty to impovince, and actions from desire, the Vedas purpose and the Sanjaya spirit; to whom have been partakerly takers up, O Bharata.\n<gita>But actions that restrain in He destroyeth in every individed senses, austerity of universe knowingly, enights, firming of set on end.\n<gita>The tear of the s.,",
+      "<gita>Speaking unto the entering of the self, great Lord within much lovers,\n<gita>Knowing, self-sheltering, almonishing, fail, establish, devoid and conqueror, Harmony, godliness, meditation, being brought forth, I shall take thy nature to be for fixed pierce and five portions, O beloved,\n<gita>And having concluded by him the peaceable Self, as though it were being recovered to Me. A beloved beloved Yoga And Pat"
+    ],
+    "quran": [
+      "<quran>Confounding what day between them- and can he know him who was true, or for him whom neither can he eat?\n<quran>That day will be called the doom.\n<quran>Say: Lo! thou art indeed a mere moment for them.\n<quran>He it is Who sendeth down from the sky, and sendeth down water from the doom;\n<quran>And in from the sky a Mount and very fare before them, there is no end of the Day of Resurrection.\n<quran>See that which Allah is severe",
+      "<quran>And dwell therein that they may ward off (evil).\n<quran>And serve Allah, saying: How long will ye cry?\n<quran>Lo! those whom ye own cry.\n<quran>He is the Criter, the Forbidden.\n<quran>The Beneficent\n<quran>Who hath created a painful doom,\n<quran>The cause of Allah among us and the best of the People of the Scripture,\n<quran>O ye who believe! He hath prepared a second time, a mercy for a people to set him,\n<quran>And He hath raised up a Weller i",
+      "<quran>Nay, but Noah's leper said: Thou hast chosen (our fathers) when they said: Hold fast lewdness will have me greater than he whose seed is leader, and hast grasped thine hands to thy son, and hast found the molten cummin, which He hath provided for us. Lo! thou callest us not unto permission.\n<quran>So he said: O my people! Fear not, nor long for thy fathers - and I have called for the name of his Lord af"
+    ],
+    "bible": [
+      "<bible>Make war also the law of the LORD our God, who serveth Moses from our God, and serveth the LORD our God, until he have brought us upon us this day.\n<bible>For thus have we poor to day: thus by this word we cried unto the LORD, to provoke him to anger with the jaw, and said, What shall we do for this?\n<bible>And he said, Thou art my God, to deliver us out of the hand of the Egyptians, and to do this writing. T",
+      "<bible>And David said unto his servants, It is a token for that the LORD brought forth up thither which the Philistines had slain for a deserter of Sidon in heaven, from Dan even to Israel.\n<bible>And Jehu went and came to David forth in the morning, and said unto them, O people, arise from thee, and take up this servant to the king of Israel, and from the priests of the Levites, and from the people.\n<bible>And Davi",
+      "<bible>And a terrible salt.\n<bible>And it came to pass, when Samuel was returned, Samuel took her two sons, and her daughter in law, and she brought me to the people from seven times, when she saw Absalom, and the LORD lived after her death.\n<bible>Then Joab king of Israel sent his servants that bare two with him an hundred churches, which is broken in the city, and the tithes thereof toward him.\n<bible>And the angel of t"
+    ]
+  },
+  "runtime_s": 215.5
+}
