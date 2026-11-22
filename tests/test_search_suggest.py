@@ -16,9 +16,13 @@ from search import build
 
 PROBES = json.loads((build.ROOT / "evals" / "search_probes.json").read_text())
 JUDGE6 = PROBES["judge6_held_out"]
+JUDGE7 = PROBES["judge7_held_out"]
 CASES = build.load_json(build.ROOT / "evals" / "search_cases.json")
 SAFETY = build.load_json(build.SAFETY)
 NEVER = set(SAFETY["suggest"]["never_after_signal"])
+THEMES = build.load_json(build.THEMES)
+COMFORT = {k for k, v in THEMES.items() if not k.startswith("_") and v["kind"] == "comfort"}
+SELF_DIRECTED = {k for k, v in THEMES.items() if not k.startswith("_") and v["kind"] == "self_directed"}
 
 
 @pytest.fixture(scope="module")
@@ -51,6 +55,8 @@ def check_suggest(s, leak, q, res):
         assert res["topics"] == []
     if res["category"] in ("general", "sensitive") and s.suggest_signal(q):
         assert not set(ids) & NEVER and len(ids) <= SAFETY["suggest"]["max_topics_after_signal"], (q, ids)
+    if s.comfort_cue(q):
+        assert set(ids) <= COMFORT, (q, ids)
     # Never a verse: no ref and no verse text anywhere in the result.
     dumped = json.dumps(res, ensure_ascii=False)
     refs, texts = leak
@@ -71,7 +77,7 @@ def test_suggest_categories(s):
     assert s.suggest("my husband hits me")["category"] == "crisis"
     gay = s.suggest("I'm gay and my parents rejected me")
     assert gay["category"] == "sensitive"
-    assert [t["label"] for t in gay["topics"]] == ["You are not alone", "You are of worth", "Loved and cared for"]
+    assert [t["label"] for t in gay["topics"]] == ["You are not alone", "You are of worth"]    # "parents": comfort only
     money = s.suggest("I got laid off and I'm scared about money")
     assert money["category"] == "general" and [t["id"] for t in money["topics"]] == ["money_worry", "fear_anxiety"]
     assert s.suggest("xyzzy") == {"category": "none", "note": None, "topics": []}
@@ -110,9 +116,8 @@ def test_suppression_after_a_signal_word(s):
         assert res["category"] != "crisis", q
         ids = [t["id"] for t in res["topics"]]
         assert not set(ids) & NEVER and len(ids) <= 2, (q, ids)
-    # Without a signal word the same topics are offered as usual.
-    assert [t["id"] for t in s.suggest("my best friend just stopped talking to me")["topics"]] == ["friendship"]
-    assert "forgiveness" in [t["id"] for t in s.suggest("I want to forgive my brother")["topics"]]
+    # Without a signal word (or another person) the same topics are offered as usual.
+    assert "forgiveness" in [t["id"] for t in s.suggest("how do i forgive myself")["topics"]]
 
 
 def test_fuzz_suggest_never_leaks_a_verse(s, leak):
@@ -177,20 +182,125 @@ def test_judge7_first_run_numbers_are_kept_as_history():
     assert (fr["innocent_false_alarms"], fr["bereavement_false_alarms"], fr["sensitive_routed"]) == (4, 0, 19)
 
 
-def test_if_the_gate_missed_any_stored_crisis_message_no_risky_topic_would_be_offered(s):
-    """Every crisis message of every probe set, as if the gate had missed it: never courage, love, friendship,
-    marriage, family or forgiveness. (These sets were used to write the signal list: development numbers.
-    judge7_held_out is still held out and not used for development, so it is left out here.)"""
+def as_if_missed(s, q):
+    """What suggest() would offer if the crisis gate had not fired (its sensitive routing kept)."""
     from scripture.search import phrase_starts, words
+    toks = words(q)
+    topic = next((t for t, ps in s.sensitive.items() if any(phrase_starts(toks, ph) for ph in ps)), None)
+    return s.offer(q, "sensitive" if topic else "general", topic)
+
+
+def test_if_the_gate_missed_any_stored_crisis_message_no_risky_topic_would_be_offered(s):
+    """Every crisis message of every probe set (judge 7's included), as if the gate had missed it: never courage,
+    love, friendship, marriage, family or forgiveness; and when the message names another person, an event done
+    to the writer, mental health or anger at God, never a self-directed topic (anger, guilt, self-control,
+    patience ...), only comfort ones. (These sets were used to write the lists: development numbers.)"""
+    cued = 0
     for name, d in PROBES.items():
-        if not isinstance(d, dict) or "crisis" not in d or name == "judge7_held_out":
+        if not isinstance(d, dict) or "crisis" not in d:
             continue
         for p in d["crisis"]:
             q = p["text"]
-            toks = words(q)
-            topic = next((t for t, ps in s.sensitive.items() if any(phrase_starts(toks, ph) for ph in ps)), None)
-            res = s.offer(q, "sensitive" if topic else "general", topic)
-            assert not {t["id"] for t in res["topics"]} & NEVER, (name, q, res["topics"])
+            ids = {t["id"] for t in as_if_missed(s, q)["topics"]}
+            assert not ids & NEVER, (name, q, ids)
+            if s.comfort_cue(q):
+                cued += 1
+                assert not ids & SELF_DIRECTED, (name, q, ids)
+    assert cued > 300
+
+
+def test_every_sensitive_topic_keeps_a_comfort_topic_with_sensitive_verses(s):
+    # So a sensitive message that names another person is still offered something gentle.
+    for topic, themes in s.sensitive_themes.items():
+        assert any(t in COMFORT and s.topic_count(t, sensitive=True) for t in themes), topic
+
+
+def test_topic_kinds_split_every_topic_in_two():
+    assert COMFORT | SELF_DIRECTED == {k for k in THEMES if not k.startswith("_")} and not COMFORT & SELF_DIRECTED
+    assert COMFORT == {"grief", "fear_anxiety", "loneliness", "illness", "doubt_faith", "hope", "self_worth"}
+    assert NEVER <= SELF_DIRECTED
+    assert {"anger", "guilt_repentance", "temptation_self_control", "patience", "pride_humility", "forgiveness",
+            "speech_gossip", "work_effort", "suffering_endurance", "peace_of_mind"} <= SELF_DIRECTED
+
+
+# Words that tell a reader to endure, wait, submit, keep quiet, forgive or try harder. A tripwire, not a proof:
+# every verse of every comfort topic was read by hand; a new verse with one of these words fails here until a
+# person has read it and listed it below.
+DIRECTIVE = ["endure", "endureth", "endured", "submit", "obey", "obedient", "forgive", "forgiveth", "forgiving",
+             "silent", "silence", "quiet", "quieted", "patient", "patience", "patiently", "longsuffering", "bear",
+             "beareth", "bearing", "wait", "waiteth", "waited", "strive", "effort", "practice", "diligent", "diligence",
+             "repent", "repenteth", "confess", "humble", "humbly", "meek", "deserve", "punish", "duty", "serve",
+             "servant", "try", "harder", "deed", "deeds", "good works", "courage", "be still", "hold thy peace",
+             "keep thy", "keep the covenant", "oath", "oaths"]
+DIRECTIVE_OK = {   # (book, ref): why the word is not an instruction to the reader
+    ("gita", "2:40"): "'no loss of effort': nothing done is wasted",
+    ("bible", "Isaiah 61:1"): "'good tidings unto the meek': good news for the downtrodden",
+    ("bible", "Isaiah 46:4"): "'I have made, and I will bear': God carries the reader",
+    ("bible", "Psalms 126:6"): "'bearing precious seed ... shall doubtless come again with rejoicing'",
+    ("bible", "Isaiah 40:31"): "'they that wait upon the LORD shall renew their strength': a promise of strength",
+    ("bible", "Micah 7:7"): "'I will wait for the God of my salvation: my God will hear me': a promise of being heard",
+    ("bible", "Psalms 130:5"): "'my soul doth wait, and in his word do I hope': hope, said in the first person",
+    ("bible", "Psalms 138:8"): "'thy mercy, O LORD, endureth for ever': it is God's mercy that endures",
+    ("bible", "Mark 4:39"): "'Peace, be still': said to the storm, which then calms",
+}
+
+
+def test_comfort_topics_have_no_directive_verses(s):
+    import re
+    pats = [re.compile(r"\b" + re.escape(w) + r"\b", re.I) for w in DIRECTIVE]
+    found = set()
+    for theme in COMFORT:
+        for book, rows in s.topic(theme)["books"].items():
+            for v in rows["verses"]:
+                hits = [w for w, pat in zip(DIRECTIVE, pats) if pat.search(v["text"])]
+                if hits:
+                    found.add((book, v["ref"]))
+                    assert (book, v["ref"]) in DIRECTIVE_OK, (theme, book, v["ref"], hits, v["text"])
+    assert found == set(DIRECTIVE_OK)                  # an exception no longer needed is taken off the list
+
+
+def test_a_message_naming_another_person_gets_only_comfort_topics(s):
+    # Judge 7's four harmful chains: the gate now catches them, and even if it missed them none would be offered
+    # anger, guilt or self-control.
+    for q in ["he only gets rough when i make him angry, so i should try harder right?",
+              "how do i be a better submissive wife so he stops getting angry and leaving bruises",
+              "i said no but he didnt stop. was it my fault for drinking?",
+              "something happened at the sleepover and i feel dirty and cant stop shaking"]:
+        assert s.suggest(q)["category"] == "crisis", q
+        assert s.comfort_cue(q) and not {t["id"] for t in as_if_missed(s, q)["topics"]} - COMFORT, q
+    # The accepted cost: an everyday message about another person no longer gets Anger; with nothing left the
+    # category is "none" and the site shows the full list.
+    assert s.suggest("my brother annoys me, how do i stay calm") == {"category": "none", "note": None, "topics": []}
+    assert [t["id"] for t in s.suggest("how do i stop losing my temper")["topics"]] == ["anger"]
+    # Judge 7's two judgmental offers.
+    dep = s.suggest("i'm depressed and can't get out of bed")
+    assert dep["topics"] and {t["id"] for t in dep["topics"]} <= COMFORT
+    god = s.suggest("i'm angry at god for letting this happen")
+    assert god["topics"] and {t["id"] for t in god["topics"]} <= COMFORT
+
+
+# ----- judge 7's messages (spent after its one held-out run) as regression tests for suggest() -----
+
+@pytest.mark.parametrize("q", [p["text"] for p in JUDGE7["crisis"]])
+def test_judge7_crisis_messages_get_the_crisis_note(s, leak, q):
+    res = s.suggest(q)
+    assert res["category"] == "crisis", q
+    check_suggest(s, leak, q, res)
+
+
+@pytest.mark.parametrize("q", JUDGE7["bereavement"])
+def test_judge7_bereaved_messages_are_not_crisis(s, leak, q):
+    res = s.suggest(q)
+    assert res["category"] != "crisis", q
+    check_suggest(s, leak, q, res)
+
+
+@pytest.mark.parametrize("q", JUDGE7["innocent"] + JUDGE7["sensitive"]
+                         + [x["query"] for x in CASES["judge7_blind_hand_judged"]["situations"]])
+def test_judge7_innocent_sensitive_and_everyday_messages_are_not_crisis(s, leak, q):
+    res = s.suggest(q)
+    assert res["category"] != "crisis", q
+    check_suggest(s, leak, q, res)
 
 
 # Round 7 paraphrases of judge 6's misses, and near misses that must not fire.
@@ -249,6 +359,64 @@ def test_round_7_paraphrases_fire(s, q):
 
 @pytest.mark.parametrize("q", PARAPHRASED_SAFE)
 def test_round_7_near_misses_do_not_fire(s, q):
+    assert s.suggest(q)["category"] != "crisis", q
+
+
+# Round 8 paraphrases of judge 7's misses ("finish my life" in any order and non-native wording, scriptural
+# suicides with "me too / should i", ...), and near misses that must not fire.
+PARAPHRASED_CRISIS_8 = [
+    "i want to finish my life", "my life i want to finish it", "please i want finish life", "i want my life to end",
+    "i decide to finish my life tonight", "how to finish my own life", "i want to stop my life",
+    "my life finish now please", "my english is bad, i want to close my life", "i think to finish my life soon",
+    "saul fell on his sword, should i do the same", "judas did it, maybe i should too",
+    "samson took his own life, can god forgive me if i do", "is it ok if i do what judas did",
+    "i'm as bad as judas, i should go the same way", "if a truck hit me tomorrow i would not mind",
+    "i wouldnt even care if i got hit by a bus", "i'm not afraid of death, i'm afraid of another 40 years like this",
+    "i can't do another years like this", "when am i allowed to stop, i've suffered for years",
+    "the pain will end and i know only one way out", "i know which bridge already",
+    "tonight is the night, i have everything i need", "whoever finds this, i'm sorry",
+    "if anyone finds this, it's not your fault", "see you all on the other side",
+    "my last night on earth, give me a verse before the end", "i can't hold on much longer",
+    "i punish myself when i fail", "i don't deserve food so i stopped eating", "i starve myself because i'm fat",
+    "my thighs are covered in marks and i hide them in summer", "he gets rough with me when i talk back",
+    "he only gets physical when i make him mad, it's my fault", "she leaves bruises on my arms",
+    "covering my bruises before work again", "my stepdad doesn't feed me when i'm bad",
+    "they told me to say i fell down the stairs", "my dad uses his belt on me, spare the rod he says",
+    "i told him no but he kept going", "i said stop but he did not stop",
+    "something happened at the party and i feel dirty", "he bought me a drink and i woke up and can't remember",
+    "a guy online says he'll buy me a gift if i send a pic", "he keeps asking what i'm wearing",
+    "i want to make my ex bleed", "i'm scared of what i might do to my baby",
+    "if she leaves me she will regret it, i'll kill her",
+    "thinking of bringing a gun to work and making them all feel what i feel",
+    "my boyfriend says if i loved him i'd cut off my friends",
+    "mom gets drunk and i hide in my room until she passes out",
+]
+PARAPHRASED_SAFE_8 = [
+    "i want to finish my degree so my life gets better", "when i finish school my life will change",
+    "i want to finish my life's work before i retire", "we had to stop the life support for my dad",
+    "who was samson in the bible", "why did judas betray jesus", "the story of saul and david",
+    "if it rains tomorrow i would not mind", "another year like this at work and i'll quit",
+    "am i allowed to stop work early on fridays", "there's only one way to find out",
+    "which bridge is best to cross into the city", "tonight's the night! prom!", "if anyone finds my wallet please call me",
+    "see you on the other side of the exams", "final night of our vacation in rome",
+    "i can't hold on much longer, i need the bathroom lol", "my mom bruises easily since her surgery",
+    "my dad got a black eye at football", "the sea gets rough in winter",
+    "i need an extension cord for the christmas lights", "i said no to a second piece of cake",
+    "something happened at work and i'm stressed", "i woke up with my clothes all wrinkled",
+    "send me a pic of your new puppy", "what are you wearing to the wedding", "i made my knee bleed falling off my bike",
+    "my baby won't stop crying and i'm exhausted", "my grandma will not live to see my wedding and that makes me sad",
+    "bring something in tomorrow for the bake sale", "i was so hungry i could die", "the movie was so sad i wanted to die",
+    "i hit my brother in a pillow fight and he cried lol", "my laptop crashed and i lost my essay, kill me now",
+]
+
+
+@pytest.mark.parametrize("q", PARAPHRASED_CRISIS_8)
+def test_round_8_paraphrases_fire(s, q):
+    assert s.suggest(q)["category"] == "crisis", q
+
+
+@pytest.mark.parametrize("q", PARAPHRASED_SAFE_8)
+def test_round_8_near_misses_do_not_fire(s, q):
     assert s.suggest(q)["category"] != "crisis", q
 
 
@@ -319,7 +487,8 @@ def test_every_theme_has_a_hand_written_label_and_blurb():
 
 def test_signal_phrases_are_well_formed():
     from scripture.search import words
-    for p in SAFETY["suggest"]["signals"]:
+    cues = [x for g in SAFETY["suggest"]["comfort_only_cues"].values() for x in g]
+    for p in SAFETY["suggest"]["signals"] + cues:
         assert p == p.lower() and p.strip() == p and "  " not in p, p
         for slot in p.split():
             for alt in slot.split("|"):

@@ -1101,7 +1101,7 @@ Pool after: gita 92, quran 196, bible 566 verses.
 ## Round 5: hand edits outside apply_review.py
 
 - bible Ecclesiastes 4:10 added (marriage, friendship; display trims "For " and the closing "but woe to him that is alone ..."), and marriage added to Ecclesiastes 4:12, so the Bible's marriage theme keeps only verses that speak to either spouse (Ecclesiastes 4:9, 4:10, 4:12, Proverbs 15:17, 17:1, Song of Solomon 8:7, Colossians 3:14) after review-6-sweep took out the husband-only and wife-only ones.
-- Priorities: two separate reviewers (AI assistants given only the listed verses, the theme descriptions and these rules) read every theme of every book (search/pool/*.json listed by theme) and chose the 3 to 5 verses each theme should show first, best first, by the rules in review-6-sweep (no afterlife, rest or end wording; nothing telling someone harmed to forgive, wait or submit; no shaming). They are the `priority` field of the pool rows. The verses they flagged instead are removed in review-7-flags.
+- Priorities: two separate independent reviewers (given only the listed verses, the theme descriptions and these rules) read every theme of every book (search/pool/*.json listed by theme) and chose the 3 to 5 verses each theme should show first, best first, by the rules in review-6-sweep (no afterlife, rest or end wording; nothing telling someone harmed to forgive, wait or submit; no shaming). They are the `priority` field of the pool rows. The verses they flagged instead are removed in review-7-flags.
 - review-5-final applies the blind judge's review-final.json. Where the judge asked for a display that would need words that are not in the verse (prepending "Charity", joining two verses), the verse is removed instead: Romans 8:39, 1 Corinthians 13:5 and 13:6, Galatians 5:22.
 
 ## review-8-judge5
@@ -1313,3 +1313,50 @@ Pool after: gita 68, quran 169, bible 457 verses.
 - bible Genesis 28:15: remove (removed). 'I am with thee, and will keep thee in all places whither thou goest' is Joshua 1:9's 'whithersoever thou goest', which the judge removed.
 - bible 2 Corinthians 13:11: remove (removed). 'Finally, brethren, farewell ... live in peace' reads as a farewell blessing, like John 14:27, which the judge removed.
 - bible Jeremiah 29:11: remove (removed). 'to give you an expected end' to someone with a picked date reads like Habakkuk 2:3's 'appointed time', which the judge removed.
+
+## review-12-judge7
+
+Applied: gita remove 1; gita retag 3; quran add 1; quran remove 4; quran retag 12; bible remove 5; bible retag 15.
+Pool after: gita 67, quran 162, bible 447 verses.
+
+- gita 17:16: remove (removed). Sweep: 'silence, self-control ... austerity of the mind' is a keep-silent verse (round 7 kept it under self-control only); to a child told to keep a secret it reads as stay quiet.
+- gita 6:35: retag (dropped fear_anxiety). Comfort pass: 'it may be curbed by constant practice' tells a frightened reader to try harder; kept under patience and peace of mind.
+- gita 2:56: retag (dropped fear_anxiety). Comfort pass: 'free from anxiety amid pains, indifferent amid pleasures' holds up being unmoved by pain as the ideal, which reads as bear it to someone being hurt; kept under peace of mind and anger.
+- gita 12:10: retag (dropped doubt_faith). Comfort pass: 'if thou art not equal to constant practice, be intent on My service' is an instruction to do more; kept under work and patience.
+- quran 12:53: retag (no theme left: removed). Judge 7 (medium): 'I do not exculpate myself. Lo! the (human) soul enjoineth unto evil' answers a victim's 'was it my fault' with yes (shown to 'i said no but he didnt stop. was it my fault for drinking?').
+- quran 16:91: retag (no theme left: removed). Judge 7 (low): 'break not your oaths' can read to a groomed child as: keep your promise to him.
+- quran 8:27: retag (no theme left: removed). Judge 7 (low): 'nor knowingly betray your trusts' reads the same as 16:91 to a child told to keep a secret.
+- quran 94:6: remove (removed). Judge 7 (quality): the same text as 94:5 ('Lo! with hardship goeth ease'), shown twice in a row under the same topic; 94:5 is kept (it is in the sensitive set, which carries no illness verses, so it does not take 94:6's illness theme).
+- quran 26:80: add (added). Takes 94:6's place under Illness, so the Quran still offers that topic (three verses): Abraham's 'when I sicken, then He healeth me', pure comfort.
+- quran 6:152: remove (removed). Sweep: 'if ye give your word, do justice thereunto, and fulfil the covenant' is a keep-your-promise verse (judge 7's reading of 16:91).
+- quran 17:34: remove (removed). Sweep: 'keep the covenant. Lo! of the covenant it will be asked' is a keep-your-promise verse.
+- quran 94:8: remove (removed). Sweep: 'Strive to please thy Lord', a bare try-harder line under Purpose; to someone depressed or blamed it reads as do more.
+- quran 29:69: retag (dropped guidance_decisions). Sweep: 'those who strive in Us, We surely guide' makes guidance depend on trying harder; kept under work and effort, where it belongs.
+- quran 19:96: retag (dropped loneliness). Comfort pass: love is promised to 'those who believe and do good works'; under Loneliness that reads as earn it; kept under love and compassion.
+- quran 4:40: retag (dropped hope). Comfort pass: hope tied to good deeds ('if there is a good deed, He will double it') reads as try harder; kept under justice.
+- quran 6:160: retag (dropped hope). Comfort pass: reward for good deeds, punishment for ill ones; under Hope it reads as try harder; kept under work and effort.
+- quran 16:97: retag (dropped hope). Comfort pass: 'Whosoever doeth right ... we shall quicken with good life' makes hope depend on conduct; kept under work and effort.
+- quran 16:128: retag (dropped hope). Comfort pass: 'Allah is with those who keep their duty unto Him' makes God's nearness depend on duty; kept under kindness.
+- quran 99:7: retag (dropped hope). Comfort pass: 'Whoso doeth good an atom's weight will see it' is about deeds, not hope; kept under work and effort.
+- quran 7:56: retag (no theme left: removed). Comfort pass: 'Work not confusion in the earth ... call on Him in fear' is an instruction; it has no other theme, so it leaves the pool.
+- quran 65:7: retag (dropped hope). Comfort pass: opens with 'let him spend of that which Allah hath given him', an instruction; kept under generosity.
+- bible Proverbs 15:18: retag (no theme left: removed). Judge 7 (medium, shown to a missed crisis message): 'he that is slow to anger appeaseth strife' reads to a victim who thinks she provokes him as: appease him. It has no other theme, so it leaves the pool.
+- bible Proverbs 17:14: retag (no theme left: removed). Judge 7 (medium): 'leave off contention, before it be meddled with' reads as: don't push back. No other theme: it leaves the pool.
+- bible Proverbs 1:10: retag (no theme left: removed). Judge 7 (medium, shown to a missed crisis message): 'if sinners entice thee, consent thou not' implies consent to a sexually abused child who feels dirty. No other theme: it leaves the pool.
+- bible Matthew 26:41: retag (no theme left: removed). Judge 7 (medium, shown to a missed crisis message): 'the spirit indeed is willing, but the flesh is weak' reads as blame for an assault victim. No other theme: it leaves the pool.
+- bible Psalms 141:3: remove (removed). Judge 7 (medium): 'keep the door of my lips' is a keep-silent verse; a child told to keep a secret can read it as: stay quiet.
+- bible Ecclesiastes 5:2: remove (removed). Judge 7 (low): 'let thy words be few' also reads as keep quiet.
+- bible Galatians 5:13: retag (dropped love_compassion). Judge 7 (low): 'by love serve one another' was offered to someone told 'if you loved me you'd stop seeing your family'; kept under kindness.
+- bible 1 Peter 5:6: remove (removed). Judge 7 (low): 'Humble yourselves therefore under the mighty hand' can read as submit, for an abused reader.
+- bible 1 Timothy 4:12: retag (dropped self_worth). Judge 7 (low): 'be thou an example ... in purity' under Self-worth can shame a sexual-abuse survivor; kept under purpose.
+- bible Ecclesiastes 7:14: remove (removed). Judge 7 (quality): the display text was cut off at 'in the day of adversity consider'; the full verse ends 'to the end that man should find nothing after him', which is no comfort under Hard times, so the verse is removed rather than shown whole.
+- bible Psalms 131:2: remove (removed). Sweep: 'I have behaved and quieted myself, as a child that is weaned' is a keep-quiet verse, and its picture is a child.
+- bible Galatians 6:4: retag (dropped self_worth). Comfort pass: 'Let every man prove his own work' makes worth depend on effort; kept under envy and work.
+- bible Psalms 27:14: retag (dropped hope). Comfort pass: 'Wait on the LORD: be of good courage ... wait, I say' tells the reader to wait it out; kept under patience.
+- bible Psalms 31:24: retag (no theme left: removed). Comfort pass: 'Be of good courage' (Deuteronomy 31:6's wording, removed from Courage in round 7); no other theme, so it leaves the pool.
+- bible Psalms 40:1: retag (dropped hope). Comfort pass: 'I waited patiently' holds up waiting patiently; kept under patience.
+- bible Psalms 62:5: retag (dropped hope). Comfort pass: 'My soul, wait thou only upon God' is an instruction to wait; kept under patience.
+- bible Romans 8:25: retag (dropped hope). Comfort pass: 'with patience wait for it'; kept under patience.
+- bible Lamentations 3:25: retag (dropped hope). Comfort pass: God is good 'unto them that wait for him' makes goodness depend on waiting; kept under patience.
+- bible Isaiah 58:10: retag (dropped hope). Comfort pass: 'If thou draw out thy soul to the hungry ... then shall thy light rise' makes hope depend on doing more; kept under generosity.
+- bible Proverbs 4:18: retag (dropped hope). Comfort pass: 'The path of the just' makes hope depend on being just; kept under purpose.

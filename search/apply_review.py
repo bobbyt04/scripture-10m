@@ -6,6 +6,8 @@ A review file is {"gita": [item, ...], "quran": [...], "bible": [...]}. Each
 item has a "ref", an "action" and a "reason":
 
     remove          take the verse out of the pool
+    add             put a verse of data/processed into the pool, with "themes", "why" and
+                    optionally "universal" (default true), "trim", "trim_end" and "priority"
     retag           drop the themes in "drop_themes" (a verse left with no theme leaves the pool)
     not_universal   the verse is no longer shown for sensitive topics
     fix_why         replace the note with "new_why"
@@ -83,6 +85,16 @@ def apply(review, pool, texts):
         for item in review.get(book, []):
             v = rows.get(item["ref"])
             action = item["action"]
+            if action == "add":
+                if v is not None:
+                    skipped.append((book, item, "already in the pool"))
+                    continue
+                check_display(texts[book][item["ref"]], item)
+                rows[item["ref"]] = {"ref": item["ref"], "themes": list(item["themes"]),
+                                     "universal": item.get("universal", True), "why": item["why"],
+                                     **{k: item[k] for k in ("trim", "trim_end", "priority") if k in item}}
+                applied.append((book, item, "added"))
+                continue
             if v is None:
                 skipped.append((book, item, "not in the pool (already removed?)"))
                 continue
@@ -114,7 +126,12 @@ def apply(review, pool, texts):
                     (book, item, "display: " + ", ".join(changed) if changed else "display item with no change"))
             else:
                 raise ValueError(f"unknown action {action!r} for {book} {item['ref']}")
-        pool[book] = [v for v in pool[book] if v["ref"] in rows]
+        order = {r: i for i, r in enumerate(texts.get(book, {}))}       # an added verse goes in corpus order
+        kept = [v for v in pool[book] if v["ref"] in rows]
+        for ref in [r for r in rows if r not in {v["ref"] for v in kept}]:
+            at = next((i for i, v in enumerate(kept) if order.get(v["ref"], -1) > order[ref]), len(kept))
+            kept.insert(at, rows[ref])
+        pool[book] = kept
     return applied, skipped
 
 
@@ -146,7 +163,7 @@ def report(name, applied, skipped, pool):
     counts = Counter((b, i["action"]) for b, i, _ in applied)
     lines = [f"\n## {name}\n",
              "Applied: " + "; ".join(f"{b} {a} {counts[(b, a)]}" for b in BOOKS + ("sensitive_set",)
-                                     for a in ("remove", "retag", "not_universal", "fix_why", "display")
+                                     for a in ("add", "remove", "retag", "not_universal", "fix_why", "display")
                                      if counts[(b, a)]) + ".",
              "Pool after: " + ", ".join(f"{b} {len(pool[b])}" for b in BOOKS) + " verses.\n"]
     lines += [f"- {b} {i['ref']}: {i['action']} ({note}). {i.get('reason', '')}".rstrip() for b, i, note in applied]

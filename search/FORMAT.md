@@ -20,12 +20,12 @@ eval history only; the site does not call it.
 
 | File | Size | Contents |
 |---|---|---|
-| `search.json` | 508 kB | The reviewed verse pool (display text, themes, hand-set priorities, note, BM25 terms), themes with their labels, blurbs and phrases, word rules, bridge, safety lists (crisis phrases, distress gate, bereavement and idiom blanks, emoji, sensitive topics, the suggestion signals, the crisis message), settings. |
-| `pool_vectors.i8` | 88 kB | `int8[P][D]`: one row per published pool verse (Gita, then Quran, then Bible, each in `pool` order), for `similar()`. |
+| `search.json` | 509 kB | The reviewed verse pool (display text, themes, hand-set priorities, note, BM25 terms), themes with their labels, blurbs and phrases, word rules, bridge, safety lists (crisis phrases, distress gate, bereavement and idiom blanks, emoji, sensitive topics, the suggestion signals, the crisis message), settings. |
+| `pool_vectors.i8` | 86 kB | `int8[P][D]`: one row per published pool verse (Gita, then Quran, then Bible, each in `pool` order), for `similar()`. |
 | `similarities.json` | 30 kB | The hand-reviewed cross-book parallels for the similarities page. |
-| `fixtures.json` | 179 kB | Expected outputs for testing a port: 29 `suggest()` calls (crisis, sensitive, general and none, the suppression rule, typos, non-ASCII input, an emoji, the 500-character cap), 6 `topic()` calls (with k, sensitive-only, a topic no book has), `topics()`; and, for the eval history, 92 `search()` calls, 4 `by_theme()` calls and 3 `similar()` calls with and without `sensitive_only`. |
+| `fixtures.json` | 180 kB | Expected outputs for testing a port: 36 `suggest()` calls (crisis, sensitive, general and none, the suppression rule, the comfort-only rule, typos, non-ASCII input, an emoji, the 500-character cap), 6 `topic()` calls (with k, sensitive-only, a topic no book has), `topics()`; and, for the eval history, 92 `search()` calls, 4 `by_theme()` calls and 3 `similar()` calls with and without `sensitive_only`. |
 
-Total 804 kB. (The full-corpus model in `search/model/`, 6.6 MB, is used
+Total 805 kB. (The full-corpus model in `search/model/`, 6.6 MB, is used
 offline only: to propose parallels, score them, and give pool verses their
 vectors. The site never loads it.)
 
@@ -60,6 +60,7 @@ an all-zero row as zeros** (its cosine with anything is 0, never NaN).
   "themes": {
     "grief": {"name": "Grief and loss", "description": "...",
               "label": "Grief and loss", "blurb": "For missing someone who has died.",   what a visitor sees
+              "kind": "comfort",                    "comfort" or "self_directed" (step 8)
               "gentle_label": "Loss and comfort", "gentle_blurb": "...",   optional: shown for a sensitive message
               "note": "...",                                                optional
               "phrases": ["passed away", "lost my mom|dad|...", ...]}, ...
@@ -76,6 +77,10 @@ an all-zero row as zeros** (its cosine with anything is 0, never NaN).
     "distress": {"window": 7, "rules": [rule, ...]},
     "suggest": {"max_topics": 4, "max_topics_after_signal": 2,                    step 8
                 "never_after_signal": ["courage", "love_compassion", "friendship", "marriage", "family_parents", "forgiveness"],
+                "comfort_only_cues": {"other_person": ["he", "she", "husband|husbands|hubby", "teacher*", "someone", ...],
+                                      "passive_event": ["something happened", "said no", "made me", ...],
+                                      "mental_health": ["depress*", "trauma*", ...],
+                                      "at_god": ["at god|allah|jesus|heaven|lord", ...]},
                 "signals": ["hurt me|myself|us", "pills", "secret*", "fourteen|...", "online", ...]}
   },
   "pool": {
@@ -103,6 +108,16 @@ an all-zero row as zeros** (its cosine with anything is 0, never NaN).
 - A theme's `label` and `blurb` are hand-written for visitors; `name` and
   `description` are the curators' wording (used in BM25 documents and by
   `search()`).
+- A theme's `kind` says whether suggest() may offer it to a message that
+  names another person (step 8). The 7 **comfort** topics are grief,
+  fear_anxiety, loneliness, illness, doubt_faith, hope and self_worth: every
+  one of their verses was read and is comfort only, with no instruction to
+  endure, wait, submit, keep silent, forgive or try harder. The other 31 are
+  **self_directed**: their verses ask the reader to change their own
+  behaviour or to bear something (anger, forgiveness, guilt_repentance,
+  temptation_self_control, patience, pride_humility, speech_gossip,
+  work_effort, suffering_endurance, peace_of_mind, courage, love_compassion,
+  friendship, marriage, family_parents and every other topic).
 
 ## Step by step
 
@@ -345,10 +360,22 @@ ref or verse text:
    keep at most `max_topics_after_signal` (2); otherwise keep at most
    `max_topics` (4). This holds even when the gate did not fire; it is a
    deliberately broad rule that only ever offers fewer topics.
-5. Each topic is `{id, label, blurb}`, from the theme's `label` and
+5. **Comfort only.** If any phrase of any list of `suggest.comfort_only_cues`
+   matches **W** (the words of step 1, not C), namely another person (a
+   third-person pronoun such as he, her, them or their, or a person word
+   such as husband, dad, teacher, boss, friend, guy, someone, people), an
+   event done to the writer ("something happened", "said no", "made me",
+   "touched", "was hit"), mental-health wording ("depressed", "trauma",
+   "panic attack") or anger at God ("angry at god", "why did god"), keep
+   only the themes whose `kind` is `comfort`. A self-directed topic ("slow to
+   anger appeaseth strife", "if we confess our sins") offered to someone
+   being hurt reads as blame. This also holds when the gate did not fire, so
+   "my brother annoys me, how do i stay calm" is offered no topic at all.
+   Steps 4 and 5 both apply; the cap of step 4 is applied after step 5.
+6. Each topic is `{id, label, blurb}`, from the theme's `label` and
    `blurb`; for a sensitive message, from its `gentle_label` and
    `gentle_blurb` where it has them.
-6. The category stays "general" or "sensitive"; a general message with no
+7. The category stays "general" or "sensitive"; a general message with no
    topic left becomes "none" (the site then shows the full list,
    `topics()`). `note` is null.
 
@@ -416,7 +443,8 @@ score descending then pool order, take k.
 
 - `words`: `[text, words(text)]` pairs for step 1, including non-ASCII text.
 - `suggest`: for each case, `query`, `crisis_words` (C of step 3), `signal`
-  (whether a `suggest.signals` phrase matches C) and the exact result of
+  (whether a `suggest.signals` phrase matches C), `comfort_cue` (whether a
+  `suggest.comfort_only_cues` phrase matches W) and the exact result of
   `suggest(query)` (`category`, `note`, `topics`).
 - `topic`: for each case, `theme`, `k`, `sensitive`, and of `topic(theme, k,
   sensitive)` the `label`, `blurb`, `note` and per book `{"verses": [[ref,

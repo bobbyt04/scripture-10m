@@ -422,6 +422,22 @@ def test_apply_review_actions(texts):
         AR.apply({"gita": [{"ref": "2:47", "action": "explode"}]}, {"gita": [{"ref": "2:47"}], "quran": [], "bible": []}, texts)
 
 
+def test_apply_review_adds_a_verse_in_corpus_order(texts):
+    pool = {"gita": [], "quran": [{"ref": "94:5", "themes": ["hope"], "why": "d", "universal": True},
+                                  {"ref": "94:8", "themes": ["purpose"], "why": "e", "universal": True}], "bible": []}
+    review = {"quran": [{"ref": "94:6", "action": "add", "themes": ["illness"], "why": "w", "priority": {"illness": 3},
+                         "reason": "r"},
+                        {"ref": "94:5", "action": "add", "themes": ["hope"], "why": "d", "reason": "r"}]}
+    applied, skipped = AR.apply(review, pool, texts)
+    assert [v["ref"] for v in pool["quran"]] == ["94:5", "94:6", "94:8"]
+    assert pool["quran"][1] == {"ref": "94:6", "themes": ["illness"], "universal": True, "why": "w",
+                                "priority": {"illness": 3}}
+    assert len(applied) == 1 and [i["ref"] for _, i, _ in skipped] == ["94:5"]       # already in the pool
+    with pytest.raises(ValueError):
+        AR.apply({"quran": [{"ref": "94:6", "action": "add", "themes": ["hope"], "why": "w", "trim": "Not the start"}]},
+                 {"gita": [], "quran": [], "bible": []}, texts)
+
+
 def test_apply_review_empty_trim_and_the_sensitive_set(texts):
     pool = {"gita": [{"ref": "2:47", "themes": ["work_effort", "hope"], "why": "a", "universal": True}],
             "quran": [{"ref": "94:5", "themes": ["hope"], "why": "d", "universal": True, "trim": "Lo! "}], "bible": []}
@@ -539,6 +555,7 @@ def test_suggest_and_topic_fixtures_match_the_committed_artefacts(s):
     fx = json.loads((ARTIFACTS / "fixtures.json").read_text())
     for c in fx["suggest"]:
         assert s.crisis_words(c["query"]) == c["crisis_words"] and s.suggest_signal(c["query"]) == c["signal"], c["query"]
+        assert s.comfort_cue(c["query"]) == c["comfort_cue"], c["query"]
         assert s.suggest(c["query"]) == {k: c[k] for k in ("category", "note", "topics")}, c["query"]
     for c in fx["topic"]:
         r = s.topic(c["theme"], k=c["k"], sensitive=c["sensitive"])
@@ -549,6 +566,8 @@ def test_suggest_and_topic_fixtures_match_the_committed_artefacts(s):
     cats = {c["category"] for c in fx["suggest"]}
     assert cats == {"crisis", "sensitive", "general", "none"}
     assert any(c["signal"] and c["category"] == "general" for c in fx["suggest"])           # the suppression rule
+    assert any(c["comfort_cue"] and c["category"] == "none" for c in fx["suggest"])         # the comfort-only rule
+    assert any(c["comfort_cue"] and c["topics"] and c["category"] == "general" for c in fx["suggest"])
     assert any(not c["query"].isascii() for c in fx["suggest"]) and any(len(c["query"]) > 500 for c in fx["suggest"])
     assert any(c["k"] is not None for c in fx["topic"]) and any(c["sensitive"] for c in fx["topic"])
     assert any(all(c["books"][b]["nothing"] for b in BOOKS) for c in fx["topic"])           # a topic with nothing

@@ -461,7 +461,8 @@ FIXTURE_K = [("I got laid off and I'm scared about money", 1), ("my mother passe
              ("I feel burnt out", 2), ("I want to die", 7)]
 FIXTURE_THEMES = ["grief", "money_worry", "self_worth", "patience"]
 # suggest(), the site's only free-text entry point (round 7): crisis, sensitive, general, none, the suppression rule
-# after a signal word, typos, non-ASCII input, an emoji, and the 500-character cap (added in fixtures()).
+# after a signal word, the comfort-only rule after another person's, an event's, mental-health or anger-at-God
+# wording (round 8), typos, non-ASCII input, an emoji, and the 500-character cap (added in fixtures()).
 FIXTURE_SUGGEST = [
     "I got laid off and I'm scared about money", "my best friend just stopped talking to me", "my mother passed away",
     "I feel burnt out and my boss keeps yelling", "I want to forgive my brother", "I'm getting married next month",
@@ -473,6 +474,9 @@ FIXTURE_SUGGEST = [
     "i want to forgive him for hurting me", "i love my family but i feel so alone at home",
     "i'm so lonley these days", "i keep procrastinting", "我很难过 lonely", "naïve café owner, so stressed about money",
     "my dog destroyed the couch, i could kill him", "my friend jumped off a building last week",
+    "my brother annoys me, how do i stay calm", "how do i stop losing my temper", "i'm angry at god for letting this happen",
+    "i'm depressed and can't get out of bed", "i feel guilty and want to start again",
+    "something happened and i feel guilty", "i want to finish my life",
 ]
 FIXTURE_TOPICS = [("grief", None, False), ("courage", None, False), ("self_worth", None, True), ("loneliness", 2, True),
                   ("patience", 3, False), ("marriage", None, False)]
@@ -510,7 +514,8 @@ def fixtures(s):
         "about": ("Expected outputs of the committed artefacts, for testing a port. See search/FORMAT.md for every field. "
                   "'suggest', 'topic' and 'topics' are the site contract; 'search' is kept for the eval history only."),
         "words": [[t, words(t)] for t in FIXTURE_WORDS],
-        "suggest": [{"query": q, "crisis_words": s.crisis_words(q), "signal": s.suggest_signal(q), **s.suggest(q)}
+        "suggest": [{"query": q, "crisis_words": s.crisis_words(q), "signal": s.suggest_signal(q),
+                     "comfort_cue": s.comfort_cue(q), **s.suggest(q)}
                     for q in FIXTURE_SUGGEST + ["x " * 300 + "I want to die"]],
         "topic": [topic_case(t, k, sens) for t, k, sens in FIXTURE_TOPICS],
         "topics": s.topics(),

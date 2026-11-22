@@ -51,7 +51,13 @@ How a message is read (steps 0 to 2 are shared by suggest() and search()):
    message has any first-person harm, plan, secrecy, age-under-18 or
    adult-contact word (safety.json "suggest"), it never offers courage,
    love, friendship, marriage, family or forgiveness, and at most 2 topics,
-   even if the gate did not fire. With no theme, category "none": the site
+   even if the gate did not fire. If it names another person (he, her,
+   husband, teacher, someone ...), an event done to the writer ("something
+   happened", "said no"), mental health or anger at God, it offers only the
+   comfort topics (themes.json "kind": grief, fear, loneliness, illness,
+   doubt and faith, hope, self-worth), never one whose verses ask the reader
+   to change their own behaviour or bear something (anger, guilt,
+   self-control, patience ...). With no theme, category "none": the site
    shows the full topic list (topics()).
    search() (eval history only) instead lets the themes choose verses:
    a verse can be shown only if it carries one
@@ -290,6 +296,10 @@ class Searcher:
         sug = safety.get("suggest", {})
         self.suggest_signals = [compile_phrase(x) for x in sug.get("signals", [])]
         self.suggest_never = set(sug.get("never_after_signal", []))
+        # Wording that names another person, an event done to the writer, mental health or anger at God: then
+        # only "comfort" topics (themes.json "kind") are offered, never one that asks the reader to change or bear.
+        self.comfort_cues = [compile_phrase(x) for g in sug.get("comfort_only_cues", {}).values() for x in g]
+        self.comfort_topics = {t for t, d in model["themes"].items() if d.get("kind") == "comfort"}
         self.suggest_max = sug.get("max_topics", 4)
         self.suggest_max_signal = sug.get("max_topics_after_signal", self.suggest_max)
         self.books = {}
@@ -543,6 +553,20 @@ class Searcher:
         tset = set(toks)
         return any(phrase_starts(toks, p, tset) for p in self.suggest_signals)
 
+    def comfort_cue(self, query):
+        """True if the message names another person or an event done to the writer, or has mental-health wording.
+
+        Matched on words(query) with the phrases of safety.json "suggest"
+        "comfort_only_cues": a third-person pronoun or person word (he, her,
+        husband, dad, teacher, friend, someone, people ...), passive-event
+        wording (something happened, said no, made me, touched ...),
+        mental-health wording (depressed, trauma, panic attack ...) or anger at
+        God. Then suggest() offers only the "comfort" topics.
+        """
+        toks = words(query[:self.params["max_query_chars"]])
+        tset = set(toks)
+        return any(phrase_starts(toks, p, tset) for p in self.comfort_cues)
+
     def suggest(self, query):
         """Topics to offer for a typed message. The only free-text entry point the site uses; it never returns verses.
 
@@ -561,6 +585,10 @@ class Searcher:
         safety.json "suggest" "never_after_signal" (courage, love,
         friendship, marriage, family, forgiveness) are never offered and at
         most max_topics_after_signal (2) are; otherwise at most max_topics (4).
+        If the message names another person, an event done to the writer,
+        mental health or anger at God (comfort_cue), only the "comfort" topics
+        (themes.json "kind") are offered: never one whose verses ask the reader
+        to change their own behaviour or to bear something.
         Only the first max_query_chars (500) characters are read.
         """
         query = query[:self.params["max_query_chars"]]
@@ -582,6 +610,8 @@ class Searcher:
         if self.suggest_signal(query):
             ids = [t for t in ids if t not in self.suggest_never]
             cap = self.suggest_max_signal
+        if self.comfort_cue(query):
+            ids = [t for t in ids if t in self.comfort_topics]
         topics = [self._topic_label(t, sensitive) for t in ids[:cap]]
         if not topics and not sensitive:
             category = "none"

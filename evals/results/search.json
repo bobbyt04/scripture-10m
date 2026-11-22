@@ -4,7 +4,7 @@
    "cases": 33,
    "gita": {
     "pairs": 22,
-    "hit@3": 0.5909090909090909
+    "hit@3": 0.5454545454545454
    },
    "quran": {
     "pairs": 28,
@@ -12,24 +12,24 @@
    },
    "bible": {
     "pairs": 29,
-    "hit@3": 0.6551724137931034
+    "hit@3": 0.6206896551724138
    },
    "overall": {
     "pairs": 79,
-    "hit@3": 0.6582278481012658,
+    "hit@3": 0.6329113924050633,
     "hit@3_ci95": [
-     0.544,
-     0.771
+     0.519,
+     0.747
     ]
    },
    "theme_accuracy": 0.9090909090909091,
-   "empty_book_rate": 0.15151515151515152,
+   "empty_book_rate": 0.16161616161616163,
    "empty_book_rate_per_book": {
-    "gita": 0.3939393939393939,
+    "gita": 0.42424242424242425,
     "quran": 0.06060606060606061,
     "bible": 0.0
    },
-   "key_verses_outside_pool": 882,
+   "key_verses_outside_pool": 892,
    "key_verses_total": 1230
   },
   "dev2": {
@@ -55,13 +55,13 @@
     ]
    },
    "theme_accuracy": 0.8823529411764706,
-   "empty_book_rate": 0.1568627450980392,
+   "empty_book_rate": 0.17647058823529413,
    "empty_book_rate_per_book": {
     "gita": 0.4117647058823529,
-    "quran": 0.058823529411764705,
+    "quran": 0.11764705882352941,
     "bible": 0.0
    },
-   "key_verses_outside_pool": 362,
+   "key_verses_outside_pool": 365,
    "key_verses_total": 525
   },
   "dev3": {
@@ -71,29 +71,29 @@
     "hit@3": 0.4782608695652174
    },
    "quran": {
-    "pairs": 31,
-    "hit@3": 0.6451612903225806
+    "pairs": 29,
+    "hit@3": 0.6551724137931034
    },
    "bible": {
     "pairs": 38,
     "hit@3": 0.6842105263157895
    },
    "overall": {
-    "pairs": 92,
-    "hit@3": 0.6195652173913043,
+    "pairs": 90,
+    "hit@3": 0.6222222222222222,
     "hit@3_ci95": [
      0.511,
-     0.736
+     0.733
     ]
    },
    "theme_accuracy": 0.975,
-   "empty_book_rate": 0.21666666666666667,
+   "empty_book_rate": 0.23333333333333334,
    "empty_book_rate_per_book": {
     "gita": 0.5,
-    "quran": 0.1,
+    "quran": 0.15,
     "bible": 0.05
    },
-   "key_verses_outside_pool": 694,
+   "key_verses_outside_pool": 710,
    "key_verses_total": 1055
   },
   "blind_1": {
@@ -157,31 +157,31 @@
  },
  "ablation": {
   "themes, pool order": {
-   "hit@3": 0.4460093896713615,
+   "hit@3": 0.43601895734597157,
    "hit@3_ci95": [
-    0.374,
-    0.514
+    0.368,
+    0.502
    ],
    "theme_accuracy": 0.9333333333333333,
-   "empty_book_rate": 0.1814814814814815
+   "empty_book_rate": 0.1962962962962963
   },
   "+ BM25 tie break": {
-   "hit@3": 0.5727699530516432,
+   "hit@3": 0.5639810426540285,
    "hit@3_ci95": [
-    0.495,
-    0.649
+    0.49,
+    0.638
    ],
    "theme_accuracy": 0.9333333333333333,
-   "empty_book_rate": 0.1814814814814815
+   "empty_book_rate": 0.1962962962962963
   },
   "+ hand-set priority (final)": {
-   "hit@3": 0.6197183098591549,
+   "hit@3": 0.6113744075829384,
    "hit@3_ci95": [
-    0.536,
-    0.69
+    0.533,
+    0.678
    ],
    "theme_accuracy": 0.9333333333333333,
-   "empty_book_rate": 0.1814814814814815
+   "empty_book_rate": 0.1962962962962963
   }
  },
  "parallels": {
@@ -2137,7 +2137,17 @@
    "bereavement": 40,
    "bereavement_false_alarms": 0,
    "sensitive": 40,
-   "sensitive_routed": 28
+   "sensitive_routed": 29
+  },
+  "judge7_held_out": {
+   "crisis": 161,
+   "crisis_caught": 161,
+   "innocent": 50,
+   "innocent_false_alarms": 0,
+   "bereavement": 40,
+   "bereavement_false_alarms": 0,
+   "sensitive": 40,
+   "sensitive_routed": 20
   }
  },
  "probes_first_look": {
@@ -2162,28 +2172,28 @@
   "topic_hit@4": {
    "dev": {
     "cases": 33,
-    "topic_hit@4": 0.9393939393939394,
-    "no_topic": 0
+    "topic_hit@4": 0.696969696969697,
+    "no_topic": 8
    },
    "dev2": {
     "cases": 17,
-    "topic_hit@4": 0.9411764705882353,
-    "no_topic": 0
+    "topic_hit@4": 0.7058823529411765,
+    "no_topic": 5
    },
    "dev3": {
     "cases": 40,
-    "topic_hit@4": 0.925,
-    "no_topic": 3
+    "topic_hit@4": 0.625,
+    "no_topic": 15
    },
    "blind_1": {
     "cases": 50,
-    "topic_hit@4": 0.92,
-    "no_topic": 3
+    "topic_hit@4": 0.68,
+    "no_topic": 15
    },
    "final_blind": {
     "cases": 50,
-    "topic_hit@4": 0.94,
-    "no_topic": 1
+    "topic_hit@4": 0.6,
+    "no_topic": 20
    }
   },
   "crisis_probes": {
@@ -2195,37 +2205,36 @@
     "detail": []
    },
    "as_if_missed": {
-    "messages": 752,
-    "nothing_suggested": 402,
-    "topics_suggested": 350,
+    "messages": 913,
+    "nothing_suggested": 627,
+    "topics_suggested": 286,
     "topics": {
-     "doubt_faith": 43,
-     "self_worth": 37,
-     "parenting": 29,
-     "wisdom_learning": 27,
-     "temptation_self_control": 25,
-     "suffering_endurance": 24,
-     "anger": 24,
-     "peace_of_mind": 21,
-     "honesty": 20,
-     "fear_anxiety": 20,
-     "money_worry": 20,
-     "guilt_repentance": 19,
-     "justice_wronged": 16,
-     "overwork_rest": 15,
-     "loneliness": 14,
-     "patience": 14,
+     "doubt_faith": 59,
+     "self_worth": 44,
+     "fear_anxiety": 24,
+     "suffering_endurance": 22,
+     "loneliness": 20,
+     "overwork_rest": 18,
+     "peace_of_mind": 15,
+     "temptation_self_control": 14,
      "hope": 12,
      "illness": 12,
-     "failure": 10,
-     "kindness_strangers": 8,
-     "grief": 7,
-     "speech_gossip": 5,
-     "guidance_decisions": 5,
-     "generosity": 4,
-     "purpose": 4,
+     "guilt_repentance": 11,
+     "grief": 11,
+     "honesty": 10,
+     "patience": 10,
+     "parenting": 9,
+     "money_worry": 7,
+     "anger": 7,
+     "justice_wronged": 6,
+     "wisdom_learning": 6,
+     "purpose": 6,
      "change_uncertainty": 3,
-     "work_effort": 2
+     "failure": 3,
+     "guidance_decisions": 3,
+     "speech_gossip": 2,
+     "generosity": 2,
+     "kindness_strangers": 1
     }
    }
   }
@@ -2247,13 +2256,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -2400,13 +2409,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -2463,14 +2472,14 @@
       "in_answer_key": true
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": true
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
-      "in_answer_key": true
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
+      "in_answer_key": false
      }
     ],
     "quran": [
@@ -2615,13 +2624,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "94:8",
-      "text": "Strive to please thy Lord.",
+      "ref": "3:104",
+      "text": "There may spring from you a nation who invite to goodness, and enjoin right conduct and forbid indecency. Such are they who are successful.",
       "in_answer_key": false
      },
      {
-      "ref": "3:104",
-      "text": "There may spring from you a nation who invite to goodness, and enjoin right conduct and forbid indecency. Such are they who are successful.",
+      "ref": "18:46",
+      "text": "Wealth and children are an ornament of the life of the world. But the good deeds which endure are better in thy Lord's sight for reward, and better in respect of hope.",
       "in_answer_key": false
      }
     ],
@@ -2669,29 +2678,8 @@
       "in_answer_key": true
      }
     ],
-    "quran": [
-     {
-      "ref": "12:53",
-      "text": "I do not exculpate myself. Lo! the (human) soul enjoineth unto evil, save that whereon my Lord hath mercy. Lo! my Lord is Forgiving, Merciful.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "25:72",
-      "text": "Those who will not witness vanity, but when they pass near senseless play, pass by with dignity.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "59:9",
-      "text": "Those who entered the city and the faith before them love those who flee unto them for refuge, and find in their breasts no need for that which hath been given them, but prefer (the fugitives) above themselves though poverty become their lot. And whoso is saved from his own avarice - such are they who are successful.",
-      "in_answer_key": false
-     }
-    ],
+    "quran": [],
     "bible": [
-     {
-      "ref": "Matthew 26:41",
-      "text": "Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak.",
-      "in_answer_key": false
-     },
      {
       "ref": "Psalms 51:10",
       "text": "Create in me a clean heart, O God; and renew a right spirit within me.",
@@ -2700,6 +2688,11 @@
      {
       "ref": "Hebrews 4:15",
       "text": "We have not an high priest which cannot be touched with the feeling of our infirmities; but was in all points tempted like as we are, yet without sin.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 4:23",
+      "text": "Keep thy heart with all diligence; for out of it are the issues of life.",
       "in_answer_key": false
      }
     ]
@@ -2833,8 +2826,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "12:10",
-      "text": "If also thou art not equal to constant practice, be intent on My service; performing actions for My sake, thou shalt attain perfection.",
+      "ref": "7:16",
+      "text": "Fourfold in division are the righteous ones who worship me, O Arjuna; the suffering, the seeker for knowledge, the self-interested and the wise, O Lord of the Bharatas.",
       "in_answer_key": false
      }
     ],
@@ -3165,14 +3158,14 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
-      "in_answer_key": false
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
+      "in_answer_key": true
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
-      "in_answer_key": true
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
+      "in_answer_key": false
      }
     ],
     "quran": [
@@ -3288,13 +3281,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -3371,9 +3364,9 @@
       "in_answer_key": true
      },
      {
-      "ref": "16:91",
-      "text": "Fulfil the covenant of Allah when ye have covenanted, and break not your oaths after the asseveration of them, and after ye have made Allah surety over you. Lo! Allah knoweth what ye do.",
-      "in_answer_key": false
+      "ref": "9:119",
+      "text": "O ye who believe! Be careful of your duty to Allah, and be with the truthful.",
+      "in_answer_key": true
      }
     ],
     "bible": [
@@ -3658,61 +3651,46 @@
   {
    "query": "I've been depressed and sad for months",
    "split": "dev",
-   "category": "general",
+   "category": "sensitive",
    "themes": [
     "hope",
-    "suffering_endurance"
+    "suffering_endurance",
+    "self_worth"
    ],
    "results": {
-    "gita": [
-     {
-      "ref": "6:30",
-      "text": "He who seeth Me everywhere, and seeth everything in Me, of him will I never lose hold, and he shall never lose hold of Me.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "13:18",
-      "text": "That, the Light of all lights, is said to be beyond darkness; Wisdom, the Object of Wisdom, by Wisdom to be reached, seated in the hearts of all.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "10:41",
-      "text": "Whatsoever is glorious, good, beautiful, and mighty, understand thou that to go forth from a fragment of My splendour.",
-      "in_answer_key": false
-     }
-    ],
+    "gita": [],
     "quran": [
-     {
-      "ref": "94:5",
-      "text": "Lo! with hardship goeth ease.",
-      "in_answer_key": true
-     },
      {
       "ref": "42:28",
       "text": "He it is Who sendeth down the saving rain after they have despaired, and spreadeth out His mercy. He is the Protecting Friend, the Praiseworthy.",
       "in_answer_key": false
      },
      {
-      "ref": "93:5",
-      "text": "Verily thy Lord will give unto thee so that thou wilt be content.",
+      "ref": "94:5",
+      "text": "Lo! with hardship goeth ease.",
       "in_answer_key": true
+     },
+     {
+      "ref": "65:3",
+      "text": "Whosoever putteth his trust in Allah, He will suffice him. Lo! Allah bringeth His command to pass. Allah hath set a measure for all things.",
+      "in_answer_key": false
      }
     ],
     "bible": [
      {
-      "ref": "Romans 15:13",
-      "text": "The God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.",
+      "ref": "Psalms 18:28",
+      "text": "Thou wilt light my candle: the LORD my God will enlighten my darkness.",
       "in_answer_key": false
      },
      {
-      "ref": "Psalms 42:11",
-      "text": "Why art thou cast down, O my soul? and why art thou disquieted within me? hope thou in God: for I shall yet praise him, who is the health of my countenance, and my God.",
-      "in_answer_key": true
+      "ref": "Isaiah 54:10",
+      "text": "The mountains shall depart, and the hills be removed; but my kindness shall not depart from thee, neither shall the covenant of my peace be removed, saith the LORD that hath mercy on thee.",
+      "in_answer_key": false
      },
      {
-      "ref": "Lamentations 3:22",
-      "text": "It is of the LORD's mercies that we are not consumed, because his compassions fail not.",
-      "in_answer_key": true
+      "ref": "Psalms 9:9",
+      "text": "The LORD also will be a refuge for the oppressed, a refuge in times of trouble.",
+      "in_answer_key": false
      }
     ]
    }
@@ -3732,14 +3710,14 @@
       "in_answer_key": true
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
-      "in_answer_key": false
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
+      "in_answer_key": true
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
-      "in_answer_key": true
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
+      "in_answer_key": false
      }
     ],
     "quran": [
@@ -3952,9 +3930,9 @@
       "in_answer_key": false
      },
      {
-      "ref": "94:6",
-      "text": "Lo! with hardship goeth ease.",
-      "in_answer_key": false
+      "ref": "26:80",
+      "text": "When I sicken, then He healeth me.",
+      "in_answer_key": true
      }
     ],
     "bible": [
@@ -4041,8 +4019,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "18:10",
-      "text": "The relinquisher pervaded by purity, intelligent and with doubts cut away, hateth not unpleasurable action nor is attached to pleasurable.",
+      "ref": "12:10",
+      "text": "If also thou art not equal to constant practice, be intent on My service; performing actions for My sake, thou shalt attain perfection.",
       "in_answer_key": false
      }
     ],
@@ -4094,27 +4072,22 @@
     ],
     "quran": [
      {
-      "ref": "12:53",
-      "text": "I do not exculpate myself. Lo! the (human) soul enjoineth unto evil, save that whereon my Lord hath mercy. Lo! my Lord is Forgiving, Merciful.",
+      "ref": "94:5",
+      "text": "Lo! with hardship goeth ease.",
       "in_answer_key": false
      },
      {
-      "ref": "25:72",
-      "text": "Those who will not witness vanity, but when they pass near senseless play, pass by with dignity.",
+      "ref": "4:28",
+      "text": "Allah would make the burden light for you, for man was created weak.",
       "in_answer_key": false
      },
      {
-      "ref": "59:9",
-      "text": "Those who entered the city and the faith before them love those who flee unto them for refuge, and find in their breasts no need for that which hath been given them, but prefer (the fugitives) above themselves though poverty become their lot. And whoso is saved from his own avarice - such are they who are successful.",
+      "ref": "42:28",
+      "text": "He it is Who sendeth down the saving rain after they have despaired, and spreadeth out His mercy. He is the Protecting Friend, the Praiseworthy.",
       "in_answer_key": false
      }
     ],
     "bible": [
-     {
-      "ref": "Matthew 26:41",
-      "text": "Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak.",
-      "in_answer_key": false
-     },
      {
       "ref": "Psalms 51:10",
       "text": "Create in me a clean heart, O God; and renew a right spirit within me.",
@@ -4123,6 +4096,11 @@
      {
       "ref": "Hebrews 4:15",
       "text": "We have not an high priest which cannot be touched with the feeling of our infirmities; but was in all points tempted like as we are, yet without sin.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 4:23",
+      "text": "Keep thy heart with all diligence; for out of it are the issues of life.",
       "in_answer_key": false
      }
     ]
@@ -4554,14 +4532,14 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
-      "in_answer_key": true
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
+      "in_answer_key": false
      }
     ],
     "quran": [
@@ -4789,8 +4767,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "12:10",
-      "text": "If also thou art not equal to constant practice, be intent on My service; performing actions for My sake, thou shalt attain perfection.",
+      "ref": "7:16",
+      "text": "Fourfold in division are the righteous ones who worship me, O Arjuna; the suffering, the seeker for knowledge, the self-interested and the wise, O Lord of the Bharatas.",
       "in_answer_key": false
      }
     ],
@@ -5405,13 +5383,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -5427,8 +5405,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "94:6",
-      "text": "Lo! with hardship goeth ease.",
+      "ref": "26:80",
+      "text": "When I sicken, then He healeth me.",
       "in_answer_key": true
      }
     ],
@@ -5476,29 +5454,8 @@
       "in_answer_key": false
      }
     ],
-    "quran": [
-     {
-      "ref": "12:53",
-      "text": "I do not exculpate myself. Lo! the (human) soul enjoineth unto evil, save that whereon my Lord hath mercy. Lo! my Lord is Forgiving, Merciful.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "25:72",
-      "text": "Those who will not witness vanity, but when they pass near senseless play, pass by with dignity.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "59:9",
-      "text": "Those who entered the city and the faith before them love those who flee unto them for refuge, and find in their breasts no need for that which hath been given them, but prefer (the fugitives) above themselves though poverty become their lot. And whoso is saved from his own avarice - such are they who are successful.",
-      "in_answer_key": false
-     }
-    ],
+    "quran": [],
     "bible": [
-     {
-      "ref": "Matthew 26:41",
-      "text": "Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak.",
-      "in_answer_key": false
-     },
      {
       "ref": "Psalms 51:10",
       "text": "Create in me a clean heart, O God; and renew a right spirit within me.",
@@ -5507,6 +5464,11 @@
      {
       "ref": "Hebrews 4:15",
       "text": "We have not an high priest which cannot be touched with the feeling of our infirmities; but was in all points tempted like as we are, yet without sin.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 4:23",
+      "text": "Keep thy heart with all diligence; for out of it are the issues of life.",
       "in_answer_key": false
      }
     ]
@@ -5787,13 +5749,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -5926,13 +5888,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "94:8",
-      "text": "Strive to please thy Lord.",
+      "ref": "3:104",
+      "text": "There may spring from you a nation who invite to goodness, and enjoin right conduct and forbid indecency. Such are they who are successful.",
       "in_answer_key": false
      },
      {
-      "ref": "3:104",
-      "text": "There may spring from you a nation who invite to goodness, and enjoin right conduct and forbid indecency. Such are they who are successful.",
+      "ref": "18:46",
+      "text": "Wealth and children are an ornament of the life of the world. But the good deeds which endure are better in thy Lord's sight for reward, and better in respect of hope.",
       "in_answer_key": false
      }
     ],
@@ -6041,29 +6003,8 @@
       "in_answer_key": false
      }
     ],
-    "quran": [
-     {
-      "ref": "12:53",
-      "text": "I do not exculpate myself. Lo! the (human) soul enjoineth unto evil, save that whereon my Lord hath mercy. Lo! my Lord is Forgiving, Merciful.",
-      "in_answer_key": true
-     },
-     {
-      "ref": "25:72",
-      "text": "Those who will not witness vanity, but when they pass near senseless play, pass by with dignity.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "59:9",
-      "text": "Those who entered the city and the faith before them love those who flee unto them for refuge, and find in their breasts no need for that which hath been given them, but prefer (the fugitives) above themselves though poverty become their lot. And whoso is saved from his own avarice - such are they who are successful.",
-      "in_answer_key": false
-     }
-    ],
+    "quran": [],
     "bible": [
-     {
-      "ref": "Matthew 26:41",
-      "text": "Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak.",
-      "in_answer_key": true
-     },
      {
       "ref": "Psalms 51:10",
       "text": "Create in me a clean heart, O God; and renew a right spirit within me.",
@@ -6073,6 +6014,11 @@
       "ref": "Hebrews 4:15",
       "text": "We have not an high priest which cannot be touched with the feeling of our infirmities; but was in all points tempted like as we are, yet without sin.",
       "in_answer_key": true
+     },
+     {
+      "ref": "Proverbs 4:23",
+      "text": "Keep thy heart with all diligence; for out of it are the issues of life.",
+      "in_answer_key": false
      }
     ]
    }
@@ -6351,8 +6297,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "18:10",
-      "text": "The relinquisher pervaded by purity, intelligent and with doubts cut away, hateth not unpleasurable action nor is attached to pleasurable.",
+      "ref": "12:10",
+      "text": "If also thou art not equal to constant practice, be intent on My service; performing actions for My sake, thou shalt attain perfection.",
       "in_answer_key": false
      }
     ],
@@ -6522,9 +6468,9 @@
       "in_answer_key": true
      },
      {
-      "ref": "16:91",
-      "text": "Fulfil the covenant of Allah when ye have covenanted, and break not your oaths after the asseveration of them, and after ye have made Allah surety over you. Lo! Allah knoweth what ye do.",
-      "in_answer_key": false
+      "ref": "9:119",
+      "text": "O ye who believe! Be careful of your duty to Allah, and be with the truthful.",
+      "in_answer_key": true
      }
     ],
     "bible": [
@@ -6669,13 +6615,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -7366,13 +7312,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -7428,13 +7374,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -7731,13 +7677,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -7961,13 +7907,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -8273,8 +8219,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "12:10",
-      "text": "If also thou art not equal to constant practice, be intent on My service; performing actions for My sake, thou shalt attain perfection.",
+      "ref": "7:16",
+      "text": "Fourfold in division are the righteous ones who worship me, O Arjuna; the suffering, the seeker for knowledge, the self-interested and the wise, O Lord of the Bharatas.",
       "in_answer_key": false
      }
     ],
@@ -8331,13 +8277,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -8483,13 +8429,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -10254,13 +10200,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -10760,13 +10706,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -11019,13 +10965,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -11188,13 +11134,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "94:8",
-      "text": "Strive to please thy Lord.",
+      "ref": "3:104",
+      "text": "There may spring from you a nation who invite to goodness, and enjoin right conduct and forbid indecency. Such are they who are successful.",
       "in_answer_key": false
      },
      {
-      "ref": "3:104",
-      "text": "There may spring from you a nation who invite to goodness, and enjoin right conduct and forbid indecency. Such are they who are successful.",
+      "ref": "18:46",
+      "text": "Wealth and children are an ornament of the life of the world. But the good deeds which endure are better in thy Lord's sight for reward, and better in respect of hope.",
       "in_answer_key": false
      }
     ],
@@ -11454,8 +11400,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "16:91",
-      "text": "Fulfil the covenant of Allah when ye have covenanted, and break not your oaths after the asseveration of them, and after ye have made Allah surety over you. Lo! Allah knoweth what ye do.",
+      "ref": "9:119",
+      "text": "O ye who believe! Be careful of your duty to Allah, and be with the truthful.",
       "in_answer_key": false
      }
     ],
@@ -11889,13 +11835,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:35",
-      "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
       "in_answer_key": false
      },
      {
-      "ref": "2:56",
-      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "ref": "6:34",
+      "text": "The mind is verily restless, O Krishna; it is impetuous, strong and difficult to bend. I deem it as hard to curb as the wind.",
       "in_answer_key": false
      }
     ],
@@ -11967,13 +11913,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "94:8",
-      "text": "Strive to please thy Lord.",
+      "ref": "3:104",
+      "text": "There may spring from you a nation who invite to goodness, and enjoin right conduct and forbid indecency. Such are they who are successful.",
       "in_answer_key": false
      },
      {
-      "ref": "3:104",
-      "text": "There may spring from you a nation who invite to goodness, and enjoin right conduct and forbid indecency. Such are they who are successful.",
+      "ref": "18:46",
+      "text": "Wealth and children are an ornament of the life of the world. But the good deeds which endure are better in thy Lord's sight for reward, and better in respect of hope.",
       "in_answer_key": false
      }
     ],
