@@ -1,0 +1,751 @@
+{
+ "about": "Modern-language situations with hand-picked relevant verses per book, found by reading and searching the corpus by theme. 'test' cases were written first and are never used for tuning; 'dev' cases may be used for tuning. An empty list means the book has no fitting verse; that book is then skipped for that case.",
+ "cases": [
+  {
+   "id": "laid_off",
+   "split": "test",
+   "query": "I got laid off and I'm scared about money",
+   "relevant": {
+    "gita": [
+     "2:38",
+     "2:47",
+     "2:48",
+     "9:22",
+     "2:14",
+     "14:24",
+     "18:66"
+    ],
+    "quran": [
+     "65:2",
+     "65:3",
+     "11:6",
+     "29:60",
+     "2:155",
+     "2:268",
+     "94:5",
+     "94:6",
+     "17:31",
+     "51:58",
+     "2:286"
+    ],
+    "bible": [
+     "Matthew 6:25",
+     "Matthew 6:26",
+     "Matthew 6:31",
+     "Matthew 6:32",
+     "Matthew 6:33",
+     "Matthew 6:34",
+     "Philippians 4:19",
+     "Hebrews 13:5",
+     "Psalms 37:25",
+     "Psalms 55:22",
+     "1 Peter 5:7"
+    ]
+   }
+  },
+  {
+   "id": "breakup",
+   "split": "test",
+   "query": "my girlfriend broke up with me and I feel so alone",
+   "relevant": {
+    "gita": [
+     "2:14",
+     "2:62",
+     "12:17",
+     "5:20",
+     "2:56",
+     "2:71",
+     "6:22",
+     "13:10"
+    ],
+    "quran": [
+     "2:186",
+     "50:16",
+     "9:40",
+     "93:3",
+     "3:139",
+     "13:28",
+     "2:216",
+     "94:5",
+     "94:6"
+    ],
+    "bible": [
+     "Psalms 34:18",
+     "Psalms 147:3",
+     "Psalms 27:10",
+     "Hebrews 13:5",
+     "Deuteronomy 31:6",
+     "Isaiah 41:10",
+     "Psalms 25:16",
+     "Isaiah 61:1",
+     "Matthew 28:20"
+    ]
+   }
+  },
+  {
+   "id": "burnout",
+   "split": "test",
+   "query": "I feel burnt out, exhausted from work all the time",
+   "relevant": {
+    "gita": [
+     "6:16",
+     "6:17",
+     "2:47",
+     "2:48",
+     "6:7",
+     "2:14"
+    ],
+    "quran": [
+     "94:5",
+     "94:6",
+     "94:7",
+     "2:286",
+     "13:28",
+     "78:9",
+     "25:47",
+     "10:67"
+    ],
+    "bible": [
+     "Matthew 11:28",
+     "Matthew 11:29",
+     "Matthew 11:30",
+     "Isaiah 40:29",
+     "Isaiah 40:31",
+     "Psalms 23:2",
+     "2 Corinthians 4:16",
+     "Galatians 6:9",
+     "Mark 6:31",
+     "Psalms 127:2",
+     "Ecclesiastes 2:22",
+     "Ecclesiastes 2:23"
+    ]
+   }
+  },
+  {
+   "id": "dad_cancer",
+   "split": "test",
+   "query": "my dad has cancer and I'm scared he'll die",
+   "relevant": {
+    "gita": [
+     "2:20",
+     "2:22",
+     "2:27",
+     "2:13",
+     "2:11",
+     "13:9",
+     "2:30"
+    ],
+    "quran": [
+     "26:80",
+     "2:155",
+     "2:156",
+     "17:82",
+     "10:57",
+     "3:185",
+     "21:83",
+     "21:84"
+    ],
+    "bible": [
+     "James 5:14",
+     "James 5:15",
+     "Psalms 41:3",
+     "Psalms 6:2",
+     "Isaiah 41:10",
+     "Psalms 23:4",
+     "Jeremiah 17:14",
+     "John 11:25",
+     "2 Kings 20:5",
+     "Psalms 103:3",
+     "Revelation 21:4",
+     "Psalms 30:2"
+    ]
+   }
+  },
+  {
+   "id": "exams",
+   "split": "test",
+   "query": "I'm really anxious about my exams next week",
+   "relevant": {
+    "gita": [
+     "2:47",
+     "2:48",
+     "2:56",
+     "2:50",
+     "6:35",
+     "6:26",
+     "18:66",
+     "12:15",
+     "2:40"
+    ],
+    "quran": [
+     "20:114",
+     "20:25",
+     "20:26",
+     "94:5",
+     "94:6",
+     "2:286",
+     "13:28",
+     "65:3",
+     "3:159",
+     "2:45",
+     "2:153"
+    ],
+    "bible": [
+     "Philippians 4:6",
+     "Philippians 4:7",
+     "Matthew 6:34",
+     "1 Peter 5:7",
+     "James 1:5",
+     "Proverbs 3:5",
+     "Proverbs 3:6",
+     "Isaiah 41:10",
+     "John 14:27",
+     "Proverbs 16:3",
+     "Colossians 3:23",
+     "Ecclesiastes 9:10",
+     "2 Timothy 2:15"
+    ]
+   }
+  },
+  {
+   "id": "forgive_brother",
+   "split": "test",
+   "query": "I can't forgive my brother for what he did",
+   "relevant": {
+    "gita": [
+     "12:13",
+     "16:3",
+     "10:4",
+     "13:8",
+     "12:18",
+     "6:9",
+     "16:2"
+    ],
+    "quran": [
+     "12:92",
+     "24:22",
+     "42:40",
+     "42:43",
+     "3:134",
+     "64:14",
+     "7:199",
+     "41:34",
+     "15:85"
+    ],
+    "bible": [
+     "Matthew 18:21",
+     "Matthew 18:22",
+     "Matthew 6:14",
+     "Matthew 6:15",
+     "Colossians 3:13",
+     "Ephesians 4:32",
+     "Luke 17:3",
+     "Luke 17:4",
+     "Mark 11:25",
+     "Genesis 50:17",
+     "Genesis 50:19",
+     "Genesis 50:20",
+     "Genesis 50:21",
+     "Genesis 45:5",
+     "Matthew 5:23",
+     "Matthew 5:24",
+     "Luke 6:37"
+    ]
+   }
+  },
+  {
+   "id": "mother_died",
+   "split": "test",
+   "query": "my mother passed away last week",
+   "relevant": {
+    "gita": [
+     "2:11",
+     "2:13",
+     "2:18",
+     "2:20",
+     "2:22",
+     "2:25",
+     "2:26",
+     "2:27",
+     "2:30"
+    ],
+    "quran": [
+     "2:156",
+     "2:155",
+     "3:185",
+     "29:57",
+     "21:35",
+     "62:8",
+     "89:27",
+     "89:28",
+     "89:29",
+     "89:30",
+     "2:28",
+     "67:2"
+    ],
+    "bible": [
+     "Matthew 5:4",
+     "Revelation 21:4",
+     "John 11:25",
+     "1 Thessalonians 4:13",
+     "1 Thessalonians 4:14",
+     "Psalms 23:4",
+     "Psalms 34:18",
+     "John 14:2",
+     "Psalms 147:3",
+     "2 Corinthians 5:1",
+     "1 Corinthians 15:55",
+     "Ecclesiastes 3:2",
+     "Job 1:21",
+     "Isaiah 25:8"
+    ]
+   }
+  },
+  {
+   "id": "no_purpose",
+   "split": "test",
+   "query": "I feel like my life has no purpose",
+   "relevant": {
+    "gita": [
+     "3:8",
+     "3:35",
+     "18:47",
+     "2:47",
+     "18:45",
+     "18:46",
+     "3:30",
+     "9:27"
+    ],
+    "quran": [
+     "51:56",
+     "23:115",
+     "67:2",
+     "3:191",
+     "2:30",
+     "38:27",
+     "44:38",
+     "76:2"
+    ],
+    "bible": [
+     "Ecclesiastes 12:13",
+     "Jeremiah 29:11",
+     "Ecclesiastes 1:2",
+     "Ecclesiastes 1:14",
+     "Micah 6:8",
+     "Romans 8:28",
+     "Ephesians 2:10",
+     "Matthew 22:37",
+     "Matthew 22:38",
+     "Matthew 22:39",
+     "Psalms 139:14"
+    ]
+   }
+  },
+  {
+   "id": "alcohol",
+   "split": "test",
+   "query": "I can't stop drinking, I think I'm an alcoholic",
+   "relevant": {
+    "gita": [
+     "2:58",
+     "2:60",
+     "2:61",
+     "2:62",
+     "2:63",
+     "3:37",
+     "3:41",
+     "3:43",
+     "6:5",
+     "6:6",
+     "6:17",
+     "16:21"
+    ],
+    "quran": [
+     "5:90",
+     "5:91",
+     "2:219",
+     "4:43"
+    ],
+    "bible": [
+     "Proverbs 20:1",
+     "Proverbs 23:29",
+     "Proverbs 23:30",
+     "Proverbs 23:31",
+     "Proverbs 23:32",
+     "Ephesians 5:18",
+     "1 Corinthians 10:13",
+     "Isaiah 5:11",
+     "1 Corinthians 6:12",
+     "Galatians 5:21",
+     "Romans 13:13",
+     "Luke 21:34",
+     "Proverbs 23:20",
+     "Proverbs 23:21"
+    ]
+   }
+  },
+  {
+   "id": "yelled_kids",
+   "split": "test",
+   "query": "I lost my temper and yelled at my kids",
+   "relevant": {
+    "gita": [
+     "2:62",
+     "2:63",
+     "16:21",
+     "3:37",
+     "16:2",
+     "16:4",
+     "5:26",
+     "5:23",
+     "17:15"
+    ],
+    "quran": [
+     "3:134",
+     "42:37",
+     "41:34",
+     "31:19",
+     "3:159"
+    ],
+    "bible": [
+     "Ephesians 4:26",
+     "Ephesians 4:31",
+     "Ephesians 6:4",
+     "Colossians 3:21",
+     "Colossians 3:8",
+     "James 1:19",
+     "James 1:20",
+     "Proverbs 15:1",
+     "Proverbs 14:29",
+     "Proverbs 16:32",
+     "Proverbs 29:11",
+     "Ecclesiastes 7:9",
+     "Psalms 37:8"
+    ]
+   }
+  },
+  {
+   "id": "cheated_partner",
+   "split": "test",
+   "query": "I cheated on my partner and I feel terrible",
+   "relevant": {
+    "gita": [
+     "9:30",
+     "9:31",
+     "4:36",
+     "4:37",
+     "18:66",
+     "16:21",
+     "3:37"
+    ],
+    "quran": [
+     "17:32",
+     "25:68",
+     "25:69",
+     "25:70",
+     "39:53",
+     "4:110",
+     "3:135",
+     "66:8",
+     "11:114",
+     "4:17",
+     "20:82"
+    ],
+    "bible": [
+     "Exodus 20:14",
+     "Proverbs 6:32",
+     "Psalms 51:1",
+     "Psalms 51:2",
+     "Psalms 51:3",
+     "Psalms 51:4",
+     "Psalms 51:10",
+     "1 John 1:9",
+     "Proverbs 28:13",
+     "John 8:11",
+     "Matthew 5:28",
+     "Hebrews 13:4",
+     "2 Samuel 12:13",
+     "Isaiah 1:18"
+    ]
+   }
+  },
+  {
+   "id": "doubt_god",
+   "split": "test",
+   "query": "I'm not sure God even exists anymore",
+   "relevant": {
+    "gita": [
+     "4:40",
+     "4:41",
+     "4:42",
+     "9:11",
+     "10:8",
+     "10:20",
+     "18:73",
+     "6:39",
+     "9:4"
+    ],
+    "quran": [
+     "2:2",
+     "2:164",
+     "3:190",
+     "41:53",
+     "52:35",
+     "10:94",
+     "14:10",
+     "51:20",
+     "51:21"
+    ],
+    "bible": [
+     "Hebrews 11:1",
+     "Hebrews 11:6",
+     "Psalms 14:1",
+     "Romans 1:20",
+     "Psalms 19:1",
+     "Mark 9:24",
+     "John 20:29",
+     "Jeremiah 29:13",
+     "Matthew 7:7",
+     "James 1:6",
+     "John 20:27"
+    ]
+   }
+  },
+  {
+   "id": "new_city",
+   "split": "test",
+   "query": "I moved to a new city and I don't have any friends here",
+   "relevant": {
+    "gita": [
+     "6:5",
+     "6:6",
+     "5:29",
+     "9:18",
+     "6:9"
+    ],
+    "quran": [
+     "49:13",
+     "4:36",
+     "2:186",
+     "50:16",
+     "29:56",
+     "4:100",
+     "57:4",
+     "9:40"
+    ],
+    "bible": [
+     "Leviticus 19:34",
+     "Deuteronomy 10:19",
+     "Hebrews 13:2",
+     "Proverbs 18:24",
+     "Ecclesiastes 4:9",
+     "Ecclesiastes 4:10",
+     "Psalms 68:6",
+     "Hebrews 13:5",
+     "Joshua 1:9",
+     "Psalms 139:9",
+     "Psalms 139:10",
+     "Genesis 28:15",
+     "Psalms 25:16",
+     "Matthew 25:35"
+    ]
+   }
+  },
+  {
+   "id": "credit_stolen",
+   "split": "test",
+   "query": "my coworker keeps taking credit for my work",
+   "relevant": {
+    "gita": [
+     "2:47",
+     "3:19",
+     "3:27",
+     "3:30",
+     "5:10",
+     "2:48",
+     "4:20",
+     "12:18",
+     "12:19",
+     "18:9",
+     "14:25"
+    ],
+    "quran": [
+     "3:195",
+     "99:7",
+     "99:8",
+     "53:39",
+     "3:188",
+     "9:105",
+     "18:30",
+     "4:40",
+     "21:47"
+    ],
+    "bible": [
+     "Proverbs 27:2",
+     "Matthew 6:1",
+     "Matthew 6:2",
+     "Matthew 6:3",
+     "Matthew 6:4",
+     "Colossians 3:23",
+     "Colossians 3:24",
+     "Galatians 6:4",
+     "Romans 12:19",
+     "Psalms 37:1",
+     "Psalms 37:2",
+     "Psalms 37:3",
+     "Psalms 37:4",
+     "Psalms 37:5",
+     "Psalms 37:6",
+     "Psalms 37:7",
+     "1 Corinthians 3:8",
+     "Hebrews 6:10"
+    ]
+   }
+  },
+  {
+   "id": "jealous_friend",
+   "split": "test",
+   "query": "I'm jealous of my friend's success",
+   "relevant": {
+    "gita": [
+     "12:13",
+     "12:17",
+     "12:18",
+     "16:2",
+     "16:3",
+     "4:22"
+    ],
+    "quran": [
+     "4:32",
+     "113:5",
+     "20:131",
+     "4:54",
+     "15:88",
+     "2:109",
+     "57:23"
+    ],
+    "bible": [
+     "Proverbs 14:30",
+     "James 3:14",
+     "James 3:16",
+     "Galatians 5:26",
+     "1 Corinthians 13:4",
+     "Exodus 20:17",
+     "Psalms 37:1",
+     "Proverbs 23:17",
+     "Proverbs 24:1",
+     "Romans 12:15",
+     "Galatians 6:4",
+     "Ecclesiastes 4:4"
+    ]
+   }
+  },
+  {
+   "id": "get_rich",
+   "split": "test",
+   "query": "I want to get rich fast, money is all I think about",
+   "relevant": {
+    "gita": [
+     "16:12",
+     "16:13",
+     "16:14",
+     "16:15",
+     "16:16",
+     "16:21",
+     "2:62",
+     "2:70",
+     "2:71",
+     "2:44",
+     "2:49",
+     "14:12",
+     "3:37"
+    ],
+    "quran": [
+     "102:1",
+     "102:2",
+     "104:2",
+     "104:3",
+     "3:14",
+     "18:46",
+     "57:20",
+     "8:28",
+     "63:9",
+     "64:15",
+     "9:34",
+     "89:20",
+     "3:180",
+     "100:8"
+    ],
+    "bible": [
+     "1 Timothy 6:9",
+     "1 Timothy 6:10",
+     "1 Timothy 6:17",
+     "Proverbs 28:20",
+     "Proverbs 28:22",
+     "Proverbs 23:4",
+     "Proverbs 23:5",
+     "Proverbs 13:11",
+     "Matthew 6:19",
+     "Matthew 6:20",
+     "Matthew 6:21",
+     "Matthew 6:24",
+     "Luke 12:15",
+     "Luke 12:20",
+     "Luke 12:21",
+     "Hebrews 13:5",
+     "Ecclesiastes 5:10",
+     "Mark 8:36"
+    ]
+   }
+  },
+  {
+   "id": "bullied",
+   "split": "test",
+   "query": "kids at school bully me every day",
+   "relevant": {
+    "gita": [
+     "2:14",
+     "12:18",
+     "6:7",
+     "14:25",
+     "2:15",
+     "2:56",
+     "6:9"
+    ],
+    "quran": [
+     "41:34",
+     "42:39",
+     "42:40",
+     "42:41",
+     "16:126",
+     "16:127",
+     "3:186",
+     "2:153",
+     "23:96",
+     "25:63",
+     "3:200",
+     "42:43"
+    ],
+    "bible": [
+     "Matthew 5:10",
+     "Matthew 5:11",
+     "Matthew 5:12",
+     "Matthew 5:44",
+     "Romans 12:14",
+     "Romans 12:17",
+     "Romans 12:21",
+     "Psalms 27:1",
+     "Deuteronomy 31:6",
+     "Isaiah 41:10",
+     "Psalms 34:17",
+     "Psalms 56:3",
+     "Psalms 56:4",
+     "1 Peter 3:9",
+     "Psalms 118:6",
+     "Luke 6:27",
+     "Luke 6:28"
+    ]
+   }
+  }
+ ]
+}
