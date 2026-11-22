@@ -18,6 +18,13 @@ export function toLines(raw: string, book: BookId): { text: string; switchedTo: 
   });
 }
 
+/** What the visitor reads when loading or generating fails; the technical reason goes in data-error. */
+export function errorMessage(modelLoaded: boolean): string {
+  return modelLoaded
+    ? "The model stopped unexpectedly. Press Generate to try again."
+    : "The model could not be downloaded completely. Check your connection and press Try again.";
+}
+
 export function mountGenerate(root: HTMLElement): void {
   const q = <T extends Element>(sel: string) => root.querySelector<T>(sel)!;
   const button = q<HTMLButtonElement>("[data-gen-start]");
@@ -105,8 +112,13 @@ export function mountGenerate(root: HTMLElement): void {
       setBusy(false);
       progress.hidden = true;
       progressText.textContent = "";
-      status.textContent = `Something went wrong: ${m.message}`;
-      if (!ready) { worker?.terminate(); worker = null; }
+      status.textContent = errorMessage(ready);
+      status.dataset.error = m.message;
+      if (!ready) {
+        worker?.terminate();
+        worker = null;
+        button.textContent = "Try again";
+      }
     }
   };
 
@@ -115,6 +127,7 @@ export function mountGenerate(root: HTMLElement): void {
     raw = "";
     announced = 0;
     status.textContent = "";
+    delete status.dataset.error;
     output.dataset.book = book;
     draw(true);
     const seed = crypto.getRandomValues(new Uint32Array(1))[0];
@@ -136,7 +149,8 @@ export function mountGenerate(root: HTMLElement): void {
     progress.hidden = false;
     bar.style.transform = "scaleX(0)";
     progressText.textContent = `Downloading the model: 0 of ${modelSizeMB} MB`;
-    send({ type: "load", url: `${import.meta.env.BASE_URL}${manifest.file}`, bytes: manifest.bytes });
+    status.textContent = "";
+    send({ type: "load", url: `${import.meta.env.BASE_URL}${manifest.file}`, bytes: manifest.bytes, sha256: manifest.sha256 });
   });
   stop.addEventListener("click", () => send({ type: "stop" }));
 }

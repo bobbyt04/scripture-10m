@@ -12,7 +12,7 @@ export interface PairVerse {
 export interface Pair {
   /** One line, written by the reviewer, on what the two passages share. */
   idea: string;
-  /** "model, reviewed": proposed by the word statistics, kept by a person; "hand-listed": from a list of known parallels. */
+  /** "model, reviewed": proposed by the word statistics, kept after review; "hand-listed": from a list of known parallels. */
   source: "model, reviewed" | "hand-listed";
   /** The statistics' similarity for the pair, as recorded in search/similarities_review.json. */
   score: number;

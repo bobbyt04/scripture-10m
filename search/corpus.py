@@ -1,7 +1,7 @@
 """The full-corpus model: word rules and verse vectors for all 38,039 verses.
 
 The advice search never uses it to pick verses (it only searches the
-hand-reviewed pool). It is used offline to propose cross-book parallels
+reviewed pool). It is used offline to propose cross-book parallels
 (search/similarities.py), to score the published similarity pairs, to give
 each pool verse its vector, and in the benchmark of similar().
 

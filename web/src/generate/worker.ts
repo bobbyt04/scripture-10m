@@ -4,11 +4,12 @@
 import { parseModel } from "../model/format.ts";
 import { generate, seededRandom } from "../model/generate.ts";
 import { CharTokenizer } from "../model/tokenizer.ts";
+import { verifyDownload } from "./verify.ts";
 import { Transformer } from "../model/transformer.ts";
 import vocab from "../model/vocab.json";
 
 export type WorkerRequest =
-  | { type: "load"; url: string; bytes: number }
+  | { type: "load"; url: string; bytes: number; sha256: string }
   | { type: "generate"; book: "gita" | "quran" | "bible"; temperature: number; maxTokens: number; seed: number }
   | { type: "stop" };
 
@@ -31,7 +32,7 @@ const yieldToMessages = () => new Promise<void>((r) => {
   c.port2.postMessage(0);
 });
 
-async function load(url: string, expected: number): Promise<void> {
+async function load(url: string, expected: number, sha256: string): Promise<void> {
   const t0 = performance.now();
   const res = await fetch(url);
   if (!res.ok || !res.body) throw new Error(`could not download the model (HTTP ${res.status})`);
@@ -47,7 +48,9 @@ async function load(url: string, expected: number): Promise<void> {
     loaded += value.length;
     post({ type: "progress", loaded, total });
   }
-  model = new Transformer(parseModel(buf.buffer.slice(0, loaded)));
+  const data = buf.buffer.slice(0, loaded);
+  await verifyDownload(data, expected, sha256);
+  model = new Transformer(parseModel(data));
   post({ type: "ready", ms: performance.now() - t0 });
 }
 
@@ -82,6 +85,6 @@ self.onmessage = (e: MessageEvent<WorkerRequest>) => {
     stopRequested = true;
     return;
   }
-  const job = req.type === "load" ? load(req.url, req.bytes) : run(req);
+  const job = req.type === "load" ? load(req.url, req.bytes, req.sha256) : run(req);
   job.catch((err: unknown) => post({ type: "error", message: err instanceof Error ? err.message : String(err) }));
 };

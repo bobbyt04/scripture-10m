@@ -7,7 +7,7 @@ Two steps:
    mixed with TF-IDF cosine, as in Corpus.similar), takes each verse's best
    match, and keeps pairs that share several informative words or are very
    close in vector space. Refrains and very short verses are left out.
-2. A person reads every candidate, and every hand-listed parallel of
+2. A reviewer goes through every candidate, and every hand-listed parallel of
    evals/search_parallels.json. search/similarities_review.json records each
    decision; kept pairs get a theme and a one-line note on the shared idea.
    Pairs with threatening or theologically contentious verses are left out,
@@ -151,11 +151,11 @@ def build_similarities(c, review_path=REVIEW, parallels_path=PARALLELS):
     per_pair = Counter("-".join(sorted((cand["a"].split()[0], cand["b"].split()[0])))
                        for cand in review["candidates"] if cand["keep"])
     return {
-        "about": ("Parallels between the books, chosen by a person. Two sources: (1) 'model, reviewed': the search "
-                  "model proposed candidate pairs (each verse's closest verse in another book); a person read every "
-                  "candidate and kept only real parallels in story or teaching, wrote the one-line note and chose "
-                  "the theme; (2) 'hand-listed': known parallels from evals/search_parallels.json, each read and kept "
-                  "or left out. Pairs with threatening or theologically contentious verses are left out, and each "
+        "about": ("Parallels between the books, each reviewed before it was kept. Two sources: (1) 'model, reviewed': "
+                  "the search model proposed candidate pairs (each verse's closest verse in another book); a reviewer "
+                  "went through every candidate and kept only real parallels in story or teaching, wrote the one-line "
+                  "note and chose the theme; (2) 'hand-listed': known parallels from evals/search_parallels.json, each "
+                  "reviewed and kept or left out. Pairs with threatening or theologically contentious verses are left out, and each "
                   "verse is in at most one pair. 'score' is the model's similarity for the pair, as recorded in "
                   "search/similarities_review.json."),
         "candidates_proposed": n,

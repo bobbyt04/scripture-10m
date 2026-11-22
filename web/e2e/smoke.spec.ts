@@ -36,7 +36,7 @@ test.describe("advice", () => {
     await page.keyboard.press("Enter");
     const note = page.locator("[data-crisis]");
     await expect(note).toBeVisible();
-    await expect(note).toContainText("We are not going to show verses for this one.");
+    await expect(note).toContainText("This page will not show verses for what you wrote.");
     await expect(page.locator("#ask-results [data-topic], #ask-results [data-verse], #ask-results button")).toHaveCount(0);
     await expect(page.locator("[data-verse]")).toHaveCount(0);
     expect(await versesBeforeTap(page)).toBe(0);
@@ -64,6 +64,24 @@ test.describe("advice", () => {
     await page.getByRole("button", { name: "← Topics" }).click();
     await expect(chips).toHaveCount(2);
     await expect(page.locator("[data-verse]")).toHaveCount(0);
+  });
+
+  test("the browser's Back button closes a topic and returns to the topics, without leaving the page", async ({ page }) => {
+    await page.goto("/");
+    await page.fill("#ask-input", "I got laid off and I'm scared about money");
+    await page.keyboard.press("Enter");
+    const chips = page.locator("#ask-results [data-topic]");
+    await expect(chips).toHaveCount(2);
+    await chips.first().click();
+    await expect(page.locator("#ask-results [data-verse]").first()).toBeVisible();
+    await page.goBack();
+    await expect(chips).toHaveCount(2);
+    await expect(page.locator("[data-verse]")).toHaveCount(0);
+    expect(new URL(page.url()).pathname).toBe("/");
+    await page.goForward();
+    await expect(page.locator("#ask-results [data-verse]").first()).toBeVisible();
+    await page.getByRole("button", { name: "← Topics" }).click();
+    await expect(chips).toHaveCount(2);
   });
 
   test("a message that matches nothing shows the full topic list, still with no verses", async ({ page }) => {
@@ -99,6 +117,59 @@ test("generate produces labelled text in the browser", async ({ page }) => {
   expect(text).not.toMatch(/<(gita|quran|bible)>/);
   await expect(page.locator(".gen__label")).toContainText("Machine-generated imitation");
   await expect(page.locator("[data-gen-stop]")).toBeHidden();
+});
+
+test.describe("without JavaScript", () => {
+  test.use({ javaScriptEnabled: false });
+  test("nothing typed can leave the page: no field name, no enabled submit, and a note", async ({ page }) => {
+    const navigations: string[] = [];
+    page.on("request", (r) => { if (r.isNavigationRequest()) navigations.push(r.url()); });
+    await page.goto("/");
+    await expect(page.locator(".ask__noscript")).toHaveText("This page needs JavaScript to suggest topics. Nothing you type is sent anywhere.");
+    await expect(page.locator("#ask-input")).not.toHaveAttribute("name", /.*/);
+    await expect(page.locator("#ask [name]")).toHaveCount(0);
+    await expect(page.locator("#ask button[type=submit]")).toBeDisabled();
+    await page.fill("#ask-input", "my private worry");
+    await page.locator("#ask-input").press("Enter");
+    await page.locator("#ask button[type=submit]").click({ force: true });
+    await page.evaluate(() => document.querySelector<HTMLFormElement>("#ask")?.requestSubmit()).catch(() => {});
+    await page.waitForTimeout(500);
+    expect(navigations.filter((u) => new URL(u).search !== "")).toEqual([]);
+    expect(new URL(page.url()).search).toBe("");
+  });
+});
+
+test("a link to a chapter lands on it after the page has finished building", async ({ page }) => {
+  await page.goto("/#built-advice");
+  await page.waitForLoadState("networkidle");
+  await page.evaluate(() => document.fonts.ready);
+  await page.waitForTimeout(800); // smooth scrolling
+  const top = await page.locator("#built-advice").evaluate((el) => el.getBoundingClientRect().top);
+  expect(top).toBeGreaterThanOrEqual(0);
+  expect(top).toBeLessThan(200);
+});
+
+test("parallels that fail to load offer a retry", async ({ page }) => {
+  let fail = true;
+  await page.route(/similarities[-.][^/]*\.js$/, (route) => (fail ? route.abort() : route.continue()));
+  await page.goto("/");
+  const section = page.locator("[data-similarities]");
+  await expect(section).toContainText("The parallels could not be loaded.");
+  fail = false;
+  await section.getByRole("button", { name: "Try again" }).click();
+  await expect(section.locator("[data-pair]")).toHaveCount(6);
+});
+
+test.describe("small screens", () => {
+  test.use({ viewport: { width: 390, height: 800 } });
+  test("a compact menu links to every section", async ({ page }) => {
+    await page.goto("/");
+    await page.locator(".site-menu summary").click();
+    const links = page.locator(".site-menu__panel a");
+    await expect(links).toHaveText(["Ask", "Parallels", "Generate", "How it was built"]);
+    await links.nth(3).click();
+    await expect(page.locator(".site-menu")).not.toHaveAttribute("open", /.*/);
+  });
 });
 
 test.describe("reduced motion", () => {

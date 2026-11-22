@@ -76,8 +76,9 @@ by the export script from exactly the same (dequantised) weights:
 - greedy generation matches PyTorch token for token for 160 tokens after each book's tag.
 
 `test/tokenizer.test.ts` checks the tokenizer against Python's ids for tricky strings (partial tags, unknown
-characters, non-ASCII). Measured speed: about 50 characters per second in Node on an Apple M2, and about 30 in
-headless Chrome while other jobs shared the machine.
+characters, non-ASCII). Measured speed (the figure the page reports after each run): about 80 characters per
+second or more in Chrome on an Apple M2 that is otherwise idle, and about 30 in headless Chrome while other jobs
+shared the machine. Older phones will be slower.
 
 ## The verse-topic search in the browser
 
@@ -88,7 +89,7 @@ verses appear only after a topic is tapped (`src/advice/state.ts`).
 
 `scripts/extract.ts` writes its data at build time: `src/generated/search.json` is
 `search/artifacts/search.json` without what only the eval-history `search()` reads (BM25 terms, the bridge,
-query stopwords): 369 kB, 103 kB gzipped. It is a separate chunk, fetched when the visitor first focuses the
+query stopwords): 385 kB, 104 kB gzipped. It is a separate chunk, fetched when the visitor first focuses the
 text box (or asks for the topic list), never with the page. `src/generated/similarities.json` (23 kB, 8 kB
 gzipped) is the reviewed parallels file, loaded right after the page.
 

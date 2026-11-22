@@ -1,4 +1,4 @@
-"""Advice search: real verses for an everyday situation, from a hand-reviewed pool.
+"""Advice search: real verses for an everyday situation, from a reviewed pool.
 
 Since round 7 the site works as "type, then pick a topic". A visitor types a
 situation in modern English ("I got laid off and I'm scared about money");
@@ -16,7 +16,7 @@ is kept only so the recorded eval history can be reproduced; the site does not
 use it.
 
 The search can only ever return verses from a hand-curated pool
-(search/pool/*.json). Every pool verse was chosen and read by a person, has
+(search/pool/*.json). Every pool verse was reviewed before it was kept, has
 one or more themes (grief, money_worry, ...) and a one-line note on why it
 may help. A book offers a theme only if it has at least three verses for it.
 Nothing outside the pool can be shown.
@@ -57,8 +57,12 @@ How a message is read (steps 0 to 2 are shared by suggest() and search()):
    comfort topics (themes.json "kind": grief, fear, loneliness, illness,
    doubt and faith, hope, self-worth), never one whose verses ask the reader
    to change their own behaviour or bear something (anger, guilt,
-   self-control, patience ...). With no theme, category "none": the site
-   shows the full topic list (topics()).
+   self-control, patience ...). A gentle topic for a sensitive message
+   needs at least 3 sensitive verses. With no topic, category "none": the
+   site shows the full topic list (topics()); but if no theme matched at
+   all and the message has a signal word that does not also occur in
+   everyday idioms (safety.json "safeguard_exempt"), the crisis note
+   instead (the no-topic safeguard).
    search() (eval history only) instead lets the themes choose verses:
    a verse can be shown only if it carries one
    of the query's themes; with no theme there are no verses (no_match; the
@@ -70,7 +74,7 @@ How a message is read (steps 0 to 2 are shared by suggest() and search()):
    names (query words reduced to base forms found in the pool; a
    hand-written bridge adds scripture words for modern ones).
 
-This matches topics in a hand-reviewed selection; it does not understand
+This matches topics in a reviewed selection; it does not understand
 situations. Everything it needs is in search/artifacts/search.json (see
 search/FORMAT.md). Plain Python, no dependencies: run
 `python -m scripture.search "your situation"` for the suggested topics and
@@ -108,14 +112,15 @@ def words(text):
     return " ".join(NO_APOSTROPHE.get(w, w) for w in re.findall(r"[a-z]+", t)).split()
 
 
-# Numbers 1-17 written in digits, spelled out for the safety check only, so a stated age ("i'm 14") can be read.
+# Numbers written in digits, read as words for the safety check only: 1-17 are spelled out, so a stated age
+# ("i'm 14") can be read; any other number becomes the word "num", so "took 30 tylenol" can be read too.
 NUMBER_WORDS = dict(zip(map(str, range(1, 18)), (
     "one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen").split()))
 
 
 def spell_numbers(text):
-    """Each run of ASCII digits that is exactly 1-17 (no leading zero) becomes " <word> "; other digits are kept."""
-    return re.sub(r"[0-9]+", lambda m: f" {NUMBER_WORDS[m.group()]} " if m.group() in NUMBER_WORDS else m.group(), text)
+    """Each run of ASCII digits becomes " <word> ": its English word if it is exactly 1-17 (no leading zero), else "num"."""
+    return re.sub(r"[0-9]+", lambda m: f" {NUMBER_WORDS.get(m.group(), 'num')} ", text)
 
 
 class Lexicon:
@@ -296,11 +301,15 @@ class Searcher:
         sug = safety.get("suggest", {})
         self.suggest_signals = [compile_phrase(x) for x in sug.get("signals", [])]
         self.suggest_never = set(sug.get("never_after_signal", []))
+        # The signals that also count for the no-topic safeguard: all but those that occur in everyday idioms.
+        exempt = set(sug.get("safeguard_exempt", []))
+        self.safeguard_signals = [compile_phrase(x) for x in sug.get("signals", []) if x not in exempt]
         # Wording that names another person, an event done to the writer, mental health or anger at God: then
         # only "comfort" topics (themes.json "kind") are offered, never one that asks the reader to change or bear.
         self.comfort_cues = [compile_phrase(x) for g in sug.get("comfort_only_cues", {}).values() for x in g]
         self.comfort_topics = {t for t, d in model["themes"].items() if d.get("kind") == "comfort"}
         self.suggest_max = sug.get("max_topics", 4)
+        self.suggest_min_sensitive = sug.get("min_sensitive_verses", 1)
         self.suggest_max_signal = sug.get("max_topics_after_signal", self.suggest_max)
         self.books = {}
         row = 0
@@ -580,7 +589,8 @@ class Searcher:
         - "general": the message's themes as the theme matching ranks them
           (selection_themes), keeping only topics some book offers;
         - "none": nothing matched; topics is empty and the site shows the
-          full list (topics()).
+          full list (topics()). If no theme matched at all and the message
+          has a signal word that is not exempt (safeguard), "crisis" instead.
         If the message has a signal word (suggest_signal), the topics in
         safety.json "suggest" "never_after_signal" (courage, love,
         friendship, marriage, family, forgiveness) are never offered and at
@@ -595,7 +605,25 @@ class Searcher:
         category, topic = self.classify(query)
         if category == "crisis":
             return {"category": "crisis", "note": self.crisis_message, "topics": []}
-        return self.offer(query, category, topic)
+        out = self.offer(query, category, topic)
+        if out["category"] == "none" and self.safeguard(query):
+            return {"category": "crisis", "note": self.crisis_message, "topics": []}
+        return out
+
+    def safeguard(self, query):
+        """True if no theme phrase matches the message at all and it has a signal word that is not exempt.
+
+        Then suggest() shows the crisis note rather than the full topic list:
+        when in doubt it fires. The exempt signals (safety.json "suggest"
+        "safeguard_exempt": kill*, cut, last, tonight, pills ...) also occur
+        in everyday idioms ("killing it last night", "cut from the team").
+        """
+        query = query[:self.params["max_query_chars"]]
+        if self.query_themes(query):
+            return False
+        toks = self.crisis_words(query)
+        tset = set(toks)
+        return any(phrase_starts(toks, p, tset) for p in self.safeguard_signals)
 
     def offer(self, query, category, topic):
         """suggest() after the safety check, for a "general" or "sensitive" message.
@@ -605,7 +633,9 @@ class Searcher:
         """
         query = query[:self.params["max_query_chars"]]
         sensitive = category == "sensitive"
-        ids = [t for t in self.selection_themes(query, category, topic) if self.topic_count(t, sensitive)]
+        # A topic needs a verse to show; a gentle topic for a sensitive message needs at least min_sensitive_verses.
+        need = self.suggest_min_sensitive if sensitive else 1
+        ids = [t for t in self.selection_themes(query, category, topic) if self.topic_count(t, sensitive) >= need]
         cap = self.suggest_max
         if self.suggest_signal(query):
             ids = [t for t in ids if t not in self.suggest_never]

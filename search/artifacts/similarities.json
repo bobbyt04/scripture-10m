@@ -1,5 +1,5 @@
 {
- "about": "Parallels between the books, chosen by a person. Two sources: (1) 'model, reviewed': the search model proposed candidate pairs (each verse's closest verse in another book); a person read every candidate and kept only real parallels in story or teaching, wrote the one-line note and chose the theme; (2) 'hand-listed': known parallels from evals/search_parallels.json, each read and kept or left out. Pairs with threatening or theologically contentious verses are left out, and each verse is in at most one pair. 'score' is the model's similarity for the pair, as recorded in search/similarities_review.json.",
+ "about": "Parallels between the books, each reviewed before it was kept. Two sources: (1) 'model, reviewed': the search model proposed candidate pairs (each verse's closest verse in another book); a reviewer went through every candidate and kept only real parallels in story or teaching, wrote the one-line note and chose the theme; (2) 'hand-listed': known parallels from evals/search_parallels.json, each reviewed and kept or left out. Pairs with threatening or theologically contentious verses are left out, and each verse is in at most one pair. 'score' is the model's similarity for the pair, as recorded in search/similarities_review.json.",
  "candidates_proposed": 267,
  "kept": 22,
  "kept_fraction": 0.082,

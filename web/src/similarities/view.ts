@@ -1,5 +1,5 @@
 import { BOOK_NAMES } from "../advice/api.ts";
-import { h } from "../dom.ts";
+import { fmtInt, h } from "../dom.ts";
 import type { Pair, Similarities } from "./api.ts";
 
 const PAGE = 6;
@@ -49,9 +49,9 @@ export function renderSimilarities(root: HTMLElement, data: Similarities): void 
   root.replaceChildren(
     h("p", { class: "pairs__about" },
       `${all.length} pairs. ${fromModel} were proposed by word statistics built in this repo, then reviewed: `,
-      `the statistics proposed ${data.candidates_proposed} candidate pairs and a person kept ${data.kept} of them `,
-      `(${Math.round(100 * data.kept_fraction)}%) as real parallels in story or teaching. The other ${all.length - fromModel} come from a `,
-      `hand-written list of known parallels, read the same way (${data.hand_listed_left_out} were left out).`),
+      `of the ${fmtInt(data.candidates_proposed)} candidate pairs the statistics proposed, ${data.kept} (${Math.round(100 * data.kept_fraction)}%) `,
+      `are kept as real parallels in story or teaching after several rounds of review. The other ${all.length - fromModel} come from a `,
+      `hand-written list of known parallels, reviewed the same way (${data.hand_listed_left_out} were left out).`),
     chips, list, h("div", { class: "pairs__more" }, status, more));
   draw();
 }

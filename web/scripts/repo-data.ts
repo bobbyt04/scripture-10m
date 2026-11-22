@@ -279,6 +279,8 @@ export interface CrisisReview {
 
 export interface AdviceHistory {
   reviews: CrisisReview[];
+  /** Round 5's three fresh probe sets: crisis messages caught on each set's first run, before any change for it. */
+  firstLook: { id: string; crisis: number; caught: number }[];
   /** The round-4 judge's verdict on every verse the full search showed for 50 everyday situations. */
   round4Fitting: number;
   storedCrisis: number;
@@ -298,7 +300,7 @@ interface ProbeRun {
  * README (src/story/advice-history.json, with sources).
  */
 export function adviceHistory(
-  probes: Record<string, { crisis?: unknown[]; first_run?: ProbeRun; about?: string }>,
+  probes: Record<string, { crisis?: unknown[]; first_run?: ProbeRun; about?: string }> & { first_look?: unknown },
   cases: { blind_1_hand_judged: { overall: { fitting: number } } },
   results: { suggest: { "topic_hit@4": Record<string, { cases: number; "topic_hit@4": number }>; crisis_probes: { as_if_missed: { messages: number } } } },
   site: { pool: Record<Book, unknown[]>; themes: Record<string, { kind?: string; label?: string }> },
@@ -325,8 +327,14 @@ export function adviceHistory(
     if (typeof before !== "number") throw new Error(`advice-history.json: no topic hit before the comfort-only rule for ${split}`);
     return { split, cases: v.cases, before, after: v["topic_hit@4"] };
   });
+  const firstLook = ["fresh_1", "fresh_2", "fresh_3"].map((id) => {
+    const r = (probes.first_look as Record<string, { crisis_caught?: number }> | undefined)?.[id];
+    if (typeof r?.crisis_caught !== "number") throw new Error(`search_probes.json: no first_look.${id}`);
+    return { id, crisis: probes[id].crisis!.length, caught: r.crisis_caught };
+  });
   return {
     reviews,
+    firstLook,
     round4Fitting: cases.blind_1_hand_judged.overall.fitting,
     storedCrisis: results.suggest.crisis_probes.as_if_missed.messages,
     topicHit,

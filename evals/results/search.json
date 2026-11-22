@@ -2172,28 +2172,28 @@
   "topic_hit@4": {
    "dev": {
     "cases": 33,
-    "topic_hit@4": 0.696969696969697,
-    "no_topic": 8
+    "topic_hit@4": 0.6363636363636364,
+    "no_topic": 10
    },
    "dev2": {
     "cases": 17,
-    "topic_hit@4": 0.7058823529411765,
-    "no_topic": 5
+    "topic_hit@4": 0.6470588235294118,
+    "no_topic": 6
    },
    "dev3": {
     "cases": 40,
-    "topic_hit@4": 0.625,
-    "no_topic": 15
+    "topic_hit@4": 0.6,
+    "no_topic": 16
    },
    "blind_1": {
     "cases": 50,
-    "topic_hit@4": 0.68,
-    "no_topic": 15
+    "topic_hit@4": 0.62,
+    "no_topic": 18
    },
    "final_blind": {
     "cases": 50,
-    "topic_hit@4": 0.6,
-    "no_topic": 20
+    "topic_hit@4": 0.52,
+    "no_topic": 23
    }
   },
   "crisis_probes": {
@@ -2206,35 +2206,34 @@
    },
    "as_if_missed": {
     "messages": 913,
-    "nothing_suggested": 627,
-    "topics_suggested": 286,
+    "nothing_suggested": 638,
+    "topics_suggested": 275,
     "topics": {
-     "doubt_faith": 59,
-     "self_worth": 44,
+     "doubt_faith": 57,
+     "self_worth": 45,
      "fear_anxiety": 24,
-     "suffering_endurance": 22,
-     "loneliness": 20,
+     "suffering_endurance": 21,
+     "loneliness": 21,
      "overwork_rest": 18,
      "peace_of_mind": 15,
      "temptation_self_control": 14,
+     "illness": 13,
      "hope": 12,
-     "illness": 12,
-     "guilt_repentance": 11,
      "grief": 11,
      "honesty": 10,
-     "patience": 10,
-     "parenting": 9,
-     "money_worry": 7,
-     "anger": 7,
-     "justice_wronged": 6,
-     "wisdom_learning": 6,
+     "guilt_repentance": 10,
+     "patience": 8,
+     "money_worry": 6,
+     "anger": 6,
      "purpose": 6,
      "change_uncertainty": 3,
      "failure": 3,
      "guidance_decisions": 3,
      "speech_gossip": 2,
      "generosity": 2,
-     "kindness_strangers": 1
+     "wisdom_learning": 2,
+     "kindness_strangers": 1,
+     "justice_wronged": 1
     }
    }
   }

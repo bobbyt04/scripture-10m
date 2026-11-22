@@ -8,6 +8,7 @@ import { fmtInt, h } from "../dom.ts";
 import manifest from "../model/manifest.json";
 import repoJson from "../generated/repo.json";
 import adviceHistory from "./advice-history.json";
+import { NO_TOPIC_EXAMPLE } from "./examples.ts";
 import { intervalChart, legend, lineChart, missChart, responsive } from "./charts.ts";
 import process from "./process.json";
 import testCounts from "./test-counts.json";
@@ -148,7 +149,7 @@ function trainingChapter(): HTMLElement {
   return chapter("built-training", "04", "Training",
     p(`Each training example is a random window of ${a.block_size} characters from one book. ${fmtInt(a.max_iters)} steps of ${a.batch_size} windows, `,
       `AdamW with the learning rate warmed up to ${a.lr} and decayed to ${a.min_lr}, dropout ${a.dropout}. `,
-      `It ran on an Apple M2 laptop in ${hours} h ${mins} min, slowed by other jobs on the same machine. The checkpoint used here is step ${fmtInt(t.bestStep)}, the lowest validation loss.`),
+      `It ran on an Apple M2 in ${hours} h ${mins} min, slowed by other jobs on the same machine. The checkpoint used here is step ${fmtInt(t.bestStep)}, the lowest validation loss.`),
     figure([
       "Solid: validation loss per book from the training log (", src("runs/verse/losses.jsonl"), "). Dashed: the best n-gram model per book, fitted on the same training text. ",
       `The log estimates loss on random windows; the eval scores every character with at least half a window of context, and there the model scores `,
@@ -184,7 +185,8 @@ function mistakeChapter(): HTMLElement {
   return chapter("built-mistake", "05", "The mistake",
     p(`My first run picked each book equally often. The Bible has about ${ratio} times as many characters as the Gita, so each Gita verse came round about 40 times as often as each Bible verse. `,
       `The model learned the Gita by heart. Its Gita training loss kept falling, to ${last.train.gita.toFixed(2)} by step ${fmtInt(last.step)}, `,
-      `while its Gita validation loss climbed from ${minVal.val.gita.toFixed(2)} at step ${fmtInt(minVal.step)} to ${last.val.gita.toFixed(2)}.`),
+      `while its Gita validation loss climbed from ${minVal.val.gita.toFixed(2)} at step ${fmtInt(minVal.step)} to ${last.val.gita.toFixed(2)}. `,
+      `Those are the training log’s numbers, measured on random windows as in chapter 04; the eval, which scores every held-out character, puts the run’s final Gita loss at ${nats(br.gitaLoss)} (below).`),
     figure(["The abandoned run, from ", src("runs/book/losses.jsonl"), ". The widening gap between the two orange lines is memorisation."],
       legend([
         { label: "Gita validation", color: "var(--gita)" },
@@ -256,12 +258,12 @@ function evalsChapter(): HTMLElement {
 
 function testingChapter(): HTMLElement {
   return chapter("built-testing", "07", "Testing",
-    p("Each part landed as its own pull request, with tests written alongside it. Where I could, I checked the tests themselves: ",
+    p("Each part landed as its own pull request, with tests written alongside it; they are listed in the order they were merged. Where I could, I checked the tests themselves: ",
       "I broke the code on purpose in many small ways (mutation testing) and made sure some test failed every time."),
     h("ol", { class: "timeline" },
       process.prs.map((pr) => h("li", {},
         h("p", { class: "timeline__head" }, h("a", { href: `${REPO_URL}/pull/${pr.number}` }, `PR ${pr.number}`), ` ${pr.title}`),
-        pr.tests !== undefined ? h("p", { class: "timeline__tests" }, `${fmtInt(pr.tests)} tests passing`) : null,
+        h("p", { class: "timeline__tests" }, pr.tests !== undefined ? `${fmtInt(pr.tests)} tests passing` : pr.testsNote),
         h("p", {}, pr.check)))),
     h("div", { class: "callouts callouts--three" },
       h("div", { class: "callout" }, h("p", { class: "callout__num" }, fmtInt(testCounts.python.tests)), h("p", {}, "Python tests today: the model, data, training, evals and the verse search.")),
@@ -273,6 +275,11 @@ function testingChapter(): HTMLElement {
 
 // ------------------------------------------------------------------ 08 advice search
 
+// Plain names for the labelled everyday sets of evals/search_cases.json.
+const SPLIT_LABEL: Record<string, string> = {
+  dev: "First set", dev2: "Second set", dev3: "Third set", blind_1: "Round 4 judge’s", final_blind: "Fifth judge’s",
+};
+
 function adviceChapter(): HTMLElement {
   const a = repo.advice;
   const fc = adviceHistory.fullCorpus;
@@ -281,11 +288,12 @@ function adviceChapter(): HTMLElement {
   const share = (x: number, n: number) => pct(x / n, 0);
   const cases = a.topicHit.reduce((n, t) => n + t.cases, 0);
   const mean = (k: "before" | "after") => a.topicHit.reduce((n, t) => n + t[k] * t.cases, 0) / cases;
+  const looks = a.firstLook;
   const reviewRows = [
-    { r: first, label: "First review", sub: `${first.crisis} messages, verses from free text` },
-    { r: second, label: "Second review", sub: `${second.crisis} messages, commit ${second.commit}` },
-    { r: third, label: "Third review", sub: `${third.crisis} messages, commit ${third.commit}` },
-    { r: last, label: "Final review", sub: `${last.crisis} messages, type then pick a topic`, apart: true },
+    { r: first, label: "Round 4 judge", sub: `${first.crisis} messages, verses from free text` },
+    { r: second, label: "Fifth judge", sub: `${second.crisis} messages, commit ${second.commit}` },
+    { r: third, label: "Sixth judge", sub: `${third.crisis} messages, commit ${third.commit}` },
+    { r: last, label: "Seventh judge", sub: `${last.crisis} messages, type then pick a topic`, apart: true },
   ];
   const box = h("div", { class: "chart-box" });
   responsive(box, (w) => missChart(reviewRows.map(({ r, label, sub, apart }) => ({ label, sub, missed: r.missed, harmful: r.harmful, apart })), w,
@@ -294,42 +302,45 @@ function adviceChapter(): HTMLElement {
   return chapter("built-advice", "08", "The verse search",
     p(`The first version searched all ${fmtInt(totalVerses)} verses for words like the ones typed. Its first reported number, hit@10 ${fc.contaminatedHit10.toFixed(2)}, `,
       "was contaminated: I had written the list that maps modern words to scripture words with those very test queries in view. ",
-      `On ${fc.blindSituations} situations a reviewer wrote blind it scored ${fc.blindHit10.toFixed(2)} (the Quran ${fc.blindQuranHit10.toFixed(2)}), and when a person judged the verses it actually showed, `,
+      `On ${fc.blindSituations} situations a reviewer wrote blind it scored ${fc.blindHit10.toFixed(2)} (the Quran ${fc.blindQuranHit10.toFixed(2)}), and when an independent reviewer judged the verses it actually showed, `,
       `only ${pct(fc.shownFitting, 0)} fitted; ${pct(fc.shownPlainlyWrong, 0)} were plainly wrong, some of them harmful.`),
-    p("So I stopped searching the whole corpus. The site shows verses only from an allowlist: a pool that people chose and read, ",
-      `each verse with its themes and a one-line note on why it may help. It now holds ${a.pool.gita} Gita, ${a.pool.quran} Quran and ${a.pool.bible} Bible verses, `,
+    p("So I stopped searching the whole corpus. The site shows verses only from an allowlist: a reviewed pool, where each verse was reviewed before it was kept, ",
+      `with its themes and a one-line note on why it may help. It now holds ${a.pool.gita} Gita, ${a.pool.quran} Quran and ${a.pool.bible} Bible verses, `,
       "and nothing outside it can be shown. Every decision about it is recorded in ", src("search/pool/"), "."),
-    h("h4", { class: "sub" }, "Three blind safety reviews"),
-    p("What worried me most was a message from someone in crisis. Three times an independent reviewer wrote crisis messages in their own words, ",
-      "before seeing my code or lists, and ran them once against the frozen rules. Each time some got past the crisis rules, and some of those were shown a verse that could do harm: ",
-      `${first.harmful} of ${first.missed} missed messages in the first review, ${second.harmful} of ${second.missed} in the second and ${third.harmful} of ${third.missed} in the third. `,
-      "In the third, “stocked up on sleeping tablets, just need the courage” was shown “Be strong and of a good courage; be not afraid”."),
+    h("h4", { class: "sub" }, "Blind safety reviews"),
+    p("What worried me most was a message from someone in crisis. Again and again an independent reviewer wrote crisis messages in their own words, ",
+      "before seeing my code or lists, and ran them once against the frozen rules. Each time some got past the crisis rules. In the four reviews charted below, some of those were shown a verse that could do harm: ",
+      `${first.harmful} of ${first.missed} missed messages for the round 4 judge, ${second.harmful} of ${second.missed} for the fifth judge and ${third.harmful} of ${third.missed} for the sixth. `,
+      "For the sixth, “stocked up on sleeping tablets, just need the courage” was shown “Be strong and of a good courage; be not afraid”."),
     figure(["Crisis messages each blind review’s rules missed on its one run (grey), and how many of those could reach a harmful verse (colour). ",
-      "The last three are the ", h("code", {}, "first_run"), " records in ", src("evals/search_probes.json"), "; the first review’s counts are in the README. ",
-      "In the final review, harmful means one tap away."], box),
+      "The last three are the ", h("code", {}, "first_run"), " records in ", src("evals/search_probes.json"), "; the round 4 judge’s counts are in the README. ",
+      "For the seventh judge, harmful means one tap away."], box),
     p("After each review I added rules for its misses and their paraphrases, and on those messages the rules then caught everything. ",
-      `But fresh wording kept getting past them: on first sight they caught ${share(second.caught, second.crisis)}, then ${share(third.caught, third.crisis)} of the crisis messages, `,
+      `But fresh wording kept getting past them. On first sight, three round 5 sets of ${looks[0].crisis} messages each were caught ${looks.map((l) => l.caught).join(", then ")} times; `,
+      `then the fifth judge’s ${share(second.caught, second.crisis)} and the sixth judge’s ${share(third.caught, third.crisis)}, `,
       `and ${oblique(second)} and ${oblique(third)} of those written without an obvious keyword. `,
       h("strong", {}, "My conclusion was that keyword rules cannot make free-text verse selection safe.")),
     h("h4", { class: "sub" }, "Type, then pick a topic"),
     p("So I changed the product. Typing now only suggests topics, and a verse appears only after the visitor taps one; the site never shows a verse chosen from free text. ",
       "The crisis rules still run first. When they fire, the page shows a short note and nothing else: no verses, no topics, no phone numbers. ",
       "A message they miss can no longer be handed a verse it did not ask for."),
-    p(`A fourth reviewer then tested this design the same way. ${last.caught} of ${last.crisis} crisis messages got the note. Of the ${last.missed} it missed, `,
+    p(`The seventh judge then tested this design the same way. ${last.caught} of ${last.crisis} crisis messages got the note. Of the ${last.missed} it missed, `,
       `${last.harmful} could reach a harmful verse with one tap, and all ${last.harmful} in the same way: someone being abused was offered a topic whose verses ask the reader to change. `,
       "A wife whose husband leaves bruises was offered only Anger (“he that is slow to anger appeaseth strife”). That reads as blame."),
     p(`The fix was a rule, not more phrases. ${a.comfortTopics.length} topics are comfort topics (${a.comfortTopics.join(", ").toLowerCase()}): `,
-      "I read every one of their verses, and none tells the reader to endure, wait, submit, keep silent, forgive or try harder. ",
-      "The others ask the reader to change their own behaviour or to bear something. If a message names another person, an event done to the writer, mental health or anger at God, only comfort topics are offered."),
-    p(`The rule has a measured cost. Topic hit@4, whether a topic I labelled as fitting is among those suggested, fell from ${mean("before").toFixed(2)} to ${mean("after").toFixed(2)} `,
-      `over ${cases} labelled everyday situations. “I lost my temper and yelled at my kids” now gets no topic, and the site shows the full list instead. I accepted that.`),
+      "each of their verses was reviewed, and none tells the reader to endure, wait, submit, keep silent, forgive or try harder. ",
+      "The others ask the reader to change their own behaviour or to bear something. If a message names another person (he, she, they, or a word such as husband, boss, kids or classmate), ",
+      "an event done to the writer, mental health or anger at God, only comfort topics are offered."),
+    p(`The rule has a measured cost. Topic hit@4, whether one of a labelled situation’s expected topics is among those suggested, fell from ${mean("before").toFixed(2)} to ${mean("after").toFixed(2)} `,
+      `over ${cases} labelled everyday situations. “${NO_TOPIC_EXAMPLE}” now gets no topic, and the site shows the full list instead. I accepted that.`),
     h("div", { class: "table-wrap", tabindex: "0", role: "region", "aria-label": "Topic hit@4 before and after the comfort-only rule" },
       h("table", { class: "data hit-table" },
-        h("thead", {}, h("tr", {}, h("th", { scope: "col" }, "Topic hit@4"), a.topicHit.map((t) => h("th", { scope: "col" }, t.split.replace("_", " "), h("small", {}, `${t.cases} cases`))))),
+        h("thead", {}, h("tr", {}, h("th", { scope: "col" }, "Topic hit@4"), a.topicHit.map((t) => h("th", { scope: "col" }, SPLIT_LABEL[t.split] ?? t.split, h("small", {}, `${t.cases} situations`))))),
         h("tbody", {},
           h("tr", {}, h("th", { scope: "row" }, "before the comfort-only rule"), a.topicHit.map((t) => h("td", {}, t.before.toFixed(2)))),
           h("tr", { class: "row--main" }, h("th", { scope: "row" }, "with it (published)"), a.topicHit.map((t) => h("td", {}, t.after.toFixed(2))))))),
-    p(h("small", { class: "muted" }, `With the current lists the rules catch all ${fmtInt(a.storedCrisis)} stored crisis messages, but those are the messages they were fixed against, `,
+    p(h("small", { class: "muted" }, "These are development numbers: every one of these sets was used while writing the lists. ",
+      `With the current lists the rules catch all ${fmtInt(a.storedCrisis)} stored crisis messages, but those are the messages they were fixed against, `,
       "so that says little about new wording. The site’s safety rests on the design: a missed message gets topics to choose from, never a verse. ",
       "Every number is in ", src("evals/results/search.json"), ", ", src("evals/search_probes.json"), " and the ", src("README.md", "README"), ".")),
   );
@@ -346,7 +357,7 @@ function limitsChapter(): HTMLElement {
       h("li", {}, h("strong", {}, "The Gita is its weakest book. "), `It is the smallest of the three, and Gita-style samples leak phrases from the Quran and the Bible ("Lord of the Worlds" is a Quran phrase). Only ${ev.style.rows[0].cells.gita.counts.gita} of ${ev.style.rows[0].cells.gita.n} Gita samples are recognised as Gita.`),
       h("li", {}, h("strong", {}, "It invents words. "), `About one Gita-style word in ${invented("gita")} does not occur anywhere in the training text; for the Bible it is about one in ${invented("bible")}.`),
       h("li", {}, h("strong", {}, "It can wander. "), "Mid-sample it sometimes writes another book’s tag and carries on in that book’s style. The demo marks where that happens."),
-      h("li", {}, h("strong", {}, "It is tiny. "), `${fmtInt(repo.params.total)} parameters, trained on ${(BOOKS.reduce((a, b) => a + repo.stats[b].characters, 0) / 1e6).toFixed(1)} million characters. Modern large language models are many thousands of times larger and are trained on vastly more text.`),
+      h("li", {}, h("strong", {}, "It is tiny. "), `${fmtInt(repo.params.total)} parameters, trained on three books of about ${(BOOKS.reduce((a, b) => a + repo.stats[b].characters, 0) / 1e6).toFixed(1)} million characters in all, less the held-out verses. Modern large language models are many thousands of times larger and are trained on vastly more text.`),
       h("li", {}, h("strong", {}, "Its output is not scripture. "), "Nothing it writes is a quotation, a translation or a teaching of any of these books, and it should never be quoted as one."),
     ),
     p(h("small", { class: "muted" }, `The browser runs the weights quantised to 8 bits. Measured with the eval’s own scorer, that changes the mean validation loss by `,

@@ -29,11 +29,13 @@
     {
       "number": 4,
       "title": "The verse search and the parallels",
+      "testsNote": "No test count recorded in its description",
       "check": "Every message from the independent blind reviews is a regression test, and every stored crisis message is also run as if the rules had missed it, to check what the topic suggestions alone would offer. A fuzz test checks that no suggestion ever contains a verse, a reference or verse text."
     },
     {
       "number": 6,
       "title": "This website",
+      "testsNote": "Open; today's totals are below",
       "check": "The browser's verse search gives the same JSON as the Python one on every fixture and on thousands of generated messages. The forward pass matches PyTorch's logits within 1e-4, and greedy generation matches it token for token."
     }
   ],

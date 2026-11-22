@@ -8,10 +8,17 @@ import { fileURLToPath } from "node:url";
 import { describe, expect, test } from "vitest";
 import siteData from "../src/generated/search.json";
 import { BOOKS, cap, Searcher, words, type SearchData } from "../src/search/searcher.ts";
+import { NO_TOPIC_EXAMPLE } from "../src/story/examples.ts";
 
 const root = (p: string) => fileURLToPath(new URL(`../../${p}`, import.meta.url));
 const fixtures = JSON.parse(readFileSync(root("search/artifacts/fixtures.json"), "utf8"));
 const searcher = new Searcher(siteData as unknown as SearchData);
+
+describe("what the page says about the search", () => {
+  test("the message chapter 08 quotes as getting no topic really gets none", () => {
+    expect(searcher.suggest(NO_TOPIC_EXAMPLE)).toEqual({ category: "none", note: null, topics: [] });
+  });
+});
 
 describe("fixtures.json", () => {
   test.each(fixtures.words as [string, string[]][])("words(%j)", (text, expected) => {

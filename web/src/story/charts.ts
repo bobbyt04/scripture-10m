@@ -123,7 +123,7 @@ export interface MissRow {
 export function missChart(rows: MissRow[], width: number, title: string): SVGSVGElement {
   const W = Math.max(300, Math.round(width));
   const narrow = W < 560;
-  const labelW = narrow ? 0 : 200;
+  const labelW = narrow ? 0 : 250;
   const rowH = narrow ? 76 : 54;
   const gap = 16;
   const m = { top: 6, right: 12, bottom: 4, left: 2 };

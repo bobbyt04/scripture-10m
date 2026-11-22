@@ -156,7 +156,7 @@ describe("the real search behind the UI", () => {
   test("a crisis message renders the note from the data and nothing else", async () => {
     const { ctl, root } = await run("I want to die");
     expect(ctl.state.kind).toBe("crisis");
-    expect(root.textContent).toMatch(/^We are not going to show verses for this one\./);
+    expect(root.textContent).toMatch(/^This page will not show verses for what you wrote\./);
     expect(root.querySelectorAll("[data-topic], [data-verse], button, a")).toHaveLength(0);
     expect(root.textContent).not.toMatch(/\d{3}/); // no phone numbers
   });

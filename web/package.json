@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+  },
   "scripts": {
     "extract": "node scripts/extract.ts",
     "dev": "npm run extract && vite --port 5300 --strictPort",

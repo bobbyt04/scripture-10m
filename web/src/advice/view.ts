@@ -51,7 +51,7 @@ function bookSection(b: BookId, verses: TopicVerse[]): HTMLElement {
       } }, `Show ${rest.length} more from the ${BOOK_NAMES[b]}`)
     : null;
   return h("section", { class: `book book--${b}`, "aria-label": BOOK_NAMES[b], "data-book": b },
-    h("h4", { class: "book__name" }, BOOK_NAMES[b], h("span", { class: "book__tr" }, TRANSLATION[b])),
+    h("h3", { class: "book__name" }, BOOK_NAMES[b], h("span", { class: "book__tr" }, TRANSLATION[b])),
     verses.slice(0, first).map((v) => verseFigure(b, v)),
     rest.length ? more : null,
     button);
@@ -71,24 +71,24 @@ export function renderResults(state: AdviceState, on: ResultHandlers): Node[] {
         return [h("p", { class: "results__hint" }, "I have no topic to suggest for this. ", browseLink(on))];
       }
       return [
-        h("h3", { class: "results__title", tabindex: "-1", "data-focus": "" }, "Topics that may fit"),
+        h("h2", { class: "results__title", tabindex: "-1", "data-focus": "" }, "Topics that may fit"),
         h("p", { class: "results__hint" }, "Pick one to read verses on it from each book."),
         topicList(state.topics, on),
         h("p", { class: "results__more" }, "Not quite it? ", browseLink(on)),
       ];
     case "browse":
       return [
-        h("h3", { class: "results__title", tabindex: "-1", "data-focus": "" },
+        h("h2", { class: "results__title", tabindex: "-1", "data-focus": "" },
           state.reason === "no-match" ? "I couldn’t match that to a topic" : "All topics"),
         h("p", { class: "results__hint" }, state.reason === "no-match"
-          ? "Here is every topic instead. Pick the one closest to what you mean; a dimmed book has no verse for it."
-          : "Every topic with verses in the reviewed selection. A dimmed book has none for that topic."),
+          ? "Here is every topic instead. Pick the one closest to what you mean; a book with a hollow dot has no verse for it."
+          : "Every topic with verses in the reviewed selection. A book with a hollow dot has none for that topic."),
         topicList(state.topics, on),
       ];
     case "loadingTopic":
       return [
         h("button", { type: "button", class: "link-button back", onclick: () => on.back() }, "← Topics"),
-        h("h3", { class: "results__title" }, state.topic.label),
+        h("h2", { class: "results__title" }, state.topic.label),
         h("p", { class: "results__status" }, h("span", { class: "dots", "aria-hidden": "true" }), "Loading verses…"),
       ];
     case "topic": {
@@ -97,7 +97,7 @@ export function renderResults(state: AdviceState, on: ResultHandlers): Node[] {
       const empty = BOOKS.filter((b) => r.books[b].verses.length === 0);
       return [
         h("button", { type: "button", class: "link-button back", onclick: () => on.back() }, "← Topics"),
-        h("h3", { class: "results__title", tabindex: "-1", "data-focus": "" }, r.label),
+        h("h2", { class: "results__title", tabindex: "-1", "data-focus": "" }, r.label),
         h("p", { class: "results__hint" }, r.blurb),
         r.note ? h("p", { class: "topic-note" }, r.note) : null,
         h("div", { class: `books books--${full.length}` }, full.map((b) => bookSection(b, r.books[b].verses))),
@@ -135,13 +135,30 @@ export function mountAdvice(form: HTMLFormElement, results: HTMLElement, ctl: Ad
   });
   updateCount();
 
+  // Opening a topic adds a browser history entry, so the Back button (or gesture) returns to the topic list
+  // instead of leaving the page. The URL does not change.
+  let restoring = false;
+  const ownEntry = () => typeof history.state?.adviceTopic === "string";
   const handlers: ResultHandlers = {
     openTopic: (id) => void ctl.openTopic(id),
     browseAll: () => void ctl.browseAll(),
-    back: () => ctl.back(),
+    back: () => (ownEntry() ? history.back() : ctl.back()),
   };
+  window.addEventListener("popstate", (e: PopStateEvent) => {
+    const st = ctl.state;
+    if (st.kind === "topic" || st.kind === "loadingTopic") {
+      ctl.back();
+    } else if (typeof e.state?.adviceTopic === "string" && (st.kind === "suggestions" || st.kind === "browse")) {
+      restoring = true; // Forward again: reopen the topic without adding another entry
+      void ctl.openTopic(e.state.adviceTopic);
+      restoring = false;
+    }
+  });
   let prev: AdviceState["kind"] = "idle";
   const render = (s: AdviceState) => {
+    if (s.kind === "loadingTopic" && prev !== "loadingTopic" && prev !== "topic" && !restoring) {
+      history.pushState({ adviceTopic: s.topic.id }, "");
+    }
     results.replaceChildren(...renderResults(s, handlers));
     results.dataset.state = s.kind;
     // Move focus only when the reader navigated (opened a topic, went back, asked for the list); new

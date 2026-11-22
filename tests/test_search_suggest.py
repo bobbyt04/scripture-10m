@@ -47,6 +47,8 @@ def check_suggest(s, leak, q, res):
     for t in res["topics"]:
         assert set(t) == {"id", "label", "blurb"} and t["label"] and t["blurb"], (q, t)
         assert s.topic_count(t["id"], res["category"] == "sensitive") > 0, (q, t)     # a tap always shows something
+        if res["category"] == "sensitive":
+            assert s.topic_count(t["id"], True) >= SAFETY["suggest"]["min_sensitive_verses"], (q, t)
     if res["category"] == "crisis":
         assert res["topics"] == [] and res["note"] == s.crisis_message
     else:
@@ -212,7 +214,8 @@ def test_if_the_gate_missed_any_stored_crisis_message_no_risky_topic_would_be_of
 def test_every_sensitive_topic_keeps_a_comfort_topic_with_sensitive_verses(s):
     # So a sensitive message that names another person is still offered something gentle.
     for topic, themes in s.sensitive_themes.items():
-        assert any(t in COMFORT and s.topic_count(t, sensitive=True) for t in themes), topic
+        assert any(t in COMFORT and s.topic_count(t, sensitive=True) >= SAFETY["suggest"]["min_sensitive_verses"]
+                   for t in themes), topic
 
 
 def test_topic_kinds_split_every_topic_in_two():
@@ -494,3 +497,109 @@ def test_signal_phrases_are_well_formed():
             for alt in slot.split("|"):
                 assert alt == "*" or words(alt.rstrip("*")) == [alt.rstrip("*")], (p, alt)
     assert NEVER == {"courage", "love_compassion", "friendship", "marriage", "family_parents", "forgiveness"}
+
+
+# ----- round 9: an independent review of the site (60 messages), and the fixes made for it -----
+# These messages were written by the reviewer and are regression tests now: development numbers, not held out.
+
+REVIEW9_CRISIS = [
+    "i want to end it all tonight", "i've written letters to everyone i love and i'm ready",
+    "nobody would notice if i just stopped existing", "i keep thinking about stepping in front of the bus on my way home",
+    "i've been saving my meds for weeks", "what's the most painless way to go", "i cut myself again last night and it felt good",
+    "my husband choked me last night and said he'd do worse if i tell anyone",
+    "my stepdad comes into my room at night and tells me it's our secret",
+    "im 13 and a guy i met on discord wants to meet me at the mall, he's 24", "my mom burns me with cigarettes when she's drunk",
+    "i'm going to bring my dad's gun to school tomorrow and make them pay",
+    "i'm going to hurt my ex so badly she'll never forget it",
+    "i gave away my dog and my guitar, i won't need them anymore", "i just want to sleep and never wake up",
+    "the bridge near my house is high enough i think", "everyone would be happier if i wasn't here",
+    "i've decided this is my last week", "i drank a whole bottle of bleach", "god please take me tonight i can't do another day",
+    "my boyfriend locks me in the house and takes my phone",
+    "i'm 15 and my coach keeps texting me late at night and says i'm mature for my age", "i want to disappear permanently",
+    "i dont see the point in living anymore", "i'm a burden to my family and they'd be better off",
+    "my uncle touched me and said no one would believe me", "i keep hitting myself until i bruise",
+    "planning to drive into a wall at full speed", "tired of being alive", "i hate myself so much i want to die",
+    "i'm thinking of killing my roommate", "i took 30 tylenol an hour ago", "i am going to jump",
+    "my wife hits me and i'm afraid to go home", "how long does it take to bleed out",
+    "if i'm gone tomorrow, tell my sister i loved her", "i can't keep going, this is goodbye", "kms fr",
+    "he forces me to have sex when i say no", "i'm starving myself so i disappear",
+]
+REVIEW9_EVERYDAY = [
+    "I'm stressed about my final exams", "I lost my job and I'm worried about rent", "I feel lonely since moving to a new city",
+    "my grandmother died last week", "I can't stop procrastinating", "I'm angry all the time lately",
+    "I feel like a failure at work", "I'm grateful for my new baby", "I'm struggling to forgive myself for a mistake",
+    "I'm nervous about a job interview tomorrow", "I keep comparing myself to others on instagram",
+    "I'm burned out from working 70 hours a week", "I'm sick and waiting for test results",
+    "I lost my temper and yelled at my kids", "I don't know if I believe in God anymore", "my friend betrayed my trust",
+    "I want to be more patient", "how do I deal with gossip at the office", "I feel hopeless about the future",
+    "I'm proud and it gets me into trouble",
+]
+# The reviewer's three misses, and natural paraphrases of them.
+OVERDOSE_AND_FAREWELL = [
+    "i took 30 tylenol an hour ago", "i took 20 pills", "i've decided this is my last week", "30 tylenol an hour ago",
+    "took like 40 of my sleeping pills", "i just took like 50 advil", "had 15 xanax", "i've taken 40 paracetamol",
+    "swallowed the whole bottle of advil", "ate a whole pack of benadryl", "took too many of my antidepressants on purpose",
+    "i took 30 pills over 2 days", "took a whole bottle of tylenol", "i took 2 tylenol", "i took 3 ibuprofen",
+    "this is my last week, i've made up my mind", "this will be my final birthday", "my final day on earth",
+    "i won't be here for christmas", "i'm not going to make it to my birthday", "i will never see another christmas",
+    "it is time to go home to god",
+]
+OVERDOSE_AND_FAREWELL_SAFE = [
+    "took 2 tylenol for a headache", "took 2 advil for my cramps", "i had 3 pills for my cold", "i need 2 advil for my back",
+    "Took my antidepressant on time for 30 days straight! proud", "my last week at work is next week",
+    "i decided this is my last week at the job", "won't be home for christmas", "last night was fun, tomorrow will be better",
+    "i'm ready for my last day of exams", "bought 100 vitamins", "i'm going home to my mom for christmas",
+    "my nephew OD'd on fentanyl, he was 19",
+]
+
+
+@pytest.mark.parametrize("q", REVIEW9_CRISIS)
+def test_review9_crisis_messages_get_the_crisis_note(s, leak, q):
+    res = s.suggest(q)
+    assert res["category"] == "crisis", q
+    check_suggest(s, leak, q, res)
+
+
+@pytest.mark.parametrize("q", REVIEW9_EVERYDAY)
+def test_review9_everyday_messages_are_not_crisis(s, leak, q):
+    res = s.suggest(q)
+    assert res["category"] != "crisis", q
+    check_suggest(s, leak, q, res)
+
+
+@pytest.mark.parametrize("q", OVERDOSE_AND_FAREWELL)
+def test_review9_overdoses_and_farewells_fire(s, q):
+    assert s.classify(q)[0] == "crisis", q
+
+
+@pytest.mark.parametrize("q", OVERDOSE_AND_FAREWELL_SAFE)
+def test_review9_near_misses_do_not_fire(s, q):
+    assert s.suggest(q)["category"] != "crisis", q
+
+
+def test_a_message_about_children_or_peers_names_another_person(s):
+    for q in ["the kids at school call me names, how do i stop being angry", "my son is being bullied",
+              "my daughter won't talk to me", "I lost my temper and yelled at my kids", "my toddler bit a classmate"]:
+        assert s.comfort_cue(q), q
+        assert {t["id"] for t in s.suggest(q)["topics"]} <= COMFORT, q
+    assert s.suggest("the kids at school call me names, how do i stop being angry") == {
+        "category": "none", "note": None, "topics": []}
+
+
+def test_the_no_topic_safeguard(s):
+    # No theme matches and a signal word that is not exempt does: the crisis note, not the full list.
+    for q in ["the voices are back", "i wrote the letters", "everything is sorted, insurance and all"]:
+        assert s.classify(q)[0] == "general" and s.safeguard(q), q
+        assert s.suggest(q)["category"] == "crisis", q
+    # An exempt signal ("killed it", "last night") or a matching theme does not count.
+    assert not s.safeguard("we killed it at the concert last night")
+    assert s.suggest("we killed it at the concert last night")["category"] != "crisis"
+    assert not s.safeguard("i'm so angry, how do i calm down")
+    exempt = SAFETY["suggest"]["safeguard_exempt"]
+    assert len(set(exempt)) == len(exempt) and set(exempt) <= set(SAFETY["suggest"]["signals"])
+
+
+def test_gentle_topics_need_three_sensitive_verses(s):
+    res = s.suggest("I'm gay and I feel like a failure")
+    assert res["category"] == "sensitive" and res["topics"]
+    assert "failure" not in {t["id"] for t in res["topics"]} and 0 < s.topic_count("failure", True) < 3

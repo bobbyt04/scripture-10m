@@ -52,8 +52,9 @@ export interface SearchData {
     crisis: Record<string, string[]>;
     sensitive: Record<string, { themes: string[]; phrases: string[]; exclude?: Partial<Record<BookId, string[]>> }>;
     distress: { window: number; rules: string[] };
-    suggest: { max_topics: number; max_topics_after_signal: number; never_after_signal: string[];
-      comfort_only_cues: Record<string, string[]>; signals: string[] };
+    suggest: { max_topics: number; max_topics_after_signal: number; min_sensitive_verses: number;
+      never_after_signal: string[]; comfort_only_cues: Record<string, string[]>; signals: string[];
+      safeguard_exempt: string[] };
   };
   pool: Record<BookId, PoolVerse[]>;
 }
@@ -132,9 +133,9 @@ const NUMBER_WORDS = new Map(
   "one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen"
     .split(" ").map((w, i) => [String(i + 1), w]));
 
-/** Each run of ASCII digits that is exactly 1 to 17 (no leading zero) becomes " <word> "; other digits stay. */
+/** Each run of ASCII digits becomes " <word> ": its English word if it is exactly 1 to 17 (no leading zero), else "num". */
 function spellNumbers(text: string): string {
-  return text.replace(/[0-9]+/g, (m) => (NUMBER_WORDS.has(m) ? ` ${NUMBER_WORDS.get(m)} ` : m));
+  return text.replace(/[0-9]+/g, (m) => ` ${NUMBER_WORDS.get(m) ?? "num"} `);
 }
 
 // ------------------------------------------------------------------ step 2: phrases
@@ -238,6 +239,7 @@ export class Searcher {
   private readonly sensitive: [string, Phrase[]][];
   private readonly sensitiveExcludeAny: Record<BookId, Set<string>>;
   private readonly signals: Phrase[];
+  private readonly safeguardSignals: Phrase[];
   private readonly never: Set<string>;
   private readonly comfortCues: Phrase[];
   private readonly comfortTopics: Set<string>;
@@ -270,6 +272,9 @@ export class Searcher {
     this.sensitiveExcludeAny = { gita: new Set(), quran: new Set(), bible: new Set() };
     for (const d of Object.values(s.sensitive)) for (const b of BOOKS) for (const r of d.exclude?.[b] ?? []) this.sensitiveExcludeAny[b].add(r);
     this.signals = s.suggest.signals.map(compilePhrase);
+    // The signals that also count for the no-topic safeguard: all but those that occur in everyday idioms.
+    const exempt = new Set(s.suggest.safeguard_exempt);
+    this.safeguardSignals = s.suggest.signals.filter((x) => !exempt.has(x)).map(compilePhrase);
     this.never = new Set(s.suggest.never_after_signal);
     this.comfortCues = Object.values(s.suggest.comfort_only_cues).flat().map(compilePhrase);
     this.comfortTopics = new Set(Object.entries(data.themes).filter(([, d]) => d.kind === "comfort").map(([t]) => t));
@@ -285,7 +290,7 @@ export class Searcher {
 
   // ----- step 3: safety
 
-  /** C of FORMAT.md step 3: emoji and digits 1 to 17 read as words, idioms and a third person's death blanked, crisis typos fixed. */
+  /** C of FORMAT.md step 3: emoji and numbers in digits read as words, idioms and a third person's death blanked, crisis typos fixed. */
   crisisWords(query: string): string[] {
     let q = this.cap(query);
     for (const [ch, word] of this.emoji) q = q.replaceAll(ch, ` ${word} `);
@@ -396,6 +401,13 @@ export class Searcher {
     return anyMatch(c, this.signals, new Set(c));
   }
 
+  /** FORMAT.md step 8.8: no theme phrase matches at all, and a signal that is not exempt does. */
+  safeguard(query: string): boolean {
+    if (this.queryThemes(query).length > 0) return false;
+    const c = this.crisisWords(query);
+    return anyMatch(c, this.safeguardSignals, new Set(c));
+  }
+
   comfortCue(query: string): boolean {
     const w = words(this.cap(query));
     return anyMatch(w, this.comfortCues, new Set(w));
@@ -407,8 +419,9 @@ export class Searcher {
     const [category, topic] = this.classify(q);
     if (category === "crisis") return { category: "crisis", note: this.d.safety.crisis_message, topics: [] };
     const sensitive = category === "sensitive";
-    let ids = [...this.selectionThemes(q, category, topic).keys()].filter((t) => this.topicCount(t, sensitive) > 0);
     const sug = this.d.safety.suggest;
+    const need = sensitive ? sug.min_sensitive_verses : 1;
+    let ids = [...this.selectionThemes(q, category, topic).keys()].filter((t) => this.topicCount(t, sensitive) >= need);
     let max = sug.max_topics;
     if (this.signal(q)) {
       ids = ids.filter((t) => !this.never.has(t));
@@ -416,7 +429,11 @@ export class Searcher {
     }
     if (this.comfortCue(q)) ids = ids.filter((t) => this.comfortTopics.has(t));
     const topics = ids.slice(0, max).map((t) => this.label(t, sensitive));
-    return { category: topics.length === 0 && !sensitive ? "none" : category, note: null, topics };
+    if (topics.length === 0 && !sensitive) {
+      if (this.safeguard(q)) return { category: "crisis", note: this.d.safety.crisis_message, topics: [] };
+      return { category: "none", note: null, topics };
+    }
+    return { category, note: null, topics };
   }
 
   // ----- step 9: topic() and topics()

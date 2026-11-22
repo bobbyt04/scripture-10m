@@ -9,6 +9,16 @@
     <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Scripture-10M" />
+    <meta property="og:description" content="A {{paramsShort}}-parameter transformer written by hand and trained from scratch on the Bhagavad Gita, the Quran and the Bible. It runs in your browser." />
+    <meta property="og:image" content="{{siteUrl}}/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Scripture-10M: a small language model, built from scratch" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!--canonical-->
     <script type="module" src="/src/main.ts"></script>
   </head>
   <body>
@@ -22,6 +32,15 @@
           <a href="#generate">Generate</a>
           <a href="#built">How it was built</a>
           <a href="https://github.com/bobbyt04/scripture-10m" class="site-nav__gh">GitHub</a>
+          <details class="site-menu">
+            <summary>Menu</summary>
+            <div class="site-menu__panel">
+              <a href="#top">Ask</a>
+              <a href="#parallels">Parallels</a>
+              <a href="#generate">Generate</a>
+              <a href="#built">How it was built</a>
+            </div>
+          </details>
         </nav>
       </div>
     </header>
@@ -38,18 +57,19 @@
           <form id="ask" class="ask" novalidate>
             <label for="ask-input" class="ask__label">Describe what&rsquo;s on your mind</label>
             <div class="ask__box">
-              <textarea id="ask-input" name="q" rows="3" maxlength="500" autocomplete="off"
+              <textarea id="ask-input" rows="3" maxlength="500" autocomplete="off"
                 placeholder="For example: I keep worrying about a decision at work."
                 aria-describedby="ask-note ask-count"></textarea>
               <div class="ask__bar">
                 <span id="ask-count" class="ask__count" data-counter>0 / 500</span>
-                <button type="submit" class="button">Find topics</button>
+                <button type="submit" class="button" disabled>Find topics</button>
               </div>
             </div>
             <p id="ask-note" class="ask__note">
-              It matches topics in a hand-reviewed selection of verses. It does not understand your situation and is not
+              It matches topics in a reviewed selection of verses. It does not understand your situation and is not
               advice from a person.
             </p>
+            <noscript><p class="ask__note ask__noscript">This page needs JavaScript to suggest topics. Nothing you type is sent anywhere.</p></noscript>
           </form>
           <div id="ask-results" class="results" aria-live="polite"></div>
         </div>
@@ -62,7 +82,7 @@
             <h2 id="parallels-title">Close passages, side by side</h2>
             <p class="lede">
               Pairs of passages from different books that tell the same story or teach something alike, each with a
-              one-line note on what they share. Every pair was read and kept by a person; none was chosen by the
+              one-line note on what they share. Every pair was reviewed before it was kept; none was chosen by the
               statistics alone.
             </p>
           </header>
@@ -127,7 +147,7 @@
             <dl class="facts">
               <div><dt>parameters</dt><dd>{{params}}</dd></div>
               <div><dt>tokens in the vocabulary</dt><dd>{{vocab}}</dd></div>
-              <div><dt>verses of training text</dt><dd>{{verses}}</dd></div>
+              <div><dt>verses in the data, {{heldOut}} held out</dt><dd>{{verses}}</dd></div>
               <div><dt>model download</dt><dd>{{modelSize}}</dd></div>
             </dl>
           </header>
@@ -141,7 +161,7 @@
         <div>
           <p class="wordmark">Scripture-10M</p>
           <p class="muted">Built from scratch: the data pipeline, tokenizer, model, training, evaluation and this site are all in
-            <a href="https://github.com/bobbyt04/scripture-10m">the repository</a>. No pre-trained models, no paid APIs, no tracking.</p>
+            <a href="https://github.com/bobbyt04/scripture-10m">the repository</a>. No pre-trained models, no external APIs or services, no tracking.</p>
         </div>
         <div>
           <p class="site-footer__h">Translations</p>
@@ -151,6 +171,7 @@
             <li>Bible: King James Version, eBible.org text. Public domain (outside the UK, where the Crown holds printing rights).</li>
           </ul>
           <p class="muted"><a href="https://github.com/bobbyt04/scripture-10m/blob/main/data/SOURCES.md">Sources and licences</a></p>
+          <p class="muted">Fonts: Inter and Source Serif 4, self-hosted, under the SIL Open Font License 1.1 (<a href="/fonts/Inter-OFL.txt">Inter</a>, <a href="/fonts/SourceSerif4-OFL.txt">Source Serif 4</a>).</p>
         </div>
       </div>
     </footer>
