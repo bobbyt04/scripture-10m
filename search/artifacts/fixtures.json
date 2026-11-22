@@ -192,11 +192,6 @@
      "laid off"
     ],
     [
-     "provide",
-     0.8,
-     "laid off"
-    ],
-    [
      "need",
      0.8,
      "laid off"
@@ -263,7 +258,7 @@
       "2:40",
       "fear_anxiety",
       1,
-      3.2157,
+      3.0717,
       [
        "fear_anxiety"
       ],
@@ -275,7 +270,7 @@
       "6:35",
       "fear_anxiety",
       2,
-      2.0076,
+      1.9208,
       [
        "fear_anxiety"
       ],
@@ -287,7 +282,7 @@
       "2:56",
       "fear_anxiety",
       3,
-      2.8738,
+      2.7962,
       [
        "fear_anxiety"
       ],
@@ -301,7 +296,7 @@
       "65:3",
       "money_worry",
       1,
-      4.5646,
+      4.4189,
       [
        "money_worry",
        "fear_anxiety"
@@ -315,12 +310,11 @@
       "29:60",
       "money_worry",
       2,
-      7.713,
+      3.3634,
       [
        "money_worry"
       ],
       [
-       "provide",
        "money"
       ]
      ],
@@ -328,7 +322,7 @@
       "28:24",
       "money_worry",
       3,
-      5.6332,
+      5.4346,
       [
        "money_worry"
       ],
@@ -343,7 +337,7 @@
       "Philippians 4:19",
       "money_worry",
       1,
-      11.8492,
+      11.7665,
       [
        "money_worry"
       ],
@@ -357,7 +351,7 @@
       "Psalms 23:1",
       "money_worry",
       2,
-      4.806,
+      4.7453,
       [
        "money_worry"
       ],
@@ -369,7 +363,7 @@
       "Matthew 6:26",
       "money_worry",
       3,
-      4.8102,
+      4.7804,
       [
        "fear_anxiety",
        "money_worry"
@@ -474,37 +468,39 @@
    "results": {
     "gita": [
      [
-      "6:30",
-      "loneliness",
+      "6:32",
+      "love_compassion",
       1,
-      0.0,
+      1.773,
       [
-       "loneliness"
-      ],
-      []
-     ],
-     [
-      "18:64",
-      "loneliness",
-      2,
-      3.792,
-      [
-       "loneliness"
+       "love_compassion"
       ],
       [
-       "beloved"
+       "love"
       ]
      ],
      [
-      "10:1",
-      "loneliness",
-      3,
-      3.8437,
+      "9:29",
+      "love_compassion",
+      2,
+      2.0742,
       [
-       "loneliness"
+       "love_compassion"
       ],
       [
-       "beloved"
+       "love"
+      ]
+     ],
+     [
+      "6:29",
+      "love_compassion",
+      4,
+      1.95,
+      [
+       "love_compassion"
+      ],
+      [
+       "love"
       ]
      ]
     ],
@@ -533,7 +529,7 @@
       "93:3",
       "loneliness",
       3,
-      5.8199,
+      5.6704,
       [
        "loneliness"
       ],
@@ -547,7 +543,7 @@
       "Deuteronomy 31:8",
       "loneliness",
       1,
-      3.9724,
+      4.2045,
       [
        "loneliness"
       ],
@@ -654,7 +650,7 @@
       "20:26",
       "overwork_rest",
       1,
-      2.9409,
+      2.8094,
       [
        "overwork_rest"
       ],
@@ -666,7 +662,7 @@
       "78:9",
       "overwork_rest",
       2,
-      3.7734,
+      3.6029,
       [
        "overwork_rest"
       ],
@@ -678,7 +674,7 @@
       "10:67",
       "overwork_rest",
       3,
-      3.6583,
+      3.494,
       [
        "overwork_rest"
       ],
@@ -689,22 +685,10 @@
     ],
     "bible": [
      [
-      "Mark 6:31",
-      "overwork_rest",
-      1,
-      4.7619,
-      [
-       "overwork_rest"
-      ],
-      [
-       "rest"
-      ]
-     ],
-     [
       "Isaiah 40:29",
       "overwork_rest",
       2,
-      10.9301,
+      10.6366,
       [
        "overwork_rest"
       ],
@@ -718,13 +702,26 @@
       "Exodus 18:18",
       "overwork_rest",
       3,
-      7.1055,
+      6.9681,
       [
        "overwork_rest"
       ],
       [
        "rest",
        "heavy"
+      ]
+     ],
+     [
+      "Jeremiah 31:25",
+      "overwork_rest",
+      4,
+      7.3441,
+      [
+       "overwork_rest"
+      ],
+      [
+       "weary",
+       "rest"
       ]
      ]
     ]
@@ -815,7 +812,7 @@
       "21:83",
       "illness",
       1,
-      3.299,
+      3.1983,
       [
        "illness"
       ],
@@ -827,7 +824,7 @@
       "4:28",
       "illness",
       2,
-      3.3775,
+      3.2742,
       [
        "illness"
       ],
@@ -839,7 +836,7 @@
       "94:6",
       "illness",
       3,
-      3.7331,
+      3.6179,
       [
        "illness"
       ],
@@ -853,24 +850,11 @@
       "Proverbs 17:17",
       "family_parents",
       1,
-      3.3972,
+      3.5504,
       [
        "family_parents"
       ],
       [
-       "parent"
-      ]
-     ],
-     [
-      "Psalms 27:10",
-      "family_parents",
-      2,
-      7.6824,
-      [
-       "family_parents"
-      ],
-      [
-       "father",
        "parent"
       ]
      ],
@@ -878,7 +862,19 @@
       "Proverbs 15:17",
       "family_parents",
       3,
-      2.9884,
+      3.1221,
+      [
+       "family_parents"
+      ],
+      [
+       "parent"
+      ]
+     ],
+     [
+      "Proverbs 24:3",
+      "family_parents",
+      4,
+      3.7565,
       [
        "family_parents"
       ],
@@ -1010,7 +1006,7 @@
       "2:40",
       "fear_anxiety",
       1,
-      9.1429,
+      9.0253,
       [
        "fear_anxiety"
       ],
@@ -1025,7 +1021,7 @@
       "6:35",
       "fear_anxiety",
       2,
-      4.1297,
+      3.9758,
       [
        "fear_anxiety"
       ],
@@ -1038,7 +1034,7 @@
       "2:56",
       "fear_anxiety",
       3,
-      5.4607,
+      5.358,
       [
        "fear_anxiety"
       ],
@@ -1053,7 +1049,7 @@
       "20:46",
       "fear_anxiety",
       1,
-      5.9507,
+      5.74,
       [
        "fear_anxiety"
       ],
@@ -1066,7 +1062,7 @@
       "13:28",
       "fear_anxiety",
       2,
-      4.1278,
+      3.9772,
       [
        "fear_anxiety"
       ],
@@ -1079,7 +1075,7 @@
       "20:25",
       "fear_anxiety",
       3,
-      5.0453,
+      4.8584,
       [
        "fear_anxiety"
       ],
@@ -1094,7 +1090,7 @@
       "Isaiah 41:10",
       "fear_anxiety",
       1,
-      4.2709,
+      4.3238,
       [
        "fear_anxiety"
       ],
@@ -1107,7 +1103,7 @@
       "1 Peter 5:7",
       "fear_anxiety",
       2,
-      4.2345,
+      4.2872,
       [
        "fear_anxiety"
       ],
@@ -1120,7 +1116,7 @@
       "Philippians 4:6",
       "fear_anxiety",
       3,
-      12.8177,
+      12.5688,
       [
        "fear_anxiety"
       ],
@@ -1192,7 +1188,7 @@
       "Proverbs 17:17",
       "family_parents",
       1,
-      4.4031,
+      4.3247,
       [
        "family_parents"
       ],
@@ -1201,9 +1197,9 @@
       ]
      ],
      [
-      "Psalms 27:10",
+      "Proverbs 15:17",
       "family_parents",
-      2,
+      3,
       0.0,
       [
        "family_parents"
@@ -1211,9 +1207,9 @@
       []
      ],
      [
-      "Proverbs 15:17",
+      "Proverbs 24:3",
       "family_parents",
-      3,
+      4,
       0.0,
       [
        "family_parents"
@@ -1234,8 +1230,8 @@
    ],
    "crisis_words": [
     "my",
-    "mother",
-    "passed",
+    "",
+    "",
     "away"
    ],
    "theme_words": [
@@ -1338,7 +1334,7 @@
       "Matthew 5:4",
       "grief",
       2,
-      6.06,
+      5.858,
       [
        "grief"
       ],
@@ -1443,23 +1439,10 @@
    "results": {
     "gita": [
      [
-      "9:27",
-      "purpose",
-      1,
-      4.4339,
-      [
-       "purpose"
-      ],
-      [
-       "purpose",
-       "work"
-      ]
-     ],
-     [
       "3:20",
       "purpose",
       2,
-      4.2628,
+      3.9981,
       [
        "purpose"
       ],
@@ -1472,22 +1455,7 @@
       "2:47",
       "purpose",
       3,
-      4.4726,
-      [
-       "purpose"
-      ],
-      [
-       "purpose",
-       "work"
-      ]
-     ]
-    ],
-    "quran": [
-     [
-      "2:148",
-      "purpose",
-      1,
-      5.756,
+      4.1959,
       [
        "purpose"
       ],
@@ -1497,10 +1465,26 @@
       ]
      ],
      [
+      "3:19",
+      "purpose",
+      4,
+      8.1901,
+      [
+       "purpose"
+      ],
+      [
+       "purpose",
+       "duty",
+       "work"
+      ]
+     ]
+    ],
+    "quran": [
+     [
       "20:50",
       "purpose",
       2,
-      4.0369,
+      4.1228,
       [
        "purpose"
       ],
@@ -1512,7 +1496,19 @@
       "94:8",
       "purpose",
       3,
-      4.6306,
+      4.7272,
+      [
+       "purpose"
+      ],
+      [
+       "purpose"
+      ]
+     ],
+     [
+      "3:104",
+      "purpose",
+      4,
+      3.5744,
       [
        "purpose"
       ],
@@ -1526,7 +1522,7 @@
       "Jeremiah 29:11",
       "purpose",
       1,
-      2.8074,
+      2.7909,
       [
        "purpose"
       ],
@@ -1538,7 +1534,7 @@
       "Psalms 138:8",
       "purpose",
       2,
-      4.741,
+      4.6449,
       [
        "purpose"
       ],
@@ -1551,7 +1547,7 @@
       "Philippians 1:6",
       "purpose",
       3,
-      5.6881,
+      5.559,
       [
        "purpose"
       ],
@@ -1654,7 +1650,7 @@
       "4:22",
       "envy_contentment",
       1,
-      7.674,
+      6.9744,
       [
        "envy_contentment"
       ],
@@ -1667,7 +1663,7 @@
       "2:70",
       "envy_contentment",
       2,
-      1.9357,
+      1.7414,
       [
        "envy_contentment"
       ],
@@ -1679,7 +1675,7 @@
       "2:55",
       "envy_contentment",
       3,
-      1.971,
+      1.773,
       [
        "envy_contentment"
       ],
@@ -1693,7 +1689,7 @@
       "4:32",
       "envy_contentment",
       1,
-      8.7055,
+      8.4571,
       [
        "envy_contentment"
       ],
@@ -1706,7 +1702,7 @@
       "10:58",
       "envy_contentment",
       2,
-      3.0933,
+      2.9922,
       [
        "envy_contentment"
       ],
@@ -1718,7 +1714,7 @@
       "93:5",
       "envy_contentment",
       3,
-      3.595,
+      3.476,
       [
        "envy_contentment"
       ],
@@ -1729,34 +1725,34 @@
     ],
     "bible": [
      [
-      "Philippians 4:11",
-      "envy_contentment",
-      1,
-      2.8024,
-      [
-       "envy_contentment"
-      ],
-      [
-       "envy"
-      ]
-     ],
-     [
-      "Hebrews 13:5",
-      "envy_contentment",
-      2,
-      2.559,
-      [
-       "envy_contentment"
-      ],
-      [
-       "envy"
-      ]
-     ],
-     [
       "1 Timothy 6:6",
       "envy_contentment",
       3,
-      2.8941,
+      3.015,
+      [
+       "envy_contentment"
+      ],
+      [
+       "envy"
+      ]
+     ],
+     [
+      "Galatians 6:4",
+      "envy_contentment",
+      4,
+      2.3272,
+      [
+       "envy_contentment"
+      ],
+      [
+       "envy"
+      ]
+     ],
+     [
+      "Proverbs 14:30",
+      "envy_contentment",
+      5,
+      3.9394,
       [
        "envy_contentment"
       ],
@@ -1880,16 +1876,6 @@
     ],
     "bible": [
      [
-      "Colossians 3:23",
-      "work_effort",
-      1,
-      0.0,
-      [
-       "work_effort"
-      ],
-      []
-     ],
-     [
       "Galatians 6:9",
       "work_effort",
       2,
@@ -1903,6 +1889,16 @@
       "1 Corinthians 15:58",
       "work_effort",
       3,
+      0.0,
+      [
+       "work_effort"
+      ],
+      []
+     ],
+     [
+      "2 Chronicles 15:7",
+      "work_effort",
+      5,
       0.0,
       [
        "work_effort"
@@ -1973,38 +1969,7 @@
     ]
    ],
    "results": {
-    "gita": [
-     [
-      "17:20",
-      "generosity",
-      1,
-      0.0,
-      [
-       "generosity"
-      ],
-      []
-     ],
-     [
-      "9:26",
-      "generosity",
-      2,
-      0.0,
-      [
-       "generosity"
-      ],
-      []
-     ],
-     [
-      "16:1",
-      "generosity",
-      3,
-      0.0,
-      [
-       "generosity"
-      ],
-      []
-     ]
-    ],
+    "gita": [],
     "quran": [
      [
       "2:261",
@@ -2149,46 +2114,13 @@
     ]
    ],
    "results": {
-    "gita": [
-     [
-      "10:41",
-      "gratitude",
-      1,
-      0.0,
-      [
-       "gratitude"
-      ],
-      []
-     ],
-     [
-      "9:26",
-      "gratitude",
-      2,
-      0.0,
-      [
-       "gratitude"
-      ],
-      []
-     ],
-     [
-      "10:9",
-      "gratitude",
-      3,
-      3.3343,
-      [
-       "gratitude"
-      ],
-      [
-       "life"
-      ]
-     ]
-    ],
+    "gita": [],
     "quran": [
      [
       "16:18",
       "gratitude",
       1,
-      3.8425,
+      3.734,
       [
        "gratitude"
       ],
@@ -2200,7 +2132,7 @@
       "2:152",
       "gratitude",
       2,
-      3.8818,
+      3.7246,
       [
        "gratitude"
       ],
@@ -2212,7 +2144,7 @@
       "93:11",
       "gratitude",
       3,
-      3.486,
+      3.3506,
       [
        "gratitude"
       ],
@@ -2226,7 +2158,7 @@
       "Psalms 107:1",
       "gratitude",
       1,
-      5.2198,
+      5.0366,
       [
        "gratitude"
       ],
@@ -2238,7 +2170,7 @@
       "1 Thessalonians 5:18",
       "gratitude",
       2,
-      5.6802,
+      5.4824,
       [
        "gratitude"
       ],
@@ -2338,10 +2270,22 @@
     "gita": [],
     "quran": [
      [
-      "39:53",
+      "42:25",
       "guilt_repentance",
-      1,
-      8.7388,
+      5,
+      2.2407,
+      [
+       "guilt_repentance"
+      ],
+      [
+       "guilt"
+      ]
+     ],
+     [
+      "3:135",
+      "guilt_repentance",
+      null,
+      8.8615,
       [
        "guilt_repentance"
       ],
@@ -2352,28 +2296,16 @@
       ]
      ],
      [
-      "4:110",
+      "7:153",
       "guilt_repentance",
-      2,
-      3.9626,
+      null,
+      8.4773,
       [
        "guilt_repentance"
       ],
       [
        "guilt",
-       "forgive"
-      ]
-     ],
-     [
-      "28:16",
-      "guilt_repentance",
-      3,
-      4.6734,
-      [
-       "guilt_repentance"
-      ],
-      [
-       "guilt",
+       "repent",
        "forgive"
       ]
      ]
@@ -2383,7 +2315,7 @@
       "1 John 1:9",
       "guilt_repentance",
       1,
-      11.5518,
+      12.4465,
       [
        "guilt_repentance"
       ],
@@ -2394,23 +2326,22 @@
       ]
      ],
      [
-      "Psalms 103:12",
+      "Psalms 51:10",
       "guilt_repentance",
-      2,
-      5.8278,
+      3,
+      2.2512,
       [
        "guilt_repentance"
       ],
       [
-       "guilt",
-       "transgression"
+       "guilt"
       ]
      ],
      [
-      "Psalms 51:10",
+      "2 Corinthians 5:17",
       "guilt_repentance",
-      3,
-      2.0521,
+      4,
+      2.4365,
       [
        "guilt_repentance"
       ],
@@ -2513,7 +2444,7 @@
       "6:19",
       "peace_of_mind",
       1,
-      5.6573,
+      5.2565,
       [
        "peace_of_mind"
       ],
@@ -2527,7 +2458,7 @@
       "2:70",
       "peace_of_mind",
       2,
-      5.5432,
+      5.0998,
       [
        "peace_of_mind"
       ],
@@ -2541,7 +2472,7 @@
       "6:35",
       "peace_of_mind",
       3,
-      2.6351,
+      2.219,
       [
        "peace_of_mind"
       ],
@@ -2556,7 +2487,7 @@
       "13:28",
       "peace_of_mind",
       1,
-      11.5094,
+      11.1441,
       [
        "peace_of_mind"
       ],
@@ -2571,7 +2502,7 @@
       "20:25",
       "peace_of_mind",
       2,
-      7.4848,
+      7.1379,
       [
        "peace_of_mind"
       ],
@@ -2584,7 +2515,7 @@
       "10:57",
       "peace_of_mind",
       3,
-      7.9864,
+      7.744,
       [
        "peace_of_mind"
       ],
@@ -2600,7 +2531,7 @@
       "Philippians 4:7",
       "peace_of_mind",
       1,
-      8.578,
+      8.4022,
       [
        "peace_of_mind"
       ],
@@ -2614,7 +2545,7 @@
       "John 14:27",
       "peace_of_mind",
       2,
-      7.4536,
+      7.2775,
       [
        "peace_of_mind"
       ],
@@ -2628,7 +2559,7 @@
       "Isaiah 26:3",
       "peace_of_mind",
       3,
-      7.0788,
+      6.9187,
       [
        "peace_of_mind"
       ],
@@ -2741,7 +2672,7 @@
       "16:2",
       "honesty",
       2,
-      3.56,
+      3.8191,
       [
        "honesty"
       ],
@@ -2775,7 +2706,7 @@
       "2:42",
       "honesty",
       2,
-      10.3482,
+      10.0226,
       [
        "honesty"
       ],
@@ -2810,7 +2741,7 @@
       "Ephesians 4:25",
       "honesty",
       2,
-      8.5573,
+      8.5393,
       [
        "honesty"
       ],
@@ -2823,7 +2754,7 @@
       "John 8:32",
       "honesty",
       3,
-      5.0785,
+      4.9567,
       [
        "honesty"
       ],
@@ -2930,7 +2861,7 @@
       "28:24",
       "money_worry",
       3,
-      3.1366,
+      3.0497,
       [
        "money_worry"
       ],
@@ -3263,7 +3194,7 @@
       "20:26",
       "overwork_rest",
       1,
-      5.6384,
+      5.5106,
       [
        "overwork_rest"
       ],
@@ -3276,7 +3207,7 @@
       "78:9",
       "overwork_rest",
       2,
-      3.7734,
+      3.6029,
       [
        "overwork_rest"
       ],
@@ -3288,7 +3219,7 @@
       "10:67",
       "overwork_rest",
       3,
-      3.6583,
+      3.494,
       [
        "overwork_rest"
       ],
@@ -3299,22 +3230,10 @@
     ],
     "bible": [
      [
-      "Mark 6:31",
-      "overwork_rest",
-      1,
-      4.7619,
-      [
-       "overwork_rest"
-      ],
-      [
-       "rest"
-      ]
-     ],
-     [
       "Isaiah 40:29",
       "overwork_rest",
       2,
-      10.9301,
+      10.6366,
       [
        "overwork_rest"
       ],
@@ -3328,7 +3247,7 @@
       "Exodus 18:18",
       "overwork_rest",
       3,
-      9.6159,
+      9.3787,
       [
        "overwork_rest"
       ],
@@ -3336,6 +3255,19 @@
        "work",
        "rest",
        "heavy"
+      ]
+     ],
+     [
+      "Jeremiah 31:25",
+      "overwork_rest",
+      4,
+      7.3441,
+      [
+       "overwork_rest"
+      ],
+      [
+       "weary",
+       "rest"
       ]
      ]
     ]
@@ -3570,49 +3502,13 @@
     ]
    ],
    "results": {
-    "gita": [
-     [
-      "10:9",
-      "friendship",
-      1,
-      0.0,
-      [
-       "friendship"
-      ],
-      []
-     ],
-     [
-      "11:44",
-      "friendship",
-      2,
-      4.3592,
-      [
-       "friendship"
-      ],
-      [
-       "friend"
-      ]
-     ],
-     [
-      "6:9",
-      "friendship",
-      3,
-      5.0464,
-      [
-       "friendship"
-      ],
-      [
-       "friend",
-       "love"
-      ]
-     ]
-    ],
+    "gita": [],
     "quran": [
      [
       "60:7",
       "friendship",
       1,
-      3.1308,
+      3.2987,
       [
        "friendship"
       ],
@@ -3624,7 +3520,7 @@
       "49:10",
       "friendship",
       2,
-      3.936,
+      4.0189,
       [
        "friendship"
       ],
@@ -3636,7 +3532,7 @@
       "90:17",
       "friendship",
       3,
-      2.4263,
+      2.5575,
       [
        "friendship"
       ],
@@ -3650,7 +3546,7 @@
       "Proverbs 17:17",
       "friendship",
       1,
-      10.2938,
+      10.3578,
       [
        "friendship"
       ],
@@ -3671,16 +3567,15 @@
       []
      ],
      [
-      "Proverbs 18:24",
+      "Proverbs 27:9",
       "friendship",
-      3,
-      7.8593,
+      4,
+      4.8398,
       [
        "friendship"
       ],
       [
-       "friend",
-       "brother"
+       "friend"
       ]
      ]
     ]
@@ -3769,7 +3664,7 @@
       "2:40",
       "fear_anxiety",
       1,
-      3.7649,
+      3.4814,
       [
        "fear_anxiety"
       ],
@@ -3782,7 +3677,7 @@
       "6:35",
       "fear_anxiety",
       2,
-      2.1222,
+      2.055,
       [
        "fear_anxiety"
       ],
@@ -3794,7 +3689,7 @@
       "2:56",
       "fear_anxiety",
       3,
-      2.5869,
+      2.5618,
       [
        "fear_anxiety"
       ],
@@ -3808,7 +3703,7 @@
       "20:46",
       "fear_anxiety",
       1,
-      2.5499,
+      2.4295,
       [
        "fear_anxiety"
       ],
@@ -3820,7 +3715,7 @@
       "13:28",
       "fear_anxiety",
       2,
-      2.1442,
+      2.044,
       [
        "fear_anxiety"
       ],
@@ -3832,7 +3727,7 @@
       "20:25",
       "fear_anxiety",
       3,
-      2.6207,
+      2.4968,
       [
        "fear_anxiety"
       ],
@@ -3846,7 +3741,7 @@
       "Isaiah 41:10",
       "fear_anxiety",
       1,
-      1.7248,
+      1.7444,
       [
        "fear_anxiety"
       ],
@@ -3858,7 +3753,7 @@
       "1 Peter 5:7",
       "fear_anxiety",
       2,
-      2.2082,
+      2.2348,
       [
        "fear_anxiety"
       ],
@@ -3870,7 +3765,7 @@
       "Philippians 4:6",
       "fear_anxiety",
       3,
-      5.5932,
+      5.4857,
       [
        "fear_anxiety"
       ],
@@ -3947,7 +3842,7 @@
       "Colossians 3:14",
       "marriage",
       1,
-      5.7454,
+      5.9932,
       [
        "marriage"
       ],
@@ -3960,7 +3855,7 @@
       "Ecclesiastes 4:9",
       "marriage",
       2,
-      3.8095,
+      4.1148,
       [
        "marriage"
       ],
@@ -3972,7 +3867,7 @@
       "Ecclesiastes 4:10",
       "marriage",
       3,
-      4.2098,
+      4.5486,
       [
        "marriage"
       ],
@@ -4193,38 +4088,7 @@
     ]
    ],
    "results": {
-    "gita": [
-     [
-      "18:64",
-      "self_worth",
-      1,
-      0.0,
-      [
-       "self_worth"
-      ],
-      []
-     ],
-     [
-      "10:1",
-      "self_worth",
-      2,
-      0.0,
-      [
-       "self_worth"
-      ],
-      []
-     ],
-     [
-      "9:29",
-      "self_worth",
-      3,
-      0.0,
-      [
-       "self_worth"
-      ],
-      []
-     ]
-    ],
+    "gita": [],
     "quran": [
      [
       "17:70",
@@ -4262,7 +4126,7 @@
       "Psalms 139:14",
       "self_worth",
       1,
-      2.8961,
+      2.782,
       [
        "self_worth"
       ],
@@ -4271,9 +4135,9 @@
       ]
      ],
      [
-      "Isaiah 43:1",
+      "Isaiah 49:16",
       "self_worth",
-      2,
+      3,
       0.0,
       [
        "self_worth"
@@ -4281,9 +4145,9 @@
       []
      ],
      [
-      "Isaiah 49:16",
+      "Luke 12:7",
       "self_worth",
-      3,
+      4,
       0.0,
       [
        "self_worth"
@@ -4353,42 +4217,36 @@
       []
      ],
      [
-      "4:11",
+      "13:28",
       "doubt_faith",
-      2,
-      0.0,
+      null,
+      3.4895,
       [
        "doubt_faith"
       ],
-      []
+      [
+       "lord"
+      ]
      ],
      [
-      "12:9",
+      "7:16",
       "doubt_faith",
-      3,
-      0.0,
+      null,
+      3.4238,
       [
        "doubt_faith"
       ],
-      []
+      [
+       "lord"
+      ]
      ]
     ],
     "quran": [
      [
-      "2:186",
-      "doubt_faith",
-      1,
-      0.0,
-      [
-       "doubt_faith"
-      ],
-      []
-     ],
-     [
       "93:3",
       "doubt_faith",
       2,
-      2.1533,
+      2.4071,
       [
        "doubt_faith"
       ],
@@ -4405,6 +4263,18 @@
        "doubt_faith"
       ],
       []
+     ],
+     [
+      "3:8",
+      "doubt_faith",
+      4,
+      1.6151,
+      [
+       "doubt_faith"
+      ],
+      [
+       "lord"
+      ]
      ]
     ],
     "bible": [
@@ -4412,7 +4282,7 @@
       "Mark 9:24",
       "doubt_faith",
       1,
-      1.574,
+      1.5204,
       [
        "doubt_faith"
       ],
@@ -4424,7 +4294,7 @@
       "Psalms 145:18",
       "doubt_faith",
       2,
-      1.9888,
+      1.9218,
       [
        "doubt_faith"
       ],
@@ -4490,44 +4360,13 @@
     ]
    ],
    "results": {
-    "gita": [
-     [
-      "5:19",
-      "suffering_endurance",
-      1,
-      0.0,
-      [
-       "suffering_endurance"
-      ],
-      []
-     ],
-     [
-      "7:16",
-      "suffering_endurance",
-      2,
-      0.0,
-      [
-       "suffering_endurance"
-      ],
-      []
-     ],
-     [
-      "2:56",
-      "suffering_endurance",
-      3,
-      0.0,
-      [
-       "suffering_endurance"
-      ],
-      []
-     ]
-    ],
+    "gita": [],
     "quran": [
      [
       "94:5",
       "suffering_endurance",
       1,
-      10.7908,
+      10.9668,
       [
        "suffering_endurance"
       ],
@@ -4627,7 +4466,7 @@
       "6:30",
       "doubt_faith",
       1,
-      2.4264,
+      3.4275,
       [
        "doubt_faith"
       ],
@@ -4636,20 +4475,22 @@
       ]
      ],
      [
-      "4:11",
+      "9:29",
       "doubt_faith",
-      2,
-      0.0,
+      null,
+      4.0385,
       [
        "doubt_faith"
       ],
-      []
+      [
+       "god"
+      ]
      ],
      [
-      "12:9",
+      "12:14",
       "doubt_faith",
-      3,
-      2.4586,
+      null,
+      3.2154,
       [
        "doubt_faith"
       ],
@@ -4659,18 +4500,6 @@
      ]
     ],
     "quran": [
-     [
-      "2:186",
-      "doubt_faith",
-      1,
-      1.0025,
-      [
-       "doubt_faith"
-      ],
-      [
-       "god"
-      ]
-     ],
      [
       "93:3",
       "doubt_faith",
@@ -4685,13 +4514,23 @@
       "13:28",
       "doubt_faith",
       3,
-      1.1164,
+      1.1389,
       [
        "doubt_faith"
       ],
       [
        "god"
       ]
+     ],
+     [
+      "3:8",
+      "doubt_faith",
+      4,
+      0.0,
+      [
+       "doubt_faith"
+      ],
+      []
      ]
     ],
     "bible": [
@@ -4719,7 +4558,7 @@
       "Psalms 42:11",
       "doubt_faith",
       3,
-      2.521,
+      2.4356,
       [
        "doubt_faith"
       ],
@@ -4861,16 +4700,6 @@
     ],
     "bible": [
      [
-      "Proverbs 16:3",
-      "success",
-      1,
-      0.0,
-      [
-       "success"
-      ],
-      []
-     ],
-     [
       "Psalms 90:17",
       "success",
       2,
@@ -4884,6 +4713,16 @@
       "Psalms 127:1",
       "success",
       3,
+      0.0,
+      [
+       "success"
+      ],
+      []
+     ],
+     [
+      "1 Corinthians 4:7",
+      "success",
+      4,
       0.0,
       [
        "success"
@@ -5012,7 +4851,7 @@
       "18:26",
       "failure",
       3,
-      2.4369,
+      2.2516,
       [
        "failure"
       ],
@@ -5033,9 +4872,9 @@
       []
      ],
      [
-      "68:32",
+      "21:94",
       "failure",
-      2,
+      3,
       0.0,
       [
        "failure"
@@ -5043,9 +4882,9 @@
       []
      ],
      [
-      "21:94",
+      "18:30",
       "failure",
-      3,
+      4,
       0.0,
       [
        "failure"
@@ -5058,7 +4897,7 @@
       "Psalms 37:24",
       "failure",
       1,
-      4.316,
+      4.1402,
       [
        "failure"
       ],
@@ -5070,7 +4909,7 @@
       "Micah 7:8",
       "failure",
       2,
-      4.1542,
+      3.9845,
       [
        "failure"
       ],
@@ -5082,7 +4921,7 @@
       "Psalms 145:14",
       "failure",
       3,
-      4.4909,
+      4.3085,
       [
        "failure"
       ],
@@ -5167,18 +5006,6 @@
     ],
     "bible": [
      [
-      "Jeremiah 31:3",
-      "self_worth",
-      null,
-      0.0,
-      [
-       "self_worth",
-       "love_compassion",
-       "loneliness"
-      ],
-      []
-     ],
-     [
       "Psalms 139:1",
       "self_worth",
       null,
@@ -5197,6 +5024,16 @@
       [
        "self_worth",
        "loneliness"
+      ],
+      []
+     ],
+     [
+      "Luke 12:6",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
       ],
       []
      ]
@@ -5287,7 +5124,7 @@
       "93:3",
       "loneliness",
       null,
-      5.8199,
+      5.6704,
       [
        "loneliness",
        "self_worth"
@@ -5319,18 +5156,6 @@
     ],
     "bible": [
      [
-      "Jeremiah 31:3",
-      "loneliness",
-      null,
-      0.0,
-      [
-       "self_worth",
-       "love_compassion",
-       "loneliness"
-      ],
-      []
-     ],
-     [
       "Psalms 139:1",
       "loneliness",
       null,
@@ -5348,6 +5173,16 @@
       0.0,
       [
        "self_worth",
+       "loneliness"
+      ],
+      []
+     ],
+     [
+      "Deuteronomy 31:8",
+      "loneliness",
+      null,
+      0.0,
+      [
        "loneliness"
       ],
       []
@@ -5408,11 +5243,6 @@
      "lost",
      1.0,
      "lost"
-    ],
-    [
-     "womb",
-     0.8,
-     "pregnancy"
     ],
     [
      "child",
@@ -5586,17 +5416,6 @@
     ],
     "bible": [
      [
-      "Jeremiah 31:3",
-      "self_worth",
-      null,
-      0.0,
-      [
-       "self_worth",
-       "love_compassion"
-      ],
-      []
-     ],
-     [
       "Psalms 139:1",
       "self_worth",
       null,
@@ -5608,6 +5427,16 @@
      ],
      [
       "Psalms 139:17",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Luke 12:6",
       "self_worth",
       null,
       0.0,
@@ -5713,7 +5542,7 @@
       []
      ],
      [
-      "Jeremiah 31:3",
+      "Luke 12:6",
       "self_worth",
       null,
       0.0,
@@ -5926,7 +5755,7 @@
       "93:3",
       "self_worth",
       null,
-      7.2748,
+      7.088,
       [
        "self_worth"
       ],
@@ -5957,17 +5786,6 @@
     ],
     "bible": [
      [
-      "Jeremiah 31:3",
-      "self_worth",
-      null,
-      0.0,
-      [
-       "self_worth",
-       "love_compassion"
-      ],
-      []
-     ],
-     [
       "Psalms 139:1",
       "self_worth",
       null,
@@ -5979,6 +5797,16 @@
      ],
      [
       "Psalms 139:17",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Luke 12:6",
       "self_worth",
       null,
       0.0,
@@ -6078,17 +5906,6 @@
     ],
     "bible": [
      [
-      "Jeremiah 31:3",
-      "self_worth",
-      null,
-      0.0,
-      [
-       "self_worth",
-       "love_compassion"
-      ],
-      []
-     ],
-     [
       "Psalms 139:1",
       "self_worth",
       null,
@@ -6100,6 +5917,16 @@
      ],
      [
       "Psalms 139:17",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Luke 12:6",
       "self_worth",
       null,
       0.0,
@@ -6646,7 +6473,7 @@
       "18:26",
       "success",
       1,
-      1.9655,
+      1.6959,
       [
        "success"
       ],
@@ -6658,7 +6485,7 @@
       "2:48",
       "success",
       2,
-      1.8964,
+      1.6366,
       [
        "success"
       ],
@@ -6670,7 +6497,7 @@
       "2:47",
       "success",
       3,
-      2.0658,
+      1.782,
       [
        "success"
       ],
@@ -6694,7 +6521,7 @@
       "62:10",
       "success",
       2,
-      2.038,
+      2.0425,
       [
        "success"
       ],
@@ -6715,22 +6542,10 @@
     ],
     "bible": [
      [
-      "Proverbs 16:3",
-      "success",
-      1,
-      4.2106,
-      [
-       "success"
-      ],
-      [
-       "work"
-      ]
-     ],
-     [
       "Psalms 90:17",
       "success",
       2,
-      4.5445,
+      4.3694,
       [
        "success"
       ],
@@ -6742,13 +6557,23 @@
       "Psalms 127:1",
       "success",
       3,
-      2.1645,
+      2.0778,
       [
        "success"
       ],
       [
        "work"
       ]
+     ],
+     [
+      "1 Corinthians 4:7",
+      "success",
+      4,
+      0.0,
+      [
+       "success"
+      ],
+      []
      ]
     ]
    }
@@ -6853,7 +6678,7 @@
       "20:26",
       "overwork_rest",
       1,
-      2.9409,
+      2.8094,
       [
        "overwork_rest"
       ],
@@ -6865,7 +6690,7 @@
       "78:9",
       "overwork_rest",
       2,
-      3.7734,
+      3.6029,
       [
        "overwork_rest"
       ],
@@ -6877,7 +6702,7 @@
       "10:67",
       "overwork_rest",
       3,
-      3.6583,
+      3.494,
       [
        "overwork_rest"
       ],
@@ -6888,22 +6713,10 @@
     ],
     "bible": [
      [
-      "Mark 6:31",
-      "overwork_rest",
-      1,
-      4.7619,
-      [
-       "overwork_rest"
-      ],
-      [
-       "rest"
-      ]
-     ],
-     [
       "Isaiah 40:29",
       "overwork_rest",
       2,
-      10.9301,
+      10.6366,
       [
        "overwork_rest"
       ],
@@ -6917,11 +6730,24 @@
       "Exodus 18:18",
       "overwork_rest",
       3,
-      2.7123,
+      2.7002,
       [
        "overwork_rest"
       ],
       [
+       "rest"
+      ]
+     ],
+     [
+      "Jeremiah 31:25",
+      "overwork_rest",
+      4,
+      7.3441,
+      [
+       "overwork_rest"
+      ],
+      [
+       "weary",
        "rest"
       ]
      ]
@@ -7021,9 +6847,9 @@
       []
      ],
      [
-      "17:80",
+      "20:68",
       "courage",
-      3,
+      4,
       0.0,
       [
        "courage"
@@ -7123,7 +6949,7 @@
       "Proverbs 17:17",
       "family_parents",
       1,
-      4.4031,
+      4.3247,
       [
        "family_parents"
       ],
@@ -7132,9 +6958,9 @@
       ]
      ],
      [
-      "Psalms 27:10",
+      "Proverbs 15:17",
       "family_parents",
-      2,
+      3,
       0.0,
       [
        "family_parents"
@@ -7142,9 +6968,9 @@
       []
      ],
      [
-      "Proverbs 15:17",
+      "Proverbs 24:3",
       "family_parents",
-      3,
+      4,
       0.0,
       [
        "family_parents"
@@ -7218,7 +7044,7 @@
       "6:26",
       "temptation_self_control",
       1,
-      3.2127,
+      2.9678,
       [
        "temptation_self_control"
       ],
@@ -7240,7 +7066,7 @@
       "2:58",
       "temptation_self_control",
       3,
-      3.3343,
+      3.0795,
       [
        "temptation_self_control"
       ],
@@ -7274,7 +7100,7 @@
       "59:9",
       "temptation_self_control",
       null,
-      2.5391,
+      2.4533,
       [
        "temptation_self_control"
       ],
@@ -7640,44 +7466,13 @@
     ]
    ],
    "results": {
-    "gita": [
-     [
-      "6:30",
-      "loneliness",
-      1,
-      0.0,
-      [
-       "loneliness"
-      ],
-      []
-     ],
-     [
-      "18:64",
-      "loneliness",
-      2,
-      0.0,
-      [
-       "loneliness"
-      ],
-      []
-     ],
-     [
-      "10:1",
-      "loneliness",
-      3,
-      0.0,
-      [
-       "loneliness"
-      ],
-      []
-     ]
-    ],
+    "gita": [],
     "quran": [
      [
       "57:4",
       "loneliness",
       1,
-      2.8405,
+      2.8067,
       [
        "loneliness"
       ],
@@ -7897,7 +7692,7 @@
       "2:40",
       "fear_anxiety",
       1,
-      2.204,
+      2.1339,
       [
        "fear_anxiety"
       ],
@@ -7909,7 +7704,7 @@
       "6:35",
       "fear_anxiety",
       2,
-      2.1222,
+      2.055,
       [
        "fear_anxiety"
       ],
@@ -7921,7 +7716,7 @@
       "2:56",
       "fear_anxiety",
       3,
-      2.5869,
+      2.5618,
       [
        "fear_anxiety"
       ],
@@ -7935,7 +7730,7 @@
       "20:46",
       "fear_anxiety",
       1,
-      2.5499,
+      2.4295,
       [
        "fear_anxiety"
       ],
@@ -7947,7 +7742,7 @@
       "13:28",
       "fear_anxiety",
       2,
-      2.1442,
+      2.044,
       [
        "fear_anxiety"
       ],
@@ -7959,7 +7754,7 @@
       "20:25",
       "fear_anxiety",
       3,
-      2.6207,
+      2.4968,
       [
        "fear_anxiety"
       ],
@@ -7973,7 +7768,7 @@
       "Isaiah 41:10",
       "fear_anxiety",
       1,
-      1.7248,
+      1.7444,
       [
        "fear_anxiety"
       ],
@@ -7985,7 +7780,7 @@
       "1 Peter 5:7",
       "fear_anxiety",
       2,
-      2.2082,
+      2.2348,
       [
        "fear_anxiety"
       ],
@@ -7997,7 +7792,7 @@
       "Philippians 4:6",
       "fear_anxiety",
       3,
-      5.5932,
+      5.4857,
       [
        "fear_anxiety"
       ],
@@ -8081,44 +7876,13 @@
     ]
    ],
    "results": {
-    "gita": [
-     [
-      "10:41",
-      "gratitude",
-      1,
-      0.0,
-      [
-       "gratitude"
-      ],
-      []
-     ],
-     [
-      "9:26",
-      "gratitude",
-      2,
-      0.0,
-      [
-       "gratitude"
-      ],
-      []
-     ],
-     [
-      "10:9",
-      "gratitude",
-      3,
-      0.0,
-      [
-       "gratitude"
-      ],
-      []
-     ]
-    ],
+    "gita": [],
     "quran": [
      [
       "16:18",
       "gratitude",
       1,
-      3.8425,
+      3.734,
       [
        "gratitude"
       ],
@@ -8130,7 +7894,7 @@
       "2:152",
       "gratitude",
       2,
-      3.8818,
+      3.7246,
       [
        "gratitude"
       ],
@@ -8142,7 +7906,7 @@
       "93:11",
       "gratitude",
       3,
-      3.486,
+      3.3506,
       [
        "gratitude"
       ],
@@ -8156,7 +7920,7 @@
       "Psalms 107:1",
       "gratitude",
       1,
-      5.2198,
+      5.0366,
       [
        "gratitude"
       ],
@@ -8168,7 +7932,7 @@
       "1 Thessalonians 5:18",
       "gratitude",
       2,
-      5.6802,
+      5.4824,
       [
        "gratitude"
       ],
@@ -8240,38 +8004,7 @@
     ]
    ],
    "results": {
-    "gita": [
-     [
-      "6:30",
-      "loneliness",
-      1,
-      0.0,
-      [
-       "loneliness"
-      ],
-      []
-     ],
-     [
-      "18:64",
-      "loneliness",
-      2,
-      0.0,
-      [
-       "loneliness"
-      ],
-      []
-     ],
-     [
-      "10:1",
-      "loneliness",
-      3,
-      0.0,
-      [
-       "loneliness"
-      ],
-      []
-     ]
-    ],
+    "gita": [],
     "quran": [
      [
       "57:4",
@@ -8297,7 +8030,7 @@
       "93:3",
       "loneliness",
       3,
-      5.8199,
+      5.6704,
       [
        "loneliness"
       ],
@@ -8311,7 +8044,7 @@
       "Deuteronomy 31:8",
       "loneliness",
       1,
-      3.9724,
+      4.2045,
       [
        "loneliness"
       ],
@@ -8471,44 +8204,13 @@
     ]
    ],
    "results": {
-    "gita": [
-     [
-      "10:41",
-      "gratitude",
-      1,
-      0.0,
-      [
-       "gratitude"
-      ],
-      []
-     ],
-     [
-      "9:26",
-      "gratitude",
-      2,
-      0.0,
-      [
-       "gratitude"
-      ],
-      []
-     ],
-     [
-      "10:9",
-      "gratitude",
-      3,
-      0.0,
-      [
-       "gratitude"
-      ],
-      []
-     ]
-    ],
+    "gita": [],
     "quran": [
      [
       "16:18",
       "gratitude",
       1,
-      3.8425,
+      3.734,
       [
        "gratitude"
       ],
@@ -8520,7 +8222,7 @@
       "2:152",
       "gratitude",
       2,
-      3.8818,
+      3.7246,
       [
        "gratitude"
       ],
@@ -8532,7 +8234,7 @@
       "93:11",
       "gratitude",
       3,
-      3.486,
+      3.3506,
       [
        "gratitude"
       ],
@@ -8546,7 +8248,7 @@
       "Psalms 107:1",
       "gratitude",
       1,
-      5.2198,
+      5.0366,
       [
        "gratitude"
       ],
@@ -8558,7 +8260,7 @@
       "1 Thessalonians 5:18",
       "gratitude",
       2,
-      5.6802,
+      5.4824,
       [
        "gratitude"
       ],
@@ -8800,11 +8502,6 @@
      "school"
     ],
     [
-     "teacher",
-     0.8,
-     "school"
-    ],
-    [
      "instruction",
      0.8,
      "school"
@@ -8943,7 +8640,7 @@
    "crisis_words": [
     "my",
     "friend",
-    "husband",
+    "",
     "",
     "",
     "",
@@ -9054,7 +8751,7 @@
       "Matthew 5:4",
       "grief",
       2,
-      6.06,
+      5.858,
       [
        "grief"
       ],
@@ -9209,8 +8906,8 @@
    ],
    "crisis_words": [
     "my",
-    "dad",
-    "passed",
+    "",
+    "",
     "away",
     "and",
     "i",
@@ -9328,8 +9025,8 @@
     "my",
     "best",
     "friend",
-    "dad",
-    "passed",
+    "",
+    "",
     "",
     "",
     "",
@@ -9344,7 +9041,7 @@
     "away",
     "from",
     "an",
-    "overdose"
+    "overdosed"
    ],
    "category": "general",
    "topic": null,
@@ -9460,7 +9157,7 @@
       "Matthew 5:4",
       "grief",
       2,
-      6.06,
+      5.858,
       [
        "grief"
       ],
@@ -9690,6 +9387,7 @@
     "my",
     "dog",
     "of",
+    "fourteen",
     "years"
    ],
    "theme_words": [
@@ -9808,6 +9506,7 @@
    ],
    "crisis_words": [
     "my",
+    "fifteen",
     "year",
     "old",
     "son",
@@ -9885,7 +9584,7 @@
       "12:67",
       "parenting",
       2,
-      4.5552,
+      5.1155,
       [
        "parenting"
       ],
@@ -9894,10 +9593,10 @@
       ]
      ],
      [
-      "31:17",
+      "31:16",
       "parenting",
-      3,
-      3.1973,
+      4,
+      3.2781,
       [
        "parenting"
       ],
@@ -10020,46 +9719,13 @@
     ]
    ],
    "results": {
-    "gita": [
-     [
-      "17:20",
-      "generosity",
-      1,
-      2.5127,
-      [
-       "generosity"
-      ],
-      [
-       "give"
-      ]
-     ],
-     [
-      "9:26",
-      "generosity",
-      2,
-      0.0,
-      [
-       "generosity"
-      ],
-      []
-     ],
-     [
-      "16:1",
-      "generosity",
-      3,
-      0.0,
-      [
-       "generosity"
-      ],
-      []
-     ]
-    ],
+    "gita": [],
     "quran": [
      [
       "2:261",
       "generosity",
       1,
-      2.6152,
+      2.6355,
       [
        "generosity"
       ],
@@ -10081,7 +9747,7 @@
       "3:92",
       "generosity",
       3,
-      2.3864,
+      2.4047,
       [
        "generosity"
       ],
@@ -10095,7 +9761,7 @@
       "2 Corinthians 9:7",
       "generosity",
       1,
-      3.3128,
+      3.249,
       [
        "generosity"
       ],
@@ -10107,7 +9773,7 @@
       "Acts 20:35",
       "generosity",
       2,
-      3.4347,
+      3.3689,
       [
        "generosity"
       ],
@@ -10119,7 +9785,7 @@
       "Proverbs 11:25",
       "generosity",
       3,
-      5.9728,
+      5.7903,
       [
        "generosity"
       ],
@@ -10232,7 +9898,7 @@
       "59:10",
       "forgiveness",
       1,
-      6.2571,
+      6.8066,
       [
        "forgiveness"
       ],
@@ -10242,23 +9908,20 @@
       ]
      ],
      [
-      "12:92",
+      "2:263",
       "forgiveness",
-      2,
-      6.907,
+      4,
+      0.0,
       [
        "forgiveness"
       ],
-      [
-       "brother",
-       "forgive"
-      ]
+      []
      ],
      [
-      "12:98",
+      "2:280",
       "forgiveness",
-      3,
-      3.2258,
+      null,
+      2.186,
       [
        "forgiveness"
       ],
@@ -10269,10 +9932,10 @@
     ],
     "bible": [
      [
-      "Psalms 86:5",
+      "1 John 1:9",
       "forgiveness",
-      1,
-      6.8828,
+      3,
+      7.1161,
       [
        "forgiveness"
       ],
@@ -10281,9 +9944,9 @@
       ]
      ],
      [
-      "Psalms 103:12",
+      "Psalms 103:8",
       "forgiveness",
-      2,
+      5,
       0.0,
       [
        "forgiveness"
@@ -10291,15 +9954,371 @@
       []
      ],
      [
-      "1 John 1:9",
+      "Ephesians 4:32",
       "forgiveness",
-      3,
-      6.8828,
+      null,
+      6.9797,
       [
        "forgiveness"
       ],
       [
        "forgive"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "query": "a guy online wants to meet me, im 14",
+   "k": 3,
+   "words": [
+    "a",
+    "guy",
+    "online",
+    "wants",
+    "to",
+    "meet",
+    "me",
+    "i"
+   ],
+   "crisis_words": [
+    "a",
+    "guy",
+    "online",
+    "wants",
+    "to",
+    "meet",
+    "me",
+    "i",
+    "fourteen"
+   ],
+   "theme_words": [
+    "a",
+    "guy",
+    "online",
+    "wants",
+    "to",
+    "meet",
+    "me",
+    "i"
+   ],
+   "category": "crisis",
+   "topic": "distress",
+   "message": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "no_match": false,
+   "themes": [],
+   "notes": [],
+   "terms": [
+    [
+     "meet",
+     1.0,
+     "meet"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "my friend jumped off a building last week",
+   "k": 3,
+   "words": [
+    "my",
+    "friend",
+    "jumped",
+    "off",
+    "a",
+    "building",
+    "last",
+    "week"
+   ],
+   "crisis_words": [
+    "",
+    "",
+    "",
+    "",
+    "a",
+    "building",
+    "last",
+    "week"
+   ],
+   "theme_words": [
+    "my",
+    "friend",
+    "jumped",
+    "off",
+    "a",
+    "building",
+    "last",
+    "week"
+   ],
+   "category": "general",
+   "topic": null,
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "grief",
+     1.0
+    ]
+   ],
+   "notes": [
+    "grief"
+   ],
+   "terms": [
+    [
+     "friend",
+     1.0,
+     "friend"
+    ],
+    [
+     "build",
+     1.0,
+     "building"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "12:86",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "13:28",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "10:57",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 34:18",
+      "grief",
+      1,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Matthew 5:4",
+      "grief",
+      2,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ],
+     [
+      "Psalms 147:3",
+      "grief",
+      3,
+      0.0,
+      [
+       "grief"
+      ],
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "query": "im pregnant and considering an abortion, im scared",
+   "k": 3,
+   "words": [
+    "i",
+    "pregnant",
+    "and",
+    "considering",
+    "an",
+    "abortion",
+    "i",
+    "scared"
+   ],
+   "crisis_words": [
+    "i",
+    "pregnant",
+    "and",
+    "considering",
+    "an",
+    "abortion",
+    "i",
+    "scared"
+   ],
+   "theme_words": [
+    "i",
+    "pregnant",
+    "and",
+    "considering",
+    "an",
+    "abortion",
+    "i",
+    "scared"
+   ],
+   "category": "sensitive",
+   "topic": "pregnancy",
+   "message": null,
+   "no_match": false,
+   "themes": [
+    [
+     "fear_anxiety",
+     1.0
+    ],
+    [
+     "parenting",
+     1.0
+    ],
+    [
+     "grief",
+     0.5
+    ],
+    [
+     "hope",
+     0.5
+    ],
+    [
+     "love_compassion",
+     0.5
+    ]
+   ],
+   "notes": [
+    "grief"
+   ],
+   "terms": [
+    [
+     "child",
+     0.8,
+     "pregnant"
+    ],
+    [
+     "bear",
+     0.8,
+     "pregnant"
+    ],
+    [
+     "consider",
+     1.0,
+     "considering"
+    ],
+    [
+     "afraid",
+     0.8,
+     "scared"
+    ],
+    [
+     "fear",
+     0.8,
+     "scared"
+    ],
+    [
+     "terror",
+     0.8,
+     "scared"
+    ]
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "65:3",
+      "fear_anxiety",
+      null,
+      1.6365,
+      [
+       "hope",
+       "fear_anxiety"
+      ],
+      [
+       "fear"
+      ]
+     ],
+     [
+      "20:46",
+      "fear_anxiety",
+      null,
+      3.3105,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "fear"
+      ]
+     ],
+     [
+      "3:150",
+      "fear_anxiety",
+      null,
+      2.3616,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "fear"
+      ]
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 62:8",
+      "fear_anxiety",
+      null,
+      1.6472,
+      [
+       "fear_anxiety",
+       "grief"
+      ],
+      [
+       "fear"
+      ]
+     ],
+     [
+      "Joshua 1:9",
+      "fear_anxiety",
+      null,
+      4.4264,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "afraid",
+       "fear"
+      ]
+     ],
+     [
+      "Isaiah 41:10",
+      "fear_anxiety",
+      null,
+      2.5794,
+      [
+       "fear_anxiety"
+      ],
+      [
+       "fear"
       ]
      ]
     ]
@@ -10378,11 +10397,6 @@
      "laid off"
     ],
     [
-     "provide",
-     0.8,
-     "laid off"
-    ],
-    [
      "need",
      0.8,
      "laid off"
@@ -10449,7 +10463,7 @@
       "2:40",
       "fear_anxiety",
       1,
-      3.2157,
+      3.0717,
       [
        "fear_anxiety"
       ],
@@ -10463,7 +10477,7 @@
       "65:3",
       "money_worry",
       1,
-      4.5646,
+      4.4189,
       [
        "money_worry",
        "fear_anxiety"
@@ -10479,7 +10493,7 @@
       "Philippians 4:19",
       "money_worry",
       1,
-      11.8492,
+      11.7665,
       [
        "money_worry"
       ],
@@ -10503,8 +10517,8 @@
    ],
    "crisis_words": [
     "my",
-    "mother",
-    "passed",
+    "",
+    "",
     "away"
    ],
    "theme_words": [
@@ -10627,7 +10641,7 @@
       "Matthew 5:4",
       "grief",
       2,
-      6.06,
+      5.858,
       [
        "grief"
       ],
@@ -10752,18 +10766,6 @@
     ],
     "bible": [
      [
-      "Jeremiah 31:3",
-      "self_worth",
-      null,
-      0.0,
-      [
-       "self_worth",
-       "love_compassion",
-       "loneliness"
-      ],
-      []
-     ],
-     [
       "Psalms 139:1",
       "self_worth",
       null,
@@ -10787,6 +10789,16 @@
      ],
      [
       "Luke 12:6",
+      "self_worth",
+      null,
+      0.0,
+      [
+       "self_worth"
+      ],
+      []
+     ],
+     [
+      "Acts 10:34",
       "self_worth",
       null,
       0.0,
@@ -10874,7 +10886,7 @@
       "20:26",
       "overwork_rest",
       1,
-      2.9409,
+      2.8094,
       [
        "overwork_rest"
       ],
@@ -10886,7 +10898,7 @@
       "78:9",
       "overwork_rest",
       2,
-      3.7734,
+      3.6029,
       [
        "overwork_rest"
       ],
@@ -10897,22 +10909,10 @@
     ],
     "bible": [
      [
-      "Mark 6:31",
-      "overwork_rest",
-      1,
-      4.7619,
-      [
-       "overwork_rest"
-      ],
-      [
-       "rest"
-      ]
-     ],
-     [
       "Isaiah 40:29",
       "overwork_rest",
       2,
-      10.9301,
+      10.6366,
       [
        "overwork_rest"
       ],
@@ -10920,6 +10920,19 @@
        "faint",
        "rest",
        "strength"
+      ]
+     ],
+     [
+      "Exodus 18:18",
+      "overwork_rest",
+      3,
+      6.9681,
+      [
+       "overwork_rest"
+      ],
+      [
+       "rest",
+       "heavy"
       ]
      ]
     ]
@@ -11932,23 +11945,7 @@
   {
    "theme": "self_worth",
    "results": {
-    "gita": [
-     [
-      "18:64",
-      1.0,
-      1
-     ],
-     [
-      "10:1",
-      1.0,
-      2
-     ],
-     [
-      "9:29",
-      0.5,
-      3
-     ]
-    ],
+    "gita": [],
     "quran": [
      [
       "17:70",
@@ -11973,14 +11970,14 @@
       1
      ],
      [
-      "Isaiah 43:1",
-      1.0,
-      2
-     ],
-     [
       "Isaiah 49:16",
       1.0,
       3
+     ],
+     [
+      "Luke 12:7",
+      1.0,
+      4
      ]
     ]
    }
@@ -12033,16 +12030,16 @@
    "results": {
     "gita": [
      [
-      "4:34",
-      0.1685
-     ],
-     [
       "14:24",
       0.0663
      ],
      [
-      "10:1",
-      0.05
+      "10:9",
+      0.0462
+     ],
+     [
+      "7:16",
+      0.0244
      ]
     ],
     "quran": [
@@ -12109,16 +12106,16 @@
     ],
     "bible": [
      [
-      "Hebrews 13:5",
-      0.3705
-     ],
-     [
       "Psalms 27:13",
       0.3436
      ],
      [
       "Matthew 11:30",
       0.3296
+     ],
+     [
+      "Proverbs 17:17",
+      0.2775
      ]
     ]
    }
@@ -12151,8 +12148,8 @@
       0.3498
      ],
      [
-      "23:29",
-      0.322
+      "9:102",
+      0.3145
      ]
     ],
     "bible": [

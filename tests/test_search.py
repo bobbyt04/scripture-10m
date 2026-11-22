@@ -444,7 +444,7 @@ def test_pool_files_are_well_formed(texts):
     assert "mortality" not in themes and "laziness_discipline" not in themes and len(themes) == 38
     for book in BOOKS:
         pool = build.load_pool()[book]
-        assert len({v["ref"] for v in pool}) == len(pool) >= 90
+        assert len({v["ref"] for v in pool}) == len(pool) >= 70          # Gita 72 after the judge-5 sweep
         for v in pool:
             assert v["ref"] in texts[book] and v["why"].strip() and v["themes"]
             assert set(v["themes"]) <= themes, (book, v["ref"])
@@ -574,7 +574,7 @@ def test_similarities_are_reviewed_and_well_formed(texts):
     review = json.loads(SIM.REVIEW.read_text())
     assert sims["kept"] == sum(c["keep"] for c in review["candidates"])
     pairs = [p for t in sims["themes"] for p in t["pairs"]]
-    assert 50 <= len(pairs) <= 120
+    assert 40 <= len(pairs) <= 120
     seen = []
     for p in pairs:
         assert p["idea"] and p["source"] in ("model, reviewed", "hand-listed")
@@ -594,6 +594,9 @@ def test_similarities_are_reviewed_and_well_formed(texts):
             ("quran", "11:37"), ("quran", "44:24"), ("quran", "20:39"), ("gita", "15:12"), ("gita", "9:34"), ("gita", "9:26"),
             ("gita", "9:27"), ("gita", "14:4"), ("gita", "15:6"), ("gita", "9:31")}
     assert not gone & set(seen)
+    judge5 = {("bible", "Hebrews 9:27"), ("gita", "2:22"), ("bible", "John 11:13"), ("quran", "17:19"), ("gita", "2:38"),
+              ("bible", "Matthew 5:44"), ("gita", "18:61")}                 # judge 5's seven pairs are left out
+    assert not judge5 & set(seen)
     for p in pairs:
         if {v["book"] for v in p["verses"]} == {"bible", "quran"} and "Pharaoh" in p["idea"]:
             assert any("Pharaoh" in v["text"] for v in p["verses"] if v["book"] == "quran"), p["idea"]

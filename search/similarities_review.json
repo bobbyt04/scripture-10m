@@ -1805,9 +1805,10 @@
     "sleep",
     "thought"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Death and the life to come",
-   "idea": "Death is likened to sleep."
+   "idea": "Death is likened to sleep.",
+   "dropped_because": "left out after judge 5: 'death ... rest in sleep' matches the commonest passive-wish wording ('go to sleep and never wake up')."
   },
   {
    "a": "bible Luke 16:26",
@@ -2616,9 +2617,10 @@
    "shared_words": [
     "effort"
    ],
-   "keep": true,
+   "keep": false,
    "theme": "Guidance and wisdom",
-   "idea": "No sincere effort is ever lost."
+   "idea": "No sincere effort is ever lost.",
+   "dropped_because": "left out after judge 5: 'whoso desireth the Hereafter and striveth for it' is a poor parallel to Gita 2:40 and risky for a suicidal reader."
   },
   {
    "a": "quran 73:8",
@@ -3344,9 +3346,10 @@
    "score": 0.263
   },
   "taste_death": {
-   "keep": true,
+   "keep": false,
    "theme": "Death and the life to come",
-   "score": 0.049
+   "score": 0.049,
+   "why": "left out after judge 5: Threatening ('the judgment', 'removed from the Fire') and 'The life of this world is but comfort of illusion'; the page says threatening verses are left out."
   },
   "fleeting_grass": {
    "keep": true,
@@ -3359,9 +3362,10 @@
    "score": 0.323
   },
   "equanimity_qg": {
-   "keep": true,
+   "keep": false,
    "theme": "Guidance and wisdom",
-   "score": 0.078
+   "score": 0.078,
+   "why": "left out after judge 5: Gita 2:38 is Krishna telling Arjuna to fight his kin ('gird thee for the battle; thus thou shalt not incur sin'); wrong parallel and contentious."
   },
   "soul_not_slain": {
    "keep": false,
@@ -3374,9 +3378,10 @@
    "score": 0.198
   },
   "body_garment": {
-   "keep": true,
+   "keep": false,
    "theme": "Death and the life to come",
-   "score": 0.028
+   "score": 0.028,
+   "why": "left out after judge 5: Death as trading a worn body for a new one or for an eternal house: an invitation for a suicidal reader."
   },
   "do_all_for_god": {
    "keep": false,
@@ -3411,9 +3416,10 @@
    "score": 0.091
   },
   "god_in_heart": {
-   "keep": true,
+   "keep": false,
    "theme": "God's knowledge and care",
-   "score": 0.016
+   "score": 0.016,
+   "why": "left out after judge 5: Gita 18:61 is the Lord turning beings 'as though mounted on a potter's wheel' by illusive power: not the same teaching (score 0.016)."
   },
   "thousand_suns": {
    "keep": false,
@@ -3421,9 +3427,10 @@
    "score": 0.204
   },
   "friend_and_foe": {
-   "keep": true,
+   "keep": false,
    "theme": "Humility, giving and self-control",
-   "score": 0.061
+   "score": 0.061,
+   "why": "left out after judge 5: 'pray for them which despitefully use you' to an abused reader; Gita 12:18 is equanimity, not love of enemies."
   },
   "no_return_gift": {
    "keep": false,

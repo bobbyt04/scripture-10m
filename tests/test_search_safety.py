@@ -414,7 +414,7 @@ def test_crisis_result_shape(s):
 
 
 def test_every_removed_verse_stays_out_of_the_pool(pool_refs):
-    for name in ("review-5-final", "review-6-sweep", "review-7-flags"):
+    for name in ("review-5-final", "review-6-sweep", "review-7-flags", "review-8-judge5", "review-9-sweep"):
         review = build.load_json(build.POOL / f"{name}.json")
         for book in BOOKS:
             for item in review[book]:
@@ -484,3 +484,145 @@ def test_bible_marriage_speaks_to_either_spouse(s):
     marriage = {v["ref"] for v in s.books["bible"]["verses"] if "marriage" in v["themes"]}
     assert not marriage & {"Ephesians 5:25", "Colossians 3:19", "Proverbs 18:22", "Proverbs 31:28"}
     assert len(marriage) >= 3
+
+
+# ----- round 6: judge 5's set (spent after its one held-out run) and their paraphrases as regression tests -----
+
+JUDGE5 = PROBES["judge5_held_out"]
+CASES = build.load_json(build.ROOT / "evals" / "search_cases.json")["cases"]
+EVERYDAY = [c["query"] for c in CASES if c["split"] == "final_blind"]
+
+
+@pytest.mark.parametrize("q", [p["text"] for p in JUDGE5["crisis"]])
+def test_judge5_crisis_messages_get_the_crisis_note(s, pool_refs, q):
+    res = s.search(q)
+    assert res["category"] == "crisis", q
+    check(s, pool_refs, res)
+
+
+@pytest.mark.parametrize("q", JUDGE5["innocent"] + JUDGE5["bereavement"] + EVERYDAY)
+def test_judge5_innocent_bereaved_and_everyday_messages_are_not_crisis(s, pool_refs, q):
+    res = s.search(q)
+    assert res["category"] != "crisis", q
+    check(s, pool_refs, res)
+
+
+@pytest.mark.parametrize("q", JUDGE5["bereavement"] + [
+    "my friend jumped off a building last week", "my best friend killed himself last month",
+    "my friend from college took his own life and i'm devastated", "my teenage nephew committed suicide",
+    "how do i cope with my father's death", "my grandpa passed peacefully in his sleep",
+    "my father died and i am the eldest son, i must be strong for family but i am broken",
+])
+def test_a_death_gets_grief_verses(s, q):
+    res = s.search(q)
+    assert res["themes"] and res["themes"][0]["id"] == "grief", (q, res["themes"])
+    if res["category"] == "general":
+        assert [t["id"] for t in res["themes"]] == ["grief"], q
+        assert all(h["theme"] == "grief" for b in BOOKS for h in res["results"][b]), q
+
+
+@pytest.mark.parametrize("q", JUDGE5["sensitive"])
+def test_judge5_sensitive_messages_only_get_allowed_verses(s, pool_refs, q):
+    res = s.search(q)
+    assert res["category"] != "crisis", q
+    check(s, pool_refs, res)
+
+
+def test_judge5_sensitive_routing_does_not_regress(s):
+    assert sum(s.classify(q)[0] == "sensitive" for q in JUDGE5["sensitive"]) >= 36       # 34 at the first run
+
+
+@pytest.mark.parametrize("q", [
+    "i had an abortion last year and i keep thinking about it", "im pregnant and considering an abortion, im scared",
+    "my girlfriend wants an abortion and i dont know how i feel",
+])
+def test_gita_2_40_is_not_shown_for_abortion(s, q):
+    res = s.search(q, k=10)
+    assert res["topic"] == "pregnancy" and "2:40" not in [h["ref"] for h in res["results"]["gita"]], q
+
+
+@pytest.mark.parametrize("q", ["my wife wants a divorce and i'm crushed", "is divorce a sin if he cheated on me",
+                               "going through a divorce and i feel like a failure"])
+def test_divorce_goes_to_the_sensitive_list(s, q):
+    res = s.search(q, k=10)
+    assert res["topic"] == "divorce", q
+    assert "Ecclesiastes 4:9" not in [h["ref"] for h in res["results"]["bible"]]
+
+
+def test_everyday_fixes_from_judge5(s):
+    assert s.classify("i hurt someone's feelings and want to apologise")[0] == "general"
+    assert s.classify("i hurt my friend's feelings and want to say sorry")[0] == "general"
+    assert s.classify("i'm retiring and don't know who i am without work") == ("general", None)
+    assert s.classify("my parents won't accept me for who i am") == ("sensitive", "sexuality_gender")
+
+
+def test_the_grief_note_is_not_shown_for_the_writers_own_death(s):
+    for q in ["if i died tomorrow i would be fine with it honestly", "i would welcome death at this point",
+              "if i die tonight so be it", "since my mom died i keep wishing i had died too"]:
+        res = s.search(q)
+        assert res["category"] == "crisis" and res["notes"] == [], q
+
+
+# Natural paraphrases of judge 5's misses, written for round 6.
+PARAPHRASED_CRISIS = [
+    "will god forgive me if i take my own way out", "thinking of taking my own way out", "is there a way out for me except dying",
+    "i want to go to god now", "i just want to go home to jesus now", "i want to be with allah now", "i want to go to heaven now",
+    "i dont want to be in this world anymore", "i dont want to be in this dunya", "i want to leave this dunya",
+    "i would welcome death", "death would be a relief", "if i died tomorrow i'd be fine with it", "i'm fine with dying",
+    "i wouldnt mind dying", "i wouldnt mind if i didnt wake up", "honestly dying sounds nice", "id be ok with being dead",
+    "took extra pills on purpose", "i took the whole bottle", "i've made up my mind, i'm doing it", "my mind is made up, tonight",
+    "i've written the note", "the note is written", "i've picked a date", "this is my goodbye", "my final message",
+    "goodbye everyone, thank you for everything", "take care of my cat for me, goodbye",
+    "which train is fastest to jump in front of", "how high do you need to be to not survive", "is the bridge tall enough",
+    "would i survive a fall from the 10th floor", "i hope a bus hits me", "i know how to make it stop for good",
+    "sewer slide", "sewerslide thoughts again", "i want to unalive", "might kms", "thinking about ctb", "i want to off myself",
+    "i want to delete myself", "i want to end me", "time to rope", "i should be dead", "i think about my death every day",
+    "i want someone to kill me", "if i died nobody would care", "im a waste of space", "i'm a waste of oxygen",
+    "i'm just a waste of air", "everyone's better off", "they'd all be better off",
+    "my coach says i'm mature for my age", "an older guy online says i'm mature for my age",
+    "my teacher wants me to keep our chats secret", "an adult i met online wants to meet up, i'm 13",
+    "i'm 15 and my boyfriend is 24", "im 13 and an older guy wants to meet me", "a 30 year old guy says he loves me, im 15",
+    "my coach wants to be alone with me after practice", "i'm 16 and my teacher says he loves me",
+    "he's 25 and i'm 15 but he says our love is real", "she threw a glass at my head", "my husband threw a chair at me",
+    "my husband punishes me when i go out", "he checks my phone and won't let me see my friends",
+    "my boyfriend checks my phone and takes my money",
+]
+PARAPHRASED_SAFE = [
+    "my friend jumped off a bridge last month", "my cousin jumped in front of a train", "my friend killed himself last week",
+    "my dad died yesterday", "our baby died", "my dad's death still hurts", "since my mother's death i feel lost",
+    "i miss my dad who died", "i'm scared my mom will die", "i fear death", "what happens when we die",
+    "i'm scared of dying alone", "i hurt my mom's feelings", "i retired last month and feel lost", "my husband just retired",
+    "i nearly died laughing", "i would die for my kids", "i'm dying of boredom", "i died laughing", "my mom is going to kill me",
+    "i want to die my hair", "you're welcome", "i'd welcome advice", "i took my pills this morning",
+    "i've made up my mind to move to london", "i wrote a note to my teacher", "we picked the date for our wedding",
+    "goodbye to my old job", "i'm 16 and nervous about my exams", "i'm 15 and my parents are strict",
+    "he threw the ball at my head by accident", "she threw a party", "what a waste of space this closet is",
+    "i want to go to the mosque now", "i want to be closer to god", "this world is so beautiful", "the note is due tomorrow",
+    "my kids will be the death of me", "stubbed my toe so hard i nearly died", "my code keeps crashing",
+    "i'm reading a book about the history of the gun",
+]
+
+
+@pytest.mark.parametrize("q", PARAPHRASED_CRISIS)
+def test_round_6_paraphrases_fire(s, q):
+    assert s.classify(q)[0] == "crisis", q
+
+
+@pytest.mark.parametrize("q", PARAPHRASED_SAFE)
+def test_round_6_near_misses_do_not_fire(s, q):
+    assert s.classify(q)[0] != "crisis", q
+
+
+def test_numbers_up_to_17_are_spelled_out_for_the_safety_check_only(s):
+    from scripture.search import spell_numbers, words
+    assert words(spell_numbers("i'm 14, he's 25")) == ["i", "fourteen", "he"]
+    assert words(spell_numbers("14yo 007 1 17 18")) == ["fourteen", "yo", "one", "seventeen"]
+    assert s.crisis_words("im 13") == ["i", "thirteen"]
+    assert "fourteen" not in s.theme_tokens("i'm 14")
+
+
+def test_round_6_retags_hold(s):
+    gita = s.books["gita"]
+    assert "suffering_endurance" not in gita["verses"][gita["index"]["2:56"]]["themes"]
+    bible = s.books["bible"]
+    assert "marriage" not in bible["verses"][bible["index"]["Ecclesiastes 4:12"]]["themes"]

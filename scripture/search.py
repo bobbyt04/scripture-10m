@@ -33,7 +33,7 @@ How a query is answered:
    phrase hides the shorter ones inside it ("lost my job" is not "lost my").
    A word with a one-letter typo of a theme word counts as it ("lonley").
    Themes scoring below min_theme_score are dropped; if grief matched, only
-   grief is kept (exclusive_themes).
+   grief is kept (exclusive_themes; grief counts at any score).
 3. Themes choose the verses. A verse can be shown only if it carries one
    of the query's themes; with no theme there are no verses (no_match; the
    site then offers the themes as chips: by_theme()). Verses are ordered by
@@ -78,6 +78,16 @@ def words(text):
     t = re.sub(r"n't\b", " not", t)
     t = re.sub(r"'(m|re|s|ve|ll|d)\b", " ", t)
     return " ".join(NO_APOSTROPHE.get(w, w) for w in re.findall(r"[a-z]+", t)).split()
+
+
+# Numbers 1-17 written in digits, spelled out for the safety check only, so a stated age ("i'm 14") can be read.
+NUMBER_WORDS = dict(zip(map(str, range(1, 18)), (
+    "one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen").split()))
+
+
+def spell_numbers(text):
+    """Each run of ASCII digits that is exactly 1-17 (no leading zero) becomes " <word> "; other digits are kept."""
+    return re.sub(r"[0-9]+", lambda m: f" {NUMBER_WORDS[m.group()]} " if m.group() in NUMBER_WORDS else m.group(), text)
 
 
 class Lexicon:
@@ -249,6 +259,9 @@ class Searcher:
         self.crisis = {t: [compile_phrase(x) for x in ps] for t, ps in safety["crisis"].items()}
         self.sensitive = {t: [compile_phrase(x) for x in d["phrases"]] for t, d in safety["sensitive"].items()}
         self.sensitive_themes = {t: d["themes"] for t, d in safety["sensitive"].items()}
+        # Sensitive-set verses a topic never shows ({"gita": ["2:40"]}), e.g. a verse that reads wrongly for abortion.
+        self.sensitive_exclude = {t: {b: set(d.get("exclude", {}).get(b, ())) for b in BOOKS}
+                                  for t, d in safety["sensitive"].items()}
         self.books = {}
         row = 0
         for book in BOOKS:
@@ -275,14 +288,15 @@ class Searcher:
     # ----- understanding the query -----
 
     def crisis_words(self, query):
-        """words(query) with idioms and a third person's death blanked to "", then crisis typos fixed.
+        """words(spell_numbers(query)) with idioms and a third person's death blanked to "", then crisis typos fixed.
 
-        Idioms ("killing it at work") and bereavement phrases ("my dad passed
-        away", "died by suicide") are matched on the original words; every
+        Numbers 1-17 typed as digits are spelled out first ("i'm 14" -> "i
+        fourteen"). Idioms ("killing it at work") and bereavement phrases ("my
+        dad passed away", "died by suicide") are matched on these words; every
         word they cover becomes "". Then each word of 5 or more letters one
         edit away from a `fuzzy` word becomes that word (the first in list order).
         """
-        toks = words(query[:self.params["max_query_chars"]])
+        toks = words(spell_numbers(query[:self.params["max_query_chars"]]))
         out, tokset = list(toks), set(toks)
         for phrase in self.idioms + self.bereavement:
             for i in phrase_starts(toks, phrase, tokset):
@@ -382,14 +396,17 @@ class Searcher:
         """The themes that choose verses, best first: {theme: score}.
 
         The query's themes scoring at least min_theme_score. If one of
-        exclusive_themes (grief, then gratitude) is among them, only the first
-        such theme in that list is kept, with score 1. For a sensitive query,
+        exclusive_themes (grief, then gratitude) is among them (grief at any
+        score: exclusive_any_score), only the first such theme in that list is
+        kept, with score 1. For a sensitive query,
         the topic's gentle themes are then appended (in list order) with score
         sensitive_theme_score.
         """
         p = self.params
-        themes = {t: s for t, s in self.query_themes(query).items() if s >= p["min_theme_score"]}
-        exclusive = next((t for t in p["exclusive_themes"] if t in themes), None)
+        found = self.query_themes(query)
+        themes = {t: s for t, s in found.items() if s >= p["min_theme_score"]}
+        exclusive = next((t for t in p["exclusive_themes"]
+                          if t in themes or (t in found and t in p["exclusive_any_score"])), None)
         if exclusive:
             themes = {exclusive: 1.0}
         if category == "sensitive":
@@ -460,7 +477,7 @@ class Searcher:
         for book in BOOKS:
             rows = []
             for i, v in enumerate(self.books[book]["verses"]):
-                if category == "sensitive" and not v["sensitive"]:
+                if category == "sensitive" and (not v["sensitive"] or v["ref"] in self.sensitive_exclude[topic][book]):
                     continue
                 r = self.rank_key(book, i, themes, q, use_priority=category != "sensitive")
                 if r is not None:

@@ -1,5 +1,5 @@
 {
- "about": "Safety probes with the category each should get, run by tests/test_search_safety.py. 'blind_1' was written by the independent judge of round 5 (80 crisis, 60 innocent, 50 sensitive messages); the search caught 35 of the 80 crisis messages then. 'fresh_1', 'fresh_2' and 'fresh_3' were then written, one after another, by separate writers (AI assistants that never saw the lists or the code); each was run once before any change was made for it ('first_look') and then used to develop the distress gate, so no set here is held out any more. 'accepted' lists the messages whose category the lists knowingly get wrong: when in doubt the gate fires. 'judge5_held_out' (122 crisis, 40 bereavement, 60 innocent, 50 sensitive) is held out: run once, not used for development, results fixed in its 'first_run'.",
+ "about": "Safety probes with the category each should get, run by tests/test_search_safety.py. 'blind_1' was written by the independent judge of round 5 (80 crisis, 60 innocent, 50 sensitive messages); the search caught 35 of the 80 crisis messages then. 'fresh_1', 'fresh_2' and 'fresh_3' were then written, one after another, each in an independent blind review (the reviewer wrote the messages before seeing the code or lists); each was run once before any change was made for it ('first_look') and then used to develop the distress gate, so no set here is held out any more. 'accepted' lists the messages whose category the lists knowingly get wrong: when in doubt the gate fires. 'judge5_held_out' (122 crisis, 40 bereavement, 60 innocent, 50 sensitive) was held out for one run, whose results are fixed in its 'first_run'; it was then used for development in round 6 and is a regression set now.",
  "blind_1": {
   "crisis": [
    {
@@ -2356,7 +2356,7 @@
   ]
  },
  "judge5_held_out": {
-  "about": "Held out. Written by an independent judge (judge 5, an AI assistant) before reading the safety lists, themes, pool, tests or search code, and run once at commit 5a0202e; nothing was changed for them. Not used by the tests (several crisis messages are still missed). 'first_run' is the measured result of that run, kept as fixed numbers; 'missed_crisis' lists every missed crisis message with what was shown, judged by hand.",
+  "about": "From an independent blind review (the reviewer wrote the messages before seeing the code or lists), run once at commit 5a0202e with nothing changed for it; 'first_run' keeps that run's measured result as fixed history numbers, and 'missed_crisis' lists every missed crisis message with what was shown, judged verse by verse. After that run the set was spent: the lists were fixed against it in round 6 and every message is now a regression test in tests/test_search_safety.py, so it is no longer held out.",
   "crisis": [
    {
     "kind": "suicide",

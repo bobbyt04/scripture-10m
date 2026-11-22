@@ -72,6 +72,7 @@ SEARCH_PARAMS = {
     "bridge_weight": 0.8,          # a bridge word counts this much of a typed word (BM25 tie break only)
     "min_theme_score": 0.5,        # query themes scoring below this (relative to the top one) choose no verses
     "exclusive_themes": ["grief", "gratitude"],  # the first of these that matches is the only theme that chooses verses
+    "exclusive_any_score": ["grief"],        # these count as matched at any score (a death is grief even beside other themes)
     "theme_fuzzy_min_len": 6,      # unknown words this long may be read as a theme word one typo away
     "max_query_chars": 500,        # only this much of a query is read
     "sensitive_theme_score": 0.5,  # theme score given to a sensitive topic's gentle themes
@@ -350,6 +351,10 @@ def build_site(pool, verses, lexicon, themes, bridge, safety, sensitive_set, par
         unknown = sensitive - {v["ref"] for v in pool[book]}
         if unknown:
             raise ValueError(f"sensitive set verses not in the {book} pool: {sorted(unknown)}")
+        for topic, d in safety["sensitive"].items():
+            stray = set(d.get("exclude", {}).get(book, ())) - sensitive
+            if stray:
+                raise ValueError(f"{topic} excludes {book} verses not in the sensitive set: {sorted(stray)}")
         for v in pool[book]:
             tags = [t for t in v["themes"] if t in offered[book]]
             if not tags:
@@ -448,6 +453,9 @@ FIXTURE_QUERIES = [
     "my best friend's dad passed away from an overdose", "this traffic is killing me", "i could kill for a pizza",
     "dying of laughter", "had to say goodbye to my dog of 14 years", "my 15 year old son wont talk to me, slams doors",
     "i want to be more generous but i dont have enough to give", "my brother hurt me badly years ago and i want to forgive him",
+    # round 6: a stated age in digits, a third person's fall read as a death, a verse a sensitive topic excludes
+    "a guy online wants to meet me, im 14", "my friend jumped off a building last week",
+    "im pregnant and considering an abortion, im scared",
 ]
 FIXTURE_K = [("I got laid off and I'm scared about money", 1), ("my mother passed away", 5), ("I'm gay", 4),
              ("I feel burnt out", 2), ("I want to die", 7)]

@@ -20,13 +20,14 @@
    closest to the anchor verse (search/corpus.py, the whole corpus)?
 3. blind_1: 50 situations an independent judge wrote and judged by hand in
    round 5 ("blind_1_hand_judged" in search_cases.json, kept as history); it
-   has since been used for development. final_blind: 50 situations judge 5
-   wrote and judged by hand once ("final_blind_hand_judged"); held out until
-   something is changed while looking at them.
+   has since been used for development. final_blind: 50 situations from an
+   independent blind review, judged verse by verse once
+   ("final_blind_hand_judged", kept as history); spent in round 6.
 4. Safety probes (evals/search_probes.json): for each probe set, how many
    crisis messages get the crisis category, and how many innocent or
    bereaved messages are wrongly sent there. Every set has been used for
-   development; the numbers from each set's first run are in "first_look".
+   development; the numbers from each set's first run are in "first_look"
+   (judge5_held_out's in its own "first_run").
 """
 
 import json

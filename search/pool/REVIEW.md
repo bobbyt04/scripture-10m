@@ -1103,3 +1103,152 @@ Pool after: gita 92, quran 196, bible 566 verses.
 - bible Ecclesiastes 4:10 added (marriage, friendship; display trims "For " and the closing "but woe to him that is alone ..."), and marriage added to Ecclesiastes 4:12, so the Bible's marriage theme keeps only verses that speak to either spouse (Ecclesiastes 4:9, 4:10, 4:12, Proverbs 15:17, 17:1, Song of Solomon 8:7, Colossians 3:14) after review-6-sweep took out the husband-only and wife-only ones.
 - Priorities: two separate reviewers (AI assistants given only the listed verses, the theme descriptions and these rules) read every theme of every book (search/pool/*.json listed by theme) and chose the 3 to 5 verses each theme should show first, best first, by the rules in review-6-sweep (no afterlife, rest or end wording; nothing telling someone harmed to forgive, wait or submit; no shaming). They are the `priority` field of the pool rows. The verses they flagged instead are removed in review-7-flags.
 - review-5-final applies the blind judge's review-final.json. Where the judge asked for a display that would need words that are not in the verse (prepending "Charity", joining two verses), the verse is removed instead: Romans 8:39, 1 Corinthians 13:5 and 13:6, Galatians 5:22.
+
+## review-8-judge5
+
+Applied: gita remove 4; gita retag 3; quran remove 5; bible remove 14; bible retag 1.
+Pool after: gita 88, quran 191, bible 551 verses.
+
+- gita 4:11: remove (removed). Judge 5 (high, shown to a missed crisis message): 'However men approach Me, even so do I welcome them' was shown to 'will god forgive me if i take my own way out' and to 'i want to go to allah now'; reads as permission.
+- gita 18:64: remove (removed). Judge 5 (high, shown to a missed crisis message): 'most secret of all; beloved art thou of Me' shown to a 14-year-old being groomed; mirrors the secrecy-and-special-love script.
+- gita 18:63: remove (removed). Judge 5 (high, shown to a missed crisis message): 'wisdom, more secret than secrecy itself ... act thou as thou listest': secrecy for a groomed child, 'do as you please' for someone seeking guidance in crisis.
+- gita 4:34: retag (dropped guidance_decisions). Judge 5 (medium, shown to a missed crisis message): 'Learn thou this by discipleship ... and by service. The wise ... will instruct thee' shown to a child kept back alone by a teacher.
+- gita 9:27: retag (dropped purpose). Judge 5 (medium, shown to a missed crisis message): 'Whatsoever thou doest, whatsoever thou eatest ... as an offering unto Me' shown to a deliberate overdose.
+- gita 2:16: remove (removed). Judge 5 (medium): 'the real never ceaseth to be' is the same death-is-unreal teaching review-1 removed in 2:12.
+- gita 2:56: retag (dropped suffering_endurance). Judge 5 (medium, shown to a missed crisis message): 'free from anxiety amid pains, indifferent' shown to 'i just want the pain to end'; reads as bear it.
+- quran 23:29: remove (removed). Judge 5 (medium): 'Cause me to land at a blessed landing-place' reads as departing this life (sweep rule 1).
+- quran 12:83: remove (removed). Judge 5 (medium): 'comely patience! It may be that Allah will bring them all unto me': patience plus reunion with the lost (sweep rules 1 and 2).
+- quran 31:17: remove (removed). Judge 5 (medium): 'persevere whatever may befall thee' to a son: the endure message review-4 removed in 3:200.
+- quran 3:134: remove (removed). Judge 5 (low): 'forgiving toward mankind' reached by generosity, against sweep rule 2.
+- quran 4:149: remove (removed). Judge 5 (low): 'or forgive evil' reached by generosity, against sweep rule 2.
+- bible Matthew 6:25: remove (removed). Judge 5 (high): 'Take no thought for your life' read literally by a suicidal visitor under anxiety.
+- bible Luke 12:22: remove (removed). Judge 5 (high): Same words: 'Take no thought for your life'.
+- bible Romans 12:12: remove (removed). Judge 5 (medium): 'patient in tribulation' under the broad hope theme reads as endure it.
+- bible Proverbs 27:10: remove (removed). Judge 5 (medium): 'neither go into thy brother's house in the day of thy calamity' tells someone in danger not to go to family.
+- bible 1 Corinthians 13:4: remove (removed). Judge 5 (medium): 'Charity suffereth long' is the verse most often used to keep abused partners in place.
+- bible Ecclesiastes 4:12: retag (dropped marriage). Judge 5 (medium): 'a threefold cord is not quickly broken' under marriage reads as stay; 4:9 and 4:10 already showed for 'my wife wants a divorce'.
+- bible Job 23:10: remove (removed). Judge 5 (low): 'when he hath tried me, I shall come forth as gold' frames suffering as a test to pass.
+- bible Philippians 4:11: remove (removed). Judge 5 (low): 'in whatsoever state I am, therewith to be content'.
+- bible Philippians 4:12: remove (removed). Judge 5 (low): 'I know both how to be abased ... and to suffer need'.
+- bible Lamentations 3:26: remove (removed). Judge 5 (low): 'quietly wait'.
+- bible Romans 12:18: remove (removed). Judge 5 (low): 'live peaceably with all men' to someone harmed.
+- bible Proverbs 17:1: remove (removed). Judge 5 (low): 'a dry morsel, and quietness therewith, than an house full ... with strife' under family and marriage.
+- bible Proverbs 3:5: remove (removed). Judge 5 (low): 'lean not unto thine own understanding' echoes gaslighting ('he tells me im crazy').
+- bible Psalms 90:12: remove (removed). Judge 5 (low): 'Teach us to number our days'.
+- bible Ephesians 5:2: remove (removed). Judge 5 (low): 'given himself for us an offering and a sacrifice'.
+
+## review-9-sweep
+
+Applied: gita remove 16; quran remove 19; bible remove 68.
+Pool after: gita 72, quran 172, bible 483 verses.
+
+- gita 4:34: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'Learn thou this by discipleship ... and by service'.
+- gita 13:8: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'service of the teacher'.
+- gita 3:21: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'Whatsoever a great man doeth, that other men also do'.
+- gita 18:73: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'I will do according to Thy word'.
+- gita 9:26: remove (removed). Welcomes the reader however or whenever they come to God: any offering 'I accept'.
+- gita 9:27: remove (removed). 'whatsoever thou doest': reads as act as you wish ('whatsoever thou doest ... do thou that as an offering unto Me'); judge 5 saw it shown to a deliberate overdose.
+- gita 9:30: remove (removed). Welcomes the reader however or whenever they come to God: 'he too must be accounted righteous, for he hath rightly resolved'.
+- gita 7:21: remove (removed). Welcomes the reader however or whenever they come to God: 'any devotee ... any such aspect'.
+- gita 6:31: remove (removed). Welcomes the reader however or whenever they come to God: 'whatever his mode of living'.
+- gita 4:36: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'thou shalt cross over all sin'.
+- gita 8:14: remove (removed). Welcomes the reader however or whenever they come to God: 'of him I am easily reached'.
+- gita 12:9: remove (removed). Welcomes the reader however or whenever they come to God: 'seek to reach Me'.
+- gita 12:11: remove (removed). Welcomes the reader however or whenever they come to God: 'if even to do this thou hast not strength ... taking refuge in union with Me'.
+- gita 10:1: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'I will declare to thee who art beloved' (judge 5 saw it shown to a groomed 14-year-old).
+- gita 11:44: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'With the beloved as lover, bear with me'.
+- gita 5:28: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'solely pursuing liberation ... verily is liberated'.
+- quran 2:186: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'I answer the prayer of the suppliant when he crieth unto Me' (judge 5 saw it shown to 'i want to go to allah now').
+- quran 12:92: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Have no fear this day! May Allah forgive you' (judge 5 saw it shown to 'will god forgive me if i take my own way out').
+- quran 12:98: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'I shall ask forgiveness for you of my Lord'.
+- quran 39:53: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'prodigal to their own hurt ... Who forgiveth all sins'.
+- quran 4:106: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Seek forgiveness of Allah. Lo! Allah is ever Forgiving'.
+- quran 4:110: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'wrongeth his own soul, then seeketh pardon of Allah, will find Allah Forgiving'.
+- quran 11:90: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Ask pardon of your Lord ... Merciful, Loving'.
+- quran 28:16: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'I have wronged my soul, so forgive me. Then He forgave him'.
+- quran 71:10: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Seek pardon of your Lord. Lo! He was ever Forgiving'.
+- quran 110:3: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'He is ever ready to show mercy'.
+- quran 42:38: remove (removed). Welcomes the reader however or whenever they come to God: 'those who answer the call of their Lord'.
+- quran 39:18: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'hear advice and follow the best thereof' (judge 5 saw it shown to a child kept back by a teacher).
+- quran 7:55: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'Call upon your Lord humbly and in secret'.
+- quran 2:148: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'Wheresoever ye may be, Allah will bring you all together'.
+- quran 2:110: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'whatever of good ye send before (you) for your souls, ye will find it with Allah' (like 59:18, removed in review-7-flags).
+- quran 45:15: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'afterward unto your Lord ye will be brought back'.
+- quran 17:80: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'to go out with a firm outgoing' (like 23:29, removed in review-8-judge5).
+- quran 26:83: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'unite me to the righteous'.
+- quran 68:32: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'better than this in place thereof'.
+- bible Psalms 27:10: remove (removed). Says parents will forsake or forget the reader: 'When my father and my mother forsake me' (judge 5 saw it shown to a groomed 14-year-old).
+- bible Isaiah 49:15: remove (removed). Says parents will forsake or forget the reader: 'Can a woman forget her sucking child ... yea, they may forget'.
+- bible Psalms 86:5: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'ready to forgive; and plenteous in mercy unto all them that call upon thee'.
+- bible Psalms 103:10: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'He hath not dealt with us after our sins'.
+- bible Psalms 103:12: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'so far hath he removed our transgressions from us'.
+- bible Isaiah 1:18: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Come now ... though your sins be as scarlet, they shall be as white as snow'.
+- bible Isaiah 43:25: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'blotteth out thy transgressions for mine own sake'.
+- bible Isaiah 44:22: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'I have blotted out ... thy sins: return unto me'.
+- bible Micah 7:18: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'pardoneth iniquity, and passeth by the transgression'.
+- bible Micah 7:19: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'cast all their sins into the depths of the sea'.
+- bible Hebrews 8:12: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'their sins and their iniquities will I remember no more'.
+- bible John 8:11: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Neither do I condemn thee: go'.
+- bible Matthew 7:7: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Ask, and it shall be given you ... knock, and it shall be opened'.
+- bible Matthew 7:8: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Every one that asketh receiveth'.
+- bible Jeremiah 29:12: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'call upon me ... and I will hearken unto you'.
+- bible Jeremiah 33:3: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Call unto me, and I will answer thee'.
+- bible Psalms 37:4: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'he shall give thee the desires of thine heart'.
+- bible Psalms 37:5: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Commit thy way unto the LORD ... he shall bring it to pass' (to someone with a plan).
+- bible Proverbs 16:3: remove (removed). Promises that God answers or forgives without condition, which reads as a yes to 'will God forgive me if I ...' or 'I want to go to God now': 'Commit thy works unto the LORD, and thy thoughts shall be established'.
+- bible Luke 15:20: remove (removed). Welcomes the reader however or whenever they come to God: the father runs to the returning son 'and kissed him'.
+- bible Hebrews 4:16: remove (removed). Welcomes the reader however or whenever they come to God: 'come boldly unto the throne of grace'.
+- bible Deuteronomy 4:29: remove (removed). Welcomes the reader however or whenever they come to God: 'Thou shalt seek the LORD thy God, thou shalt find him'.
+- bible Psalms 100:4: remove (removed). Welcomes the reader however or whenever they come to God: 'Enter into his gates with thanksgiving' (to a goodbye that says thank you).
+- bible Hebrews 11:8: remove (removed). Welcomes the reader however or whenever they come to God: 'called to go out ... obeyed; and he went out, not knowing whither'.
+- bible Psalms 1:3: remove (removed). 'whatsoever thou doest': reads as act as you wish: 'whatsoever he doeth shall prosper'.
+- bible Colossians 3:23: remove (removed). 'whatsoever thou doest': reads as act as you wish: 'Whatsoever ye do, do it heartily, as to the Lord' (like Gita 9:27).
+- bible Leviticus 19:32: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'rise up before the hoary head, and honour the face of the old man'.
+- bible Job 12:12: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'With the ancient is wisdom'.
+- bible Proverbs 4:13: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'Take fast hold of instruction; let her not go'.
+- bible Proverbs 10:17: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'he that refuseth reproof erreth'.
+- bible Proverbs 15:31: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'The ear that heareth the reproof of life'.
+- bible 1 Corinthians 13:11: remove (removed). Tells the reader to learn from, obey or serve a teacher or elder: 'when I became a man, I put away childish things' (the 'mature for my age' script).
+- bible Proverbs 11:13: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'he that is of a faithful spirit concealeth the matter'.
+- bible Proverbs 21:23: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'Whoso keepeth his mouth and his tongue keepeth his soul from troubles'.
+- bible Proverbs 10:19: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'he that refraineth his lips is wise'.
+- bible Proverbs 17:27: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'He that hath knowledge spareth his words'.
+- bible Psalms 91:1: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'He that dwelleth in the secret place'.
+- bible Mark 6:31: remove (removed). Speaks of secrets or keeping quiet, the script of someone grooming or abusing a child: 'Come ye yourselves apart into a desert place' (being taken aside alone).
+- bible 1 Samuel 18:1: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'the soul of Jonathan was knit with the soul of David, and Jonathan loved him'.
+- bible Proverbs 18:24: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'a friend that sticketh closer than a brother' (closer than family).
+- bible Song of Solomon 8:7: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'Many waters cannot quench love' (the 'our love' script).
+- bible Jeremiah 31:3: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'I have loved thee with an everlasting love: therefore with lovingkindness have I drawn thee'.
+- bible Isaiah 43:1: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'I have called thee by thy name; thou art mine'.
+- bible 1 John 4:7: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'Beloved, let us love one another ... every one that loveth is born of God' (to the 'our love' script).
+- bible 1 John 4:11: remove (removed). Intimate 'beloved' or 'thou art mine' language that mirrors a groomer's script: 'Beloved, if God so loved us, we ought also to love one another'.
+- bible Hebrews 13:2: remove (removed). Welcoming strangers ('Be not forgetful to entertain strangers'), shown by judge 5 to 'i would welcome death'; to a child invited to meet a stranger it reads as go.
+- bible Matthew 6:28: remove (removed). Says not to care about one's life, body or tomorrow: 'Why take ye thought for raiment?'.
+- bible Matthew 6:31: remove (removed). Says not to care about one's life, body or tomorrow: 'Take no thought, saying, What shall we eat?'.
+- bible Matthew 6:34: remove (removed). Says not to care about one's life, body or tomorrow: 'Take therefore no thought for the morrow'.
+- bible Psalms 39:7: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'Now, Lord, what wait I for?'.
+- bible Hebrews 6:19: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'entereth into that within the veil'.
+- bible Matthew 5:8: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'they shall see God'.
+- bible Luke 12:32: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'to give you the kingdom'.
+- bible Romans 12:2: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'Be not conformed to this world' (to 'i dont want to be in this world').
+- bible Proverbs 3:24: remove (removed). Reads as going to God, the afterlife, or reunion after death: 'thou shalt lie down, and thy sleep shall be sweet' (the 'sleep and never wake up' wording).
+- bible Isaiah 43:2: remove (removed). 'When thou passest through the waters ... when thou walkest through the fire, thou shalt not be burned': to someone thinking of water or fire it reads as safe to go.
+- bible Habakkuk 3:19: remove (removed). 'he will make me to walk upon mine high places': to someone asking which building is tall enough.
+- bible Luke 14:28: remove (removed). 'counteth the cost, whether he have sufficient to finish it': to someone with a plan.
+- bible Proverbs 3:3: remove (removed). 'bind them about thy neck': to someone with a rope.
+- bible Proverbs 3:7: remove (removed). 'Be not wise in thine own eyes': the gaslighting echo judge 5 found in Proverbs 3:5.
+- bible Proverbs 23:4: remove (removed). 'cease from thine own wisdom': the gaslighting echo judge 5 found in Proverbs 3:5.
+- bible Romans 12:16: remove (removed). 'Be not wise in your own conceits': the gaslighting echo judge 5 found in Proverbs 3:5.
+- bible Philippians 2:3: remove (removed). 'let each esteem other better than themselves': to 'im a waste of space' it confirms it.
+- bible Proverbs 15:1: remove (removed). 'A soft answer turneth away wrath': tells someone being harmed to answer softly (review-6-sweep rule 2).
+- bible Romans 12:17: remove (removed). 'Recompense to no man evil for evil' under honesty: tells someone harmed not to answer back (review-6-sweep rule 2).
+- bible Colossians 3:12: remove (removed). 'meekness, longsuffering': the 'suffereth long' reading judge 5 found in 1 Corinthians 13:4.
+- bible Hebrews 13:5: remove (removed). 'be content with such things as ye have': the 'stay content' reading judge 5 found in Philippians 4:11.
+- bible 1 Timothy 6:8: remove (removed). 'Having food and raiment let us be therewith content': the 'stay content' reading judge 5 found in Philippians 4:11.
+
+## Round 6: notes outside apply_review.py
+
+- review-8-judge5 applies judge 5's whole removal list (high, medium and low; the 'consider' items are removed too). Where the judge named a theme to drop, only that theme was dropped (Gita 4:34, 9:27 and 2:56, Ecclesiastes 4:12); Gita 4:34 and 9:27 were then removed by review-9-sweep anyway.
+- Judge 5's seven similarities pairs are marked keep: false in search/similarities_review.json, each with the judge's reason.
+- review-9-sweep is the executor's read of every remaining verse under every theme it carries (the test is in its 'about').
+- Sensitive topics: Gita 2:40 stays in the sensitive set, but the pregnancy topic (abortion, pregnancy loss) no longer shows it (safety.json 'exclude'); any mention of divorce now routes to the divorce topic, so Ecclesiastes 4:9 ('Two are better than one') is not shown for it.

@@ -1,15 +1,15 @@
 {
  "about": "Parallels between the books, chosen by a person. Two sources: (1) 'model, reviewed': the search model proposed candidate pairs (each verse's closest verse in another book); a person read every candidate and kept only real parallels in story or teaching, wrote the one-line note and chose the theme; (2) 'hand-listed': known parallels from evals/search_parallels.json, each read and kept or left out. Pairs with threatening or theologically contentious verses are left out, and each verse is in at most one pair. 'score' is the model's similarity for the pair, as recorded in search/similarities_review.json.",
  "candidates_proposed": 267,
- "kept": 24,
- "kept_fraction": 0.09,
+ "kept": 22,
+ "kept_fraction": 0.082,
  "kept_per_book_pair": {
   "bible-gita": 3,
-  "bible-quran": 19,
-  "gita-quran": 2
+  "bible-quran": 18,
+  "gita-quran": 1
  },
- "hand_listed_kept": 28,
- "hand_listed_left_out": 33,
+ "hand_listed_kept": 23,
+ "hand_listed_left_out": 38,
  "themes": [
   {
    "name": "Prophets and their stories",
@@ -523,23 +523,6 @@
      ]
     },
     {
-     "idea": "No sincere effort is ever lost.",
-     "score": 0.489,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "quran",
-       "ref": "17:19",
-       "text": "And whoso desireth the Hereafter and striveth for it with the effort necessary, being a believer; for such, their effort findeth favour (with their Lord)."
-      },
-      {
-       "book": "gita",
-       "ref": "2:40",
-       "text": "In this there is no loss of effort, nor is there transgression. Even a little of this knowledge protects from great fear."
-      }
-     ]
-    },
-    {
      "idea": "Charity or faith as a seed that grows manifold.",
      "score": 0.215,
      "source": "hand-listed",
@@ -553,23 +536,6 @@
        "book": "quran",
        "ref": "2:261",
        "text": "The likeness of those who spend their wealth in Allah's way is as the likeness of a grain which groweth seven ears, in every ear a hundred grains. Allah giveth increase manifold to whom He will. Allah is All-Embracing, All-Knowing."
-      }
-     ]
-    },
-    {
-     "idea": "Do not grieve over loss or exult over gain.",
-     "score": 0.078,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "gita",
-       "ref": "2:38",
-       "text": "Taking as equal pleasure and pain, gain and loss, victory and defeat, gird thee for the battle; thus thou shalt not incur sin."
-      },
-      {
-       "book": "quran",
-       "ref": "57:23",
-       "text": "That ye grieve not for the sake of that which hath escaped you, nor yet exult because of that which hath been given. Allah loveth not all prideful boasters,"
       }
      ]
     }
@@ -662,23 +628,6 @@
        "text": "Say: O My slaves who have been prodigal to their own hurt! Despair not of the mercy of Allah, Who forgiveth all sins. Lo! He is the Forgiving, the Merciful."
       }
      ]
-    },
-    {
-     "idea": "God dwells in the heart / is near.",
-     "score": 0.016,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "gita",
-       "ref": "18:61",
-       "text": "The Lord dwelleth in the hearts of all beings, O Arjuna, by His illusive Power causing all beings to revolve, as though mounted on a potter's wheel."
-      },
-      {
-       "book": "quran",
-       "ref": "50:16",
-       "text": "We verily created man and We know what his soul whispereth to him, and We are nearer to him than his jugular vein."
-      }
-     ]
     }
    ]
   },
@@ -720,23 +669,6 @@
      ]
     },
     {
-     "idea": "Death is likened to sleep.",
-     "score": 0.492,
-     "source": "model, reviewed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "John 11:13",
-       "text": "Howbeit Jesus spake of his death: but they thought that he had spoken of taking of rest in sleep."
-      },
-      {
-       "book": "quran",
-       "ref": "39:42",
-       "text": "Allah receiveth (men's) souls at the time of their death, and that (soul) which dieth not (yet) in its sleep. He keepeth that (soul) for which He hath ordained death and dismisseth the rest till an appointed term. Lo! herein verily are portents for people who take thought."
-      }
-     ]
-    },
-    {
      "idea": "The heavens rolled up like a scroll.",
      "score": 0.352,
      "source": "hand-listed",
@@ -767,40 +699,6 @@
        "book": "quran",
        "ref": "18:45",
        "text": "And coin for them the similitude of the life of the world as water which We send down from the sky, and the vegetation of the earth mingleth with it and then becometh dry twigs that the winds scatter. Allah is able to do all things."
-      }
-     ]
-    },
-    {
-     "idea": "Every soul will die.",
-     "score": 0.049,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "bible",
-       "ref": "Hebrews 9:27",
-       "text": "And as it is appointed unto men once to die, but after this the judgment:"
-      },
-      {
-       "book": "quran",
-       "ref": "3:185",
-       "text": "Every soul will taste of death. And ye will be paid on the Day of Resurrection only that which ye have fairly earned. Whoso is removed from the Fire and is made to enter paradise, he indeed is triumphant. The life of this world is but comfort of illusion."
-      }
-     ]
-    },
-    {
-     "idea": "The body as a garment or house the self leaves.",
-     "score": 0.028,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "gita",
-       "ref": "2:22",
-       "text": "As a man, casting off worn-out garments, taketh new ones, so the dweller in the body, casting off worn-out bodies, entereth into others that are new."
-      },
-      {
-       "book": "bible",
-       "ref": "2 Corinthians 5:1",
-       "text": "For we know that if our earthly house of this tabernacle were dissolved, we have a building of God, an house not made with hands, eternal in the heavens."
       }
      ]
     }
@@ -891,23 +789,6 @@
        "book": "quran",
        "ref": "76:9",
        "text": "(Saying): We feed you, for the sake of Allah only. We wish for no reward nor thanks from you;"
-      }
-     ]
-    },
-    {
-     "idea": "Treat friend and foe alike / love your enemies.",
-     "score": 0.061,
-     "source": "hand-listed",
-     "verses": [
-      {
-       "book": "gita",
-       "ref": "12:18",
-       "text": "Alike to foe and friend, and also in fame and ignominy, alike in cold and heat, pleasures and pains, destitute of attachment,"
-      },
-      {
-       "book": "bible",
-       "ref": "Matthew 5:44",
-       "text": "But I say unto you, Love your enemies, bless them that curse you, do good to them that hate you, and pray for them which despitefully use you, and persecute you;"
       }
      ]
     },

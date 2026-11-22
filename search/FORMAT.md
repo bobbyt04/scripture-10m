@@ -8,12 +8,12 @@ vectors are needed for it.
 
 | File | Size | Contents |
 |---|---|---|
-| `search.json` | 534 kB | The reviewed verse pool (display text, themes, hand-set priorities, note, BM25 terms), themes and their phrases, word rules, bridge, safety lists (crisis phrases, distress gate, bereavement and idiom blanks, sensitive topics, the crisis message), settings. |
-| `pool_vectors.i8` | 109 kB | `int8[P][D]`: one row per published pool verse (Gita, then Quran, then Bible, each in `pool` order), for `similar()`. |
-| `similarities.json` | 34 kB | The hand-reviewed cross-book parallels for the similarities page. |
-| `fixtures.json` | 151 kB | Expected outputs of 89 searches (several with k other than 3, the distress gate, bereavement, typos and non-ASCII input), 4 theme chips and 3 `similar()` calls with and without `sensitive_only`, for testing a port. |
+| `search.json` | 498 kB | The reviewed verse pool (display text, themes, hand-set priorities, note, BM25 terms), themes and their phrases, word rules, bridge, safety lists (crisis phrases, distress gate, bereavement and idiom blanks, sensitive topics, the crisis message), settings. |
+| `pool_vectors.i8` | 93 kB | `int8[P][D]`: one row per published pool verse (Gita, then Quran, then Bible, each in `pool` order), for `similar()`. |
+| `similarities.json` | 30 kB | The hand-reviewed cross-book parallels for the similarities page. |
+| `fixtures.json` | 151 kB | Expected outputs of 92 searches (several with k other than 3, the distress gate, bereavement, a stated age in digits, typos and non-ASCII input), 4 theme chips and 3 `similar()` calls with and without `sensitive_only`, for testing a port. |
 
-Total 827 kB. (The full-corpus model in `search/model/`, 6.6 MB, is used
+Total 772 kB. (The full-corpus model in `search/model/`, 6.6 MB, is used
 offline only: to propose parallels, score them, and give pool verses their
 vectors. The site never loads it.)
 
@@ -32,6 +32,7 @@ an all-zero row as zeros** (its cosine with anything is 0, never NaN).
     "bridge_weight": 0.8,                     weight of a bridge word (a typed word has 1); BM25 tie break only
     "min_theme_score": 0.5,                   query themes below this (the top one scores 1) choose no verses
     "exclusive_themes": ["grief", "gratitude"],  the first of these that matches is the only theme kept
+    "exclusive_any_score": ["grief"],         these count as matching at any score (step 4)
     "theme_fuzzy_min_len": 6,                 unknown words this long may be read as a theme word one typo away
     "max_query_chars": 500,                   only this much of a query is read
     "sensitive_theme_score": 0.5,             score of a sensitive topic's gentle themes
@@ -54,7 +55,8 @@ an all-zero row as zeros** (its cosine with anything is 0, never NaN).
     "idioms": ["killing it", "cut back", ...],
     "bereavement": ["died by suicide", "lost my|our|his|her * to suicide|...", ...],
     "crisis": {"suicide": [phrase, ...], "self_harm": [...], "abuse": [...], "harm_to_others": [...]},
-    "sensitive": {"sexuality_gender": {"themes": ["self_worth", ...], "phrases": [...]}, ...},
+    "sensitive": {"sexuality_gender": {"themes": ["self_worth", ...], "phrases": [...]},
+                  "pregnancy": {..., "exclude": {"gita": ["2:40"]}}, ...},   exclude is optional (step 7)
     "distress": {"window": 7, "rules": [rule, ...]}
   },
   "pool": {
@@ -132,9 +134,16 @@ position i if slot j matches word i + j for every slot.
 
 Let W = words(query).
 
-1. Crisis words C: copy W. For every phrase of `idioms` and then of
-   `bereavement`, and every position where it matches **W**, replace those
-   words in C by "" (the empty word). Then replace each word of 5 or more
+1. Crisis words C: let N = words(spell(query)), where spell(query) replaces
+   every maximal run of ASCII digits `[0-9]+` that is exactly one of "1" to
+   "17" (no leading zero) by a space, its English word (one, two, ...,
+   seventeen) and a space; other digits are left alone (and dropped by
+   words). So "i'm 14" gives `["i", "fourteen"]` and "14yo" gives
+   `["fourteen", "yo"]`, while "007" and "18" give nothing. This is only
+   for the safety check: themes and sensitive topics use W. Copy N into C.
+   For every phrase of `idioms` and then of `bereavement`, and every
+   position where it matches **N**, replace those words in C by "" (the
+   empty word). Then replace each word of 5 or more
    letters that is exactly one edit away from a `fuzzy` word by the first
    such fuzzy word in list order. One edit: one letter added, removed or
    changed, or two neighbouring letters swapped (a word equal to the fuzzy
@@ -146,7 +155,7 @@ Let W = words(query).
 2. If any crisis phrase matches C → `("crisis", topic)`, the first topic in
    file order with a match.
 3. Else if any distress rule fires on C → `("crisis", "distress")`.
-4. Else if any sensitive phrase matches **W** → `("sensitive", topic)`, the
+4. Else if any sensitive phrase matches **W** (not N) → `("sensitive", topic)`, the
    first topic in file order.
 5. Else `("general", null)`.
 
@@ -186,8 +195,10 @@ rounded**; every comparison below uses the unrounded values.
 The themes that choose verses (`selection_themes`), in this order:
 
 1. Keep the query themes with score >= `min_theme_score`.
-2. If any of `exclusive_themes` is kept, keep only the first one in that
-   list, with score 1 (grief before gratitude).
+2. Take the first theme t of `exclusive_themes` (grief before gratitude)
+   that was kept in 1, or that is in `exclusive_any_score` and matched at
+   any score (a weak grief match still counts). If there is one, keep only
+   t, with score 1.
 3. For a sensitive query, append each of the topic's `themes` not already
    there (in list order) with score `sensitive_theme_score`.
 
@@ -252,7 +263,8 @@ verses; df_t = number of verses containing t; `idf_t = ln(1 + (n - df_t +
 
 For each verse v of the book (in pool order; i is its position):
 
-- If the query is sensitive and v is not `sensitive`, skip v.
+- If the query is sensitive and v is not `sensitive`, or v's ref is in
+  the topic's `exclude` list for this book, skip v.
 - M = the themes of v (in v's order) that are in S. If M is empty, skip v:
   **a verse is shown only if it carries a theme the query matched**.
 - best = the theme of M that comes first in S.
