@@ -70,6 +70,15 @@ def test_batch_books_are_balanced_despite_sizes():
     assert torch.equal(x[:, 0] // 100_000, book_ids)
 
 
+def test_weighted_batches_follow_book_sizes():
+    data = fake_books()
+    sizes = torch.tensor([300.0, 3000.0, 30000.0])
+    _, _, book_ids = get_batch(data, 20000, 8, torch.Generator().manual_seed(5), weights=sizes)
+    counts = torch.bincount(book_ids, minlength=3).float() / 20000
+    assert torch.allclose(counts, sizes / sizes.sum(), atol=0.01), counts
+    assert counts[0] > 0  # the small book still appears
+
+
 def test_targets_are_inputs_shifted_by_one():
     data = fake_books()
     x, y, _ = get_batch(data, 64, 16, torch.Generator().manual_seed(1))

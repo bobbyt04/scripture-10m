@@ -42,6 +42,8 @@ def parse_args(argv=None):
     p.add_argument("--log_interval", type=int, default=50)
     # run
     p.add_argument("--seed", type=int, default=1337)
+    p.add_argument("--sampling", choices=["verse", "book"], default="verse",
+                   help="verse: every verse seen equally often (books weighted by size); book: each book equally often")
     p.add_argument("--device", default="auto", help="auto picks cuda, then mps, then cpu")
     p.add_argument("--data_dir", default=str(DATA_DIR))
     p.add_argument("--out_dir", default="out")
@@ -125,6 +127,7 @@ def train(args):
         device_choice, out = args.device, args.out_dir
         args = argparse.Namespace(**ckpt["args"])  # same settings, so the LR schedule carries on unchanged
         args.device, args.out_dir, args.resume = device_choice, out, True
+        args.sampling = ckpt["args"].get("sampling", "book")  # checkpoints from before --sampling sampled by book
     device = pick_device(args.device)
 
     torch.manual_seed(args.seed)
@@ -144,12 +147,20 @@ def train(args):
 
     log_path = out_dir / "losses.jsonl"
     if args.resume:  # the log up to the checkpoint plus the checkpoint's own line, whatever was written after
-        lines = log_path.read_text().splitlines() if log_path.exists() else []
-        kept = [x for x in lines if json.loads(x)["step"] < start_step] + [json.dumps(ckpt["record"])]
-        log_path.write_text("".join(f"{x}\n" for x in kept))
+        records = []
+        for line in log_path.read_text().splitlines() if log_path.exists() else []:
+            try:
+                records.append(json.loads(line))
+            except json.JSONDecodeError:  # a line cut short when the process died while writing it
+                pass
+        kept = [r for r in records if r["step"] < start_step] + [ckpt["record"]]
+        log_path.write_text("".join(json.dumps(r) + "\n" for r in kept))
     else:
         log_path.write_text("")
     gen = torch.Generator()
+    book_weights = None
+    if args.sampling == "verse":
+        book_weights = torch.tensor([float(len(data["train"][b])) for b in BOOKS])
     t_start = time.time() - (ckpt["record"]["elapsed_s"] if args.resume else 0)  # elapsed_s counts all runs
     t_last, steps_since, eval_s = time.time(), 0, 0.0  # for the ms/step and ETA printout
     for step in range(start_step, args.max_iters + 1):
@@ -179,7 +190,7 @@ def train(args):
         for group in optimizer.param_groups:
             group["lr"] = lr
         gen.manual_seed(args.seed + step)  # the batch depends only on the step, so a resumed run sees the same data
-        x, y, _ = get_batch(data["train"], args.batch_size, args.block_size, gen)
+        x, y, _ = get_batch(data["train"], args.batch_size, args.block_size, gen, weights=book_weights)
         _, loss = model(x.to(device), y.to(device))
         optimizer.zero_grad(set_to_none=True)
         loss.backward()

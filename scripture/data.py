@@ -57,16 +57,20 @@ def load_splits(data_dir=DATA_DIR):
     return tok, texts, data
 
 
-def get_batch(split_data, batch_size, block_size, generator, book=None):
+def get_batch(split_data, batch_size, block_size, generator, book=None, weights=None):
     """Random windows of block_size + 1 tokens. x is the window, y is the same window shifted by one.
 
-    Each row picks its book uniformly at random (unless `book` is given), whatever the book's size,
-    then a random window inside that book. Returns x, y and the book index of each row.
+    Each row picks its book (unless `book` is given), then a random window inside that book.
+    Without `weights` every book is equally likely, whatever its size. With `weights` (one number
+    per book) a book is picked in proportion to its weight: passing the books' lengths means every
+    verse of every book is seen equally often. Returns x, y and the book index of each row.
     """
-    if book is None:
-        book_ids = torch.randint(len(BOOKS), (batch_size,), generator=generator)
-    else:
+    if book is not None:
         book_ids = torch.full((batch_size,), BOOKS.index(book))
+    elif weights is not None:
+        book_ids = torch.multinomial(weights, batch_size, replacement=True, generator=generator)
+    else:
+        book_ids = torch.randint(len(BOOKS), (batch_size,), generator=generator)
     rows = []
     for b in book_ids.tolist():
         d = split_data[BOOKS[b]]
