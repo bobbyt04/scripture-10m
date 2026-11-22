@@ -1,6 +1,7 @@
-"""Scripture-3M: a small decoder-only transformer language model, written from scratch in PyTorch.
+"""Scripture-10M: a small decoder-only transformer language model, written from scratch in PyTorch.
 
-Inspired by Andrej Karpathy's lecture "Let's build GPT: from scratch, in code, spelled out".
+Inspired by Andrej Karpathy's lecture "Let's build GPT: from scratch, in code, spelled out",
+and the default size matches the model built there.
 """
 import math
 from dataclasses import dataclass
@@ -13,11 +14,11 @@ from torch.nn import functional as F
 @dataclass
 class ModelConfig:
     vocab_size: int = 100
-    block_size: int = 128  # max context length, in tokens
-    n_layer: int = 4
-    n_head: int = 4
-    n_embd: int = 256
-    dropout: float = 0.1
+    block_size: int = 256  # max context length, in tokens
+    n_layer: int = 6
+    n_head: int = 6
+    n_embd: int = 384
+    dropout: float = 0.2
 
 
 class CausalSelfAttention(nn.Module):
@@ -86,7 +87,7 @@ class Block(nn.Module):
 
 
 class ScriptureLM(nn.Module):
-    """The Scripture-3M transformer language model."""
+    """The Scripture-10M transformer language model."""
 
     def __init__(self, cfg: ModelConfig):
         super().__init__()
@@ -125,17 +126,22 @@ class ScriptureLM(nn.Module):
     @torch.no_grad()
     def generate_stream(self, idx, max_new_tokens, temperature=1.0, top_k=None):
         """Yield one new token id at a time. idx is a (1, T) tensor of context ids."""
-        for _ in range(max_new_tokens):
-            idx_cond = idx[:, -self.cfg.block_size:]  # crop to the context window
-            logits, _ = self(idx_cond)
-            logits = logits[:, -1, :] / max(temperature, 1e-5)
-            if top_k is not None:
-                v, _ = torch.topk(logits, min(top_k, logits.size(-1)))
-                logits[logits < v[:, [-1]]] = -float("inf")
-            probs = F.softmax(logits, dim=-1)
-            nxt = torch.multinomial(probs, num_samples=1)
-            idx = torch.cat((idx, nxt), dim=1)
-            yield nxt.item()
+        was_training = self.training
+        self.eval()  # no dropout while sampling
+        try:
+            for _ in range(max_new_tokens):
+                idx_cond = idx[:, -self.cfg.block_size:]  # crop to the context window, keeping the newest tokens
+                logits, _ = self(idx_cond)
+                logits = logits[:, -1, :] / max(temperature, 1e-5)
+                if top_k is not None:
+                    v, _ = torch.topk(logits, min(top_k, logits.size(-1)))
+                    logits[logits < v[:, [-1]]] = -float("inf")
+                probs = F.softmax(logits, dim=-1)
+                nxt = torch.multinomial(probs, num_samples=1)
+                idx = torch.cat((idx, nxt), dim=1)
+                yield nxt.item()
+        finally:
+            self.train(was_training)
 
     @torch.no_grad()
     def generate(self, idx, max_new_tokens, temperature=1.0, top_k=None):

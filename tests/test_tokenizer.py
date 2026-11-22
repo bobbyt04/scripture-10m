@@ -1,3 +1,5 @@
+import pytest
+
 from scripture.tokenizer import CharTokenizer
 
 TAGS = ["<gita>", "<quran>", "<bible>"]
@@ -17,6 +19,18 @@ def test_special_tokens_are_single_ids():
         assert tok.decode(ids) == tag
     assert tok.encode("<bible>In") == [tok.stoi["<bible>"], tok.stoi["I"], tok.stoi["n"]]
     assert tok.vocab_size == len(set(TEXT.replace("<gita>", "").replace("<quran>", "").replace("<bible>", ""))) + 3
+
+
+def test_special_tokens_match_longest_first():
+    tok = CharTokenizer.from_text("<a><ab>x", ["<a", "<ab>", "<a>"])
+    assert "b" not in tok.chars  # "<ab>" was removed whole, not as "<a" + "b>"
+    assert tok.encode("<ab>") == [tok.stoi["<ab>"]]
+    assert tok.encode("<a>x") == [tok.stoi["<a>"], tok.stoi["x"]]
+
+
+def test_duplicate_special_tokens_rejected():
+    with pytest.raises(ValueError):
+        CharTokenizer.from_text("abc", ["<gita>", "<gita>"])
 
 
 def test_unknown_chars_dropped():
