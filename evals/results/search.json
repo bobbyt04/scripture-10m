@@ -496,7 +496,254 @@
     "relevant_dropped_as_blocked": 12
    }
   },
-  "blind_test": null
+  "blind_test": {
+   "random": {
+    "gita": {
+     "n": 33,
+     "hit@3": 0.026353303663403296,
+     "hit@10": 0.08526433770407571,
+     "mrr": 0.042401159559356395
+    },
+    "quran": {
+     "n": 40,
+     "hit@3": 0.0048964288800714155,
+     "hit@10": 0.016229127410862673,
+     "mrr": 0.010520553386529739
+    },
+    "bible": {
+     "n": 40,
+     "hit@3": 0.0015426093896624055,
+     "hit@10": 0.005133073859967391,
+     "mrr": 0.003905965047264581
+    },
+    "overall": {
+     "n": 113,
+     "hit@3": 0.009975403112227096,
+     "hit@10": 0.03246204597405044,
+     "mrr": 0.017489371706287917
+    },
+    "overall_ci95": {
+     "hit@3": [
+      0.009,
+      0.011
+     ],
+     "hit@10": [
+      0.029,
+      0.036
+     ],
+     "mrr": [
+      0.016,
+      0.019
+     ]
+    },
+    "relevant_dropped_as_blocked": 21
+   },
+   "bm25": {
+    "gita": {
+     "n": 33,
+     "hit@3": 0.030303030303030304,
+     "hit@10": 0.21212121212121213,
+     "mrr": 0.046977788776175734
+    },
+    "quran": {
+     "n": 40,
+     "hit@3": 0.05,
+     "hit@10": 0.1,
+     "mrr": 0.03253512087279413
+    },
+    "bible": {
+     "n": 40,
+     "hit@3": 0.05,
+     "hit@10": 0.075,
+     "mrr": 0.03516081135366138
+    },
+    "overall": {
+     "n": 113,
+     "hit@3": 0.04424778761061947,
+     "hit@10": 0.12389380530973451,
+     "mrr": 0.03768233910329221
+    },
+    "overall_ci95": {
+     "hit@3": [
+      0.009,
+      0.088
+     ],
+     "hit@10": [
+      0.061,
+      0.2
+     ],
+     "mrr": [
+      0.019,
+      0.059
+     ]
+    },
+    "relevant_dropped_as_blocked": 21
+   },
+   "bm25+bridge": {
+    "gita": {
+     "n": 33,
+     "hit@3": 0.15151515151515152,
+     "hit@10": 0.45454545454545453,
+     "mrr": 0.20622155445091614
+    },
+    "quran": {
+     "n": 40,
+     "hit@3": 0.15,
+     "hit@10": 0.325,
+     "mrr": 0.18204626146457442
+    },
+    "bible": {
+     "n": 40,
+     "hit@3": 0.375,
+     "hit@10": 0.525,
+     "mrr": 0.28550972847884937
+    },
+    "overall": {
+     "n": 113,
+     "hit@3": 0.23008849557522124,
+     "hit@10": 0.4336283185840708,
+     "mrr": 0.22573053889041758
+    },
+    "overall_ci95": {
+     "hit@3": [
+      0.157,
+      0.316
+     ],
+     "hit@10": [
+      0.339,
+      0.522
+     ],
+     "mrr": [
+      0.161,
+      0.3
+     ]
+    },
+    "relevant_dropped_as_blocked": 21
+   },
+   "vectors-no-bridge": {
+    "gita": {
+     "n": 33,
+     "hit@3": 0.12121212121212122,
+     "hit@10": 0.30303030303030304,
+     "mrr": 0.09832337998855403
+    },
+    "quran": {
+     "n": 40,
+     "hit@3": 0.025,
+     "hit@10": 0.05,
+     "mrr": 0.02522698309423898
+    },
+    "bible": {
+     "n": 40,
+     "hit@3": 0.0,
+     "hit@10": 0.15,
+     "mrr": 0.033393521313816746
+    },
+    "overall": {
+     "n": 113,
+     "hit@3": 0.04424778761061947,
+     "hit@10": 0.1592920353982301,
+     "mrr": 0.049464528459685936
+    },
+    "overall_ci95": {
+     "hit@3": [
+      0.009,
+      0.089
+     ],
+     "hit@10": [
+      0.08,
+      0.246
+     ],
+     "mrr": [
+      0.026,
+      0.075
+     ]
+    },
+    "relevant_dropped_as_blocked": 21
+   },
+   "vectors": {
+    "gita": {
+     "n": 33,
+     "hit@3": 0.30303030303030304,
+     "hit@10": 0.45454545454545453,
+     "mrr": 0.23718527279653356
+    },
+    "quran": {
+     "n": 40,
+     "hit@3": 0.2,
+     "hit@10": 0.35,
+     "mrr": 0.1728153598773564
+    },
+    "bible": {
+     "n": 40,
+     "hit@3": 0.2,
+     "hit@10": 0.375,
+     "mrr": 0.19222726750101277
+    },
+    "overall": {
+     "n": 113,
+     "hit@3": 0.23008849557522124,
+     "hit@10": 0.3893805309734513,
+     "mrr": 0.1984851247559326
+    },
+    "overall_ci95": {
+     "hit@3": [
+      0.14,
+      0.325
+     ],
+     "hit@10": [
+      0.284,
+      0.495
+     ],
+     "mrr": [
+      0.141,
+      0.259
+     ]
+    },
+    "relevant_dropped_as_blocked": 21
+   },
+   "hybrid": {
+    "gita": {
+     "n": 33,
+     "hit@3": 0.30303030303030304,
+     "hit@10": 0.6363636363636364,
+     "mrr": 0.23504736692068015
+    },
+    "quran": {
+     "n": 40,
+     "hit@3": 0.25,
+     "hit@10": 0.35,
+     "mrr": 0.21528666435187174
+    },
+    "bible": {
+     "n": 40,
+     "hit@3": 0.3,
+     "hit@10": 0.525,
+     "mrr": 0.2839247812693865
+    },
+    "overall": {
+     "n": 113,
+     "hit@3": 0.2831858407079646,
+     "hit@10": 0.49557522123893805,
+     "mrr": 0.2453541675507325
+    },
+    "overall_ci95": {
+     "hit@3": [
+      0.196,
+      0.376
+     ],
+     "hit@10": [
+      0.397,
+      0.604
+     ],
+     "mrr": [
+      0.183,
+      0.314
+     ]
+    },
+    "relevant_dropped_as_blocked": 21
+   }
+  }
  },
  "parallels": {
   "tf-idf only": {
@@ -5250,6 +5497,2326 @@
      {
       "ref": "Ecclesiastes 4:9",
       "text": "Two are better than one; because they have a good reward for their labour.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "my mom passed away last month and I can't stop crying, how am I supposed to deal with this",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "2:27",
+      "text": "For certain is death for the born, and certain is birth for the dead; therefore over the inevitable thou shouldst not grieve.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "11:41",
+      "text": "If, thinking Thee but friend, importunate, O Krishna! or O Yadava! O friend! I cried, unknowing of Thy majesty, And careless in the fondness of my love;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "15:10",
+      "text": "The deluded do not perceive (Him) when He departeth or stayeth or enjoyeth, swayed by the qualities; the wisdom-eyed perceive.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "72:7",
+      "text": "And indeed they supposed, even as ye suppose, that Allah would not raise anyone (from the dead) -",
+      "in_answer_key": false
+     },
+     {
+      "ref": "37:24",
+      "text": "And stop them, for they must be questioned.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "50:42",
+      "text": "The day when they will hear the (Awful) Cry in truth. That is the day of coming forth (from the graves).",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Mark 5:39",
+      "text": "And when he was come in, he saith unto them, Why make ye this ado, and weep? the damsel is not dead, but sleepeth.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Luke 8:52",
+      "text": "And all wept, and bewailed her: but he said, Weep not; she is not dead, but sleepeth.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Jeremiah 16:7",
+      "text": "Neither shall men tear themselves for them in mourning, to comfort them for the dead; neither shall men give them the cup of consolation to drink for their father or for their mother.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I'm drowning in credit card debt and can't keep up with my bills",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "6:22",
+      "text": "Which, having obtained, he thinketh there is no greater gain beyond it; wherein, established, he is not shaken even by heavy sorrow;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "7:2",
+      "text": "I will declare to thee this knowledge and wisdom in its completeness, which, having known, there is nothing more here needeth to be known.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "11:14",
+      "text": "Then he, Dhananjaya, overwhelmed with astonishment, his hair upstanding, bowed down his head to the Shining One, and with joined palms spake.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "2:280",
+      "text": "And if the debtor is in straitened circumstances, then (let there be) postponement to (the time of) ease; and that ye remit the debt as almsgiving would be better for you if ye did but know.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "56:66",
+      "text": "Lo! we are laden with debt!",
+      "in_answer_key": false
+     },
+     {
+      "ref": "53:37",
+      "text": "And Abraham who paid his debt:",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Isaiah 24:2",
+      "text": "And it shall be, as with the people, so with the priest; as with the servant, so with his master; as with the maid, so with her mistress; as with the buyer, so with the seller; as with the lender, so with the borrower; as with the taker of usury, so with the giver of usury to him.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Matthew 6:12",
+      "text": "And forgive us our debts, as we forgive our debtors.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 22:7",
+      "text": "The rich ruleth over the poor, and the borrower is servant to the lender.",
+      "in_answer_key": true
+     }
+    ]
+   }
+  },
+  {
+   "query": "got laid off today after 8 years at the company, honestly no idea what to do now",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "14:10",
+      "text": "Now Harmony prevaileth, having overpowered Motion and Inertia, O Bharata; now Motion, having overpowered Harmony and Inertia; and now Inertia, having overpowered Harmony and Motion.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "13:11",
+      "text": "Unflinching devotion to Me by yoga, without other objects, resort to sequestered places, absence of enjoyment in the company of men,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "6:41",
+      "text": "Having attained to the worlds of the pure-doing, and having dwelt there for immemorial years, he who fell from yoga is reborn in a pure and blessed house;",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "88:11",
+      "text": "Where they hear no idle speech,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "19:85",
+      "text": "On the day when We shall gather the righteous unto the Beneficent, a goodly company.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "79:13",
+      "text": "Surely it will need but one shout,",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "2 Samuel 19:32",
+      "text": "Now Barzillai was a very aged man, even fourscore years old: and he had provided the king of sustenance while he lay at Mahanaim; for he was a very great man.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Job 16:7",
+      "text": "But now he hath made me weary: thou hast made desolate all my company.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "1 Thessalonians 4:12",
+      "text": "That ye may walk honestly toward them that are without, and that ye may have lack of nothing.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "not sure I picked the right career, I feel stuck in a job I don't really care about",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "16:11",
+      "text": "Giving themselves over to unmeasured thought whose end is death, regarding the gratification of desires as the highest, feeling sure that this is all,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "8:21",
+      "text": "That unmanifested, \"the Indestructible,\" It is called; It is named the highest Path. They who reach It return not. That is My supreme abode.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "6:40",
+      "text": "The Blessed Lord said: O son of Pritha, neither in this world nor in the life to come is there destruction for him; never doth any who worketh righteousness, O beloved, tread the path of woe.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "56:86",
+      "text": "Why then, if ye are not in bondage (unto Us),",
+      "in_answer_key": false
+     },
+     {
+      "ref": "28:26",
+      "text": "One of the two women said: O my father! Hire him! For the best (man) that thou canst hire in the strong, the trustworthy.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "20:112",
+      "text": "And he who hath done some good works, being a believer, he feareth not injustice nor begrudging (of his wage).",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Matthew 27:65",
+      "text": "Pilate said unto them, Ye have a watch: go your way, make it as sure as ye can.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 142:3",
+      "text": "When my spirit was overwhelmed within me, then thou knewest my path. In the way wherein I walked have they privily laid a snare for me.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "1 Corinthians 7:21",
+      "text": "Art thou called being a servant? care not for it: but if thou mayest be made free, use it rather.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "finals are next week and I'm so stressed I can't focus on studying",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "18:70",
+      "text": "And he who shall study this sacred dialogue of ours, by him I shall be worshipped with the sacrifice of wisdom. Such is My mind.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "13:12",
+      "text": "Constancy in the wisdom of the Self, understanding of the object of essential wisdom; that is declared to be the Wisdom; all against it is ignorance.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "4:34",
+      "text": "Learn thou this by discipleship, by investigation, and by service. The wise, the seers of the essence of things, will instruct thee in wisdom.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "6:105",
+      "text": "Thus do We display Our revelations that they may say (unto thee, Muhammad): \"Thou hast studied,\" and that We may make (it) clear for people who have knowledge.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "99:1",
+      "text": "When Earth is shaken with her (final) earthquake",
+      "in_answer_key": false
+     },
+     {
+      "ref": "6:149",
+      "text": "Say - For Allah's is the final argument - Had He willed He could indeed have guided all of you.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Proverbs 30:3",
+      "text": "I neither learned wisdom, nor have the knowledge of the holy.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Daniel 1:17",
+      "text": "As for these four children, God gave them knowledge and skill in all learning and wisdom: and Daniel had understanding in all visions and dreams.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 2:6",
+      "text": "For the LORD giveth wisdom: out of his mouth cometh knowledge and understanding.",
+      "in_answer_key": true
+     }
+    ]
+   }
+  },
+  {
+   "query": "moved to a new city for work and I don't have a single friend here, I feel so alone",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "6:9",
+      "text": "He who regards impartially lovers, friends, and foes, strangers, neutrals, foreigners and relatives, also the righteous and unrighteous, he excelleth.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "11:41",
+      "text": "If, thinking Thee but friend, importunate, O Krishna! or O Yadava! O friend! I cried, unknowing of Thy majesty, And careless in the fondness of my love;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "11:44",
+      "text": "Therefore I fall before Thee; with my body I worship as it fitting; bless Thou me. As father with the son, as friend with friend, With the beloved as lover, bear with me.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "68:27",
+      "text": "Nay, but we are desolate!",
+      "in_answer_key": false
+     },
+     {
+      "ref": "27:48",
+      "text": "And there were in the city nine persons who made mischief in the land and reformed not.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "39:74",
+      "text": "They say: Praise be to Allah, Who hath fulfilled His promise unto us and hath made us inherit the land, sojourning in the Garden where we will! So bounteous is the wage of workers.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Hebrews 11:9",
+      "text": "By faith he sojourned in the land of promise, as in a strange country, dwelling in tabernacles with Isaac and Jacob, the heirs with him of the same promise:",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Leviticus 25:47",
+      "text": "And if a sojourner or stranger wax rich by thee, and thy brother that dwelleth by him wax poor, and sell himself unto the stranger or sojourner by thee, or to the stock of the stranger's family:",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Genesis 20:1",
+      "text": "And Abraham journeyed from thence toward the south country, and dwelled between Kadesh and Shur, and sojourned in Gerar.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "my best friend just stopped talking to me out of nowhere and I don't know what I did",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "11:41",
+      "text": "If, thinking Thee but friend, importunate, O Krishna! or O Yadava! O friend! I cried, unknowing of Thy majesty, And careless in the fondness of my love;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "4:20",
+      "text": "Having abandoned attachment to the fruit of action, always content, nowhere seeking refuge, he is not doing anything, although doing actions.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "2:54",
+      "text": "Arjuna said: What the mark, of him who is stable of mind, steadfast in contemplation, O Keshava? How doth the stable-minded talk, how doth he sit, how walk?",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "37:24",
+      "text": "And stop them, for they must be questioned.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "26:101",
+      "text": "Nor any loving friend.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "52:12",
+      "text": "Who play in talk of grave matters;",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Proverbs 17:17",
+      "text": "A friend loveth at all times, and a brother is born for adversity.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "Judges 14:20",
+      "text": "But Samson's wife was given to his companion, whom he had used as his friend.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Genesis 45:15",
+      "text": "Moreover he kissed all his brethren, and wept upon them: and after that his brethren talked with him.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "my husband and I keep arguing about everything lately, even small stuff",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "7:23",
+      "text": "Finite indeed the fruit that belongeth to those who are of small intelligence. To the Shining Ones go the worshippers of the Shining Ones, but my devotees come unto Me.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "9:18",
+      "text": "The Path, Husband, Lord, Witness, Abode, Shelter, Lover, Origin, Dissolution, Foundation, house, Seed imperishable.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "16:9",
+      "text": "Holding this view, these ruined selves of small understanding, of fierce deeds, come forth as enemies for the destruction of the world.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "3:66",
+      "text": "Lo! ye are those who argue about that whereof ye have some knowledge: Why then argue ye concerning that whereof ye have no knowledge? Allah knoweth. Ye know not.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "26:96",
+      "text": "And they will say, when they are quarrelling therein:",
+      "in_answer_key": false
+     },
+     {
+      "ref": "58:1",
+      "text": "Allah hath heard the saying of her that disputeth with thee (Muhammad) concerning her husband, and complaineth unto Allah. And Allah heareth your colloquy. Lo! Allah is Hearer, Knower.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Proverbs 17:14",
+      "text": "The beginning of strife is as when one letteth out water: therefore leave off contention, before it be meddled with.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 22:10",
+      "text": "Cast out the scorner, and contention shall go out; yea, strife and reproach shall cease.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Job 6:25",
+      "text": "How forcible are right words! but what doth your arguing reprove?",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "my teenage son won't listen to anything I say anymore",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "15:9",
+      "text": "Enshrined in the ear, the eye, the touch, the taste and the smell, and in the mind also, He enjoyeth the objects of the senses",
+      "in_answer_key": false
+     },
+     {
+      "ref": "18:28",
+      "text": "Discordant, vulgar, stubborn, cheating, malicious, indolent, despairful, procrastinating, that actor is called dark.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "1:3",
+      "text": "\"Behold this mighty host of the sons of Pandu, O teacher, arrayed by the son of Drupada, thy wise disciple.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "74:16",
+      "text": "Nay! For lo! he hath been stubborn to Our revelations.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "20:13",
+      "text": "And I have chosen thee, so hearken unto that which is inspired.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "56:17",
+      "text": "There wait on them immortal youths",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Isaiah 42:23",
+      "text": "Who among you will give ear to this? who will hearken and hear for the time to come?",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Isaiah 28:23",
+      "text": "Give ye ear, and hear my voice; hearken, and hear my speech.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Isaiah 32:3",
+      "text": "And the eyes of them that see shall not be dim, and the ears of them that hear shall hearken.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "my dad is getting old and frail and I'm struggling to look after him",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "15:11",
+      "text": "Yogis also, struggling, perceive Him, established in the Self; but though struggling, the unintelligent perceive Him not, their selves untrained.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "2:13",
+      "text": "As the dweller in the body experienceth in the body childhood, youth, old age, so passeth he on to another body; the steadfast one grieveth not thereat.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "13:9",
+      "text": "Dispassion towards the objects of the senses, and also absence of egoism, insight into the pain and evil of birth, death, old age and sickness,",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "30:54",
+      "text": "Allah is He Who shaped you out of weakness, then appointed after weakness strength, then, after strength, appointed weakness and grey hair. He createth what He will. He is the Knower, the Mighty.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "36:68",
+      "text": "He whom we bring unto old age, We reverse him in creation (making him go back to weakness after strength). Have ye then no sense?",
+      "in_answer_key": false
+     },
+     {
+      "ref": "36:66",
+      "text": "And had We willed, We verily could have quenched their eyesight so that they should struggle for the way. Then how could they have seen?",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "John 9:23",
+      "text": "Therefore said his parents, He is of age; ask him.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "2 Samuel 19:32",
+      "text": "Now Barzillai was a very aged man, even fourscore years old: and he had provided the king of sustenance while he lay at Mahanaim; for he was a very great man.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Isaiah 46:4",
+      "text": "And even to your old age I am he; and even to hoar hairs will I carry you: I have made, and I will bear; even I will carry, and will deliver you.",
+      "in_answer_key": true
+     }
+    ]
+   }
+  },
+  {
+   "query": "just got diagnosed with something serious and I'm really scared",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "11:49",
+      "text": "Be not bewildered, be thou not afraid, Because thou hast beheld this awful Form; Cast fear away, and let thy heart rejoice; Behold again Mine own familiar shape.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "2:31",
+      "text": "Further, looking to thine own duty thou shouldst not tremble; for there is nothing more welcome to a Kshattriya than righteous war.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "13:9",
+      "text": "Dispassion towards the objects of the senses, and also absence of egoism, insight into the pain and evil of birth, death, old age and sickness,",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "17:103",
+      "text": "And he wished to scare them from the land, but We drowned him and those with him, all together.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "13:21",
+      "text": "Such as unite that which Allah hath commandeth should be joined, and fear their Lord, and dread a woeful reckoning;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "91:15",
+      "text": "He dreadeth not the sequel (of events).",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Deuteronomy 1:29",
+      "text": "Then I said unto you, Dread not, neither be afraid of them.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 119:120",
+      "text": "My flesh trembleth for fear of thee; and I am afraid of thy judgments.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Luke 4:40",
+      "text": "Now when the sun was setting, all they that had any sick with divers diseases brought them unto him; and he laid his hands on every one of them, and healed them.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I've been drinking way too much every night and I can't seem to cut back",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "1:10",
+      "text": "Yet insufficient seems this army of ours, though marshalled by Bhishma, while that army of theirs seems sufficient, though marshalled by Bhima;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "13:5",
+      "text": "Rishis have sung in manifold ways, in many various chants, and in decisive Brahma-sutra verses full of reasonings.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "2:69",
+      "text": "That which is the night of all beings, for the disciplined man is the time of waking; when other beings are waking, then is it night for the sage who seeth.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "83:25",
+      "text": "They are given to drink of a pure wine, sealed,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "4:21",
+      "text": "How can ye take it (back) after one of you hath gone in unto the other, and they have taken a strong pledge from you?",
+      "in_answer_key": false
+     },
+     {
+      "ref": "19:74",
+      "text": "How many a generation have We destroyed before them, who were more imposing in respect of gear and outward seeming!",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Isaiah 28:7",
+      "text": "But they also have erred through wine, and through strong drink are out of the way; the priest and the prophet have erred through strong drink, they are swallowed up of wine, they are out of the way through strong drink; they err in vision, they stumble in judgment.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 31:6",
+      "text": "Give strong drink unto him that is ready to perish, and wine unto those that be of heavy hearts.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Deuteronomy 29:6",
+      "text": "Ye have not eaten bread, neither have ye drunk wine or strong drink: that ye might know that I am the LORD your God.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I lose my temper way too easily and end up yelling at people I care about",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "6:30",
+      "text": "He who seeth Me everywhere, and seeth everything in Me, of him will I never lose hold, and he shall never lose hold of Me.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "8:17",
+      "text": "The people who know the day of Brahma, a thousand ages in duration, and the night a thousand ages in ending, they know day and night.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "3:2",
+      "text": "With these perplexing words Thou only confusest my understanding; therefore tell me with certainty the one way by which I may reach bliss.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "31:19",
+      "text": "Be modest in thy bearing and subdue thy voice. Lo! the harshest of all voices is the voice of the ass.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "7:98",
+      "text": "Or are the people of the townships then secure from the coming of Our wrath upon them in the daytime while they play?",
+      "in_answer_key": false
+     },
+     {
+      "ref": "7:97",
+      "text": "Are the people of the townships then secure from the coming of Our wrath upon them as a night-raid while they sleep?",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Proverbs 15:1",
+      "text": "A soft answer turneth away wrath: but grievous words stir up anger.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "2 Samuel 18:3",
+      "text": "But the people answered, Thou shalt not go forth: for if we flee away, they will not care for us; neither if half of us die, will they care for us: but now thou art worth ten thousand of us: therefore now it is better that thou succour us out of the city.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "2 Kings 4:13",
+      "text": "And he said unto him, Say now unto her, Behold, thou hast been careful for us with all this care; what is to be done for thee? wouldest thou be spoken for to the king, or to the captain of the host? And she answered, I dwell among mine own people.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I get so jealous of my friends who seem to have perfect lives on instagram",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "1:10",
+      "text": "Yet insufficient seems this army of ours, though marshalled by Bhishma, while that army of theirs seems sufficient, though marshalled by Bhima;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "11:41",
+      "text": "If, thinking Thee but friend, importunate, O Krishna! or O Yadava! O friend! I cried, unknowing of Thy majesty, And careless in the fondness of my love;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "11:44",
+      "text": "Therefore I fall before Thee; with my body I worship as it fitting; bless Thou me. As father with the son, as friend with friend, With the beloved as lover, bear with me.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "29:64",
+      "text": "This life of the world is but a pastime and a game. Lo! the home of the Hereafter - that is Life, if they but knew.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "12:35",
+      "text": "And it seemed good to them (the men-folk) after they had seen the signs (of his innocence) to imprison him for a time.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "91:7",
+      "text": "And a soul and Him Who perfected it",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Ecclesiastes 9:13",
+      "text": "This wisdom have I seen also under the sun, and it seemed great unto me:",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Job 9:21",
+      "text": "Though I were perfect, yet would I not know my soul: I would despise my life.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Luke 1:3",
+      "text": "It seemed good to me also, having had perfect understanding of all things from the very first, to write unto thee in order, most excellent Theophilus,",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "people keep telling me I come across as arrogant, like I think I'm better than everyone",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "12:12",
+      "text": "Better indeed is wisdom than constant-practice; than wisdom, meditation is better; than meditation, renunciation of the fruit of action; on renunciation follows peace.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "4:33",
+      "text": "Better than the sacrifice of any objects is the sacrifice of wisdom, O Parantapa. All actions in their entirety, O Partha, culminate in wisdom.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "3:35",
+      "text": "Better one's own duty, though destitute of merit, than the duty of another, well discharged. Better death in the discharge of one's own duty; the duty of another is full of danger.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "70:41",
+      "text": "To replace them by (others) better than them. And we are not to be outrun.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "93:4",
+      "text": "And verily the latter portion will be better for thee than the former,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "41:15",
+      "text": "As for A'ad, they were arrogant in the land without right, and they said: Who is mightier than us in power? Could they not see that Allah Who created them, He was mightier than them in power? And they denied Our revelations.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Proverbs 16:19",
+      "text": "Better it is to be of an humble spirit with the lowly, than to divide the spoil with the proud.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Ecclesiastes 7:8",
+      "text": "Better is the end of a thing than the beginning thereof: and the patient in spirit is better than the proud in spirit.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 21:24",
+      "text": "Proud and haughty scorner is his name, who dealeth in proud wrath.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I did something really bad to someone I love and the guilt is eating me alive",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "3:13",
+      "text": "The righteous, who eat the remains of the sacrifice, are freed from all sins; but the impious, who dress food for their own sakes, they verily eat sin.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "1:38",
+      "text": "Although these, with intelligence overpowered by greed, see no guilt in the destruction of a family, no crime in hostility to friends,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "10:10",
+      "text": "To these, ever harmonious, worshipping in love, I give the yoga of discrimination by which they come unto Me.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "3:31",
+      "text": "Say, (O Muhammad, to mankind): If ye love Allah, follow me; Allah will love you and forgive you your sins. Allah is Forgiving, Merciful.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "85:14",
+      "text": "And He is the Forgiving, the Loving,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "33:58",
+      "text": "And those who malign believing men and believing women undeservedly, they bear the guilt of slander and manifest sin.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Isaiah 59:12",
+      "text": "For our transgressions are multiplied before thee, and our sins testify against us: for our transgressions are with us; and as for our iniquities, we know them;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Job 13:23",
+      "text": "How many are mine iniquities and sins? make me to know my transgression and my sin.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 32:5",
+      "text": "I acknowledged my sin unto thee, and mine iniquity have I not hid. I said, I will confess my transgressions unto the LORD; and thou forgavest the iniquity of my sin. Selah.",
+      "in_answer_key": true
+     }
+    ]
+   }
+  },
+  {
+   "query": "my brother hurt me really badly years ago and I just can't bring myself to forgive him",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "12:13",
+      "text": "He who beareth no ill-will to any being, friendly and compassionate, without attachment and egoism, balanced in pleasure and pain, and forgiving,",
+      "in_answer_key": true
+     },
+     {
+      "ref": "1:34",
+      "text": "Teachers, fathers, sons, as well as grandfathers, mother's brothers, fathers-in-law, grandsons, brothers-in-law, and other relatives.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "9:22",
+      "text": "To those men who worship Me alone thinking of no other, to those ever harmonious, I bring full security.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "35:34",
+      "text": "And they say: Praise be to Allah Who hath put grief away from us. Lo! Our Lord is Forgiving, Bountiful,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "7:151",
+      "text": "He said: My Lord! Have mercy on me and on my brother; bring us into Thy mercy, Thou the Most Merciful of all who show mercy.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "21:93",
+      "text": "And they have broken their religion (into fragments) among them, (yet) all are returning unto Us.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Psalms 25:18",
+      "text": "Look upon mine affliction and my pain; and forgive all my sins.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "2 Corinthians 8:10",
+      "text": "And herein I give my advice: for this is expedient for you, who have begun before, not only to do, but also to be forward a year ago.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Jeremiah 10:19",
+      "text": "Woe is me for my hurt! my wound is grievous: but I said, Truly this is a grief, and I must bear it.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "lately I've been really afraid of dying, I lie awake at night thinking about it",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "2:27",
+      "text": "For certain is death for the born, and certain is birth for the dead; therefore over the inevitable thou shouldst not grieve.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "2:69",
+      "text": "That which is the night of all beings, for the disciplined man is the time of waking; when other beings are waking, then is it night for the sage who seeth.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "8:17",
+      "text": "The people who know the day of Brahma, a thousand ages in duration, and the night a thousand ages in ending, they know day and night.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "17:79",
+      "text": "And some part of the night awake for it, a largess for thee. It may be that thy Lord will raise thee to a praised estate.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "35:22",
+      "text": "Nor are the living equal with the dead. Lo! Allah maketh whom He will to hear. Thou canst not reach those who are in the graves.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "30:19",
+      "text": "He bringeth forth the living from the dead, and He bringeth forth the dead from the living, and He reviveth the earth after her death. And even so will ye be brought forth.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Proverbs 3:24",
+      "text": "When thou liest down, thou shalt not be afraid: yea, thou shalt lie down, and thy sleep shall be sweet.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Romans 6:9",
+      "text": "Knowing that Christ being raised from the dead dieth no more; death hath no more dominion over him.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Job 11:19",
+      "text": "Also thou shalt lie down, and none shall make thee afraid; yea, many shall make suit unto thee.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I'm starting to doubt whether God is even real, and it scares me",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "2:16",
+      "text": "The unreal hath no being; the real never ceaseth to be; the truth about both hath been perceived by the seers of the essence of things.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "11:45",
+      "text": "I have seen that which none hath seen before, My heart is glad, yet faileth me for fear; Show me, O God, Thine other Form again - Mercy, O God of Gods, home of all worlds -",
+      "in_answer_key": false
+     },
+     {
+      "ref": "4:40",
+      "text": "But the ignorant, faithless, doubting self goeth to destruction; nor this world, nor that beyond, nor happiness, is there for the doubting self.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "17:103",
+      "text": "And he wished to scare them from the land, but We drowned him and those with him, all together.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "36:10",
+      "text": "Whether thou warn them or thou warn them not, it is alike for them, for they believe not.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "17:76",
+      "text": "And they indeed wished to scare thee from the land that they might drive thee forth from thence, and then they would have stayed (there) but a little after thee.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "James 1:6",
+      "text": "But let him ask in faith, nothing wavering. For he that wavereth is like a wave of the sea driven with the wind and tossed.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Job 7:14",
+      "text": "Then thou scarest me with dreams, and terrifiest me through visions:",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Hebrews 10:23",
+      "text": "Let us hold fast the profession of our faith without wavering; (for he is faithful that promised;)",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I feel like I have no direction or purpose in my life right now",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "3:16",
+      "text": "He who on earth doth not follow the wheel thus revolving, sinful of life and rejoicing in the senses, he, O son of Pritha, liveth in vain.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "18:59",
+      "text": "Entrenched in egoism, thou thinkest, \"I will not fight;\" to no purpose thy determination; nature will constrain thee.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "14:10",
+      "text": "Now Harmony prevaileth, having overpowered Motion and Inertia, O Bharata; now Motion, having overpowered Harmony and Inertia; and now Inertia, having overpowered Harmony and Motion.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "16:9",
+      "text": "And Allah's is the direction of the way, and some (roads) go not straight. And had He willed He would have led you all aright.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "80:8",
+      "text": "But as for him who cometh unto thee with earnest purpose",
+      "in_answer_key": false
+     },
+     {
+      "ref": "18:104",
+      "text": "Those whose effort goeth astray in the life of the world, and yet they reckon that they do good work.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Romans 8:28",
+      "text": "And we know that all things work together for good to them that love God, to them who are the called according to his purpose.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "Romans 9:11",
+      "text": "(For the children being not yet born, neither having done any good or evil, that the purpose of God according to election might stand, not of works, but of him that calleth;)",
+      "in_answer_key": false
+     },
+     {
+      "ref": "2 Timothy 1:9",
+      "text": "Who hath saved us, and called us with an holy calling, not according to our works, but according to his own purpose and grace, which was given us in Christ Jesus before the world began,",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I procrastinate constantly and waste whole days doing basically nothing",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "18:28",
+      "text": "Discordant, vulgar, stubborn, cheating, malicious, indolent, despairful, procrastinating, that actor is called dark.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "11:7",
+      "text": "Here, to-day, behold the whole universe, movable and immovable, standing in one in My body, O Gudakesha, with aught else thou desirest to see.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "7:12",
+      "text": "The natures that are harmonious, active, slothful, these know as from Me; not I in them, but they in me.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "79:35",
+      "text": "The day when man will call to mind his (whole) endeavour,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "38:54",
+      "text": "Lo! this in truth is Our provision, which will never waste away.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "40:16",
+      "text": "The day when they come forth, nothing of them being hidden from Allah. Whose is the Sovereignty this day? It is Allah's, the One, the Almighty.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Proverbs 13:4",
+      "text": "The soul of the sluggard desireth, and hath nothing: but the soul of the diligent shall be made fat.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "Proverbs 12:24",
+      "text": "The hand of the diligent shall bear rule: but the slothful shall be under tribute.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "Proverbs 20:4",
+      "text": "The sluggard will not plow by reason of the cold; therefore shall he beg in harvest, and have nothing.",
+      "in_answer_key": true
+     }
+    ]
+   }
+  },
+  {
+   "query": "I keep getting tempted to do things I know are wrong and I always give in",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "18:31",
+      "text": "That by which one understandeth away Right and Wrong and also what ought to be done and what ought not to be done, that Reason, O Partha, is passionate.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "16:11",
+      "text": "Giving themselves over to unmeasured thought whose end is death, regarding the gratification of desires as the highest, feeling sure that this is all,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "18:32",
+      "text": "That which, enwrapped in darkness, thinketh wrong to be right and seeth all things subverted, that Reason, O Partha, is of darkness.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "74:15",
+      "text": "Yet he desireth that I should give more.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "57:14",
+      "text": "They will cry unto them (saying): Were we not with you? They will say: Yea, verily; but ye tempted one another, and hesitated, and doubted, and vain desires beguiled you till the ordinance of Allah came to pass; and the deceiver deceived you concerning Allah;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "42:20",
+      "text": "Whoso desireth the harvest of the Hereafter, We give him increase in its harvest. And whoso desireth the harvest of the world, We give him thereof, and he hath no portion in the Hereafter.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Psalms 78:18",
+      "text": "And they tempted God in their heart by asking meat for their lust.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 106:14",
+      "text": "But lusted exceedingly in the wilderness, and tempted God in the desert.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "James 1:14",
+      "text": "But every man is tempted, when he is drawn away of his own lust, and enticed.",
+      "in_answer_key": true
+     }
+    ]
+   }
+  },
+  {
+   "query": "things are actually going really well for me right now and I want to remember to be grateful",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "18:77",
+      "text": "Remembering, remembering, also that most marvellous form of Hari, great is my wonder, O King. I rejoice, again and again.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "18:76",
+      "text": "O King, remembering, remembering this marvellous and holy dialogue between Keshava and Arjuna, I rejoice again and again.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "14:10",
+      "text": "Now Harmony prevaileth, having overpowered Motion and Inertia, O Bharata; now Motion, having overpowered Harmony and Inertia; and now Inertia, having overpowered Harmony and Motion.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "2:152",
+      "text": "Therefore remember Me, I will remember you. Give thanks to Me, and reject not Me.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "2:47",
+      "text": "O Children of Israel! Remember My favour wherewith I favoured you and how I preferred you to (all) creatures.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "2:122",
+      "text": "O Children of Israel! Remember My favour wherewith I favoured you and how I preferred you to (all) creatures.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Psalms 100:4",
+      "text": "Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "1 Corinthians 11:2",
+      "text": "Now I praise you, brethren, that ye remember me in all things, and keep the ordinances, as I delivered them to you.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "1 Chronicles 29:13",
+      "text": "Now therefore, our God, we thank thee, and praise thy glorious name.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "just got a big promotion at work, how do I keep it from going to my head",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "2:17",
+      "text": "Know That to be indestructible by whom all this is pervaded. Nor can any work the destruction of that imperishable One.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "11:14",
+      "text": "Then he, Dhananjaya, overwhelmed with astonishment, his hair upstanding, bowed down his head to the Shining One, and with joined palms spake.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "13:14",
+      "text": "Everywhere That hath hands and feet, everywhere eyes, heads, and mouths; all-hearing, He dwelleth in the world, enveloping all,",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "81:4",
+      "text": "And when the camels big with young are abandoned,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "18:30",
+      "text": "Lo! as for those who believe and do good works - Lo! We suffer not the reward of one whose work is goodly to be lost.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "41:8",
+      "text": "Lo! as for those who believe and do good works, for them is a reward enduring.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Psalms 75:6",
+      "text": "For promotion cometh neither from the east, nor from the west, nor from the south.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 3:35",
+      "text": "The wise shall inherit glory: but shame shall be the promotion of fools.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 4:8",
+      "text": "Exalt her, and she shall promote thee: she shall bring thee to honour, when thou dost embrace her.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "failed my driving test for the third time and I feel like such a loser",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "2:8",
+      "text": "For I see not that it would drive away this anguish that withers up my senses, if I should attain unrivalled monarchy on earth, or even the sovereignty of the Shining Ones.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "1:29",
+      "text": "My limbs fail and my mouth is parched, my body quivers, and my hair stands on end,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "8:23",
+      "text": "That time wherein going forth Yogis return not, and also that wherein going forth they return, that time shall I declare to thee, O prince of the Bharatas.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "34:32",
+      "text": "Those who were proud say unto those who were despised: Did we drive you away from the guidance after it had come unto you? Nay, but ye were guilty.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "39:65",
+      "text": "And verily it hath been revealed unto thee as unto those before thee (saying): If thou ascribe a partner to Allah thy work will fail and thou indeed wilt be among the losers.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "11:21",
+      "text": "Such are they who have lost their souls, and that which they used to invent hath failed them.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Psalms 71:9",
+      "text": "Cast me not off in the time of old age; forsake me not when my strength faileth.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "1 Kings 18:34",
+      "text": "And he said, Do it the second time. And they did it the second time. And he said, Do it the third time. And they did it the third time.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Deuteronomy 31:6",
+      "text": "Be strong and of a good courage, fear not, nor be afraid of them: for the LORD thy God, he it is that doth go with thee; he will not fail thee, nor forsake thee.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I'm about to move across the country for a fresh start and I'm really nervous about it",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "11:49",
+      "text": "Be not bewildered, be thou not afraid, Because thou hast beheld this awful Form; Cast fear away, and let thy heart rejoice; Behold again Mine own familiar shape.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "10:4",
+      "text": "Reason, wisdom, non-illusion, forgiveness, truth, self-restraint, calmness, pleasure, pain, existence, non-existence, fear, and also courage",
+      "in_answer_key": false
+     },
+     {
+      "ref": "2:22",
+      "text": "As a man, casting off worn-out garments, taketh new ones, so the dweller in the body, casting off worn-out bodies, entereth into others that are new.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "81:3",
+      "text": "And when the hills are moved,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "12:92",
+      "text": "He said: Have no fear this day! May Allah forgive you, and He is the Most Merciful of those who show mercy.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "52:10",
+      "text": "And the mountains move away with (awful) movement,",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Psalms 119:120",
+      "text": "My flesh trembleth for fear of thee; and I am afraid of thy judgments.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Job 37:1",
+      "text": "At this also my heart trembleth, and is moved out of his place.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Deuteronomy 31:6",
+      "text": "Be strong and of a good courage, fear not, nor be afraid of them: for the LORD thy God, he it is that doth go with thee; he will not fail thee, nor forsake thee.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "found out a close friend has been trashing me behind my back",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "11:41",
+      "text": "If, thinking Thee but friend, importunate, O Krishna! or O Yadava! O friend! I cried, unknowing of Thy majesty, And careless in the fondness of my love;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "6:39",
+      "text": "Deign, O Krishna, to completely dispel this doubt of mine; for there is none to be found save Thyself able to destroy this doubt.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "11:44",
+      "text": "Therefore I fall before Thee; with my body I worship as it fitting; bless Thou me. As father with the son, as friend with friend, With the beloved as lover, bear with me.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "104:8",
+      "text": "Lo! it is closed in on them",
+      "in_answer_key": false
+     },
+     {
+      "ref": "81:17",
+      "text": "And the close of night,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "114:4",
+      "text": "From the evil of the sneaking whisperer,",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Proverbs 16:28",
+      "text": "A froward man soweth strife: and a whisperer separateth chief friends.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "Psalms 15:3",
+      "text": "He that backbiteth not with his tongue, nor doeth evil to his neighbour, nor taketh up a reproach against his neighbour.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 25:23",
+      "text": "The north wind driveth away rain: so doth an angry countenance a backbiting tongue.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "my coworker took credit for my project and got praised for it, it's so unfair",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "1:34",
+      "text": "Teachers, fathers, sons, as well as grandfathers, mother's brothers, fathers-in-law, grandsons, brothers-in-law, and other relatives.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "1:20",
+      "text": "Then, beholding the sons of Dhritarashtra standing arrayed, and flight of missiles about to begin, he whose crest is an ape, the son of Pandu, took up his bow,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "5:1",
+      "text": "Arjuna said: Renunciation of actions Thou praisest, O Krishna, and then also yoga. Of the two which one is the better? That tell me conclusively.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "12:69",
+      "text": "And when they went in before Joseph, he took his brother unto him, saying: Lo! I, even I, am thy brother, therefore sorrow not for what they did.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "53:22",
+      "text": "That indeed were an unfair division!",
+      "in_answer_key": false
+     },
+     {
+      "ref": "4:36",
+      "text": "And serve Allah. Ascribe no thing as partner unto Him. (Show) kindness unto parents, and unto near kindred, and orphans, and the needy, and unto the neighbour who is of kin (unto you) and the neighbour who is not of kin, and the fellow-traveller and the wayfarer and (the slaves) whom your right hands possess. Lo! Allah loveth not such as are proud and boastful,",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Proverbs 1:3",
+      "text": "To receive the instruction of wisdom, justice, and judgment, and equity;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Isaiah 59:14",
+      "text": "And judgment is turned away backward, and justice standeth afar off: for truth is fallen in the street, and equity cannot enter.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Acts 7:27",
+      "text": "But he that did his neighbour wrong thrust him away, saying, Who made thee a ruler and a judge over us?",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I've been waiting forever to hear back about something important and I'm so impatient",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "9:19",
+      "text": "I give heat; I hold back and send forth the rain; immortality and also death, being and non-being am I, Arjuna.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "9:21",
+      "text": "They, having enjoyed the spacious heaven-world, their holiness withered, come back to this world of death. Following the virtues enjoined by the three, desiring desires, they obtain the transitory.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "13:4",
+      "text": "What that Field is and of what nature, how modified, and whence it is, and what He is and what His powers, hear that now briefly from Me.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "30:60",
+      "text": "So have patience (O Muhammad)! Allah's promise is the very truth, and let not those who have no certainty make thee impatient.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "52:16",
+      "text": "Endure the heat thereof, and whether ye are patient of it or impatient of it is all one for you. Ye are only being paid for what ye used to do.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "70:5",
+      "text": "But be patient (O Muhammad) with a patience fair to see.",
+      "in_answer_key": true
+     }
+    ],
+    "bible": [
+     {
+      "ref": "James 5:7",
+      "text": "Be patient therefore, brethren, unto the coming of the Lord. Behold, the husbandman waiteth for the precious fruit of the earth, and hath long patience for it, until he receive the early and latter rain.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "Romans 8:25",
+      "text": "But if we hope for that we see not, then do we with patience wait for it.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "2 Thessalonians 3:5",
+      "text": "And the Lord direct your hearts into the love of God, and into the patient waiting for Christ.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "walked past a homeless guy today and felt bad, should I be doing more to help people like that",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "7:26",
+      "text": "I know the beings that are past, that are present, that are to come, O Arjuna, but no one knoweth Me.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "9:18",
+      "text": "The Path, Husband, Lord, Witness, Abode, Shelter, Lover, Origin, Dissolution, Foundation, house, Seed imperishable.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "12:19",
+      "text": "Taking equally praise and reproach, silent, wholly content with what cometh, homeless, firm in mind, full of devotion, that man is dear to Me.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "4:36",
+      "text": "And serve Allah. Ascribe no thing as partner unto Him. (Show) kindness unto parents, and unto near kindred, and orphans, and the needy, and unto the neighbour who is of kin (unto you) and the neighbour who is not of kin, and the fellow-traveller and the wayfarer and (the slaves) whom your right hands possess. Lo! Allah loveth not such as are proud and boastful,",
+      "in_answer_key": true
+     },
+     {
+      "ref": "59:8",
+      "text": "And (it is) for the poor fugitives who have been driven out from their homes and their belongings, who seek bounty from Allah and help Allah and His messenger. They are the loyal.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "9:60",
+      "text": "The alms are only for the poor and the needy, and those who collect them, and those whose hearts are to be reconciled, and to free the captives and the debtors, and for the cause of Allah, and (for) the wayfarer; a duty imposed by Allah. Allah is Knower, Wise.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Psalms 40:17",
+      "text": "But I am poor and needy; yet the Lord thinketh upon me: thou art my help and my deliverer; make no tarrying, O my God.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 70:5",
+      "text": "But I am poor and needy: make haste unto me, O God: thou art my help and my deliverer; O LORD, make no tarrying.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 72:13",
+      "text": "He shall spare the poor and needy, and shall save the souls of the needy.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "I want to give more to charity but I'm worried I won't have enough left for myself",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "16:15",
+      "text": "\"I am wealthy, well-born; what other is there that is like unto me? I will sacrifice, I will give alms, I will rejoice.\" Thus deluded by unwisdom,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "16:11",
+      "text": "Giving themselves over to unmeasured thought whose end is death, regarding the gratification of desires as the highest, feeling sure that this is all,",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "2:215",
+      "text": "They ask thee, (O Muhammad), what they shall spend. Say: that which ye spend for good (must go) to parents and near kindred and orphans and the needy and the wayfarer. And whatsoever good ye do, lo! Allah is Aware of it.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "63:10",
+      "text": "And spend of that wherewith We have provided you before death cometh unto one of you and he saith: My Lord! If only thou wouldst reprieve me for a little while, then I would give alms and be among the righteous.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "2:271",
+      "text": "If ye publish your almsgiving, it is well, but if ye hide it and give it to the poor, it will be better for you, and will atone for some of your ill-deeds. Allah is Informed of what ye do.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Matthew 6:3",
+      "text": "But when thou doest alms, let not thy left hand know what thy right hand doeth:",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 72:13",
+      "text": "He shall spare the poor and needy, and shall save the souls of the needy.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Matthew 6:34",
+      "text": "Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "thinking about lying on my resume to land this job, everyone does it right",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "5:26",
+      "text": "The Peace of the Eternal lies near to those who know themselves, who are disjoined from desire and passion, subdued in nature, of subdued thoughts.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "6:43",
+      "text": "There he recovereth the characteristics belonging to this former body, and with these he again laboureth for perfection, O joy of the Kurus.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "6:45",
+      "text": "But the Yogi, labouring with assiduity, purified from sin, fully perfected through manifold births, he reacheth the supreme goal.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "28:26",
+      "text": "One of the two women said: O my father! Hire him! For the best (man) that thou canst hire in the strong, the trustworthy.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "20:112",
+      "text": "And he who hath done some good works, being a believer, he feareth not injustice nor begrudging (of his wage).",
+      "in_answer_key": false
+     },
+     {
+      "ref": "15:48",
+      "text": "Toil cometh not unto them there, nor will they be expelled from thence.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Leviticus 19:13",
+      "text": "Thou shalt not defraud thy neighbour, neither rob him: the wages of him that is hired shall not abide with thee all night until the morning.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Genesis 31:8",
+      "text": "If he said thus, The speckled shall be thy wages; then all the cattle bare speckled: and if he said thus, The ringstraked shall be thy hire; then bare all the cattle ringstraked.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Ecclesiastes 3:9",
+      "text": "What profit hath he that worketh in that wherein he laboureth?",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "working 70 hour weeks and I'm completely burned out and exhausted",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "2:72",
+      "text": "This is the Eternal state, O son of Pritha. Having attained thereto, none is bewildered. Who, even at the death-hour, is established therein, he goeth to the Nirvana of the Eternal.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "6:22",
+      "text": "Which, having obtained, he thinketh there is no greater gain beyond it; wherein, established, he is not shaken even by heavy sorrow;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "2:3",
+      "text": "Yield not to impotence, O Partha! it doth not befit thee. Shake off this paltry faint-heartedness! Stand up, Parantapa!",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "88:3",
+      "text": "Toiling, weary,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "101:6",
+      "text": "Then, as for him whose scales are heavy (with good works),",
+      "in_answer_key": false
+     },
+     {
+      "ref": "15:48",
+      "text": "Toil cometh not unto them there, nor will they be expelled from thence.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Isaiah 49:4",
+      "text": "Then I said, I have laboured in vain, I have spent my strength for nought, and in vain: yet surely my judgment is with the LORD, and my work with my God.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Matthew 11:28",
+      "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "Isaiah 44:12",
+      "text": "The smith with the tongs both worketh in the coals, and fashioneth it with hammers, and worketh it with the strength of his arms: yea, he is hungry, and his strength faileth: he drinketh no water, and is faint.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "can't sleep at night because my mind just keeps racing with worries",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "2:56",
+      "text": "He whose mind is free from anxiety amid pains, indifferent amid pleasures, loosed from passion, fear and anger, is called a sage of stable mind.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "10:6",
+      "text": "The seven great Rishis, the ancient Four, and also the Manus, were born of My nature, and mind; of them this race was generated.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "18:35",
+      "text": "That by which one from stupidity doth not abandon sleep, fear, grief, despair, and also vanity, that firmness, O Partha, is dark.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "51:17",
+      "text": "They used to sleep but little of the night,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "25:47",
+      "text": "And He it is Who maketh night a covering for you, and sleep repose, and maketh day a resurrection.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "12:12",
+      "text": "Send him with us to-morrow that he may enjoy himself and play. And lo! we shall take good care of him.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Job 4:13",
+      "text": "In thoughts from the visions of the night, when deep sleep falleth on men,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "1 Thessalonians 5:7",
+      "text": "For they that sleep sleep in the night; and they that be drunken are drunken in the night.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Matthew 6:34",
+      "text": "Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof.",
+      "in_answer_key": true
+     }
+    ]
+   }
+  },
+  {
+   "query": "constantly anxious about money and what the future holds for me",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "16:13",
+      "text": "\"This to-day by me hath been won, that purpose I shall gain; this wealth is mine already, and also this shall be mine in future.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "12:15",
+      "text": "He from whom the world doth not shrink away, who doth not shrink away from the world, freed from the anxieties of joy, anger, and fear, he is dear to me.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "11:49",
+      "text": "Be not bewildered, be thou not afraid, Because thou hast beheld this awful Form; Cast fear away, and let thy heart rejoice; Behold again Mine own familiar shape.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "17:100",
+      "text": "Say (unto them): If ye possessed the treasures of the mercy of my Lord, ye would surely hold them back for fear of spending, for man was ever grudging.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "18:23",
+      "text": "And say not of anything: Lo! I shall do that tomorrow,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "70:19",
+      "text": "Lo! man was created anxious,",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Ezekiel 28:4",
+      "text": "With thy wisdom and with thine understanding thou hast gotten thee riches, and hast gotten gold and silver into thy treasures:",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Isaiah 2:7",
+      "text": "Their land also is full of silver and gold, neither is there any end of their treasures; their land is also full of horses, neither is there any end of their chariots:",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Genesis 13:2",
+      "text": "And Abram was very rich in cattle, in silver, and in gold.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "my coworkers gossip about everyone all day and I keep getting sucked into it",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "8:17",
+      "text": "The people who know the day of Brahma, a thousand ages in duration, and the night a thousand ages in ending, they know day and night.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "1:34",
+      "text": "Teachers, fathers, sons, as well as grandfathers, mother's brothers, fathers-in-law, grandsons, brothers-in-law, and other relatives.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "2:36",
+      "text": "Many unseemly words will be spoken by thine enemies, slandering thy strength; what more painful than that?",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "75:13",
+      "text": "On that day man is told the tale of that which he hath sent before and left behind.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "114:4",
+      "text": "From the evil of the sneaking whisperer,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "24:24",
+      "text": "On the day when their tongues and their hands and their feet testify against them as to what they used to do,",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Psalms 15:3",
+      "text": "He that backbiteth not with his tongue, nor doeth evil to his neighbour, nor taketh up a reproach against his neighbour.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Jeremiah 9:4",
+      "text": "Take ye heed every one of his neighbour, and trust ye not in any brother: for every brother will utterly supplant, and every neighbour will walk with slanders.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Leviticus 19:16",
+      "text": "Thou shalt not go up and down as a talebearer among thy people: neither shalt thou stand against the blood of thy neighbour: I am the LORD.",
+      "in_answer_key": true
+     }
+    ]
+   }
+  },
+  {
+   "query": "I always want more stuff, I'm never satisfied with what I already have",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "6:30",
+      "text": "He who seeth Me everywhere, and seeth everything in Me, of him will I never lose hold, and he shall never lose hold of Me.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "16:13",
+      "text": "\"This to-day by me hath been won, that purpose I shall gain; this wealth is mine already, and also this shall be mine in future.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "3:17",
+      "text": "But the man who rejoiceth in the Self, with the Self is satisfied, and is content in the Self, for him verily there is nothing to do;",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "40:80",
+      "text": "(Many) benefits ye have from them - and that ye may satisfy by their means a need that is in your breasts, and may be borne upon them as upon the ship.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "5:113",
+      "text": "(They said:) We wish to eat thereof, that we may satisfy our hearts and know that thou hast spoken truth to us, and that thereof we may be witnesses.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "20:129",
+      "text": "And but for a decree that had already gone forth from thy Lord, and a term already fixed, the judgment would have been inevitable (in this world).",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Proverbs 30:15",
+      "text": "The horseleach hath two daughters, crying, Give, give. There are three things that are never satisfied, yea, four things say not, It is enough:",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Joel 2:26",
+      "text": "And ye shall eat in plenty, and be satisfied, and praise the name of the LORD your God, that hath dealt wondrously with you: and my people shall never be ashamed.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Philippians 3:12",
+      "text": "Not as though I had already attained, either were already perfect: but I follow after, if that I may apprehend that for which also I am apprehended of Christ Jesus.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "there's a guy at work who really doesn't like me and keeps trying to make me look bad",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "2:17",
+      "text": "Know That to be indestructible by whom all this is pervaded. Nor can any work the destruction of that imperishable One.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "17:21",
+      "text": "That given with a view to receiving in return, or looking for fruit again, or grudgingly, that alms is accounted of passion.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "18:16",
+      "text": "That being so, he verily who - owing to untrained Reason - looketh on his Self, which is isolated, as the actor, he of perverted intelligence, seeth not.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "45:21",
+      "text": "Or do those who commit ill-deeds suppose that We shall make them as those who believe and do good works, the same in life and death? Bad is their judgment!",
+      "in_answer_key": false
+     },
+     {
+      "ref": "14:26",
+      "text": "And the similitude of a bad saying is as a bad tree, uprooted from upon the earth, possessing no stability.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "37:54",
+      "text": "He saith: Will ye look?",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "James 1:3",
+      "text": "Knowing this, that the trying of your faith worketh patience.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Revelation 2:2",
+      "text": "I know thy works, and thy labour, and thy patience, and how thou canst not bear them which are evil: and thou hast tried them which say they are apostles, and are not, and hast found them liars:",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 66:10",
+      "text": "For thou, O God, hast proved us: thou hast tried us, as silver is tried.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "my boss criticized my work in front of the whole team and I'm so embarrassed",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "12:19",
+      "text": "Taking equally praise and reproach, silent, wholly content with what cometh, homeless, firm in mind, full of devotion, that man is dear to Me.",
+      "in_answer_key": true
+     },
+     {
+      "ref": "13:34",
+      "text": "As the one sun illumineth the whole earth, so the Lord of the Field illumineth the whole Field, O Bharata.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "14:24",
+      "text": "Balanced in pleasure and pain, self-reliant, to whom a lump of earth, a rock and gold are alike, the same to loved and unloved, firm, the same in censure and in praise,",
+      "in_answer_key": true
+     }
+    ],
+    "quran": [
+     {
+      "ref": "37:84",
+      "text": "When he came unto his Lord with a whole heart;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "39:75",
+      "text": "And thou (O Muhammad) seest the angels thronging round the Throne, hymning the praises of their Lord. And they are judged aright. And it is said: Praise be to Allah, the Lord of the Worlds!",
+      "in_answer_key": false
+     },
+     {
+      "ref": "26:13",
+      "text": "And I shall be embarrassed, and my tongue will not speak plainly, therefor send for Aaron (to help me).",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Isaiah 54:4",
+      "text": "Fear not; for thou shalt not be ashamed: neither be thou confounded; for thou shalt not be put to shame: for thou shalt forget the shame of thy youth, and shalt not remember the reproach of thy widowhood any more.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Isaiah 30:5",
+      "text": "They were all ashamed of a people that could not profit them, nor be an help nor profit, but a shame, and also a reproach.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Jeremiah 51:51",
+      "text": "We are confounded, because we have heard reproach: shame hath covered our faces: for strangers are come into the sanctuaries of the LORD's house.",
+      "in_answer_key": false
+     }
+    ]
+   }
+  },
+  {
+   "query": "everything seems to be going wrong for me this year and I really need some hope",
+   "split": "blind_test",
+   "category": "general",
+   "results": {
+    "gita": [
+     {
+      "ref": "1:10",
+      "text": "Yet insufficient seems this army of ours, though marshalled by Bhishma, while that army of theirs seems sufficient, though marshalled by Bhima;",
+      "in_answer_key": false
+     },
+     {
+      "ref": "7:2",
+      "text": "I will declare to thee this knowledge and wisdom in its completeness, which, having known, there is nothing more here needeth to be known.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "18:31",
+      "text": "That by which one understandeth away Right and Wrong and also what ought to be done and what ought not to be done, that Reason, O Partha, is passionate.",
+      "in_answer_key": false
+     }
+    ],
+    "quran": [
+     {
+      "ref": "79:13",
+      "text": "Surely it will need but one shout,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "26:205",
+      "text": "Hast thou then seen, if We content them for (long) years,",
+      "in_answer_key": false
+     },
+     {
+      "ref": "40:80",
+      "text": "(Many) benefits ye have from them - and that ye may satisfy by their means a need that is in your breasts, and may be borne upon them as upon the ship.",
+      "in_answer_key": false
+     }
+    ],
+    "bible": [
+     {
+      "ref": "Colossians 3:25",
+      "text": "But he that doeth wrong shall receive for the wrong which he hath done: and there is no respect of persons.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Genesis 29:20",
+      "text": "And Jacob served seven years for Rachel; and they seemed unto him but a few days, for the love he had to her.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "1 Corinthians 6:8",
+      "text": "Nay, ye do wrong, and defraud, and that your brethren.",
       "in_answer_key": false
      }
     ]

@@ -49,11 +49,22 @@ The artefacts total 7.55 MB. [search/FORMAT.md](search/FORMAT.md) describes them
 
 ### Benchmark
 
-[evals/search_cases.json](evals/search_cases.json) has 50 everyday situations ("my dad has cancer", "I can't forgive my brother"), each with hand-picked verses that fit, per book.
+[evals/search_cases.json](evals/search_cases.json) has 90 everyday situations ("my dad has cancer", "I can't forgive my brother"), each with hand-picked verses that fit, per book: 50 in "dev" and "dev2", and 40 in `blind_test`.
 
-**None of these numbers is a held-out result.** I saw both sets while writing the bridge and choosing the settings. The 17 "dev2" situations were first meant as a test set, but the bridge was written after those queries existed and covers many of their exact phrases. A fresh `blind_test` set, written by someone who has not seen the bridge, will be reported separately once it exists.
+**Only the blind test is a held-out result.** I saw the dev and dev2 sets while writing the bridge and choosing the settings. The 17 "dev2" situations were first meant as a test set, but the bridge was written after those queries existed and covers many of their exact phrases.
 
-Each number is the share of situation–book pairs whose hand-picked answer key has a verse in that book's top 10 (hit@10) or top 3, or the mean of 1 / rank of the first such verse (MRR). The 95% intervals come from a bootstrap that resamples whole situations. Blocklisted verses are never returned, as on the site, and 62 blocklisted verses were taken out of the answer keys.
+Each number is the share of situation–book pairs whose hand-picked answer key has a verse in that book's top 10 (hit@10) or top 3, or the mean of 1 / rank of the first such verse (MRR). The 95% intervals come from a bootstrap that resamples whole situations. Blocklisted verses are never returned, as on the site, so blocklisted verses were taken out of the answer keys (62 in dev and dev2, 21 in the blind test).
+
+Blind test (40 situations, 113 pairs). The situations and their answer keys were written by an independent reviewer, not the author, who had not seen the bridge, the lexicon, the safety lists or the dev cases, and the bridge was not changed afterwards:
+
+| Method | Gita hit@10 | Quran hit@10 | Bible hit@10 | All hit@3 | All hit@10 (95% CI) | All MRR (95% CI) |
+|---|---|---|---|---|---|---|
+| Random order | 0.09 | 0.02 | 0.01 | 0.01 | 0.03 (0.03–0.04) | 0.02 (0.02–0.02) |
+| BM25, no bridge | 0.21 | 0.10 | 0.08 | 0.04 | 0.12 (0.06–0.20) | 0.04 (0.02–0.06) |
+| **BM25 + bridge (used on the site)** | 0.45 | 0.33 | 0.53 | 0.23 | 0.43 (0.34–0.52) | 0.23 (0.16–0.30) |
+| Vectors, no bridge | 0.30 | 0.05 | 0.15 | 0.04 | 0.16 (0.08–0.25) | 0.05 (0.03–0.08) |
+| Vectors + bridge | 0.45 | 0.35 | 0.38 | 0.23 | 0.39 (0.28–0.50) | 0.20 (0.14–0.26) |
+| Hybrid (BM25 + vectors) | 0.64 | 0.35 | 0.53 | 0.28 | 0.50 (0.40–0.60) | 0.25 (0.18–0.31) |
 
 Dev (33 situations, 95 pairs):
 
@@ -79,6 +90,7 @@ Dev2 (17 situations, 51 pairs; formerly called "test", not held out):
 
 What this says:
 
+- **On unseen situations the site finds a fitting verse in the top 10 for 43% of pairs, not about 60%.** The drop from dev (0.64) to the blind test (0.43) is what to expect when the bridge was written with the dev queries in view (the blind answer keys also come from a different person); the blind number is the one to quote.
 - **The hand-written bridge is what makes modern questions work.** Without it, a fitting verse is in the top 10 only 16–24% of the time; with it, about 60%.
 - **The site uses BM25 + bridge, not the hybrid.** Over all 50 dev situations, the hybrid minus BM25 + bridge is +0.021 hit@10 (95% interval -0.034 to +0.077) and +0.033 MRR (-0.019 to +0.079). That is no measurable gain, so the simpler method is used. (In the first version of this PR, the hybrid was even the worst of the three bridged methods on dev2 hit@10; now it ties BM25 + bridge there.)
 - **Vectors alone are the weakest bridged method.** The hybrid beats vectors + bridge by +0.082 hit@10 (+0.028 to +0.144).
