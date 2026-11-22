@@ -1,0 +1,1637 @@
+{
+ "_about": "Hand-written safety data for situational search. 'crisis' phrases: the search returns no verses (the site shows help instead). 'sensitive' phrases: the search returns only verses from the hand-picked 'gentle' set. 'block': verses matching these patterns are never returned for a visitor's situation (they stay in the data); 'keep' lists verses that match a pattern only incidentally and are kept, with the reason. Phrases are matched on whole words of the query after the same lower-casing and contraction rules as search; a trailing * matches any word starting with that prefix.",
+ "crisis": {
+  "suicide": [
+   "suicid*",
+   "suicde",
+   "sucide",
+   "suiside",
+   "suicied",
+   "kill myself",
+   "killing myself",
+   "kill my self",
+   "kms",
+   "kys",
+   "end my life",
+   "ending my life",
+   "end it all",
+   "ending it all",
+   "end my own life",
+   "take my own life",
+   "take my life",
+   "taking my life",
+   "want to die",
+   "wanna die",
+   "wish i was dead",
+   "wish i were dead",
+   "wish i was never born",
+   "wish i had never been born",
+   "better off dead",
+   "better off without me",
+   "no reason to live",
+   "nothing to live for",
+   "not want to live",
+   "not want to be alive",
+   "not want to be here anymore",
+   "tired of living",
+   "overdose",
+   "hang myself",
+   "jump off a bridge",
+   "slit my wrists",
+   "unalive",
+   "die by suicide",
+   "took my own life",
+   "taking my own life"
+  ],
+  "self_harm": [
+   "cutting myself",
+   "cut myself",
+   "cuts myself",
+   "cutting my arms",
+   "cutting my wrists",
+   "hurt myself",
+   "hurting myself",
+   "harm myself",
+   "harming myself",
+   "self harm",
+   "selfharm",
+   "self harming",
+   "burn myself",
+   "burning myself",
+   "starve myself",
+   "starving myself",
+   "punish myself",
+   "punishing myself"
+  ],
+  "abuse": [
+   "he|she|husband|wife|boyfriend|girlfriend|partner|fiance|dad|father|mom|mum|mother|stepfather|stepdad|stepmother|stepmom|parents|brother|sister|uncle|aunt|grandfather|teacher|coach|boss|son|daughter hits|hit|beats|beat|slaps|slapped|punches|punched|kicks|kicked|chokes|choked|strangled|hurts|abuses|abused|threatens|threatened|rapes|raped|touches|touched me",
+   "he|she|husband|wife|boyfriend|girlfriend|partner|fiance|dad|father|mom|mum|mother|stepfather|stepdad|stepmother|stepmom|parents|brother|sister|uncle|aunt|grandfather|teacher|coach|boss|son|daughter hits|hit|beats|beat|slaps|slapped|punches|punched|kicks|kicked|chokes|choked|strangled|hurts|abuses|abused|threatens|threatened|rapes|raped|touches|touched us",
+   "beaten by",
+   "abused as a child",
+   "abused me",
+   "abuses me",
+   "abusing me",
+   "abusive",
+   "domestic violence",
+   "domestic abuse",
+   "afraid of my husband|wife|partner|father|dad|mother|mom|boyfriend|girlfriend|stepfather|stepdad|parents",
+   "scared of my husband|wife|partner|father|dad|mother|mom|boyfriend|girlfriend|stepfather|stepdad|parents",
+   "afraid|scared to go home",
+   "threatens|threatened to kill",
+   "will not let me leave",
+   "locks me in",
+   "husband|wife|partner|boyfriend|girlfriend|fiance|father|dad|parents will not let me"
+  ],
+  "sexual_violence": [
+   "rape*",
+   "raping",
+   "sexually abused",
+   "sexual abuse",
+   "sexually assaulted",
+   "sexual assault",
+   "assaulted me",
+   "molest*",
+   "touched me inappropriately",
+   "groomed me",
+   "incest"
+  ],
+  "harm_to_others": [
+   "hit|beat|beating|hitting|spank|spanking|smack|smacking|slap|slapping|hurt|hurting|shake|shaking|punish|punishing my|our|the child|children|kid|kids|son|sons|daughter|daughters|baby|toddler",
+   "hit|beat|hurt|slap my wife|husband|partner|girlfriend|boyfriend",
+   "spank*",
+   "shake my baby",
+   "want|going|wanna|tempted to hurt|kill|stab|shoot him|her|them|someone|somebody|people|my",
+   "hurt someone",
+   "kill him",
+   "kill her",
+   "kill them",
+   "kill someone",
+   "murder*",
+   "shoot up",
+   "school shooting"
+  ]
+ },
+ "sensitive": {
+  "sexuality_gender": [
+   "gay",
+   "lesbian",
+   "bisexual",
+   "queer",
+   "lgbt*",
+   "homosexual*",
+   "transgender",
+   "trans",
+   "nonbinary",
+   "non binary",
+   "same sex",
+   "coming out",
+   "came out as",
+   "my sexuality",
+   "sexual orientation",
+   "gender identity",
+   "dysphoria"
+  ],
+  "abortion": [
+   "abortion*",
+   "aborted",
+   "terminate my pregnancy",
+   "terminated my pregnancy",
+   "terminating my pregnancy"
+  ],
+  "pregnancy": [
+   "pregnant and not married",
+   "unmarried and pregnant",
+   "pregnant out of wedlock",
+   "teen pregnancy"
+  ],
+  "pregnancy_loss": [
+   "miscarriage",
+   "miscarried",
+   "stillborn",
+   "stillbirth",
+   "baby died",
+   "lost my baby",
+   "lost the baby"
+  ],
+  "disability": [
+   "disabled",
+   "disability",
+   "disabilities",
+   "wheelchair",
+   "blind",
+   "deaf",
+   "autism",
+   "autistic",
+   "down syndrome",
+   "paralyzed",
+   "paralysed",
+   "amputee",
+   "dyslexia",
+   "dyslexic",
+   "adhd",
+   "mute"
+  ],
+  "race_ethnicity": [
+   "racism",
+   "racist",
+   "racial",
+   "my race",
+   "black",
+   "white people",
+   "asian",
+   "hispanic",
+   "latino",
+   "latina",
+   "arab",
+   "ethnic*",
+   "skin color",
+   "skin colour",
+   "discrimination",
+   "discriminated",
+   "segregation"
+  ],
+  "religion_identity": [
+   "jewish",
+   "jew",
+   "jews",
+   "judaism",
+   "muslim",
+   "muslims",
+   "islam",
+   "islamic",
+   "christian",
+   "christians",
+   "christianity",
+   "catholic",
+   "protestant",
+   "hindu",
+   "hindus",
+   "hinduism",
+   "sikh",
+   "buddhist",
+   "buddhism",
+   "atheist",
+   "atheists",
+   "atheism",
+   "agnostic",
+   "pagan",
+   "mormon",
+   "another faith",
+   "other faith",
+   "other religions",
+   "another religion",
+   "different religion",
+   "different faith",
+   "interfaith",
+   "convert",
+   "converting",
+   "converted",
+   "conversion",
+   "synagogue"
+  ],
+  "eating_body": [
+   "eating disorder",
+   "anorexi*",
+   "bulimi*",
+   "binge eating",
+   "purging",
+   "lose weight",
+   "losing weight",
+   "weight loss",
+   "too fat",
+   "so fat",
+   "i am fat",
+   "overweight",
+   "body image",
+   "hate my body"
+  ],
+  "addiction_relapse": [
+   "relapse*",
+   "relapsing",
+   "rehab",
+   "in recovery",
+   "sober for",
+   "overdosed"
+  ],
+  "bereavement_spouse": [
+   "widow",
+   "widowed",
+   "widower",
+   "my husband died",
+   "my wife died",
+   "lost my husband",
+   "lost my wife"
+  ]
+ },
+ "gentle": {
+  "bible": [
+   [
+    "Psalms 139:14",
+    "Fearfully and wonderfully made: worth and dignity"
+   ],
+   [
+    "1 John 4:16",
+    "God is love"
+   ],
+   [
+    "Galatians 3:28",
+    "All are one: no division of people"
+   ],
+   [
+    "Psalms 34:18",
+    "God is near the broken-hearted"
+   ],
+   [
+    "Isaiah 41:10",
+    "Do not fear, I am with you"
+   ],
+   [
+    "Psalms 23:1",
+    "The Lord as a shepherd who provides"
+   ],
+   [
+    "Psalms 23:4",
+    "Not alone even in the darkest valley"
+   ],
+   [
+    "Psalms 147:3",
+    "He heals the broken in heart"
+   ],
+   [
+    "Psalms 46:1",
+    "God as refuge and help in trouble"
+   ],
+   [
+    "Psalms 27:1",
+    "Whom shall I fear"
+   ],
+   [
+    "Psalms 121:2",
+    "Help comes from the Lord"
+   ],
+   [
+    "Psalms 103:8",
+    "Merciful, gracious, slow to anger"
+   ],
+   [
+    "Psalms 145:9",
+    "The Lord is good to all"
+   ],
+   [
+    "Psalms 55:22",
+    "Cast your burden on the Lord"
+   ],
+   [
+    "Psalms 30:5",
+    "Joy comes in the morning"
+   ],
+   [
+    "Isaiah 40:31",
+    "Strength renewed for the weary"
+   ],
+   [
+    "Isaiah 43:2",
+    "Through the waters I will be with you"
+   ],
+   [
+    "Isaiah 49:15",
+    "I will not forget you"
+   ],
+   [
+    "Isaiah 54:10",
+    "My kindness shall not depart from you"
+   ],
+   [
+    "Isaiah 61:1",
+    "Binding up the broken-hearted"
+   ],
+   [
+    "Matthew 5:4",
+    "Those who mourn shall be comforted"
+   ],
+   [
+    "Matthew 5:7",
+    "Blessed are the merciful"
+   ],
+   [
+    "Matthew 11:28",
+    "Come, all who are weary, and find rest"
+   ],
+   [
+    "Matthew 22:39",
+    "Love your neighbour as yourself"
+   ],
+   [
+    "Luke 6:31",
+    "Treat others as you would be treated"
+   ],
+   [
+    "Luke 6:36",
+    "Be merciful"
+   ],
+   [
+    "John 13:34",
+    "Love one another"
+   ],
+   [
+    "John 14:27",
+    "Peace I leave with you"
+   ],
+   [
+    "Romans 8:38",
+    "Nothing can separate us (1)"
+   ],
+   [
+    "Romans 8:39",
+    "Nothing can separate us from love (2)"
+   ],
+   [
+    "Romans 12:15",
+    "Weep with those who weep"
+   ],
+   [
+    "1 Corinthians 13:4",
+    "Love is patient and kind"
+   ],
+   [
+    "Galatians 6:2",
+    "Bear one another's burdens"
+   ],
+   [
+    "Ephesians 4:32",
+    "Be kind and tender-hearted"
+   ],
+   [
+    "1 John 4:18",
+    "Love casts out fear"
+   ],
+   [
+    "Lamentations 3:22",
+    "His compassions fail not"
+   ],
+   [
+    "Micah 6:8",
+    "Do justly, love mercy, walk humbly"
+   ],
+   [
+    "1 Samuel 16:7",
+    "God looks on the heart, not the appearance"
+   ],
+   [
+    "Deuteronomy 31:8",
+    "He will not fail you or forsake you"
+   ],
+   [
+    "Leviticus 19:34",
+    "Love the stranger as yourself"
+   ],
+   [
+    "1 Peter 5:7",
+    "He cares for you"
+   ],
+   [
+    "Philippians 4:6",
+    "Bring every worry in prayer"
+   ]
+  ],
+  "quran": [
+   [
+    "49:13",
+    "Nations and tribes made to know one another"
+   ],
+   [
+    "17:70",
+    "God has honoured the children of Adam"
+   ],
+   [
+    "93:3",
+    "Your Lord has not forsaken you"
+   ],
+   [
+    "2:286",
+    "No soul is burdened beyond what it can bear"
+   ],
+   [
+    "94:5",
+    "With hardship comes ease"
+   ],
+   [
+    "94:6",
+    "With hardship comes ease (repeated)"
+   ],
+   [
+    "93:4",
+    "What is to come is better"
+   ],
+   [
+    "93:5",
+    "You will be content"
+   ],
+   [
+    "39:53",
+    "Do not despair of mercy; all sins forgiven"
+   ],
+   [
+    "13:28",
+    "Hearts find rest in the remembrance of God"
+   ],
+   [
+    "2:186",
+    "I am near; I answer the one who calls"
+   ],
+   [
+    "50:16",
+    "Nearer than the jugular vein"
+   ],
+   [
+    "2:256",
+    "No compulsion in religion"
+   ],
+   [
+    "95:4",
+    "Created in the best of forms"
+   ],
+   [
+    "15:56",
+    "Only those astray despair of mercy"
+   ],
+   [
+    "65:3",
+    "Whoever trusts God, He suffices"
+   ],
+   [
+    "2:153",
+    "God is with the patient"
+   ],
+   [
+    "16:90",
+    "Justice and kindness"
+   ],
+   [
+    "41:34",
+    "Repel evil with what is better"
+   ],
+   [
+    "3:134",
+    "Those who restrain anger and forgive"
+   ],
+   [
+    "24:22",
+    "Forgive and overlook"
+   ],
+   [
+    "42:43",
+    "Patience and forgiveness"
+   ],
+   [
+    "30:21",
+    "Love and mercy between spouses"
+   ],
+   [
+    "76:8",
+    "Feeding the needy, the orphan and the prisoner"
+   ],
+   [
+    "20:46",
+    "Fear not, I am with you"
+   ],
+   [
+    "7:56",
+    "The mercy of God is near"
+   ],
+   [
+    "6:54",
+    "Your Lord has prescribed mercy for Himself"
+   ],
+   [
+    "2:83",
+    "Be good to parents, kin, orphans; speak kindly"
+   ],
+   [
+    "4:36",
+    "Kindness to parents, neighbours and strangers"
+   ],
+   [
+    "2:263",
+    "A kind word is better than charity with hurt"
+   ],
+   [
+    "3:159",
+    "Gentleness, not harshness"
+   ],
+   [
+    "57:23",
+    "Do not grieve over loss or exult over gain"
+   ],
+   [
+    "25:63",
+    "Answer the foolish with peace"
+   ],
+   [
+    "11:115",
+    "Patience: good is never lost"
+   ],
+   [
+    "16:97",
+    "A good life for whoever does right, man or woman"
+   ]
+  ],
+  "gita": [
+   [
+    "9:29",
+    "The same to all beings; none is hateful to Me"
+   ],
+   [
+    "6:30",
+    "I will never lose hold of him"
+   ],
+   [
+    "12:13",
+    "Friendly and compassionate, without ill-will"
+   ],
+   [
+    "6:32",
+    "Feeling others' joy and pain as one's own"
+   ],
+   [
+    "2:14",
+    "Pleasure and pain come and go; endure them"
+   ],
+   [
+    "2:47",
+    "Act without anxiety over the fruits"
+   ],
+   [
+    "2:48",
+    "Balanced in success and failure"
+   ],
+   [
+    "2:56",
+    "A mind free from anxiety amid pain"
+   ],
+   [
+    "2:65",
+    "In peace all pains are ended"
+   ],
+   [
+    "2:70",
+    "Peace like the ocean that is unmoved"
+   ],
+   [
+    "2:71",
+    "Free from craving, one goes to peace"
+   ],
+   [
+    "5:25",
+    "Intent on the welfare of all beings"
+   ],
+   [
+    "5:29",
+    "The Lover of all beings"
+   ],
+   [
+    "6:5",
+    "Raise yourself up; do not let yourself sink"
+   ],
+   [
+    "6:9",
+    "Impartial to friends, strangers, foreigners"
+   ],
+   [
+    "6:29",
+    "Seeing the Self in all beings"
+   ],
+   [
+    "9:22",
+    "I bring full security"
+   ],
+   [
+    "9:26",
+    "A leaf, a flower, offered with love, is accepted"
+   ],
+   [
+    "9:30",
+    "Even the most sinful can be counted righteous"
+   ],
+   [
+    "9:31",
+    "My devotee never perishes"
+   ],
+   [
+    "12:14",
+    "Ever content; dear to Me"
+   ],
+   [
+    "12:15",
+    "Free from anxieties of fear and anger"
+   ],
+   [
+    "12:18",
+    "Alike to friend and foe"
+   ],
+   [
+    "13:28",
+    "The Lord seated equally in all beings"
+   ],
+   [
+    "16:1",
+    "Fearlessness and giving"
+   ],
+   [
+    "16:2",
+    "Harmlessness, compassion, gentleness"
+   ],
+   [
+    "16:3",
+    "Forgiveness, fortitude, no envy or pride"
+   ],
+   [
+    "18:66",
+    "Come to Me for shelter; do not grieve"
+   ],
+   [
+    "4:36",
+    "Even the greatest sinner can cross over"
+   ],
+   [
+    "10:20",
+    "I am seated in the heart of all beings"
+   ],
+   [
+    "18:61",
+    "The Lord dwells in the hearts of all"
+   ],
+   [
+    "6:40",
+    "No one who does good comes to ruin"
+   ],
+   [
+    "17:15",
+    "Kind, truthful, helpful speech"
+   ],
+   [
+    "18:62",
+    "Take shelter and find peace"
+   ]
+  ]
+ },
+ "block": {
+  "patterns": [
+   {
+    "name": "killing and violence",
+    "regex": "\\b(slay\\w*|slew|slain|slaughter\\w*|smite\\w*|smote|smitten|kill|kills|killed|killeth|killing|murder\\w*|swords?|spears?|massacre\\w*|behead\\w*|crucif\\w*|stoned|stones? of (heated )?clay|dash\\w* in pieces|ripped up|cut (them|him|her) in pieces|hew\\w* (him|them) in pieces|wounded|blood\\w*|cut off (his|her|their|your|the)? ?(hands?|feet|heads?|necks?|ears?|noses?))\\b"
+   },
+   {
+    "name": "curses, hell, punishment and vengeance",
+    "regex": "\\b(curse\\w*|cursing|accursed|hell\\w*|the fire\\b|fire of|everlasting fire|lake of fire|brimstone|flam\\w*|scorch\\w*|burning fire|fire will|fire shall|consuming fire|devour\\w*|burn\\w* (them )?up|torment\\w*|doom\\w*|chastise\\w*|chastisement|punish\\w*|vengeance|avenge\\w*|revenge\\w*|damnation|damned|perdition|plagues?|plagued|(god's|his|my|mine|thy|the) wrath|wrath of|day of wrath|fierce anger|visiting the iniquity|utterly destroy\\w*|destroy (them|you|thee|him)|consume (them|you|thee))\\b"
+   },
+   {
+    "name": "sexual content, sexual violence and incest",
+    "regex": "\\b(whore\\w*|harlot\\w*|fornicat\\w*|adulteress\\w*|sodomites?|lie with|lay with|lain with|lien with|nakedness|ravish\\w*|rape\\w*|humbled her|forced her|incest\\w*|concubines?|went in unto|go in unto|came in unto|with child by|lusted after|privy|emerods|whoredoms?)\\b"
+   },
+   {
+    "name": "bodily horror",
+    "regex": "\\b(bowels|dung|vomit\\w*|maggots?|leprosy|lepers?|leprous|issue of (her )?blood|running issue|menstru\\w*|eunuchs?|circumcis\\w*|uncircumcised|foreskins?|buried alive|carcas\\w*|dead bodies|skulls?|scabs?|boils|botch|flesh of (his|their|your|thy) (sons|daughters)|eat (the|their) (own )?(children|sons|flesh))\\b"
+   },
+   {
+    "name": "polemic against another faith or people",
+    "regex": "\\b(jews?|jewish|christians?|nazarenes?|idolat\\w*|idols?|disbeliev\\w*|unbeliev\\w*|unbelief|those who believe not|believe not in|sendeth astray|leadeth astray|wrong-?doers|evil-?doers|infidels?|hypocrit\\w*|heathens?|gentiles|pagans?|people of the scripture|rabbis|monks|philistines?|canaanit\\w*|amalek\\w*|amorites?|edomites?|moabites?|ammonites?|egyptians?|samaritans?|pharisees|sadducees|polytheists?|ascribe partners|partners (unto|with|to) (him|allah)|false (gods|deities)|other gods|strange gods|graven images?|sorcer\\w*|witch\\w*|demons?|devils?|demoniac\\w*)\\b"
+   },
+   {
+    "name": "slavery and caste",
+    "regex": "\\b(slaves?|bondm[ae]n|bondmaids?|bondwom[ae]n|handmaids?|maidservants?|menservants?|servants? for ever|bought with (his )?money|right hands? possess\\w*|captives?|captivity|castes?|caste-\\w+|shudras?|sudras?|vaishyas?|outcastes?|chandalas?)\\b"
+   },
+   {
+    "name": "punishment law",
+    "regex": "\\b(put to death|surely die|be stoned|stoning|scourg\\w*|stripes|lashes|flog\\w*|retaliation|eye for (an )?eye|tooth for (a )?tooth|hand for hand|life for (the )?life|hanged|hang (him|them)|gallows)\\b"
+   },
+   {
+    "name": "people likened to animals",
+    "regex": "\\b(dogs?|swine|apes)\\b"
+   },
+   {
+    "name": "hatred",
+    "regex": "\\b(hate|hated|hateth|hatest|hateful|hatred|abhor\\w*|abominations?|enmity)\\b"
+   },
+   {
+    "name": "disability as an insult",
+    "regex": "(?=.*\\b(deaf|dumb|blind)\\b)(?=.*\\b(disbeliev\\w*|unbelie\\w*|astray|hell|fire|wrong-?doers|evil-?doers|return not|understand not|perceive not|wicked)\\b)"
+   },
+   {
+    "name": "skin colour as a sign of shame",
+    "regex": "\\b(faces?|countenances?)\\b[^.;]{0,40}\\bblack\\w*|\\bblack\\w*[^.;]{0,40}\\b(faces?|countenances?)\\b"
+   },
+   {
+    "name": "subordination of women",
+    "regex": "\\b(submit yourselves unto your own husbands|obedient to their own husbands|women keep silence|suffer not a woman|weaker vessel|bound by the law to (her|his) husband|thy desire shall be to thy husband|he shall rule over thee|men are in charge of women|admonish them|banish them to beds)\\b"
+   },
+   {
+    "name": "war and conquest",
+    "regex": "\\b(fight (them|against them|in the way)|warfare is ordained|smite the necks|go forth to war|destroyed all that breathed|left none remaining|devoted to destruction)\\b"
+   },
+   {
+    "name": "hell as 'the Fire' (capitalised in Pickthall)",
+    "regex": "\\bFire\\b",
+    "ignore_case": false
+   }
+  ],
+  "refs": [
+   {
+    "book": "bible",
+    "from": "Psalms 109:6",
+    "to": "Psalms 109:20",
+    "reason": "imprecatory psalm (curses on an enemy and his family)"
+   },
+   {
+    "book": "bible",
+    "from": "Psalms 137:7",
+    "to": "Psalms 137:9",
+    "reason": "imprecation against Babylon's children"
+   },
+   {
+    "book": "bible",
+    "from": "Psalms 58:6",
+    "to": "Psalms 58:10",
+    "reason": "imprecatory psalm"
+   },
+   {
+    "book": "bible",
+    "from": "Psalms 69:22",
+    "to": "Psalms 69:28",
+    "reason": "imprecatory psalm"
+   },
+   {
+    "book": "bible",
+    "from": "Romans 7:2",
+    "to": "Romans 7:3",
+    "reason": "a wife bound to her husband by law"
+   },
+   {
+    "book": "bible",
+    "from": "Genesis 19:30",
+    "to": "Genesis 19:38",
+    "reason": "incest"
+   },
+   {
+    "book": "bible",
+    "from": "Ezekiel 16:15",
+    "to": "Ezekiel 16:41",
+    "reason": "graphic sexual imagery and punishment"
+   },
+   {
+    "book": "bible",
+    "from": "Ezekiel 23:1",
+    "to": "Ezekiel 23:49",
+    "reason": "graphic sexual imagery and punishment"
+   },
+   {
+    "book": "bible",
+    "from": "Judges 19:22",
+    "to": "Judges 19:30",
+    "reason": "sexual violence"
+   },
+   {
+    "book": "bible",
+    "from": "2 Samuel 13:1",
+    "to": "2 Samuel 13:22",
+    "reason": "sexual violence"
+   },
+   {
+    "book": "bible",
+    "from": "Deuteronomy 21:18",
+    "to": "Deuteronomy 21:21",
+    "reason": "execution of a rebellious son"
+   },
+   {
+    "book": "bible",
+    "from": "Deuteronomy 22:13",
+    "to": "Deuteronomy 22:30",
+    "reason": "punishment and marriage laws about women"
+   },
+   {
+    "book": "bible",
+    "from": "Leviticus 18:6",
+    "to": "Leviticus 18:23",
+    "reason": "sexual and incest laws"
+   },
+   {
+    "book": "bible",
+    "from": "Leviticus 20:9",
+    "to": "Leviticus 20:21",
+    "reason": "death penalties"
+   },
+   {
+    "book": "bible",
+    "from": "1 Timothy 2:11",
+    "to": "1 Timothy 2:15",
+    "reason": "subordination of women"
+   },
+   {
+    "book": "bible",
+    "from": "1 Corinthians 14:34",
+    "to": "1 Corinthians 14:35",
+    "reason": "subordination of women"
+   },
+   {
+    "book": "bible",
+    "from": "Ephesians 5:22",
+    "to": "Ephesians 5:24",
+    "reason": "subordination of wives"
+   },
+   {
+    "book": "bible",
+    "from": "Colossians 3:18",
+    "to": "Colossians 3:18",
+    "reason": "subordination of wives"
+   },
+   {
+    "book": "bible",
+    "from": "Titus 1:10",
+    "to": "Titus 1:16",
+    "reason": "polemic against a group"
+   },
+   {
+    "book": "bible",
+    "from": "Proverbs 23:13",
+    "to": "Proverbs 23:14",
+    "reason": "beating a child"
+   },
+   {
+    "book": "bible",
+    "from": "Proverbs 13:24",
+    "to": "Proverbs 13:24",
+    "reason": "beating a child"
+   },
+   {
+    "book": "bible",
+    "from": "Proverbs 22:15",
+    "to": "Proverbs 22:15",
+    "reason": "beating a child"
+   },
+   {
+    "book": "bible",
+    "from": "Proverbs 29:15",
+    "to": "Proverbs 29:15",
+    "reason": "beating a child"
+   },
+   {
+    "book": "bible",
+    "from": "Lamentations 4:10",
+    "to": "Lamentations 4:10",
+    "reason": "cannibalism of children"
+   },
+   {
+    "book": "quran",
+    "from": "4:34",
+    "to": "4:34",
+    "reason": "subordination and striking of wives"
+   },
+   {
+    "book": "quran",
+    "from": "5:51",
+    "to": "5:51",
+    "reason": "polemic against other faiths"
+   },
+   {
+    "book": "quran",
+    "from": "9:5",
+    "to": "9:5",
+    "reason": "war"
+   },
+   {
+    "book": "quran",
+    "from": "9:29",
+    "to": "9:30",
+    "reason": "war and polemic"
+   },
+   {
+    "book": "quran",
+    "from": "4:15",
+    "to": "4:16",
+    "reason": "punishment law"
+   },
+   {
+    "book": "quran",
+    "from": "24:2",
+    "to": "24:3",
+    "reason": "punishment law"
+   },
+   {
+    "book": "quran",
+    "from": "81:8",
+    "to": "81:9",
+    "reason": "infanticide"
+   },
+   {
+    "book": "quran",
+    "from": "16:58",
+    "to": "16:59",
+    "reason": "infanticide and shame at a daughter's birth"
+   },
+   {
+    "book": "quran",
+    "from": "43:17",
+    "to": "43:17",
+    "reason": "shame at a daughter's birth"
+   },
+   {
+    "book": "quran",
+    "from": "17:72",
+    "to": "17:72",
+    "reason": "blindness as punishment"
+   },
+   {
+    "book": "quran",
+    "from": "2:18",
+    "to": "2:18",
+    "reason": "disability as insult"
+   },
+   {
+    "book": "quran",
+    "from": "2:171",
+    "to": "2:171",
+    "reason": "disability as insult"
+   },
+   {
+    "book": "quran",
+    "from": "47:4",
+    "to": "47:4",
+    "reason": "war"
+   },
+   {
+    "book": "quran",
+    "from": "8:12",
+    "to": "8:12",
+    "reason": "war"
+   },
+   {
+    "book": "gita",
+    "from": "1:40",
+    "to": "1:44",
+    "reason": "caste and women's purity"
+   },
+   {
+    "book": "gita",
+    "from": "9:32",
+    "to": "9:32",
+    "reason": "women and castes called low-born"
+   },
+   {
+    "book": "gita",
+    "from": "16:19",
+    "to": "16:20",
+    "reason": "casting the hateful into demoniac wombs"
+   },
+   {
+    "book": "gita",
+    "from": "18:41",
+    "to": "18:44",
+    "reason": "caste duties"
+   },
+   {
+    "book": "gita",
+    "from": "11:26",
+    "to": "11:30",
+    "reason": "warriors crushed in God's teeth"
+   },
+   {
+    "book": "gita",
+    "from": "11:32",
+    "to": "11:34",
+    "reason": "God as destroyer of the armies; 'conquer thy foes'"
+   }
+  ],
+  "keep": [
+   {
+    "book": "bible",
+    "ref": "1 Corinthians 6:18",
+    "why": "plain advice against sexual sin, not graphic"
+   },
+   {
+    "book": "bible",
+    "ref": "1 John 3:17",
+    "why": "\"bowels of compassion\" means kindness"
+   },
+   {
+    "book": "bible",
+    "ref": "1 John 4:18",
+    "why": "love casts out fear; \"torment\" is fear's"
+   },
+   {
+    "book": "bible",
+    "ref": "1 Thessalonians 4:3",
+    "why": "plain advice, not graphic"
+   },
+   {
+    "book": "bible",
+    "ref": "1 Thessalonians 4:6",
+    "why": "advice not to wrong a brother"
+   },
+   {
+    "book": "bible",
+    "ref": "1 Timothy 6:9",
+    "why": "warning about the love of riches"
+   },
+   {
+    "book": "bible",
+    "ref": "Colossians 3:5",
+    "why": "plain advice, not graphic"
+   },
+   {
+    "book": "bible",
+    "ref": "Deuteronomy 25:16",
+    "why": "about honest dealing"
+   },
+   {
+    "book": "bible",
+    "ref": "Exodus 20:17",
+    "why": "the commandment against coveting"
+   },
+   {
+    "book": "bible",
+    "ref": "Galatians 3:28",
+    "why": "all people are one: the opposite of polemic"
+   },
+   {
+    "book": "bible",
+    "ref": "Galatians 5:21",
+    "why": "a list of vices, not violence"
+   },
+   {
+    "book": "bible",
+    "ref": "Hebrews 10:30",
+    "why": "leave vengeance to God: advice against revenge"
+   },
+   {
+    "book": "bible",
+    "ref": "Hebrews 13:4",
+    "why": "marriage is honourable"
+   },
+   {
+    "book": "bible",
+    "ref": "Isaiah 2:4",
+    "why": "swords into ploughshares: peace"
+   },
+   {
+    "book": "bible",
+    "ref": "Isaiah 43:2",
+    "why": "God is with you through water and fire"
+   },
+   {
+    "book": "bible",
+    "ref": "Isaiah 53:5",
+    "why": "healing through suffering"
+   },
+   {
+    "book": "bible",
+    "ref": "Isaiah 61:1",
+    "why": "liberty for captives, comfort for the broken-hearted"
+   },
+   {
+    "book": "bible",
+    "ref": "James 1:20",
+    "why": "human anger does not bring righteousness"
+   },
+   {
+    "book": "bible",
+    "ref": "James 3:6",
+    "why": "warning about harmful speech"
+   },
+   {
+    "book": "bible",
+    "ref": "Job 13:15",
+    "why": "trust even in suffering"
+   },
+   {
+    "book": "bible",
+    "ref": "Leviticus 19:16",
+    "why": "against slander"
+   },
+   {
+    "book": "bible",
+    "ref": "Leviticus 19:18",
+    "why": "do not take revenge; love your neighbour"
+   },
+   {
+    "book": "bible",
+    "ref": "Luke 6:27",
+    "why": "love your enemies"
+   },
+   {
+    "book": "bible",
+    "ref": "Luke 6:28",
+    "why": "bless those who curse you"
+   },
+   {
+    "book": "bible",
+    "ref": "Mark 9:24",
+    "why": "help my unbelief: honest doubt"
+   },
+   {
+    "book": "bible",
+    "ref": "Matthew 26:52",
+    "why": "put away the sword: against violence"
+   },
+   {
+    "book": "bible",
+    "ref": "Matthew 5:38",
+    "why": "the saying that Jesus answers with \"turn the other cheek\""
+   },
+   {
+    "book": "bible",
+    "ref": "Matthew 5:39",
+    "why": "turn the other cheek"
+   },
+   {
+    "book": "bible",
+    "ref": "Matthew 5:44",
+    "why": "love your enemies"
+   },
+   {
+    "book": "bible",
+    "ref": "Matthew 6:2",
+    "why": "give without show"
+   },
+   {
+    "book": "bible",
+    "ref": "Matthew 6:24",
+    "why": "no one can serve two masters"
+   },
+   {
+    "book": "bible",
+    "ref": "Matthew 6:32",
+    "why": "God knows what you need"
+   },
+   {
+    "book": "bible",
+    "ref": "Micah 4:3",
+    "why": "swords into ploughshares: peace"
+   },
+   {
+    "book": "bible",
+    "ref": "Proverbs 11:1",
+    "why": "honest weights"
+   },
+   {
+    "book": "bible",
+    "ref": "Proverbs 11:3",
+    "why": "integrity guides the upright"
+   },
+   {
+    "book": "bible",
+    "ref": "Proverbs 12:22",
+    "why": "truthfulness"
+   },
+   {
+    "book": "bible",
+    "ref": "Proverbs 20:23",
+    "why": "honest weights"
+   },
+   {
+    "book": "bible",
+    "ref": "Proverbs 26:20",
+    "why": "gossip feeds strife"
+   },
+   {
+    "book": "bible",
+    "ref": "Proverbs 6:16",
+    "why": "list of what God dislikes: pride, lies"
+   },
+   {
+    "book": "bible",
+    "ref": "Proverbs 6:17",
+    "why": "list of what God dislikes: pride, lies"
+   },
+   {
+    "book": "bible",
+    "ref": "Psalms 139:8",
+    "why": "God is everywhere, even in the depths"
+   },
+   {
+    "book": "bible",
+    "ref": "Psalms 46:10",
+    "why": "be still and know"
+   },
+   {
+    "book": "bible",
+    "ref": "Psalms 46:9",
+    "why": "God ends wars"
+   },
+   {
+    "book": "bible",
+    "ref": "Psalms 55:12",
+    "why": "betrayal by a friend"
+   },
+   {
+    "book": "bible",
+    "ref": "Psalms 55:21",
+    "why": "smooth words hiding hostility: betrayal"
+   },
+   {
+    "book": "bible",
+    "ref": "Romans 12:14",
+    "why": "bless those who persecute you"
+   },
+   {
+    "book": "bible",
+    "ref": "Romans 12:19",
+    "why": "do not take revenge"
+   },
+   {
+    "book": "gita",
+    "ref": "12:17",
+    "why": "beyond love and hate: equanimity"
+   },
+   {
+    "book": "gita",
+    "ref": "16:4",
+    "why": "a list of faults to avoid"
+   },
+   {
+    "book": "gita",
+    "ref": "16:7",
+    "why": "a list of faults to avoid"
+   },
+   {
+    "book": "gita",
+    "ref": "16:21",
+    "why": "lust, anger and greed as a gate to ruin: self-control"
+   },
+   {
+    "book": "gita",
+    "ref": "18:23",
+    "why": "action without love or hate"
+   },
+   {
+    "book": "gita",
+    "ref": "1:35",
+    "why": "Arjuna refuses to kill his kin"
+   },
+   {
+    "book": "gita",
+    "ref": "1:45",
+    "why": "Arjuna grieves at killing kin"
+   },
+   {
+    "book": "gita",
+    "ref": "1:46",
+    "why": "Arjuna would rather be slain than kill"
+   },
+   {
+    "book": "gita",
+    "ref": "2:15",
+    "why": "balanced in pain and pleasure"
+   },
+   {
+    "book": "gita",
+    "ref": "2:19",
+    "why": "the Self neither slays nor is slain: the eternal soul"
+   },
+   {
+    "book": "gita",
+    "ref": "2:20",
+    "why": "the Self is not slain when the body is"
+   },
+   {
+    "book": "gita",
+    "ref": "3:41",
+    "why": "\"slay\" desire: self-control"
+   },
+   {
+    "book": "gita",
+    "ref": "3:43",
+    "why": "\"slay\" desire: self-control"
+   },
+   {
+    "book": "gita",
+    "ref": "4:10",
+    "why": "purified in the fire of wisdom"
+   },
+   {
+    "book": "gita",
+    "ref": "4:37",
+    "why": "the fire of wisdom"
+   },
+   {
+    "book": "gita",
+    "ref": "4:42",
+    "why": "the sword of wisdom cuts doubt"
+   },
+   {
+    "book": "gita",
+    "ref": "6:17",
+    "why": "moderation ends pain"
+   },
+   {
+    "book": "gita",
+    "ref": "9:29",
+    "why": "God is the same to all beings"
+   },
+   {
+    "book": "quran",
+    "ref": "12:18",
+    "why": "\"comely patience\" in grief"
+   },
+   {
+    "book": "quran",
+    "ref": "12:24",
+    "why": "Joseph resists temptation"
+   },
+   {
+    "book": "quran",
+    "ref": "12:87",
+    "why": "do not despair of God's mercy"
+   },
+   {
+    "book": "quran",
+    "ref": "14:7",
+    "why": "gratitude brings more"
+   },
+   {
+    "book": "quran",
+    "ref": "16:126",
+    "why": "patience is better than retaliation"
+   },
+   {
+    "book": "quran",
+    "ref": "16:90",
+    "why": "justice and kindness"
+   },
+   {
+    "book": "quran",
+    "ref": "17:32",
+    "why": "plain advice against adultery"
+   },
+   {
+    "book": "quran",
+    "ref": "17:53",
+    "why": "speak kindly"
+   },
+   {
+    "book": "quran",
+    "ref": "25:63",
+    "why": "answer the foolish with peace"
+   },
+   {
+    "book": "quran",
+    "ref": "28:31",
+    "why": "Moses is told not to fear"
+   },
+   {
+    "book": "quran",
+    "ref": "29:56",
+    "why": "God's earth is wide"
+   },
+   {
+    "book": "quran",
+    "ref": "2:177",
+    "why": "what true righteousness is"
+   },
+   {
+    "book": "quran",
+    "ref": "2:208",
+    "why": "enter into peace"
+   },
+   {
+    "book": "quran",
+    "ref": "2:256",
+    "why": "no compulsion in religion"
+   },
+   {
+    "book": "quran",
+    "ref": "2:264",
+    "why": "do not spoil charity with reproach"
+   },
+   {
+    "book": "quran",
+    "ref": "2:268",
+    "why": "God promises forgiveness and bounty"
+   },
+   {
+    "book": "quran",
+    "ref": "2:28",
+    "why": "life, death and return to God"
+   },
+   {
+    "book": "quran",
+    "ref": "2:286",
+    "why": "no soul is burdened beyond its scope"
+   },
+   {
+    "book": "quran",
+    "ref": "2:30",
+    "why": "the purpose of humankind on earth"
+   },
+   {
+    "book": "quran",
+    "ref": "31:13",
+    "why": "a father's advice to his son"
+   },
+   {
+    "book": "quran",
+    "ref": "34:13",
+    "why": "few are truly thankful"
+   },
+   {
+    "book": "quran",
+    "ref": "38:41",
+    "why": "Job cries out in distress"
+   },
+   {
+    "book": "quran",
+    "ref": "39:10",
+    "why": "God's earth is wide; reward for good"
+   },
+   {
+    "book": "quran",
+    "ref": "39:53",
+    "why": "do not despair of mercy"
+   },
+   {
+    "book": "quran",
+    "ref": "3:175",
+    "why": "do not fear"
+   },
+   {
+    "book": "quran",
+    "ref": "3:185",
+    "why": "every soul will taste death"
+   },
+   {
+    "book": "quran",
+    "ref": "3:191",
+    "why": "reflecting on creation"
+   },
+   {
+    "book": "quran",
+    "ref": "3:195",
+    "why": "no one's work is lost"
+   },
+   {
+    "book": "quran",
+    "ref": "40:3",
+    "why": "forgiver of sin, accepter of repentance"
+   },
+   {
+    "book": "quran",
+    "ref": "41:34",
+    "why": "repel evil with good"
+   },
+   {
+    "book": "quran",
+    "ref": "42:25",
+    "why": "God accepts repentance"
+   },
+   {
+    "book": "quran",
+    "ref": "49:12",
+    "why": "against suspicion and backbiting"
+   },
+   {
+    "book": "quran",
+    "ref": "4:29",
+    "why": "do not wrong one another"
+   },
+   {
+    "book": "quran",
+    "ref": "4:36",
+    "why": "kindness to parents, neighbours and strangers"
+   },
+   {
+    "book": "quran",
+    "ref": "57:20",
+    "why": "the passing life of the world"
+   },
+   {
+    "book": "quran",
+    "ref": "5:32",
+    "why": "saving one life is like saving all humankind"
+   },
+   {
+    "book": "quran",
+    "ref": "5:8",
+    "why": "let no hatred keep you from justice"
+   },
+   {
+    "book": "quran",
+    "ref": "5:90",
+    "why": "against drink and gambling"
+   },
+   {
+    "book": "quran",
+    "ref": "5:91",
+    "why": "drink and gambling sow enmity"
+   },
+   {
+    "book": "quran",
+    "ref": "61:3",
+    "why": "say only what you do"
+   },
+   {
+    "book": "quran",
+    "ref": "6:151",
+    "why": "basic duties: kindness to parents"
+   },
+   {
+    "book": "quran",
+    "ref": "89:29",
+    "why": "enter among My servants"
+   },
+   {
+    "book": "quran",
+    "ref": "90:13",
+    "why": "freeing a slave as a good deed"
+   },
+   {
+    "book": "quran",
+    "ref": "93:3",
+    "why": "your Lord has not forsaken you"
+   },
+   {
+    "book": "quran",
+    "ref": "9:104",
+    "why": "God accepts repentance"
+   },
+   {
+    "book": "quran",
+    "ref": "9:60",
+    "why": "alms for the poor and to free captives"
+   },
+   {
+    "book": "bible",
+    "ref": "Psalms 37:1",
+    "why": "do not fret or envy"
+   },
+   {
+    "book": "gita",
+    "ref": "3:39",
+    "why": "desire as an insatiable flame: self-control"
+   },
+   {
+    "book": "quran",
+    "ref": "12:23",
+    "why": "Joseph resists temptation"
+   },
+   {
+    "book": "quran",
+    "ref": "17:82",
+    "why": "a healing and a mercy"
+   },
+   {
+    "book": "quran",
+    "ref": "2:188",
+    "why": "against taking property unjustly"
+   },
+   {
+    "book": "quran",
+    "ref": "42:40",
+    "why": "pardon is better than retaliation"
+   },
+   {
+    "book": "quran",
+    "ref": "49:11",
+    "why": "do not mock or insult one another"
+   }
+  ]
+ }
+}

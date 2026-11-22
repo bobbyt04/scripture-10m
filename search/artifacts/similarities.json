@@ -1,3867 +1,1492 @@
 {
- "about": "Closest passages across the books. Each pair is one verse's best match in the other book, scored by a mix of word-vector cosine and TF-IDF cosine. Refrains, very short verses and pairs that share fewer than 2 informative words are left out, each verse is used once, and no chapter appears more than 2 times per pair of books. Themes are hand-named; each pair is put under the closest one by word vectors, so a few placements are rough.",
- "quota": {
-  "bible-quran": 150,
-  "bible-gita": 60,
-  "quran-gita": 60
+ "about": "Parallels between the books, chosen by a person. Two sources: (1) 'model, reviewed': the search model proposed candidate pairs (each verse's closest verse in another book); a person read every candidate and kept only real parallels in story or teaching, wrote the one-line note and chose the theme; (2) 'hand-listed': the known parallels of evals/search_parallels.json (anchor verses), left out if a verse is on the blocklist. 'score' is the model's similarity for the pair.",
+ "candidates_proposed": 267,
+ "kept": 43,
+ "kept_fraction": 0.161,
+ "kept_per_book_pair": {
+  "bible-gita": 8,
+  "bible-quran": 29,
+  "gita-quran": 6
  },
+ "hand_listed_added": 42,
+ "hand_listed_skipped": 19,
  "themes": [
   {
-   "name": "Moses, Pharaoh and the Exodus",
+   "name": "Creation and nature",
    "pairs": [
     {
-     "score": 0.578,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 12:20",
-      "text": "And Pharaoh commanded his men concerning him: and they sent him away, and his wife, and all that he had."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "11:97",
-      "text": "Unto Pharaoh and his chiefs, but they did follow the command of Pharaoh, and the command of Pharaoh was no right guide."
-     },
-     "shared_words": [
-      "pharaoh",
-      "command"
+     "idea": "Adam was created by God; the Quran compares the creation of Jesus to that of Adam.",
+     "score": 0.741,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 5:1",
+       "text": "This is the book of the generations of Adam. In the day that God created man, in the likeness of God made he him;"
+      },
+      {
+       "book": "quran",
+       "ref": "3:59",
+       "text": "Lo! the likeness of Jesus with Allah is as the likeness of Adam. He created him of dust, then He said unto him: Be! and he is."
+      }
      ]
     },
     {
-     "score": 0.525,
-     "a": {
-      "book": "bible",
-      "ref": "Exodus 15:4",
-      "text": "Pharaoh's chariots and his host hath he cast into the sea: his chosen captains also are drowned in the Red sea."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "44:24",
-      "text": "And leave the sea behind at rest, for lo! they are a drowned host."
-     },
-     "shared_words": [
-      "drown",
-      "sea",
-      "host"
-     ]
-    },
-    {
-     "score": 0.509,
-     "a": {
-      "book": "bible",
-      "ref": "Exodus 7:24",
-      "text": "And all the Egyptians digged round about the river for water to drink; for they could not drink of the water of the river."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "47:15",
-      "text": "A similitude of the Garden which those who keep their duty (to Allah) are promised: Therein are rivers of water unpolluted, and rivers of milk whereof the flavour changeth not, and rivers of wine delicious to the drinkers, and rivers of clear-run honey; therein for them is every kind of fruit, with pardon from their Lord. (Are those who enjoy all this) like those who are immortal in the Fire and are given boiling water to drink so that it teareth their bowels?"
-     },
-     "shared_words": [
-      "river",
-      "drink",
-      "water"
-     ]
-    },
-    {
-     "score": 0.481,
-     "a": {
-      "book": "bible",
-      "ref": "Job 16:10",
-      "text": "They have gaped upon me with their mouth; they have smitten me upon the cheek reproachfully; they have gathered themselves together against me."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "11:27",
-      "text": "Into Thy gaping mouths they hurrying rush, Tremendous-toothed and terrible to see; Some caught within the gaps between Thy teeth Are seen, their heads to powder crushed and ground."
-     },
-     "shared_words": [
-      "gap",
-      "mouth"
-     ]
-    },
-    {
-     "score": 0.458,
-     "a": {
-      "book": "bible",
-      "ref": "Amos 3:15",
-      "text": "And I will smite the winter house with the summer house; and the houses of ivory shall perish, and the great houses shall have an end, saith the LORD."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "106:2",
-      "text": "For their taming (We cause) the caravans to set forth in winter and summer."
-     },
-     "shared_words": [
-      "winter",
-      "summer"
-     ]
-    }
-   ]
-  },
-  {
-   "name": "Joseph and his brothers",
-   "pairs": [
-    {
-     "score": 0.727,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 41:26",
-      "text": "The seven good kine are seven years; and the seven good ears are seven years: the dream is one."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "12:43",
-      "text": "And the king said: Lo! I saw in a dream seven fat kine which seven lean were eating, and seven green ears of corn and other (seven) dry. O notables! Expound for me my vision, if ye can interpret dreams."
-     },
-     "shared_words": [
-      "kine",
-      "dream",
-      "ear",
-      "seven"
-     ]
-    },
-    {
-     "score": 0.624,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 24:46",
-      "text": "And she made haste, and let down her pitcher from her shoulder, and said, Drink, and I will give thy camels drink also: so I drank, and she made the camels drink also."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "26:155",
-      "text": "He said: (Behold) this she-camel. She hath the right to drink (at the well), and ye have the right to drink, (each) on an appointed day."
-     },
-     "shared_words": [
-      "camel",
-      "drink"
-     ]
-    },
-    {
-     "score": 0.54,
-     "a": {
-      "book": "bible",
-      "ref": "Ezekiel 16:13",
-      "text": "Thus wast thou decked with gold and silver; and thy raiment was of fine linen, and silk, and broidered work; thou didst eat fine flour, and honey, and oil: and thou wast exceeding beautiful, and thou didst prosper into a kingdom."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "76:21",
-      "text": "Their raiment will be fine green silk and gold embroidery. Bracelets of silver will they wear. Their Lord will slake their thirst with a pure drink."
-     },
-     "shared_words": [
-      "silk",
-      "raiment",
-      "fine",
-      "silver",
-      "gold"
-     ]
-    },
-    {
-     "score": 0.507,
-     "a": {
-      "book": "bible",
-      "ref": "Luke 12:53",
-      "text": "The father shall be divided against the son, and the son against the father; the mother against the daughter, and the daughter against the mother; the mother in law against her daughter in law, and the daughter in law against her mother in law."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "1:34",
-      "text": "Teachers, fathers, sons, as well as grandfathers, mother's brothers, fathers-in-law, grandsons, brothers-in-law, and other relatives."
-     },
-     "shared_words": [
-      "mother",
-      "law",
-      "father",
-      "son"
-     ]
-    },
-    {
-     "score": 0.371,
-     "a": {
-      "book": "bible",
-      "ref": "Job 29:11",
-      "text": "When the ear heard me, then it blessed me; and when the eye saw me, it gave witness to me:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "67:23",
-      "text": "Say (unto them, O Muhammad): He it is who gave you being, and hath assigned unto you ears and eyes and hearts. Small thanks give ye!"
-     },
-     "shared_words": [
-      "ear",
-      "gave",
-      "eye"
-     ]
-    },
-    {
-     "score": 0.356,
-     "a": {
-      "book": "bible",
-      "ref": "1 Kings 8:18",
-      "text": "And the LORD said unto David my father, Whereas it was in thine heart to build an house unto my name, thou didst well that it was in thine heart."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "37:158",
-      "text": "And they imagine kinship between him and the jinn, whereas the jinn know well that they will be brought before (Him)."
-     },
-     "shared_words": [
-      "whereas",
-      "well"
-     ]
-    }
-   ]
-  },
-  {
-   "name": "Noah, Abraham and the prophets of old",
-   "pairs": [
-    {
-     "score": 0.612,
-     "a": {
-      "book": "bible",
-      "ref": "Exodus 4:5",
-      "text": "That they may believe that the LORD God of their fathers, the God of Abraham, the God of Isaac, and the God of Jacob, hath appeared unto thee."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "2:133",
-      "text": "Or were ye present when death came to Jacob, when he said unto his sons: What will ye worship after me? They said: We shall worship thy god, the god of thy fathers, Abraham and Ishmael and Isaac, One Allah, and unto Him we have surrendered."
-     },
-     "shared_words": [
-      "isaac",
-      "abraham",
-      "jacob",
-      "father",
-      "god"
-     ]
-    },
-    {
-     "score": 0.6,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 9:28",
-      "text": "And Noah lived after the flood three hundred and fifty years."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "29:14",
-      "text": "And verily we sent Noah (as Our messenger) unto his folk, and he continued with them for a thousand years save fifty years; and the flood engulfed them, for they were wrong-doers."
-     },
-     "shared_words": [
-      "flood",
-      "noah",
-      "fifty",
-      "year"
-     ]
-    },
-    {
-     "score": 0.577,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 5:27",
-      "text": "And all the days of Methuselah were nine hundred sixty and nine years: and he died."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "18:25",
-      "text": "And (it is said) they tarried in their Cave three hundred years and add nine."
-     },
-     "shared_words": [
-      "nine",
-      "hundred",
-      "year"
-     ]
-    },
-    {
-     "score": 0.548,
-     "a": {
-      "book": "bible",
-      "ref": "Ezekiel 16:59",
-      "text": "For thus saith the Lord GOD; I will even deal with thee as thou hast done, which hast despised the oath in breaking the covenant."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "16:91",
-      "text": "Fulfil the covenant of Allah when ye have covenanted, and break not your oaths after the asseveration of them, and after ye have made Allah surety over you. Lo! Allah knoweth what ye do."
-     },
-     "shared_words": [
-      "oath",
-      "break",
-      "covenant"
-     ]
-    },
-    {
-     "score": 0.545,
-     "a": {
-      "book": "bible",
-      "ref": "1 Kings 21:8",
-      "text": "So she wrote letters in Ahab's name, and sealed them with his seal, and sent the letters unto the elders and to the nobles that were in his city, dwelling with Naboth."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "27:29",
-      "text": "(The Queen of Sheba) said (when she received the letter): O chieftains! Lo! there hath been thrown unto me a noble letter."
-     },
-     "shared_words": [
-      "noble",
-      "letter"
-     ]
-    },
-    {
-     "score": 0.46,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 17:12",
-      "text": "Woe to the multitude of many people, which make a noise like the noise of the seas; and to the rushing of nations, that make a rushing like the rushing of mighty waters!"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "11:28",
-      "text": "As river-floods impetuously rush, Hurling their waters into ocean's lap, So fling themselves into Thy flaming mouths, In haste, these mighty men, these lords of earth."
-     },
-     "shared_words": [
-      "rush",
-      "mighty",
-      "water"
-     ]
-    },
-    {
-     "score": 0.445,
-     "a": {
-      "book": "bible",
-      "ref": "Exodus 32:13",
-      "text": "Remember Abraham, Isaac, and Israel, thy servants, to whom thou swarest by thine own self, and saidst unto them, I will multiply your seed as the stars of heaven, and all this land that I have spoken of will I give unto your seed, and they shall inherit it for ever."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "37:113",
-      "text": "And We blessed him and Isaac. And of their seed are some who do good, and some who plainly wrong themselves."
-     },
-     "shared_words": [
-      "isaac",
-      "seed"
-     ]
-    },
-    {
-     "score": 0.42,
-     "a": {
-      "book": "bible",
-      "ref": "Judges 9:37",
-      "text": "And Gaal spake again and said, See there come people down by the middle of the land, and another company come along by the plain of Meonenim."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "51:51",
-      "text": "And set not any other god along with Allah; lo! I am a plain warner unto you from Him."
-     },
-     "shared_words": [
-      "along",
-      "plain"
-     ]
-    }
-   ]
-  },
-  {
-   "name": "Mary, Jesus and John",
-   "pairs": [
-    {
-     "score": 0.67,
-     "a": {
-      "book": "bible",
-      "ref": "Deuteronomy 7:14",
-      "text": "Thou shalt be blessed above all people: there shall not be male or female barren among you, or among your cattle."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "42:50",
-      "text": "Or He mingleth them, males and females, and He maketh barren whom He will. Lo! He is Knower, Powerful."
-     },
-     "shared_words": [
-      "barren",
-      "female",
-      "male"
-     ]
-    },
-    {
-     "score": 0.621,
-     "a": {
-      "book": "bible",
-      "ref": "Deuteronomy 27:22",
-      "text": "Cursed be he that lieth with his sister, the daughter of his father, or the daughter of his mother. And all the people shall say, Amen."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "4:23",
-      "text": "Forbidden unto you are your mothers, and your daughters, and your sisters, and your father's sisters, and your mother's sisters, and your brother's daughters and your sister's daughters, and your foster-mothers, and your foster-sisters, and your mothers-in-law, and your step-daughters who are under your protection (born) of your women unto whom ye have gone in - but if ye have not gone in unto them, then it is no sin for you (to marry their daughters) - and the wives of your sons who (spring) from your own loins. And (it is forbidden unto you) that ye should have two sisters together, except what hath already happened (of that nature) in the past. Lo! Allah is ever Forgiving, Merciful."
-     },
-     "shared_words": [
-      "sister",
-      "mother",
-      "daughter",
-      "father"
-     ]
-    },
-    {
-     "score": 0.585,
-     "a": {
-      "book": "bible",
-      "ref": "Luke 24:44",
-      "text": "And he said unto them, These are the words which I spake unto you, while I was yet with you, that all things must be fulfilled, which were written in the law of Moses, and in the prophets, and in the psalms, concerning me."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "27:85",
-      "text": "And the Word will be fulfilled concerning them because they have done wrong, and they will not speak."
-     },
-     "shared_words": [
-      "fulfil",
-      "concern",
-      "speak",
-      "word"
-     ]
-    },
-    {
-     "score": 0.579,
-     "a": {
-      "book": "bible",
-      "ref": "Ruth 1:12",
-      "text": "Turn again, my daughters, go your way; for I am too old to have an husband. If I should say, I have hope, if I should have an husband also to night, and should also bear sons;"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "11:72",
-      "text": "She said: Oh woe is me! Shall I bear a child when I am an old woman, and this my husband is an old man? Lo! this is a strange thing!"
-     },
-     "shared_words": [
-      "husband",
-      "bear",
-      "old"
-     ]
-    },
-    {
-     "score": 0.484,
-     "a": {
-      "book": "bible",
-      "ref": "Matthew 26:48",
-      "text": "Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "8:71",
-      "text": "And if they would betray thee, they betrayed Allah before, and He gave (thee) power over them. Allah is Knower, Wise."
-     },
-     "shared_words": [
-      "betray",
-      "gave"
-     ]
-    },
-    {
-     "score": 0.457,
-     "a": {
-      "book": "bible",
-      "ref": "Titus 2:5",
-      "text": "To be discreet, chaste, keepers at home, good, obedient to their own husbands, that the word of God be not blasphemed."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "66:12",
-      "text": "And Mary, daughter of 'Imran, whose body was chaste, therefor We breathed therein something of Our Spirit. And she put faith in the words of her Lord and His scriptures, and was of the obedient."
-     },
-     "shared_words": [
-      "chaste",
-      "obedient",
-      "word"
-     ]
-    },
-    {
-     "score": 0.36,
-     "a": {
-      "book": "bible",
-      "ref": "John 1:32",
-      "text": "And John bare record, saying, I saw the Spirit descending from heaven like a dove, and it abode upon him."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "97:4",
-      "text": "The angels and the Spirit descend therein, by the permission of their Lord, with all decrees."
-     },
-     "shared_words": [
-      "descend",
-      "spirit"
-     ]
-    }
-   ]
-  },
-  {
-   "name": "Creation and the signs of nature",
-   "pairs": [
-    {
-     "score": 0.748,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 5:1",
-      "text": "This is the book of the generations of Adam. In the day that God created man, in the likeness of God made he him;"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "3:59",
-      "text": "Lo! the likeness of Jesus with Allah is as the likeness of Adam. He created him of dust, then He said unto him: Be! and he is."
-     },
-     "shared_words": [
-      "likeness",
-      "adam",
-      "create"
-     ]
-    },
-    {
+     "idea": "God gives or withholds children; no one is barren except by his will.",
      "score": 0.671,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 64:8",
-      "text": "But now, O LORD, thou art our father; we are the clay, and thou our potter; and we all are the work of thy hand."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "15:26",
-      "text": "Verily We created man of potter's clay of black mud altered,"
-     },
-     "shared_words": [
-      "potter",
-      "clay"
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Deuteronomy 7:14",
+       "text": "Thou shalt be blessed above all people: there shall not be male or female barren among you, or among your cattle."
+      },
+      {
+       "book": "quran",
+       "ref": "42:50",
+       "text": "Or He mingleth them, males and females, and He maketh barren whom He will. Lo! He is Knower, Powerful."
+      }
      ]
     },
     {
-     "score": 0.65,
-     "a": {
-      "book": "bible",
-      "ref": "Deuteronomy 17:3",
-      "text": "And hath gone and served other gods, and worshipped them, either the sun, or moon, or any of the host of heaven, which I have not commanded;"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "41:37",
-      "text": "And of His portents are the night and the day and the sun and the moon. Do not prostrate to the sun or the moon; but prostrate to Allah Who created them, if it is in truth Him Whom ye worship."
-     },
-     "shared_words": [
-      "moon",
-      "sun",
-      "worship"
+     "idea": "God made every kind of animal, each after its kind.",
+     "score": 0.666,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 1:25",
+       "text": "And God made the beast of the earth after his kind, and cattle after their kind, and every thing that creepeth upon the earth after his kind: and God saw that it was good."
+      },
+      {
+       "book": "quran",
+       "ref": "24:45",
+       "text": "Allah hath created every animal of water. Of them is (a kind) that goeth upon its belly and (a kind) that goeth upon two legs and (a kind) that goeth upon four. Allah createth what He will. Lo! Allah is Able to do all things."
+      }
      ]
     },
     {
-     "score": 0.639,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 37:9",
-      "text": "And he dreamed yet another dream, and told it his brethren, and said, Behold, I have dreamed a dream more; and, behold, the sun and the moon and the eleven stars made obeisance to me."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "12:4",
-      "text": "When Joseph said unto his father: O my father! Lo! I saw in a dream eleven planets and the sun and the moon, I saw them prostrating themselves unto me."
-     },
-     "shared_words": [
-      "eleven",
-      "dream",
-      "moon",
-      "sun"
-     ]
-    },
-    {
-     "score": 0.616,
-     "a": {
-      "book": "bible",
-      "ref": "Revelation 21:23",
-      "text": "And the city had no need of the sun, neither of the moon, to shine in it: for the glory of God did lighten it, and the Lamb is the light thereof."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "15:6",
-      "text": "Nor doth the sun lighten there, nor moon, nor fire; having gone thither they return not; that is My supreme abode."
-     },
-     "shared_words": [
-      "lighten",
-      "moon",
-      "sun"
-     ]
-    },
-    {
-     "score": 0.614,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 13:10",
-      "text": "For the stars of heaven and the constellations thereof shall not give their light: the sun shall be darkened in his going forth, and the moon shall not cause her light to shine."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "25:61",
-      "text": "Blessed be He Who hath placed in the heaven mansions of the stars, and hath placed therein a great lamp and a moon giving light!"
-     },
-     "shared_words": [
-      "star",
-      "moon",
-      "light",
-      "heaven",
-      "give"
-     ]
-    },
-    {
-     "score": 0.61,
-     "a": {
-      "book": "bible",
-      "ref": "John 1:51",
-      "text": "And he saith unto him, Verily, verily, I say unto you, Hereafter ye shall see heaven open, and the angels of God ascending and descending upon the Son of man."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "34:2",
-      "text": "He knoweth that which goeth into the earth and that which cometh forth from it, and that descendeth from the heaven and that which ascendeth into it. He is the Merciful, the Forgiving."
-     },
-     "shared_words": [
-      "ascend",
-      "descend",
-      "heaven"
-     ]
-    },
-    {
-     "score": 0.606,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 61:11",
-      "text": "For as the earth bringeth forth her bud, and as the garden causeth the things that are sown in it to spring forth; so the Lord GOD will cause righteousness and praise to spring forth before all the nations."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "17:90",
-      "text": "And they say: We will not put faith in thee till thou cause a spring to gush forth from the earth for us;"
-     },
-     "shared_words": [
-      "spring",
-      "cause",
-      "forth",
-      "earth"
-     ]
-    },
-    {
-     "score": 0.597,
-     "a": {
-      "book": "bible",
-      "ref": "Colossians 1:16",
-      "text": "For by him were all things created, that are in heaven, and that are in earth, visible and invisible, whether they be thrones, or dominions, or principalities, or powers: all things were created by him, and for him:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "13:9",
-      "text": "He is the Knower of the Invisible and the Visible, the Great, the High Exalted."
-     },
-     "shared_words": [
-      "visible",
-      "invisible"
-     ]
-    },
-    {
-     "score": 0.591,
-     "a": {
-      "book": "bible",
-      "ref": "Mark 4:31",
-      "text": "It is like a grain of mustard seed, which, when it is sown in the earth, is less than all the seeds that be in the earth:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "31:16",
-      "text": "O my dear son! Lo! though it be but the weight of a grain of mustard-seed, and though it be in a rock, or in the heavens, or in the earth, Allah will bring it forth. Lo! Allah is Subtile, Aware."
-     },
-     "shared_words": [
-      "mustard",
-      "grain",
-      "seed",
-      "earth"
-     ]
-    },
-    {
-     "score": 0.59,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 56:8",
-      "text": "The Lord GOD which gathereth the outcasts of Israel saith, Yet will I gather others to him, beside those that are gathered unto him."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "18:99",
-      "text": "And on that day we shall let some of them surge against others, and the Trumpet will be blown. Then We shall gather them together in one gathering."
-     },
-     "shared_words": [
-      "others",
-      "gather"
-     ]
-    },
-    {
+     "idea": "God stills the wind and calms the sea.",
      "score": 0.588,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 1:21",
-      "text": "And God created great whales, and every living creature that moveth, which the waters brought forth abundantly, after their kind, and every winged fowl after his kind: and God saw that it was good."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "24:45",
-      "text": "Allah hath created every animal of water. Of them is (a kind) that goeth upon its belly and (a kind) that goeth upon two legs and (a kind) that goeth upon four. Allah createth what He will. Lo! Allah is Able to do all things."
-     },
-     "shared_words": [
-      "kind",
-      "create",
-      "water"
-     ]
-    },
-    {
-     "score": 0.578,
-     "a": {
-      "book": "bible",
-      "ref": "John 8:12",
-      "text": "Then spake Jesus again unto them, saying, I am the light of the world: he that followeth me shall not walk in darkness, but shall have the light of life."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "8:26",
-      "text": "Light and darkness, these are thought to be the world's everlasting paths; by the one he goeth who returneth not, by the other he who returneth again."
-     },
-     "shared_words": [
-      "darkness",
-      "light",
-      "world"
-     ]
-    },
-    {
-     "score": 0.572,
-     "a": {
-      "book": "bible",
-      "ref": "1 Chronicles 28:13",
-      "text": "Also for the courses of the priests and the Levites, and for all the work of the service of the house of the LORD, and for all the vessels of service in the house of the LORD."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "14:33",
-      "text": "And maketh the sun and the moon, constant in their courses, to be of service unto you, and hath made of service unto you the night and the day."
-     },
-     "shared_words": [
-      "course",
-      "service"
-     ]
-    },
-    {
-     "score": 0.564,
-     "a": {
-      "book": "bible",
-      "ref": "Song of Solomon 7:7",
-      "text": "This thy stature is like to a palm tree, and thy breasts to clusters of grapes."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "23:19",
-      "text": "Then We produce for you therewith gardens of date-palms and grapes, wherein is much fruit for you and whereof ye eat;"
-     },
-     "shared_words": [
-      "grape",
-      "palm"
-     ]
-    },
-    {
-     "score": 0.559,
-     "a": {
-      "book": "bible",
-      "ref": "Mark 13:27",
-      "text": "And then shall he send his angels, and shall gather together his elect from the four winds, from the uttermost part of the earth to the uttermost part of heaven."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "36:20",
-      "text": "And there came from the uttermost part of the city a man running. He cried: O my people! Follow those who have been sent!"
-     },
-     "shared_words": [
-      "uttermost",
-      "part"
-     ]
-    },
-    {
-     "score": 0.559,
-     "a": {
-      "book": "bible",
-      "ref": "Ezekiel 32:7",
-      "text": "And when I shall put thee out, I will cover the heaven, and make the stars thereof dark; I will cover the sun with a cloud, and the moon shall not give her light."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "7:54",
-      "text": "Lo! your Lord is Allah Who created the heavens and the earth in six Days, then mounted He the Throne. He covereth the night with the day, which is in haste to follow it, and hath made the sun and the moon and the stars subservient by His command. His verily is all creation and commandment. Blessed be Allah, the Lord of the Worlds!"
-     },
-     "shared_words": [
-      "star",
-      "moon",
-      "sun",
-      "cover",
-      "heaven"
-     ]
-    },
-    {
-     "score": 0.557,
-     "a": {
-      "book": "bible",
-      "ref": "Jeremiah 48:40",
-      "text": "For thus saith the LORD; Behold, he shall fly as an eagle, and shall spread his wings over Moab."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "6:38",
-      "text": "There is not an animal in the earth, nor a flying creature flying on two wings, but they are peoples like unto you. We have neglected nothing in the Book (of Our decrees). Then unto their Lord they will be gathered."
-     },
-     "shared_words": [
-      "fly",
-      "wing",
-      "lord"
-     ]
-    },
-    {
-     "score": 0.556,
-     "a": {
-      "book": "bible",
-      "ref": "Amos 3:6",
-      "text": "Shall a trumpet be blown in the city, and the people not be afraid? shall there be evil in a city, and the LORD hath not done it?"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "23:101",
-      "text": "And when the trumpet is blown there will be no kinship among them that day, nor will they ask of one another."
-     },
-     "shared_words": [
-      "blown",
-      "trumpet"
-     ]
-    },
-    {
-     "score": 0.539,
-     "a": {
-      "book": "bible",
-      "ref": "Mark 13:19",
-      "text": "For in those days shall be affliction, such as was not from the beginning of the creation which God created unto this time, neither shall be."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "32:7",
-      "text": "Who made all things good which He created, and He began the creation of man from clay;"
-     },
-     "shared_words": [
-      "creation",
-      "create"
-     ]
-    },
-    {
-     "score": 0.526,
-     "a": {
-      "book": "bible",
-      "ref": "1 Kings 1:33",
-      "text": "The king also said unto them, Take with you the servants of your lord, and cause Solomon my son to ride upon mine own mule, and bring him down to Gihon:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "16:8",
-      "text": "And horses and mules and asses (hath He created) that ye may ride them, and for ornament. And He createth that which ye know not."
-     },
-     "shared_words": [
-      "mule",
-      "ride"
-     ]
-    },
-    {
-     "score": 0.523,
-     "a": {
-      "book": "bible",
-      "ref": "Job 24:6",
-      "text": "They reap every one his corn in the field: and they gather the vintage of the wicked."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "21:15",
-      "text": "And this their crying ceased not till We made them as reaped corn, extinct."
-     },
-     "shared_words": [
-      "reap",
-      "corn"
-     ]
-    },
-    {
-     "score": 0.52,
-     "a": {
-      "book": "quran",
-      "ref": "10:5",
-      "text": "He it is Who appointed the sun a splendour and the moon a light, and measured for her stages, that ye might know the number of the years, and the reckoning. Allah created not (all) that save in truth. He detaileth the revelations for people who have knowledge."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "15:12",
-      "text": "That splendour issuing from the sun that enlighteneth the whole world, that which is in the moon and in fire, that splendour know as from Me."
-     },
-     "shared_words": [
-      "splendour",
-      "moon",
-      "sun"
-     ]
-    },
-    {
-     "score": 0.512,
-     "a": {
-      "book": "bible",
-      "ref": "Hosea 6:2",
-      "text": "After two days will he revive us: in the third day he will raise us up, and we shall live in his sight."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "35:9",
-      "text": "And Allah it is Who sendeth the winds and they raise a cloud; then We lead it unto a dead land and revive therewith the earth after its death. Such is the Resurrection."
-     },
-     "shared_words": [
-      "revive",
-      "raise"
-     ]
-    },
-    {
-     "score": 0.51,
-     "a": {
-      "book": "bible",
-      "ref": "Acts 10:9",
-      "text": "On the morrow, as they went on their journey, and drew nigh unto the city, Peter went up upon the housetop to pray about the sixth hour:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "54:1",
-      "text": "The hour drew nigh and the moon was rent in twain."
-     },
-     "shared_words": [
-      "drew",
-      "nigh",
-      "hour"
-     ]
-    },
-    {
-     "score": 0.503,
-     "a": {
-      "book": "quran",
-      "ref": "28:71",
-      "text": "Say: Have ye thought, if Allah made night everlasting for you till the Day of Resurrection, who is a god beside Allah who could bring you light? Will ye not then hear?"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "8:26",
-      "text": "Light and darkness, these are thought to be the world's everlasting paths; by the one he goeth who returneth not, by the other he who returneth again."
-     },
-     "shared_words": [
-      "everlasting",
-      "thought",
-      "light"
-     ]
-    },
-    {
-     "score": 0.494,
-     "a": {
-      "book": "bible",
-      "ref": "Psalms 19:2",
-      "text": "Day unto day uttereth speech, and night unto night sheweth knowledge."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "73:6",
-      "text": "Lo! the vigil of the night is (a time) when impression is more keen and speech more certain."
-     },
-     "shared_words": [
-      "speech",
-      "night"
-     ]
-    },
-    {
-     "score": 0.488,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 43:5",
-      "text": "Fear not: for I am with thee: I will bring thy seed from the east, and gather thee from the west;"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "73:9",
-      "text": "Lord of the East and the West; there is no God save Him; so choose thou Him alone for thy defender -"
-     },
-     "shared_words": [
-      "west",
-      "east"
-     ]
-    },
-    {
-     "score": 0.487,
-     "a": {
-      "book": "quran",
-      "ref": "41:37",
-      "text": "And of His portents are the night and the day and the sun and the moon. Do not prostrate to the sun or the moon; but prostrate to Allah Who created them, if it is in truth Him Whom ye worship."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "15:6",
-      "text": "Nor doth the sun lighten there, nor moon, nor fire; having gone thither they return not; that is My supreme abode."
-     },
-     "shared_words": [
-      "moon",
-      "sun"
-     ]
-    },
-    {
-     "score": 0.485,
-     "a": {
-      "book": "bible",
-      "ref": "Ezekiel 20:28",
-      "text": "For when I had brought them into the land, for the which I lifted up mine hand to give it to them, then they saw every high hill, and all the thick trees, and they offered there their sacrifices, and there they presented the provocation of their offering: there also they made their sweet savour, and poured out there their drink offerings."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "77:27",
-      "text": "And placed therein high mountains and given you to drink sweet water therein?"
-     },
-     "shared_words": [
-      "sweet",
-      "drink",
-      "high"
-     ]
-    },
-    {
-     "score": 0.474,
-     "a": {
-      "book": "bible",
-      "ref": "Ezekiel 17:8",
-      "text": "It was planted in a good soil by great waters, that it might bring forth branches, and that it might bear fruit, that it might be a goodly vine."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "14:24",
-      "text": "Seest thou not how Allah coineth a similitude: A goodly saying, as a goodly tree, its root set firm, its branches reaching into heaven,"
-     },
-     "shared_words": [
-      "goodly",
-      "branch"
-     ]
-    },
-    {
-     "score": 0.473,
-     "a": {
-      "book": "bible",
-      "ref": "Jeremiah 18:17",
-      "text": "I will scatter them as with an east wind before the enemy; I will shew them the back, and not the face, in the day of their calamity."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "54:19",
-      "text": "Lo! We let loose on them a raging wind on a day of constant calamity,"
-     },
-     "shared_words": [
-      "calamity",
-      "wind",
-      "day"
-     ]
-    },
-    {
-     "score": 0.457,
-     "a": {
-      "book": "bible",
-      "ref": "John 11:13",
-      "text": "Howbeit Jesus spake of his death: but they thought that he had spoken of taking of rest in sleep."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "39:42",
-      "text": "Allah receiveth (men's) souls at the time of their death, and that (soul) which dieth not (yet) in its sleep. He keepeth that (soul) for which He hath ordained death and dismisseth the rest till an appointed term. Lo! herein verily are portents for people who take thought."
-     },
-     "shared_words": [
-      "sleep",
-      "thought",
-      "rest",
-      "death",
-      "take"
-     ]
-    },
-    {
-     "score": 0.454,
-     "a": {
-      "book": "bible",
-      "ref": "1 Samuel 29:10",
-      "text": "Wherefore now rise up early in the morning with thy master's servants that are come with thee: and as soon as ye be up early in the morning, and have light, depart."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "15:66",
-      "text": "And We made plain the case to him, that the root of them (who did wrong) was to be cut at early morn."
-     },
-     "shared_words": [
-      "early",
-      "morn"
-     ]
-    },
-    {
-     "score": 0.43,
-     "a": {
-      "book": "bible",
-      "ref": "Exodus 12:42",
-      "text": "It is a night to be much observed unto the LORD for bringing them out from the land of Egypt: this is that night of the LORD to be observed of all the children of Israel in their generations."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "32:26",
-      "text": "Is it not a guidance for them (to observe) how many generations We destroyed before them, amid whose dwelling places they do walk? Lo! therein verily are portents! Will they not then heed?"
-     },
-     "shared_words": [
-      "observe",
-      "generation"
-     ]
-    },
-    {
-     "score": 0.415,
-     "a": {
-      "book": "bible",
-      "ref": "Revelation 7:2",
-      "text": "And I saw another angel ascending from the east, having the seal of the living God: and he cried with a loud voice to the four angels, to whom it was given to hurt the earth and the sea,"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "70:4",
-      "text": "(Whereby) the angels and the Spirit ascend unto Him in a Day whereof the span is fifty thousand years."
-     },
-     "shared_words": [
-      "ascend",
-      "angel"
-     ]
-    },
-    {
-     "score": 0.38,
-     "a": {
-      "book": "bible",
-      "ref": "1 Samuel 4:22",
-      "text": "And she said, The glory is departed from Israel: for the ark of God is taken."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "72:3",
-      "text": "And (we believe) that He - exalted be the glory of our Lord! - hath taken neither wife nor son,"
-     },
-     "shared_words": [
-      "taken",
-      "glory"
-     ]
-    },
-    {
-     "score": 0.36,
-     "a": {
-      "book": "bible",
-      "ref": "Revelation 13:12",
-      "text": "And he exerciseth all the power of the first beast before him, and causeth the earth and them which dwell therein to worship the first beast, whose deadly wound was healed."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "55:29",
-      "text": "All that are in the heavens and the earth entreat Him. Every day He exerciseth (universal) power."
-     },
-     "shared_words": [
-      "exercise",
-      "power",
-      "earth"
-     ]
-    }
-   ]
-  },
-  {
-   "name": "Mercy and forgiveness",
-   "pairs": [
-    {
-     "score": 0.607,
-     "a": {
-      "book": "bible",
-      "ref": "Luke 24:27",
-      "text": "And beginning at Moses and all the prophets, he expounded unto them in all the scriptures the things concerning himself."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "5:15",
-      "text": "O People of the Scripture! Now hath Our messenger come unto you, expounding unto you much of that which ye used to hide in the Scripture, and forgiving much. Now hath come unto you light from Allah and plain Scripture."
-     },
-     "shared_words": [
-      "expound",
-      "scripture"
-     ]
-    },
-    {
-     "score": 0.597,
-     "a": {
-      "book": "bible",
-      "ref": "Matthew 6:4",
-      "text": "That thine alms may be in secret: and thy Father which seeth in secret himself shall reward thee openly."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "4:149",
-      "text": "If ye do good openly or keep it secret, or forgive evil, lo! Allah is ever Forgiving, Powerful."
-     },
-     "shared_words": [
-      "openly",
-      "secret"
-     ]
-    },
-    {
-     "score": 0.577,
-     "a": {
-      "book": "bible",
-      "ref": "1 Samuel 24:17",
-      "text": "And he said to David, Thou art more righteous than I: for thou hast rewarded me good, whereas I have rewarded thee evil."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "64:15",
-      "text": "Your wealth and your children are only a temptation, whereas Allah! with Him is an immense reward."
-     },
-     "shared_words": [
-      "whereas",
-      "reward"
-     ]
-    },
-    {
-     "score": 0.57,
-     "a": {
-      "book": "bible",
-      "ref": "Ecclesiastes 6:6",
-      "text": "Yea, though he live a thousand years twice told, yet hath he seen no good: do not all go to one place?"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "40:11",
-      "text": "They say: Our Lord! Twice hast Thou made us die, and twice hast Thou made us live. Now we confess our sins. Is there any way to go out?"
-     },
-     "shared_words": [
-      "twice",
-      "live"
-     ]
-    },
-    {
-     "score": 0.549,
-     "a": {
-      "book": "bible",
-      "ref": "Acts 17:27",
-      "text": "That they should seek the Lord, if haply they might feel after him, and find him, though he be not far from every one of us:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "43:10",
-      "text": "Who made the earth a resting-place for you, and placed roads for you therein, that haply ye may find your way;"
-     },
-     "shared_words": [
-      "haply",
-      "find"
-     ]
-    },
-    {
-     "score": 0.54,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 61:7",
-      "text": "For your shame ye shall have double; and for confusion they shall rejoice in their portion: therefore in their land they shall possess the double: everlasting joy shall be unto them."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "38:61",
-      "text": "They say: Our Lord! Whoever did prepare this for us, oh, give him double portion of the Fire!"
-     },
-     "shared_words": [
-      "double",
-      "portion"
-     ]
-    },
-    {
-     "score": 0.531,
-     "a": {
-      "book": "bible",
-      "ref": "Matthew 6:18",
-      "text": "That thou appear not unto men to fast, but unto thy Father which is in secret: and thy Father, which seeth in secret, shall reward thee openly."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "67:12",
-      "text": "Lo! those who fear their Lord in secret, theirs will be forgiveness and a great reward."
-     },
-     "shared_words": [
-      "secret",
-      "reward"
-     ]
-    },
-    {
-     "score": 0.525,
-     "a": {
-      "book": "bible",
-      "ref": "Deuteronomy 24:18",
-      "text": "But thou shalt remember that thou wast a bondman in Egypt, and the LORD thy God redeemed thee thence: therefore I command thee to do this thing."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "38:17",
-      "text": "Bear with what they say, and remember Our bondman David, lord of might, Lo! he was ever turning in repentance (toward Allah)."
-     },
-     "shared_words": [
-      "bondman",
-      "remember",
-      "lord"
-     ]
-    },
-    {
-     "score": 0.52,
-     "a": {
-      "book": "bible",
-      "ref": "Daniel 9:9",
-      "text": "To the Lord our God belong mercies and forgivenesses, though we have rebelled against him;"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "9:80",
-      "text": "Ask forgiveness for them (O Muhammad), or ask not forgiveness for them; though thou ask forgiveness for them seventy times Allah will not forgive them. That is because they disbelieved in Allah and His messenger, and Allah guideth not wrongdoing folk."
-     },
-     "shared_words": [
-      "forgiveness",
-      "though"
-     ]
-    },
-    {
-     "score": 0.499,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 3:11",
-      "text": "Woe unto the wicked! it shall be ill with him: for the reward of his hands shall be given him."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "28:80",
-      "text": "But those who had been given knowledge said: Woe unto you! The reward of Allah for him who believeth and doeth right is better, and only the steadfast will obtain it."
-     },
-     "shared_words": [
-      "woe",
-      "reward",
-      "given"
-     ]
-    },
-    {
-     "score": 0.493,
-     "a": {
-      "book": "bible",
-      "ref": "2 Chronicles 6:22",
-      "text": "If a man sin against his neighbour, and an oath be laid upon him to make him swear, and the oath come before thine altar in this house;"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "58:14",
-      "text": "Hast thou not seen those who take for friends a folk with whom Allah is wroth? They are neither of you nor of them, and they swear a false oath knowingly."
-     },
-     "shared_words": [
-      "oath",
-      "swear"
-     ]
-    },
-    {
-     "score": 0.484,
-     "a": {
-      "book": "bible",
-      "ref": "Haggai 1:13",
-      "text": "Then spake Haggai the LORD's messenger in the LORD's message unto the people, saying, I am with you, saith the LORD."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "64:12",
-      "text": "Obey Allah and obey His messenger; but if ye turn away, then the duty of Our messenger is only to convey (the message) plainly."
-     },
-     "shared_words": [
-      "message",
-      "messenger"
-     ]
-    },
-    {
-     "score": 0.474,
-     "a": {
-      "book": "quran",
-      "ref": "29:16",
-      "text": "And Abraham! (Remember) when he said unto his folk: Serve Allah, and keep your duty unto Him; that is better for you if ye did but know."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "18:47",
-      "text": "Better is one's own duty though destitute of merits than the well-executed duty of another. He who doeth the duty laid down by his own nature incurreth not sin."
-     },
-     "shared_words": [
-      "duty",
-      "better"
-     ]
-    },
-    {
-     "score": 0.467,
-     "a": {
-      "book": "bible",
-      "ref": "Luke 7:27",
-      "text": "This is he, of whom it is written, Behold, I send my messenger before thy face, which shall prepare thy way before thee."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "48:13",
-      "text": "And so for him who believeth not in Allah and His messenger - Lo! We have prepared a flame for disbelievers."
-     },
-     "shared_words": [
-      "prepare",
-      "messenger"
-     ]
-    },
-    {
-     "score": 0.458,
-     "a": {
-      "book": "bible",
-      "ref": "Acts 17:30",
-      "text": "And the times of this ignorance God winked at; but now commandeth all men every where to repent:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "49:6",
-      "text": "O ye who believe! If an evil-liver bring you tidings, verify it, lest ye smite some folk in ignorance and afterward repent of what ye did."
-     },
-     "shared_words": [
-      "ignorance",
-      "repent"
-     ]
-    },
-    {
-     "score": 0.449,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 49:24",
-      "text": "Shall the prey be taken from the mighty, or the lawful captive delivered?"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "60:5",
-      "text": "Our Lord! Make us not a prey for those who disbelieve, and forgive us, our Lord! Lo! Thou, only Thou, are the Mighty, the Wise."
-     },
-     "shared_words": [
-      "prey",
-      "mighty"
-     ]
-    },
-    {
-     "score": 0.447,
-     "a": {
-      "book": "bible",
-      "ref": "Luke 11:48",
-      "text": "Truly ye bear witness that ye allow the deeds of your fathers: for they indeed killed them, and ye build their sepulchres."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "63:1",
-      "text": "When the hypocrites come unto thee (O Muhammad), they say: We bear witness that thou art indeed Allah's messenger. And Allah knoweth that thou art indeed His messenger, and Allah beareth witness that the hypocrites indeed are speaking falsely."
-     },
-     "shared_words": [
-      "indeed",
-      "witness",
-      "bear"
-     ]
-    },
-    {
-     "score": 0.438,
-     "a": {
-      "book": "bible",
-      "ref": "James 4:4",
-      "text": "Ye adulterers and adulteresses, know ye not that the friendship of the world is enmity with God? whosoever therefore will be a friend of the world is the enemy of God."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "60:1",
-      "text": "O ye who believe! Choose not My enemy and your enemy for allies. Do ye give them friendship when they disbelieve in that truth which hath come unto you, driving out the messenger and you because ye believe in Allah, your Lord? If ye have come forth to strive in My way and seeking My good pleasure, (show them not friendship). Do ye show friendship unto them in secret, when I am Best Aware of what ye hide and what ye proclaim? And whosoever doeth it among you, he verily hath strayed from the right way."
-     },
-     "shared_words": [
-      "friendship",
-      "enemy"
-     ]
-    },
-    {
-     "score": 0.417,
-     "a": {
-      "book": "bible",
-      "ref": "Ezekiel 40:44",
-      "text": "And without the inner gate were the chambers of the singers in the inner court, which was at the side of the north gate; and their prospect was toward the south: one at the side of the east gate having the prospect toward the north."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "57:13",
-      "text": "On the day when the hypocritical men and the hypocritical women will say unto those who believe: Look on us that we may borrow from your light! it will be said: Go back and seek for light! Then there will separate them a wall wherein is a gate, the inner side whereof containeth mercy, while the outer side thereof is toward the doom."
-     },
-     "shared_words": [
-      "inner",
-      "toward",
-      "gate",
-      "side"
-     ]
-    },
-    {
-     "score": 0.405,
-     "a": {
-      "book": "bible",
-      "ref": "Deuteronomy 4:38",
-      "text": "To drive out nations from before thee greater and mightier than thou art, to bring thee in, to give thee their land for an inheritance, as it is this day."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "63:8",
-      "text": "They say: Surely, if we return to Al-Madinah the mightier will soon drive out the weaker; when might belongeth to Allah and to His messenger and to the believers; but the hypocrites know not."
-     },
-     "shared_words": [
-      "mightier",
-      "drive"
-     ]
-    },
-    {
-     "score": 0.404,
-     "a": {
-      "book": "bible",
-      "ref": "Proverbs 19:16",
-      "text": "He that keepeth the commandment keepeth his own soul; but he that despiseth his ways shall die."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "65:5",
-      "text": "That is the commandment of Allah which He revealeth unto you. And whoso keepeth his duty to Allah, He will remit from him his evil deeds and magnify reward for him."
-     },
-     "shared_words": [
-      "keepeth",
-      "commandment"
-     ]
-    },
-    {
-     "score": 0.392,
-     "a": {
-      "book": "quran",
-      "ref": "8:69",
-      "text": "Now enjoy what ye have won, as lawful and good, and keep your duty to Allah. Lo! Allah is Forgiving, Merciful."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "18:45",
-      "text": "Man reacheth perfection by each being intent on his own duty. Listen thou how perfection is won by him who is intent on his own duty."
-     },
-     "shared_words": [
-      "won",
-      "duty"
-     ]
-    },
-    {
-     "score": 0.371,
-     "a": {
-      "book": "bible",
-      "ref": "Zephaniah 2:10",
-      "text": "This shall they have for their pride, because they have reproached and magnified themselves against the people of the LORD of hosts."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "71:7",
-      "text": "And lo! whenever I call unto them that Thou mayst pardon them they thrust their fingers in their ears and cover themselves with their garments and persist (in their refusal) and magnify themselves in pride."
-     },
-     "shared_words": [
-      "magnify",
-      "pride"
-     ]
-    }
-   ]
-  },
-  {
-   "name": "Giving and the poor",
-   "pairs": [
-    {
-     "score": 0.633,
-     "a": {
-      "book": "bible",
-      "ref": "Romans 7:3",
-      "text": "So then if, while her husband liveth, she be married to another man, she shall be called an adulteress: but if her husband be dead, she is free from that law; so that she is no adulteress, though she be married to another man."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "24:3",
-      "text": "The adulterer shall not marry save an adulteress or an idolatress, and the adulteress none shall marry save an adulterer or an idolater. All that is forbidden unto believers."
-     },
-     "shared_words": [
-      "adulteress",
-      "marry"
-     ]
-    },
-    {
-     "score": 0.586,
-     "a": {
-      "book": "bible",
-      "ref": "Deuteronomy 23:19",
-      "text": "Thou shalt not lend upon usury to thy brother; usury of money, usury of victuals, usury of any thing that is lent upon usury:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "3:130",
-      "text": "O ye who believe! Devour not usury, doubling and quadrupling (the sum lent). Observe your duty to Allah, that ye may be successful."
-     },
-     "shared_words": [
-      "lent",
-      "usury"
-     ]
-    },
-    {
-     "score": 0.553,
-     "a": {
-      "book": "bible",
-      "ref": "Leviticus 25:36",
-      "text": "Take thou no usury of him, or increase: but fear thy God; that thy brother may live with thee."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "30:39",
-      "text": "That which ye give in usury in order that it may increase on (other) people's property hath no increase with Allah; but that which ye give in charity, seeking Allah's Countenance, hath increase manifold."
-     },
-     "shared_words": [
-      "usury",
-      "increase"
-     ]
-    },
-    {
-     "score": 0.507,
-     "a": {
-      "book": "bible",
-      "ref": "Proverbs 3:14",
-      "text": "For the merchandise of it is better than the merchandise of silver, and the gain thereof than fine gold."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "62:11",
-      "text": "But when they spy some merchandise or pastime they break away to it and leave thee standing. Say: That which Allah hath is better than pastime and than merchandise, and Allah is the Best of providers."
-     },
-     "shared_words": [
-      "merchandise",
-      "better"
-     ]
-    },
-    {
-     "score": 0.49,
-     "a": {
-      "book": "bible",
-      "ref": "Colossians 3:20",
-      "text": "Children, obey your parents in all things: for this is well pleasing unto the Lord."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "29:8",
-      "text": "We have enjoined on man kindness to parents; but if they strive to make thee join with Me that of which thou hast no knowledge, then obey them not. Unto Me is your return and I shall tell you what ye used to do."
-     },
-     "shared_words": [
-      "parent",
-      "obey"
-     ]
-    },
-    {
-     "score": 0.478,
-     "a": {
-      "book": "bible",
-      "ref": "Luke 12:19",
-      "text": "And I will say to my soul, Soul, thou hast much goods laid up for many years; take thine ease, eat, drink, and be merry."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "69:24",
-      "text": "(And it will be said unto those therein): Eat and drink at ease for that which ye sent on before you in past days."
-     },
-     "shared_words": [
-      "ease",
-      "drink",
-      "eat"
-     ]
-    },
-    {
-     "score": 0.474,
-     "a": {
-      "book": "bible",
-      "ref": "Luke 21:23",
-      "text": "But woe unto them that are with child, and to them that give suck, in those days! for there shall be great distress in the land, and wrath upon this people."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "65:6",
-      "text": "Lodge them where ye dwell, according to your wealth, and harass them not so as to straiten life for them. And if they are with child, then spend for them till they bring forth their burden. Then, if they give suck for you, give them their due payment and consult together in kindness; but if ye make difficulties for one another, then let some other woman give suck for him (the father of the child)."
-     },
-     "shared_words": [
-      "suck",
-      "child",
-      "give"
-     ]
-    },
-    {
-     "score": 0.46,
-     "a": {
-      "book": "bible",
-      "ref": "Proverbs 19:17",
-      "text": "He that hath pity upon the poor lendeth unto the LORD; and that which he hath given will he pay him again."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "58:13",
-      "text": "Fear ye to offer alms before your conference? Then, when ye do it not and Allah hath forgiven you, establish worship and pay the poor-due and obey Allah and His messenger. And Allah is Aware of what ye do."
-     },
-     "shared_words": [
-      "pay",
-      "poor"
-     ]
-    },
-    {
-     "score": 0.433,
-     "a": {
-      "book": "quran",
-      "ref": "9:58",
-      "text": "And of them is he who defameth thee in the matter of the alms. If they are given thereof they are content, and if they are not given thereof, behold! they are enraged."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "17:20",
-      "text": "That alms given to one who does nothing in return, believing that a gift ought to be made in a fit place and time to a worthy person, that alms is accounted pure."
-     },
-     "shared_words": [
-      "alms",
-      "given"
-     ]
-    },
-    {
-     "score": 0.419,
-     "a": {
-      "book": "quran",
-      "ref": "2:273",
-      "text": "(Alms are) for the poor who are straitened for the cause of Allah, who cannot travel in the land (for trade). The unthinking man accounteth them wealthy because of their restraint. Thou shalt know them by their mark: They do not beg of men with importunity. And whatsoever good thing ye spend, lo! Allah knoweth it."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "16:15",
-      "text": "\"I am wealthy, well-born; what other is there that is like unto me? I will sacrifice, I will give alms, I will rejoice.\" Thus deluded by unwisdom,"
-     },
-     "shared_words": [
-      "wealthy",
-      "alms"
-     ]
-    },
-    {
-     "score": 0.394,
-     "a": {
-      "book": "quran",
-      "ref": "64:16",
-      "text": "So keep your duty to Allah as best ye can, and listen, and obey, and spend; that is better for your souls. And whoso is saved from his own greed, such are the successful."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "3:35",
-      "text": "Better one's own duty, though destitute of merit, than the duty of another, well discharged. Better death in the discharge of one's own duty; the duty of another is full of danger."
-     },
-     "shared_words": [
-      "duty",
-      "better"
-     ]
-    },
-    {
-     "score": 0.391,
-     "a": {
-      "book": "bible",
-      "ref": "Numbers 30:9",
-      "text": "But every vow of a widow, and of her that is divorced, wherewith they have bound their souls, shall stand against her."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "66:5",
-      "text": "It may happen that his Lord, if he divorce you, will give him in your stead wives better than you, submissive (to Allah), believing, pious, penitent, devout, inclined to fasting, widows and maids."
-     },
-     "shared_words": [
-      "divorce",
-      "widow"
-     ]
-    },
-    {
-     "score": 0.365,
-     "a": {
-      "book": "bible",
-      "ref": "Ezekiel 38:15",
-      "text": "And thou shalt come from thy place out of the north parts, thou, and many people with thee, all of them riding upon horses, a great company, and a mighty army:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "59:6",
-      "text": "And that which Allah gave as spoil unto His messenger from them, ye urged not any horse or riding-camel for the sake thereof, but Allah giveth His messenger lordship over whom He will. Allah is Able to do all things."
-     },
-     "shared_words": [
-      "rid",
-      "horse"
-     ]
-    }
-   ]
-  },
-  {
-   "name": "Patience, trust and hardship",
-   "pairs": [
-    {
-     "score": 0.691,
-     "a": {
-      "book": "bible",
-      "ref": "Psalms 105:5",
-      "text": "Remember his marvellous works that he hath done; his wonders, and the judgments of his mouth;"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "18:77",
-      "text": "Remembering, remembering, also that most marvellous form of Hari, great is my wonder, O King. I rejoice, again and again."
-     },
-     "shared_words": [
-      "marvellous",
-      "wonder",
-      "remember"
-     ]
-    },
-    {
-     "score": 0.632,
-     "a": {
-      "book": "bible",
-      "ref": "Psalms 106:1",
-      "text": "Praise ye the LORD. O give thanks unto the LORD; for he is good: for his mercy endureth for ever."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "31:12",
-      "text": "And verily We gave Luqman wisdom, saying: Give thanks unto Allah; and whosoever giveth thanks, he giveth thanks for (the good of) his soul. And whosoever refuseth - Lo! Allah is Absolute, Owner of Praise."
-     },
-     "shared_words": [
-      "thank",
-      "praise",
-      "good",
-      "give"
-     ]
-    },
-    {
-     "score": 0.588,
-     "a": {
-      "book": "bible",
-      "ref": "Mark 4:39",
-      "text": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "42:33",
-      "text": "If He will He calmeth the wind so that they keep still upon its surface - Lo! herein verily are signs for every steadfast grateful (heart)-"
-     },
-     "shared_words": [
-      "calm",
-      "still",
-      "wind"
-     ]
-    },
-    {
-     "score": 0.585,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 2:10",
-      "text": "And a river went out of Eden to water the garden; and from thence it was parted, and became into four heads."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "20:76",
-      "text": "Gardens of Eden underneath which rivers flow, wherein they will abide for ever. That is the reward of him who groweth."
-     },
-     "shared_words": [
-      "eden",
-      "garden",
-      "river"
-     ]
-    },
-    {
-     "score": 0.55,
-     "a": {
-      "book": "bible",
-      "ref": "1 Samuel 10:19",
-      "text": "And ye have this day rejected your God, who himself saved you out of all your adversities and your tribulations; and ye have said unto him, Nay, but set a king over us. Now therefore present yourselves before the LORD by your tribes, and by your thousands."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "7:94",
-      "text": "And We sent no prophet unto any township but We did afflict its folk with tribulation and adversity that haply they might grow humble."
-     },
-     "shared_words": [
-      "adversity",
-      "tribulation"
-     ]
-    },
-    {
-     "score": 0.529,
-     "a": {
-      "book": "bible",
-      "ref": "Daniel 11:29",
-      "text": "At the time appointed he shall return, and come toward the south; but it shall not be as the former, or as the latter."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "28:70",
-      "text": "And He is Allah; there is no God save Him. His is all praise in the former and the latter (state), and His is the command, and unto Him ye will be brought back."
-     },
-     "shared_words": [
-      "latter",
-      "former"
-     ]
-    },
-    {
-     "score": 0.502,
-     "a": {
-      "book": "bible",
-      "ref": "Song of Solomon 4:16",
-      "text": "Awake, O north wind; and come, thou south; blow upon my garden, that the spices thereof may flow out. Let my beloved come into his garden, and eat his pleasant fruits."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "61:12",
-      "text": "He will forgive you your sins and bring you into Gardens underneath which rivers flow, and pleasant dwellings in Gardens of Eden. That is the supreme triumph."
-     },
-     "shared_words": [
-      "pleasant",
-      "flow",
-      "garden"
-     ]
-    },
-    {
-     "score": 0.49,
-     "a": {
-      "book": "bible",
-      "ref": "Daniel 7:14",
-      "text": "And there was given him dominion, and glory, and a kingdom, that all people, nations, and languages, should serve him: his dominion is an everlasting dominion, which shall not pass away, and his kingdom that which shall not be destroyed."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "36:83",
-      "text": "Therefor Glory be to Him in Whose hand is the dominion over all things! Unto Him ye will be brought back."
-     },
-     "shared_words": [
-      "dominion",
-      "glory"
-     ]
-    },
-    {
-     "score": 0.475,
-     "a": {
-      "book": "bible",
-      "ref": "Proverbs 11:16",
-      "text": "A gracious woman retaineth honour: and strong men retain riches."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "89:15",
-      "text": "As for man, whenever his Lord trieth him by honouring him, and is gracious unto him, he saith: My Lord honoureth me."
-     },
-     "shared_words": [
-      "gracious",
-      "honour"
-     ]
-    },
-    {
-     "score": 0.469,
-     "a": {
-      "book": "bible",
-      "ref": "Micah 4:6",
-      "text": "In that day, saith the LORD, will I assemble her that halteth, and I will gather her that is driven out, and her that I have afflicted;"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "41:19",
-      "text": "And (make mention of) the day when the enemies of Allah are gathered unto the Fire, they are driven on"
-     },
-     "shared_words": [
-      "driven",
-      "gather",
-      "day"
-     ]
-    },
-    {
-     "score": 0.417,
-     "a": {
-      "book": "bible",
-      "ref": "Psalms 40:1",
-      "text": "To the chief Musician, A Psalm of David. I waited patiently for the LORD; and he inclined unto me, and heard my cry."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "52:48",
-      "text": "So wait patiently (O Muhammad) for thy Lord's decree, for surely thou art in Our sight; and hymn the praise of thy Lord when thou uprisest,"
-     },
-     "shared_words": [
-      "patiently",
-      "wait",
-      "lord"
-     ]
-    },
-    {
-     "score": 0.396,
-     "a": {
-      "book": "quran",
-      "ref": "9:85",
-      "text": "Let not their wealth nor their children please thee! Allah purposeth only to punish them thereby in the world, and that their souls shall pass away while they are disbelievers."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "16:13",
-      "text": "\"This to-day by me hath been won, that purpose I shall gain; this wealth is mine already, and also this shall be mine in future."
-     },
-     "shared_words": [
-      "purpose",
-      "wealth"
-     ]
-    },
-    {
-     "score": 0.352,
-     "a": {
-      "book": "bible",
-      "ref": "Psalms 36:8",
-      "text": "They shall be abundantly satisfied with the fatness of thy house; and thou shalt make them drink of the river of thy pleasures."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "98:8",
-      "text": "Their reward is with their Lord: Gardens of Eden underneath which rivers flow, wherein they dwell for ever. Allah hath pleasure in them and they have pleasure in Him. This is (in store) for him who feareth his Lord."
-     },
-     "shared_words": [
-      "pleasure",
-      "river"
-     ]
-    },
-    {
-     "score": 0.339,
-     "a": {
-      "book": "bible",
-      "ref": "Judges 11:25",
-      "text": "And now art thou any thing better than Balak the son of Zippor, king of Moab? did he ever strive against Israel, or did he ever fight against them,"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "61:11",
-      "text": "Ye should believe in Allah and His messenger, and should strive for the cause of Allah with your wealth and your lives. That is better for you, if ye did but know."
-     },
-     "shared_words": [
-      "strive",
-      "better"
-     ]
-    }
-   ]
-  },
-  {
-   "name": "Death, judgment and the life to come",
-   "pairs": [
-    {
-     "score": 0.634,
-     "a": {
-      "book": "bible",
-      "ref": "Esther 6:1",
-      "text": "On that night could not the king sleep, and he commanded to bring the book of records of the chronicles; and they were read before the king."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "69:19",
-      "text": "Then, as for him who is given his record in his right hand, he will say: Take, read my book!"
-     },
-     "shared_words": [
-      "record",
-      "read",
-      "book"
-     ]
-    },
-    {
-     "score": 0.633,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 2:16",
-      "text": "And the LORD God commanded the man, saying, Of every tree of the garden thou mayest freely eat:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "2:35",
-      "text": "And We said: O Adam! Dwell thou and thy wife in the Garden, and eat ye freely (of the fruits) thereof where ye will; but come not nigh this tree lest ye become wrong-doers."
-     },
-     "shared_words": [
-      "freely",
-      "garden",
-      "tree",
-      "eat"
-     ]
-    },
-    {
-     "score": 0.63,
-     "a": {
-      "book": "bible",
-      "ref": "Romans 14:9",
-      "text": "For to this end Christ both died, and rose, and revived, that he might be Lord both of the dead and living."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "30:19",
-      "text": "He bringeth forth the living from the dead, and He bringeth forth the dead from the living, and He reviveth the earth after her death. And even so will ye be brought forth."
-     },
-     "shared_words": [
-      "revive",
-      "dead",
-      "live"
-     ]
-    },
-    {
-     "score": 0.585,
-     "a": {
-      "book": "bible",
-      "ref": "Habakkuk 1:10",
-      "text": "And they shall scoff at the kings, and the princes shall be a scorn unto them: they shall deride every strong hold; for they shall heap dust, and take it."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "6:10",
-      "text": "Messengers (of Allah) have been derided before thee, but that whereat they scoffed surrounded such of them as did deride."
-     },
-     "shared_words": [
-      "scoff",
-      "deride"
-     ]
-    },
-    {
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Mark 4:39",
+       "text": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm."
+      },
+      {
+       "book": "quran",
+       "ref": "42:33",
+       "text": "If He will He calmeth the wind so that they keep still upon its surface - Lo! herein verily are signs for every steadfast grateful (heart)-"
+      }
+     ]
+    },
+    {
+     "idea": "God made, and knows, both the visible and the invisible.",
      "score": 0.582,
-     "a": {
-      "book": "bible",
-      "ref": "John 5:28",
-      "text": "Marvel not at this: for the hour is coming, in the which all that are in the graves shall hear his voice,"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "50:42",
-      "text": "The day when they will hear the (Awful) Cry in truth. That is the day of coming forth (from the graves)."
-     },
-     "shared_words": [
-      "grave",
-      "coming",
-      "hear"
-     ]
-    },
-    {
-     "score": 0.556,
-     "a": {
-      "book": "bible",
-      "ref": "Ezekiel 44:10",
-      "text": "And the Levites that are gone away far from me, when Israel went astray, which went astray away from me after their idols; they shall even bear their iniquity."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "25:42",
-      "text": "He would have led us far away from our gods if we had not been staunch to them. They will know, when they behold the doom, who is more astray as to the road."
-     },
-     "shared_words": [
-      "astray",
-      "far",
-      "away"
-     ]
-    },
-    {
-     "score": 0.545,
-     "a": {
-      "book": "bible",
-      "ref": "Luke 9:27",
-      "text": "But I tell you of a truth, there be some standing here, which shall not taste of death, till they see the kingdom of God."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "44:56",
-      "text": "They taste not death therein, save the first death. And He hath saved them from the doom of hell,"
-     },
-     "shared_words": [
-      "taste",
-      "death"
-     ]
-    },
-    {
-     "score": 0.536,
-     "a": {
-      "book": "bible",
-      "ref": "John 19:35",
-      "text": "And he that saw it bare record, and his record is true: and he knoweth that he saith true, that ye might believe."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "22:70",
-      "text": "Hast thou not known that Allah knoweth all that is in the heaven and the earth? Lo! it is in a record. Lo! that is easy for Allah."
-     },
-     "shared_words": [
-      "record",
-      "knoweth"
-     ]
-    },
-    {
-     "score": 0.516,
-     "a": {
-      "book": "bible",
-      "ref": "Jeremiah 36:28",
-      "text": "Take thee again another roll, and write in it all the former words that were in the first roll, which Jehoiakim the king of Judah hath burned."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "21:104",
-      "text": "The Day when We shall roll up the heavens as a recorder rolleth up a written scroll. As We began the first creation, We shall repeat it. (It is) a promise (binding) upon Us. Lo! We are to perform it."
-     },
-     "shared_words": [
-      "roll",
-      "first"
-     ]
-    },
-    {
-     "score": 0.511,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 3:23",
-      "text": "Therefore the LORD God sent him forth from the garden of Eden, to till the ground from whence he was taken."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "13:23",
-      "text": "Gardens of Eden which they enter, along with all who do right of their fathers and their helpmeets and their seed. The angels enter unto them from every gate,"
-     },
-     "shared_words": [
-      "eden",
-      "garden"
-     ]
-    },
-    {
-     "score": 0.506,
-     "a": {
-      "book": "bible",
-      "ref": "John 7:38",
-      "text": "He that believeth on me, as the scripture hath said, out of his belly shall flow rivers of living water."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "85:11",
-      "text": "Lo! those who believe and do good works, theirs will be Gardens underneath which rivers flow. That is the Great Success."
-     },
-     "shared_words": [
-      "flow",
-      "river",
-      "believe"
-     ]
-    },
-    {
-     "score": 0.505,
-     "a": {
-      "book": "bible",
-      "ref": "Hebrews 6:5",
-      "text": "And have tasted the good word of God, and the powers of the world to come,"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "10:70",
-      "text": "This world's portion (will be theirs), then unto Us is their return. Then We make them taste a dreadful doom because they used to disbelieve."
-     },
-     "shared_words": [
-      "taste",
-      "world"
-     ]
-    },
-    {
-     "score": 0.504,
-     "a": {
-      "book": "bible",
-      "ref": "Matthew 25:41",
-      "text": "Then shall he say also unto them on the left hand, Depart from me, ye cursed, into everlasting fire, prepared for the devil and his angels:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "33:64",
-      "text": "Lo! Allah hath cursed the disbelievers, and hath prepared for them a flaming fire,"
-     },
-     "shared_words": [
-      "curse",
-      "prepare",
-      "fire"
-     ]
-    },
-    {
-     "score": 0.482,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 19:20",
-      "text": "Behold now, this city is near to flee unto, and it is a little one: Oh, let me escape thither, (is it not a little one?) and my soul shall live."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "33:16",
-      "text": "Say: Flight will not avail you if ye flee from death or killing, and then ye dwell in comfort but a little while."
-     },
-     "shared_words": [
-      "flee",
-      "little"
-     ]
-    },
-    {
-     "score": 0.472,
-     "a": {
-      "book": "bible",
-      "ref": "Proverbs 21:19",
-      "text": "It is better to dwell in the wilderness, than with a contentious and an angry woman."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "43:58",
-      "text": "And say: Are our gods better, or is he? They raise not the objection save for argument. Nay! but they are a contentious folk."
-     },
-     "shared_words": [
-      "contentious",
-      "better"
-     ]
-    },
-    {
-     "score": 0.471,
-     "a": {
-      "book": "bible",
-      "ref": "John 11:25",
-      "text": "Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "45:26",
-      "text": "Say (unto them, O Muhammad): Allah giveth life to you, then causeth you to die, then gathereth you unto the Day of Resurrection whereof there is no doubt. But most of mankind know not."
-     },
-     "shared_words": [
-      "resurrection",
-      "life"
-     ]
-    },
-    {
-     "score": 0.443,
-     "a": {
-      "book": "bible",
-      "ref": "Deuteronomy 19:16",
-      "text": "If a false witness rise up against any man to testify against him that which is wrong;"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "46:10",
-      "text": "Bethink you: If it is from Allah and ye disbelieve therein, and a witness of the Children of Israel hath already testified to the like thereof and hath believed, and ye are too proud (what plight is yours)? Lo! Allah guideth not wrong-doing folk."
-     },
-     "shared_words": [
-      "testify",
-      "wrong",
-      "witness"
-     ]
-    },
-    {
-     "score": 0.425,
-     "a": {
-      "book": "quran",
-      "ref": "54:48",
-      "text": "On the day when they are dragged into the Fire upon their faces (it is said unto them): Feel the touch of hell."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "1:42",
-      "text": "This confusion draggeth to hell the slayers of the family, and the family; for their ancestors fall, deprived of rice-balls and libations."
-     },
-     "shared_words": [
-      "drag",
-      "hell"
-     ]
-    },
-    {
-     "score": 0.418,
-     "a": {
-      "book": "bible",
-      "ref": "1 John 5:20",
-      "text": "And we know that the Son of God is come, and hath given us an understanding, that we may know him that is true, and we are in him that is true, even in his Son Jesus Christ. This is the true God, and eternal life."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "35:5",
-      "text": "O mankind! Lo! the promise of Allah is true. So let not the life of the world beguile you, and let not the (avowed) beguiler beguile you with regard to Allah."
-     },
-     "shared_words": [
-      "true",
-      "life"
-     ]
-    },
-    {
-     "score": 0.39,
-     "a": {
-      "book": "bible",
-      "ref": "2 Timothy 2:18",
-      "text": "Who concerning the truth have erred, saying that the resurrection is past already; and overthrow the faith of some."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "45:17",
-      "text": "And gave them plain commandments. And they differed not until after the knowledge came unto them, through rivalry among themselves. Lo! thy Lord will judge between them on the Day of Resurrection concerning that wherein they used to differ."
-     },
-     "shared_words": [
-      "resurrection",
-      "concern"
-     ]
-    },
-    {
-     "score": 0.378,
-     "a": {
-      "book": "bible",
-      "ref": "Titus 1:10",
-      "text": "For there are many unruly and vain talkers and deceivers, specially they of the circumcision:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "57:14",
-      "text": "They will cry unto them (saying): Were we not with you? They will say: Yea, verily; but ye tempted one another, and hesitated, and doubted, and vain desires beguiled you till the ordinance of Allah came to pass; and the deceiver deceived you concerning Allah;"
-     },
-     "shared_words": [
-      "deceiver",
-      "vain"
-     ]
-    },
-    {
-     "score": 0.324,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 65:1",
-      "text": "I am sought of them that asked not for me; I am found of them that sought me not: I said, Behold me, behold me, unto a nation that was not called by my name."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "72:8",
-      "text": "And (the jinn who had listened to the Qur'an said): We had sought the heaven but had found it filled with strong warders and meteors."
-     },
-     "shared_words": [
-      "sought",
-      "found"
-     ]
-    }
-   ]
-  },
-  {
-   "name": "The soul and the Self",
-   "pairs": [
-    {
-     "score": 0.604,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 37:31",
-      "text": "And the remnant that is escaped of the house of Judah shall again take root downward, and bear fruit upward:"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "15:2",
-      "text": "Downwards and upwards spread the branches of it, nourished by the qualities; the objects of the senses its buds; and its roots grow downwards, the bonds of action in the world of men."
-     },
-     "shared_words": [
-      "downward",
-      "upward",
-      "root"
-     ]
-    },
-    {
-     "score": 0.598,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 50:21",
-      "text": "Now therefore fear ye not: I will nourish you, and your little ones. And he comforted them, and spake kindly unto them."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "3:11",
-      "text": "\"With this nourish ye the Shining Ones, and may the Shining Ones nourish you; thus nourishing one another ye shall reap the supremest good."
-     },
-     "shared_words": [
-      "nourish",
-      "ones"
-     ]
-    },
-    {
-     "score": 0.58,
-     "a": {
-      "book": "bible",
-      "ref": "Deuteronomy 15:10",
-      "text": "Thou shalt surely give him, and thine heart shall not be grieved when thou givest unto him: because that for this thing the LORD thy God shall bless thee in all thy works, and in all that thou puttest thine hand unto."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "2:11",
-      "text": "The Blessed Lord said: Thou grievest for those that should not be grieved for, yet speakest words of wisdom. The wise grieve neither for the living nor for the dead."
-     },
-     "shared_words": [
-      "grieve",
-      "bless",
-      "lord"
-     ]
-    },
-    {
-     "score": 0.547,
-     "a": {
-      "book": "bible",
-      "ref": "1 Samuel 17:21",
-      "text": "For Israel and the Philistines had put the battle in array, army against army."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "1:27",
-      "text": "Fathers-in-law and benefactors also in both armies; seeing all these kinsmen thus standing arrayed, Kaunteya,"
-     },
-     "shared_words": [
-      "array",
-      "army"
-     ]
-    },
-    {
-     "score": 0.528,
-     "a": {
-      "book": "bible",
-      "ref": "Luke 18:30",
-      "text": "Who shall not receive manifold more in this present time, and in the world to come life everlasting."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "9:15",
-      "text": "Others also, sacrificing with the sacrifice of wisdom, worship Me as the One and the Manifold everywhere present."
-     },
-     "shared_words": [
-      "manifold",
-      "present"
-     ]
-    },
-    {
-     "score": 0.515,
-     "a": {
-      "book": "quran",
-      "ref": "27:66",
-      "text": "Nay, but doth their knowledge reach to the Hereafter? Nay, for they are in doubt concerning it. Nay, for they cannot see it."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "12:8",
-      "text": "Place thy mind in me, into Me let thy Reason enter; then without doubt thou shalt abide in Me hereafter."
-     },
-     "shared_words": [
-      "doubt",
-      "hereafter"
-     ]
-    },
-    {
-     "score": 0.51,
-     "a": {
-      "book": "quran",
-      "ref": "4:74",
-      "text": "Let those fight in the way of Allah who sell the life of this world for the other. Whoso fighteth in the way of Allah, be he slain or be he victorious, on him We shall bestow a vast reward."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "2:37",
-      "text": "Slain, thou wilt obtain heaven; victorious, thou wilt enjoy the earth; therefore stand up, O son of Kunti, resolute to fight."
-     },
-     "shared_words": [
-      "victorious",
-      "fight",
-      "slain"
-     ]
-    },
-    {
-     "score": 0.5,
-     "a": {
-      "book": "bible",
-      "ref": "Ecclesiastes 3:21",
-      "text": "Who knoweth the spirit of man that goeth upward, and the spirit of the beast that goeth downward to the earth?"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "14:18",
-      "text": "They rise upwards who are settled in Harmony; the Active dwell in the mid-most place: the Inert go downwards, enveloped in the vilest"
-     },
-     "shared_words": [
-      "downward",
-      "upward"
-     ]
-    },
-    {
-     "score": 0.492,
-     "a": {
-      "book": "quran",
-      "ref": "98:7",
-      "text": "(And) lo! those who believe and do good works are the best of created beings."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "11:3",
-      "text": "O supreme Lord, even as Thou describest Thyself, O best of beings, I desire to see Thy Form omnipotent."
-     },
-     "shared_words": [
-      "beings",
-      "best"
-     ]
-    },
-    {
-     "score": 0.49,
-     "a": {
-      "book": "bible",
-      "ref": "Genesis 20:9",
-      "text": "Then Abimelech called Abraham, and said unto him, What hast thou done unto us? and what have I offended thee, that thou hast brought on me and on my kingdom a great sin? thou hast done deeds unto me that ought not to be done."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "18:31",
-      "text": "That by which one understandeth away Right and Wrong and also what ought to be done and what ought not to be done, that Reason, O Partha, is passionate."
-     },
-     "shared_words": [
-      "ought",
-      "done"
-     ]
-    },
-    {
-     "score": 0.486,
-     "a": {
-      "book": "bible",
-      "ref": "Hebrews 10:12",
-      "text": "But this man, after he had offered one sacrifice for sins for ever, sat down on the right hand of God;"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "17:27",
-      "text": "Steadfastness in sacrifice, austerity and gift is also called \"Sat\", and action for the sake of the Supreme is also named \"Sat.\""
-     },
-     "shared_words": [
-      "sat",
-      "sacrifice"
-     ]
-    },
-    {
-     "score": 0.479,
-     "a": {
-      "book": "bible",
-      "ref": "Romans 7:5",
-      "text": "For when we were in the flesh, the motions of sins, which were by the law, did work in our members to bring forth fruit unto death."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "14:16",
-      "text": "It is said the fruit of a good action is harmonious and spotless; verily the fruit of Motion is pain, and the fruit of Inertia unwisdom"
-     },
-     "shared_words": [
-      "motion",
-      "fruit"
-     ]
-    },
-    {
-     "score": 0.476,
-     "a": {
-      "book": "bible",
-      "ref": "Job 3:4",
-      "text": "Let that day be darkness; let not God regard it from above, neither let the light shine upon it."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "10:11",
-      "text": "Out of pure compassion for them, dwelling within their Self, I destroy the ignorance-born darkness by the shining lamp of wisdom."
-     },
-     "shared_words": [
-      "shine",
-      "darkness"
-     ]
-    },
-    {
-     "score": 0.468,
-     "a": {
-      "book": "bible",
-      "ref": "Psalms 44:3",
-      "text": "For they got not the land in possession by their own sword, neither did their own arm save them: but thy right hand, and thine arm, and the light of thy countenance, because thou hadst a favour unto them."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "9:41",
-      "text": "Go forth, light-armed and heavy-armed, and strive with your wealth and your lives in the way of Allah! That is best for you if ye but knew."
-     },
-     "shared_words": [
-      "arm",
-      "light"
-     ]
-    },
-    {
-     "score": 0.463,
-     "a": {
-      "book": "bible",
-      "ref": "Revelation 12:2",
-      "text": "And she being with child cried, travailing in birth, and pained to be delivered."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "8:15",
-      "text": "Having come to Me, these Mahatmas come not again to birth, the place of pain, non-eternal; they have gone to the highest bliss."
-     },
-     "shared_words": [
-      "birth",
-      "pain"
-     ]
-    },
-    {
-     "score": 0.462,
-     "a": {
-      "book": "bible",
-      "ref": "1 Kings 11:41",
-      "text": "And the rest of the acts of Solomon, and all that he did, and his wisdom, are they not written in the book of the acts of Solomon?"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "5:13",
-      "text": "Mentally renouncing all actions, the sovereign dweller in the body resteth serenely in the nine-gated city, neither acting nor causing to act."
-     },
-     "shared_words": [
-      "act",
-      "rest"
-     ]
-    },
-    {
-     "score": 0.462,
-     "a": {
-      "book": "bible",
-      "ref": "1 Kings 10:7",
-      "text": "Howbeit I believed not the words, until I came, and mine eyes had seen it: and, behold, the half was not told me: thy wisdom and prosperity exceedeth the fame which I heard."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "10:34",
-      "text": "And all-devouring Death am I, and the origin of all to come; and of feminine qualities, fame, prosperity, speech, memory, intelligence, constancy, forgiveness."
-     },
-     "shared_words": [
-      "prosperity",
-      "fame"
-     ]
-    },
-    {
-     "score": 0.452,
-     "a": {
-      "book": "bible",
-      "ref": "Luke 2:10",
-      "text": "And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "51:28",
-      "text": "Then he conceived a fear of them. They said: Fear not! and gave him tidings of (the birth of) a wise son."
-     },
-     "shared_words": [
-      "tidings",
-      "fear"
-     ]
-    },
-    {
-     "score": 0.452,
-     "a": {
-      "book": "quran",
-      "ref": "24:64",
-      "text": "Lo! verily unto Allah belongeth whatsoever is in the heavens and the earth. He knoweth your condition. And (He knoweth) the Day when they are returned unto Him so that He may inform them of what they did. Allah is Knower of all things."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "13:24",
-      "text": "He who thus knoweth Spirit and Matter with its qualities, in whatsoever condition he may be, he shall not be born again."
-     },
-     "shared_words": [
-      "condition",
-      "knoweth"
-     ]
-    },
-    {
-     "score": 0.451,
-     "a": {
-      "book": "bible",
-      "ref": "John 8:33",
-      "text": "They answered him, We be Abraham's seed, and were never in bondage to any man: how sayest thou, Ye shall be made free?"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "5:3",
-      "text": "He should be known as a perpetual ascetic, who neither hateth nor desireth; free from the pairs of opposites, O mighty-armed, he is easily set free from bondage."
-     },
-     "shared_words": [
-      "bondage",
-      "free"
-     ]
-    },
-    {
-     "score": 0.443,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 44:7",
-      "text": "And who, as I, shall call, and shall declare it, and set it in order for me, since I appointed the ancient people? and the things that are coming, and shall come, let them shew unto them."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "46:11",
-      "text": "And those who disbelieve say of those who believe: If it had been (any) good, they would not have been before us in attaining it. And since they will not be guided by it, they say: This is an ancient lie;"
-     },
-     "shared_words": [
-      "ancient",
-      "since"
-     ]
-    },
-    {
-     "score": 0.438,
-     "a": {
-      "book": "bible",
-      "ref": "Psalms 34:12",
-      "text": "What man is he that desireth life, and loveth many days, that he may see good?"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "12:17",
-      "text": "He who neither loveth nor hateth, nor grieveth, nor desireth, renouncing good and evil, full of devotion, he is dear to Me."
-     },
-     "shared_words": [
-      "desire",
-      "love",
-      "good"
-     ]
-    },
-    {
-     "score": 0.431,
-     "a": {
-      "book": "bible",
-      "ref": "Proverbs 27:20",
-      "text": "Hell and destruction are never full; so the eyes of man are never satisfied."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "6:40",
-      "text": "The Blessed Lord said: O son of Pritha, neither in this world nor in the life to come is there destruction for him; never doth any who worketh righteousness, O beloved, tread the path of woe."
-     },
-     "shared_words": [
-      "destruction",
-      "never"
-     ]
-    },
-    {
-     "score": 0.385,
-     "a": {
-      "book": "quran",
-      "ref": "3:142",
-      "text": "Or deemed ye that ye would enter paradise while yet Allah knoweth not those of you who really strive, nor knoweth those (of you) who are steadfast?"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "7:3",
-      "text": "Among thousands of men scarce one striveth for perfection; of the successful strivers scarce one knoweth Me in essence."
-     },
-     "shared_words": [
-      "strive",
-      "knoweth"
-     ]
-    },
-    {
-     "score": 0.381,
-     "a": {
-      "book": "quran",
-      "ref": "10:25",
-      "text": "And Allah summoneth to the abode of peace, and leadeth whom He will to a straight path."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "8:21",
-      "text": "That unmanifested, \"the Indestructible,\" It is called; It is named the highest Path. They who reach It return not. That is My supreme abode."
-     },
-     "shared_words": [
-      "abode",
-      "path"
-     ]
-    },
-    {
-     "score": 0.372,
-     "a": {
-      "book": "quran",
-      "ref": "23:29",
-      "text": "And say: My Lord! Cause me to land at a blessed landing-place, for Thou art Best of all who bring to land."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "10:19",
-      "text": "The Blessed Lord said: Blessed be thou! I will declare to thee My divine glory by its chief characteristics, O best of the Kurus; there is no end to details of Me."
-     },
-     "shared_words": [
-      "best",
-      "bless",
-      "lord"
-     ]
-    },
-    {
-     "score": 0.348,
-     "a": {
-      "book": "quran",
-      "ref": "28:14",
-      "text": "And when he reached his full strength and was ripe, We gave him wisdom and knowledge. Thus do We reward the good."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "7:19",
-      "text": "At the close of many births the man full of wisdom cometh unto Me; \"Vasudeva is all.\" saith he, the Mahatma, very difficult to find."
-     },
-     "shared_words": [
-      "wisdom",
-      "full"
-     ]
-    },
-    {
-     "score": 0.257,
-     "a": {
-      "book": "quran",
-      "ref": "23:19",
-      "text": "Then We produce for you therewith gardens of date-palms and grapes, wherein is much fruit for you and whereof ye eat;"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "5:14",
-      "text": "The Lord of the world produceth not the idea of agency, nor actions, nor the union together of action and its fruit; nature, however, manifesteth."
-     },
-     "shared_words": [
-      "produce",
-      "fruit"
-     ]
-    }
-   ]
-  },
-  {
-   "name": "Devotion and worship",
-   "pairs": [
-    {
-     "score": 0.575,
-     "a": {
-      "book": "bible",
-      "ref": "Matthew 27:42",
-      "text": "He saved others; himself he cannot save. If he be the King of Israel, let him now come down from the cross, and we will believe him."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "13:26",
-      "text": "Others also, ignorant of this, having heard of it from others, worship; and these also cross beyond death, adhering to what they had heard."
-     },
-     "shared_words": [
-      "cross",
-      "others"
-     ]
-    },
-    {
-     "score": 0.567,
-     "a": {
-      "book": "bible",
-      "ref": "Psalms 47:7",
-      "text": "For God is the King of all the earth: sing ye praises with understanding."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "17:44",
-      "text": "The seven heavens and the earth and all that is therein praise Him, and there is not a thing but hymneth His praise; but ye understand not their praise. Lo! He is ever Clement, Forgiving."
-     },
-     "shared_words": [
-      "understand",
-      "praise",
-      "earth"
-     ]
-    },
-    {
-     "score": 0.551,
-     "a": {
-      "book": "bible",
-      "ref": "Exodus 10:25",
-      "text": "And Moses said, Thou must give us also sacrifices and burnt offerings, that we may sacrifice unto the LORD our God."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "9:16",
-      "text": "I the ablation; I the sacrifice; I the ancestral offering; I the fire-giving herb; the mantram I; I also the butter; I the fire; the burnt-offering I;"
-     },
-     "shared_words": [
-      "burnt",
-      "sacrifice",
-      "offer",
-      "give"
-     ]
-    },
-    {
-     "score": 0.515,
-     "a": {
-      "book": "bible",
-      "ref": "Hosea 6:6",
-      "text": "For I desired mercy, and not sacrifice; and the knowledge of God more than burnt offerings."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "17:11",
-      "text": "The sacrifice which is offered by men without desire for fruit, as enjoined by the ordinances, under the firm belief that sacrifice is a duty, that is pure."
-     },
-     "shared_words": [
-      "desire",
-      "sacrifice",
-      "offer"
-     ]
-    },
-    {
-     "score": 0.511,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 26:13",
-      "text": "O LORD our God, other lords beside thee have had dominion over us: but by thee only will we make mention of thy name."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "39:45",
-      "text": "And when Allah alone is mentioned, the hearts of those who believe not in the Hereafter are repelled, and when those (whom they worship) beside Him are mentioned, behold! they are glad."
-     },
-     "shared_words": [
-      "mention",
-      "beside"
-     ]
-    },
-    {
-     "score": 0.51,
-     "a": {
-      "book": "quran",
-      "ref": "22:32",
-      "text": "That (is the command). And whoso magnifieth the offerings consecrated to Allah, it surely is from devotion of the hearts,"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "9:14",
-      "text": "Always magnifying Me, strenuous, firm in vows, prostrating themselves before Me, they worship Me with devotion ever harmonised."
-     },
-     "shared_words": [
-      "devotion",
-      "magnify"
-     ]
-    },
-    {
-     "score": 0.483,
-     "a": {
-      "book": "quran",
-      "ref": "73:8",
-      "text": "So remember the name of thy Lord and devote thyself with a complete devotion -"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "9:34",
-      "text": "On Me fix thy mind, be devoted to Me; sacrifice to Me; prostrate thyself before Me; harmonised thus in the Self, thou shalt come unto Me, having Me as thy supreme goal."
-     },
-     "shared_words": [
-      "devote",
-      "thyself"
-     ]
-    },
-    {
-     "score": 0.482,
-     "a": {
-      "book": "bible",
-      "ref": "Romans 11:7",
-      "text": "What then? Israel hath not obtained that which he seeketh for; but the election hath obtained it, and the rest were blinded"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "7:22",
-      "text": "He endowed with that faith, seeketh the worship of such a one, and from him he obtaineth his desires, I verily decreeing the benefits;"
-     },
-     "shared_words": [
-      "obtain",
-      "seek"
-     ]
-    },
-    {
-     "score": 0.48,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 19:21",
-      "text": "And the LORD shall be known to Egypt, and the Egyptians shall know the LORD in that day, and shall do sacrifice and oblation; yea, they shall vow a vow unto the LORD, and perform it."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "4:28",
-      "text": "Yet others the sacrifice of wealth, the sacrifice of austerity, the sacrifice of yoga, the sacrifice of silent reading and wisdom, men concentrated and of effectual vows;"
-     },
-     "shared_words": [
-      "vow",
-      "sacrifice"
-     ]
-    },
-    {
-     "score": 0.48,
-     "a": {
-      "book": "quran",
-      "ref": "96:19",
-      "text": "Nay, Obey not thou him. But prostrate thyself, and draw near (unto Allah)."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "11:40",
-      "text": "Prostrate in front of Thee, prostrate behind; Prostrate on every side to Thee, O All. In power boundless, measureless in strength, Thou holdest all: then Thou Thyself art All."
-     },
-     "shared_words": [
-      "prostrate",
-      "thyself"
-     ]
-    },
-    {
-     "score": 0.477,
-     "a": {
-      "book": "bible",
-      "ref": "Jeremiah 44:25",
-      "text": "Thus saith the LORD of hosts, the God of Israel, saying; Ye and your wives have both spoken with your mouths, and fulfilled with your hand, saying, We will surely perform our vows that we have vowed, to burn incense to the queen of heaven, and to pour out drink offerings unto her: ye will surely accomplish your vows, and surely perform your vows."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "76:7",
-      "text": "(Because) they perform the vow and fear a day whereof the evil is wide-spreading,"
-     },
-     "shared_words": [
-      "vow",
-      "perform"
-     ]
-    },
-    {
-     "score": 0.461,
-     "a": {
-      "book": "quran",
-      "ref": "43:67",
-      "text": "Friends on that day will be foes one to another, save those who kept their duty (to Allah)."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "14:25",
-      "text": "The same in honour and ignominy, the same to friend and foe, abandoning all undertakings - he is said to have crossed over the qualities."
-     },
-     "shared_words": [
-      "foe",
-      "friend"
-     ]
-    },
-    {
-     "score": 0.455,
-     "a": {
-      "book": "bible",
-      "ref": "1 Samuel 14:38",
-      "text": "And Saul said, Draw ye near hither, all the chief of the people: and know and see wherein this sin hath been this day."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "96:19",
-      "text": "Nay, Obey not thou him. But prostrate thyself, and draw near (unto Allah)."
-     },
-     "shared_words": [
-      "draw",
-      "near"
-     ]
-    },
-    {
-     "score": 0.45,
-     "a": {
-      "book": "bible",
-      "ref": "Acts 10:31",
-      "text": "And said, Cornelius, thy prayer is heard, and thine alms are had in remembrance in the sight of God."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "62:9",
-      "text": "O ye who believe! When the call is heard for the prayer of the day of congregation, haste unto remembrance of Allah and leave your trading. That is better for you if ye did but know."
-     },
-     "shared_words": [
-      "remembrance",
-      "prayer",
-      "heard"
-     ]
-    },
-    {
-     "score": 0.401,
-     "a": {
-      "book": "quran",
-      "ref": "17:74",
-      "text": "And if We had not made thee wholly firm thou mightest almost have inclined unto them a little."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "12:19",
-      "text": "Taking equally praise and reproach, silent, wholly content with what cometh, homeless, firm in mind, full of devotion, that man is dear to Me."
-     },
-     "shared_words": [
-      "wholly",
-      "firm"
-     ]
-    },
-    {
-     "score": 0.401,
-     "a": {
-      "book": "quran",
-      "ref": "6:162",
-      "text": "Say: Lo! my worship and my sacrifice and my living and my dying are for Allah, Lord of the Worlds."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "6:31",
-      "text": "He who, established in unity, worshippeth Me abiding in all beings, that Yogi liveth in Me, whatever his mode of living."
-     },
-     "shared_words": [
-      "worship",
-      "live"
-     ]
-    },
-    {
-     "score": 0.341,
-     "a": {
-      "book": "quran",
-      "ref": "7:29",
-      "text": "Say: My Lord enjoineth justice. And set your faces upright (toward Him) at every place of worship and call upon Him, making religion pure for Him (only). As He brought you into being, so return ye (unto Him)."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "17:11",
-      "text": "The sacrifice which is offered by men without desire for fruit, as enjoined by the ordinances, under the firm belief that sacrifice is a duty, that is pure."
-     },
-     "shared_words": [
-      "enjoin",
-      "pure"
-     ]
-    }
-   ]
-  },
-  {
-   "name": "Desire, anger and self-control",
-   "pairs": [
-    {
-     "score": 0.639,
-     "a": {
-      "book": "bible",
-      "ref": "Acts 12:22",
-      "text": "And the people gave a shout, saying, It is the voice of a god, and not of a man."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "49:2",
-      "text": "O ye who believe! Lift not up your voices above the voice of the Prophet, nor shout when speaking to him as ye shout one to another, lest your works be rendered vain while ye perceive not."
-     },
-     "shared_words": [
-      "shout",
-      "voice"
-     ]
-    },
-    {
-     "score": 0.612,
-     "a": {
-      "book": "quran",
-      "ref": "17:80",
-      "text": "And say: My Lord! Cause me to come in with a firm incoming and to go out with a firm outgoing. And give me from Thy presence a sustaining Power."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "4:29",
-      "text": "Yet others pour as sacrifice the outgoing breath in the incoming, and the incoming in the outgoing, restraining the flow of the outgoing and incoming breaths, solely absorbed in the control of breathing."
-     },
-     "shared_words": [
-      "incoming",
-      "outgoing"
-     ]
-    },
-    {
-     "score": 0.557,
-     "a": {
-      "book": "bible",
-      "ref": "Job 6:18",
-      "text": "The paths of their way are turned aside; they go to nothing, and perish."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "20:16",
-      "text": "Therefor, let not him turn thee aside from (the thought of) it who believeth not therein but followeth his own desire, lest thou perish."
-     },
-     "shared_words": [
-      "aside",
-      "perish",
-      "turn"
-     ]
-    },
-    {
-     "score": 0.513,
-     "a": {
-      "book": "bible",
-      "ref": "Jeremiah 25:15",
-      "text": "For thus saith the LORD God of Israel unto me; Take the wine cup of this fury at my hand, and cause all the nations, to whom I send thee, to drink it."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "52:23",
-      "text": "There they pass from hand to hand a cup wherein is neither vanity nor cause of sin."
-     },
-     "shared_words": [
-      "cup",
-      "cause",
-      "hand"
-     ]
-    },
-    {
-     "score": 0.467,
-     "a": {
-      "book": "bible",
-      "ref": "Ephesians 2:3",
-      "text": "Among whom also we all had our conversation in times past in the lusts of our flesh, fulfilling the desires of the flesh and of the mind; and were by nature the children of wrath, even as others."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "16:18",
-      "text": "Given over to egoism, power, insolence, lust and wrath, these malicious ones hate Me in the bodies of others and in their own."
-     },
-     "shared_words": [
-      "lust",
-      "others",
-      "wrath"
-     ]
-    },
-    {
-     "score": 0.453,
-     "a": {
-      "book": "bible",
-      "ref": "Ezekiel 38:10",
-      "text": "Thus saith the Lord GOD; It shall also come to pass, that at the same time shall things come into thy mind, and thou shalt think an evil thought:"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "6:12",
-      "text": "There, having made the mind one-pointed, with thought and the functions of the senses subdued, steady on his seat, he should practise yoga for the purification of the self."
-     },
-     "shared_words": [
-      "thought",
-      "mind"
-     ]
-    },
-    {
-     "score": 0.393,
-     "a": {
-      "book": "quran",
-      "ref": "14:43",
-      "text": "As they come hurrying on in fear, their heads upraised, their gaze returning not to them, and their hearts as air."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "6:13",
-      "text": "Holding the body, head and neck erect, immovably steady, looking fixedly at the point of the nose, with unseeing gaze,"
-     },
-     "shared_words": [
-      "gaze",
-      "head"
-     ]
-    },
-    {
-     "score": 0.357,
-     "a": {
-      "book": "quran",
-      "ref": "41:10",
-      "text": "He placed therein firm hills rising above it, and blessed it and measured therein its sustenance in four Days, alike for (all) who ask;"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "14:24",
-      "text": "Balanced in pleasure and pain, self-reliant, to whom a lump of earth, a rock and gold are alike, the same to loved and unloved, firm, the same in censure and in praise,"
-     },
-     "shared_words": [
-      "alike",
-      "firm"
-     ]
-    },
-    {
-     "score": 0.278,
-     "a": {
-      "book": "quran",
-      "ref": "21:46",
-      "text": "And if a breath of thy Lord's punishment were to touch them, they assuredly would say: Alas for us! Lo! we were wrong-doers."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "5:8",
-      "text": "\"I do not anything,\" should think the harmonised one, who knoweth the essence of things; seeing, hearing, touching, smelling, eating, moving, sleeping, breathing."
-     },
-     "shared_words": [
-      "breath",
-      "touch"
-     ]
-    }
-   ]
-  },
-  {
-   "name": "Wisdom and knowledge",
-   "pairs": [
-    {
-     "score": 0.612,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 29:14",
-      "text": "Therefore, behold, I will proceed to do a marvellous work among this people, even a marvellous work and a wonder: for the wisdom of their wise men shall perish, and the understanding of their prudent men shall be hid."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "2:29",
-      "text": "As marvellous one regardeth him; as marvellous another speaketh thereof; as marvellous another heareth thereof; yet having heard none indeed understandeth."
-     },
-     "shared_words": [
-      "marvellous",
-      "understand"
-     ]
-    },
-    {
-     "score": 0.605,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 42:16",
-      "text": "And I will bring the blind by a way that they knew not; I will lead them in paths that they have not known: I will make darkness light before them, and crooked things straight. These things will I do unto them, and not forsake them."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "5:16",
-      "text": "Whereby Allah guideth him who seeketh His good pleasure unto paths of peace. He bringeth them out of darkness unto light by His decree, and guideth them unto a straight path."
-     },
-     "shared_words": [
-      "straight",
-      "path",
-      "darkness",
-      "light",
-      "bring"
-     ]
-    },
-    {
-     "score": 0.602,
-     "a": {
-      "book": "bible",
-      "ref": "Psalms 38:13",
-      "text": "But I, as a deaf man, heard not; and I was as a dumb man that openeth not his mouth."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "8:22",
-      "text": "Lo! the worst of beasts in Allah's sight are the deaf, the dumb, who have no sense."
-     },
-     "shared_words": [
-      "deaf",
-      "dumb"
-     ]
-    },
-    {
-     "score": 0.577,
-     "a": {
-      "book": "bible",
-      "ref": "Psalms 49:3",
-      "text": "My mouth shall speak of wisdom; and the meditation of my heart shall be of understanding."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "12:12",
-      "text": "Better indeed is wisdom than constant-practice; than wisdom, meditation is better; than meditation, renunciation of the fruit of action; on renunciation follows peace."
-     },
-     "shared_words": [
-      "meditation",
-      "wisdom"
-     ]
-    },
-    {
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Colossians 1:16",
+       "text": "For by him were all things created, that are in heaven, and that are in earth, visible and invisible, whether they be thrones, or dominions, or principalities, or powers: all things were created by him, and for him:"
+      },
+      {
+       "book": "quran",
+       "ref": "13:9",
+       "text": "He is the Knower of the Invisible and the Visible, the Great, the High Exalted."
+      }
+     ]
+    },
+    {
+     "idea": "The Garden of Eden, watered by rivers.",
      "score": 0.574,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 45:16",
-      "text": "They shall be ashamed, and also confounded, all of them: they shall go to confusion together that are makers of idols."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "19:83",
-      "text": "Seest thou not that We have set the devils on the disbelievers to confound them with confusion?"
-     },
-     "shared_words": [
-      "confusion",
-      "confound"
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 2:10",
+       "text": "And a river went out of Eden to water the garden; and from thence it was parted, and became into four heads."
+      },
+      {
+       "book": "quran",
+       "ref": "20:76",
+       "text": "Gardens of Eden underneath which rivers flow, wherein they will abide for ever. That is the reward of him who groweth."
+      }
      ]
     },
     {
-     "score": 0.568,
-     "a": {
-      "book": "bible",
-      "ref": "Isaiah 43:8",
-      "text": "Bring forth the blind people that have eyes, and the deaf that have ears."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "22:46",
-      "text": "Have they not travelled in the land, and have they hearts wherewith to feel and ears wherewith to hear? For indeed it is not the eyes that grow blind, but it is the hearts, which are within the bosoms, that grow blind."
-     },
-     "shared_words": [
-      "blind",
-      "ear",
-      "eye"
+     "idea": "God created human beings male and female.",
+     "score": 0.545,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 5:2",
+       "text": "Male and female created he them; and blessed them, and called their name Adam, in the day when they were created."
+      },
+      {
+       "book": "quran",
+       "ref": "35:11",
+       "text": "Allah created you from dust, then from a little fluid, then He made you pairs (the male and female). No female beareth or bringeth forth save with His knowledge. And no-one groweth old who groweth old, nor is aught lessened of his life, but it is recorded in a Book, Lo! that is easy for Allah."
+      }
      ]
     },
     {
-     "score": 0.566,
-     "a": {
-      "book": "bible",
-      "ref": "Daniel 2:23",
-      "text": "I thank thee, and praise thee, O thou God of my fathers, who hast given me wisdom and might, and hast made known unto me now what we desired of thee: for thou hast now made known unto us the king's matter."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "7:2",
-      "text": "I will declare to thee this knowledge and wisdom in its completeness, which, having known, there is nothing more here needeth to be known."
-     },
-     "shared_words": [
-      "known",
-      "wisdom"
-     ]
-    },
-    {
-     "score": 0.54,
-     "a": {
-      "book": "bible",
-      "ref": "1 Corinthians 14:33",
-      "text": "For God is not the author of confusion, but of peace, as in all churches of the saints."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "3:24",
-      "text": "These worlds would fall into ruin, if I did not perform action; I should be the author of confusion of castes, and should destroy these creatures."
-     },
-     "shared_words": [
-      "author",
-      "confusion"
-     ]
-    },
-    {
-     "score": 0.534,
-     "a": {
-      "book": "bible",
-      "ref": "Proverbs 2:6",
-      "text": "For the LORD giveth wisdom: out of his mouth cometh knowledge and understanding."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "13:12",
-      "text": "Constancy in the wisdom of the Self, understanding of the object of essential wisdom; that is declared to be the Wisdom; all against it is ignorance."
-     },
-     "shared_words": [
-      "wisdom",
-      "understand"
-     ]
-    },
-    {
-     "score": 0.521,
-     "a": {
-      "book": "bible",
-      "ref": "1 Corinthians 2:6",
-      "text": "Howbeit we speak wisdom among them that are perfect: yet not the wisdom of this world, nor of the princes of this world, that come to nought:"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "4:38",
-      "text": "Verily there is no purifier in this world like wisdom; he that is perfected in yoga finds it in the Self in due season."
-     },
-     "shared_words": [
-      "perfect",
-      "wisdom",
-      "world"
-     ]
-    },
-    {
-     "score": 0.505,
-     "a": {
-      "book": "bible",
-      "ref": "Leviticus 4:2",
-      "text": "Speak unto the children of Israel, saying, If a soul shall sin through ignorance against any of the commandments of the LORD concerning things which ought not to be done, and shall do against any of them:"
-     },
-     "b": {
-      "book": "gita",
-      "ref": "16:24",
-      "text": "Therefore let the Scriptures be thy authority, in determining what ought to be done, or what ought not to be done. Knowing what hath been declared by the ordinances of the Scriptures, thou oughtest to work in this world."
-     },
-     "shared_words": [
-      "ought",
-      "done"
-     ]
-    },
-    {
-     "score": 0.499,
-     "a": {
-      "book": "bible",
-      "ref": "Proverbs 11:13",
-      "text": "A talebearer revealeth secrets: but he that is of a faithful spirit concealeth the matter."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "47:26",
-      "text": "That is because they say unto those who hate what Allah hath revealed: We will obey you in some matters; and Allah knoweth their secret talk."
-     },
-     "shared_words": [
-      "secret",
-      "matter",
-      "reveal"
-     ]
-    },
-    {
-     "score": 0.497,
-     "a": {
-      "book": "bible",
-      "ref": "Proverbs 14:6",
-      "text": "A scorner seeketh wisdom, and findeth it not: but knowledge is easy unto him that understandeth."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "40:27",
-      "text": "Moses said: Lo! I seek refuge in my Lord and your Lord from every scorner who believeth not in a Day of Reckoning."
-     },
-     "shared_words": [
-      "scorner",
-      "seek"
-     ]
-    },
-    {
-     "score": 0.471,
-     "a": {
-      "book": "quran",
-      "ref": "67:13",
-      "text": "And keep your opinion secret or proclaim it, lo! He is Knower of all that is in the breasts (of men)."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "13:3",
-      "text": "Understand Me as the Knower of the Field in all Fields, O Bharata. Wisdom as to the Field and the Knower of the Field, that in My opinion is the wisdom."
-     },
-     "shared_words": [
-      "opinion",
-      "knower"
-     ]
-    },
-    {
-     "score": 0.449,
-     "a": {
-      "book": "quran",
-      "ref": "47:1",
-      "text": "Those who disbelieve and turn (men) from the way of Allah, He rendereth their actions vain."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "3:26",
-      "text": "Let no wise man unsettle the mind of ignorant people attached to action; but acting in harmony with Me let him render all action attractive."
-     },
-     "shared_words": [
-      "render",
-      "action"
-     ]
-    },
-    {
-     "score": 0.438,
-     "a": {
-      "book": "bible",
-      "ref": "Romans 10:6",
-      "text": "But the righteousness which is of faith speaketh on this wise, Say not in thine heart, Who shall ascend into heaven? (that is, to bring Christ down from above:)"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "48:4",
-      "text": "He it is Who sent down peace of reassurance into the hearts of the believers that they might add faith unto their faith. Allah's are the hosts of the heavens and the earth, and Allah is ever Knower, Wise -"
-     },
-     "shared_words": [
-      "faith",
-      "wise",
-      "heaven",
-      "heart"
-     ]
-    },
-    {
-     "score": 0.42,
-     "a": {
-      "book": "quran",
-      "ref": "48:7",
-      "text": "Allah's are the hosts of the heavens and the earth, and Allah is ever Mighty, Wise."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "1:3",
-      "text": "\"Behold this mighty host of the sons of Pandu, O teacher, arrayed by the son of Drupada, thy wise disciple."
-     },
-     "shared_words": [
-      "wise",
-      "mighty",
-      "host"
-     ]
-    },
-    {
-     "score": 0.375,
-     "a": {
-      "book": "quran",
-      "ref": "35:38",
-      "text": "Lo! Allah is the Knower of the Unseen of the heavens and the earth. Lo! He is Aware of the secret of (men's) breasts."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "10:38",
-      "text": "Of rulers I am the sceptre; of those that seek victory I am statesmanship; and of secrets I am also silence; the knowledge of knowers am I."
-     },
-     "shared_words": [
-      "secret",
-      "knower"
-     ]
-    },
-    {
-     "score": 0.372,
-     "a": {
-      "book": "quran",
-      "ref": "2:129",
-      "text": "Our Lord! And raise up in their midst a messenger from among them who shall recite unto them Thy revelations, and shall instruct them in the Scripture and in wisdom and shall make them grow. Lo! Thou, only Thou, art the Mighty, Wise."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "4:34",
-      "text": "Learn thou this by discipleship, by investigation, and by service. The wise, the seers of the essence of things, will instruct thee in wisdom."
-     },
-     "shared_words": [
-      "instruct",
-      "wisdom",
-      "wise"
+     "idea": "The splendour of the sun and the light of the moon come from God.",
+     "score": 0.519,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "quran",
+       "ref": "10:5",
+       "text": "He it is Who appointed the sun a splendour and the moon a light, and measured for her stages, that ye might know the number of the years, and the reckoning. Allah created not (all) that save in truth. He detaileth the revelations for people who have knowledge."
+      },
+      {
+       "book": "gita",
+       "ref": "15:12",
+       "text": "That splendour issuing from the sun that enlighteneth the whole world, that which is in the moon and in fire, that splendour know as from Me."
+      }
      ]
     }
    ]
   },
   {
-   "name": "Truth, justice and right conduct",
+   "name": "Prophets and their stories",
    "pairs": [
     {
-     "score": 0.697,
-     "a": {
-      "book": "bible",
-      "ref": "Psalms 96:13",
-      "text": "Before the LORD: for he cometh, for he cometh to judge the earth: he shall judge the world with righteousness, and the people with his truth."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "34:26",
-      "text": "Say: Our Lord will bring us all together, then He will judge between us with truth. He is the All-knowing Judge."
-     },
-     "shared_words": [
-      "judge",
-      "truth",
-      "lord"
+     "idea": "Pharaoh's dream of seven fat and seven lean cows and seven ears of corn, which Joseph explains.",
+     "score": 0.717,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 41:26",
+       "text": "The seven good kine are seven years; and the seven good ears are seven years: the dream is one."
+      },
+      {
+       "book": "quran",
+       "ref": "12:43",
+       "text": "And the king said: Lo! I saw in a dream seven fat kine which seven lean were eating, and seven green ears of corn and other (seven) dry. O notables! Expound for me my vision, if ye can interpret dreams."
+      }
      ]
     },
     {
-     "score": 0.599,
-     "a": {
-      "book": "bible",
-      "ref": "Proverbs 8:20",
-      "text": "I lead in the way of righteousness, in the midst of the paths of judgment:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "19:43",
-      "text": "O my father! Lo! there hath come unto me of knowledge that which came not unto thee. So follow me, and I will lead thee on a right path."
-     },
-     "shared_words": [
-      "lead",
-      "path"
+     "idea": "Joseph's dream of the sun, the moon and eleven stars bowing to him.",
+     "score": 0.643,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 37:9",
+       "text": "And he dreamed yet another dream, and told it his brethren, and said, Behold, I have dreamed a dream more; and, behold, the sun and the moon and the eleven stars made obeisance to me."
+      },
+      {
+       "book": "quran",
+       "ref": "12:4",
+       "text": "When Joseph said unto his father: O my father! Lo! I saw in a dream eleven planets and the sun and the moon, I saw them prostrating themselves unto me."
+      }
      ]
     },
     {
-     "score": 0.511,
-     "a": {
-      "book": "bible",
-      "ref": "Psalms 5:8",
-      "text": "Lead me, O LORD, in thy righteousness because of mine enemies; make thy way straight before my face."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "10:25",
-      "text": "And Allah summoneth to the abode of peace, and leadeth whom He will to a straight path."
-     },
-     "shared_words": [
-      "straight",
-      "lead"
+     "idea": "John and Elijah (Elias) named among the prophets.",
+     "score": 0.617,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Mark 8:28",
+       "text": "And they answered, John the Baptist: but some say, Elias; and others, One of the prophets."
+      },
+      {
+       "book": "quran",
+       "ref": "6:85",
+       "text": "And Zachariah and John and Jesus and Elias. Each one (of them) was of the righteous."
+      }
      ]
     },
     {
-     "score": 0.478,
-     "a": {
-      "book": "bible",
-      "ref": "Mark 12:24",
-      "text": "And Jesus answering said unto them, Do ye not therefore err, because ye know not the scriptures, neither the power of God?"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "98:1",
-      "text": "Those who disbelieve among the People of the Scripture and the idolaters could not have left off (erring) till the clear proof came unto them,"
-     },
-     "shared_words": [
-      "err",
-      "scripture"
+     "idea": "The God of Abraham, Isaac and Jacob, the God of the fathers.",
+     "score": 0.609,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Exodus 4:5",
+       "text": "That they may believe that the LORD God of their fathers, the God of Abraham, the God of Isaac, and the God of Jacob, hath appeared unto thee."
+      },
+      {
+       "book": "quran",
+       "ref": "2:133",
+       "text": "Or were ye present when death came to Jacob, when he said unto his sons: What will ye worship after me? They said: We shall worship thy god, the god of thy fathers, Abraham and Ishmael and Isaac, One Allah, and unto Him we have surrendered."
+      }
      ]
     },
     {
-     "score": 0.445,
-     "a": {
-      "book": "bible",
-      "ref": "2 Chronicles 19:6",
-      "text": "And said to the judges, Take heed what ye do: for ye judge not for man, but for the LORD, who is with you in the judgment."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "26:118",
-      "text": "Therefor judge Thou between us, a (conclusive) judgment, and save me and those believers who are with me."
-     },
-     "shared_words": [
-      "judge",
-      "judgment"
+     "idea": "Gog and Magog appear in both books.",
+     "score": 0.582,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Ezekiel 38:2",
+       "text": "Son of man, set thy face against Gog, the land of Magog, the chief prince of Meshech and Tubal, and prophesy against him,"
+      },
+      {
+       "book": "quran",
+       "ref": "18:97",
+       "text": "And (Gog and Magog) were not able to surmount, nor could they pierce (it)."
+      }
      ]
     },
     {
-     "score": 0.435,
-     "a": {
-      "book": "bible",
-      "ref": "Deuteronomy 17:10",
-      "text": "And thou shalt do according to the sentence, which they of that place which the LORD shall choose shall shew thee; and thou shalt observe to do according to all that they inform thee:"
-     },
-     "b": {
-      "book": "quran",
-      "ref": "59:18",
-      "text": "O ye who believe! Observe your duty to Allah. And let every soul look to that which it sendeth on before for the morrow. And observe your duty to Allah. Lo! Allah is Informed of what ye do."
-     },
-     "shared_words": [
-      "inform",
-      "observe"
+     "idea": "Jonah swallowed by the fish.",
+     "score": 0.534,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Jonah 1:17",
+       "text": "Now the LORD had prepared a great fish to swallow up Jonah. And Jonah was in the belly of the fish three days and three nights."
+      },
+      {
+       "book": "quran",
+       "ref": "37:142",
+       "text": "And the fish swallowed him while he was blameworthy;"
+      }
      ]
     },
     {
-     "score": 0.429,
-     "a": {
-      "book": "quran",
-      "ref": "72:13",
-      "text": "And when we heard the guidance, we believed therein, and whoso believeth in his Lord, he feareth neither loss nor oppression."
-     },
-     "b": {
-      "book": "gita",
-      "ref": "2:40",
-      "text": "In this there is no loss of effort, nor is there transgression. Even a little of this knowledge protects from great fear."
-     },
-     "shared_words": [
-      "loss",
-      "fear"
+     "idea": "Pharaoh's army is drowned in the sea.",
+     "score": 0.513,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Exodus 15:4",
+       "text": "Pharaoh's chariots and his host hath he cast into the sea: his chosen captains also are drowned in the Red sea."
+      },
+      {
+       "book": "quran",
+       "ref": "44:24",
+       "text": "And leave the sea behind at rest, for lo! they are a drowned host."
+      }
      ]
     },
     {
-     "score": 0.381,
-     "a": {
-      "book": "bible",
-      "ref": "Habakkuk 1:12",
-      "text": "Art thou not from everlasting, O LORD my God, mine Holy One? we shall not die. O LORD, thou hast ordained them for judgment; and, O mighty God, thou hast established them for correction."
-     },
-     "b": {
-      "book": "quran",
-      "ref": "68:39",
-      "text": "Or have ye a covenant on oath from Us that reacheth to the Day of Judgment, that yours shall be all that ye ordain?"
-     },
-     "shared_words": [
-      "ordain",
-      "judgment"
+     "idea": "Moses waters the flock of two women at Midian.",
+     "score": 0.499,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Exodus 2:16",
+       "text": "Now the priest of Midian had seven daughters: and they came and drew water, and filled the troughs to water their father's flock."
+      },
+      {
+       "book": "quran",
+       "ref": "28:23",
+       "text": "And when he came unto the water of Midian he found there a whole tribe of men, watering. And he found apart from them two women keeping back (their flocks). He said: What aileth you? The two said: We cannot give (our flocks) to drink till the shepherds return from the water; and our father is a very old man."
+      }
+     ]
+    },
+    {
+     "idea": "The angel tells Mary she will bear a son.",
+     "score": 0.496,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Luke 1:30",
+       "text": "And the angel said unto her, Fear not, Mary: for thou hast found favour with God."
+      },
+      {
+       "book": "quran",
+       "ref": "3:45",
+       "text": "(And remember) when the angels said: O Mary! Lo! Allah giveth thee glad tidings of a word from him, whose name is the Messiah, Jesus, son of Mary, illustrious in the world and the Hereafter, and one of those brought near (unto Allah)."
+      }
+     ]
+    },
+    {
+     "idea": "Moses' staff becomes a serpent.",
+     "score": 0.466,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Exodus 4:3",
+       "text": "And he said, Cast it on the ground. And he cast it on the ground, and it became a serpent; and Moses fled from before it."
+      },
+      {
+       "book": "quran",
+       "ref": "20:20",
+       "text": "So he cast it down, and lo! it was a serpent, gliding."
+      }
+     ]
+    },
+    {
+     "idea": "Joseph's brothers throw him into a pit/well.",
+     "score": 0.4,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 37:24",
+       "text": "And they took him, and cast him into a pit: and the pit was empty, there was no water in it."
+      },
+      {
+       "book": "quran",
+       "ref": "12:15",
+       "text": "Then, when they led him off, and were of one mind that they should place him in the depth of the pit, We inspired in him: Thou wilt tell them of this deed of theirs when they know (thee) not."
+      }
+     ]
+    },
+    {
+     "idea": "Zechariah is promised a son in old age.",
+     "score": 0.393,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Luke 1:13",
+       "text": "But the angel said unto him, Fear not, Zacharias: for thy prayer is heard; and thy wife Elisabeth shall bear thee a son, and thou shalt call his name John."
+      },
+      {
+       "book": "quran",
+       "ref": "19:7",
+       "text": "(It was said unto him): O Zachariah! Lo! We bring thee tidings of a son whose name is John; we have given the same name to none before (him)."
+      }
+     ]
+    },
+    {
+     "idea": "The king's dream of seven fat and seven lean kine.",
+     "score": 0.371,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 41:2",
+       "text": "And, behold, there came up out of the river seven well favoured kine and fatfleshed; and they fed in a meadow."
+      },
+      {
+       "book": "quran",
+       "ref": "12:43",
+       "text": "And the king said: Lo! I saw in a dream seven fat kine which seven lean were eating, and seven green ears of corn and other (seven) dry. O notables! Expound for me my vision, if ye can interpret dreams."
+      }
+     ]
+    },
+    {
+     "idea": "Manna and quails in the wilderness.",
+     "score": 0.322,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Exodus 16:13",
+       "text": "And it came to pass, that at even the quails came up, and covered the camp: and in the morning the dew lay round about the host."
+      },
+      {
+       "book": "quran",
+       "ref": "2:57",
+       "text": "And We caused the white cloud to overshadow you and sent down on you the manna and the quails, (saying): Eat of the good things wherewith We have provided you- they wronged Us not, but they did wrong themselves."
+      }
+     ]
+    },
+    {
+     "idea": "Messengers tell Abraham of a son; his wife laughs.",
+     "score": 0.305,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 18:10",
+       "text": "And he said, I will certainly return unto thee according to the time of life; and, lo, Sarah thy wife shall have a son. And Sarah heard it in the tent door, which was behind him."
+      },
+      {
+       "book": "quran",
+       "ref": "11:71",
+       "text": "And his wife, standing by laughed when We gave her good tidings (of the birth) of Isaac, and, after Isaac, of Jacob."
+      }
+     ]
+    },
+    {
+     "idea": "Heaven and earth created in six days.",
+     "score": 0.304,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Exodus 20:11",
+       "text": "For in six days the LORD made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the LORD blessed the sabbath day, and hallowed it."
+      },
+      {
+       "book": "quran",
+       "ref": "7:54",
+       "text": "Lo! your Lord is Allah Who created the heavens and the earth in six Days, then mounted He the Throne. He covereth the night with the day, which is in haste to follow it, and hath made the sun and the moon and the stars subservient by His command. His verily is all creation and commandment. Blessed be Allah, the Lord of the Worlds!"
+      }
+     ]
+    },
+    {
+     "idea": "The golden calf.",
+     "score": 0.28,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Exodus 32:4",
+       "text": "And he received them at their hand, and fashioned it with a graving tool, after he had made it a molten calf: and they said, These be thy gods, O Israel, which brought thee up out of the land of Egypt."
+      },
+      {
+       "book": "quran",
+       "ref": "20:88",
+       "text": "Then he produced for them a calf, of saffron hue, which gave forth a lowing sound. And they cried: This is your god and the god of Moses, but he hath forgotten."
+      }
+     ]
+    },
+    {
+     "idea": "Joseph makes himself known to his brothers.",
+     "score": 0.262,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 45:4",
+       "text": "And Joseph said unto his brethren, Come near to me, I pray you. And they came near. And he said, I am Joseph your brother, whom ye sold into Egypt."
+      },
+      {
+       "book": "quran",
+       "ref": "12:90",
+       "text": "They said: Is it indeed thou who art Joseph? He said: I am Joseph and this is my brother. Allah hath shown us favour. Lo! he who wardeth off (evil) and endureth (findeth favour); for lo! Allah loseth not the wages of the kindly."
+      }
+     ]
+    },
+    {
+     "idea": "The flood: fountains of the deep and windows of heaven.",
+     "score": 0.258,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 7:11",
+       "text": "In the six hundredth year of Noah's life, in the second month, the seventeenth day of the month, the same day were all the fountains of the great deep broken up, and the windows of heaven were opened."
+      },
+      {
+       "book": "quran",
+       "ref": "54:11",
+       "text": "Then opened We the gates of heaven with pouring water"
+      }
+     ]
+    },
+    {
+     "idea": "Baby Moses set adrift and taken in by Pharaoh's house.",
+     "score": 0.219,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Exodus 2:3",
+       "text": "And when she could not longer hide him, she took for him an ark of bulrushes, and daubed it with slime and with pitch, and put the child therein; and she laid it in the flags by the river's brink."
+      },
+      {
+       "book": "quran",
+       "ref": "20:39",
+       "text": "Saying: Throw him into the ark, and throw it into the river, then the river shall throw it on to the bank, and there an enemy to Me and an enemy to him shall take him. And I endued thee with love from Me that thou mightest be trained according to My will,"
+      }
+     ]
+    },
+    {
+     "idea": "Adam and his wife eat from the forbidden tree.",
+     "score": 0.192,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 3:6",
+       "text": "And when the woman saw that the tree was good for food, and that it was pleasant to the eyes, and a tree to be desired to make one wise, she took of the fruit thereof, and did eat, and gave also unto her husband with her; and he did eat."
+      },
+      {
+       "book": "quran",
+       "ref": "7:22",
+       "text": "Thus did he lead them on with guile. And when they tasted of the tree their shame was manifest to them and they began to hide (by heaping) on themselves some of the leaves of the Garden. And their Lord called them, (saying): Did I not forbid you from that tree and tell you: Lo! Satan is an open enemy to you?"
+      }
+     ]
+    },
+    {
+     "idea": "Abraham is told to sacrifice his son.",
+     "score": 0.156,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 22:2",
+       "text": "And he said, Take now thy son, thine only son Isaac, whom thou lovest, and get thee into the land of Moriah; and offer him there for a burnt offering upon one of the mountains which I will tell thee of."
+      },
+      {
+       "book": "quran",
+       "ref": "37:102",
+       "text": "And when (his son) was old enough to walk with him, (Abraham) said: O my dear son, I have seen in a dream that I must sacrifice thee. So look, what thinkest thou? He said: O my father! Do that which thou art commanded. Allah willing, thou shalt find me of the steadfast."
+      }
+     ]
+    },
+    {
+     "idea": "The Queen of Sheba visits Solomon.",
+     "score": 0.11,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "1 Kings 10:1",
+       "text": "And when the queen of Sheba heard of the fame of Solomon concerning the name of the LORD, she came to prove him with hard questions."
+      },
+      {
+       "book": "quran",
+       "ref": "27:23",
+       "text": "Lo! I found a woman ruling over them, and she hath been given (abundance) of all things, and hers is a mighty throne."
+      }
+     ]
+    },
+    {
+     "idea": "Noah builds the ark.",
+     "score": -0.032,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Genesis 6:14",
+       "text": "Make thee an ark of gopher wood; rooms shalt thou make in the ark, and shalt pitch it within and without with pitch."
+      },
+      {
+       "book": "quran",
+       "ref": "11:37",
+       "text": "Build the ship under Our eyes and by Our inspiration, and speak not unto Me on behalf of those who do wrong. Lo! they will be drowned."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Worship and devotion",
+   "pairs": [
+    {
+     "idea": "Remembering God's marvellous works fills the heart with joy.",
+     "score": 0.713,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "1 Chronicles 16:12",
+       "text": "Remember his marvellous works that he hath done, his wonders, and the judgments of his mouth;"
+      },
+      {
+       "book": "gita",
+       "ref": "18:77",
+       "text": "Remembering, remembering, also that most marvellous form of Hari, great is my wonder, O King. I rejoice, again and again."
+      }
+     ]
+    },
+    {
+     "idea": "Give thanks and praise to God.",
+     "score": 0.625,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Psalms 35:18",
+       "text": "I will give thee thanks in the great congregation: I will praise thee among much people."
+      },
+      {
+       "book": "quran",
+       "ref": "31:12",
+       "text": "And verily We gave Luqman wisdom, saying: Give thanks unto Allah; and whosoever giveth thanks, he giveth thanks for (the good of) his soul. And whosoever refuseth - Lo! Allah is Absolute, Owner of Praise."
+      }
+     ]
+    },
+    {
+     "idea": "What is done for God in secret is rewarded.",
+     "score": 0.61,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Matthew 6:4",
+       "text": "That thine alms may be in secret: and thy Father which seeth in secret himself shall reward thee openly."
+      },
+      {
+       "book": "quran",
+       "ref": "67:12",
+       "text": "Lo! those who fear their Lord in secret, theirs will be forgiveness and a great reward."
+      }
+     ]
+    },
+    {
+     "idea": "Keep the covenant and the oath you made with God.",
+     "score": 0.584,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Deuteronomy 29:12",
+       "text": "That thou shouldest enter into covenant with the LORD thy God, and into his oath, which the LORD thy God maketh with thee this day:"
+      },
+      {
+       "book": "quran",
+       "ref": "16:91",
+       "text": "Fulfil the covenant of Allah when ye have covenanted, and break not your oaths after the asseveration of them, and after ye have made Allah surety over you. Lo! Allah knoweth what ye do."
+      }
+     ]
+    },
+    {
+     "idea": "Paying one's vows at the house of God.",
+     "score": 0.531,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Psalms 66:13",
+       "text": "I will go into thy house with burnt offerings: I will pay thee my vows,"
+      },
+      {
+       "book": "quran",
+       "ref": "22:29",
+       "text": "Then let them make an end of their unkemptness and pay their vows and go around the ancient House."
+      }
+     ]
+    },
+    {
+     "idea": "Honouring God's offerings comes from devotion of the heart.",
+     "score": 0.531,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "quran",
+       "ref": "22:32",
+       "text": "That (is the command). And whoso magnifieth the offerings consecrated to Allah, it surely is from devotion of the hearts,"
+      },
+      {
+       "book": "gita",
+       "ref": "9:14",
+       "text": "Always magnifying Me, strenuous, firm in vows, prostrating themselves before Me, they worship Me with devotion ever harmonised."
+      }
+     ]
+    },
+    {
+     "idea": "Devote yourself to God completely.",
+     "score": 0.481,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "quran",
+       "ref": "73:8",
+       "text": "So remember the name of thy Lord and devote thyself with a complete devotion -"
+      },
+      {
+       "book": "gita",
+       "ref": "9:34",
+       "text": "On Me fix thy mind, be devoted to Me; sacrifice to Me; prostrate thyself before Me; harmonised thus in the Self, thou shalt come unto Me, having Me as thy supreme goal."
+      }
+     ]
+    },
+    {
+     "idea": "Prayer and almsgiving belong to a devout life.",
+     "score": 0.36,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "quran",
+       "ref": "19:31",
+       "text": "And hath made me blessed wheresoever I may be, and hath enjoined upon me prayer and almsgiving so long as I remain alive,"
+      },
+      {
+       "book": "gita",
+       "ref": "16:1",
+       "text": "The Blessed Lord said: Fearlessness, cleanness of life, steadfastness in the Yoga of wisdom, almsgiving, self-restraint and sacrifice and study of the Scriptures, austerity and straightforwardness,"
+      }
+     ]
+    },
+    {
+     "idea": "God accepts the devotion, not the size of the offering.",
+     "score": 0.35,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "9:26",
+       "text": "He who offereth to Me with devotion a leaf, a flower, a fruit, water, that I accept from the striving self, offered as it is with devotion."
+      },
+      {
+       "book": "quran",
+       "ref": "22:37",
+       "text": "Their flesh and their food reach not Allah, but the devotion from you reacheth Him. Thus have We made them subject unto you that ye may magnify Allah that He hath guided you. And give good tidings (O Muhammad) to the good."
+      }
+     ]
+    },
+    {
+     "idea": "God wants a contrite heart, not sacrifice.",
+     "score": 0.297,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "9:26",
+       "text": "He who offereth to Me with devotion a leaf, a flower, a fruit, water, that I accept from the striving self, offered as it is with devotion."
+      },
+      {
+       "book": "bible",
+       "ref": "Psalms 51:16",
+       "text": "For thou desirest not sacrifice; else would I give it: thou delightest not in burnt offering."
+      }
+     ]
+    },
+    {
+     "idea": "My worship, my living and my dying are for God.",
+     "score": 0.233,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "9:27",
+       "text": "Whatsoever thou doest, whatsoever thou eatest, whatsoever thou offerest, whatsoever thou givest, whatsoever thou doest of austerity, O Kaunteya, do thou that as an offering unto Me."
+      },
+      {
+       "book": "quran",
+       "ref": "6:162",
+       "text": "Say: Lo! my worship and my sacrifice and my living and my dying are for Allah, Lord of the Worlds."
+      }
+     ]
+    },
+    {
+     "idea": "Whatever you eat or do, offer it to God.",
+     "score": 0.126,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "9:27",
+       "text": "Whatsoever thou doest, whatsoever thou eatest, whatsoever thou offerest, whatsoever thou givest, whatsoever thou doest of austerity, O Kaunteya, do thou that as an offering unto Me."
+      },
+      {
+       "book": "bible",
+       "ref": "1 Corinthians 10:31",
+       "text": "Whether therefore ye eat, or drink, or whatsoever ye do, do all to the glory of God."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Guidance and wisdom",
+   "pairs": [
+    {
+     "idea": "God leads people out of darkness into light, along straight paths.",
+     "score": 0.596,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Isaiah 42:16",
+       "text": "And I will bring the blind by a way that they knew not; I will lead them in paths that they have not known: I will make darkness light before them, and crooked things straight. These things will I do unto them, and not forsake them."
+      },
+      {
+       "book": "quran",
+       "ref": "5:16",
+       "text": "Whereby Allah guideth him who seeketh His good pleasure unto paths of peace. He bringeth them out of darkness unto light by His decree, and guideth them unto a straight path."
+      }
+     ]
+    },
+    {
+     "idea": "What God gives is better than trade and profit.",
+     "score": 0.573,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Proverbs 3:14",
+       "text": "For the merchandise of it is better than the merchandise of silver, and the gain thereof than fine gold."
+      },
+      {
+       "book": "quran",
+       "ref": "62:11",
+       "text": "But when they spy some merchandise or pastime they break away to it and leave thee standing. Say: That which Allah hath is better than pastime and than merchandise, and Allah is the Best of providers."
+      }
+     ]
+    },
+    {
+     "idea": "A grain of mustard seed, the smallest of things, as an image of what God does not overlook.",
+     "score": 0.57,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Mark 4:31",
+       "text": "It is like a grain of mustard seed, which, when it is sown in the earth, is less than all the seeds that be in the earth:"
+      },
+      {
+       "book": "quran",
+       "ref": "31:16",
+       "text": "O my dear son! Lo! though it be but the weight of a grain of mustard-seed, and though it be in a rock, or in the heavens, or in the earth, Allah will bring it forth. Lo! Allah is Subtile, Aware."
+      }
+     ]
+    },
+    {
+     "idea": "No effort made toward God is ever lost.",
+     "score": 0.492,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "quran",
+       "ref": "17:19",
+       "text": "And whoso desireth the Hereafter and striveth for it with the effort necessary, being a believer; for such, their effort findeth favour (with their Lord)."
+      },
+      {
+       "book": "gita",
+       "ref": "2:40",
+       "text": "In this there is no loss of effort, nor is there transgression. Even a little of this knowledge protects from great fear."
+      }
+     ]
+    },
+    {
+     "idea": "Charity or faith as a seed that grows manifold.",
+     "score": 0.215,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Mark 4:8",
+       "text": "And other fell on good ground, and did yield fruit that sprang up and increased; and brought forth, some thirty, and some sixty, and some an hundred."
+      },
+      {
+       "book": "quran",
+       "ref": "2:261",
+       "text": "The likeness of those who spend their wealth in Allah's way is as the likeness of a grain which groweth seven ears, in every ear a hundred grains. Allah giveth increase manifold to whom He will. Allah is All-Embracing, All-Knowing."
+      }
+     ]
+    },
+    {
+     "idea": "Do not grieve over loss or exult over gain.",
+     "score": 0.078,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "2:38",
+       "text": "Taking as equal pleasure and pain, gain and loss, victory and defeat, gird thee for the battle; thus thou shalt not incur sin."
+      },
+      {
+       "book": "quran",
+       "ref": "57:23",
+       "text": "That ye grieve not for the sake of that which hath escaped you, nor yet exult because of that which hath been given. Allah loveth not all prideful boasters,"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "God's knowledge and care",
+   "pairs": [
+    {
+     "idea": "God enlarges and narrows what people have, as he wills.",
+     "score": 0.575,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Job 12:23",
+       "text": "He increaseth the nations, and destroyeth them: he enlargeth the nations, and straiteneth them again."
+      },
+      {
+       "book": "quran",
+       "ref": "39:52",
+       "text": "Know they not that Allah enlargeth providence for whom He will, and straiteneth it (for whom He will). Lo! herein verily are portents for people who believe."
+      }
+     ]
+    },
+    {
+     "idea": "God is near to those who come to him with a contrite heart.",
+     "score": 0.564,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Psalms 34:18",
+       "text": "The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit."
+      },
+      {
+       "book": "quran",
+       "ref": "50:33",
+       "text": "Who feareth the Beneficent in secret and cometh with a contrite heart."
+      }
+     ]
+    },
+    {
+     "idea": "God's understanding and form are infinite.",
+     "score": 0.541,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Psalms 147:5",
+       "text": "Great is our Lord, and of great power: his understanding is infinite."
+      },
+      {
+       "book": "gita",
+       "ref": "11:16",
+       "text": "With mouths, eyes, arms, breasts multitudinous, I see Thee everywhere, unbounded Form. Beginning, middle, end, nor source of Thee, Infinite Lord, infinite Form, I find;"
+      }
+     ]
+    },
+    {
+     "idea": "God reveals his hidden things only to the messengers he chooses.",
+     "score": 0.531,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Amos 3:7",
+       "text": "Surely the Lord GOD will do nothing, but he revealeth his secret unto his servants the prophets."
+      },
+      {
+       "book": "quran",
+       "ref": "72:26",
+       "text": "(He is) the Knower of the Unseen, and He revealeth unto none His secret,"
+      }
+     ]
+    },
+    {
+     "idea": "Greater than everything within a person is God, who dwells in them.",
+     "score": 0.523,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "1 John 4:4",
+       "text": "Ye are of God, little children, and have overcome them: because greater is he that is in you, than he that is in the world."
+      },
+      {
+       "book": "gita",
+       "ref": "3:42",
+       "text": "It is said that the senses are great; greater than the senses is the mind: greater than the mind is the Reason; but what is greater than the Reason, is He."
+      }
+     ]
+    },
+    {
+     "idea": "Nothing in heaven or earth is hidden from God.",
+     "score": 0.512,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Jeremiah 23:24",
+       "text": "Can any hide himself in secret places that I shall not see him? saith the LORD. Do not I fill heaven and earth? saith the LORD."
+      },
+      {
+       "book": "quran",
+       "ref": "14:38",
+       "text": "Our Lord! Lo! Thou knowest that which we hide and that which we proclaim. Nothing in the earth or in the heaven is hidden from Allah."
+      }
+     ]
+    },
+    {
+     "idea": "God is the beginning, middle and end.",
+     "score": 0.334,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "10:20",
+       "text": "I, O Gudakesha, am the Self, seated in the heart of all beings; I am the beginning, the middle, and also the end of all beings."
+      },
+      {
+       "book": "bible",
+       "ref": "Revelation 1:8",
+       "text": "I am Alpha and Omega, the beginning and the ending, saith the Lord, which is, and which was, and which is to come, the Almighty."
+      }
+     ]
+    },
+    {
+     "idea": "God is light.",
+     "score": 0.323,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "1 John 1:5",
+       "text": "This then is the message which we have heard of him, and declare unto you, that God is light, and in him is no darkness at all."
+      },
+      {
+       "book": "quran",
+       "ref": "24:35",
+       "text": "Allah is the Light of the heavens and the earth. The similitude of His light is as a niche wherein is a lamp. The lamp is in a glass. The glass is as it were a shining star. (This lamp is) kindled from a blessed tree, an olive neither of the East nor of the West, whose oil would almost glow forth (of itself) though no fire touched it. Light upon light. Allah guideth unto His light whom He will. And Allah speaketh to mankind in allegories, for Allah is Knower of all things."
+      }
+     ]
+    },
+    {
+     "idea": "God's mercy forgives all sins.",
+     "score": 0.263,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Psalms 103:3",
+       "text": "Who forgiveth all thine iniquities; who healeth all thy diseases;"
+      },
+      {
+       "book": "quran",
+       "ref": "39:53",
+       "text": "Say: O My slaves who have been prodigal to their own hurt! Despair not of the mercy of Allah, Who forgiveth all sins. Lo! He is the Forgiving, the Merciful."
+      }
+     ]
+    },
+    {
+     "idea": "God as the first and the last.",
+     "score": 0.102,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Revelation 1:8",
+       "text": "I am Alpha and Omega, the beginning and the ending, saith the Lord, which is, and which was, and which is to come, the Almighty."
+      },
+      {
+       "book": "quran",
+       "ref": "57:3",
+       "text": "He is the First and the Last, and the Outward and the Inward; and He is Knower of all things."
+      }
+     ]
+    },
+    {
+     "idea": "God is the first and the last.",
+     "score": 0.091,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "10:20",
+       "text": "I, O Gudakesha, am the Self, seated in the heart of all beings; I am the beginning, the middle, and also the end of all beings."
+      },
+      {
+       "book": "quran",
+       "ref": "57:3",
+       "text": "He is the First and the Last, and the Outward and the Inward; and He is Knower of all things."
+      }
+     ]
+    },
+    {
+     "idea": "The one Father of all beings.",
+     "score": 0.048,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "14:4",
+       "text": "In whatsoever wombs mortals are produced, O Kaunteya, the great Eternal is their womb, I their generating father."
+      },
+      {
+       "book": "bible",
+       "ref": "Malachi 2:10",
+       "text": "Have we not all one father? hath not one God created us? why do we deal treacherously every man against his brother, by profaning the covenant of our fathers?"
+      }
+     ]
+    },
+    {
+     "idea": "God dwells in the heart / is near.",
+     "score": 0.016,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "18:61",
+       "text": "The Lord dwelleth in the hearts of all beings, O Arjuna, by His illusive Power causing all beings to revolve, as though mounted on a potter's wheel."
+      },
+      {
+       "book": "quran",
+       "ref": "50:16",
+       "text": "We verily created man and We know what his soul whispereth to him, and We are nearer to him than his jugular vein."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Death and the life to come",
+   "pairs": [
+    {
+     "idea": "The final abode needs no sun or moon: God himself is its light.",
+     "score": 0.609,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Revelation 21:23",
+       "text": "And the city had no need of the sun, neither of the moon, to shine in it: for the glory of God did lighten it, and the Lamb is the light thereof."
+      },
+      {
+       "book": "gita",
+       "ref": "15:6",
+       "text": "Nor doth the sun lighten there, nor moon, nor fire; having gone thither they return not; that is My supreme abode."
+      }
+     ]
+    },
+    {
+     "idea": "The resurrection of the dead.",
+     "score": 0.581,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "1 Corinthians 15:12",
+       "text": "Now if Christ be preached that he rose from the dead, how say some among you that there is no resurrection of the dead?"
+      },
+      {
+       "book": "quran",
+       "ref": "50:11",
+       "text": "Provision (made) for men; and therewith We quicken a dead land. Even so will be the resurrection of the dead."
+      }
+     ]
+    },
+    {
+     "idea": "A great gulf is fixed between the lost and what they long for.",
+     "score": 0.53,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Luke 16:26",
+       "text": "And beside all this, between us and you there is a great gulf fixed: so that they which would pass from hence to you cannot; neither can they pass to us, that would come from thence."
+      },
+      {
+       "book": "quran",
+       "ref": "34:54",
+       "text": "And a gulf is set between them and that which they desire, as was done for people of their kind of old. Lo! they were in hopeless doubt."
+      }
+     ]
+    },
+    {
+     "idea": "The hour will come when those in the graves are raised.",
+     "score": 0.517,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "John 5:28",
+       "text": "Marvel not at this: for the hour is coming, in the which all that are in the graves shall hear his voice,"
+      },
+      {
+       "book": "quran",
+       "ref": "22:7",
+       "text": "And because the Hour will come, there is no doubt thereof; and because Allah will raise those who are in the graves."
+      }
+     ]
+    },
+    {
+     "idea": "Death is likened to sleep.",
+     "score": 0.503,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "John 11:13",
+       "text": "Howbeit Jesus spake of his death: but they thought that he had spoken of taking of rest in sleep."
+      },
+      {
+       "book": "quran",
+       "ref": "39:42",
+       "text": "Allah receiveth (men's) souls at the time of their death, and that (soul) which dieth not (yet) in its sleep. He keepeth that (soul) for which He hath ordained death and dismisseth the rest till an appointed term. Lo! herein verily are portents for people who take thought."
+      }
+     ]
+    },
+    {
+     "idea": "God's own shall never perish.",
+     "score": 0.494,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "John 10:28",
+       "text": "And I give unto them eternal life; and they shall never perish, neither shall any man pluck them out of my hand."
+      },
+      {
+       "book": "gita",
+       "ref": "9:31",
+       "text": "Speedily he becometh dutiful and goeth to eternal peace; O Kaunteya, know thou for certain that My devotee perisheth never."
+      }
+     ]
+    },
+    {
+     "idea": "The heavens rolled up like a scroll.",
+     "score": 0.352,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Isaiah 34:4",
+       "text": "And all the host of heaven shall be dissolved, and the heavens shall be rolled together as a scroll: and all their host shall fall down, as the leaf falleth off from the vine, and as a falling fig from the fig tree."
+      },
+      {
+       "book": "quran",
+       "ref": "21:104",
+       "text": "The Day when We shall roll up the heavens as a recorder rolleth up a written scroll. As We began the first creation, We shall repeat it. (It is) a promise (binding) upon Us. Lo! We are to perform it."
+      }
+     ]
+    },
+    {
+     "idea": "Life is like grass that withers.",
+     "score": 0.098,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Psalms 103:15",
+       "text": "As for man, his days are as grass: as a flower of the field, so he flourisheth."
+      },
+      {
+       "book": "quran",
+       "ref": "18:45",
+       "text": "And coin for them the similitude of the life of the world as water which We send down from the sky, and the vegetation of the earth mingleth with it and then becometh dry twigs that the winds scatter. Allah is able to do all things."
+      }
+     ]
+    },
+    {
+     "idea": "Every soul will die.",
+     "score": 0.049,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Hebrews 9:27",
+       "text": "And as it is appointed unto men once to die, but after this the judgment:"
+      },
+      {
+       "book": "quran",
+       "ref": "3:185",
+       "text": "Every soul will taste of death. And ye will be paid on the Day of Resurrection only that which ye have fairly earned. Whoso is removed from the Fire and is made to enter paradise, he indeed is triumphant. The life of this world is but comfort of illusion."
+      }
+     ]
+    },
+    {
+     "idea": "The body as a garment or house the self leaves.",
+     "score": 0.028,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "2:22",
+       "text": "As a man, casting off worn-out garments, taketh new ones, so the dweller in the body, casting off worn-out bodies, entereth into others that are new."
+      },
+      {
+       "book": "bible",
+       "ref": "2 Corinthians 5:1",
+       "text": "For we know that if our earthly house of this tabernacle were dissolved, we have a building of God, an house not made with hands, eternal in the heavens."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Humility, giving and self-control",
+   "pairs": [
+    {
+     "idea": "A camel through the eye of a needle.",
+     "score": 0.496,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Matthew 19:24",
+       "text": "And again I say unto you, It is easier for a camel to go through the eye of a needle, than for a rich man to enter into the kingdom of God."
+      },
+      {
+       "book": "quran",
+       "ref": "7:40",
+       "text": "Lo! they who deny Our revelations and scorn them, for them the gates of heaven will nor be opened not will they enter the Garden until the camel goeth through the needle's eye. Thus do We requite the guilty."
+      }
+     ]
+    },
+    {
+     "idea": "Give alms rightly, and the gift is made pure.",
+     "score": 0.491,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Luke 11:41",
+       "text": "But rather give alms of such things as ye have; and, behold, all things are clean unto you."
+      },
+      {
+       "book": "gita",
+       "ref": "17:20",
+       "text": "That alms given to one who does nothing in return, believing that a gift ought to be made in a fit place and time to a worthy person, that alms is accounted pure."
+      }
+     ]
+    },
+    {
+     "idea": "Take the lower place at a gathering; you will be asked to go up higher.",
+     "score": 0.485,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Luke 14:10",
+       "text": "But when thou art bidden, go and sit down in the lowest room; that when he that bade thee cometh, he may say unto thee, Friend, go up higher: then shalt thou have worship in the presence of them that sit at meat with thee."
+      },
+      {
+       "book": "quran",
+       "ref": "58:11",
+       "text": "O ye who believe! when it is said unto you: Make room! in assemblies, then make room; Allah will make way for you (hereafter). And when it is said: Come up higher! go up higher; Allah will exalt those who believe among you, and those who have knowledge, to high ranks. Allah is informed of what ye do."
+      }
+     ]
+    },
+    {
+     "idea": "Strangers and foreigners are not outsiders; treat all alike.",
+     "score": 0.42,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Ephesians 2:19",
+       "text": "Now therefore ye are no more strangers and foreigners, but fellowcitizens with the saints, and of the household of God;"
+      },
+      {
+       "book": "gita",
+       "ref": "6:9",
+       "text": "He who regards impartially lovers, friends, and foes, strangers, neutrals, foreigners and relatives, also the righteous and unrighteous, he excelleth."
+      }
+     ]
+    },
+    {
+     "idea": "Restraining the self from desire leads to God.",
+     "score": 0.42,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "quran",
+       "ref": "79:40",
+       "text": "But as for him who feared to stand before his Lord and restrained his soul from lust,"
+      },
+      {
+       "book": "gita",
+       "ref": "12:4",
+       "text": "Restraining and subduing the senses, regarding everything equally, in the welfare of all rejoicing, these also come unto Me."
+      }
+     ]
+    },
+    {
+     "idea": "The pride of thinking one's wealth is self-made.",
+     "score": 0.405,
+     "source": "model, reviewed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Deuteronomy 8:17",
+       "text": "And thou say in thine heart, My power and the might of mine hand hath gotten me this wealth."
+      },
+      {
+       "book": "gita",
+       "ref": "16:13",
+       "text": "\"This to-day by me hath been won, that purpose I shall gain; this wealth is mine already, and also this shall be mine in future."
+      }
+     ]
+    },
+    {
+     "idea": "Restrain the self from desire.",
+     "score": 0.246,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "2:58",
+       "text": "When, again, as a tortoise draws in on all sides its limbs, he withdraws his senses from the objects of sense, then is his understanding well poised."
+      },
+      {
+       "book": "quran",
+       "ref": "79:40",
+       "text": "But as for him who feared to stand before his Lord and restrained his soul from lust,"
+      }
+     ]
+    },
+    {
+     "idea": "Give without expecting anything in return.",
+     "score": 0.194,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "17:20",
+       "text": "That alms given to one who does nothing in return, believing that a gift ought to be made in a fit place and time to a worthy person, that alms is accounted pure."
+      },
+      {
+       "book": "bible",
+       "ref": "Luke 6:35",
+       "text": "But love ye your enemies, and do good, and lend, hoping for nothing again; and your reward shall be great, and ye shall be the children of the Highest: for he is kind unto the unthankful and to the evil."
+      }
+     ]
+    },
+    {
+     "idea": "Giving alms in secret.",
+     "score": 0.143,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "bible",
+       "ref": "Matthew 6:3",
+       "text": "But when thou doest alms, let not thy left hand know what thy right hand doeth:"
+      },
+      {
+       "book": "quran",
+       "ref": "2:271",
+       "text": "If ye publish your almsgiving, it is well, but if ye hide it and give it to the poor, it will be better for you, and will atone for some of your ill-deeds. Allah is Informed of what ye do."
+      }
+     ]
+    },
+    {
+     "idea": "Give without expecting reward or thanks.",
+     "score": 0.073,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "17:20",
+       "text": "That alms given to one who does nothing in return, believing that a gift ought to be made in a fit place and time to a worthy person, that alms is accounted pure."
+      },
+      {
+       "book": "quran",
+       "ref": "76:9",
+       "text": "(Saying): We feed you, for the sake of Allah only. We wish for no reward nor thanks from you;"
+      }
+     ]
+    },
+    {
+     "idea": "Treat friend and foe alike / love your enemies.",
+     "score": 0.061,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "12:18",
+       "text": "Alike to foe and friend, and also in fame and ignominy, alike in cold and heat, pleasures and pains, destitute of attachment,"
+      },
+      {
+       "book": "bible",
+       "ref": "Matthew 5:44",
+       "text": "But I say unto you, Love your enemies, bless them that curse you, do good to them that hate you, and pray for them which despitefully use you, and persecute you;"
+      }
+     ]
+    },
+    {
+     "idea": "Moderation in eating.",
+     "score": 0.012,
+     "source": "hand-listed",
+     "verses": [
+      {
+       "book": "gita",
+       "ref": "6:16",
+       "text": "Verily yoga is not for him who eateth too much, nor who abstaineth to excess, nor who is too much addicted to sleep, nor even to wakefulness, O Arjuna."
+      },
+      {
+       "book": "quran",
+       "ref": "7:31",
+       "text": "O Children of Adam! Look to your adornment at every place of worship, and eat and drink, but be not prodigal. Lo! He loveth not the prodigals."
+      }
      ]
     }
    ]

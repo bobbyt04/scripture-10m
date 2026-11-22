@@ -1,0 +1,1570 @@
+{
+ "about": "search(query, k=3) on the committed artefacts; scores rounded to 4 places. A port should match the refs exactly and the scores to about 1e-3.",
+ "cases": [
+  {
+   "query": "I got laid off and I'm scared about money",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "afraid",
+    "bread",
+    "dread",
+    "fear",
+    "gold",
+    "idle",
+    "labour",
+    "lucre",
+    "mammon",
+    "money",
+    "need",
+    "poverty",
+    "provide",
+    "rich",
+    "scare",
+    "silver",
+    "sustenance",
+    "terror",
+    "treasure",
+    "tremble",
+    "wage",
+    "wealth"
+   ],
+   "results": {
+    "gita": [
+     [
+      "11:49",
+      7.4167
+     ],
+     [
+      "7:2",
+      5.5086
+     ],
+     [
+      "1:33",
+      5.0791
+     ]
+    ],
+    "quran": [
+     [
+      "23:55",
+      10.4105
+     ],
+     [
+      "17:103",
+      9.4423
+     ],
+     [
+      "13:21",
+      8.3068
+     ]
+    ],
+    "bible": [
+     [
+      "Ezekiel 28:4",
+      17.0091
+     ],
+     [
+      "Proverbs 10:15",
+      16.7233
+     ],
+     [
+      "Matthew 10:9",
+      16.0505
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my girlfriend broke up with me",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "alone",
+    "beloved",
+    "depart",
+    "forsake",
+    "forsaken",
+    "love",
+    "part",
+    "sorrow",
+    "wife",
+    "woman"
+   ],
+   "results": {
+    "gita": [
+     [
+      "18:66",
+      8.5613
+     ],
+     [
+      "2:71",
+      5.5086
+     ],
+     [
+      "15:10",
+      5.0791
+     ]
+    ],
+    "quran": [
+     [
+      "7:70",
+      9.1153
+     ],
+     [
+      "93:3",
+      8.1652
+     ],
+     [
+      "89:4",
+      7.566
+     ]
+    ],
+    "bible": [
+     [
+      "Proverbs 4:6",
+      11.5602
+     ],
+     [
+      "Jeremiah 17:13",
+      11.3856
+     ],
+     [
+      "Isaiah 54:6",
+      11.0312
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I feel burnt out",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "faint",
+    "heavy",
+    "labour",
+    "rest",
+    "strength",
+    "toil",
+    "weary"
+   ],
+   "results": {
+    "gita": [
+     [
+      "6:22",
+      5.5086
+     ],
+     [
+      "2:3",
+      5.0791
+     ],
+     [
+      "6:43",
+      4.846
+     ]
+    ],
+    "quran": [
+     [
+      "88:3",
+      15.8504
+     ],
+     [
+      "15:48",
+      7.8417
+     ],
+     [
+      "94:7",
+      7.3339
+     ]
+    ],
+    "bible": [
+     [
+      "Matthew 11:28",
+      16.5883
+     ],
+     [
+      "Isaiah 40:31",
+      12.9263
+     ],
+     [
+      "Ecclesiastes 10:15",
+      12.3641
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my dad has cancer",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "affliction",
+    "death",
+    "disease",
+    "father",
+    "heal",
+    "pain",
+    "parent",
+    "sick",
+    "sickness"
+   ],
+   "results": {
+    "gita": [
+     [
+      "13:9",
+      9.245
+     ],
+     [
+      "17:9",
+      6.52
+     ],
+     [
+      "1:34",
+      4.7274
+     ]
+    ],
+    "quran": [
+     [
+      "37:89",
+      7.8895
+     ],
+     [
+      "26:80",
+      7.8417
+     ],
+     [
+      "2:180",
+      6.6258
+     ]
+    ],
+    "bible": [
+     [
+      "Luke 4:40",
+      13.9726
+     ],
+     [
+      "Matthew 9:35",
+      13.7964
+     ],
+     [
+      "Acts 28:9",
+      13.5283
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm anxious about my exams",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "afraid",
+    "anxiety",
+    "anxious",
+    "careful",
+    "diligent",
+    "fear",
+    "knowledge",
+    "learn",
+    "prove",
+    "study",
+    "thought",
+    "trouble",
+    "understand",
+    "wisdom"
+   ],
+   "results": {
+    "gita": [
+     [
+      "12:15",
+      7.8621
+     ],
+     [
+      "11:49",
+      7.4167
+     ],
+     [
+      "18:70",
+      6.8647
+     ]
+    ],
+    "quran": [
+     [
+      "15:53",
+      10.4157
+     ],
+     [
+      "70:19",
+      10.2065
+     ],
+     [
+      "6:105",
+      9.6939
+     ]
+    ],
+    "bible": [
+     [
+      "Proverbs 30:3",
+      17.0358
+     ],
+     [
+      "Proverbs 9:10",
+      16.8984
+     ],
+     [
+      "Daniel 1:17",
+      15.0293
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I can't forgive my brother",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "brother",
+    "forgive"
+   ],
+   "results": {
+    "gita": [
+     [
+      "1:34",
+      7.3395
+     ],
+     [
+      "12:13",
+      5.8214
+     ],
+     [
+      "1:26",
+      5.4003
+     ]
+    ],
+    "quran": [
+     [
+      "12:69",
+      6.8812
+     ],
+     [
+      "59:10",
+      6.5017
+     ],
+     [
+      "20:30",
+      6.4355
+     ]
+    ],
+    "bible": [
+     [
+      "Luke 17:3",
+      10.9636
+     ],
+     [
+      "Matthew 18:35",
+      10.9636
+     ],
+     [
+      "Matthew 6:12",
+      10.367
+     ]
+    ]
+   }
+  },
+  {
+   "query": "my mother passed away",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "dead",
+    "death",
+    "depart",
+    "die",
+    "grave",
+    "mother",
+    "mourn",
+    "sleep"
+   ],
+   "results": {
+    "gita": [
+     [
+      "2:27",
+      7.6184
+     ],
+     [
+      "15:10",
+      5.0791
+     ],
+     [
+      "9:17",
+      5.078
+     ]
+    ],
+    "quran": [
+     [
+      "35:22",
+      9.4265
+     ],
+     [
+      "39:42",
+      9.2209
+     ],
+     [
+      "30:19",
+      8.4222
+     ]
+    ],
+    "bible": [
+     [
+      "Romans 6:9",
+      12.2324
+     ],
+     [
+      "Jeremiah 16:7",
+      11.2828
+     ],
+     [
+      "1 Corinthians 15:55",
+      10.7526
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I feel like my life has no purpose",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "call",
+    "create",
+    "duty",
+    "life",
+    "purpose",
+    "vain",
+    "work"
+   ],
+   "results": {
+    "gita": [
+     [
+      "3:16",
+      7.9656
+     ],
+     [
+      "18:59",
+      6.5923
+     ],
+     [
+      "16:13",
+      6.0575
+     ]
+    ],
+    "quran": [
+     [
+      "80:8",
+      8.0763
+     ],
+     [
+      "18:104",
+      7.5961
+     ],
+     [
+      "68:25",
+      7.5533
+     ]
+    ],
+    "bible": [
+     [
+      "Romans 8:28",
+      12.967
+     ],
+     [
+      "Romans 9:11",
+      10.9092
+     ],
+     [
+      "2 Timothy 1:9",
+      10.8325
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm jealous of my friend's success",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "covet",
+    "envious",
+    "envy",
+    "friend",
+    "fruit",
+    "jealous",
+    "prosper",
+    "prosperity",
+    "reward",
+    "success"
+   ],
+   "results": {
+    "gita": [
+     [
+      "4:22",
+      8.8379
+     ],
+     [
+      "4:12",
+      6.5743
+     ],
+     [
+      "11:41",
+      5.754
+     ]
+    ],
+    "quran": [
+     [
+      "53:24",
+      8.7307
+     ],
+     [
+      "4:32",
+      8.4211
+     ],
+     [
+      "113:5",
+      7.8911
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 73:3",
+      16.0304
+     ],
+     [
+      "Exodus 34:14",
+      11.1015
+     ],
+     [
+      "Zechariah 8:2",
+      10.4155
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I keep procrastinating",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "diligent",
+    "idle",
+    "indolent",
+    "morrow",
+    "procrastinating",
+    "slothful",
+    "sluggard"
+   ],
+   "results": {
+    "gita": [
+     [
+      "18:28",
+      10.9991
+     ],
+     [
+      "7:12",
+      6.6298
+     ]
+    ],
+    "quran": [
+     [
+      "88:11",
+      8.1652
+     ],
+     [
+      "54:26",
+      7.2055
+     ],
+     [
+      "19:62",
+      6.4852
+     ]
+    ],
+    "bible": [
+     [
+      "Proverbs 13:4",
+      14.2847
+     ],
+     [
+      "Proverbs 12:24",
+      14.2195
+     ],
+     [
+      "Proverbs 12:27",
+      12.2985
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I want to help the poor",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "help",
+    "needy",
+    "poor",
+    "poverty"
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "59:8",
+      7.9932
+     ],
+     [
+      "7:192",
+      7.1832
+     ],
+     [
+      "7:197",
+      7.1708
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 40:17",
+      17.4332
+     ],
+     [
+      "Psalms 70:5",
+      16.6111
+     ],
+     [
+      "Psalms 72:13",
+      14.0652
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm grateful for my life",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "bounty",
+    "favour",
+    "grateful",
+    "life",
+    "praise",
+    "thank",
+    "thankful",
+    "thanksgiving"
+   ],
+   "results": {
+    "gita": [
+     [
+      "5:1",
+      4.5243
+     ],
+     [
+      "4:30",
+      4.4224
+     ],
+     [
+      "18:75",
+      4.3203
+     ]
+    ],
+    "quran": [
+     [
+      "16:121",
+      9.3831
+     ],
+     [
+      "27:73",
+      8.9512
+     ],
+     [
+      "28:73",
+      8.0702
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 100:4",
+      17.5377
+     ],
+     [
+      "Psalms 69:30",
+      10.9
+     ],
+     [
+      "Job 10:12",
+      10.4695
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I feel guilty about my past",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "forgive",
+    "guilt",
+    "guilty",
+    "iniquity",
+    "past",
+    "repent",
+    "sin",
+    "transgression"
+   ],
+   "results": {
+    "gita": [
+     [
+      "7:26",
+      8.7315
+     ],
+     [
+      "2:40",
+      5.5086
+     ],
+     [
+      "1:38",
+      4.8885
+     ]
+    ],
+    "quran": [
+     [
+      "48:2",
+      12.0332
+     ],
+     [
+      "26:112",
+      8.7438
+     ],
+     [
+      "43:56",
+      8.7438
+     ]
+    ],
+    "bible": [
+     [
+      "Isaiah 59:12",
+      14.9086
+     ],
+     [
+      "Job 13:23",
+      14.3678
+     ],
+     [
+      "Leviticus 5:5",
+      14.027
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I want inner peace and a calm mind",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "calm",
+    "calmness",
+    "heart",
+    "mind",
+    "peace",
+    "quiet",
+    "rest",
+    "serene",
+    "still",
+    "tranquillity"
+   ],
+   "results": {
+    "gita": [
+     [
+      "6:20",
+      11.3234
+     ],
+     [
+      "6:27",
+      8.5305
+     ],
+     [
+      "6:25",
+      7.3084
+     ]
+    ],
+    "quran": [
+     [
+      "42:33",
+      15.2964
+     ],
+     [
+      "88:8",
+      10.6653
+     ],
+     [
+      "13:28",
+      9.3968
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 107:29",
+      16.0528
+     ],
+     [
+      "Job 3:13",
+      16.0227
+     ],
+     [
+      "Mark 4:39",
+      15.9472
+     ]
+    ]
+   }
+  },
+  {
+   "query": "should I lie to my boss",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "deceit",
+    "false",
+    "falsehood",
+    "liar",
+    "lie",
+    "lord",
+    "master",
+    "ruler",
+    "servant",
+    "truth"
+   ],
+   "results": {
+    "gita": [
+     [
+      "10:15",
+      5.532
+     ],
+     [
+      "5:26",
+      4.8885
+     ],
+     [
+      "2:61",
+      4.3791
+     ]
+    ],
+    "quran": [
+     [
+      "16:105",
+      10.2103
+     ],
+     [
+      "23:90",
+      9.5498
+     ],
+     [
+      "17:81",
+      9.4928
+     ]
+    ],
+    "bible": [
+     [
+      "Proverbs 12:17",
+      15.8818
+     ],
+     [
+      "Psalms 119:118",
+      14.1868
+     ],
+     [
+      "1 John 2:4",
+      13.4683
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm drowning in debt",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "borrow",
+    "borrower",
+    "burden",
+    "debt",
+    "debtor",
+    "deep",
+    "heavy",
+    "lender",
+    "overwhelm",
+    "pay",
+    "usury",
+    "water"
+   ],
+   "results": {
+    "gita": [
+     [
+      "6:22",
+      5.5086
+     ],
+     [
+      "11:14",
+      4.8885
+     ],
+     [
+      "11:48",
+      4.1163
+     ]
+    ],
+    "quran": [
+     [
+      "2:280",
+      12.1785
+     ],
+     [
+      "56:66",
+      9.8022
+     ],
+     [
+      "53:37",
+      9.1674
+     ]
+    ],
+    "bible": [
+     [
+      "Isaiah 24:2",
+      19.5534
+     ],
+     [
+      "Matthew 6:12",
+      18.9231
+     ],
+     [
+      "Proverbs 22:7",
+      17.5544
+     ]
+    ]
+   }
+  },
+  {
+   "query": "the Lord is my shepherd",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "lord",
+    "shepherd"
+   ],
+   "results": {
+    "gita": [
+     [
+      "11:4",
+      3.6935
+     ],
+     [
+      "11:9",
+      3.2283
+     ],
+     [
+      "9:24",
+      2.959
+     ]
+    ],
+    "quran": [
+     [
+      "23:8",
+      10.6653
+     ],
+     [
+      "28:23",
+      4.6467
+     ],
+     [
+      "26:26",
+      3.2639
+     ]
+    ],
+    "bible": [
+     [
+      "Ezekiel 34:2",
+      10.2041
+     ],
+     [
+      "Ezekiel 34:7",
+      9.8165
+     ],
+     [
+      "Psalms 23:1",
+      9.8165
+     ]
+    ]
+   }
+  },
+  {
+   "query": "love your enemies",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "enemy",
+    "love"
+   ],
+   "results": {
+    "gita": [
+     [
+      "10:10",
+      5.6704
+     ],
+     [
+      "18:23",
+      5.0072
+     ],
+     [
+      "12:17",
+      5.0072
+     ]
+    ],
+    "quran": [
+     [
+      "20:39",
+      9.3131
+     ],
+     [
+      "89:20",
+      7.1035
+     ],
+     [
+      "26:77",
+      6.6932
+     ]
+    ],
+    "bible": [
+     [
+      "Luke 6:27",
+      10.7424
+     ],
+     [
+      "Judges 5:31",
+      8.4278
+     ],
+     [
+      "Matthew 5:44",
+      8.4278
+     ]
+    ]
+   }
+  },
+  {
+   "query": "with hardship goeth ease",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "ease",
+    "hardship"
+   ],
+   "results": {
+    "gita": [],
+    "quran": [
+     [
+      "94:6",
+      17.9187
+     ],
+     [
+      "94:5",
+      17.9187
+     ],
+     [
+      "87:8",
+      8.7808
+     ]
+    ],
+    "bible": [
+     [
+      "2 Corinthians 8:13",
+      9.3929
+     ],
+     [
+      "Job 7:13",
+      8.877
+     ],
+     [
+      "Psalms 25:13",
+      8.4148
+     ]
+    ]
+   }
+  },
+  {
+   "query": "action without attachment to its fruits",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "action",
+    "attachment",
+    "fruit"
+   ],
+   "results": {
+    "gita": [
+     [
+      "4:20",
+      9.4321
+     ],
+     [
+      "18:6",
+      9.0406
+     ],
+     [
+      "18:23",
+      8.6882
+     ]
+    ],
+    "quran": [
+     [
+      "47:9",
+      7.188
+     ],
+     [
+      "56:20",
+      7.1738
+     ],
+     [
+      "37:42",
+      7.1738
+     ]
+    ],
+    "bible": [
+     [
+      "1 Samuel 2:3",
+      9.5723
+     ],
+     [
+      "Matthew 7:20",
+      7.7788
+     ],
+     [
+      "John 15:2",
+      7.617
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm getting married next month",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "cleave",
+    "husband",
+    "love",
+    "marriage",
+    "marry",
+    "wife"
+   ],
+   "results": {
+    "gita": [
+     [
+      "2:23",
+      4.7494
+     ],
+     [
+      "13:10",
+      4.5473
+     ],
+     [
+      "9:18",
+      4.5473
+     ]
+    ],
+    "quran": [
+     [
+      "100:5",
+      8.5323
+     ],
+     [
+      "4:4",
+      7.7476
+     ],
+     [
+      "2:232",
+      6.5535
+     ]
+    ],
+    "bible": [
+     [
+      "1 Corinthians 7:10",
+      14.9931
+     ],
+     [
+      "Colossians 3:19",
+      14.5459
+     ],
+     [
+      "Luke 16:18",
+      13.8354
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm afraid of dying",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "afraid",
+    "dead",
+    "death",
+    "die",
+    "grave"
+   ],
+   "results": {
+    "gita": [
+     [
+      "2:27",
+      7.6184
+     ],
+     [
+      "2:26",
+      6.3136
+     ],
+     [
+      "2:20",
+      5.8214
+     ]
+    ],
+    "quran": [
+     [
+      "35:22",
+      9.4265
+     ],
+     [
+      "30:19",
+      8.4222
+     ],
+     [
+      "39:30",
+      8.1294
+     ]
+    ],
+    "bible": [
+     [
+      "Romans 6:9",
+      13.187
+     ],
+     [
+      "1 Corinthians 15:55",
+      10.7526
+     ],
+     [
+      "John 12:33",
+      10.618
+     ]
+    ]
+   }
+  },
+  {
+   "query": "nobody appreciates my work",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "labour",
+    "recompense",
+    "reward",
+    "thank",
+    "unthankful",
+    "work"
+   ],
+   "results": {
+    "gita": [
+     [
+      "2:17",
+      5.0678
+     ],
+     [
+      "6:43",
+      4.846
+     ],
+     [
+      "9:9",
+      4.6204
+     ]
+    ],
+    "quran": [
+     [
+      "54:35",
+      9.2474
+     ],
+     [
+      "18:30",
+      8.866
+     ],
+     [
+      "41:8",
+      8.6113
+     ]
+    ],
+    "bible": [
+     [
+      "Ruth 2:12",
+      12.8222
+     ],
+     [
+      "Ecclesiastes 3:9",
+      11.4953
+     ],
+     [
+      "Ecclesiastes 4:9",
+      11.1019
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm stressed out at work",
+   "category": "general",
+   "topic": null,
+   "no_match": false,
+   "terms": [
+    "anxiety",
+    "burden",
+    "careful",
+    "distress",
+    "heavy",
+    "trouble",
+    "weary",
+    "work"
+   ],
+   "results": {
+    "gita": [
+     [
+      "6:22",
+      5.5086
+     ],
+     [
+      "2:17",
+      5.0678
+     ],
+     [
+      "12:15",
+      4.6571
+     ]
+    ],
+    "quran": [
+     [
+      "101:6",
+      11.2921
+     ],
+     [
+      "88:3",
+      8.0086
+     ],
+     [
+      "27:70",
+      6.8676
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 38:4",
+      13.0203
+     ],
+     [
+      "Luke 10:41",
+      11.8384
+     ],
+     [
+      "Psalms 107:6",
+      11.228
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm gay",
+   "category": "sensitive",
+   "topic": "sexuality_gender",
+   "no_match": false,
+   "terms": [
+    "gay"
+   ],
+   "results": {
+    "gita": [
+     [
+      "9:29",
+      0.01
+     ],
+     [
+      "6:30",
+      0.0097
+     ],
+     [
+      "12:13",
+      0.0094
+     ]
+    ],
+    "quran": [
+     [
+      "49:13",
+      0.01
+     ],
+     [
+      "17:70",
+      0.0097
+     ],
+     [
+      "93:3",
+      0.0094
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 139:14",
+      0.01
+     ],
+     [
+      "1 John 4:16",
+      0.0098
+     ],
+     [
+      "Galatians 3:28",
+      0.0095
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I'm blind",
+   "category": "sensitive",
+   "topic": "disability",
+   "no_match": false,
+   "terms": [
+    "blind"
+   ],
+   "results": {
+    "gita": [
+     [
+      "9:29",
+      0.01
+     ],
+     [
+      "6:30",
+      0.0097
+     ],
+     [
+      "12:13",
+      0.0094
+     ]
+    ],
+    "quran": [
+     [
+      "49:13",
+      0.01
+     ],
+     [
+      "17:70",
+      0.0097
+     ],
+     [
+      "93:3",
+      0.0094
+     ]
+    ],
+    "bible": [
+     [
+      "Psalms 139:14",
+      0.01
+     ],
+     [
+      "1 John 4:16",
+      0.0098
+     ],
+     [
+      "Galatians 3:28",
+      0.0095
+     ]
+    ]
+   }
+  },
+  {
+   "query": "I want to die",
+   "category": "crisis",
+   "topic": "suicide",
+   "no_match": false,
+   "terms": [
+    "comfort",
+    "despair",
+    "hope",
+    "life",
+    "mercy",
+    "perish",
+    "soul"
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "my husband hits me",
+   "category": "crisis",
+   "topic": "abuse",
+   "no_match": false,
+   "terms": [
+    "hit",
+    "husband"
+   ],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "xyzzy",
+   "category": "general",
+   "topic": null,
+   "no_match": true,
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  },
+  {
+   "query": "!!!",
+   "category": "general",
+   "topic": null,
+   "no_match": true,
+   "terms": [],
+   "results": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   }
+  }
+ ]
+}

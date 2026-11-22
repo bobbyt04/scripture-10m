@@ -1,0 +1,38 @@
+{
+"_about": "Word rules for the meaning search, written by hand in this repo. Stopwords are derived from the corpus: the words found in the largest share of verses (averaged over the three books so each book counts equally), minus the content words in 'keep', plus the words in 'add' (archaic fillers and words visitors type that are rare in the books). build.py writes the final list into search/artifacts/model.json.",
+
+"stopwords": {
+  "top_by_verse_share": 120,
+  "keep": ["lord", "allah", "god", "man", "men", "day", "self", "earth", "people", "son", "action", "yoga", "mind", "evil", "world", "wisdom", "good", "israel", "great", "beings", "supreme", "king"],
+  "add": [
+    "thine", "art", "hast", "shalt", "wilt", "doth", "dost", "didst", "canst", "wast", "wert", "hadst", "saith", "cometh", "comest", "goeth", "goest", "went", "gone", "whosoever", "whatsoever", "whoso", "whomsoever", "wheresoever", "whither", "thither", "hither", "hence", "thence", "whence", "thereby", "therein", "thereon", "thereto", "thereupon", "therewith", "wherewith", "wherefore", "whereof", "wherein", "whereby", "whereupon", "herein", "hereby", "howbeit", "yea", "nay", "behold", "oh", "ere", "amongst", "couldest", "wouldest", "shouldest", "mayest",
+    "about", "because", "been", "being", "could", "would", "can", "cannot", "she", "her", "hers", "herself", "himself", "myself", "yourself", "yourselves", "ourselves", "themselves", "itself", "here", "how", "why", "where", "while", "until", "under", "over", "through", "very", "much", "more", "most", "some", "each", "other", "same", "only", "both", "just", "its", "im", "ive", "dont", "cant", "really", "feel", "feeling", "felt", "think", "get", "got", "getting", "gets", "keep", "keeps", "kept", "always", "anymore", "lot", "stuff", "thing", "something", "anything", "everything", "someone", "anyone", "everyone", "maybe", "okay", "ok", "want", "wanted", "wants", "wanna", "gonna", "going", "tell", "told", "like", "make", "two", "has", "does", "doing", "did", "done", "off", "again", "once", "else", "every", "either", "neither", "too", "yet", "what", "which", "whose", "whom", "while", "also"
+  ]
+},
+
+"query_stopwords": ["well", "next", "week", "weeks", "month", "months", "lately", "recently", "today", "tonight", "completely", "totally", "literally", "actually", "basically", "seriously", "right"],
+
+"irregular": {
+  "hath": "have", "hast": "have", "hadst": "have", "doth": "do", "dost": "do", "doeth": "do", "doest": "do", "didst": "do",
+  "saith": "say", "sayest": "say", "spake": "speak", "art": "are", "wast": "was", "wert": "were", "shalt": "shall", "wilt": "will", "canst": "can",
+  "wives": "wife", "women": "woman", "men": "man", "children": "child", "feet": "foot", "teeth": "tooth", "lives": "life", "loaves": "loaf", "thieves": "thief", "brethren": "brother",
+  "judgement": "judgment", "judgements": "judgment", "neighbor": "neighbour", "neighbors": "neighbour", "honor": "honour", "honored": "honoured", "labor": "labour", "favor": "favour", "savior": "saviour", "behavior": "behaviour", "counselor": "counsellor", "fulfill": "fulfil", "color": "colour", "traveler": "traveller", "worshiped": "worshipped"
+},
+
+"suffix_rules": [
+  {"ends": ["eth", "est"], "min_len": 5, "try": [
+    {"only_if_ends": ["ieth", "iest"], "strip": 4, "add": "y"},
+    {"strip": 3}, {"strip": 3, "add": "e"}, {"strip": 3, "undouble": true}]},
+  {"ends": ["ing"], "min_len": 5, "try": [
+    {"strip": 3}, {"strip": 3, "add": "e"}, {"strip": 3, "undouble": true},
+    {"only_if_ends": ["ying"], "strip": 4, "add": "ie"}]},
+  {"ends": ["ed"], "not_ends": ["eed"], "min_len": 4, "try": [
+    {"only_if_ends": ["ied"], "strip": 3, "add": "y"},
+    {"strip": 1}, {"strip": 2}, {"strip": 2, "undouble": true}]},
+  {"ends": ["s"], "not_ends": ["ss", "us", "is"], "min_len": 4, "try": [
+    {"only_if_ends": ["ies"], "strip": 3, "add": "y"},
+    {"strip": 1}, {"only_if_ends": ["es"], "strip": 2}]}
+],
+
+"not_inflected": ["modest", "honest", "earnest", "interest", "harvest", "request", "priest", "guest", "chest", "conquest", "tempest", "manifest", "unmanifest", "protest", "behest", "nest", "rest", "best", "west", "test", "jest", "quest", "arrest", "invest", "contest", "suggest", "digest", "detest", "attest", "infest", "molest", "crest", "wrest", "blest", "evening", "willing", "news", "goods", "means", "lots", "forest", "kidding", "wedding", "pudding", "bedding"]
+}

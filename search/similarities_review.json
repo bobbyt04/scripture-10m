@@ -1,0 +1,3125 @@
+{
+ "about": "Every candidate pair the model proposed (search/similarities.py --propose), with a human decision. Kept pairs are real parallels in story or teaching; the rest were rejected because the verses share words or images but not an idea, or because they are not suitable to show side by side.",
+ "candidates": [
+  {
+   "a": "bible 2 Corinthians 2:10",
+   "b": "quran 28:16",
+   "score": 0.741,
+   "shared_words": [
+    "forgave",
+    "forgive"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 5:1",
+   "b": "quran 3:59",
+   "score": 0.738,
+   "shared_words": [
+    "adam",
+    "create",
+    "likeness"
+   ],
+   "keep": true,
+   "theme": "Creation and nature",
+   "idea": "Adam was created by God; the Quran compares the creation of Jesus to that of Adam."
+  },
+  {
+   "a": "bible Genesis 41:26",
+   "b": "quran 12:43",
+   "score": 0.723,
+   "shared_words": [
+    "dream",
+    "ear",
+    "kine"
+   ],
+   "keep": true,
+   "theme": "Prophets and their stories",
+   "idea": "Pharaoh's dream of seven fat and seven lean cows and seven ears of corn, which Joseph explains."
+  },
+  {
+   "a": "bible Psalms 74:17",
+   "b": "quran 106:2",
+   "score": 0.698,
+   "shared_words": [
+    "summer",
+    "winter"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 113:3",
+   "b": "quran 37:5",
+   "score": 0.681,
+   "shared_words": [
+    "rise",
+    "sun"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 1:25",
+   "b": "quran 24:45",
+   "score": 0.679,
+   "shared_words": [
+    "kind"
+   ],
+   "keep": true,
+   "theme": "Creation and nature",
+   "idea": "God made every kind of animal, each after its kind."
+  },
+  {
+   "a": "bible Deuteronomy 7:14",
+   "b": "quran 42:50",
+   "score": 0.677,
+   "shared_words": [
+    "barren",
+    "female",
+    "male"
+   ],
+   "keep": true,
+   "theme": "Creation and nature",
+   "idea": "God gives or withholds children; no one is barren except by his will."
+  },
+  {
+   "a": "bible Job 26:2",
+   "b": "quran 36:75",
+   "score": 0.676,
+   "shared_words": [
+    "arm",
+    "help",
+    "power"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 2 Samuel 7:16",
+   "b": "quran 81:20",
+   "score": 0.673,
+   "shared_words": [
+    "establish",
+    "throne"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 20:12",
+   "b": "quran 4:23",
+   "score": 0.672,
+   "shared_words": [
+    "mother",
+    "sister"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Samuel 15:29",
+   "b": "quran 25:71",
+   "score": 0.665,
+   "shared_words": [
+    "repent"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Proverbs 25:9",
+   "b": "quran 20:62",
+   "score": 0.661,
+   "shared_words": [
+    "debate",
+    "secret"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Isaiah 43:5",
+   "b": "quran 26:28",
+   "score": 0.661,
+   "shared_words": [
+    "east",
+    "west"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Isaiah 42:18",
+   "b": "quran 43:40",
+   "score": 0.655,
+   "shared_words": [
+    "blind",
+    "deaf"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Mark 1:3",
+   "b": "quran 3:51",
+   "score": 0.654,
+   "shared_words": [
+    "path",
+    "straight"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 37:9",
+   "b": "quran 12:4",
+   "score": 0.644,
+   "shared_words": [
+    "dream",
+    "eleven",
+    "moon",
+    "sun"
+   ],
+   "keep": true,
+   "theme": "Prophets and their stories",
+   "idea": "Joseph's dream of the sun, the moon and eleven stars bowing to him."
+  },
+  {
+   "a": "bible Psalms 148:3",
+   "b": "quran 52:49",
+   "score": 0.642,
+   "shared_words": [
+    "praise",
+    "star"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible John 1:51",
+   "b": "quran 34:2",
+   "score": 0.64,
+   "shared_words": [
+    "ascend",
+    "descend"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Esther 6:1",
+   "b": "quran 69:19",
+   "score": 0.637,
+   "shared_words": [
+    "book",
+    "read",
+    "record"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 147:17",
+   "b": "quran 38:57",
+   "score": 0.635,
+   "shared_words": [
+    "cold",
+    "ice"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Kings 14:28",
+   "b": "quran 72:27",
+   "score": 0.634,
+   "shared_words": [
+    "guard"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Exodus 4:11",
+   "b": "quran 8:22",
+   "score": 0.632,
+   "shared_words": [
+    "deaf",
+    "dumb"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 1:31",
+   "b": "quran 79:46",
+   "score": 0.631,
+   "shared_words": [
+    "evening",
+    "morn"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Philippians 4:21",
+   "b": "quran 4:86",
+   "score": 0.628,
+   "shared_words": [
+    "greet"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 75:8",
+   "b": "quran 76:5",
+   "score": 0.625,
+   "shared_words": [
+    "cup",
+    "mixture"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Isaiah 42:19",
+   "b": "quran 6:104",
+   "score": 0.625,
+   "shared_words": [
+    "blind"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Isaiah 13:10",
+   "b": "quran 25:61",
+   "score": 0.625,
+   "shared_words": [
+    "light",
+    "moon",
+    "star"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Samuel 24:17",
+   "b": "quran 3:148",
+   "score": 0.625,
+   "shared_words": [
+    "reward"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 24:46",
+   "b": "quran 26:155",
+   "score": 0.624,
+   "shared_words": [
+    "camel"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Matthew 9:38",
+   "b": "quran 42:20",
+   "score": 0.623,
+   "shared_words": [
+    "harvest"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 John 5:20",
+   "b": "quran 10:53",
+   "score": 0.623,
+   "shared_words": [
+    "true"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Mark 8:28",
+   "b": "quran 6:85",
+   "score": 0.617,
+   "shared_words": [
+    "elias",
+    "john"
+   ],
+   "keep": true,
+   "theme": "Prophets and their stories",
+   "idea": "John and Elijah (Elias) named among the prophets."
+  },
+  {
+   "a": "bible Psalms 35:18",
+   "b": "quran 31:12",
+   "score": 0.616,
+   "shared_words": [
+    "praise",
+    "thank"
+   ],
+   "keep": true,
+   "theme": "Worship and devotion",
+   "idea": "Give thanks and praise to God."
+  },
+  {
+   "a": "bible Psalms 75:5",
+   "b": "quran 36:8",
+   "score": 0.616,
+   "shared_words": [
+    "neck",
+    "stiff"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Haggai 2:9",
+   "b": "quran 93:4",
+   "score": 0.616,
+   "shared_words": [
+    "former",
+    "latter"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 41:20",
+   "b": "quran 12:46",
+   "score": 0.614,
+   "shared_words": [
+    "fat",
+    "kine",
+    "lean"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Zechariah 8:10",
+   "b": "quran 28:26",
+   "score": 0.613,
+   "shared_words": [
+    "hire"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 41:25",
+   "b": "quran 11:97",
+   "score": 0.613,
+   "shared_words": [
+    "pharaoh"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Amos 3:6",
+   "b": "quran 36:51",
+   "score": 0.609,
+   "shared_words": [
+    "blown",
+    "trumpet"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Isaiah 43:8",
+   "b": "quran 25:73",
+   "score": 0.609,
+   "shared_words": [
+    "blind",
+    "deaf"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Exodus 4:5",
+   "b": "quran 2:133",
+   "score": 0.607,
+   "shared_words": [
+    "abraham",
+    "isaac",
+    "jacob"
+   ],
+   "keep": true,
+   "theme": "Prophets and their stories",
+   "idea": "The God of Abraham, Isaac and Jacob, the God of the fathers."
+  },
+  {
+   "a": "bible Leviticus 27:33",
+   "b": "quran 2:181",
+   "score": 0.607,
+   "shared_words": [
+    "change"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Proverbs 8:20",
+   "b": "quran 19:43",
+   "score": 0.606,
+   "shared_words": [
+    "lead",
+    "path"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Matthew 6:4",
+   "b": "quran 67:12",
+   "score": 0.604,
+   "shared_words": [
+    "reward",
+    "secret"
+   ],
+   "keep": true,
+   "theme": "Worship and devotion",
+   "idea": "What is done for God in secret is rewarded."
+  },
+  {
+   "a": "bible Psalms 18:10",
+   "b": "quran 6:38",
+   "score": 0.6,
+   "shared_words": [
+    "fly",
+    "wing"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Numbers 11:7",
+   "b": "quran 2:138",
+   "score": 0.599,
+   "shared_words": [
+    "colour"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Revelation 7:4",
+   "b": "quran 18:11",
+   "score": 0.597,
+   "shared_words": [
+    "number",
+    "seal"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Isaiah 42:16",
+   "b": "quran 5:16",
+   "score": 0.597,
+   "shared_words": [
+    "darkness",
+    "light",
+    "path",
+    "straight"
+   ],
+   "keep": true,
+   "theme": "Guidance and wisdom",
+   "idea": "God leads people out of darkness into light, along straight paths."
+  },
+  {
+   "a": "bible 1 Chronicles 28:13",
+   "b": "quran 14:33",
+   "score": 0.596,
+   "shared_words": [
+    "course",
+    "service"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Deuteronomy 29:12",
+   "b": "quran 16:91",
+   "score": 0.595,
+   "shared_words": [
+    "covenant",
+    "oath"
+   ],
+   "keep": true,
+   "theme": "Worship and devotion",
+   "idea": "Keep the covenant and the oath you made with God."
+  },
+  {
+   "a": "bible John 6:64",
+   "b": "quran 8:27",
+   "score": 0.594,
+   "shared_words": [
+    "betray"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Luke 24:27",
+   "b": "quran 7:52",
+   "score": 0.593,
+   "shared_words": [
+    "expound",
+    "scripture"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Exodus 35:14",
+   "b": "quran 24:35",
+   "score": 0.591,
+   "shared_words": [
+    "lamp",
+    "light",
+    "oil"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Exodus 30:15",
+   "b": "quran 26:181",
+   "score": 0.591,
+   "shared_words": [
+    "less"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 1:8",
+   "b": "quran 76:25",
+   "score": 0.591,
+   "shared_words": [
+    "evening",
+    "morn"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Job 28:25",
+   "b": "quran 17:35",
+   "score": 0.59,
+   "shared_words": [
+    "measure",
+    "weigh"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Chronicles 1:34",
+   "b": "quran 11:71",
+   "score": 0.59,
+   "shared_words": [
+    "isaac"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Proverbs 21:18",
+   "b": "quran 38:55",
+   "score": 0.588,
+   "shared_words": [
+    "righteous",
+    "transgressor"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Corinthians 6:5",
+   "b": "quran 27:78",
+   "score": 0.587,
+   "shared_words": [
+    "between",
+    "judge",
+    "wise"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible John 21:19",
+   "b": "quran 19:11",
+   "score": 0.585,
+   "shared_words": [
+    "glorify",
+    "signify"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Ezekiel 41:12",
+   "b": "quran 69:32",
+   "score": 0.584,
+   "shared_words": [
+    "cubit",
+    "length",
+    "seventy"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Colossians 1:16",
+   "b": "quran 13:9",
+   "score": 0.581,
+   "shared_words": [
+    "invisible",
+    "visible"
+   ],
+   "keep": true,
+   "theme": "Creation and nature",
+   "idea": "God made, and knows, both the visible and the invisible."
+  },
+  {
+   "a": "bible Psalms 34:18",
+   "b": "quran 50:33",
+   "score": 0.581,
+   "shared_words": [
+    "contrite"
+   ],
+   "keep": true,
+   "theme": "God's knowledge and care",
+   "idea": "God is near to those who come to him with a contrite heart."
+  },
+  {
+   "a": "bible Deuteronomy 29:29",
+   "b": "quran 64:1",
+   "score": 0.58,
+   "shared_words": [
+    "belong"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Luke 2:10",
+   "b": "quran 15:54",
+   "score": 0.579,
+   "shared_words": [
+    "tidings"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Mark 4:31",
+   "b": "quran 31:16",
+   "score": 0.578,
+   "shared_words": [
+    "grain",
+    "mustard",
+    "seed"
+   ],
+   "keep": true,
+   "theme": "Guidance and wisdom",
+   "idea": "A grain of mustard seed, the smallest of things, as an image of what God does not overlook."
+  },
+  {
+   "a": "bible Genesis 5:27",
+   "b": "quran 18:25",
+   "score": 0.577,
+   "shared_words": [
+    "nine"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Song of Solomon 7:7",
+   "b": "quran 50:10",
+   "score": 0.577,
+   "shared_words": [
+    "cluster",
+    "palm"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Ezekiel 38:2",
+   "b": "quran 18:97",
+   "score": 0.574,
+   "shared_words": [
+    "gog",
+    "magog"
+   ],
+   "keep": true,
+   "theme": "Prophets and their stories",
+   "idea": "Gog and Magog appear in both books."
+  },
+  {
+   "a": "bible Job 27:7",
+   "b": "quran 30:12",
+   "score": 0.574,
+   "shared_words": [
+    "rise",
+    "unrighteous"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 2 Corinthians 5:13",
+   "b": "quran 27:27",
+   "score": 0.574,
+   "shared_words": [
+    "whether"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Hebrews 7:25",
+   "b": "quran 19:87",
+   "score": 0.573,
+   "shared_words": [
+    "intercession"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Isaiah 61:11",
+   "b": "quran 17:90",
+   "score": 0.573,
+   "shared_words": [
+    "spring"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Proverbs 7:25",
+   "b": "quran 1:7",
+   "score": 0.573,
+   "shared_words": [
+    "astray",
+    "path"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 2:10",
+   "b": "quran 20:76",
+   "score": 0.572,
+   "shared_words": [
+    "eden",
+    "garden",
+    "river"
+   ],
+   "keep": true,
+   "theme": "Creation and nature",
+   "idea": "The Garden of Eden, watered by rivers."
+  },
+  {
+   "a": "bible Proverbs 3:14",
+   "b": "quran 62:11",
+   "score": 0.569,
+   "shared_words": [
+    "better",
+    "merchandise"
+   ],
+   "keep": true,
+   "theme": "Guidance and wisdom",
+   "idea": "What God gives is better than trade and profit."
+  },
+  {
+   "a": "bible Isaiah 40:16",
+   "b": "quran 4:45",
+   "score": 0.567,
+   "shared_words": [
+    "sufficient"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 47:7",
+   "b": "quran 17:44",
+   "score": 0.567,
+   "shared_words": [
+    "praise",
+    "understand"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Job 12:23",
+   "b": "quran 39:52",
+   "score": 0.565,
+   "shared_words": [
+    "enlarge",
+    "straiten"
+   ],
+   "keep": true,
+   "theme": "God's knowledge and care",
+   "idea": "God enlarges and narrows what people have, as he wills."
+  },
+  {
+   "a": "bible Mark 15:6",
+   "b": "quran 33:28",
+   "score": 0.564,
+   "shared_words": [
+    "desire",
+    "release"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Nehemiah 4:8",
+   "b": "quran 58:9",
+   "score": 0.564,
+   "shared_words": [
+    "conspire"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Mark 4:39",
+   "b": "quran 42:33",
+   "score": 0.564,
+   "shared_words": [
+    "calm",
+    "still",
+    "wind"
+   ],
+   "keep": true,
+   "theme": "Creation and nature",
+   "idea": "God stills the wind and calms the sea."
+  },
+  {
+   "a": "bible Psalms 104:10",
+   "b": "quran 73:14",
+   "score": 0.562,
+   "shared_words": [
+    "hill",
+    "run"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 103:19",
+   "b": "quran 27:23",
+   "score": 0.56,
+   "shared_words": [
+    "rule",
+    "throne"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Isaiah 32:5",
+   "b": "quran 24:26",
+   "score": 0.56,
+   "shared_words": [
+    "bountiful",
+    "vile"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 37:6",
+   "b": "quran 30:18",
+   "score": 0.559,
+   "shared_words": [
+    "noonday"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Corinthians 15:12",
+   "b": "quran 50:11",
+   "score": 0.558,
+   "shared_words": [
+    "resurrection"
+   ],
+   "keep": true,
+   "theme": "Death and the life to come",
+   "idea": "The resurrection of the dead."
+  },
+  {
+   "a": "bible Job 4:17",
+   "b": "quran 74:25",
+   "score": 0.557,
+   "shared_words": [
+    "mortal"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Isaiah 25:5",
+   "b": "quran 35:21",
+   "score": 0.554,
+   "shared_words": [
+    "heat",
+    "shadow"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Ezekiel 16:13",
+   "b": "quran 76:21",
+   "score": 0.553,
+   "shared_words": [
+    "fine",
+    "raiment",
+    "silk",
+    "silver"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Job 6:18",
+   "b": "quran 20:16",
+   "score": 0.55,
+   "shared_words": [
+    "aside",
+    "perish"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Ezekiel 32:7",
+   "b": "quran 7:54",
+   "score": 0.55,
+   "shared_words": [
+    "cover",
+    "moon",
+    "star",
+    "sun"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Corinthians 3:14",
+   "b": "quran 5:85",
+   "score": 0.55,
+   "shared_words": [
+    "abide",
+    "reward"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Deuteronomy 34:12",
+   "b": "quran 7:134",
+   "score": 0.546,
+   "shared_words": [
+    "terror"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Romans 9:6",
+   "b": "quran 10:96",
+   "score": 0.546,
+   "shared_words": [
+    "effect"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 9:9",
+   "b": "quran 23:98",
+   "score": 0.543,
+   "shared_words": [
+    "refuge"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Luke 12:51",
+   "b": "quran 72:7",
+   "score": 0.542,
+   "shared_words": [
+    "suppose"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Judges 16:15",
+   "b": "quran 11:38",
+   "score": 0.542,
+   "shared_words": [
+    "mock"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Samuel 17:5",
+   "b": "quran 34:11",
+   "score": 0.542,
+   "shared_words": [
+    "coat",
+    "mail"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Proverbs 3:27",
+   "b": "quran 35:2",
+   "score": 0.541,
+   "shared_words": [
+    "withhold"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 5:2",
+   "b": "quran 35:11",
+   "score": 0.54,
+   "shared_words": [
+    "create",
+    "female",
+    "male"
+   ],
+   "keep": true,
+   "theme": "Creation and nature",
+   "idea": "God created human beings male and female."
+  },
+  {
+   "a": "bible Mark 4:7",
+   "b": "quran 88:6",
+   "score": 0.538,
+   "shared_words": [
+    "fruit",
+    "thorn"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 66:13",
+   "b": "quran 22:29",
+   "score": 0.538,
+   "shared_words": [
+    "pay",
+    "vow"
+   ],
+   "keep": true,
+   "theme": "Worship and devotion",
+   "idea": "Paying one's vows at the house of God."
+  },
+  {
+   "a": "bible Jeremiah 33:17",
+   "b": "quran 5:24",
+   "score": 0.538,
+   "shared_words": [
+    "never",
+    "sit"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Jeremiah 23:24",
+   "b": "quran 14:38",
+   "score": 0.536,
+   "shared_words": [
+    "hide"
+   ],
+   "keep": true,
+   "theme": "God's knowledge and care",
+   "idea": "Nothing in heaven or earth is hidden from God."
+  },
+  {
+   "a": "bible 1 John 3:3",
+   "b": "quran 38:46",
+   "score": 0.534,
+   "shared_words": [
+    "pure",
+    "purify"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Ecclesiastes 5:11",
+   "b": "quran 30:39",
+   "score": 0.532,
+   "shared_words": [
+    "increase"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Job 20:11",
+   "b": "quran 23:35",
+   "score": 0.531,
+   "shared_words": [
+    "bone",
+    "dust"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Nehemiah 9:6",
+   "b": "quran 45:37",
+   "score": 0.53,
+   "shared_words": [
+    "alone"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible John 5:28",
+   "b": "quran 22:7",
+   "score": 0.53,
+   "shared_words": [
+    "grave",
+    "hour"
+   ],
+   "keep": true,
+   "theme": "Death and the life to come",
+   "idea": "The hour will come when those in the graves are raised."
+  },
+  {
+   "a": "bible 1 Samuel 30:24",
+   "b": "quran 23:113",
+   "score": 0.529,
+   "shared_words": [
+    "part",
+    "tarry"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 116:2",
+   "b": "quran 8:61",
+   "score": 0.528,
+   "shared_words": [
+    "incline"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Zephaniah 1:10",
+   "b": "quran 69:14",
+   "score": 0.527,
+   "shared_words": [
+    "crash"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Job 1:12",
+   "b": "quran 43:62",
+   "score": 0.527,
+   "shared_words": [
+    "satan"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Kings 1:33",
+   "b": "quran 16:8",
+   "score": 0.527,
+   "shared_words": [
+    "mule",
+    "ride"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Job 24:6",
+   "b": "quran 21:15",
+   "score": 0.527,
+   "shared_words": [
+    "corn",
+    "reap"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Jeremiah 36:28",
+   "b": "quran 21:104",
+   "score": 0.526,
+   "shared_words": [
+    "roll"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Corinthians 4:4",
+   "b": "quran 10:33",
+   "score": 0.525,
+   "shared_words": [
+    "justify"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible John 8:14",
+   "b": "quran 45:29",
+   "score": 0.525,
+   "shared_words": [
+    "record"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Proverbs 31:22",
+   "b": "quran 44:53",
+   "score": 0.525,
+   "shared_words": [
+    "silk"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Amos 3:7",
+   "b": "quran 72:26",
+   "score": 0.524,
+   "shared_words": [
+    "reveal",
+    "secret"
+   ],
+   "keep": true,
+   "theme": "God's knowledge and care",
+   "idea": "God reveals his hidden things only to the messengers he chooses."
+  },
+  {
+   "a": "bible Acts 17:27",
+   "b": "quran 43:10",
+   "score": 0.523,
+   "shared_words": [
+    "find",
+    "haply"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Ezekiel 1:15",
+   "b": "quran 16:49",
+   "score": 0.523,
+   "shared_words": [
+    "creature"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Revelation 18:6",
+   "b": "quran 57:11",
+   "score": 0.522,
+   "shared_words": [
+    "double",
+    "reward"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Leviticus 15:4",
+   "b": "quran 44:4",
+   "score": 0.52,
+   "shared_words": [
+    "whereon"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Exodus 28:16",
+   "b": "quran 70:4",
+   "score": 0.519,
+   "shared_words": [
+    "span"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Ecclesiastes 2:5",
+   "b": "quran 86:12",
+   "score": 0.517,
+   "shared_words": [
+    "plant",
+    "tree"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Joshua 15:19",
+   "b": "quran 37:45",
+   "score": 0.516,
+   "shared_words": [
+    "spring"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Exodus 15:4",
+   "b": "quran 44:24",
+   "score": 0.516,
+   "shared_words": [
+    "drown"
+   ],
+   "keep": true,
+   "theme": "Prophets and their stories",
+   "idea": "Pharaoh's army is drowned in the sea."
+  },
+  {
+   "a": "bible Song of Solomon 1:16",
+   "b": "quran 55:76",
+   "score": 0.516,
+   "shared_words": [
+    "fair",
+    "green"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 2 Samuel 18:20",
+   "b": "quran 28:66",
+   "score": 0.515,
+   "shared_words": [
+    "tidings"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Isaiah 66:6",
+   "b": "quran 49:2",
+   "score": 0.514,
+   "shared_words": [
+    "render"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Acts 5:35",
+   "b": "quran 33:17",
+   "score": 0.513,
+   "shared_words": [
+    "intend"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Corinthians 10:33",
+   "b": "quran 21:66",
+   "score": 0.512,
+   "shared_words": [
+    "profit"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Luke 2:52",
+   "b": "quran 95:4",
+   "score": 0.512,
+   "shared_words": [
+    "stature"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Leviticus 27:10",
+   "b": "quran 14:26",
+   "score": 0.512,
+   "shared_words": [
+    "bad"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 116:5",
+   "b": "quran 37:75",
+   "score": 0.511,
+   "shared_words": [
+    "gracious"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Romans 4:16",
+   "b": "quran 51:20",
+   "score": 0.511,
+   "shared_words": [
+    "faith",
+    "sure"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Mark 13:19",
+   "b": "quran 32:7",
+   "score": 0.511,
+   "shared_words": [
+    "create",
+    "creation"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible John 7:38",
+   "b": "quran 85:11",
+   "score": 0.51,
+   "shared_words": [
+    "flow",
+    "river"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Job 37:18",
+   "b": "quran 70:8",
+   "score": 0.508,
+   "shared_words": [
+    "molten",
+    "sky"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Ezekiel 46:24",
+   "b": "quran 55:44",
+   "score": 0.505,
+   "shared_words": [
+    "boil"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 2 Kings 10:5",
+   "b": "quran 33:45",
+   "score": 0.505,
+   "shared_words": [
+    "bringer"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Leviticus 13:38",
+   "b": "quran 77:33",
+   "score": 0.504,
+   "shared_words": [
+    "bright"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 3:23",
+   "b": "quran 13:23",
+   "score": 0.504,
+   "shared_words": [
+    "eden",
+    "garden"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Isaiah 24:9",
+   "b": "quran 83:25",
+   "score": 0.504,
+   "shared_words": [
+    "wine"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Song of Solomon 4:16",
+   "b": "quran 61:12",
+   "score": 0.503,
+   "shared_words": [
+    "flow",
+    "garden",
+    "pleasant"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible John 12:40",
+   "b": "quran 22:46",
+   "score": 0.496,
+   "shared_words": [
+    "blind"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 2 Chronicles 6:22",
+   "b": "quran 58:14",
+   "score": 0.496,
+   "shared_words": [
+    "oath",
+    "swear"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Ephesians 4:3",
+   "b": "quran 79:35",
+   "score": 0.496,
+   "shared_words": [
+    "endeavour"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 2 Corinthians 4:16",
+   "b": "quran 57:3",
+   "score": 0.493,
+   "shared_words": [
+    "inward",
+    "outward"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Luke 14:10",
+   "b": "quran 58:11",
+   "score": 0.492,
+   "shared_words": [
+    "higher",
+    "room"
+   ],
+   "keep": true,
+   "theme": "Humility, giving and self-control",
+   "idea": "Take the lower place at a gathering; you will be asked to go up higher."
+  },
+  {
+   "a": "bible John 11:13",
+   "b": "quran 39:42",
+   "score": 0.492,
+   "shared_words": [
+    "rest",
+    "sleep",
+    "thought"
+   ],
+   "keep": true,
+   "theme": "Death and the life to come",
+   "idea": "Death is likened to sleep."
+  },
+  {
+   "a": "bible Luke 16:26",
+   "b": "quran 34:54",
+   "score": 0.49,
+   "shared_words": [
+    "between",
+    "gulf"
+   ],
+   "keep": true,
+   "theme": "Death and the life to come",
+   "idea": "A great gulf is fixed between the lost and what they long for."
+  },
+  {
+   "a": "bible Acts 10:9",
+   "b": "quran 54:1",
+   "score": 0.488,
+   "shared_words": [
+    "drew",
+    "hour",
+    "nigh"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Jeremiah 18:17",
+   "b": "quran 54:19",
+   "score": 0.488,
+   "shared_words": [
+    "calamity",
+    "wind"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 19:2",
+   "b": "quran 73:6",
+   "score": 0.487,
+   "shared_words": [
+    "speech"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Romans 9:28",
+   "b": "quran 55:9",
+   "score": 0.487,
+   "shared_words": [
+    "short"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Proverbs 14:6",
+   "b": "quran 40:27",
+   "score": 0.485,
+   "shared_words": [
+    "scorner",
+    "seek"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Proverbs 6:8",
+   "b": "quran 52:22",
+   "score": 0.485,
+   "shared_words": [
+    "meat",
+    "provide"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Chronicles 16:12",
+   "b": "gita 18:77",
+   "score": 0.657,
+   "shared_words": [
+    "marvellous",
+    "remember",
+    "wonder"
+   ],
+   "keep": true,
+   "theme": "Worship and devotion",
+   "idea": "Remembering God's marvellous works fills the heart with joy."
+  },
+  {
+   "a": "bible Galatians 4:17",
+   "b": "gita 13:33",
+   "score": 0.622,
+   "shared_words": [
+    "affect"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Exodus 9:24",
+   "b": "gita 11:39",
+   "score": 0.603,
+   "shared_words": [
+    "hail"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Isaiah 29:14",
+   "b": "gita 2:29",
+   "score": 0.601,
+   "shared_words": [
+    "marvellous",
+    "understand"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Revelation 21:23",
+   "b": "gita 15:6",
+   "score": 0.601,
+   "shared_words": [
+    "lighten",
+    "moon",
+    "sun"
+   ],
+   "keep": true,
+   "theme": "Death and the life to come",
+   "idea": "The final abode needs no sun or moon: God himself is its light."
+  },
+  {
+   "a": "bible Isaiah 37:31",
+   "b": "gita 15:2",
+   "score": 0.59,
+   "shared_words": [
+    "downward",
+    "root",
+    "upward"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 50:11",
+   "b": "gita 10:30",
+   "score": 0.589,
+   "shared_words": [
+    "beast",
+    "wild"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible John 12:46",
+   "b": "gita 8:26",
+   "score": 0.582,
+   "shared_words": [
+    "darkness",
+    "light"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Matthew 16:25",
+   "b": "gita 6:30",
+   "score": 0.573,
+   "shared_words": [
+    "lose"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 77:4",
+   "b": "gita 2:69",
+   "score": 0.57,
+   "shared_words": [
+    "wake"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Acts 14:18",
+   "b": "gita 7:3",
+   "score": 0.567,
+   "shared_words": [
+    "scarce"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 49:3",
+   "b": "gita 12:12",
+   "score": 0.56,
+   "shared_words": [
+    "meditation",
+    "wisdom"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 107:22",
+   "b": "gita 4:28",
+   "score": 0.555,
+   "shared_words": [
+    "sacrifice"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Peter 3:17",
+   "b": "gita 5:15",
+   "score": 0.554,
+   "shared_words": [
+    "doing",
+    "well"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Thessalonians 5:13",
+   "b": "gita 2:34",
+   "score": 0.549,
+   "shared_words": [
+    "esteem",
+    "highly"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Ecclesiastes 7:16",
+   "b": "gita 10:15",
+   "score": 0.547,
+   "shared_words": [
+    "thyself"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 147:5",
+   "b": "gita 11:16",
+   "score": 0.545,
+   "shared_words": [
+    "infinite"
+   ],
+   "keep": true,
+   "theme": "God's knowledge and care",
+   "idea": "God's understanding and form are infinite."
+  },
+  {
+   "a": "bible Luke 18:30",
+   "b": "gita 9:15",
+   "score": 0.537,
+   "shared_words": [
+    "manifold",
+    "present"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Proverbs 2:6",
+   "b": "gita 13:12",
+   "score": 0.532,
+   "shared_words": [
+    "understand",
+    "wisdom"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Daniel 2:23",
+   "b": "gita 7:2",
+   "score": 0.532,
+   "shared_words": [
+    "known",
+    "wisdom"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 John 4:4",
+   "b": "gita 3:42",
+   "score": 0.532,
+   "shared_words": [
+    "greater"
+   ],
+   "keep": true,
+   "theme": "God's knowledge and care",
+   "idea": "Greater than everything within a person is God, who dwells in them."
+  },
+  {
+   "a": "bible Song of Solomon 5:9",
+   "b": "gita 18:69",
+   "score": 0.531,
+   "shared_words": [
+    "beloved"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Matthew 6:23",
+   "b": "gita 18:32",
+   "score": 0.53,
+   "shared_words": [
+    "darkness"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Proverbs 4:18",
+   "b": "gita 7:23",
+   "score": 0.519,
+   "shared_words": [
+    "shine"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Corinthians 2:6",
+   "b": "gita 4:38",
+   "score": 0.518,
+   "shared_words": [
+    "perfect",
+    "wisdom"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 25:22",
+   "b": "gita 15:11",
+   "score": 0.515,
+   "shared_words": [
+    "struggle"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Leviticus 4:2",
+   "b": "gita 16:24",
+   "score": 0.514,
+   "shared_words": [
+    "ought"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Ecclesiastes 3:21",
+   "b": "gita 14:18",
+   "score": 0.512,
+   "shared_words": [
+    "downward",
+    "upward"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Proverbs 12:3",
+   "b": "gita 9:6",
+   "score": 0.508,
+   "shared_words": [
+    "move",
+    "root"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Proverbs 30:3",
+   "b": "gita 4:34",
+   "score": 0.503,
+   "shared_words": [
+    "learn",
+    "wisdom"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 1 Corinthians 2:5",
+   "b": "gita 17:3",
+   "score": 0.502,
+   "shared_words": [
+    "faith"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible John 3:4",
+   "b": "gita 14:15",
+   "score": 0.5,
+   "shared_words": [
+    "born",
+    "womb"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 57:7",
+   "b": "gita 8:12",
+   "score": 0.497,
+   "shared_words": [
+    "fix"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Revelation 12:2",
+   "b": "gita 8:15",
+   "score": 0.496,
+   "shared_words": [
+    "birth",
+    "pain"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Judges 20:22",
+   "b": "gita 1:27",
+   "score": 0.483,
+   "shared_words": [
+    "array"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Deuteronomy 30:9",
+   "b": "gita 14:16",
+   "score": 0.483,
+   "shared_words": [
+    "fruit"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Daniel 5:14",
+   "b": "gita 13:18",
+   "score": 0.478,
+   "shared_words": [
+    "light",
+    "wisdom"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Ezekiel 43:11",
+   "b": "gita 11:52",
+   "score": 0.477,
+   "shared_words": [
+    "form"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Philippians 4:17",
+   "b": "gita 17:25",
+   "score": 0.475,
+   "shared_words": [
+    "desire",
+    "fruit",
+    "gift"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Luke 11:41",
+   "b": "gita 17:20",
+   "score": 0.473,
+   "shared_words": [
+    "alms"
+   ],
+   "keep": true,
+   "theme": "Humility, giving and self-control",
+   "idea": "Give alms rightly, and the gift is made pure."
+  },
+  {
+   "a": "bible John 10:28",
+   "b": "gita 9:31",
+   "score": 0.471,
+   "shared_words": [
+    "eternal",
+    "never",
+    "perish"
+   ],
+   "keep": true,
+   "theme": "Death and the life to come",
+   "idea": "God's own shall never perish."
+  },
+  {
+   "a": "bible Exodus 26:28",
+   "b": "gita 10:20",
+   "score": 0.471,
+   "shared_words": [
+    "middle"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 27:27",
+   "b": "gita 5:8",
+   "score": 0.469,
+   "shared_words": [
+    "smell"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Acts 7:20",
+   "b": "gita 3:11",
+   "score": 0.467,
+   "shared_words": [
+    "nourish"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Matthew 12:47",
+   "b": "gita 1:26",
+   "score": 0.457,
+   "shared_words": [
+    "mother",
+    "stand"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible 2 Kings 13:15",
+   "b": "gita 1:47",
+   "score": 0.453,
+   "shared_words": [
+    "arrow",
+    "bow"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Leviticus 27:28",
+   "b": "gita 5:17",
+   "score": 0.446,
+   "shared_words": [
+    "devote"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Daniel 11:37",
+   "b": "gita 16:11",
+   "score": 0.445,
+   "shared_words": [
+    "desire",
+    "regard"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Genesis 41:35",
+   "b": "gita 3:14",
+   "score": 0.444,
+   "shared_words": [
+    "food"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Ephesians 2:19",
+   "b": "gita 6:9",
+   "score": 0.442,
+   "shared_words": [
+    "foreigner",
+    "stranger"
+   ],
+   "keep": true,
+   "theme": "Humility, giving and self-control",
+   "idea": "Strangers and foreigners are not outsiders; treat all alike."
+  },
+  {
+   "a": "bible Job 15:8",
+   "b": "gita 12:4",
+   "score": 0.426,
+   "shared_words": [
+    "restrain"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Psalms 25:18",
+   "b": "gita 12:13",
+   "score": 0.425,
+   "shared_words": [
+    "forgive",
+    "pain"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Job 38:4",
+   "b": "gita 6:33",
+   "score": 0.425,
+   "shared_words": [
+    "declare",
+    "foundation"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "bible Deuteronomy 8:17",
+   "b": "gita 16:13",
+   "score": 0.424,
+   "shared_words": [
+    "wealth"
+   ],
+   "keep": true,
+   "theme": "Humility, giving and self-control",
+   "idea": "The pride of thinking one's wealth is self-made."
+  },
+  {
+   "a": "quran 17:80",
+   "b": "gita 4:29",
+   "score": 0.62,
+   "shared_words": [
+    "incoming",
+    "outgoing"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 17:61",
+   "b": "gita 11:40",
+   "score": 0.609,
+   "shared_words": [
+    "prostrate"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 27:66",
+   "b": "gita 12:8",
+   "score": 0.528,
+   "shared_words": [
+    "doubt",
+    "hereafter"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 50:15",
+   "b": "gita 2:22",
+   "score": 0.526,
+   "shared_words": [
+    "new",
+    "worn"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 10:5",
+   "b": "gita 15:12",
+   "score": 0.522,
+   "shared_words": [
+    "moon",
+    "splendour",
+    "sun"
+   ],
+   "keep": true,
+   "theme": "Creation and nature",
+   "idea": "The splendour of the sun and the light of the moon come from God."
+  },
+  {
+   "a": "quran 22:32",
+   "b": "gita 9:14",
+   "score": 0.519,
+   "shared_words": [
+    "devotion",
+    "magnify"
+   ],
+   "keep": true,
+   "theme": "Worship and devotion",
+   "idea": "Honouring God's offerings comes from devotion of the heart."
+  },
+  {
+   "a": "quran 36:66",
+   "b": "gita 15:11",
+   "score": 0.491,
+   "shared_words": [
+    "struggle"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 17:19",
+   "b": "gita 2:40",
+   "score": 0.489,
+   "shared_words": [
+    "effort"
+   ],
+   "keep": true,
+   "theme": "Guidance and wisdom",
+   "idea": "No effort made toward God is ever lost."
+  },
+  {
+   "a": "quran 73:8",
+   "b": "gita 9:34",
+   "score": 0.486,
+   "shared_words": [
+    "devote",
+    "thyself"
+   ],
+   "keep": true,
+   "theme": "Worship and devotion",
+   "idea": "Devote yourself to God completely."
+  },
+  {
+   "a": "quran 41:37",
+   "b": "gita 15:6",
+   "score": 0.482,
+   "shared_words": [
+    "moon",
+    "sun"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 34:44",
+   "b": "gita 17:15",
+   "score": 0.48,
+   "shared_words": [
+    "scripture",
+    "study"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 5:16",
+   "b": "gita 8:26",
+   "score": 0.477,
+   "shared_words": [
+    "darkness",
+    "light",
+    "path"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 21:52",
+   "b": "gita 9:29",
+   "score": 0.471,
+   "shared_words": [
+    "devotion"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 67:13",
+   "b": "gita 13:3",
+   "score": 0.471,
+   "shared_words": [
+    "knower",
+    "opinion"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 21:103",
+   "b": "gita 2:11",
+   "score": 0.469,
+   "shared_words": [
+    "grieve"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 12:97",
+   "b": "gita 4:36",
+   "score": 0.457,
+   "shared_words": [
+    "sinful"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 78:20",
+   "b": "gita 14:10",
+   "score": 0.456,
+   "shared_words": [
+    "motion"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 43:67",
+   "b": "gita 14:25",
+   "score": 0.456,
+   "shared_words": [
+    "foe",
+    "friend"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 78:37",
+   "b": "gita 10:9",
+   "score": 0.445,
+   "shared_words": [
+    "converse"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 2:183",
+   "b": "gita 18:7",
+   "score": 0.439,
+   "shared_words": [
+    "prescribe"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 51:8",
+   "b": "gita 11:5",
+   "score": 0.439,
+   "shared_words": [
+    "various"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 26:83",
+   "b": "gita 7:18",
+   "score": 0.432,
+   "shared_words": [
+    "unite"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 29:16",
+   "b": "gita 3:35",
+   "score": 0.432,
+   "shared_words": [
+    "better",
+    "duty"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 88:6",
+   "b": "gita 17:9",
+   "score": 0.432,
+   "shared_words": [
+    "bitter",
+    "food"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 30:5",
+   "b": "gita 10:36",
+   "score": 0.432,
+   "shared_words": [
+    "victory"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 27:51",
+   "b": "gita 3:33",
+   "score": 0.431,
+   "shared_words": [
+    "nature"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 54:55",
+   "b": "gita 1:11",
+   "score": 0.431,
+   "shared_words": [
+    "firmly"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 52:49",
+   "b": "gita 10:35",
+   "score": 0.427,
+   "shared_words": [
+    "hymn"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 45:37",
+   "b": "gita 11:20",
+   "score": 0.425,
+   "shared_words": [
+    "alone",
+    "mighty"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 9:58",
+   "b": "gita 17:20",
+   "score": 0.423,
+   "shared_words": [
+    "alms"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 13:29",
+   "b": "gita 8:15",
+   "score": 0.416,
+   "shared_words": [
+    "bliss"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 31:17",
+   "b": "gita 6:31",
+   "score": 0.412,
+   "shared_words": [
+    "establish",
+    "whatever",
+    "worship"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 79:40",
+   "b": "gita 12:4",
+   "score": 0.412,
+   "shared_words": [
+    "restrain"
+   ],
+   "keep": true,
+   "theme": "Humility, giving and self-control",
+   "idea": "Restraining the self from desire leads to God."
+  },
+  {
+   "a": "quran 79:35",
+   "b": "gita 1:45",
+   "score": 0.412,
+   "shared_words": [
+    "endeavour"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 51:20",
+   "b": "gita 16:11",
+   "score": 0.411,
+   "shared_words": [
+    "sure"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 21:72",
+   "b": "gita 1:34",
+   "score": 0.407,
+   "shared_words": [
+    "grandson"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 2:269",
+   "b": "gita 13:12",
+   "score": 0.406,
+   "shared_words": [
+    "understand",
+    "wisdom"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 2:235",
+   "b": "gita 18:65",
+   "score": 0.401,
+   "shared_words": [
+    "mind",
+    "troth"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 51:28",
+   "b": "gita 4:4",
+   "score": 0.4,
+   "shared_words": [
+    "birth"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 31:4",
+   "b": "gita 7:21",
+   "score": 0.394,
+   "shared_words": [
+    "faith",
+    "worship"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 50:37",
+   "b": "gita 7:23",
+   "score": 0.39,
+   "shared_words": [
+    "intelligence"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 10:25",
+   "b": "gita 8:21",
+   "score": 0.389,
+   "shared_words": [
+    "abode",
+    "path"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 19:31",
+   "b": "gita 16:1",
+   "score": 0.383,
+   "shared_words": [
+    "almsgiving"
+   ],
+   "keep": true,
+   "theme": "Worship and devotion",
+   "idea": "Prayer and almsgiving belong to a devout life."
+  },
+  {
+   "a": "quran 28:55",
+   "b": "gita 3:25",
+   "score": 0.382,
+   "shared_words": [
+    "desire",
+    "ignorant"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 8:69",
+   "b": "gita 16:13",
+   "score": 0.382,
+   "shared_words": [
+    "won"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 38:20",
+   "b": "gita 13:5",
+   "score": 0.381,
+   "shared_words": [
+    "decisive"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 22:67",
+   "b": "gita 6:1",
+   "score": 0.358,
+   "shared_words": [
+    "perform",
+    "rites"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 18:36",
+   "b": "gita 12:12",
+   "score": 0.355,
+   "shared_words": [
+    "better",
+    "indeed"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 36:8",
+   "b": "gita 6:13",
+   "score": 0.339,
+   "shared_words": [
+    "neck"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 41:10",
+   "b": "gita 14:24",
+   "score": 0.332,
+   "shared_words": [
+    "alike",
+    "firm"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 65:9",
+   "b": "gita 18:25",
+   "score": 0.312,
+   "shared_words": [
+    "consequence",
+    "loss"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 52:38",
+   "b": "gita 5:14",
+   "score": 0.26,
+   "shared_words": [
+    "manifest",
+    "produce"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  },
+  {
+   "a": "quran 30:4",
+   "b": "gita 5:24",
+   "score": 0.247,
+   "shared_words": [
+    "rejoice",
+    "within"
+   ],
+   "keep": false,
+   "theme": "",
+   "idea": ""
+  }
+ ]
+}

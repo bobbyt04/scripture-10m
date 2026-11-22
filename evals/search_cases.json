@@ -1,9 +1,14 @@
 {
- "about": "Modern-language situations with hand-picked relevant verses per book, found by reading and searching the corpus by theme. 'test' cases were written first and are never used for tuning; 'dev' cases may be used for tuning. An empty list means the book has no fitting verse; that book is then skipped for that case.",
+ "about": "Modern-language situations with hand-picked relevant verses per book, found by reading and searching the corpus by theme. Both 'dev' and 'dev2' were seen while the bridge and the settings were written: 'dev2' was first meant as a held-out test set, but the bridge was written after its queries existed and covers many of their phrases, so it is not held out. 'blind_test' is reserved for situations written later by someone who has not seen the bridge; it is reported separately. An empty list means the book has no fitting verse; that book is then skipped for that case.",
+ "splits": {
+  "dev": "seen while tuning",
+  "dev2": "seen while tuning (formerly called 'test'; not held out)",
+  "blind_test": "to be written blind after the bridge is frozen; empty until then"
+ },
  "cases": [
   {
    "id": "laid_off",
-   "split": "test",
+   "split": "dev2",
    "query": "I got laid off and I'm scared about money",
    "relevant": {
     "gita": [
@@ -45,7 +50,7 @@
   },
   {
    "id": "breakup",
-   "split": "test",
+   "split": "dev2",
    "query": "my girlfriend broke up with me and I feel so alone",
    "relevant": {
     "gita": [
@@ -84,7 +89,7 @@
   },
   {
    "id": "burnout",
-   "split": "test",
+   "split": "dev2",
    "query": "I feel burnt out, exhausted from work all the time",
    "relevant": {
     "gita": [
@@ -123,7 +128,7 @@
   },
   {
    "id": "dad_cancer",
-   "split": "test",
+   "split": "dev2",
    "query": "my dad has cancer and I'm scared he'll die",
    "relevant": {
     "gita": [
@@ -163,7 +168,7 @@
   },
   {
    "id": "exams",
-   "split": "test",
+   "split": "dev2",
    "query": "I'm really anxious about my exams next week",
    "relevant": {
     "gita": [
@@ -209,7 +214,7 @@
   },
   {
    "id": "forgive_brother",
-   "split": "test",
+   "split": "dev2",
    "query": "I can't forgive my brother for what he did",
    "relevant": {
     "gita": [
@@ -255,7 +260,7 @@
   },
   {
    "id": "mother_died",
-   "split": "test",
+   "split": "dev2",
    "query": "my mother passed away last week",
    "relevant": {
     "gita": [
@@ -303,7 +308,7 @@
   },
   {
    "id": "no_purpose",
-   "split": "test",
+   "split": "dev2",
    "query": "I feel like my life has no purpose",
    "relevant": {
     "gita": [
@@ -343,7 +348,7 @@
   },
   {
    "id": "alcohol",
-   "split": "test",
+   "split": "dev2",
    "query": "I can't stop drinking, I think I'm an alcoholic",
    "relevant": {
     "gita": [
@@ -386,7 +391,7 @@
   },
   {
    "id": "yelled_kids",
-   "split": "test",
+   "split": "dev2",
    "query": "I lost my temper and yelled at my kids",
    "relevant": {
     "gita": [
@@ -426,7 +431,7 @@
   },
   {
    "id": "cheated_partner",
-   "split": "test",
+   "split": "dev2",
    "query": "I cheated on my partner and I feel terrible",
    "relevant": {
     "gita": [
@@ -471,7 +476,7 @@
   },
   {
    "id": "doubt_god",
-   "split": "test",
+   "split": "dev2",
    "query": "I'm not sure God even exists anymore",
    "relevant": {
     "gita": [
@@ -513,7 +518,7 @@
   },
   {
    "id": "new_city",
-   "split": "test",
+   "split": "dev2",
    "query": "I moved to a new city and I don't have any friends here",
    "relevant": {
     "gita": [
@@ -553,7 +558,7 @@
   },
   {
    "id": "credit_stolen",
-   "split": "test",
+   "split": "dev2",
    "query": "my coworker keeps taking credit for my work",
    "relevant": {
     "gita": [
@@ -604,7 +609,7 @@
   },
   {
    "id": "jealous_friend",
-   "split": "test",
+   "split": "dev2",
    "query": "I'm jealous of my friend's success",
    "relevant": {
     "gita": [
@@ -642,7 +647,7 @@
   },
   {
    "id": "get_rich",
-   "split": "test",
+   "split": "dev2",
    "query": "I want to get rich fast, money is all I think about",
    "relevant": {
     "gita": [
@@ -700,7 +705,7 @@
   },
   {
    "id": "bullied",
-   "split": "test",
+   "split": "dev2",
    "query": "kids at school bully me every day",
    "relevant": {
     "gita": [
