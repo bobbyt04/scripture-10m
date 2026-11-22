@@ -33,7 +33,9 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
       - name: Install
-        run: npm ci
+        # npm install, not npm ci: the lock file written on macOS leaves out some Linux-only optional
+        # packages of the bundler, which npm ci rejects. Direct dependencies are pinned to exact versions.
+        run: npm install --no-audit --no-fund
       - name: Typecheck
         run: npm run typecheck
       - name: Unit tests (forward-pass parity, tokenizer, advice state machine, data loaders)
