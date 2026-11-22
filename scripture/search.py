@@ -295,8 +295,7 @@ class Searcher:
                 allowed &= b["gentle"]
                 s = s + b["prior"]
             s = torch.where(allowed, s, torch.full_like(s, float("-inf")))
-            top = torch.topk(s, min(k, len(s)))
-            for score, i in zip(top.values.tolist(), top.indices.tolist()):
+            for score, i in _top(s, k):
                 if not score > 0:
                     break
                 present = set(b["terms"][i].tolist())
@@ -305,7 +304,7 @@ class Searcher:
                 out["results"][book].append({
                     "ref": b["refs"][i],
                     "text": b["text"][i] if b["text"] else None,
-                    "score": round(score, 4),
+                    "score": score,
                     "matched": matched,
                 })
         out["no_match"] = not any(out["results"].values())
@@ -338,10 +337,8 @@ class Searcher:
                 s = torch.where(b["blocked"], torch.full_like(s, float("-inf")), s)
             if other == book:
                 s[i] = float("-inf")
-            top = torch.topk(s, min(k, len(s)))
-            out[other] = [{"ref": b["refs"][j], "text": b["text"][j] if b["text"] else None,
-                           "score": round(x, 4)}
-                          for x, j in zip(top.values.tolist(), top.indices.tolist()) if x > float("-inf")]
+            out[other] = [{"ref": b["refs"][j], "text": b["text"][j] if b["text"] else None, "score": x}
+                          for x, j in _top(s, k) if x > float("-inf")]
         return out
 
     # ----- scoring pieces -----
@@ -391,6 +388,14 @@ class Searcher:
             b["tfidf"] = (m, norms)
         m, norms = b["tfidf"]
         return torch.sparse.mm(m, lex.unsqueeze(1)).squeeze(1) / norms
+
+
+def _top(s, k):
+    """The k best (score, index) pairs. Scores are rounded to 4 decimals and ties go to the
+    earlier verse, so every platform (and a port) returns the same order."""
+    s = torch.round(s * 1e4) / 1e4
+    order = torch.sort(s, descending=True, stable=True).indices[:k]
+    return [(round(s[i].item(), 4), i.item()) for i in order]
 
 
 def _unit(m):

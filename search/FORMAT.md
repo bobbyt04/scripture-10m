@@ -150,7 +150,8 @@ number of terms; avglen is the mean of len.
 - For a sensitive query, only gentle verses are allowed. Each gets a small
   boost so that the curated order decides when the scores tie:
   `0.01 * (1 - position / len(gentle[book]))`.
-- Take the k best allowed verses and drop any whose score is not above 0.
+- Round every score to 4 decimals, sort by score (ties: the earlier verse first), take the k best allowed
+  verses and drop any whose score is not above 0.
 - `no_match` is true when no book returned anything. A query of only filler
   or unknown words returns nothing.
 
@@ -159,7 +160,7 @@ number of terms; avglen is the mean of len.
 `similar_vector_weight * cos(verse vectors) + (1 - similar_vector_weight) * cos(TF-IDF)`.
 TF-IDF weights a term by its count in the verse times
 `ln(1 + N / (1 + df_all))`, where df_all is counted over all three books.
-Blocked verses and the verse itself are left out.
+Blocked verses and the verse itself are left out; rounding and ties as in step 6.
 
 ## Worked examples
 
@@ -173,8 +174,8 @@ From `fixtures.json` (k = 3; scores rounded):
 
 2. `with hardship goeth ease` → category `general`.
    Terms: ease, hardship.
-   - quran: 94:6 (17.9187); 94:5 (17.9187); 87:8 (8.7808)
-   - bible: 2 Corinthians 8:13 (9.3929); Job 7:13 (8.8770); Psalms 25:13 (8.4148)
+   - quran: 94:5 (17.9187); 94:6 (17.9187); 87:8 (8.7808)
+   - bible: 2 Corinthians 8:13 (9.3929); Job 7:13 (8.8770); Job 21:23 (8.4148)
 
 3. `I'm gay` → category `sensitive` (`sexuality_gender`).
    Terms: gay.

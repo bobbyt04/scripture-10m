@@ -568,7 +568,7 @@
     {
      "id": "moses_basket",
      "from": "bible Exodus 2:3",
-     "rank": 9
+     "rank": 10
     },
     {
      "id": "moses_basket",
@@ -1641,7 +1641,7 @@
     {
      "id": "beginning_end_q",
      "from": "quran 57:3",
-     "rank": 10
+     "rank": 9
     },
     {
      "id": "god_in_heart",
@@ -2234,7 +2234,7 @@
     {
      "id": "devotion_offering_b",
      "from": "gita 9:26",
-     "rank": 9
+     "rank": 10
     },
     {
      "id": "devotion_offering_b",
@@ -2686,14 +2686,14 @@
     ],
     "bible": [
      {
-      "ref": "Luke 17:3",
-      "text": "Take heed to yourselves: If thy brother trespass against thee, rebuke him; and if he repent, forgive him.",
-      "in_answer_key": true
-     },
-     {
       "ref": "Matthew 18:35",
       "text": "So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses.",
       "in_answer_key": false
+     },
+     {
+      "ref": "Luke 17:3",
+      "text": "Take heed to yourselves: If thy brother trespass against thee, rebuke him; and if he repent, forgive him.",
+      "in_answer_key": true
      },
      {
       "ref": "Matthew 6:12",
@@ -2720,8 +2720,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "9:17",
-      "text": "I the Father of this universe, the Mother, the Supporter, the Grandsire, the Holy one to be known, the Word of Power, and also the Rik, Sama, and Yajur,",
+      "ref": "1:26",
+      "text": "Then saw Partha standing there, uncles and grandfathers, teachers, mother's brothers, cousins, sons and grandsons, comrades,",
       "in_answer_key": false
      }
     ],
@@ -2749,13 +2749,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "Luke 20:32",
-      "text": "Last of all the woman died also.",
+      "ref": "Matthew 22:27",
+      "text": "And last of all the woman died also.",
       "in_answer_key": false
      },
      {
-      "ref": "Matthew 22:27",
-      "text": "And last of all the woman died also.",
+      "ref": "Luke 20:32",
+      "text": "Last of all the woman died also.",
       "in_answer_key": false
      }
     ]
@@ -2959,17 +2959,17 @@
     ],
     "quran": [
      {
+      "ref": "26:107",
+      "text": "Lo! I am a faithful messenger unto you,",
+      "in_answer_key": false
+     },
+     {
       "ref": "26:125",
       "text": "Lo! I am a faithful messenger unto you,",
       "in_answer_key": false
      },
      {
       "ref": "26:143",
-      "text": "Lo! I am a faithful messenger unto you,",
-      "in_answer_key": false
-     },
-     {
-      "ref": "26:107",
       "text": "Lo! I am a faithful messenger unto you,",
       "in_answer_key": false
      }
@@ -3022,14 +3022,14 @@
       "in_answer_key": false
      },
      {
-      "ref": "102:5",
-      "text": "Nay, would that ye knew (now) with a sure knowledge!",
-      "in_answer_key": false
-     },
-     {
       "ref": "51:20",
       "text": "And in the earth are portents for those whose faith is sure.",
       "in_answer_key": true
+     },
+     {
+      "ref": "102:5",
+      "text": "Nay, would that ye knew (now) with a sure knowledge!",
+      "in_answer_key": false
      }
     ],
     "bible": [
@@ -3039,13 +3039,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "Romans 2:2",
-      "text": "But we are sure that the judgment of God is according to truth against them which commit such things.",
+      "ref": "John 16:30",
+      "text": "Now are we sure that thou knowest all things, and needest not that any man should ask thee: by this we believe that thou camest forth from God.",
       "in_answer_key": false
      },
      {
-      "ref": "John 16:30",
-      "text": "Now are we sure that thou knowest all things, and needest not that any man should ask thee: by this we believe that thou camest forth from God.",
+      "ref": "Romans 2:2",
+      "text": "But we are sure that the judgment of God is according to truth against them which commit such things.",
       "in_answer_key": false
      }
     ]
@@ -3764,8 +3764,8 @@
       "in_answer_key": true
      },
      {
-      "ref": "8:17",
-      "text": "The people who know the day of Brahma, a thousand ages in duration, and the night a thousand ages in ending, they know day and night.",
+      "ref": "1:1",
+      "text": "Dhritarashtra said: On the holy plain, on the field of Kuru, gathered together, eager for battle, what did they, O Sanjaya, my people and the Pandavas?",
       "in_answer_key": false
      }
     ],
@@ -3897,8 +3897,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "19:1",
-      "text": "Kaf. Ha. Ya. A'in. Sad.",
+      "ref": "7:1",
+      "text": "Alif. Lam. Mim. Sad.",
       "in_answer_key": false
      }
     ],
@@ -3909,13 +3909,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "Romans 9:2",
-      "text": "That I have great heaviness and continual sorrow in my heart.",
+      "ref": "Isaiah 29:2",
+      "text": "Yet I will distress Ariel, and there shall be heaviness and sorrow: and it shall be unto me as Ariel.",
       "in_answer_key": false
      },
      {
-      "ref": "Isaiah 29:2",
-      "text": "Yet I will distress Ariel, and there shall be heaviness and sorrow: and it shall be unto me as Ariel.",
+      "ref": "Romans 9:2",
+      "text": "That I have great heaviness and continual sorrow in my heart.",
       "in_answer_key": false
      }
     ]
@@ -4054,8 +4054,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "11:51",
-      "text": "Arjuna said: Beholding again Thy gentle human Form, O Janardana, I am now collected, and am restored to my own nature.",
+      "ref": "10:13",
+      "text": "All the Rishis have thus acclaimed Thee, as also the divine Rishi, Narada; so Asita, Devala, and Vyasa; and now Thou Thyself tellest it me.",
       "in_answer_key": false
      }
     ],
@@ -4276,13 +4276,13 @@
    "results": {
     "gita": [
      {
-      "ref": "7:2",
-      "text": "I will declare to thee this knowledge and wisdom in its completeness, which, having known, there is nothing more here needeth to be known.",
+      "ref": "3:17",
+      "text": "But the man who rejoiceth in the Self, with the Self is satisfied, and is content in the Self, for him verily there is nothing to do;",
       "in_answer_key": false
      },
      {
-      "ref": "3:17",
-      "text": "But the man who rejoiceth in the Self, with the Self is satisfied, and is content in the Self, for him verily there is nothing to do;",
+      "ref": "7:2",
+      "text": "I will declare to thee this knowledge and wisdom in its completeness, which, having known, there is nothing more here needeth to be known.",
       "in_answer_key": false
      },
      {
@@ -4373,13 +4373,13 @@
       "in_answer_key": true
      },
      {
-      "ref": "Psalms 106:14",
-      "text": "But lusted exceedingly in the wilderness, and tempted God in the desert.",
+      "ref": "Psalms 78:18",
+      "text": "And they tempted God in their heart by asking meat for their lust.",
       "in_answer_key": false
      },
      {
-      "ref": "Psalms 78:18",
-      "text": "And they tempted God in their heart by asking meat for their lust.",
+      "ref": "Psalms 106:14",
+      "text": "But lusted exceedingly in the wilderness, and tempted God in the desert.",
       "in_answer_key": false
      }
     ]
@@ -4593,7 +4593,7 @@
       "in_answer_key": false
      },
      {
-      "ref": "37:50",
+      "ref": "37:27",
       "text": "And some of them draw near unto others, mutually questioning.",
       "in_answer_key": false
      }
@@ -4798,13 +4798,13 @@
    "results": {
     "gita": [
      {
-      "ref": "18:35",
-      "text": "That by which one from stupidity doth not abandon sleep, fear, grief, despair, and also vanity, that firmness, O Partha, is dark.",
+      "ref": "2:3",
+      "text": "Yield not to impotence, O Partha! it doth not befit thee. Shake off this paltry faint-heartedness! Stand up, Parantapa!",
       "in_answer_key": true
      },
      {
-      "ref": "2:3",
-      "text": "Yield not to impotence, O Partha! it doth not befit thee. Shake off this paltry faint-heartedness! Stand up, Parantapa!",
+      "ref": "18:35",
+      "text": "That by which one from stupidity doth not abandon sleep, fear, grief, despair, and also vanity, that firmness, O Partha, is dark.",
       "in_answer_key": true
      },
      {
@@ -5016,8 +5016,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "Job 26:3",
-      "text": "How hast thou counselled him that hath no wisdom? and how hast thou plentifully declared the thing as it is?",
+      "ref": "Job 12:13",
+      "text": "With him is wisdom and strength, he hath counsel and understanding.",
       "in_answer_key": false
      }
     ]
@@ -5214,8 +5214,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "6:42",
-      "text": "Or he may even be born into a family of wise Yogis; but such a birth as that is most difficult to obtain in this world.",
+      "ref": "1:39",
+      "text": "Why should not we learn to turn away from such a sin, O Janardana, who see the evils in the destruction of a family?",
       "in_answer_key": false
      }
     ],
