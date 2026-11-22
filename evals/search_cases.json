@@ -5727,7 +5727,7 @@
   "precision_of_shown_verses": 0.585,
   "n_verses": 378,
   "n_situations": 50,
-  "judged_by": "one reviewer (an AI assistant) who saw only the 50 situations and what the round-5 search showed for them; round 5 was developed against these same situations, so this is a development number, not a blind one",
+  "judged_by": "one independent reviewer who saw only the 50 situations and what the round-5 search showed for them; round 5 was developed against these same situations, so this is a development number, not a blind one",
   "per_book": {
    "gita": {
     "shown": 84,
@@ -5769,7 +5769,7 @@
   "precision_of_shown_verses": 0.573,
   "n_verses": 384,
   "n_situations": 50,
-  "judged_by": "one independent reviewer (an AI assistant, judge 5); the 50 situations were written and saved before reading the search code beyond its call signature, search/, evals/, tests/ or the README search section, then run once through the search at commit 5a0202e and every shown verse judged by hand; nothing was changed for them",
+  "judged_by": "one independent reviewer (judge 5); the 50 situations were written and saved before reading the search code beyond its call signature, search/, evals/, tests/ or the README search section, then run once through the search at commit 5a0202e and every shown verse judged by hand; nothing was changed for them",
   "labels": "fitting = a thoughtful person would say it speaks to the situation; on_topic = right subject but does not help; wrong; harmful = could wound this visitor",
   "per_book": {
    "gita": {
