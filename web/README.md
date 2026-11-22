@@ -28,8 +28,9 @@ Every script first runs `node scripts/extract.ts` (Node 22.18 or later, for Type
   is matched to a line of code, and the build fails if the code changes under it.
 
 The parameter breakdown is computed from the model config and must add up to `params` in `model.json`.
-`src/story/process.json` (test counts per pull request, copied from the PR descriptions) and
-`src/story/advice-history.json` (a placeholder chapter) are the only hand-written data.
+`src/story/process.json` (how each pull request was checked, copied from the PR descriptions) and
+`src/story/advice-history.json` (the chapter 08 numbers recorded only in the README, with sources) are the only
+hand-written data; `src/story/test-counts.json` is written by a script (below).
 
 ## The model in the browser
 
@@ -78,21 +79,35 @@ by the export script from exactly the same (dequantised) weights:
 characters, non-ASCII). Measured speed: about 50 characters per second in Node on an Apple M2, and about 30 in
 headless Chrome while other jobs shared the machine.
 
-## Waiting for PR 4
+## The verse-topic search in the browser
 
-The verse search and the parallels come from PR 4 (`search/`). Until it merges, both run on clearly marked
-mock data with real verse texts (a test checks every one against `data/processed`):
+`src/search/searcher.ts` is a plain TypeScript port of the site contract of `scripture/search.py`, following
+`search/FORMAT.md` steps 0 to 5, 8 and 9: `suggest(text)` (a crisis note only; gentle topics for a sensitive
+message; up to four topics; or none), `topic(id, {sensitive})` and `topics()`. Typing never shows a verse;
+verses appear only after a topic is tapped (`src/advice/state.ts`).
 
-- `src/advice/api.ts` is the contract the UI uses: `suggest(text)` returns a crisis note, up to four topics, or
-  nothing; `topic(id)` returns verses per book, where an empty list means the book has nothing for that topic.
-  Swap `mockAdviceApi` for the port of `search/FORMAT.md` there; the UI does not change. While the mock is in use
-  the page says "Preview data".
-- `src/similarities/api.ts` follows the shape of `search/artifacts/similarities.json`.
-- `src/story/advice-history.json` holds the placeholder text of chapter 08.
+`scripts/extract.ts` writes its data at build time: `src/generated/search.json` is
+`search/artifacts/search.json` without what only the eval-history `search()` reads (BM25 terms, the bridge,
+query stopwords): 369 kB, 103 kB gzipped. It is a separate chunk, fetched when the visitor first focuses the
+text box (or asks for the topic list), never with the page. `src/generated/similarities.json` (23 kB, 8 kB
+gzipped) is the reviewed parallels file, loaded right after the page.
+
+`test/search.test.ts` checks the port against every `words`, `suggest`, `topic` and `topics` case of
+`search/artifacts/fixtures.json`, then runs `scripts/search_parity.py` with Python (`PYTHON`, default
+`python3`; no packages needed) and requires identical JSON from `suggest()` (with its crisis words, signal and
+comfort cue) for about 4,700 messages: every stored probe and situation, theme and safety phrases with filler,
+and seeded variants with odd Unicode, digits, emoji, typos and text past the 500-character cap; plus
+`topics()` and `topic()` for every theme, sensitive or not.
+
+Chapter 08 reads the review numbers from `evals/search_probes.json`, `evals/search_cases.json` and
+`evals/results/search.json`; the few that exist only in the README are in `src/story/advice-history.json`,
+each with its source. The Testing chapter's totals are in `src/story/test-counts.json`, written by
+`node scripts/count_tests.ts` (set `PYTHON` to an interpreter with PyTorch; under Rosetta use
+`PYTHON="arch -arm64 ../.venv/bin/python"`).
 
 ## Deploying on Vercel
 
 Import the repository and set **Root Directory** to `web`. `vercel.json` sets the Vite preset, `npm run build`
 and the `dist` output, and long-lived caching for the hashed assets and model file. Keep "Include files outside
 the root directory in the Build Step" on (the default), because the build reads `../evals`, `../runs`,
-`../data` and `../scripture`. No server code, environment variables or paid features are needed.
+`../data`, `../scripture` and `../search`. No server code, environment variables or paid features are needed.

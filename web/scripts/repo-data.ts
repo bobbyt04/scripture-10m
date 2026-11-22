@@ -258,4 +258,80 @@ export interface RepoData {
   evals: EvalSummary;
   bookRun: { step: number; gitaCopied: number; gitaLongestRun: number; gitaLoss: number; bigramGitaLoss: number };
   evalCommit: string;
+  advice: AdviceHistory;
+}
+
+// ------------------------------------------------------------------ the verse search's history (chapter 08)
+
+/** One independent blind review of crisis messages, as its first and only run recorded it. */
+export interface CrisisReview {
+  id: string;
+  /** "verses": the free-text verse search of rounds 4 to 6; "topics": suggest(), then one tap. */
+  design: "verses" | "topics";
+  commit: string | null;
+  crisis: number;
+  caught: number;
+  missed: number;
+  harmful: number;
+  oblique: number | null;
+  obliqueCaught: number | null;
+}
+
+export interface AdviceHistory {
+  reviews: CrisisReview[];
+  /** The round-4 judge's verdict on every verse the full search showed for 50 everyday situations. */
+  round4Fitting: number;
+  storedCrisis: number;
+  topicHit: { split: string; cases: number; before: number; after: number }[];
+  pool: Record<Book, number>;
+  comfortTopics: string[];
+  topicCount: number;
+}
+
+interface ProbeRun {
+  crisis: number; crisis_caught: number; crisis_oblique?: number; crisis_oblique_caught?: number;
+  crisis_missed_shown: { harmful: number };
+}
+
+/**
+ * The numbers of chapter 08, from the eval files. `prose` holds the few that the repository records only in the
+ * README (src/story/advice-history.json, with sources).
+ */
+export function adviceHistory(
+  probes: Record<string, { crisis?: unknown[]; first_run?: ProbeRun; about?: string }>,
+  cases: { blind_1_hand_judged: { overall: { fitting: number } } },
+  results: { suggest: { "topic_hit@4": Record<string, { cases: number; "topic_hit@4": number }>; crisis_probes: { as_if_missed: { messages: number } } } },
+  site: { pool: Record<Book, unknown[]>; themes: Record<string, { kind?: string; label?: string }> },
+  topicCount: number,
+  prose: { firstReview: { crisisCaught: number; harmful: number }; topicHitBeforeComfortOnly: Record<string, number | string> },
+): AdviceHistory {
+  const commitOf = (about: string | undefined) => about?.match(/at commit ([0-9a-f]{7})/)?.[1] ?? null;
+  const first = probes.blind_1.crisis!.length;
+  const reviews: CrisisReview[] = [{
+    id: "blind_1", design: "verses", commit: null, crisis: first, caught: prose.firstReview.crisisCaught,
+    missed: first - prose.firstReview.crisisCaught, harmful: prose.firstReview.harmful, oblique: null, obliqueCaught: null,
+  }];
+  for (const id of ["judge5_held_out", "judge6_held_out", "judge7_held_out"]) {
+    const r = probes[id]?.first_run;
+    if (!r) throw new Error(`search_probes.json: no ${id}.first_run`);
+    reviews.push({
+      id, design: id === "judge7_held_out" ? "topics" : "verses", commit: commitOf(probes[id].about),
+      crisis: r.crisis, caught: r.crisis_caught, missed: r.crisis - r.crisis_caught, harmful: r.crisis_missed_shown.harmful,
+      oblique: r.crisis_oblique ?? null, obliqueCaught: r.crisis_oblique_caught ?? null,
+    });
+  }
+  const topicHit = Object.entries(results.suggest["topic_hit@4"]).map(([split, v]) => {
+    const before = prose.topicHitBeforeComfortOnly[split];
+    if (typeof before !== "number") throw new Error(`advice-history.json: no topic hit before the comfort-only rule for ${split}`);
+    return { split, cases: v.cases, before, after: v["topic_hit@4"] };
+  });
+  return {
+    reviews,
+    round4Fitting: cases.blind_1_hand_judged.overall.fitting,
+    storedCrisis: results.suggest.crisis_probes.as_if_missed.messages,
+    topicHit,
+    pool: { gita: site.pool.gita.length, quran: site.pool.quran.length, bible: site.pool.bible.length },
+    comfortTopics: Object.values(site.themes).filter((t) => t.kind === "comfort").map((t) => t.label ?? ""),
+    topicCount,
+  };
 }

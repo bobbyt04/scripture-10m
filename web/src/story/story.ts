@@ -8,8 +8,9 @@ import { fmtInt, h } from "../dom.ts";
 import manifest from "../model/manifest.json";
 import repoJson from "../generated/repo.json";
 import adviceHistory from "./advice-history.json";
-import { intervalChart, legend, lineChart, responsive } from "./charts.ts";
+import { intervalChart, legend, lineChart, missChart, responsive } from "./charts.ts";
 import process from "./process.json";
+import testCounts from "./test-counts.json";
 
 const repo = repoJson as unknown as RepoData;
 const BOOKS: BookId[] = ["gita", "quran", "bible"];
@@ -260,20 +261,77 @@ function testingChapter(): HTMLElement {
     h("ol", { class: "timeline" },
       process.prs.map((pr) => h("li", {},
         h("p", { class: "timeline__head" }, h("a", { href: `${REPO_URL}/pull/${pr.number}` }, `PR ${pr.number}`), ` ${pr.title}`),
-        h("p", { class: "timeline__tests" }, `${pr.tests} tests passing`),
+        pr.tests !== undefined ? h("p", { class: "timeline__tests" }, `${fmtInt(pr.tests)} tests passing`) : null,
         h("p", {}, pr.check)))),
-    p(process.ci, " The website itself has ", process.web.about.replace(" for the website:", ", covering")),
+    h("div", { class: "callouts callouts--three" },
+      h("div", { class: "callout" }, h("p", { class: "callout__num" }, fmtInt(testCounts.python.tests)), h("p", {}, "Python tests today: the model, data, training, evals and the verse search.")),
+      h("div", { class: "callout" }, h("p", { class: "callout__num" }, fmtInt(testCounts.vitest.tests)), h("p", {}, "unit tests for this website: the forward pass, the tokenizer, the browser search against Python, the UI.")),
+      h("div", { class: "callout" }, h("p", { class: "callout__num" }, fmtInt(testCounts.playwright.tests)), h("p", {}, "browser tests of the built site, crisis note and topic flow included."))),
+    p(process.ci, " ", h("small", { class: "muted" }, "Counted by ", src("web/scripts/count_tests.ts"), ".")),
   );
 }
 
-// ------------------------------------------------------------------ 08 advice (placeholder)
+// ------------------------------------------------------------------ 08 advice search
 
 function adviceChapter(): HTMLElement {
+  const a = repo.advice;
+  const fc = adviceHistory.fullCorpus;
+  const [first, second, third, last] = a.reviews;
+  const totalVerses = BOOKS.reduce((n, b) => n + repo.stats[b].verses, 0);
+  const share = (x: number, n: number) => pct(x / n, 0);
+  const cases = a.topicHit.reduce((n, t) => n + t.cases, 0);
+  const mean = (k: "before" | "after") => a.topicHit.reduce((n, t) => n + t[k] * t.cases, 0) / cases;
+  const reviewRows = [
+    { r: first, label: "First review", sub: `${first.crisis} messages, verses from free text` },
+    { r: second, label: "Second review", sub: `${second.crisis} messages, commit ${second.commit}` },
+    { r: third, label: "Third review", sub: `${third.crisis} messages, commit ${third.commit}` },
+    { r: last, label: "Final review", sub: `${last.crisis} messages, type then pick a topic`, apart: true },
+  ];
+  const box = h("div", { class: "chart-box" });
+  responsive(box, (w) => missChart(reviewRows.map(({ r, label, sub, apart }) => ({ label, sub, missed: r.missed, harmful: r.harmful, apart })), w,
+    "Crisis messages each blind review's rules missed, and how many of those could reach a harmful verse"));
+  const oblique = (r: typeof second) => share(r.obliqueCaught!, r.oblique!);
   return chapter("built-advice", "08", "The verse search",
-    h("div", { class: "placeholder", "data-placeholder": "" },
-      h("p", { class: "placeholder__label" }, adviceHistory.placeholder ? "Coming soon" : ""),
-      p(adviceHistory.status),
-      ...adviceHistory.paragraphs.map((t) => p(t))),
+    p(`The first version searched all ${fmtInt(totalVerses)} verses for words like the ones typed. Its first reported number, hit@10 ${fc.contaminatedHit10.toFixed(2)}, `,
+      "was contaminated: I had written the list that maps modern words to scripture words with those very test queries in view. ",
+      `On ${fc.blindSituations} situations a reviewer wrote blind it scored ${fc.blindHit10.toFixed(2)} (the Quran ${fc.blindQuranHit10.toFixed(2)}), and when a person judged the verses it actually showed, `,
+      `only ${pct(fc.shownFitting, 0)} fitted; ${pct(fc.shownPlainlyWrong, 0)} were plainly wrong, some of them harmful.`),
+    p("So I stopped searching the whole corpus. The site shows verses only from an allowlist: a pool that people chose and read, ",
+      `each verse with its themes and a one-line note on why it may help. It now holds ${a.pool.gita} Gita, ${a.pool.quran} Quran and ${a.pool.bible} Bible verses, `,
+      "and nothing outside it can be shown. Every decision about it is recorded in ", src("search/pool/"), "."),
+    h("h4", { class: "sub" }, "Three blind safety reviews"),
+    p("What worried me most was a message from someone in crisis. Three times an independent reviewer wrote crisis messages in their own words, ",
+      "before seeing my code or lists, and ran them once against the frozen rules. Each time some got past the crisis rules, and some of those were shown a verse that could do harm: ",
+      `${first.harmful} of ${first.missed} missed messages in the first review, ${second.harmful} of ${second.missed} in the second and ${third.harmful} of ${third.missed} in the third. `,
+      "In the third, “stocked up on sleeping tablets, just need the courage” was shown “Be strong and of a good courage; be not afraid”."),
+    figure(["Crisis messages each blind review’s rules missed on its one run (grey), and how many of those could reach a harmful verse (colour). ",
+      "The last three are the ", h("code", {}, "first_run"), " records in ", src("evals/search_probes.json"), "; the first review’s counts are in the README. ",
+      "In the final review, harmful means one tap away."], box),
+    p("After each review I added rules for its misses and their paraphrases, and on those messages the rules then caught everything. ",
+      `But fresh wording kept getting past them: on first sight they caught ${share(second.caught, second.crisis)}, then ${share(third.caught, third.crisis)} of the crisis messages, `,
+      `and ${oblique(second)} and ${oblique(third)} of those written without an obvious keyword. `,
+      h("strong", {}, "My conclusion was that keyword rules cannot make free-text verse selection safe.")),
+    h("h4", { class: "sub" }, "Type, then pick a topic"),
+    p("So I changed the product. Typing now only suggests topics, and a verse appears only after the visitor taps one; the site never shows a verse chosen from free text. ",
+      "The crisis rules still run first. When they fire, the page shows a short note and nothing else: no verses, no topics, no phone numbers. ",
+      "A message they miss can no longer be handed a verse it did not ask for."),
+    p(`A fourth reviewer then tested this design the same way. ${last.caught} of ${last.crisis} crisis messages got the note. Of the ${last.missed} it missed, `,
+      `${last.harmful} could reach a harmful verse with one tap, and all ${last.harmful} in the same way: someone being abused was offered a topic whose verses ask the reader to change. `,
+      "A wife whose husband leaves bruises was offered only Anger (“he that is slow to anger appeaseth strife”). That reads as blame."),
+    p(`The fix was a rule, not more phrases. ${a.comfortTopics.length} topics are comfort topics (${a.comfortTopics.join(", ").toLowerCase()}): `,
+      "I read every one of their verses, and none tells the reader to endure, wait, submit, keep silent, forgive or try harder. ",
+      "The others ask the reader to change their own behaviour or to bear something. If a message names another person, an event done to the writer, mental health or anger at God, only comfort topics are offered."),
+    p(`The rule has a measured cost. Topic hit@4, whether a topic I labelled as fitting is among those suggested, fell from ${mean("before").toFixed(2)} to ${mean("after").toFixed(2)} `,
+      `over ${cases} labelled everyday situations. “I lost my temper and yelled at my kids” now gets no topic, and the site shows the full list instead. I accepted that.`),
+    h("div", { class: "table-wrap", tabindex: "0", role: "region", "aria-label": "Topic hit@4 before and after the comfort-only rule" },
+      h("table", { class: "data hit-table" },
+        h("thead", {}, h("tr", {}, h("th", { scope: "col" }, "Topic hit@4"), a.topicHit.map((t) => h("th", { scope: "col" }, t.split.replace("_", " "), h("small", {}, `${t.cases} cases`))))),
+        h("tbody", {},
+          h("tr", {}, h("th", { scope: "row" }, "before the comfort-only rule"), a.topicHit.map((t) => h("td", {}, t.before.toFixed(2)))),
+          h("tr", { class: "row--main" }, h("th", { scope: "row" }, "with it (published)"), a.topicHit.map((t) => h("td", {}, t.after.toFixed(2))))))),
+    p(h("small", { class: "muted" }, `With the current lists the rules catch all ${fmtInt(a.storedCrisis)} stored crisis messages, but those are the messages they were fixed against, `,
+      "so that says little about new wording. The site’s safety rests on the design: a missed message gets topics to choose from, never a verse. ",
+      "Every number is in ", src("evals/results/search.json"), ", ", src("evals/search_probes.json"), " and the ", src("README.md", "README"), ".")),
   );
 }
 
@@ -288,7 +346,7 @@ function limitsChapter(): HTMLElement {
       h("li", {}, h("strong", {}, "The Gita is its weakest book. "), `It is the smallest of the three, and Gita-style samples leak phrases from the Quran and the Bible ("Lord of the Worlds" is a Quran phrase). Only ${ev.style.rows[0].cells.gita.counts.gita} of ${ev.style.rows[0].cells.gita.n} Gita samples are recognised as Gita.`),
       h("li", {}, h("strong", {}, "It invents words. "), `About one Gita-style word in ${invented("gita")} does not occur anywhere in the training text; for the Bible it is about one in ${invented("bible")}.`),
       h("li", {}, h("strong", {}, "It can wander. "), "Mid-sample it sometimes writes another book’s tag and carries on in that book’s style. The demo marks where that happens."),
-      h("li", {}, h("strong", {}, "It is tiny. "), `${fmtInt(repo.params.total)} parameters, trained on ${(BOOKS.reduce((a, b) => a + repo.stats[b].characters, 0) / 1e6).toFixed(1)} million characters. Modern assistants are many thousands of times larger and are trained on vastly more text.`),
+      h("li", {}, h("strong", {}, "It is tiny. "), `${fmtInt(repo.params.total)} parameters, trained on ${(BOOKS.reduce((a, b) => a + repo.stats[b].characters, 0) / 1e6).toFixed(1)} million characters. Modern large language models are many thousands of times larger and are trained on vastly more text.`),
       h("li", {}, h("strong", {}, "Its output is not scripture. "), "Nothing it writes is a quotation, a translation or a teaching of any of these books, and it should never be quoted as one."),
     ),
     p(h("small", { class: "muted" }, `The browser runs the weights quantised to 8 bits. Measured with the eval’s own scorer, that changes the mean validation loss by `,

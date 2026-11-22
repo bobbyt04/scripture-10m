@@ -23,9 +23,9 @@ eval history only; the site does not call it.
 | `search.json` | 509 kB | The reviewed verse pool (display text, themes, hand-set priorities, note, BM25 terms), themes with their labels, blurbs and phrases, word rules, bridge, safety lists (crisis phrases, distress gate, bereavement and idiom blanks, emoji, sensitive topics, the suggestion signals, the crisis message), settings. |
 | `pool_vectors.i8` | 86 kB | `int8[P][D]`: one row per published pool verse (Gita, then Quran, then Bible, each in `pool` order), for `similar()`. |
 | `similarities.json` | 30 kB | The hand-reviewed cross-book parallels for the similarities page. |
-| `fixtures.json` | 180 kB | Expected outputs for testing a port: 36 `suggest()` calls (crisis, sensitive, general and none, the suppression rule, the comfort-only rule, typos, non-ASCII input, an emoji, the 500-character cap), 6 `topic()` calls (with k, sensitive-only, a topic no book has), `topics()`; and, for the eval history, 92 `search()` calls, 4 `by_theme()` calls and 3 `similar()` calls with and without `sensitive_only`. |
+| `fixtures.json` | 181 kB | Expected outputs for testing a port: 37 `suggest()` calls (crisis, sensitive, general and none, the suppression rule, the comfort-only rule, typos, non-ASCII input, Unicode lower-casing, an emoji, the 500-character cap), 6 `topic()` calls (with k, sensitive-only, a topic no book has), `topics()`; and, for the eval history, 92 `search()` calls, 4 `by_theme()` calls and 3 `similar()` calls with and without `sensitive_only`. |
 
-Total 805 kB. (The full-corpus model in `search/model/`, 6.6 MB, is used
+Total 806 kB. (The full-corpus model in `search/model/`, 6.6 MB, is used
 offline only: to propose parallels, score them, and give pool verses their
 vectors. The site never loads it.)
 
@@ -135,7 +135,12 @@ query whose crisis words come after character 500 and must not be read.
 
 ### 1. Words: `words(text)`
 
-1. Lower-case; turn `’` into `'`.
+1. Lower-case; turn `’` into `'`. Lower-casing is full Unicode lower-casing
+   (Python's `str.lower()`, JavaScript's `toLowerCase()`), not ASCII only:
+   the Kelvin sign `K` (U+212A) becomes an ASCII `k`, so "I WANT TO KILL
+   MYSELF" typed with it is still a crisis, and `İ` becomes `i` and a
+   combining dot, which ends the word ("İ'M SAD" → `["i", "sad"]`). The
+   fixtures have both.
 2. Replace `won't` → `will not`, `can't` → `can not`, `ain't` → `is not`
    wherever they start a word (regex `\b(won't|can't|ain't)`).
 3. Replace every `n't` that ends a word (regex `n't\b`) with ` not`.
@@ -220,8 +225,8 @@ letters that is unknown is replaced by the first word, in sorted (code
 point) order, of the theme words that is one edit away from it, if any.
 Theme words: the alternatives without `*` of every theme phrase that has a
 single slot. Unknown: not an alternative (without `*`) of any slot of any
-theme phrase, not a stopword, and with no term (step 5: `term_of(w)` is
-none). So "lonley" → "lonely", but "honestly" stays (its base "honest" is a
+theme phrase, not in `lexicon.stopwords` (`query_stopwords` play no part
+here), and with no term (step 5: `term_of(w)` is none). So "lonley" → "lonely", but "honestly" stays (its base "honest" is a
 pool term).
 
 Find every (start, end, theme) where a phrase of that theme matches T (end =
@@ -377,7 +382,11 @@ ref or verse text:
    `gentle_blurb` where it has them.
 7. The category stays "general" or "sensitive"; a general message with no
    topic left becomes "none" (the site then shows the full list,
-   `topics()`). `note` is null.
+   `topics()`). A sensitive message keeps the category "sensitive" even if
+   no topic were left (its topics would then be empty, never "none"); with
+   the current lists that cannot happen, because every sensitive topic's
+   `themes` include a comfort topic with sensitive verses, which neither
+   step 4 nor step 5 removes. `note` is null.
 
 ### 9. `topic(id, k=null, sensitive=false)` and `topics()`
 

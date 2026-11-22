@@ -116,6 +116,20 @@
     "stra",
     "e"
    ]
+  ],
+  [
+   "KILL ME",
+   [
+    "kill",
+    "me"
+   ]
+  ],
+  [
+   "İ'M SAD",
+   [
+    "i",
+    "sad"
+   ]
   ]
  ],
  "suggest": [
@@ -812,6 +826,21 @@
     "finish",
     "my",
     "life"
+   ],
+   "signal": true,
+   "comfort_cue": false,
+   "category": "crisis",
+   "note": "We are not going to show verses for this one. What you wrote sounds heavy, and you deserve a real person with you right now: please reach out to someone you trust today, or to local emergency services if you are in danger.",
+   "topics": []
+  },
+  {
+   "query": "I WANT TO KILL MYSELF",
+   "crisis_words": [
+    "i",
+    "want",
+    "to",
+    "kill",
+    "myself"
    ],
    "signal": true,
    "comfort_cue": false,

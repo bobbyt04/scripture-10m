@@ -477,13 +477,14 @@ FIXTURE_SUGGEST = [
     "my brother annoys me, how do i stay calm", "how do i stop losing my temper", "i'm angry at god for letting this happen",
     "i'm depressed and can't get out of bed", "i feel guilty and want to start again",
     "something happened and i feel guilty", "i want to finish my life",
+    "I WANT TO KILL MYSELF",  # the Kelvin sign: full Unicode lower-casing makes it an ASCII k
 ]
 FIXTURE_TOPICS = [("grief", None, False), ("courage", None, False), ("self_worth", None, True), ("loneliness", 2, True),
                   ("patience", 3, False), ("marriage", None, False)]
 FIXTURE_SIMILAR = [("bible", "Psalms 23:1"), ("quran", "94:5"), ("gita", "2:47")]
 FIXTURE_WORDS = ["I can't sleep, I'm scared & he won't call", "Don’t", "im ok, dont worry", "my friend's dog",
                  "it's 70 hour weeks", "WON'T", "ma'am isn't here", "naïve café", "can'tstop", "éwon't", "x_y can't",
-                 "über-tired", "I’M", "Straße"]
+                 "über-tired", "I’M", "Straße", "KILL ME", "İ'M SAD"]
 
 
 def fixture_case(s, q, k=3):

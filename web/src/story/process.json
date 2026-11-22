@@ -1,5 +1,5 @@
 {
-  "about": "How each pull request was checked, as recorded in its description on GitHub. These numbers are not computed at build time; each entry links to its source.",
+  "about": "How each pull request was checked, as recorded in its description on GitHub. These numbers are not computed at build time; each entry links to its source. Today's totals are in test-counts.json, written by scripts/count_tests.ts.",
   "repo": "https://github.com/bobbyt04/scripture-10m",
   "prs": [
     {
@@ -25,10 +25,17 @@
       "title": "Training results, eval report and samples",
       "tests": 216,
       "check": "A test keeps the README's result tables in sync with the eval JSON, so a number cannot drift from its source."
+    },
+    {
+      "number": 4,
+      "title": "The verse search and the parallels",
+      "check": "Every message from the independent blind reviews is a regression test, and every stored crisis message is also run as if the rules had missed it, to check what the topic suggestions alone would offer. A fuzz test checks that no suggestion ever contains a verse, a reference or verse text."
+    },
+    {
+      "number": 6,
+      "title": "This website",
+      "check": "The browser's verse search gives the same JSON as the Python one on every fixture and on thousands of generated messages. The forward pass matches PyTorch's logits within 1e-4, and greedy generation matches it token for token."
     }
   ],
-  "ci": "GitHub Actions runs the Python tests on every pull request and every push to main, with CPU-only PyTorch. This website adds a second job: install, typecheck, unit tests, build and browser smoke tests.",
-  "web": {
-    "about": "95 Vitest unit tests and 4 Playwright smoke tests for the website: the forward pass against PyTorch logits, greedy generation token for token, the tokenizer against Python, the advice state machine and the data loaders."
-  }
+  "ci": "GitHub Actions runs the Python tests on every pull request and every push to main, with CPU-only PyTorch, and a second job for this website: install, typecheck, unit tests, build and browser tests."
 }

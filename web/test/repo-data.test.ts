@@ -1,12 +1,12 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, expect, test } from "vitest";
-import { build } from "../scripts/extract.ts";
+import { build, siteSearchData } from "../scripts/extract.ts";
 import {
   annotate, extractBlock, highlightPython, paramBreakdown, parseKjvErrors, parseLosses, tokenizeExample,
 } from "../scripts/repo-data.ts";
-import { MOCK_TOPICS } from "../src/advice/mock.ts";
-import { MOCK_SIMILARITIES } from "../src/similarities/mock.ts";
+import searchSite from "../src/generated/search.json";
+import similarities from "../src/generated/similarities.json";
 import vocab from "../src/model/vocab.json";
 
 const root = (p: string) => fileURLToPath(new URL(`../../${p}`, import.meta.url));
@@ -116,20 +116,31 @@ describe("site data built from the repository", () => {
   });
 });
 
-describe("mock data uses real verse texts", () => {
+describe("the data the browser search and the parallels load", () => {
   const verses = new Map<string, string>();
   for (const b of ["gita", "quran", "bible"]) {
     for (const l of read(`data/processed/${b}.jsonl`).split("\n")) {
       if (l) { const v = JSON.parse(l); verses.set(`${b} ${v.ref}`, v.text); }
     }
   }
-  const all = [
-    ...MOCK_TOPICS.flatMap((t) => (["gita", "quran", "bible"] as const).flatMap((b) => t.books[b].map((v) => ({ book: b, ...v })))),
-    ...MOCK_SIMILARITIES.flatMap((t) => t.pairs.flatMap((p) => p.verses)),
-  ];
-  for (const v of all) {
-    test(`${v.book} ${v.ref}`, () => {
-      expect(verses.get(`${v.book} ${v.ref}`)).toBe(v.text);
-    });
-  }
+
+  test("every parallel is the published file's, with its verse texts verbatim from data/processed", () => {
+    const sims = JSON.parse(read("search/artifacts/similarities.json"));
+    expect(similarities).toEqual(sims);
+    const pairs = sims.themes.flatMap((t: { pairs: { verses: { book: string; ref: string; text: string }[] }[] }) => t.pairs);
+    expect(pairs.length).toBe(sims.kept + sims.hand_listed_kept);
+    for (const v of pairs.flatMap((p: { verses: { book: string; ref: string; text: string }[] }) => p.verses)) {
+      expect(verses.get(`${v.book} ${v.ref}`), `${v.book} ${v.ref}`).toBe(v.text);
+    }
+  });
+
+  test("the site's search data is search.json without the eval-only fields", () => {
+    const full = JSON.parse(read("search/artifacts/search.json"));
+    expect(siteSearchData()).toEqual(searchSite);
+    expect(Object.keys(searchSite)).toEqual(["version", "params", "lexicon", "vocabulary", "themes", "safety", "pool"]);
+    for (const key of ["params", "vocabulary", "themes", "safety"] as const) expect((searchSite as Record<string, unknown>)[key]).toEqual(full[key]);
+    for (const b of ["gita", "quran", "bible"]) {
+      expect(searchSite.pool[b as "gita"]).toEqual(full.pool[b].map(({ terms: _t, ...v }: { terms: unknown }) => v));
+    }
+  });
 });

@@ -1,10 +1,25 @@
 {
-  "placeholder": true,
-  "status": "This chapter is a placeholder. It says only what the main branch's README says today, and will be rewritten when the verse search (PR 4) is merged.",
-  "source": "README.md on main",
-  "paragraphs": [
-    "Advice: describe a situation and get the real verses that fit it, from all three books.",
-    "Similarities: the closest passages across the three books, side by side.",
-    "Everything here is trained in this repo. No pre-trained models, no paid APIs."
-  ]
+  "about": "Numbers in chapter 08 that the repository records only in prose. Every other number in the chapter is read at build time from evals/search_probes.json, evals/search_cases.json, evals/results/search.json and search/artifacts/search.json (see scripts/repo-data.ts, adviceHistory).",
+  "fullCorpus": {
+    "contaminatedHit10": 0.57,
+    "blindSituations": 40,
+    "blindHit10": 0.43,
+    "blindQuranHit10": 0.33,
+    "shownFitting": 0.14,
+    "shownPlainlyWrong": 0.59,
+    "source": "README.md, Advice search > Benchmark, 'History, honestly' (0.57, 40 situations, 0.43, 14%, 59%); the Quran's 0.33 is in the blind-test table of README.md at commit 3678f20, row 'BM25 + bridge (used on the site)'"
+  },
+  "firstReview": {
+    "crisisCaught": 35,
+    "harmful": 20,
+    "source": "README.md, Advice search > Benchmark, 'Round 4 blind test' (35 caught; 20 of the 45 missed shown harmful verses); the 80 messages are evals/search_probes.json blind_1.crisis"
+  },
+  "topicHitBeforeComfortOnly": {
+    "dev": 0.94,
+    "dev2": 0.94,
+    "dev3": 0.93,
+    "blind_1": 0.92,
+    "final_blind": 0.94,
+    "source": "README.md, Advice search > Benchmark, table row 'Before the comfort-only rule (round 7)'; after the rule the numbers are evals/results/search.json suggest.topic_hit@4"
+  }
 }

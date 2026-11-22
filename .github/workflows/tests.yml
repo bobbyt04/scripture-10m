@@ -32,13 +32,17 @@ jobs:
           node-version: "24"
           cache: npm
           cache-dependency-path: web/package-lock.json
+      # The search parity test runs scripture/search.py (standard library only) next to the TypeScript port.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
       - name: Install
         # npm install, not npm ci: the lock file written on macOS leaves out some Linux-only optional
         # packages of the bundler, which npm ci rejects. Direct dependencies are pinned to exact versions.
         run: npm install --no-audit --no-fund
       - name: Typecheck
         run: npm run typecheck
-      - name: Unit tests (forward-pass parity, tokenizer, advice state machine, data loaders)
+      - name: Unit tests (forward-pass parity, tokenizer, search parity with Python, advice UI, data loaders)
         run: npm test
       - name: Build
         run: npm run build

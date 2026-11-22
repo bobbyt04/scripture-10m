@@ -5,6 +5,8 @@ import { defineConfig } from "@playwright/test";
 export default defineConfig({
   testDir: "e2e",
   timeout: 120_000,
+  // The search data loads on first use; on a busy machine the first answer can take a few seconds.
+  expect: { timeout: 15_000 },
   use: {
     baseURL: "http://localhost:5301",
     channel: process.env.CI ? undefined : "chrome",

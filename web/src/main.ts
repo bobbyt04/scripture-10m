@@ -2,7 +2,7 @@ import "@fontsource-variable/inter/wght.css";
 import "@fontsource-variable/source-serif-4/wght.css";
 import "./styles.css";
 
-import { adviceApi } from "./advice/api.ts";
+import { searchApi } from "./advice/api.ts";
 import { AdviceController } from "./advice/state.ts";
 import { mountAdvice } from "./advice/view.ts";
 import { mountGenerate } from "./generate/ui.ts";
@@ -13,7 +13,7 @@ import { renderStory } from "./story/story.ts";
 document.documentElement.classList.add("js");
 
 mountAdvice(document.querySelector<HTMLFormElement>("#ask")!, document.querySelector<HTMLElement>("#ask-results")!,
-  new AdviceController(adviceApi));
+  new AdviceController(searchApi));
 mountGenerate(document.querySelector<HTMLElement>("[data-generate]")!);
 void loadSimilarities().then((d) => renderSimilarities(document.querySelector<HTMLElement>("[data-similarities]")!, d));
 renderStory(document.querySelector<HTMLElement>("[data-story]")!);

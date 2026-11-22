@@ -1,0 +1,15 @@
+{
+  "about": "Written by web/scripts/count_tests.ts; each count is what the command lists.",
+  "python": {
+    "tests": 3111,
+    "command": "python -m pytest --collect-only -q"
+  },
+  "vitest": {
+    "tests": 127,
+    "command": "npx vitest run (in web/)"
+  },
+  "playwright": {
+    "tests": 7,
+    "command": "npx playwright test --list (in web/)"
+  }
+}

@@ -197,7 +197,7 @@ The free-text verse ranking of rounds 4 to 6 (themes choose the verses, BM25 of 
 
 **From scratch:** the word normaliser, BM25 ranking (eval history only), and the word vectors (PPMI + SVD trained on the three books) used for similarities. **Hand-written:** the pool, its notes and priorities, the themes with their phrases, labels and descriptions, the bridge, and the crisis, distress, bereavement, sensitive and suggestion lists. No pre-trained models, outside word lists or APIs.
 
-The site loads 805 kB ([search/FORMAT.md](search/FORMAT.md) describes every field and walks through every step of `suggest()` and `topic()`); `search/artifacts/fixtures.json` holds expected outputs to test a port.
+The website loads `search.json` without the parts only `search()` uses (369 kB, about 100 kB compressed), and only once the visitor starts typing ([search/FORMAT.md](search/FORMAT.md) describes every field and walks through every step of `suggest()` and `topic()`); `search/artifacts/fixtures.json` holds expected outputs to test a port.
 
 ### Benchmark
 

@@ -110,6 +110,49 @@ export function responsive(container: HTMLElement, draw: (width: number) => Elem
   if (typeof ResizeObserver === "function") new ResizeObserver(render).observe(container);
 }
 
+export interface MissRow {
+  label: string;
+  sub: string;
+  missed: number;
+  harmful: number;
+  /** Drawn apart from the rows above it: a different design was under test. */
+  apart?: boolean;
+}
+
+/** Crisis messages each review's rules missed (light bar), and how many of those reached a harmful verse (dark). */
+export function missChart(rows: MissRow[], width: number, title: string): SVGSVGElement {
+  const W = Math.max(300, Math.round(width));
+  const narrow = W < 560;
+  const labelW = narrow ? 0 : 200;
+  const rowH = narrow ? 76 : 54;
+  const gap = 16;
+  const m = { top: 6, right: 12, bottom: 4, left: 2 };
+  const H = m.top + rows.length * rowH + (rows.some((r) => r.apart) ? gap : 0) + m.bottom;
+  const max = Math.max(...rows.map((r) => r.missed));
+  const x0 = m.left + labelW;
+  const span = W - x0 - m.right - (narrow ? 0 : 160);
+  const X = (v: number) => (v / max) * span;
+  const svg = s("svg", { viewBox: `0 0 ${W} ${H}`, width: W, height: H, class: "chart chart--miss", role: "img", "aria-label": title });
+  let y = m.top;
+  for (const r of rows) {
+    if (r.apart) {
+      svg.append(s("line", { x1: m.left, x2: W - m.right, y1: y + gap / 2 - 2, y2: y + gap / 2 - 2, class: "miss__sep" }));
+      y += gap;
+    }
+    const g = s("g", { class: "chart__row" });
+    const barY = narrow ? y + 34 : y + 10;
+    g.append(s("text", { x: m.left, y: narrow ? y + 13 : y + 19, class: "chart__rowlabel miss__label" }, r.label));
+    g.append(s("text", { x: m.left, y: narrow ? y + 28 : y + 36, class: "chart__note" }, r.sub));
+    g.append(s("rect", { x: x0, y: barY, width: X(r.missed), height: 16, rx: 3, class: "miss__missed" }));
+    g.append(s("rect", { x: x0, y: barY, width: Math.max(2, X(r.harmful)), height: 16, rx: 3, class: r.apart ? "miss__harm miss__harm--apart" : "miss__harm" }));
+    g.append(s("text", { x: narrow ? x0 : x0 + X(r.missed) + 10, y: narrow ? barY + 32 : barY + 12, class: "chart__note miss__note" },
+      `${r.harmful} harmful of ${r.missed} missed`));
+    svg.append(g);
+    y += rowH;
+  }
+  return svg;
+}
+
 export interface IntervalRow {
   label: string;
   color: string;

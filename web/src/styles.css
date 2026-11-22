@@ -128,11 +128,6 @@ ul[role="list"], ol[role="list"] { list-style: none; margin: 0; padding: 0; }
 .ask__bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 10px 10px 20px; }
 .ask__count { font-size: 0.82rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .ask__note { font-size: 0.9rem; color: var(--muted); margin: 14px 2px 0; }
-.preview-note {
-  font-size: 0.86rem; color: var(--muted); margin: 10px 0 0; padding: 10px 14px;
-  border: 1px dashed var(--line-strong); border-radius: 10px;
-}
-.preview-note strong { color: var(--text); font-weight: 600; }
 
 .button {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -187,7 +182,16 @@ ul[role="list"], ol[role="list"] { list-style: none; margin: 0; padding: 0; }
 .book--gita { --book: var(--gita); }
 .book--quran { --book: var(--quran); }
 .book--bible { --book: var(--bible); }
-.book__empty { color: var(--muted); font-style: italic; font-size: 0.95rem; }
+.book__toggle { font-size: 0.92rem; color: var(--muted); }
+.books-none { margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--line); display: grid; gap: 6px; }
+.book-none { display: flex; align-items: baseline; gap: 10px; margin: 0; color: var(--muted); font-size: 0.9rem; }
+.book-none::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--book); transform: translateY(-1px); }
+.topic-note { color: var(--muted); font-family: var(--serif); font-style: italic; font-size: 1.02rem; margin: 0 0 6px; padding-left: 14px; border-left: 2px solid var(--line-strong); }
+.topic__books { grid-column: 1; display: flex; gap: 10px; margin-top: 8px; font-size: 0.74rem; color: var(--muted); }
+.topic__book { display: inline-flex; align-items: center; gap: 5px; }
+.topic__book::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--book); }
+.topic__book.is-empty { opacity: 0.45; }
+.topic__book.is-empty::before { background: transparent; box-shadow: inset 0 0 0 1px var(--book); }
 .verse { margin: 0 0 22px; }
 .verse__text { margin: 0 0 8px; font-family: var(--serif); font-size: 1.18rem; line-height: 1.6; }
 .verse figcaption { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.88rem; }
@@ -227,8 +231,11 @@ ul[role="list"], ol[role="list"] { list-style: none; margin: 0; padding: 0; }
 .pair__ref { color: var(--muted); }
 .pair__verse blockquote { margin: 0; font-family: var(--serif); font-size: 1.18rem; line-height: 1.6; }
 .pair__idea { margin: 22px 0 0; color: var(--muted); font-size: 0.95rem; max-width: 46em; padding-left: 14px; border-left: 2px solid var(--line-strong); }
-.pairs__more { margin-top: 28px; }
-.preview-note + .chips { margin-top: 20px; }
+.pair__source { margin: 12px 0 0; font-size: 0.8rem; color: var(--muted); }
+.pairs__about { color: var(--muted); font-size: 0.95rem; max-width: 46em; margin-bottom: 22px; }
+.chip__n { margin-left: 6px; font-variant-numeric: tabular-nums; opacity: 0.6; }
+.pairs__more { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.pairs__status { margin: 0; color: var(--muted); font-size: 0.9rem; }
 
 /* ---------------------------------------------------------------- generation */
 
@@ -380,6 +387,14 @@ ul[role="list"], ol[role="list"] { list-style: none; margin: 0; padding: 0; }
 .js .reveal .chart__marker, .js .reveal .chart__row { opacity: 0; transition: opacity 0.6s ease 1.6s; }
 .js .reveal .chart__row { transition-delay: 0.3s; }
 .js .reveal.is-visible .chart__marker, .js .reveal.is-visible .chart__row { opacity: 1; }
+
+.miss__missed { fill: color-mix(in srgb, var(--muted) 24%, transparent); }
+.miss__harm { fill: var(--gita); }
+.miss__harm--apart { fill: var(--quran); }
+.miss__sep { stroke: var(--line-strong); stroke-dasharray: 3 4; }
+.chart .miss__label, .chart .miss__note { fill: var(--text); }
+.miss__note { font-variant-numeric: tabular-nums; }
+.hit-table thead th small { display: block; font-weight: 400; color: var(--muted); margin-top: 2px; }
 
 .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.84rem; color: var(--muted); margin: 0 0 12px; }
 .legend li { display: flex; align-items: center; gap: 8px; }

@@ -8,8 +8,9 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { Searcher, type SearchData } from "../src/search/searcher.ts";
 import {
-  annotate, extractBlock, highlightPython, paramBreakdown, parseKjvErrors, parseLosses, summariseEvals,
+  adviceHistory, annotate, extractBlock, highlightPython, paramBreakdown, parseKjvErrors, parseLosses, summariseEvals,
   tokenizeExample, type EvalJson, type RepoData, type Stats,
 } from "./repo-data.ts";
 
@@ -68,6 +69,7 @@ export function build(): RepoData {
     return m.gita.nats;
   };
   const text = verseText(EXAMPLE.book, EXAMPLE.ref);
+  const search = siteSearchData();
 
   return {
     stats: readJson<Stats>("data/processed/stats.json"),
@@ -86,13 +88,37 @@ export function build(): RepoData {
       bigramGitaLoss: bookLoss("2-gram"),
     },
     evalCommit: evalJson.git.commit.slice(0, 7),
+    advice: adviceHistory(readJson("evals/search_probes.json"), readJson("evals/search_cases.json"),
+      readJson("evals/results/search.json"), search as never, new Searcher(search as unknown as SearchData).topics().length,
+      JSON.parse(readFileSync(join(WEB, "src/story/advice-history.json"), "utf8"))),
   };
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
-  const data = build();
-  const out = join(WEB, "src/generated/repo.json");
+/**
+ * The verse-topic search data for the browser: search/artifacts/search.json without what only the eval-history
+ * search() reads (each verse's BM25 terms, the bridge, the query stopwords) and without the build inputs.
+ * src/search/searcher.ts runs on exactly this file, and so do its tests.
+ */
+export function siteSearchData(): Record<string, unknown> {
+  const full = readJson<Record<string, any>>("search/artifacts/search.json");
+  if (full.version !== 1) throw new Error(`search.json version ${full.version}, expected 1`);
+  const { query_stopwords: _q, ...lexicon } = full.lexicon;
+  const pool = Object.fromEntries(Object.entries(full.pool as Record<string, Record<string, unknown>[]>)
+    .map(([book, verses]) => [book, verses.map(({ terms: _t, ...v }) => v)]));
+  return { version: full.version, params: full.params, lexicon, vocabulary: full.vocabulary, themes: full.themes, safety: full.safety, pool };
+}
+
+function write(name: string, data: unknown): void {
+  const out = join(WEB, "src/generated", name);
   mkdirSync(dirname(out), { recursive: true });
-  writeFileSync(out, JSON.stringify(data) + "\n");
-  console.log(`wrote src/generated/repo.json (${(JSON.stringify(data).length / 1024).toFixed(1)} kB, repo at ${gitHead() ?? "unknown commit"})`);
+  const text = JSON.stringify(data) + "\n";
+  writeFileSync(out, text);
+  console.log(`wrote src/generated/${name} (${(Buffer.byteLength(text) / 1024).toFixed(1)} kB)`);
+}
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  write("repo.json", build());
+  write("search.json", siteSearchData());
+  write("similarities.json", readJson("search/artifacts/similarities.json"));
+  console.log(`repo at ${gitHead() ?? "unknown commit"}`);
 }

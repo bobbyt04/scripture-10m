@@ -13,12 +13,80 @@ test("page loads without errors and without the model", async ({ page }) => {
   expect(errors).toEqual([]);
 });
 
-test("advice: a crisis message shows the note and nothing else", async ({ page }) => {
+test.describe("advice", () => {
+  // Fail the test the moment a verse element exists while no topic has been tapped.
+  async function watchVerses(page: import("@playwright/test").Page) {
+    await page.evaluate(() => {
+      const w = window as unknown as { tapped: boolean; versesBeforeTap: number };
+      w.tapped = false;
+      w.versesBeforeTap = 0;
+      document.addEventListener("click", (e) => { if ((e.target as Element).closest("[data-topic]")) w.tapped = true; }, true);
+      new MutationObserver(() => {
+        if (!w.tapped && document.querySelector("[data-verse]")) w.versesBeforeTap++;
+      }).observe(document.body, { childList: true, subtree: true });
+    });
+  }
+  const versesBeforeTap = (page: import("@playwright/test").Page) =>
+    page.evaluate(() => (window as unknown as { versesBeforeTap: number }).versesBeforeTap);
+
+  test("a crisis message renders the note and zero verse elements", async ({ page }) => {
+    await page.goto("/");
+    await watchVerses(page);
+    await page.fill("#ask-input", "I want to end my life");
+    await page.keyboard.press("Enter");
+    const note = page.locator("[data-crisis]");
+    await expect(note).toBeVisible();
+    await expect(note).toContainText("We are not going to show verses for this one.");
+    await expect(page.locator("#ask-results [data-topic], #ask-results [data-verse], #ask-results button")).toHaveCount(0);
+    await expect(page.locator("[data-verse]")).toHaveCount(0);
+    expect(await versesBeforeTap(page)).toBe(0);
+  });
+
+  test("an everyday worry renders topic chips and no verses until a chip is tapped", async ({ page }) => {
+    const searchData: string[] = [];
+    page.on("request", (r) => { if (/search[-.].*\.js$/.test(new URL(r.url()).pathname)) searchData.push(r.url()); });
+    await page.goto("/");
+    await page.waitForLoadState("networkidle");
+    expect(searchData).toEqual([]); // the search data loads on first use, not with the page
+    await watchVerses(page);
+    await page.fill("#ask-input", "I got laid off and I'm scared about money");
+    await page.click("#ask button[type=submit]");
+    const chips = page.locator("#ask-results [data-topic]");
+    await expect(chips).toHaveCount(2);
+    await expect(chips.first()).toContainText("Money worries");
+    await expect(page.locator("[data-verse]")).toHaveCount(0);
+
+    await chips.first().click();
+    await expect(page.locator("#ask-results [data-verse]").first()).toBeVisible();
+    await expect(page.locator("[data-empty=gita]")).toHaveText("The Bhagavad Gita has no verse for this topic in the reviewed selection.");
+    expect(await versesBeforeTap(page)).toBe(0);
+
+    await page.getByRole("button", { name: "← Topics" }).click();
+    await expect(chips).toHaveCount(2);
+    await expect(page.locator("[data-verse]")).toHaveCount(0);
+  });
+
+  test("a message that matches nothing shows the full topic list, still with no verses", async ({ page }) => {
+    await page.goto("/");
+    await watchVerses(page);
+    await page.fill("#ask-input", "my cat knocked a plant off the shelf");
+    await page.keyboard.press("Enter");
+    await expect(page.locator("#ask-results")).toContainText("I couldn’t match that to a topic");
+    expect(await page.locator("#ask-results [data-topic]").count()).toBeGreaterThan(20);
+    await expect(page.locator("[data-verse]")).toHaveCount(0);
+    expect(await versesBeforeTap(page)).toBe(0);
+  });
+});
+
+test("parallels: every reviewed pair, a page at a time, with its source", async ({ page }) => {
   await page.goto("/");
-  await page.fill("#ask-input", "I want to end my life");
-  await page.keyboard.press("Enter");
-  await expect(page.locator("[data-crisis]")).toBeVisible();
-  await expect(page.locator("#ask-results [data-topic], #ask-results [data-verse]")).toHaveCount(0);
+  const section = page.locator("[data-similarities]");
+  await expect(section.locator("[data-pair]")).toHaveCount(6);
+  await expect(section.locator(".chip").first()).toContainText("All45");
+  await expect(section.locator("[data-source]").first()).toHaveText(/then reviewed$/);
+  await section.getByRole("button", { name: "Prophets and their stories" }).click();
+  await section.getByRole("button", { name: /^Show \d+ more$/ }).click();
+  await expect(section.locator("[data-pair]")).toHaveCount(12);
 });
 
 test("generate produces labelled text in the browser", async ({ page }) => {
