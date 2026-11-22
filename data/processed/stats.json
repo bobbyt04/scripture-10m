@@ -1,0 +1,21 @@
+{
+  "gita": {
+    "verses": 701,
+    "characters": 98403,
+    "chapters": 18,
+    "charset_size": 61
+  },
+  "quran": {
+    "verses": 6236,
+    "characters": 822126,
+    "chapters": 114,
+    "charset_size": 63
+  },
+  "bible": {
+    "verses": 31102,
+    "characters": 4112881,
+    "chapters": 1189,
+    "charset_size": 62
+  },
+  "charset": " !\"'(),-.:;?ABCDEFGHIJKLMNOPQRSTUVWYZabcdefghijklmnopqrstuvwxyz"
+}
