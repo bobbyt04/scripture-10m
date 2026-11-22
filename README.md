@@ -143,6 +143,12 @@ book.
 The Gita sample shows the problem from the style section: "Lord of the Worlds" is a Quran phrase. The model can
 also switch to another book's tag in the middle of a sample (Gita seed 3 ends in Bible verses).
 
+## Website
+
+[web/](web/README.md) is a static site that runs everything in the visitor's browser, including the trained
+model: its forward pass is rewritten by hand in TypeScript and checked against PyTorch's logits. The weights
+are exported by `python web/scripts/export_model.py --ckpt out/best.pt`.
+
 ## Run the tests
 
 ```bash

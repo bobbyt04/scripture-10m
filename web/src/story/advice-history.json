@@ -1,0 +1,10 @@
+{
+  "placeholder": true,
+  "status": "This chapter is a placeholder. It says only what the main branch's README says today, and will be rewritten when the verse search (PR 4) is merged.",
+  "source": "README.md on main",
+  "paragraphs": [
+    "Advice: describe a situation and get the real verses that fit it, from all three books.",
+    "Similarities: the closest passages across the three books, side by side.",
+    "Everything here is trained in this repo. No pre-trained models, no paid APIs."
+  ]
+}

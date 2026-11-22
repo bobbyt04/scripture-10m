@@ -1,0 +1,34 @@
+{
+  "about": "How each pull request was checked, as recorded in its description on GitHub. These numbers are not computed at build time; each entry links to its source.",
+  "repo": "https://github.com/bobbyt04/scripture-10m",
+  "prs": [
+    {
+      "number": 1,
+      "title": "Model, tokenizer, tests and CI",
+      "tests": 29,
+      "check": "28 deliberately broken versions of the model and tokenizer (wrong attention scaling, missing LayerNorm, no position embeddings, temperature mistakes and more): every one makes a test fail."
+    },
+    {
+      "number": 2,
+      "title": "Data pipeline for the three books",
+      "tests": 140,
+      "check": "12 kinds of deliberate damage to the data (swapped verses, a Yusuf Ali verse in place of Pickthall's, a stray digit, a truncated verse and more): the tests catch all 12. The pipeline gives byte-identical output on every run."
+    },
+    {
+      "number": 3,
+      "title": "Training, sampling, and the eval harness",
+      "tests": 214,
+      "check": "58 hand-written mutants of the training loop, sampling, eval reports and suffix array: each one makes at least one test fail. A 300-step smoke run of the full model, and a killed run that resumed at the right step."
+    },
+    {
+      "number": 5,
+      "title": "Training results, eval report and samples",
+      "tests": 216,
+      "check": "A test keeps the README's result tables in sync with the eval JSON, so a number cannot drift from its source."
+    }
+  ],
+  "ci": "GitHub Actions runs the Python tests on every pull request and every push to main, with CPU-only PyTorch. This website adds a second job: install, typecheck, unit tests, build and browser smoke tests.",
+  "web": {
+    "about": "95 Vitest unit tests and 4 Playwright smoke tests for the website: the forward pass against PyTorch logits, greedy generation token for token, the tokenizer against Python, the advice state machine and the data loaders."
+  }
+}
