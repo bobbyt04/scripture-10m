@@ -1,10 +1,10 @@
 {
- "about": "Modern-language situations with hand-picked relevant verses per book (found by reading and searching the whole corpus by theme, before the pool existed) and the hand-labelled themes a good answer should match ('expected_themes'). All three filled splits were seen during development; only 'final_blind' will be held out. An empty list means the book has no fitting verse; that book is then skipped for that case.",
+ "about": "Modern-language situations with hand-picked relevant verses per book (found by reading and searching the whole corpus by theme, before the pool existed) and the hand-labelled themes a good answer should match ('expected_themes'). All three filled splits were seen during development; only 'final_blind' is held out. An empty list means the book has no fitting verse; that book is then skipped for that case.",
  "splits": {
   "dev": "development: seen while the first bridge and settings were written",
   "dev2": "development: first meant as a test set, but the bridge was written after its queries existed",
   "dev3": "development: written blind by a reviewer as 'blind_test' for the full-corpus design (hit@10 0.43); seen while the pool design, themes and settings were made, so no longer held out",
-  "final_blind": "held out: new situations to be written by a different person after the scorer is frozen; empty for now"
+  "final_blind": "held out: 50 situations written by an independent reviewer after the scorer was frozen, run and judged by hand before the reviewer read the themes, pool, bridge, safety lists, tests or search code. Expected themes were added afterwards from the reviewer's own judgement. No answer key ('relevant' is empty), so hit@3 is not computed; the number to quote is the hand-judged precision in final_blind_hand_judged"
  },
  "cases": [
   {
@@ -4279,6 +4279,760 @@
    "expected_themes": [
     "hope"
    ]
+  },
+  {
+   "id": "fb_father_died",
+   "split": "final_blind",
+   "query": "my dad passed away last month and i keep picking up the phone to call him",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "grief"
+   ]
+  },
+  {
+   "id": "fb_friend_died_cancer",
+   "split": "final_blind",
+   "query": "lost my best friend from college to cancer at 34. still cant believe it",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "grief",
+    "friendship"
+   ]
+  },
+  {
+   "id": "fb_dog_put_down",
+   "split": "final_blind",
+   "query": "had to say goodbye to my dog of 14 years on saturday, the house is so quiet",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "grief"
+   ]
+  },
+  {
+   "id": "fb_credit_card_debt",
+   "split": "final_blind",
+   "query": "drowning in credit card debt and i dont know how ill ever get out",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "money_worry",
+    "hope"
+   ]
+  },
+  {
+   "id": "fb_rent_short",
+   "split": "final_blind",
+   "query": "rent is due friday and im $600 short",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "money_worry",
+    "fear_anxiety"
+   ]
+  },
+  {
+   "id": "fb_laid_off_11_years",
+   "split": "final_blind",
+   "query": "got laid off today after 11 years. no warning.",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "money_worry",
+    "change_uncertainty",
+    "fear_anxiety"
+   ]
+  },
+  {
+   "id": "fb_boss_belittles",
+   "split": "final_blind",
+   "query": "my boss belittles me in every meeting in front of everyone",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "justice_wronged",
+    "self_worth",
+    "work_effort"
+   ]
+  },
+  {
+   "id": "fb_wrong_career_at_40",
+   "split": "final_blind",
+   "query": "im 40 and i think i chose the wrong career entirely. too late to change?",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "purpose",
+    "change_uncertainty",
+    "guidance_decisions",
+    "work_effort"
+   ]
+  },
+  {
+   "id": "fb_exams_unprepared",
+   "split": "final_blind",
+   "query": "final exams next week and i havent studied enough, freaking out",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "fear_anxiety",
+    "wisdom_learning"
+   ]
+  },
+  {
+   "id": "fb_retirement_fear",
+   "split": "final_blind",
+   "query": "retiring next month and honestly scared of what my days will look like without work",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "change_uncertainty",
+    "purpose",
+    "fear_anxiety"
+   ]
+  },
+  {
+   "id": "fb_new_city_alone",
+   "split": "final_blind",
+   "query": "moved to a new city for work and i dont know a single person here. weekends are the worst",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "loneliness",
+    "change_uncertainty"
+   ]
+  },
+  {
+   "id": "fb_breakup_checking_instagram",
+   "split": "final_blind",
+   "query": "she broke up with me after 3 years and i cant stop checking her instagram",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "loneliness",
+    "temptation_self_control",
+    "love_compassion"
+   ]
+  },
+  {
+   "id": "fb_marriage_like_roommates",
+   "split": "final_blind",
+   "query": "my husband and i barely talk anymore, we just live like roommates",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "marriage",
+    "loneliness"
+   ]
+  },
+  {
+   "id": "fb_new_baby_overwhelmed",
+   "split": "final_blind",
+   "query": "just had our first baby and im exhausted and overwhelmed, is this normal",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "overwork_rest",
+    "parenting"
+   ]
+  },
+  {
+   "id": "fb_teen_son_withdrawn",
+   "split": "final_blind",
+   "query": "my 15 year old son wont talk to me, slams doors, i feel like ive lost him",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "parenting",
+    "patience"
+   ]
+  },
+  {
+   "id": "fb_caring_for_mother_dementia",
+   "split": "final_blind",
+   "query": "taking care of my mom with dementia while working full time. im running on empty",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "overwork_rest",
+    "family_parents",
+    "illness"
+   ]
+  },
+  {
+   "id": "fb_diabetes_diagnosis",
+   "split": "final_blind",
+   "query": "just got diagnosed with diabetes, kind of scared about what comes next",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "illness",
+    "fear_anxiety"
+   ]
+  },
+  {
+   "id": "fb_snapped_at_kids",
+   "split": "final_blind",
+   "query": "i snapped at my kids again today over nothing. i have such a short temper",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "anger",
+    "parenting"
+   ]
+  },
+  {
+   "id": "fb_jealous_of_promoted_coworker",
+   "split": "final_blind",
+   "query": "my coworker got the promotion i wanted and im so jealous i can barely look at her",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "envy_contentment"
+   ]
+  },
+  {
+   "id": "fb_too_proud_to_admit_wrong",
+   "split": "final_blind",
+   "query": "people say i'm arrogant. maybe im too proud to admit when im wrong",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "pride_humility"
+   ]
+  },
+  {
+   "id": "fb_embarrassed_at_party",
+   "split": "final_blind",
+   "query": "i did something really embarassing at the party and i cant stop replaying it",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "guilt_repentance",
+    "peace_of_mind",
+    "self_worth"
+   ]
+  },
+  {
+   "id": "fb_regret_grandma",
+   "split": "final_blind",
+   "query": "i regret not spending more time with my grandma before she died",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "grief",
+    "guilt_repentance"
+   ]
+  },
+  {
+   "id": "fb_lied_to_wife_about_money",
+   "split": "final_blind",
+   "query": "i lied to my wife about money and now its gotten bigger and bigger",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "honesty",
+    "guilt_repentance",
+    "marriage"
+   ]
+  },
+  {
+   "id": "fb_forgive_brother",
+   "split": "final_blind",
+   "query": "my brother hurt me badly years ago and i want to forgive him but i dont know how",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "forgiveness",
+    "family_parents"
+   ]
+  },
+  {
+   "id": "fb_cheated_want_forgiveness",
+   "split": "final_blind",
+   "query": "i cheated on my girlfriend and i want her to forgive me",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "guilt_repentance",
+    "forgiveness",
+    "honesty"
+   ]
+  },
+  {
+   "id": "fb_unsure_god_exists",
+   "split": "final_blind",
+   "query": "not sure i believe in god anymore",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "doubt_faith"
+   ]
+  },
+  {
+   "id": "fb_god_feels_far",
+   "split": "final_blind",
+   "query": "i used to pray every day but now god feels so far away",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "doubt_faith",
+    "loneliness"
+   ]
+  },
+  {
+   "id": "fb_anxious_about_future",
+   "split": "final_blind",
+   "query": "so anxious about the future, the economy, my kids, everything",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "fear_anxiety",
+    "change_uncertainty"
+   ]
+  },
+  {
+   "id": "fb_feel_worthless",
+   "split": "final_blind",
+   "query": "i feel worthless, like nothing i do matters",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "self_worth",
+    "purpose"
+   ]
+  },
+  {
+   "id": "fb_burnt_out_70_hours",
+   "split": "final_blind",
+   "query": "burnt out. working 70 hour weeks. no energy for anything.",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "overwork_rest"
+   ]
+  },
+  {
+   "id": "fb_cant_sleep_3am",
+   "split": "final_blind",
+   "query": "cant sleep, mind racing every night at 3am",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "peace_of_mind",
+    "fear_anxiety"
+   ]
+  },
+  {
+   "id": "fb_procrastinating_on_phone",
+   "split": "final_blind",
+   "query": "i keep putting off everything important and wasting days on my phone",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "temptation_self_control",
+    "work_effort"
+   ]
+  },
+  {
+   "id": "fb_job_offer_or_family",
+   "split": "final_blind",
+   "query": "trying to decide whether to take a job offer across the country or stay near family",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "guidance_decisions",
+    "family_parents",
+    "change_uncertainty"
+   ]
+  },
+  {
+   "id": "fb_moving_house_kids_grew_up",
+   "split": "final_blind",
+   "query": "we're moving house next week and i'm stressed about leaving the place where my kids grew up",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "change_uncertainty",
+    "grief",
+    "fear_anxiety"
+   ]
+  },
+  {
+   "id": "fb_business_failed_at_50",
+   "split": "final_blind",
+   "query": "my business failed and i lost everything. how do i start over at 50",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "failure",
+    "change_uncertainty",
+    "hope"
+   ]
+  },
+  {
+   "id": "fb_promotion_stay_humble",
+   "split": "final_blind",
+   "query": "i finally got the promotion i worked so hard for!! how do i stay humble",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "success",
+    "pride_humility"
+   ]
+  },
+  {
+   "id": "fb_grateful_today",
+   "split": "final_blind",
+   "query": "just feeling really grateful today for my family and health",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "gratitude"
+   ]
+  },
+  {
+   "id": "fb_generous_without_enough",
+   "split": "final_blind",
+   "query": "i want to be more generous but i always feel like i dont have enough to give",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "generosity"
+   ]
+  },
+  {
+   "id": "fb_walked_past_homeless",
+   "split": "final_blind",
+   "query": "saw a homeless guy in the cold today and walked past. feel bad, what should i have done",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "kindness_strangers",
+    "generosity",
+    "guilt_repentance"
+   ]
+  },
+  {
+   "id": "fb_rumours_at_work",
+   "split": "final_blind",
+   "query": "someone at work is spreading rumours about me",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "speech_gossip",
+    "justice_wronged",
+    "betrayal"
+   ]
+  },
+  {
+   "id": "fb_credit_taken_for_project",
+   "split": "final_blind",
+   "query": "my manager gave the credit for my project to someone else. so unfair",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "justice_wronged",
+    "work_effort"
+   ]
+  },
+  {
+   "id": "fb_missing_mum",
+   "split": "final_blind",
+   "query": "missing my mum so much today",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "grief",
+    "family_parents"
+   ]
+  },
+  {
+   "id": "fb_cat_died",
+   "split": "final_blind",
+   "query": "my cat died this morning",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "grief"
+   ]
+  },
+  {
+   "id": "fb_debt_help_terse",
+   "split": "final_blind",
+   "query": "so much debt, help",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "money_worry"
+   ]
+  },
+  {
+   "id": "fb_road_rage",
+   "split": "final_blind",
+   "query": "how do i stop being so angry all the time when people cut me off in traffic and stuff",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "anger",
+    "patience"
+   ]
+  },
+  {
+   "id": "fb_lonely_typo",
+   "split": "final_blind",
+   "query": "i'm so lonley these days",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "loneliness"
+   ]
+  },
+  {
+   "id": "fb_marriage_constant_fights",
+   "split": "final_blind",
+   "query": "my wife and i fight about everything, money, chores, in-laws. tired of it",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "marriage",
+    "anger",
+    "peace_of_mind"
+   ]
+  },
+  {
+   "id": "fb_guilt_old_words",
+   "split": "final_blind",
+   "query": "i feel guilty all the time for things i said years ago",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "guilt_repentance",
+    "speech_gossip",
+    "forgiveness"
+   ]
+  },
+  {
+   "id": "fb_driving_test_third_try",
+   "split": "final_blind",
+   "query": "afraid of failing my driving test again for the third time",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "failure",
+    "fear_anxiety",
+    "courage"
+   ]
+  },
+  {
+   "id": "fb_rude_neighbour_revenge",
+   "split": "final_blind",
+   "query": "my neighbour keeps being rude to me and i want to get back at him",
+   "relevant": {
+    "gita": [],
+    "quran": [],
+    "bible": []
+   },
+   "expected_themes": [
+    "anger",
+    "justice_wronged",
+    "kindness_strangers",
+    "forgiveness"
+   ]
   }
- ]
+ ],
+ "final_blind_hand_judged": {
+  "precision_of_shown_verses": 0.373,
+  "n_verses": 399,
+  "n_situations": 50,
+  "judged_by": "one independent reviewer; 50 new situations written, run through the frozen search and every shown verse (top 3 per book, with its why-note and themes) judged before the reviewer read themes.json, bridge.json, the safety lists, the pool, the tests or the search code",
+  "labels": "fitting = a thoughtful person would say it speaks to the situation; on_topic = right subject but does not help; wrong; harmful = could wound this visitor",
+  "per_book": {
+   "gita": {
+    "shown": 105,
+    "fitting": 0.248,
+    "on_topic": 0.571,
+    "wrong": 0.181,
+    "harmful": 0.0,
+    "situations_with_a_fitting_verse": 19,
+    "situations_empty": 14
+   },
+   "quran": {
+    "shown": 144,
+    "fitting": 0.34,
+    "on_topic": 0.313,
+    "wrong": 0.34,
+    "harmful": 0.007,
+    "situations_with_a_fitting_verse": 30,
+    "situations_empty": 2
+   },
+   "bible": {
+    "shown": 150,
+    "fitting": 0.493,
+    "on_topic": 0.34,
+    "wrong": 0.16,
+    "harmful": 0.007,
+    "situations_with_a_fitting_verse": 36,
+    "situations_empty": 0
+   }
+  },
+  "overall": {
+   "fitting": 0.373,
+   "on_topic": 0.391,
+   "wrong": 0.231,
+   "harmful": 0.005,
+   "situations_with_a_fitting_verse_in_any_book": 41,
+   "situations_with_a_fitting_verse_in_all_three_books": 10
+  },
+  "theme_notes": "notes were shown on 17 of 50 situations; 9 of those showed a note out of place (e.g. the family 'your safety comes first' note on a bereavement, on 'grateful for my family' and on a job decision; the grief note on a parent whose teenager is withdrawn)"
+ }
 }

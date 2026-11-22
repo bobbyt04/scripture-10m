@@ -20,7 +20,8 @@
    closest to the anchor verse (search/corpus.py, the whole corpus)?
 3. final_blind: new situations to be written by someone else after the
    scorer is frozen. Their shown verses are judged by hand; the precision
-   goes in "final_blind_hand_judged".
+   is recorded under "final_blind_hand_judged" in search_cases.json and
+   copied into the results file.
 """
 
 import json
@@ -155,10 +156,12 @@ def run(searcher=None, corpus=None, out_path=RESULTS, ablation=True):
     from search.corpus import Corpus
     searcher = searcher or Searcher.load()
     corpus = corpus or Corpus.load()
-    cases = json.loads(CASES.read_text())["cases"]
+    case_file = json.loads(CASES.read_text())
+    cases = case_file["cases"]
     parallels = json.loads(PARALLELS.read_text())["parallels"]
     report = {"situations": {}, "ablation": {}, "parallels": {},
-              "final_blind_hand_judged": {"precision_of_shown_verses": None, "judged_by": None, "n_verses": None},
+              "final_blind_hand_judged": case_file.get("final_blind_hand_judged",
+                                                       {"precision_of_shown_verses": None, "judged_by": None, "n_verses": None}),
               "examples": []}
     for split in SPLITS:
         sel = [c for c in cases if c["split"] == split]
