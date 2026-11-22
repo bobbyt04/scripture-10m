@@ -1,6 +1,6 @@
 {
   "model": "Scripture-10M",
-  "checkpoint": "/Users/bobby/bobby-projects/gpt-from-scratch/out_equal_books/ckpt.pt",
+  "checkpoint": "out_equal_books/ckpt.pt",
   "step": 8500,
   "config": {
     "vocab_size": 67,
@@ -31,7 +31,7 @@
     "log_interval": 50,
     "seed": 1337,
     "device": "auto",
-    "data_dir": "/Users/bobby/bobby-projects/gpt-from-scratch/data/processed",
+    "data_dir": "data/processed",
     "out_dir": "out",
     "resume": false
   },
@@ -41,7 +41,7 @@
     "dirty": false
   },
   "eval_args": {
-    "ckpt": "/Users/bobby/bobby-projects/gpt-from-scratch/out_equal_books/ckpt.pt",
+    "ckpt": "out_equal_books/ckpt.pt",
     "out": "evals/results/book_sampling.json",
     "samples": 50,
     "chars": 400,

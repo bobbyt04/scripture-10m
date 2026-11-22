@@ -1,6 +1,6 @@
 {
   "model": "Scripture-10M",
-  "checkpoint": "/Users/bobby/bobby-projects/gpt-from-scratch/out/best.pt",
+  "checkpoint": "out/best.pt",
   "step": 11000,
   "config": {
     "vocab_size": 67,
@@ -32,7 +32,7 @@
     "seed": 1337,
     "sampling": "verse",
     "device": "auto",
-    "data_dir": "/Users/bobby/bobby-projects/gpt-from-scratch/data/processed",
+    "data_dir": "data/processed",
     "out_dir": "out",
     "resume": false
   },
@@ -42,8 +42,8 @@
     "dirty": false
   },
   "eval_args": {
-    "ckpt": "/Users/bobby/bobby-projects/gpt-from-scratch/out/best.pt",
-    "out": "/Users/bobby/bobby-projects/gpt-from-scratch/.claude/worktrees/agent-afff6609b0bb625cb/evals/results/model.json",
+    "ckpt": "out/best.pt",
+    "out": "evals/results/model.json",
     "samples": 50,
     "chars": 400,
     "temperature": 1.0,
