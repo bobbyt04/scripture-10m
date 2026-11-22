@@ -1,0 +1,19 @@
+{
+ "about": "Verses flagged while two reviewers picked the 3-5 verses each theme should show first (the 'priority' field). Each is removed.",
+ "gita": [
+  {"ref": "11:55", "action": "remove", "reason": "'he cometh unto Me' means reaching God at or after death; a suicidal reader could take it as an invitation."}
+ ],
+ "quran": [
+  {"ref": "59:18", "action": "remove", "reason": "Look to what each soul sends ahead 'for the morrow' (the afterlife); under purpose it points a despairing reader toward death."},
+  {"ref": "20:44", "action": "remove", "reason": "Speak gently to Pharaoh, a tyrant: out of context it tells someone being harmed to be gentle with the person harming them."}
+ ],
+ "bible": [
+  {"ref": "Romans 12:21", "action": "remove", "reason": "Under justice_wronged it tells a mistreated reader to keep answering the person harming them with good."},
+  {"ref": "Proverbs 24:29", "action": "remove", "reason": "Under justice_wronged it tells the harmed person not to answer back."},
+  {"ref": "Psalms 37:1", "action": "remove", "reason": "Under justice_wronged, 'fret not because of evildoers' dismisses a victim's distress."},
+  {"ref": "Matthew 5:42", "action": "remove", "reason": "'From him that would borrow of thee turn not thou away' can pressure someone being financially exploited."},
+  {"ref": "Psalms 16:11", "action": "remove", "reason": "'At thy right hand there are pleasures for evermore': a pull toward the afterlife for a despairing reader."},
+  {"ref": "1 Corinthians 13:12", "action": "remove", "reason": "'But then face to face' reads as reunion after death."},
+  {"ref": "Proverbs 22:24", "action": "remove", "reason": "Under anger it says angry people are to be shunned, shaming the reader who asks for help."}
+ ]
+}

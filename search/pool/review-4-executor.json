@@ -1,0 +1,7 @@
+{
+ "quran": [
+  {"ref": "9:91", "action": "remove", "reason": "About who is excused from fighting ('not unto the weak nor unto the sick'); found when checking 'diagnosed with something serious', where it read as if illness were a fault to excuse."},
+  {"ref": "3:200", "action": "remove", "reason": "'Endure, outdo all others in endurance' under success and courage; the same endure message the audit removed elsewhere."},
+  {"ref": "60:7", "action": "retag", "drop_themes": ["hope"], "reason": "Under hope it suggests a person who harms you may come to love you; kept under friendship."}
+ ]
+}

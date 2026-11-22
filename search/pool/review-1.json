@@ -1,0 +1,4100 @@
+{
+ "gita": [
+  {
+   "ref": "2:12",
+   "action": "retag",
+   "drop_themes": [
+    "grief",
+    "mortality"
+   ],
+   "reason": "Eternal-soul teaching (from the argument that killing kin is no loss); to a suicidal reader 'we never cease to be' makes death sound unreal, and to a fresh griever it is doctrine, not comfort."
+  },
+  {
+   "ref": "2:12",
+   "action": "fix_why",
+   "new_why": "Teaches that the true self never began and will never cease to be.",
+   "reason": "Original why adds 'gently' and 'those you love', which the verse (about Arjuna, Krishna and the princes) does not say."
+  },
+  {
+   "ref": "2:14",
+   "action": "not_universal",
+   "reason": "'Pain is impermanent, endure it bravely' is false and dismissive to someone with chronic pain or disability, and reads as 'put up with it' to an abuse victim."
+  },
+  {
+   "ref": "2:15",
+   "action": "retag",
+   "drop_themes": [
+    "suffering_endurance"
+   ],
+   "reason": "Defines the fit person as one whom pain does not torment, implying those tormented by pain (chronic illness, depression) have failed."
+  },
+  {
+   "ref": "3:8",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "'Action is superior to inaction... inactive, even the body could not be maintained' scolds a depressed reader who cannot get out of bed."
+  },
+  {
+   "ref": "3:8",
+   "action": "fix_why",
+   "new_why": "Do right action; action is better than inaction.",
+   "reason": "'Idleness' is a judgmental addition not in the text."
+  },
+  {
+   "ref": "3:37",
+   "action": "retag",
+   "drop_themes": [
+    "temptation_self_control"
+   ],
+   "reason": "Calls desire 'all-polluting... our foe'; shown to a relapsed addict or a teen struggling with their sexuality it is shame, not help. Fine under anger."
+  },
+  {
+   "ref": "3:34",
+   "action": "not_universal",
+   "reason": "Says affection and aversion must not rule you and 'obstruct the path'; shown after someone mentions their sexuality it reads as 'suppress your affections'."
+  },
+  {
+   "ref": "3:39",
+   "action": "not_universal",
+   "reason": "Desire as 'the constant enemy'; wrong message for a visitor who has just disclosed their sexuality or gender identity."
+  },
+  {
+   "ref": "18:38",
+   "action": "not_universal",
+   "reason": "Sensual pleasure 'in the end is like venom'; reads as condemnation to an LGBTQ visitor."
+  },
+  {
+   "ref": "2:67",
+   "action": "not_universal",
+   "reason": "Senses the mind yields to drag it away like a gale; desire-control verse unsuitable for the identity-disclosure fallback pool."
+  },
+  {
+   "ref": "2:62",
+   "action": "not_universal",
+   "reason": "Desire-to-anger chain (and the sentence continues into ruin in 2:63); unsuitable for the identity-disclosure pool."
+  },
+  {
+   "ref": "2:64",
+   "action": "not_universal",
+   "reason": "Praises senses 'free from attraction'; reads badly after a disclosure of sexuality."
+  },
+  {
+   "ref": "5:28",
+   "action": "not_universal",
+   "reason": "'Having for ever cast away desire'; asceticism framed as liberation is not universal."
+  },
+  {
+   "ref": "6:16",
+   "action": "not_universal",
+   "reason": "Body/eating wording (eats too much, abstains to excess); risky for someone with an eating disorder."
+  },
+  {
+   "ref": "6:17",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "'Yoga killeth out all pain for him who is regulated' implies a depressed or ill person's pain comes from being unregulated."
+  },
+  {
+   "ref": "6:17",
+   "action": "not_universal",
+   "reason": "Eating/sleeping regulation and a cure-of-pain claim; not universal."
+  },
+  {
+   "ref": "6:17",
+   "action": "fix_why",
+   "new_why": "Moderation in eating, recreation, work and sleep supports a steady, balanced life.",
+   "reason": "'Takes away pain' overstates the verse as a health promise."
+  },
+  {
+   "ref": "2:60",
+   "action": "fix_why",
+   "new_why": "Even a wise person who is trying can be carried away by restless senses.",
+   "reason": "'Be patient and watchful' is added advice not in the verse."
+  },
+  {
+   "ref": "4:15",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "'Do as our forefathers did' under family_parents pressures someone abused by a parent to follow family example; the verse is about ancestors' work, not family relationships."
+  },
+  {
+   "ref": "5:24",
+   "action": "retag",
+   "drop_themes": [
+    "gratitude"
+   ],
+   "reason": "Verse is about inner happiness, not gratitude; theme mismatch."
+  },
+  {
+   "ref": "6:8",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Earth, stone and gold are the same' is dismissive to someone evicted or unable to pay rent."
+  },
+  {
+   "ref": "14:24",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'A lump of earth, a rock and gold are alike' is dismissive to someone facing eviction or debt."
+  },
+  {
+   "ref": "6:9",
+   "action": "fix_why",
+   "new_why": "Regard lovers, friends and foes, strangers, foreigners and relatives, the righteous and the unrighteous, with an even mind.",
+   "reason": "Text says 'impartially' and 'foes'; why softens foes to 'rivals' and turns impartiality into 'equal goodwill', which could be read as 'be warm to people who harm you'."
+  },
+  {
+   "ref": "6:34",
+   "action": "not_universal",
+   "reason": "Addresses Krishna by name; faith-specific for the universal pool."
+  },
+  {
+   "ref": "6:40",
+   "action": "fix_why",
+   "new_why": "One who strives for good is never lost, in this life or the next, even if they fall short.",
+   "reason": "'No one who does good ever comes to ruin' is a just-world claim that wounds a reader whose life has fallen apart; the verse is about the striver who fails not being lost."
+  },
+  {
+   "ref": "11:44",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness",
+    "family_parents"
+   ],
+   "reason": "'As father with son... as lover with beloved, bear with me' is a plea for forbearance; under forgiveness/family it echoes an abuser's 'bear with me'. Fine under love_compassion/friendship."
+  },
+  {
+   "ref": "11:44",
+   "action": "display",
+   "trim": "Therefore ",
+   "reason": "Leading 'Therefore'; also source typo 'as it fitting' (should be 'is')."
+  },
+  {
+   "ref": "13:8",
+   "action": "not_universal",
+   "reason": "Temptation-tagged list including 'purity' and 'self-control'; unsuitable for identity-disclosure pool."
+  },
+  {
+   "ref": "17:16",
+   "action": "not_universal",
+   "reason": "'Purity of nature' and self-control as mental discipline; unsuitable for identity-disclosure pool."
+  },
+  {
+   "ref": "17:20",
+   "action": "fix_why",
+   "new_why": "A gift given because giving is right, to one who cannot repay, at a fitting time and place, is pure.",
+   "reason": "Why says 'to one in need'; the text says 'to a worthy person', and the why drops 'believing a gift ought to be made'."
+  },
+  {
+   "ref": "18:66",
+   "action": "retag",
+   "drop_themes": [
+    "doubt_faith"
+   ],
+   "reason": "'Abandoning all duties come unto Me alone' is an exclusive call; under doubt_faith it pressures someone leaving their religion."
+  },
+  {
+   "ref": "18:73",
+   "action": "retag",
+   "drop_themes": [
+    "doubt_faith"
+   ],
+   "reason": "Frames doubt as 'delusion destroyed' followed by 'I will do according to Thy word' (Arjuna then goes to war); under doubt_faith it treats questioning as delusion."
+  },
+  {
+   "ref": "18:73",
+   "action": "display",
+   "trim": "Arjuna said: ",
+   "reason": "Speaker tag."
+  },
+  {
+   "ref": "3:20",
+   "action": "display",
+   "trim": "",
+   "reason": "Source typo 'he world' (should be 'the world'); fix text before display."
+  },
+  {
+   "ref": "12:13",
+   "action": "display",
+   "trim": "",
+   "reason": "Incomplete sentence ending in a comma ('He who... forgiving,'); main clause is in 12:14."
+  },
+  {
+   "ref": "12:18",
+   "action": "display",
+   "trim": "",
+   "reason": "Incomplete sentence ending in a comma; main clause continues in 12:19."
+  },
+  {
+   "ref": "2:62",
+   "action": "display",
+   "trim": "",
+   "reason": "Ends mid-sentence with ';' (the chain continues to destruction in 2:63)."
+  },
+  {
+   "ref": "2:58",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "2:60",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "2:12",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse."
+  },
+  {
+   "ref": "2:55",
+   "action": "display",
+   "trim": "The Blessed Lord said: ",
+   "reason": "Speaker tag would look broken alone; strip it."
+  },
+  {
+   "ref": "2:64",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "3:7",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "3:19",
+   "action": "display",
+   "trim": "Therefore, ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "3:37",
+   "action": "display",
+   "trim": "The Blessed Lord said: ",
+   "reason": "Speaker tag would look broken alone; strip it."
+  },
+  {
+   "ref": "5:2",
+   "action": "display",
+   "trim": "The Blessed Lord said: ",
+   "reason": "Speaker tag would look broken alone; strip it."
+  },
+  {
+   "ref": "6:34",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "6:35",
+   "action": "display",
+   "trim": "The Blessed Lord said: ",
+   "reason": "Speaker tag would look broken alone; strip it."
+  },
+  {
+   "ref": "6:40",
+   "action": "display",
+   "trim": "The Blessed Lord said: ",
+   "reason": "Speaker tag would look broken alone; strip it."
+  },
+  {
+   "ref": "10:1",
+   "action": "display",
+   "trim": "The Blessed Lord said: ",
+   "reason": "Speaker tag would look broken alone; strip it."
+  },
+  {
+   "ref": "12:9",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "16:1",
+   "action": "display",
+   "trim": "The Blessed Lord said: ",
+   "reason": "Speaker tag would look broken alone; strip it."
+  },
+  {
+   "ref": "18:11",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse."
+  }
+ ],
+ "quran": [
+  {
+   "ref": "1:6",
+   "action": "remove",
+   "reason": "'Show us the straight path,' is a fragment, and shown to a gay teenager (universal, guidance) the word 'straight' reads as a verdict on them."
+  },
+  {
+   "ref": "7:31",
+   "action": "remove",
+   "reason": "'Eat and drink, but be not prodigal... He loveth not the prodigals' under temptation_self_control tells a relapsed alcoholic to drink in moderation, and under money_worry tells someone in debt God does not love them; the why ('Enjoy food and drink, but do not overdo it') makes it worse."
+  },
+  {
+   "ref": "7:201",
+   "action": "remove",
+   "reason": "Calls a tempting thought 'a glamour from the devil'; shown to an addict, someone with intrusive thoughts or a gay teen it demonises them."
+  },
+  {
+   "ref": "10:62",
+   "action": "remove",
+   "reason": "Defines the friends of God as those who feel no fear and do not grieve, implying a grieving or anxious reader is not God's friend."
+  },
+  {
+   "ref": "14:12",
+   "action": "remove",
+   "reason": "'We surely will endure the hurt ye do us' tells a domestic-abuse victim to keep bearing the harm done to them."
+  },
+  {
+   "ref": "14:41",
+   "action": "remove",
+   "reason": "Prayer for parents' forgiveness 'on the day when the account is cast' (Judgment Day); under family_parents it asks someone abused by a parent to pray for them, and it does not fit forgiveness (forgiving others)."
+  },
+  {
+   "ref": "15:20",
+   "action": "remove",
+   "reason": "Confusing fragment ('and unto those for whom ye provide not'); 'We have given you livelihoods' is false comfort to someone evicted or unemployed."
+  },
+  {
+   "ref": "15:85",
+   "action": "remove",
+   "reason": "Ties 'So forgive' to 'the Hour is surely coming' (apocalyptic threat) and is a bare command to forgive, which pressures an abuse victim."
+  },
+  {
+   "ref": "17:20",
+   "action": "remove",
+   "reason": "'Each do We supply, both these and those' depends on the previous verses and makes no sense alone."
+  },
+  {
+   "ref": "17:23",
+   "action": "remove",
+   "reason": "'Say not Fie unto them nor repulse them' commands someone abused by a parent never to push the parent away; also opens with 'worship none save Him'."
+  },
+  {
+   "ref": "17:24",
+   "action": "remove",
+   "reason": "'Lower unto them the wing of submission... as they did care for me when I was little' tells an abused child to submit to and thank their parents."
+  },
+  {
+   "ref": "19:47",
+   "action": "remove",
+   "reason": "Abraham answering a father who threatened to stone him with peace and a prayer; the why ('Answering a harsh father with peace') models placating an abusive parent."
+  },
+  {
+   "ref": "21:84",
+   "action": "remove",
+   "reason": "Job's affliction removed and 'his household (that he had lost) and the like thereof' given back: under illness it implies healing follows prayer, and it treats dead children as replaceable."
+  },
+  {
+   "ref": "24:12",
+   "action": "remove",
+   "reason": "Context is slander; 'when ye heard it, think good of your own folk and say: It is a manifest untruth' tells a reader to disbelieve accusations against their own people, which is how abuse disclosures get silenced."
+  },
+  {
+   "ref": "24:22",
+   "action": "remove",
+   "reason": "'Let them forgive... Yearn ye not that Allah may forgive you?' makes God's forgiveness depend on forgiving others, which coerces abuse victims; the first sentence is also a confusing double negative."
+  },
+  {
+   "ref": "26:80",
+   "action": "remove",
+   "reason": "'When I sicken, then He healeth me' is the only tag (illness) and is painful to someone with a terminal diagnosis."
+  },
+  {
+   "ref": "31:14",
+   "action": "remove",
+   "reason": "Tells the reader to give thanks to their parents (painful to someone abused by a parent); pregnancy-burden imagery after a pregnancy loss; source text reads 'partners' for 'parents'."
+  },
+  {
+   "ref": "31:19",
+   "action": "remove",
+   "reason": "'The harshest of all voices is the voice of the ass' is demeaning, and 'subdue thy voice' under anger/speech silences a victim."
+  },
+  {
+   "ref": "41:34",
+   "action": "remove",
+   "reason": "'Repel the evil deed with one which is better, then lo! he... will become as though he was a bosom friend' tells an abuse victim that being nicer will turn the abuser into a friend."
+  },
+  {
+   "ref": "41:53",
+   "action": "remove",
+   "reason": "'Until it will be manifest unto them that it is the Truth' (aimed at disbelievers); the only tag is doubt_faith, where it pressures someone leaving their religion and alienates other faiths."
+  },
+  {
+   "ref": "42:43",
+   "action": "remove",
+   "reason": "'Whoso is patient and forgiveth... is of the steadfast heart', tagged patience+forgiveness, is the classic message that keeps a domestic-abuse victim enduring and forgiving."
+  },
+  {
+   "ref": "46:13",
+   "action": "remove",
+   "reason": "'Those who say: Our Lord is Allah... no fear shall come upon them'; the only tag, fear_anxiety, implies an anxious reader lacks the right creed, and it shuts out other faiths."
+  },
+  {
+   "ref": "46:15",
+   "action": "remove",
+   "reason": "Long verse of pregnancy and weaning imagery plus a duty to parents; harmful after pregnancy loss and to someone abused by a parent."
+  },
+  {
+   "ref": "51:56",
+   "action": "remove",
+   "reason": "'Created... only that they might worship Me' as the answer to purpose alienates a non-religious visitor; 'jinn' is confusing out of context."
+  },
+  {
+   "ref": "72:13",
+   "action": "remove",
+   "reason": "'Whoso believeth... feareth neither loss nor oppression' tells someone who fears an abuser that their fear shows a lack of belief."
+  },
+  {
+   "ref": "76:8",
+   "action": "remove",
+   "reason": "'The needy wretch' is demeaning toward poor people; fragment ending in a comma."
+  },
+  {
+   "ref": "94:7",
+   "action": "remove",
+   "reason": "'So when thou art relieved, still toil' (why: 'keep working') under work/laziness tells a burnt-out or depressed reader to never stop."
+  },
+  {
+   "ref": "2:45",
+   "action": "fix_why",
+   "new_why": "Seek help in patience and prayer; it is hard, except for the humble.",
+   "reason": "Why claims 'humility makes hard things bearable'; the verse says prayer is hard except for the humble."
+  },
+  {
+   "ref": "2:45",
+   "action": "not_universal",
+   "reason": "Prescribes prayer, and implies struggling means you are not humble."
+  },
+  {
+   "ref": "2:112",
+   "action": "retag",
+   "drop_themes": [
+    "fear_anxiety"
+   ],
+   "reason": "'No fear upon those who surrender to Allah' implies an anxious reader has not surrendered enough. Fine under hope."
+  },
+  {
+   "ref": "2:277",
+   "action": "retag",
+   "drop_themes": [
+    "fear_anxiety"
+   ],
+   "reason": "No fear for those who believe, pray and give the poor-due; for an anxious reader it implies anxiety comes from too little observance."
+  },
+  {
+   "ref": "2:156",
+   "action": "retag",
+   "drop_themes": [
+    "mortality"
+   ],
+   "reason": "'Unto Him we are returning', shown to a suicidal reader, frames death as going home. Fine under grief."
+  },
+  {
+   "ref": "2:156",
+   "action": "display",
+   "trim": "Who say, when a misfortune striketh them: ",
+   "reason": "Begins with a relative clause; trim so the verse starts 'Lo! we are Allah's...'."
+  },
+  {
+   "ref": "2:215",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "Says spending must go to parents first; under family_parents it pressures someone financially exploited or abused by a parent."
+  },
+  {
+   "ref": "2:215",
+   "action": "display",
+   "trim": "They ask thee, (O Muhammad), what they shall spend. Say: ",
+   "reason": "Framing and gloss."
+  },
+  {
+   "ref": "2:245",
+   "action": "fix_why",
+   "new_why": "Giving for good is like lending to God; nothing given is lost.",
+   "reason": "'Returned to you many times over' reads as a financial promise (prosperity-gospel style) to visitors."
+  },
+  {
+   "ref": "2:273",
+   "action": "fix_why",
+   "new_why": "Look out for the poor who are in need but too dignified to beg, and help them.",
+   "reason": "'Too proud to beg' is a judgment; the verse praises their restraint."
+  },
+  {
+   "ref": "2:273",
+   "action": "display",
+   "trim": "(Alms are) ",
+   "reason": "Leading bracketed gloss."
+  },
+  {
+   "ref": "2:274",
+   "action": "display",
+   "trim": "",
+   "reason": "Source typo 'their shall' (should be 'there shall')."
+  },
+  {
+   "ref": "2:32",
+   "action": "not_universal",
+   "reason": "Angels' speech, 'Thou, only Thou, art the Knower'; exclusive address to God."
+  },
+  {
+   "ref": "2:186",
+   "action": "not_universal",
+   "reason": "'I answer the prayer of the suppliant' is painful in the universal pool to someone who prayed through a pregnancy loss."
+  },
+  {
+   "ref": "1:2",
+   "action": "not_universal",
+   "reason": "Pure liturgical praise of Allah; not suited to the identity-disclosure pool."
+  },
+  {
+   "ref": "2:269",
+   "action": "not_universal",
+   "reason": "'None remember except men of understanding': gendered."
+  },
+  {
+   "ref": "3:190",
+   "action": "retag",
+   "drop_themes": [
+    "doubt_faith"
+   ],
+   "reason": "Signs are 'for men of understanding', implying a doubter lacks understanding."
+  },
+  {
+   "ref": "3:190",
+   "action": "not_universal",
+   "reason": "Gendered ('men of understanding') and doctrinal gloss."
+  },
+  {
+   "ref": "3:200",
+   "action": "retag",
+   "drop_themes": [
+    "suffering_endurance",
+    "patience"
+   ],
+   "reason": "'Endure, outdo all others in endurance, be ready' is battle steadfastness; under suffering/patience it pushes an abuse victim to keep enduring."
+  },
+  {
+   "ref": "4:1",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "'Be careful of your duty toward the wombs that bare you' puts a duty on someone abused by a parent; womb imagery."
+  },
+  {
+   "ref": "4:28",
+   "action": "retag",
+   "drop_themes": [
+    "self_worth"
+   ],
+   "reason": "'Man was created weak' is the wrong message for someone with low self-worth (e.g. a trans teen)."
+  },
+  {
+   "ref": "4:124",
+   "action": "retag",
+   "drop_themes": [
+    "self_worth"
+   ],
+   "reason": "'Whether of male or female, and he (or she) is a believer': binary and conditional on belief, wrong under self_worth for a trans or non-religious teen."
+  },
+  {
+   "ref": "4:149",
+   "action": "fix_why",
+   "new_why": "Whether you do good openly or in secret, or pardon a wrong, God is forgiving and powerful.",
+   "reason": "Why says 'God sees it'; the verse ends 'Allah is ever Forgiving, Powerful'."
+  },
+  {
+   "ref": "7:55",
+   "action": "not_universal",
+   "reason": "'Call upon your Lord humbly'; a worship instruction."
+  },
+  {
+   "ref": "7:56",
+   "action": "not_universal",
+   "reason": "'Call on Him in fear'; mercy is 'nigh unto the good'. Also lowercase 'and' typo."
+  },
+  {
+   "ref": "7:55",
+   "action": "display",
+   "trim": "(O mankind!) ",
+   "reason": "Leading bracketed gloss."
+  },
+  {
+   "ref": "8:27",
+   "action": "retag",
+   "drop_themes": [
+    "betrayal"
+   ],
+   "reason": "An instruction not to betray God and His messenger; a betrayed reader is told not to betray, and someone leaving their faith is cast as a betrayer."
+  },
+  {
+   "ref": "8:61",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness"
+   ],
+   "reason": "'If they incline to peace, incline thou also' (said of enemies in war) maps onto an abuser's apology cycle under forgiveness."
+  },
+  {
+   "ref": "9:105",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "'Act! Allah will behold your actions... He will tell you what ye used to do' frames a depressed reader's inactivity under surveillance and judgment."
+  },
+  {
+   "ref": "9:105",
+   "action": "display",
+   "trim": "And say (unto them): ",
+   "reason": "Framing."
+  },
+  {
+   "ref": "10:25",
+   "action": "retag",
+   "drop_themes": [
+    "guidance_decisions"
+   ],
+   "reason": "'Leadeth whom He will to a straight path'; for a gay teen deciding whether to come out, 'straight path' reads as a verdict."
+  },
+  {
+   "ref": "10:25",
+   "action": "not_universal",
+   "reason": "'Straight path' wording and 'whom He will' exclusivity."
+  },
+  {
+   "ref": "10:57",
+   "action": "retag",
+   "drop_themes": [
+    "illness"
+   ],
+   "reason": "'A balm for that which is in the breasts' (archaic for hearts) under illness can read as a cure claim, e.g. to a breast-cancer patient; it is about guidance for believers."
+  },
+  {
+   "ref": "12:69",
+   "action": "retag",
+   "drop_themes": [
+    "grief"
+   ],
+   "reason": "'Sorrow not for what they did' is about brothers' wrongdoing, not bereavement; to a bereaved parent it reads as 'do not grieve'."
+  },
+  {
+   "ref": "12:69",
+   "action": "display",
+   "trim": "And when they went in before Joseph, he took his brother unto him, saying: ",
+   "reason": "Narrative framing."
+  },
+  {
+   "ref": "12:83",
+   "action": "retag",
+   "drop_themes": [
+    "grief"
+   ],
+   "reason": "Jacob hopes God 'will bring them all unto me'; to a parent whose child died it offers false hope of return."
+  },
+  {
+   "ref": "12:83",
+   "action": "display",
+   "trim": "(And when they came unto their father and had spoken thus to him) he said: Nay, but your minds have beguiled you into something. ",
+   "reason": "Bracketed framing and an accusation against the sons; start at '(My course is) comely patience!'."
+  },
+  {
+   "ref": "12:86",
+   "action": "retag",
+   "drop_themes": [
+    "loneliness"
+   ],
+   "reason": "'I expose my distress only unto Allah' tells a lonely or suicidal reader to share their anguish with no human."
+  },
+  {
+   "ref": "12:86",
+   "action": "not_universal",
+   "reason": "'Only unto Allah' discourages seeking human help; not universal."
+  },
+  {
+   "ref": "12:92",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "Joseph forgiving the brothers who threw him in a pit; under family_parents it models forgiving family abuse."
+  },
+  {
+   "ref": "12:92",
+   "action": "fix_why",
+   "new_why": "Joseph to the brothers who wronged him: have no fear today; may God forgive you.",
+   "reason": "Why quotes 'no blame on you today', which is not Pickthall's wording ('Have no fear this day')."
+  },
+  {
+   "ref": "12:92",
+   "action": "display",
+   "trim": "He said: ",
+   "reason": "Speaker tag."
+  },
+  {
+   "ref": "12:100",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents",
+    "forgiveness"
+   ],
+   "reason": "Parents prostrating, and the brothers' abuse blamed on Satan ('after Satan had made strife'); under family/forgiveness it excuses family harm and pushes reconciliation."
+  },
+  {
+   "ref": "12:53",
+   "action": "not_universal",
+   "reason": "'The (human) soul enjoineth unto evil': repentance verse in the identity-disclosure pool implies the disclosed identity is sin."
+  },
+  {
+   "ref": "12:67",
+   "action": "not_universal",
+   "reason": "'O my sons!': gendered, and 'go in by different gates' is opaque alone."
+  },
+  {
+   "ref": "13:22",
+   "action": "not_universal",
+   "reason": "Regular prayer and 'the (heavenly) Home'; begins as a fragment ('Such as')."
+  },
+  {
+   "ref": "13:28",
+   "action": "not_universal",
+   "reason": "'Who have believed and whose hearts have rest in remembrance of Allah' makes rest conditional on belief; faith-specific."
+  },
+  {
+   "ref": "13:28",
+   "action": "display",
+   "trim": "Who have believed and whose hearts have rest in the remembrance of Allah. ",
+   "reason": "Leading relative clause; start at 'Verily in the remembrance...'."
+  },
+  {
+   "ref": "16:78",
+   "action": "not_universal",
+   "reason": "'Brought you forth from the wombs of your mothers... gave you hearing and sight': womb imagery after pregnancy loss, and alienating to a deaf or blind visitor."
+  },
+  {
+   "ref": "17:26",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry",
+    "family_parents"
+   ],
+   "reason": "'Squander not' implies an evicted reader wasted their money, and 'give the kinsman his due' pressures someone financially exploited by family."
+  },
+  {
+   "ref": "17:29",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Warns that open-handedness leaves you 'rebuked, denuded'; shames someone already broke."
+  },
+  {
+   "ref": "17:53",
+   "action": "not_universal",
+   "reason": "Devil sowing discord, God's 'bondmen'; not universal."
+  },
+  {
+   "ref": "17:81",
+   "action": "not_universal",
+   "reason": "'Truth hath come and falsehood hath vanished' (said at the destruction of idols) is triumphalist toward other religions."
+  },
+  {
+   "ref": "18:10",
+   "action": "not_universal",
+   "reason": "Prayer of 'the young men' in the cave; gendered and devotional."
+  },
+  {
+   "ref": "20:44",
+   "action": "retag",
+   "drop_themes": [
+    "anger"
+   ],
+   "reason": "Moses told to speak gently to Pharaoh; why 'Speak gently, even to someone hard' tells an angry abuse victim to placate their abuser."
+  },
+  {
+   "ref": "20:50",
+   "action": "not_universal",
+   "reason": "Under self_worth, 'gave unto everything its nature, then guided it aright' can be read to a trans teen as 'your assigned nature is God's'; creedal."
+  },
+  {
+   "ref": "20:112",
+   "action": "retag",
+   "drop_themes": [
+    "justice_wronged"
+   ],
+   "reason": "'Being a believer, he feareth not injustice' implies a wronged reader suffered injustice for lack of faith."
+  },
+  {
+   "ref": "20:114",
+   "action": "display",
+   "trim": "Then exalted be Allah, the True King! And hasten not (O Muhammad) with the Qur'an ere its revelation hath been perfected unto thee, and say: ",
+   "reason": "The why only covers the closing prayer; strip the Qur'an-revelation framing so it reads 'My Lord! Increase me in knowledge.'."
+  },
+  {
+   "ref": "21:47",
+   "action": "not_universal",
+   "reason": "'Day of Resurrection' and reckoning; doctrinal."
+  },
+  {
+   "ref": "23:62",
+   "action": "retag",
+   "drop_themes": [
+    "overwork_rest",
+    "illness"
+   ],
+   "reason": "'We task not any soul beyond its scope' is the 'never more than you can handle' platitude, invalidating to a burnt-out or terminally ill reader; also ends with the Record and reckoning."
+  },
+  {
+   "ref": "23:96",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness",
+    "betrayal"
+   ],
+   "reason": "'Repel evil with that which is better' under forgiveness/betrayal tells an abuse victim to meet harm with kindness. Fine under anger."
+  },
+  {
+   "ref": "25:71",
+   "action": "not_universal",
+   "reason": "Repentance in the identity-disclosure pool; fragment ending with a dash."
+  },
+  {
+   "ref": "25:72",
+   "action": "not_universal",
+   "reason": "Temptation-tagged; 'will not witness vanity' begins as a fragment."
+  },
+  {
+   "ref": "25:67",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Neither prodigal nor grudging' implies an evicted reader overspent."
+  },
+  {
+   "ref": "27:89",
+   "action": "not_universal",
+   "reason": "'Safe from fear that Day' (Judgment Day); doctrinal."
+  },
+  {
+   "ref": "28:16",
+   "action": "not_universal",
+   "reason": "Moses' repentance (after killing a man); repentance verse in the identity-disclosure pool."
+  },
+  {
+   "ref": "28:26",
+   "action": "not_universal",
+   "reason": "'The best (man)... the strong' is gendered and body-related (alienating to a disabled job-seeker); source typo 'in the strong'."
+  },
+  {
+   "ref": "28:77",
+   "action": "not_universal",
+   "reason": "Hereafter and 'Allah loveth not corrupters'; doctrinal; trailing comma."
+  },
+  {
+   "ref": "30:38",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "'Give to the kinsman his due' frames family as a financial duty, wrong for someone exploited by family."
+  },
+  {
+   "ref": "31:16",
+   "action": "not_universal",
+   "reason": "'O my dear son!': gendered address."
+  },
+  {
+   "ref": "34:39",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'My Lord... narroweth (provision) for him' says God made you poor, and 'whatsoever ye spend He replaceth' is a prosperity promise."
+  },
+  {
+   "ref": "35:34",
+   "action": "retag",
+   "drop_themes": [
+    "grief"
+   ],
+   "reason": "Spoken by people already in paradise; to a fresh griever 'praise God who has put grief away from us' is dismissive."
+  },
+  {
+   "ref": "35:34",
+   "action": "fix_why",
+   "new_why": "Words of those in paradise: praise be to God, who has taken grief away from us.",
+   "reason": "The why presents a paradise saying as a present-tense claim."
+  },
+  {
+   "ref": "39:53",
+   "action": "retag",
+   "drop_themes": [
+    "failure"
+   ],
+   "reason": "Frames failure (an exam, a job) as sin needing mercy."
+  },
+  {
+   "ref": "41:30",
+   "action": "retag",
+   "drop_themes": [
+    "grief"
+   ],
+   "reason": "Angels tell those with the right creed 'Fear not nor grieve'; rebukes grief and is creed-conditional."
+  },
+  {
+   "ref": "42:25",
+   "action": "not_universal",
+   "reason": "Repentance verse in the identity-disclosure pool."
+  },
+  {
+   "ref": "49:10",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "About believers as brothers; not about family, and gendered."
+  },
+  {
+   "ref": "49:13",
+   "action": "retag",
+   "drop_themes": [
+    "self_worth"
+   ],
+   "reason": "'We have created you male and female' under self_worth confronts a trans or non-binary teen with a binary. Fine under kindness_strangers."
+  },
+  {
+   "ref": "53:39",
+   "action": "retag",
+   "drop_themes": [
+    "failure",
+    "laziness_discipline"
+   ],
+   "reason": "'Man hath only that for which he maketh effort' implies failure, poverty or depression is the reader's own doing."
+  },
+  {
+   "ref": "53:39",
+   "action": "not_universal",
+   "reason": "Gendered 'man'; blame framing."
+  },
+  {
+   "ref": "55:13",
+   "action": "not_universal",
+   "reason": "'Which... favours of your Lord... that ye deny?' accuses the reader of denying God."
+  },
+  {
+   "ref": "59:18",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "'What it sendeth on before for the morrow' is preparation for Judgment Day; to a depressed reader it is a threat."
+  },
+  {
+   "ref": "59:18",
+   "action": "fix_why",
+   "new_why": "Let every soul look to what it sends ahead for the Day to come, and keep its duty to God.",
+   "reason": "Why turns the Judgment-Day 'morrow' into ordinary planning for tomorrow."
+  },
+  {
+   "ref": "59:9",
+   "action": "not_universal",
+   "reason": "'Entered... the faith' (the Muslims of Medina) is faith-specific; also temptation-tagged."
+  },
+  {
+   "ref": "68:32",
+   "action": "not_universal",
+   "reason": "Spoken by garden-owners after their garden was destroyed as punishment; 'we beseech our Lord'."
+  },
+  {
+   "ref": "84:6",
+   "action": "not_universal",
+   "reason": "'O man... thou wilt meet (Him)' is gendered, and its context is the Judgment."
+  },
+  {
+   "ref": "93:8",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Did He not find thee destitute and enrich thee?' is cruel to someone currently destitute."
+  },
+  {
+   "ref": "94:8",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "'Strive to please thy Lord' continues 'still toil'; pressure on a depressed reader."
+  },
+  {
+   "ref": "11:6",
+   "action": "fix_why",
+   "new_why": "Every creature's sustenance rests with God, who knows where each one dwells.",
+   "reason": "'Every creature on earth is provided for' overstates the text and is false comfort to someone homeless."
+  },
+  {
+   "ref": "2:32",
+   "action": "display",
+   "trim": "They said: ",
+   "reason": "Speaker tag."
+  },
+  {
+   "ref": "7:128",
+   "action": "display",
+   "trim": "And Moses said unto his people: ",
+   "reason": "Speaker tag."
+  },
+  {
+   "ref": "7:151",
+   "action": "display",
+   "trim": "He said: ",
+   "reason": "Speaker tag."
+  },
+  {
+   "ref": "10:58",
+   "action": "display",
+   "trim": "Say: ",
+   "reason": "Command framing."
+  },
+  {
+   "ref": "12:86",
+   "action": "display",
+   "trim": "He said: ",
+   "reason": "Speaker tag."
+  },
+  {
+   "ref": "12:98",
+   "action": "display",
+   "trim": "He said: ",
+   "reason": "Speaker tag."
+  },
+  {
+   "ref": "17:36",
+   "action": "display",
+   "trim": "(O man), ",
+   "reason": "Bracketed gloss."
+  },
+  {
+   "ref": "17:80",
+   "action": "display",
+   "trim": "And say: ",
+   "reason": "Framing."
+  },
+  {
+   "ref": "17:81",
+   "action": "display",
+   "trim": "And say: ",
+   "reason": "Framing."
+  },
+  {
+   "ref": "18:109",
+   "action": "display",
+   "trim": "Say: ",
+   "reason": "Framing."
+  },
+  {
+   "ref": "20:25",
+   "action": "display",
+   "trim": "(Moses) said: ",
+   "reason": "Bracketed speaker tag."
+  },
+  {
+   "ref": "20:46",
+   "action": "display",
+   "trim": "He said: ",
+   "reason": "Speaker tag; note 'you twain' (two people) is opaque alone."
+  },
+  {
+   "ref": "20:50",
+   "action": "display",
+   "trim": "He said: ",
+   "reason": "Speaker tag."
+  },
+  {
+   "ref": "20:68",
+   "action": "display",
+   "trim": "We said: ",
+   "reason": "Speaker tag."
+  },
+  {
+   "ref": "23:29",
+   "action": "display",
+   "trim": "And say: ",
+   "reason": "Framing."
+  },
+  {
+   "ref": "23:118",
+   "action": "display",
+   "trim": "And (O Muhammad) say: ",
+   "reason": "Framing and gloss."
+  },
+  {
+   "ref": "26:62",
+   "action": "display",
+   "trim": "He said: Nay, verily! for lo! ",
+   "reason": "Speaker tag and exclamations."
+  },
+  {
+   "ref": "28:16",
+   "action": "display",
+   "trim": "He said: ",
+   "reason": "Speaker tag."
+  },
+  {
+   "ref": "28:26",
+   "action": "display",
+   "trim": "One of the two women said: ",
+   "reason": "Speaker tag; also source typo 'in the strong' (should be 'is')."
+  },
+  {
+   "ref": "35:34",
+   "action": "display",
+   "trim": "And they say: ",
+   "reason": "Speaker tag."
+  },
+  {
+   "ref": "71:10",
+   "action": "display",
+   "trim": "And I have said: ",
+   "reason": "Speaker framing."
+  },
+  {
+   "ref": "76:9",
+   "action": "display",
+   "trim": "(Saying): ",
+   "reason": "Bracketed speaker tag."
+  },
+  {
+   "ref": "65:3",
+   "action": "display",
+   "trim": "",
+   "reason": "Opens mid-sentence with no subject ('And will provide for him...'; the subject is in 65:2); trim 'And will provide for him from (a quarter) whence he hath no expectation. And ' or exclude."
+  },
+  {
+   "ref": "8:61",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction."
+  },
+  {
+   "ref": "2:112",
+   "action": "display",
+   "trim": "Nay, but ",
+   "reason": "Leading 'Nay, but'."
+  },
+  {
+   "ref": "20:44",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction."
+  },
+  {
+   "ref": "23:62",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction."
+  },
+  {
+   "ref": "4:106",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "4:110",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "5:39",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "7:153",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "9:102",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "11:90",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "16:119",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "17:25",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "71:10",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "110:3",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "2:148",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "2:152",
+   "action": "display",
+   "trim": "Therefore ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "2:186",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "2:188",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "2:245",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse."
+  },
+  {
+   "ref": "2:280",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "3:104",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "3:133",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "3:135",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "3:150",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "4:32",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "4:106",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "4:110",
+   "action": "display",
+   "trim": "Yet ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "4:124",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "5:39",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "6:54",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "6:59",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "6:97",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "6:152",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "7:153",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "7:205",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "9:102",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "10:25",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "11:6",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "11:69",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "11:115",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "12:67",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "12:84",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "12:100",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "13:22",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse."
+  },
+  {
+   "ref": "16:18",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "16:41",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "16:53",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "16:78",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "16:95",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "16:114",
+   "action": "display",
+   "trim": "So ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "16:119",
+   "action": "display",
+   "trim": "Then ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "17:19",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "17:29",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "17:37",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "20:26",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "20:27",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "20:82",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "20:112",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "20:130",
+   "action": "display",
+   "trim": "Therefor ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "20:131",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "21:47",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "21:83",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "21:94",
+   "action": "display",
+   "trim": "Then ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "25:47",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "25:62",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "25:67",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "25:71",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "25:72",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "26:217",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "28:5",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "28:21",
+   "action": "display",
+   "trim": "So ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "28:22",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "28:24",
+   "action": "display",
+   "trim": "So ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "28:55",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "28:77",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "29:6",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "29:46",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "29:60",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "30:21",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "30:22",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "30:23",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "30:38",
+   "action": "display",
+   "trim": "So ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "30:60",
+   "action": "display",
+   "trim": "So ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "31:12",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "31:27",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "32:7",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse."
+  },
+  {
+   "ref": "33:3",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "33:58",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "39:18",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse."
+  },
+  {
+   "ref": "42:25",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "42:28",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "42:36",
+   "action": "display",
+   "trim": "Now ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "42:37",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "42:38",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "45:13",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "51:19",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "53:39",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "53:40",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "55:13",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse."
+  },
+  {
+   "ref": "59:10",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "62:10",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "70:5",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "73:10",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "74:7",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "78:9",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "87:8",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "90:17",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "93:4",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "93:5",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "93:9",
+   "action": "display",
+   "trim": "Therefor ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "93:10",
+   "action": "display",
+   "trim": "Therefor ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "93:11",
+   "action": "display",
+   "trim": "Therefor ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "94:5",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "94:8",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "99:7",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "110:3",
+   "action": "display",
+   "trim": "Then ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  }
+ ],
+ "bible": [
+  {
+   "ref": "Exodus 20:12",
+   "action": "remove",
+   "reason": "'Honour thy father and thy mother: that thy days may be long' is the verse most used against people abused by a parent, with a longevity condition attached."
+  },
+  {
+   "ref": "Deuteronomy 5:16",
+   "action": "remove",
+   "reason": "Same command to honour parents 'that it may go well with thee'; harmful under family_parents for someone abused by a parent."
+  },
+  {
+   "ref": "Genesis 50:21",
+   "action": "remove",
+   "reason": "Joseph promises to feed the brothers who sold him; the why ('answers those who hurt him with care') models caring for your abusers, and no remaining tag fits (they are not strangers)."
+  },
+  {
+   "ref": "2 Kings 20:5",
+   "action": "remove",
+   "reason": "'I have heard thy prayer... I will heal thee' (why: 'healing is promised') is a false promise to someone terminally ill and implies their prayer went unheard."
+  },
+  {
+   "ref": "Nehemiah 8:10",
+   "action": "remove",
+   "reason": "'Eat the fat, and drink the sweet' (drinking and food cues) plus 'neither be ye sorry', which rebukes sorrow under hope."
+  },
+  {
+   "ref": "Proverbs 1:8",
+   "action": "remove",
+   "reason": "'My son, hear the instruction of thy father, and forsake not the law of thy mother' commands obedience to parents; harmful to someone abused by a parent."
+  },
+  {
+   "ref": "Proverbs 6:6",
+   "action": "remove",
+   "reason": "'Go to the ant, thou sluggard' calls a depressed or burnt-out reader a sluggard."
+  },
+  {
+   "ref": "Proverbs 10:4",
+   "action": "remove",
+   "reason": "'He becometh poor that dealeth with a slack hand' says poverty is deserved; tagged for depressed and struggling readers."
+  },
+  {
+   "ref": "Proverbs 10:22",
+   "action": "remove",
+   "reason": "'The blessing of the LORD, it maketh rich' under money_worry tells an evicted reader they are not blessed (prosperity gospel)."
+  },
+  {
+   "ref": "Proverbs 11:24",
+   "action": "remove",
+   "reason": "'Withholdeth more than is meet... tendeth to poverty' (why: 'holds back and grows poor') blames poverty on stinginess."
+  },
+  {
+   "ref": "Proverbs 13:4",
+   "action": "remove",
+   "reason": "'The soul of the sluggard desireth, and hath nothing' insults a depressed reader under laziness_discipline."
+  },
+  {
+   "ref": "Proverbs 17:6",
+   "action": "remove",
+   "reason": "'The glory of children are their fathers' (abused child) and 'children's children are the crown' (a parent who lost a child, or infertility) under family/parenting."
+  },
+  {
+   "ref": "Proverbs 17:9",
+   "action": "remove",
+   "reason": "'He that covereth a transgression seeketh love; but he that repeateth a matter separateth very friends' discourages disclosing abuse."
+  },
+  {
+   "ref": "Proverbs 23:18",
+   "action": "remove",
+   "reason": "'For surely there is an end' uses archaic 'end' (meaning future), which a suicidal reader can take as death; the why's 'future' is not what they will read."
+  },
+  {
+   "ref": "Proverbs 23:22",
+   "action": "remove",
+   "reason": "'Hearken unto thy father that begat thee', marked universal, commands obedience to a father."
+  },
+  {
+   "ref": "Proverbs 25:15",
+   "action": "remove",
+   "reason": "'By long forbearing is a prince persuaded, and a soft tongue breaketh the bone' tells an abuse victim that patience and placating will win over the powerful; violent image."
+  },
+  {
+   "ref": "Proverbs 27:6",
+   "action": "remove",
+   "reason": "'Faithful are the wounds of a friend' normalises being hurt by a friend or partner."
+  },
+  {
+   "ref": "Proverbs 28:13",
+   "action": "remove",
+   "reason": "'He that covereth his sins shall not prosper' threatens someone who keeps something private (e.g. an abortion) under guilt_repentance."
+  },
+  {
+   "ref": "Proverbs 29:25",
+   "action": "remove",
+   "reason": "'The fear of man bringeth a snare: but whoso putteth his trust in the LORD shall be safe' tells someone who fears a violent partner that their fear is the trap and faith will keep them safe."
+  },
+  {
+   "ref": "Ecclesiastes 7:10",
+   "action": "remove",
+   "reason": "'Say not... the former days were better... thou dost not enquire wisely' rebukes someone mourning a life lost to death, diagnosis or divorce."
+  },
+  {
+   "ref": "Jeremiah 29:13",
+   "action": "remove",
+   "reason": "'Ye shall find me when ye search with all your heart'; the only tag is doubt_faith, where it implies a doubter did not search hard enough."
+  },
+  {
+   "ref": "Matthew 5:24",
+   "action": "remove",
+   "reason": "'First be reconciled to thy brother' pressures reconciliation with family (including an abuser) before worship."
+  },
+  {
+   "ref": "Matthew 6:14",
+   "action": "remove",
+   "reason": "'If ye forgive men... your Father will forgive you' makes God's forgiveness depend on forgiving (6:15 states the threat), which coerces abuse victims."
+  },
+  {
+   "ref": "Matthew 18:15",
+   "action": "remove",
+   "reason": "'Go and tell him his fault between thee and him alone' tells an abuse victim to confront their abuser privately; this is the well-known church cover-up mechanism."
+  },
+  {
+   "ref": "Matthew 19:14",
+   "action": "remove",
+   "reason": "Modern readers take 'Suffer little children' as 'make children suffer'; it is also tied to child-death consolation, a risk under parenting."
+  },
+  {
+   "ref": "Mark 11:25",
+   "action": "remove",
+   "reason": "'Forgive... that your Father also may forgive you': conditional, coercive forgiveness."
+  },
+  {
+   "ref": "Mark 12:44",
+   "action": "remove",
+   "reason": "Praises a poor widow for giving 'all that she had, even all her living'; can pressure poor visitors to give away money they need."
+  },
+  {
+   "ref": "Luke 10:41",
+   "action": "remove",
+   "reason": "'Martha, Martha, thou art careful and troubled' is a rebuke (10:42 completes it); under overwork_rest it scolds the exhausted and anxious."
+  },
+  {
+   "ref": "Luke 17:3",
+   "action": "remove",
+   "reason": "'If he repent, forgive him' (and 17:4: seven times a day) describes the domestic-abuse apology cycle."
+  },
+  {
+   "ref": "John 14:2",
+   "action": "remove",
+   "reason": "'I go to prepare a place for you', shown to a suicidal reader under mortality, frames death as a prepared home; per the brief, an afterlife verse should not sit under grief, and no tag would remain."
+  },
+  {
+   "ref": "1 Corinthians 10:13",
+   "action": "remove",
+   "reason": "'Will not suffer you to be tempted above that ye are able; but will... make a way to escape' tells an addict who just relapsed that they had an escape and failed to take it."
+  },
+  {
+   "ref": "2 Corinthians 4:16",
+   "action": "remove",
+   "reason": "'Though our outward man perish' is body-abandoning language under mortality/illness, and 'we faint not' under overwork_rest rebukes exhaustion."
+  },
+  {
+   "ref": "Ephesians 5:20",
+   "action": "remove",
+   "reason": "'Giving thanks always for all things' asks a bereaved or abused reader to give thanks for what happened to them."
+  },
+  {
+   "ref": "Philippians 2:14",
+   "action": "remove",
+   "reason": "'Do all things without murmurings and disputings', marked universal and tagged patience, silences someone complaining about mistreatment."
+  },
+  {
+   "ref": "1 Timothy 5:4",
+   "action": "remove",
+   "reason": "'Requite their parents' is a duty to repay parents; harmful to someone abused by a parent; confusing opening about widows' nephews."
+  },
+  {
+   "ref": "Hebrews 12:11",
+   "action": "remove",
+   "reason": "'Chastening' is God's punishment (12:6 'scourgeth every son'); the why 'Discipline is not pleasant at the time, but later yields peace' can endorse corporal punishment to a child-abuse victim and frames depression as chastisement."
+  },
+  {
+   "ref": "3 John 1:2",
+   "action": "remove",
+   "reason": "'Prosper and be in health, even as thy soul prospereth' ties health to the state of your soul, implying a sick person's soul is lacking; the only tag is illness."
+  },
+  {
+   "ref": "Genesis 50:20",
+   "action": "retag",
+   "drop_themes": [
+    "suffering_endurance"
+   ],
+   "reason": "'Ye thought evil against me; but God meant it unto good' tells a child-abuse or bereaved reader their suffering was God's plan."
+  },
+  {
+   "ref": "Genesis 50:20",
+   "action": "not_universal",
+   "reason": "Theodicy ('God meant it unto good'); not universal."
+  },
+  {
+   "ref": "Genesis 50:20",
+   "action": "display",
+   "trim": "But as for you, ",
+   "reason": "Leading conjunction."
+  },
+  {
+   "ref": "Leviticus 19:32",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "'Honour the face of the old man, and fear thy God' under family_parents is filial pressure."
+  },
+  {
+   "ref": "Leviticus 19:32",
+   "action": "not_universal",
+   "reason": "'Fear thy God' and 'old man'; not universal."
+  },
+  {
+   "ref": "Deuteronomy 4:29",
+   "action": "retag",
+   "drop_themes": [
+    "doubt_faith"
+   ],
+   "reason": "'Thou shalt find him, if thou seek him with all thy heart' implies someone who lost faith did not seek wholeheartedly (and the context is exile as punishment)."
+  },
+  {
+   "ref": "Deuteronomy 4:29",
+   "action": "not_universal",
+   "reason": "Conditional-on-wholehearted-seeking wording; faith-specific."
+  },
+  {
+   "ref": "Deuteronomy 4:29",
+   "action": "display",
+   "trim": "But if from thence ",
+   "reason": "'From thence' refers to exile; strip."
+  },
+  {
+   "ref": "Psalms 30:2",
+   "action": "retag",
+   "drop_themes": [
+    "illness"
+   ],
+   "reason": "'I cried unto thee, and thou hast healed me' is painful to someone with a terminal diagnosis. Fine under gratitude."
+  },
+  {
+   "ref": "Psalms 30:11",
+   "action": "retag",
+   "drop_themes": [
+    "grief"
+   ],
+   "reason": "'Turned my mourning into dancing' is premature and minimising to a parent whose child died yesterday. Fine under hope."
+  },
+  {
+   "ref": "Psalms 42:5",
+   "action": "retag",
+   "drop_themes": [
+    "grief"
+   ],
+   "reason": "'Why art thou cast down?' alone reads as questioning a griever's sorrow."
+  },
+  {
+   "ref": "Psalms 42:11",
+   "action": "retag",
+   "drop_themes": [
+    "grief"
+   ],
+   "reason": "Same 'Why art thou cast down?' rebuke-shaped line under grief."
+  },
+  {
+   "ref": "Psalms 103:3",
+   "action": "retag",
+   "drop_themes": [
+    "illness"
+   ],
+   "reason": "'Who healeth all thy diseases', next to 'forgiveth all thine iniquities', is a false cure promise and links disease to sin."
+  },
+  {
+   "ref": "Psalms 103:3",
+   "action": "not_universal",
+   "reason": "Iniquities and a healing promise; not universal."
+  },
+  {
+   "ref": "Psalms 103:14",
+   "action": "retag",
+   "drop_themes": [
+    "self_worth"
+   ],
+   "reason": "'He remembereth that we are dust' under self_worth tells a low-self-worth reader they are dust."
+  },
+  {
+   "ref": "Psalms 103:14",
+   "action": "fix_why",
+   "new_why": "He knows how we are made; he remembers that we are dust.",
+   "reason": "The why adds 'only', making the verse more demeaning than the text."
+  },
+  {
+   "ref": "Psalms 147:3",
+   "action": "retag",
+   "drop_themes": [
+    "illness"
+   ],
+   "reason": "About the broken-hearted; under illness it reads as a cure promise."
+  },
+  {
+   "ref": "Proverbs 3:5",
+   "action": "retag",
+   "drop_themes": [
+    "doubt_faith"
+   ],
+   "reason": "'Lean not unto thine own understanding' tells someone questioning their religion (or deciding to leave a controlling situation) to distrust their own judgment."
+  },
+  {
+   "ref": "Proverbs 3:5",
+   "action": "fix_why",
+   "new_why": "Trust in the LORD with all your heart and do not lean on your own understanding.",
+   "reason": "The why adds 'only', softening the text into something it does not say."
+  },
+  {
+   "ref": "Proverbs 3:5",
+   "action": "not_universal",
+   "reason": "'Lean not unto thine own understanding' is unsafe for the identity-disclosure pool."
+  },
+  {
+   "ref": "Proverbs 3:28",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "About not delaying help to a neighbour; not about laziness, so it mismatches the theme."
+  },
+  {
+   "ref": "Proverbs 10:12",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness"
+   ],
+   "reason": "'Love covereth all sins' under forgiveness tells an abuse victim to cover up a partner's harm."
+  },
+  {
+   "ref": "Proverbs 12:24",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "'The slothful shall be under tribute' shames a depressed reader."
+  },
+  {
+   "ref": "Proverbs 13:11",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'He that gathereth by labour shall increase' implies an evicted reader did not labour."
+  },
+  {
+   "ref": "Proverbs 13:11",
+   "action": "fix_why",
+   "new_why": "Wealth gained by vanity dwindles; what is gathered by labour grows.",
+   "reason": "The why ('money gained quickly... little by little') follows a modern translation, not the KJV text shown."
+  },
+  {
+   "ref": "Proverbs 15:1",
+   "action": "retag",
+   "drop_themes": [
+    "marriage"
+   ],
+   "reason": "'A soft answer turneth away wrath' under marriage puts the job of preventing a violent spouse's anger on the victim."
+  },
+  {
+   "ref": "Proverbs 15:16",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Better a little / wisdom / a good name than riches' is dismissive to someone who is being evicted and has nothing. Fine under its other themes."
+  },
+  {
+   "ref": "Proverbs 16:8",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Better a little / wisdom / a good name than riches' is dismissive to someone who is being evicted and has nothing. Fine under its other themes."
+  },
+  {
+   "ref": "Proverbs 16:16",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Better a little / wisdom / a good name than riches' is dismissive to someone who is being evicted and has nothing. Fine under its other themes."
+  },
+  {
+   "ref": "Proverbs 22:1",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Better a little / wisdom / a good name than riches' is dismissive to someone who is being evicted and has nothing. Fine under its other themes."
+  },
+  {
+   "ref": "Proverbs 21:5",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Every one that is hasty only to want' blames want on haste."
+  },
+  {
+   "ref": "Proverbs 28:20",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'A faithful man shall abound with blessings' implies an evicted reader is unfaithful."
+  },
+  {
+   "ref": "Proverbs 19:11",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness",
+    "patience"
+   ],
+   "reason": "'It is his glory to pass over a transgression' praises an abuse victim for overlooking harm again and again."
+  },
+  {
+   "ref": "Proverbs 20:7",
+   "action": "retag",
+   "drop_themes": [
+    "parenting"
+   ],
+   "reason": "'The just man... his children are blessed after him' implies a parent with a sick or dead child was not just."
+  },
+  {
+   "ref": "Proverbs 24:17",
+   "action": "retag",
+   "drop_themes": [
+    "justice_wronged"
+   ],
+   "reason": "Tells a survivor not to be glad when their abuser falls."
+  },
+  {
+   "ref": "Proverbs 27:10",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "'Neither go into thy brother's house in the day of thy calamity' discourages turning to family in a crisis."
+  },
+  {
+   "ref": "Ecclesiastes 4:12",
+   "action": "retag",
+   "drop_themes": [
+    "marriage"
+   ],
+   "reason": "'A threefold cord is not quickly broken' (a wedding verse about permanence) pressures a wife being hit to stay."
+  },
+  {
+   "ref": "Isaiah 25:8",
+   "action": "retag",
+   "drop_themes": [
+    "grief",
+    "mortality"
+   ],
+   "reason": "End-time 'swallow up death' is an afterlife promise; per the brief it should not sit under grief, and under mortality it softens death for a suicidal reader. Fine under hope."
+  },
+  {
+   "ref": "Isaiah 26:3",
+   "action": "retag",
+   "drop_themes": [
+    "fear_anxiety"
+   ],
+   "reason": "'Perfect peace, whose mind is stayed on thee' implies an anxious reader's mind is not stayed on God."
+  },
+  {
+   "ref": "Isaiah 49:15",
+   "action": "retag",
+   "drop_themes": [
+    "parenting"
+   ],
+   "reason": "'Can a woman forget her sucking child... the son of her womb?' is painful under parenting for a mother who lost a pregnancy or child."
+  },
+  {
+   "ref": "Isaiah 49:15",
+   "action": "not_universal",
+   "reason": "Breastfeeding and womb imagery shown after a pregnancy-loss disclosure."
+  },
+  {
+   "ref": "Matthew 7:7",
+   "action": "retag",
+   "drop_themes": [
+    "doubt_faith"
+   ],
+   "reason": "'Ask, and it shall be given you' tells someone who left religion over unanswered prayer that they did not ask right."
+  },
+  {
+   "ref": "Matthew 7:8",
+   "action": "retag",
+   "drop_themes": [
+    "doubt_faith"
+   ],
+   "reason": "'Every one that asketh receiveth' implies that unanswered prayer is the asker's fault."
+  },
+  {
+   "ref": "Matthew 7:7",
+   "action": "not_universal",
+   "reason": "After a pregnancy-loss disclosure, 'Ask, and it shall be given you' wounds."
+  },
+  {
+   "ref": "Matthew 7:8",
+   "action": "not_universal",
+   "reason": "'Every one that asketh receiveth' wounds anyone whose prayer for a child or a cure was not answered."
+  },
+  {
+   "ref": "Matthew 14:14",
+   "action": "retag",
+   "drop_themes": [
+    "illness"
+   ],
+   "reason": "'He healed their sick' under illness raises 'why not me' for a terminal patient."
+  },
+  {
+   "ref": "Luke 6:37",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness"
+   ],
+   "reason": "'Forgive, and ye shall be forgiven' is transactional forgiveness pressure. Fine under speech_gossip."
+  },
+  {
+   "ref": "Luke 12:15",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes."
+  },
+  {
+   "ref": "Luke 14:28",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes."
+  },
+  {
+   "ref": "Romans 13:8",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes."
+  },
+  {
+   "ref": "Philippians 4:11",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes."
+  },
+  {
+   "ref": "Philippians 4:12",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes."
+  },
+  {
+   "ref": "1 Timothy 6:6",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes."
+  },
+  {
+   "ref": "1 Timothy 6:8",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes."
+  },
+  {
+   "ref": "Hebrews 13:5",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes."
+  },
+  {
+   "ref": "Matthew 6:19",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes."
+  },
+  {
+   "ref": "Matthew 6:20",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Under money_worry this tells an evicted or indebted reader to be content, beware covetousness, store treasure in heaven, count the cost or 'owe no man'; dismissive or shaming. Fine under its other themes."
+  },
+  {
+   "ref": "1 Corinthians 13:4",
+   "action": "retag",
+   "drop_themes": [
+    "marriage",
+    "patience"
+   ],
+   "reason": "'Charity suffereth long' under marriage/patience is the line used to keep abused spouses enduring."
+  },
+  {
+   "ref": "1 Corinthians 13:5",
+   "action": "fix_why",
+   "new_why": "Love is not rude or self-seeking, is not easily provoked, and thinks no evil.",
+   "reason": "The why adds 'keeps no record of wrongs' (not in the KJV), the phrase most often used to tell victims to forget abuse."
+  },
+  {
+   "ref": "2 Corinthians 4:18",
+   "action": "retag",
+   "drop_themes": [
+    "mortality"
+   ],
+   "reason": "'Things which are seen are temporal' devalues this life for a suicidal reader."
+  },
+  {
+   "ref": "Ephesians 4:2",
+   "action": "retag",
+   "drop_themes": [
+    "marriage",
+    "patience"
+   ],
+   "reason": "'All lowliness and meekness, with longsuffering, forbearing' under marriage tells an abused spouse to be meek and endure."
+  },
+  {
+   "ref": "Ephesians 4:26",
+   "action": "retag",
+   "drop_themes": [
+    "marriage"
+   ],
+   "reason": "'Let not the sun go down upon your wrath' under marriage pressures a victim to make up with an abusive spouse by nightfall."
+  },
+  {
+   "ref": "Ephesians 4:32",
+   "action": "retag",
+   "drop_themes": [
+    "marriage"
+   ],
+   "reason": "'Forgiving one another' under marriage is forgiveness pressure on an abused spouse."
+  },
+  {
+   "ref": "Colossians 3:13",
+   "action": "retag",
+   "drop_themes": [
+    "marriage"
+   ],
+   "reason": "'Forbearing... forgiving' under marriage pressures an abused spouse."
+  },
+  {
+   "ref": "1 Peter 4:8",
+   "action": "retag",
+   "drop_themes": [
+    "marriage",
+    "forgiveness"
+   ],
+   "reason": "'Charity shall cover the multitude of sins' under marriage/forgiveness tells an abused spouse to cover up the harm."
+  },
+  {
+   "ref": "2 Timothy 1:7",
+   "action": "retag",
+   "drop_themes": [
+    "fear_anxiety"
+   ],
+   "reason": "'Not given us the spirit of fear; but... of a sound mind' tells someone with an anxiety disorder that their anxiety is spiritual failure and their mind unsound."
+  },
+  {
+   "ref": "2 Timothy 1:7",
+   "action": "not_universal",
+   "reason": "'Sound mind' framing is stigmatising for a mentally ill visitor."
+  },
+  {
+   "ref": "2 Timothy 2:15",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "'A workman that needeth not to be ashamed' shames a depressed reader."
+  },
+  {
+   "ref": "James 1:22",
+   "action": "retag",
+   "drop_themes": [
+    "laziness_discipline"
+   ],
+   "reason": "'Doers of the word... deceiving your own selves' rebukes a depressed reader."
+  },
+  {
+   "ref": "James 1:22",
+   "action": "not_universal",
+   "reason": "Faith-specific ('the word')."
+  },
+  {
+   "ref": "James 4:10",
+   "action": "retag",
+   "drop_themes": [
+    "failure"
+   ],
+   "reason": "Implies a reader who failed needs humbling."
+  },
+  {
+   "ref": "James 5:13",
+   "action": "retag",
+   "drop_themes": [
+    "suffering_endurance"
+   ],
+   "reason": "'Is any among you afflicted? let him pray' can discourage someone in crisis from seeking real help."
+  },
+  {
+   "ref": "Revelation 21:4",
+   "action": "retag",
+   "drop_themes": [
+    "grief",
+    "mortality"
+   ],
+   "reason": "Afterlife 'no more death... no more pain'; to a suicidal reader it romanticises dying as the end of pain, and per the brief afterlife verses should not sit under grief. Fine under hope."
+  },
+  {
+   "ref": "Job 23:10",
+   "action": "not_universal",
+   "reason": "Suffering as God's test ('when he hath tried me'); not universal."
+  },
+  {
+   "ref": "Job 23:10",
+   "action": "fix_why",
+   "new_why": "Job trusts that, once he has been tested, he will come out like gold.",
+   "reason": "The why turns Job's personal hope into a promise to the reader."
+  },
+  {
+   "ref": "Job 28:28",
+   "action": "not_universal",
+   "reason": "'The fear of the Lord' and 'unto man'; faith-specific."
+  },
+  {
+   "ref": "Psalms 1:3",
+   "action": "not_universal",
+   "reason": "'Whatsoever he doeth shall prosper' is a just-world promise; gendered."
+  },
+  {
+   "ref": "Psalms 6:2",
+   "action": "not_universal",
+   "reason": "Prayer for healing ('heal me; for my bones are vexed'); painful in the universal pool after a pregnancy loss or terminal diagnosis."
+  },
+  {
+   "ref": "Jeremiah 17:14",
+   "action": "not_universal",
+   "reason": "'Heal me, O LORD, and I shall be healed' is a healing promise."
+  },
+  {
+   "ref": "Psalms 37:4",
+   "action": "not_universal",
+   "reason": "'He shall give thee the desires of thine heart' wounds someone who has just disclosed a pregnancy loss."
+  },
+  {
+   "ref": "Psalms 127:1",
+   "action": "not_universal",
+   "reason": "'Except the LORD build the house, they labour in vain' tells a non-religious visitor their work is in vain."
+  },
+  {
+   "ref": "Ecclesiastes 2:24",
+   "action": "not_universal",
+   "reason": "'Eat and drink' framing (alcohol cue) and gendered 'a man'."
+  },
+  {
+   "ref": "Ecclesiastes 3:13",
+   "action": "not_universal",
+   "reason": "'Eat and drink' (alcohol cue) and gendered 'every man'."
+  },
+  {
+   "ref": "Philippians 2:3",
+   "action": "not_universal",
+   "reason": "'Let each esteem other better than themselves' is harmful to a low-self-worth (e.g. trans or depressed) visitor."
+  },
+  {
+   "ref": "Philippians 4:6",
+   "action": "not_universal",
+   "reason": "'Be careful for nothing... by prayer' tells someone with an anxiety disorder to pray it away."
+  },
+  {
+   "ref": "Proverbs 23:31",
+   "action": "not_universal",
+   "reason": "Lingering description of red wine 'when it moveth itself aright'; a trigger for someone who just relapsed."
+  },
+  {
+   "ref": "Psalms 4:4",
+   "action": "fix_why",
+   "new_why": "Stand in awe and do not sin; search your heart on your bed and be still.",
+   "reason": "The KJV says 'Stand in awe', not 'In anger'; the why follows another translation."
+  },
+  {
+   "ref": "Ruth 1:16",
+   "action": "fix_why",
+   "new_why": "Ruth refuses to leave her widowed mother-in-law: where you go, I will go.",
+   "reason": "'Stay with the one she loves' misstates the relationship (mother-in-law) and, under family/loneliness, can be read as 'stay with your partner'."
+  },
+  {
+   "ref": "John 1:5",
+   "action": "fix_why",
+   "new_why": "The light shines in the darkness, and the darkness did not grasp it.",
+   "reason": "The KJV says 'comprehended it not'; 'has not overcome it' is another translation."
+  },
+  {
+   "ref": "Psalms 143:10",
+   "action": "fix_why",
+   "new_why": "Teach me to do your will; lead me into the land of uprightness.",
+   "reason": "'Level ground' is not in the KJV text."
+  },
+  {
+   "ref": "Genesis 50:19",
+   "action": "display",
+   "trim": "And Joseph said unto them, ",
+   "reason": "Speaker framing."
+  },
+  {
+   "ref": "Exodus 33:14",
+   "action": "display",
+   "trim": "And he said, ",
+   "reason": "Speaker framing."
+  },
+  {
+   "ref": "Exodus 34:6",
+   "action": "display",
+   "trim": "And the LORD passed by before him, and proclaimed, ",
+   "reason": "Narrative framing; also ends with a comma (continues in 34:7, 'visiting the iniquity of the fathers')."
+  },
+  {
+   "ref": "1 Samuel 16:7",
+   "action": "display",
+   "trim": "But the LORD said unto Samuel, Look not on his countenance, or on the height of his stature; because I have refused him: for ",
+   "reason": "'I have refused him' (Eliab) makes no sense alone; start at 'the Lord seeth not as man seeth'."
+  },
+  {
+   "ref": "1 Samuel 18:1",
+   "action": "display",
+   "trim": "And it came to pass, when he had made an end of speaking unto Saul, that ",
+   "reason": "Narrative framing."
+  },
+  {
+   "ref": "1 Kings 19:7",
+   "action": "display",
+   "trim": "And the angel of the LORD came again the second time, and touched him, and said, ",
+   "reason": "Narrative framing."
+  },
+  {
+   "ref": "1 Chronicles 28:20",
+   "action": "display",
+   "trim": "And David said to Solomon his son, ",
+   "reason": "Speaker framing."
+  },
+  {
+   "ref": "Ruth 1:16",
+   "action": "display",
+   "trim": "And Ruth said, ",
+   "reason": "Speaker framing; ends with a colon."
+  },
+  {
+   "ref": "Job 28:28",
+   "action": "display",
+   "trim": "And unto man he said, ",
+   "reason": "Speaker framing."
+  },
+  {
+   "ref": "Isaiah 43:1",
+   "action": "display",
+   "trim": "But now thus saith the LORD that created thee, O Jacob, and he that formed thee, O Israel, ",
+   "reason": "Address to Jacob/Israel."
+  },
+  {
+   "ref": "Matthew 19:26",
+   "action": "display",
+   "trim": "But Jesus beheld them, and said unto them, ",
+   "reason": "Speaker framing."
+  },
+  {
+   "ref": "Matthew 22:37",
+   "action": "display",
+   "trim": "Jesus said unto him, ",
+   "reason": "Speaker framing."
+  },
+  {
+   "ref": "Matthew 22:39",
+   "action": "display",
+   "trim": "And the second is like unto it, ",
+   "reason": "Depends on the previous verse."
+  },
+  {
+   "ref": "Matthew 28:20",
+   "action": "display",
+   "trim": "Teaching them to observe all things whatsoever I have commanded you: and, lo, ",
+   "reason": "Start at 'I am with you alway'."
+  },
+  {
+   "ref": "Mark 4:39",
+   "action": "display",
+   "trim": "And he arose, and rebuked the wind, and said unto the sea, ",
+   "reason": "Narrative framing."
+  },
+  {
+   "ref": "Mark 6:31",
+   "action": "display",
+   "trim": "And he said unto them, ",
+   "reason": "Speaker framing."
+  },
+  {
+   "ref": "Mark 9:24",
+   "action": "display",
+   "trim": "And straightway the father of the child cried out, and said with tears, ",
+   "reason": "Narrative framing."
+  },
+  {
+   "ref": "Luke 3:11",
+   "action": "display",
+   "trim": "He answereth and saith unto them, ",
+   "reason": "Speaker framing."
+  },
+  {
+   "ref": "Luke 10:37",
+   "action": "display",
+   "trim": "And he said, He that shewed mercy on him. Then said Jesus unto him, ",
+   "reason": "Dialogue fragment."
+  },
+  {
+   "ref": "Luke 12:15",
+   "action": "display",
+   "trim": "And he said unto them, ",
+   "reason": "Speaker framing."
+  },
+  {
+   "ref": "Luke 12:22",
+   "action": "display",
+   "trim": "And he said unto his disciples, Therefore I say unto you, ",
+   "reason": "Speaker framing."
+  },
+  {
+   "ref": "Luke 18:1",
+   "action": "display",
+   "trim": "And he spake a parable unto them to this end, that ",
+   "reason": "Narrative framing; ends with ';'."
+  },
+  {
+   "ref": "Luke 18:27",
+   "action": "display",
+   "trim": "And he said, ",
+   "reason": "Speaker framing."
+  },
+  {
+   "ref": "Luke 23:34",
+   "action": "display",
+   "trim": "Then said Jesus, ",
+   "reason": "Speaker framing; also strip the trailing 'And they parted his raiment, and cast lots.'"
+  },
+  {
+   "ref": "John 8:11",
+   "action": "display",
+   "trim": "She said, No man, Lord. And Jesus said unto her, ",
+   "reason": "Dialogue fragment."
+  },
+  {
+   "ref": "Acts 10:34",
+   "action": "display",
+   "trim": "Then Peter opened his mouth, and said, Of a truth I perceive that ",
+   "reason": "Speaker framing; ends with a colon."
+  },
+  {
+   "ref": "2 Corinthians 12:9",
+   "action": "display",
+   "trim": "And he said unto me, ",
+   "reason": "Speaker framing."
+  },
+  {
+   "ref": "James 4:6",
+   "action": "display",
+   "trim": "But he giveth more grace. Wherefore he saith, ",
+   "reason": "Framing."
+  },
+  {
+   "ref": "Revelation 21:5",
+   "action": "display",
+   "trim": "And he that sat upon the throne said, ",
+   "reason": "Speaker framing; also strip the trailing 'And he said unto me, Write: for these words are true and faithful.'"
+  },
+  {
+   "ref": "2 Corinthians 5:7",
+   "action": "display",
+   "trim": "(",
+   "reason": "Whole verse is wrapped in parentheses; strip '(' and the trailing ':)'."
+  },
+  {
+   "ref": "Psalms 4:4",
+   "action": "display",
+   "trim": "",
+   "reason": "Strip the trailing 'Selah.'"
+  },
+  {
+   "ref": "Psalms 32:5",
+   "action": "display",
+   "trim": "",
+   "reason": "Strip the trailing 'Selah.'"
+  },
+  {
+   "ref": "Psalms 62:8",
+   "action": "display",
+   "trim": "",
+   "reason": "Strip the trailing 'Selah.'"
+  },
+  {
+   "ref": "Habakkuk 3:19",
+   "action": "display",
+   "trim": "",
+   "reason": "Strip the trailing musical note 'To the chief singer on my stringed instruments.'"
+  },
+  {
+   "ref": "Colossians 3:12",
+   "action": "display",
+   "trim": "",
+   "reason": "'Bowels of mercies' will look odd or gross to modern readers; consider excluding or glossing."
+  },
+  {
+   "ref": "1 Corinthians 10:24",
+   "action": "display",
+   "trim": "",
+   "reason": "'Seek... every man another's wealth' reads as coveting to a modern reader (wealth = well-being); consider excluding."
+  },
+  {
+   "ref": "Ecclesiastes 3:12",
+   "action": "display",
+   "trim": "",
+   "reason": "'There is no good in them' is opaque alone and reads as 'there is no good in people'."
+  },
+  {
+   "ref": "Lamentations 3:23",
+   "action": "display",
+   "trim": "",
+   "reason": "'They are new every morning' depends on 3:22 for 'they' (his compassions)."
+  },
+  {
+   "ref": "Romans 8:39",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins 'Nor height, nor depth', a fragment of 8:38-39; the why itself starts with '...'."
+  },
+  {
+   "ref": "Job 8:21",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins 'Till', a fragment of Bildad's speech, conditional on 8:20; Bildad's theology is the one God rebukes."
+  },
+  {
+   "ref": "1 Thessalonians 4:11",
+   "action": "display",
+   "trim": "And that ",
+   "reason": "Fragment; also strip the trailing 'as we commanded you;'."
+  },
+  {
+   "ref": "Psalms 25:7",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Psalms 32:1",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Psalms 32:5",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Psalms 34:18",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Psalms 51:2",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Psalms 51:10",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Psalms 51:12",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Psalms 51:17",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Psalms 86:5",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Psalms 103:10",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Psalms 103:12",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Psalms 103:14",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Psalms 141:3",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Proverbs 1:10",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Proverbs 4:23",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Proverbs 4:25",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Proverbs 16:32",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Proverbs 25:28",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Isaiah 1:18",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Isaiah 43:18",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Isaiah 43:25",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Isaiah 57:15",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Micah 7:19",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Luke 15:20",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Philippians 3:13",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Hebrews 8:12",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "1 John 1:9",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "1 John 3:20",
+   "action": "not_universal",
+   "reason": "Repentance/self-control verse; in the identity-disclosure (universal) pool it implies the disclosed sexuality, gender identity or pregnancy loss is a sin or failing."
+  },
+  {
+   "ref": "Genesis 2:2",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Genesis 28:15",
+   "action": "display",
+   "trim": "And, ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Exodus 23:9",
+   "action": "display",
+   "trim": "Also ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Leviticus 19:9",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Leviticus 19:33",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Leviticus 19:34",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Deuteronomy 15:11",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Deuteronomy 25:15",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Deuteronomy 31:8",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Job 2:13",
+   "action": "display",
+   "trim": "So ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Job 11:18",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Job 14:7",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Job 23:10",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 1:3",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 9:10",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 18:28",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 23:1",
+   "action": "display",
+   "trim": "A Psalm of David. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 23:4",
+   "action": "display",
+   "trim": "Yea, ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 27:1",
+   "action": "display",
+   "trim": "A Psalm of David. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 32:1",
+   "action": "display",
+   "trim": "A Psalm of David, Maschil. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 37:1",
+   "action": "display",
+   "trim": "A Psalm of David. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 37:6",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 37:11",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 39:7",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 40:1",
+   "action": "display",
+   "trim": "To the chief Musician, A Psalm of David. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 41:1",
+   "action": "display",
+   "trim": "To the chief Musician, A Psalm of David. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 41:9",
+   "action": "display",
+   "trim": "Yea, ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 46:1",
+   "action": "display",
+   "trim": "To the chief Musician for the sons of Korah, A Song upon Alamoth. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 46:2",
+   "action": "display",
+   "trim": "Therefore ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 55:12",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 57:1",
+   "action": "display",
+   "trim": "To the chief Musician, Al-taschith, Michtam of David, when he fled from Saul in the cave. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 62:1",
+   "action": "display",
+   "trim": "To the chief Musician, to Jeduthun, A Psalm of David. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 71:5",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 71:18",
+   "action": "display",
+   "trim": "Now ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 86:5",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 86:15",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 90:12",
+   "action": "display",
+   "trim": "So ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 90:17",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 92:1",
+   "action": "display",
+   "trim": "A Psalm or Song for the sabbath day. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 103:3",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse."
+  },
+  {
+   "ref": "Psalms 103:14",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 107:9",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Psalms 121:1",
+   "action": "display",
+   "trim": "A Song of degrees. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 127:1",
+   "action": "display",
+   "trim": "A Song of degrees for Solomon. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 131:1",
+   "action": "display",
+   "trim": "A Song of degrees of David. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 133:1",
+   "action": "display",
+   "trim": "A Song of degrees of David. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 139:1",
+   "action": "display",
+   "trim": "To the chief Musician, A Psalm of David. ",
+   "reason": "Psalm heading shown as part of the verse; strip it."
+  },
+  {
+   "ref": "Psalms 139:12",
+   "action": "display",
+   "trim": "Yea, ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Proverbs 2:6",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Proverbs 4:18",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Proverbs 8:11",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Proverbs 24:16",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Ecclesiastes 3:13",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Ecclesiastes 4:12",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Ecclesiastes 7:12",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Isaiah 2:4",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Isaiah 32:17",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Isaiah 32:18",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Isaiah 40:31",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Isaiah 41:13",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Isaiah 46:4",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Isaiah 54:10",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Isaiah 54:13",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Isaiah 55:8",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Isaiah 55:9",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Isaiah 57:15",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Isaiah 58:10",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Isaiah 58:11",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Jeremiah 17:8",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Jeremiah 29:11",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Jeremiah 29:12",
+   "action": "display",
+   "trim": "Then ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Jeremiah 31:25",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Amos 5:24",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Micah 7:7",
+   "action": "display",
+   "trim": "Therefore ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Micah 7:18",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse."
+  },
+  {
+   "ref": "Habakkuk 2:3",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Habakkuk 3:18",
+   "action": "display",
+   "trim": "Yet ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Zechariah 7:10",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Malachi 3:6",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 6:3",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 6:12",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 6:20",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 6:21",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 6:25",
+   "action": "display",
+   "trim": "Therefore ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 6:28",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 6:31",
+   "action": "display",
+   "trim": "Therefore ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 6:33",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 7:3",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 7:8",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 7:12",
+   "action": "display",
+   "trim": "Therefore ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 10:30",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 11:30",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 14:14",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 23:12",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 25:35",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Matthew 25:40",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Mark 12:31",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Luke 1:37",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Luke 6:31",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Luke 10:33",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Luke 12:7",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Luke 12:34",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Luke 14:28",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Luke 15:10",
+   "action": "display",
+   "trim": "Likewise, ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Luke 15:20",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "John 1:5",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "John 8:32",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "John 16:22",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Romans 5:5",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Romans 8:18",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Romans 8:25",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Romans 8:26",
+   "action": "display",
+   "trim": "Likewise ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Romans 12:2",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Romans 12:3",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Romans 15:7",
+   "action": "display",
+   "trim": "Wherefore ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Romans 15:13",
+   "action": "display",
+   "trim": "Now ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "1 Corinthians 4:7",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "1 Corinthians 12:26",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "1 Corinthians 13:12",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "1 Corinthians 13:13",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "1 Corinthians 15:58",
+   "action": "display",
+   "trim": "Therefore, ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "2 Corinthians 1:4",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse."
+  },
+  {
+   "ref": "2 Corinthians 5:17",
+   "action": "display",
+   "trim": "Therefore ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "2 Corinthians 9:6",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "2 Corinthians 10:12",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Galatians 5:13",
+   "action": "display",
+   "trim": "For, ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Galatians 5:14",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Galatians 5:22",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Galatians 6:4",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Galatians 6:9",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Ephesians 4:25",
+   "action": "display",
+   "trim": "Wherefore ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Ephesians 4:32",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Ephesians 5:2",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Ephesians 5:18",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Ephesians 6:4",
+   "action": "display",
+   "trim": "And, ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Philippians 4:7",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Philippians 4:19",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Colossians 3:14",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Colossians 3:15",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Colossians 3:23",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "1 Thessalonians 2:7",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "1 Thessalonians 5:11",
+   "action": "display",
+   "trim": "Wherefore ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "2 Thessalonians 3:13",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "2 Thessalonians 3:16",
+   "action": "display",
+   "trim": "Now ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "1 Timothy 6:6",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "1 Timothy 6:7",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "1 Timothy 6:8",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "2 Timothy 1:7",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Hebrews 4:15",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Hebrews 6:19",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse."
+  },
+  {
+   "ref": "Hebrews 8:12",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Hebrews 10:24",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Hebrews 10:36",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Hebrews 11:1",
+   "action": "display",
+   "trim": "Now ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Hebrews 12:1",
+   "action": "display",
+   "trim": "Wherefore ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Hebrews 12:12",
+   "action": "display",
+   "trim": "Wherefore ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Hebrews 13:16",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "James 1:4",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "James 1:19",
+   "action": "display",
+   "trim": "Wherefore, ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "James 1:20",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "James 1:22",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "James 3:13",
+   "action": "display",
+   "trim": "",
+   "reason": "Begins mid-sentence (relative clause); no clean trim, consider excluding or showing with the preceding verse."
+  },
+  {
+   "ref": "James 3:17",
+   "action": "display",
+   "trim": "But ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "James 3:18",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "1 Peter 4:8",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "1 John 3:20",
+   "action": "display",
+   "trim": "For ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "1 John 4:16",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  },
+  {
+   "ref": "Revelation 21:4",
+   "action": "display",
+   "trim": "And ",
+   "reason": "Leading conjunction makes the verse read as a continuation; strip and capitalise."
+  }
+ ]
+}

@@ -1,0 +1,1004 @@
+{
+ "gita": [
+  {
+   "ref": "2:14",
+   "action": "remove",
+   "reason": "Commands 'endure them bravely' for pain that will pass; tagged only suffering_endurance/patience, reads as 'put up with it' to someone being harmed."
+  },
+  {
+   "ref": "6:7",
+   "action": "retag",
+   "drop_themes": [
+    "suffering_endurance"
+   ],
+   "reason": "Staying even in pain and dishonour, shown for hardship, implies quietly bearing mistreatment."
+  },
+  {
+   "ref": "6:26",
+   "action": "fix_why",
+   "new_why": "Each time the restless mind wanders off, rein it in and bring it back under control.",
+   "reason": "Note added 'gently'; the text says rein it in and control it."
+  },
+  {
+   "ref": "6:32",
+   "action": "fix_why",
+   "new_why": "One who sees others as like oneself, and sees equality in everything pleasant or painful, is a perfect yogi.",
+   "reason": "'Feel others' joy and pain as your own' is wording from other translations."
+  },
+  {
+   "ref": "6:40",
+   "action": "fix_why",
+   "new_why": "One who does good is never destroyed, in this life or the next, and never walks the path of woe.",
+   "reason": "'Even if they fall short' is not in the text on the page."
+  },
+  {
+   "ref": "9:26",
+   "action": "fix_why",
+   "new_why": "Even a leaf, a flower, a fruit or water, offered with devotion, is accepted.",
+   "reason": "'With love' and 'gladly' go beyond 'with devotion... I accept'."
+  },
+  {
+   "ref": "11:44",
+   "action": "fix_why",
+   "new_why": "Arjuna bows before God and asks Him to bear with him as a father with a son, a friend with a friend, a lover with the beloved.",
+   "reason": "Note did not say who speaks; it is Arjuna's plea to God."
+  },
+  {
+   "ref": "12:10",
+   "action": "fix_why",
+   "new_why": "If constant practice is beyond you, devote yourself to God's service; doing your actions for His sake, you will reach perfection.",
+   "reason": "'Is enough' changes the promise; the text says you will attain perfection."
+  },
+  {
+   "ref": "12:18",
+   "action": "retag",
+   "drop_themes": [
+    "suffering_endurance"
+   ],
+   "reason": "Being alike to foe and friend, in disgrace and in pain, implies treating a harmer the same and bearing it."
+  },
+  {
+   "ref": "18:38",
+   "action": "fix_why",
+   "new_why": "Pleasure that is like nectar at first but like poison in the end is called passionate.",
+   "reason": "'Not worth chasing' moralises beyond the text, which only classifies the pleasure."
+  },
+  {
+   "ref": "18:73",
+   "action": "fix_why",
+   "new_why": "Arjuna says his confusion is gone and his doubts have fled through God's grace; he stands firm and will do as God says.",
+   "reason": "Note hid that Arjuna is speaking and dropped what he resolves."
+  }
+ ],
+ "quran": [
+  {
+   "ref": "2:32",
+   "action": "fix_why",
+   "new_why": "We have no knowledge except what God has taught us; only He is the Knower, the Wise.",
+   "reason": "Note dropped that the knowledge is what God taught."
+  },
+  {
+   "ref": "2:45",
+   "action": "retag",
+   "drop_themes": [
+    "patience",
+    "suffering_endurance"
+   ],
+   "reason": "'Seek help in patience' shown to someone being harmed reads as 'be more patient with it'."
+  },
+  {
+   "ref": "2:153",
+   "action": "remove",
+   "reason": "Only patience/suffering_endurance; 'seek help in steadfastness, God is with the steadfast' tells a harmed person to endure. Note also imported 'patient'."
+  },
+  {
+   "ref": "2:245",
+   "action": "fix_why",
+   "new_why": "Giving for good is like a loan to God, who can increase it manifold; it is God who narrows and widens provision.",
+   "reason": "'Nothing given is lost' is not what the text says."
+  },
+  {
+   "ref": "2:255",
+   "action": "fix_why",
+   "new_why": "God never sleeps and never tires of preserving the heavens and the earth; all of it belongs to Him.",
+   "reason": "'You are held' is a promise the text does not make."
+  },
+  {
+   "ref": "3:134",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness"
+   ],
+   "reason": "'Control their wrath and are forgiving' under forgiveness tells a harmed person to swallow anger and forgive; keep for own temper (anger)."
+  },
+  {
+   "ref": "3:135",
+   "action": "fix_why",
+   "new_why": "When people do wrong, they remember God, ask forgiveness and do not knowingly repeat it; only God forgives sins.",
+   "reason": "'They find it' adds a guarantee not on the page and drops 'will not repeat'."
+  },
+  {
+   "ref": "4:149",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness"
+   ],
+   "reason": "'Forgive evil' under forgiveness reads as forgiving harm done to you."
+  },
+  {
+   "ref": "4:114",
+   "action": "fix_why",
+   "new_why": "There is no good in much secret talk, except in urging charity, kindness and making peace between people.",
+   "reason": "Note said 'the only good in whispering'; the text says 'much of', not all."
+  },
+  {
+   "ref": "7:128",
+   "action": "remove",
+   "reason": "Only patience/suffering_endurance; text is 'Seek help in Allah and endure'."
+  },
+  {
+   "ref": "7:199",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness"
+   ],
+   "reason": "'Keep to forgiveness' is literally 'keep forgiving'; keep under anger."
+  },
+  {
+   "ref": "11:88",
+   "action": "fix_why",
+   "new_why": "Shu'aib says he wants only to set things right as far as he can, and that his welfare rests in God.",
+   "reason": "'Success' is from other translations; Pickthall says 'welfare', and the speaker was unnamed."
+  },
+  {
+   "ref": "11:115",
+   "action": "retag",
+   "drop_themes": [
+    "patience"
+   ],
+   "reason": "'Have patience, God does not lose the wages of the good' implies enduring for reward."
+  },
+  {
+   "ref": "12:83",
+   "action": "retag",
+   "drop_themes": [
+    "patience"
+   ],
+   "reason": "Patience in hope that God brings them all back implies waiting for a harmer to return or change."
+  },
+  {
+   "ref": "12:84",
+   "action": "fix_why",
+   "new_why": "Jacob turned away and grieved for Joseph, his eyes whitened by the sorrow he held in.",
+   "reason": "Note said he 'openly mourned' but the text says he suppressed it; 'deep sorrow is human' moralises."
+  },
+  {
+   "ref": "12:92",
+   "action": "retag",
+   "drop_themes": [
+    "betrayal"
+   ],
+   "reason": "Shown for betrayal, a model of forgiving those who wronged you pushes forgiveness on a harmed person; keep under forgiveness."
+  },
+  {
+   "ref": "12:100",
+   "action": "retag",
+   "drop_themes": [
+    "betrayal"
+   ],
+   "reason": "Reunion with the family who harmed him implies reconciling with those who betrayed you."
+  },
+  {
+   "ref": "12:100",
+   "action": "fix_why",
+   "new_why": "Joseph, reunited with his parents, says God was kind to him in freeing him from prison and bringing them out of the desert after Satan caused strife with his brothers.",
+   "reason": "'Sees kindness in it all' implies the strife itself was kindness; the text names specific kindnesses."
+  },
+  {
+   "ref": "16:41",
+   "action": "fix_why",
+   "new_why": "Those who left their homes for God's cause after being oppressed are promised good lodging in this world and a greater reward after.",
+   "reason": "Note dropped 'for the cause of Allah', turning a specific promise into a general one about anyone driven from home."
+  },
+  {
+   "ref": "16:96",
+   "action": "retag",
+   "drop_themes": [
+    "patience"
+   ],
+   "reason": "'Pay those who are steadfast' implies enduring for reward."
+  },
+  {
+   "ref": "16:127",
+   "action": "remove",
+   "reason": "Only theme patience; 'Endure thou patiently... be not in distress because of that which they devise' tells a harmed person to bear what others do."
+  },
+  {
+   "ref": "17:53",
+   "action": "fix_why",
+   "new_why": "Tell people to say what is kindest, for the devil sows discord among them.",
+   "reason": "Note said 'harsh words sow discord'; the text says the devil does."
+  },
+  {
+   "ref": "20:44",
+   "action": "fix_why",
+   "new_why": "Moses and Aaron are told to speak a gentle word to him, so that he might take heed or fear.",
+   "reason": "'Even to someone hard' is not on the page and implies gentleness will change a hard person."
+  },
+  {
+   "ref": "20:68",
+   "action": "fix_why",
+   "new_why": "Fear not; you are the one who is uppermost.",
+   "reason": "'You will rise above this' adds a future promise; the text says 'thou art the higher'."
+  },
+  {
+   "ref": "20:130",
+   "action": "retag",
+   "drop_themes": [
+    "patience"
+   ],
+   "reason": "'Bear with what they say' under patience tells someone being verbally abused to put up with it."
+  },
+  {
+   "ref": "23:62",
+   "action": "remove",
+   "reason": "Only theme suffering_endurance; 'no soul tasked beyond its scope' shown for hardship says 'you can bear this', a known harmful message to abuse victims."
+  },
+  {
+   "ref": "23:96",
+   "action": "remove",
+   "reason": "Only theme anger; 'Repel evil with that which is better' answers anger at someone's evil with 'be nicer to them', not about own temper."
+  },
+  {
+   "ref": "25:63",
+   "action": "fix_why",
+   "new_why": "The servants of the Merciful walk modestly, and when the foolish speak to them, they answer: Peace.",
+   "reason": "'Gently' is not in the text; it says 'modestly'."
+  },
+  {
+   "ref": "26:62",
+   "action": "fix_why",
+   "new_why": "Moses says: my Lord is with me; He will guide me.",
+   "reason": "'Even when trapped' adds context not on the page."
+  },
+  {
+   "ref": "30:23",
+   "action": "fix_why",
+   "new_why": "Your sleep by night and day and your seeking of His bounty are signs for those who listen.",
+   "reason": "'Signs of care' adds meaning; the text says portents for those who heed."
+  },
+  {
+   "ref": "30:60",
+   "action": "remove",
+   "reason": "Only theme patience; 'have patience' shown to someone being harmed reads as 'wait it out'."
+  },
+  {
+   "ref": "31:12",
+   "action": "fix_why",
+   "new_why": "God gave Luqman wisdom and told him to give thanks; whoever gives thanks does so for their own good.",
+   "reason": "'Wisdom begins with gratitude' is a moral the text does not state."
+  },
+  {
+   "ref": "31:17",
+   "action": "retag",
+   "drop_themes": [
+    "patience"
+   ],
+   "reason": "'Persevere whatever may befall thee' tells a harmed person to persevere through it."
+  },
+  {
+   "ref": "31:17",
+   "action": "fix_why",
+   "new_why": "A father's counsel: pray, urge kindness, forbid wrong and persevere through whatever befalls you.",
+   "reason": "Text says 'persevere', not 'be patient', and includes forbidding wrong."
+  },
+  {
+   "ref": "39:10",
+   "action": "remove",
+   "reason": "Only patience/suffering_endurance; 'the steadfast will be paid without stint' implies enduring for reward. Note also imported 'patient'."
+  },
+  {
+   "ref": "42:37",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness"
+   ],
+   "reason": "'When they are wroth, forgive' under forgiveness tells a harmed person to forgive instead of being angry; keep for own temper."
+  },
+  {
+   "ref": "60:7",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness"
+   ],
+   "reason": "'God may ordain love between you and those at enmity' implies the harmer may change if you forgive."
+  },
+  {
+   "ref": "65:3",
+   "action": "fix_why",
+   "new_why": "Whoever puts their trust in God, He is enough for them; God has set a measure for all things.",
+   "reason": "'Provides from where you never expected' is from the previous verse, not on the page."
+  },
+  {
+   "ref": "65:7",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Tells the person of measured provision to spend from it; not care for someone being evicted."
+  },
+  {
+   "ref": "68:32",
+   "action": "fix_why",
+   "new_why": "Perhaps our Lord will give us something better than this in its place; we turn to our Lord.",
+   "reason": "'After losing everything' adds context not on the page."
+  },
+  {
+   "ref": "70:5",
+   "action": "remove",
+   "reason": "Only theme patience; 'be patient with a patience fair to see' reads as 'endure it gracefully'."
+  },
+  {
+   "ref": "73:10",
+   "action": "retag",
+   "drop_themes": [
+    "patience",
+    "betrayal"
+   ],
+   "reason": "'Bear with patience what they utter' tells someone abused or betrayed to put up with it; keep under speech_gossip."
+  },
+  {
+   "ref": "74:7",
+   "action": "remove",
+   "reason": "Only theme patience; a bare 'be patient' reads as 'endure it' to someone being harmed."
+  },
+  {
+   "ref": "90:17",
+   "action": "retag",
+   "drop_themes": [
+    "patience"
+   ],
+   "reason": "'Exhort one another to perseverance' under patience implies persevering through harm."
+  },
+  {
+   "ref": "93:3",
+   "action": "fix_why",
+   "new_why": "Your Lord has not forsaken you, nor does He hate you.",
+   "reason": "Text says 'hate', not 'dislike'."
+  },
+  {
+   "ref": "93:9",
+   "action": "fix_why",
+   "new_why": "So do not oppress the orphan.",
+   "reason": "Text says 'oppress', not 'be harsh with'."
+  },
+  {
+   "ref": "94:8",
+   "action": "fix_why",
+   "new_why": "Strive to please your Lord.",
+   "reason": "Text says 'strive to please thy Lord'."
+  }
+ ],
+ "bible": [
+  {
+   "ref": "Genesis 50:19",
+   "action": "fix_why",
+   "new_why": "Joseph tells his brothers not to fear, asking whether he is in the place of God.",
+   "reason": "Verse on page does not mention revenge; note read the wider story into it."
+  },
+  {
+   "ref": "Genesis 50:20",
+   "action": "fix_why",
+   "new_why": "Joseph tells his brothers they meant evil against him, but God meant it for good.",
+   "reason": "Note dropped who speaks and generalised the claim beyond the verse."
+  },
+  {
+   "ref": "Genesis 50:20",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness"
+   ],
+   "reason": "Under forgiveness it frames harm done to you as meant for good, which reads as excusing an abuser."
+  },
+  {
+   "ref": "Deuteronomy 31:8",
+   "action": "fix_why",
+   "new_why": "The LORD goes before you and will not fail or forsake you; do not fear or be dismayed.",
+   "reason": "Note was garbled ('You are gone before') and misstated who goes before."
+  },
+  {
+   "ref": "Ruth 1:16",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "Refusing to leave a family member reads as 'stay' to someone harmed by a parent or in-law."
+  },
+  {
+   "ref": "1 Kings 19:7",
+   "action": "fix_why",
+   "new_why": "When the journey is too great for you, get up and eat.",
+   "reason": "Verse says 'arise and eat'; 'rest' is not in the text."
+  },
+  {
+   "ref": "Job 23:10",
+   "action": "retag",
+   "drop_themes": [
+    "suffering_endurance"
+   ],
+   "reason": "Frames suffering as a test that refines you, which implies enduring harm."
+  },
+  {
+   "ref": "Job 31:32",
+   "action": "fix_why",
+   "new_why": "Job says he never let a stranger sleep in the street but opened his door to travellers.",
+   "reason": "Note turned Job's description of his own conduct into a command."
+  },
+  {
+   "ref": "Psalms 23:4",
+   "action": "fix_why",
+   "new_why": "Even walking through the valley of the shadow of death, I will fear no evil, for you are with me.",
+   "reason": "'Darkest valley' is modern-translation wording, not KJV."
+  },
+  {
+   "ref": "Psalms 25:16",
+   "action": "fix_why",
+   "new_why": "Turn to me and have mercy, for I am desolate and afflicted.",
+   "reason": "'Lonely' is modern-translation wording; KJV says 'desolate'."
+  },
+  {
+   "ref": "Psalms 34:5",
+   "action": "fix_why",
+   "new_why": "Those who looked to him were lightened, and their faces were not ashamed.",
+   "reason": "'Radiant' is modern-translation wording; KJV says 'lightened'."
+  },
+  {
+   "ref": "Psalms 37:6",
+   "action": "fix_why",
+   "new_why": "He will bring out your righteousness like the light and your cause like the noonday.",
+   "reason": "'Shine like the dawn' is modern-translation wording; KJV says light and noonday."
+  },
+  {
+   "ref": "Psalms 37:8",
+   "action": "fix_why",
+   "new_why": "Stop being angry and let go of wrath; do not fret yourself into doing evil.",
+   "reason": "'Fretting only leads to harm' imports modern wording and adds 'only'."
+  },
+  {
+   "ref": "Psalms 42:11",
+   "action": "fix_why",
+   "new_why": "Why are you troubled, my soul? Hope in God, for I will yet praise him.",
+   "reason": "'Help will come' adds a promise the verse does not state."
+  },
+  {
+   "ref": "Psalms 55:12",
+   "action": "fix_why",
+   "new_why": "It was not an enemy who taunted me; that I could have borne.",
+   "reason": "Verse says 'not an enemy', not 'not a stranger', and the wrong is reproach."
+  },
+  {
+   "ref": "Psalms 62:1",
+   "action": "fix_why",
+   "new_why": "My soul waits on God; my salvation comes from him.",
+   "reason": "'Quietly' is not in the KJV text."
+  },
+  {
+   "ref": "Psalms 62:5",
+   "action": "fix_why",
+   "new_why": "My soul, wait only on God, for my hope comes from him.",
+   "reason": "'Quietly' is not in the KJV; the verse's own word is 'only'."
+  },
+  {
+   "ref": "Psalms 71:18",
+   "action": "fix_why",
+   "new_why": "Even when I am old and grey, do not forsake me until I have shown your strength to the next generation.",
+   "reason": "'Pass on what I know' misstates what the psalmist wants to show."
+  },
+  {
+   "ref": "Psalms 94:19",
+   "action": "fix_why",
+   "new_why": "When my thoughts within me are many, your comforts delight my soul.",
+   "reason": "'Anxious' is modern-translation wording; KJV says 'multitude of my thoughts'."
+  },
+  {
+   "ref": "Psalms 131:2",
+   "action": "fix_why",
+   "new_why": "I have calmed and quieted myself like a weaned child.",
+   "reason": "'Resting with its mother' is not in the KJV; it says 'weaned child'."
+  },
+  {
+   "ref": "Psalms 133:1",
+   "action": "retag",
+   "drop_themes": [
+    "family_parents"
+   ],
+   "reason": "'Good to dwell together in unity' reads as 'keep the family together' to someone harmed at home."
+  },
+  {
+   "ref": "Proverbs 4:18",
+   "action": "fix_why",
+   "new_why": "The path of the just is like a shining light that grows brighter until the perfect day.",
+   "reason": "'Like dawn' is modern-translation wording; KJV says 'shining light'."
+  },
+  {
+   "ref": "Proverbs 4:23",
+   "action": "fix_why",
+   "new_why": "Keep your heart with all diligence, for out of it come the issues of life.",
+   "reason": "'Guard your heart, for everything you do flows from it' is NIV wording."
+  },
+  {
+   "ref": "Proverbs 10:12",
+   "action": "remove",
+   "reason": "'Love covereth all sins' reads as cover up abuse; harmful under both love_compassion and anger."
+  },
+  {
+   "ref": "Proverbs 12:18",
+   "action": "fix_why",
+   "new_why": "Some words pierce like a sword, but the tongue of the wise is health.",
+   "reason": "'Careless' and 'brings healing' are not in the KJV text."
+  },
+  {
+   "ref": "Proverbs 12:25",
+   "action": "fix_why",
+   "new_why": "Heaviness in the heart weighs a person down, but a good word makes it glad.",
+   "reason": "KJV says 'good word', not 'kind word'."
+  },
+  {
+   "ref": "Proverbs 14:30",
+   "action": "fix_why",
+   "new_why": "A sound heart is life to the body; envy rots the bones.",
+   "reason": "KJV says 'sound heart', not 'calm heart'."
+  },
+  {
+   "ref": "Proverbs 14:31",
+   "action": "fix_why",
+   "new_why": "Oppressing the poor insults their Maker; showing mercy to the poor honours him.",
+   "reason": "Old note reversed the verse's logic and dropped the oppression half."
+  },
+  {
+   "ref": "Proverbs 15:1",
+   "action": "retag",
+   "drop_themes": [
+    "anger"
+   ],
+   "reason": "'Soft answer turneth away wrath' implies a victim can calm an abuser by being gentler."
+  },
+  {
+   "ref": "Proverbs 15:1",
+   "action": "fix_why",
+   "new_why": "A soft answer turns away wrath; harsh words stir up anger.",
+   "reason": "KJV says 'soft', not 'gentle'."
+  },
+  {
+   "ref": "Proverbs 15:4",
+   "action": "fix_why",
+   "new_why": "A wholesome tongue is a tree of life.",
+   "reason": "KJV says 'wholesome', not 'gentle'."
+  },
+  {
+   "ref": "Proverbs 16:24",
+   "action": "fix_why",
+   "new_why": "Pleasant words are like honeycomb, sweet to the soul and health to the bones.",
+   "reason": "KJV says 'health to the bones', not 'healing'."
+  },
+  {
+   "ref": "Proverbs 17:27",
+   "action": "fix_why",
+   "new_why": "The knowledgeable use few words; a person of understanding has an excellent spirit.",
+   "reason": "KJV text says 'excellent spirit', not 'cool spirit'."
+  },
+  {
+   "ref": "Proverbs 18:22",
+   "action": "fix_why",
+   "new_why": "Finding a wife is a good thing and brings favour from the Lord.",
+   "reason": "Note added 'good spouse' and 'gift'; text says a wife and favour of the LORD."
+  },
+  {
+   "ref": "Proverbs 19:11",
+   "action": "remove",
+   "reason": "Only theme is anger; 'glory to pass over a transgression' tells a harmed person to overlook offences."
+  },
+  {
+   "ref": "Proverbs 20:22",
+   "action": "fix_why",
+   "new_why": "Do not say you will repay evil; wait on the Lord and he will save you.",
+   "reason": "Note dropped who saves; text says the LORD."
+  },
+  {
+   "ref": "Proverbs 22:26",
+   "action": "remove",
+   "reason": "Only theme is money_worry; advice against guaranteeing debts is not care or provision for someone in crisis."
+  },
+  {
+   "ref": "Proverbs 22:29",
+   "action": "fix_why",
+   "new_why": "A person diligent in their work will stand before kings.",
+   "reason": "KJV says 'diligent', not 'skilled'."
+  },
+  {
+   "ref": "Proverbs 23:4",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Labour not to be rich' is not care or provision for someone facing eviction."
+  },
+  {
+   "ref": "Proverbs 23:5",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Riches fly away' is not care or provision for someone facing eviction."
+  },
+  {
+   "ref": "Proverbs 27:10",
+   "action": "fix_why",
+   "new_why": "Do not forsake your friend or your father's friend; a neighbour nearby is better than a brother far away.",
+   "reason": "Note blurred the text's comparison of a near neighbour and a distant brother."
+  },
+  {
+   "ref": "Proverbs 30:8",
+   "action": "fix_why",
+   "new_why": "Keep lies far from me; give me neither poverty nor riches, but the food I need.",
+   "reason": "Note added 'only' and dropped the first half of the prayer."
+  },
+  {
+   "ref": "Proverbs 31:25",
+   "action": "fix_why",
+   "new_why": "Strength and honour are her clothing; she will rejoice in time to come.",
+   "reason": "'Dignity' and 'laugh at the days to come' are NIV wording, not KJV."
+  },
+  {
+   "ref": "Ecclesiastes 3:11",
+   "action": "fix_why",
+   "new_why": "God has made everything beautiful in its time.",
+   "reason": "Text says he made it so; note dropped who acts."
+  },
+  {
+   "ref": "Ecclesiastes 5:10",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Lover of silver never satisfied' implies greed and blames, not care."
+  },
+  {
+   "ref": "Ecclesiastes 5:12",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Whether he eat little or much' is a be-content-with-little message."
+  },
+  {
+   "ref": "Ecclesiastes 7:12",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Money is a defence' offers no care or provision to someone being evicted."
+  },
+  {
+   "ref": "Ecclesiastes 9:11",
+   "action": "fix_why",
+   "new_why": "The race is not to the swift nor the battle to the strong; time and chance happen to all.",
+   "reason": "Note added 'always', which the text lacks."
+  },
+  {
+   "ref": "Ecclesiastes 11:1",
+   "action": "fix_why",
+   "new_why": "Cast your bread on the waters; you will find it after many days.",
+   "reason": "Text says 'find it after many days', not that it comes back to you."
+  },
+  {
+   "ref": "Isaiah 40:31",
+   "action": "fix_why",
+   "new_why": "Those who wait on the Lord will renew their strength; they will run and not be weary.",
+   "reason": "Note dropped 'upon the LORD'."
+  },
+  {
+   "ref": "Isaiah 43:2",
+   "action": "fix_why",
+   "new_why": "When you pass through waters and fire, I will be with you, and they will not overflow or burn you.",
+   "reason": "Note added 'deep' and dropped 'I will be with thee'."
+  },
+  {
+   "ref": "Jeremiah 29:11",
+   "action": "fix_why",
+   "new_why": "The Lord's thoughts toward you are of peace and not of evil, to give you an expected end.",
+   "reason": "'Plans', 'harm' and 'a future and hope' are NIV wording, not KJV."
+  },
+  {
+   "ref": "Habakkuk 3:18",
+   "action": "fix_why",
+   "new_why": "I will rejoice in the Lord and be joyful in the God of my salvation.",
+   "reason": "'Yet' comes from verse 17, which is not on the page."
+  },
+  {
+   "ref": "Matthew 6:12",
+   "action": "remove",
+   "reason": "Only theme is forgiveness; 'as we forgive our debtors' ties being forgiven to forgiving whoever harms you."
+  },
+  {
+   "ref": "Matthew 6:21",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "'Where your treasure is' implies misplaced values, not care."
+  },
+  {
+   "ref": "Matthew 6:25",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Alone it only says do not worry about food or clothes; no provision is stated, reads as dismissive to someone evicted."
+  },
+  {
+   "ref": "Matthew 6:28",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "On the page it only says lilies do not toil; the provision line is in a later verse."
+  },
+  {
+   "ref": "Matthew 6:31",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Alone it only says take no thought about food or clothes; no provision is stated."
+  },
+  {
+   "ref": "Matthew 6:33",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Ties provision to seeking the kingdom first, implying lack comes from lack of faith."
+  },
+  {
+   "ref": "Matthew 6:33",
+   "action": "fix_why",
+   "new_why": "Seek first the kingdom of God and his righteousness, and all these things will be added to you.",
+   "reason": "Note replaced 'kingdom of God' with 'what is right'."
+  },
+  {
+   "ref": "Matthew 11:29",
+   "action": "fix_why",
+   "new_why": "Take Jesus' yoke and learn from him, for he is meek and lowly, and you will find rest for your souls.",
+   "reason": "Note turned Jesus describing himself into a command to learn gentleness and humility."
+  },
+  {
+   "ref": "Luke 10:37",
+   "action": "fix_why",
+   "new_why": "Go and do the same.",
+   "reason": "Page text is only 'Go, and do thou likewise'; note added words not shown."
+  },
+  {
+   "ref": "Romans 5:5",
+   "action": "fix_why",
+   "new_why": "Hope does not make us ashamed, because God's love is poured into our hearts.",
+   "reason": "'Does not disappoint' is modern-translation wording; KJV says 'maketh not ashamed'."
+  },
+  {
+   "ref": "Romans 8:39",
+   "action": "fix_why",
+   "new_why": "Nothing can separate us from the love of God in Christ Jesus.",
+   "reason": "Note began with a stray ellipsis."
+  },
+  {
+   "ref": "Romans 12:10",
+   "action": "fix_why",
+   "new_why": "Love one another like family, and be quick to honour each other.",
+   "reason": "'Honour others above yourselves' is NIV wording; KJV says 'in honour preferring one another'."
+  },
+  {
+   "ref": "1 Corinthians 13:4",
+   "action": "fix_why",
+   "new_why": "Love suffers long and is kind; love does not envy or boast.",
+   "reason": "'Love is patient' is modern-translation wording; KJV says 'suffereth long'."
+  },
+  {
+   "ref": "Galatians 5:22",
+   "action": "fix_why",
+   "new_why": "The fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness and faith.",
+   "reason": "Note swapped in modern-translation words (patience, kindness)."
+  },
+  {
+   "ref": "Galatians 6:1",
+   "action": "fix_why",
+   "new_why": "If someone is caught in a fault, restore them in a spirit of meekness, watching yourself.",
+   "reason": "Note used 'gently' and 'slipped'; KJV says 'spirit of meekness' and 'overtaken in a fault'."
+  },
+  {
+   "ref": "Galatians 6:9",
+   "action": "fix_why",
+   "new_why": "Do not grow weary of doing good; in due season we will reap if we do not give up.",
+   "reason": "Note dropped the KJV condition 'if we faint not' and made the reaping unconditional."
+  },
+  {
+   "ref": "Ephesians 4:29",
+   "action": "fix_why",
+   "new_why": "Let no corrupt talk come out of your mouth, but what is good for building others up.",
+   "reason": "Note added 'only' and 'harmful'."
+  },
+  {
+   "ref": "Philippians 4:5",
+   "action": "fix_why",
+   "new_why": "Let your moderation be known to everyone; the Lord is at hand.",
+   "reason": "KJV says 'moderation', not 'gentleness'."
+  },
+  {
+   "ref": "Colossians 3:19",
+   "action": "fix_why",
+   "new_why": "Husbands, love your wives and do not be bitter against them.",
+   "reason": "KJV says 'bitter', not 'harsh'."
+  },
+  {
+   "ref": "Titus 3:2",
+   "action": "fix_why",
+   "new_why": "Speak evil of no one, do not quarrel, and be gentle and meek toward everyone.",
+   "reason": "'Courteous' is not in the KJV text; it says 'shewing all meekness'."
+  },
+  {
+   "ref": "James 1:12",
+   "action": "fix_why",
+   "new_why": "Blessed is the one who endures temptation, for when tested he will receive the crown of life.",
+   "reason": "KJV says 'temptation', not 'trial'; note left out what the verse promises."
+  },
+  {
+   "ref": "James 3:18",
+   "action": "fix_why",
+   "new_why": "The fruit of righteousness is sown in peace by those who make peace.",
+   "reason": "'Reap goodness' is not in the verse."
+  },
+  {
+   "ref": "1 Peter 4:8",
+   "action": "remove",
+   "reason": "Says love 'shall cover the multitude of sins' (note: 'love covers many wrongs'); reads as cover up abuse, and the verse is universal so it shows widely."
+  },
+  {
+   "ref": "Colossians 3:13",
+   "action": "remove",
+   "reason": "Only theme is forgiveness and the verse says 'forbearing one another' and forgive; tells a harmed person to put up with it and forgive."
+  },
+  {
+   "ref": "Hebrews 10:36",
+   "action": "remove",
+   "reason": "Only theme is patience; 'ye have need of patience' (endurance) reads as stay and endure."
+  },
+  {
+   "ref": "Hebrews 12:1",
+   "action": "remove",
+   "reason": "Themes are only suffering_endurance and patience; 'run with patience the race that is set before us' reads as accept and endure your situation."
+  },
+  {
+   "ref": "James 1:4",
+   "action": "remove",
+   "reason": "Only theme is patience; 'let patience have her perfect work' (endurance of trials) reads as keep enduring."
+  },
+  {
+   "ref": "James 5:11",
+   "action": "remove",
+   "reason": "Themes are only suffering_endurance and patience; 'we count them happy which endure' and the patience of Job read as keep enduring."
+  },
+  {
+   "ref": "Romans 8:18",
+   "action": "retag",
+   "drop_themes": [
+    "suffering_endurance"
+   ],
+   "reason": "Present sufferings 'not worthy to be compared' with future glory reads as endure harm now for later reward; keep hope."
+  },
+  {
+   "ref": "Romans 12:12",
+   "action": "retag",
+   "drop_themes": [
+    "patience",
+    "suffering_endurance"
+   ],
+   "reason": "'Patient in tribulation' reads as endure it; keep hope."
+  },
+  {
+   "ref": "Galatians 6:9",
+   "action": "retag",
+   "drop_themes": [
+    "patience",
+    "suffering_endurance"
+   ],
+   "reason": "Keep doing good without growing weary reads as keep being nice to the abuser; keep work_effort."
+  },
+  {
+   "ref": "2 Thessalonians 3:13",
+   "action": "retag",
+   "drop_themes": [
+    "patience"
+   ],
+   "reason": "'Be not weary in well doing' under patience reads as keep enduring; keep work_effort."
+  },
+  {
+   "ref": "James 1:12",
+   "action": "retag",
+   "drop_themes": [
+    "suffering_endurance"
+   ],
+   "reason": "Blessed is the man that endureth reads as endure abuse; keep temptation_self_control."
+  },
+  {
+   "ref": "Colossians 3:12",
+   "action": "retag",
+   "drop_themes": [
+    "patience"
+   ],
+   "reason": "Command to 'put on' longsuffering reads as suffer long; keep the compassion and kindness themes."
+  },
+  {
+   "ref": "Galatians 5:22",
+   "action": "retag",
+   "drop_themes": [
+    "patience"
+   ],
+   "reason": "Longsuffering as a virtue reads as suffer long under patience; keep love and peace themes."
+  },
+  {
+   "ref": "Galatians 6:1",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness"
+   ],
+   "reason": "Restoring the one at fault meekly reads as be gentle with and restore the offender; keep guilt_repentance and pride_humility."
+  },
+  {
+   "ref": "Luke 23:34",
+   "action": "retag",
+   "drop_themes": [
+    "betrayal"
+   ],
+   "reason": "Under betrayal, 'they know not what they do' excuses the one who betrayed or harmed you; keep forgiveness."
+  },
+  {
+   "ref": "1 Peter 3:9",
+   "action": "retag",
+   "drop_themes": [
+    "forgiveness"
+   ],
+   "reason": "Answer railing with blessing reads as be nicer to the abuser; keep anger (not retaliating oneself)."
+  },
+  {
+   "ref": "Romans 12:21",
+   "action": "retag",
+   "drop_themes": [
+    "anger"
+   ],
+   "reason": "'Overcome evil with good' implies being good to the abuser will change them, like the coals of fire verse before it; keep justice_wronged."
+  },
+  {
+   "ref": "Luke 12:34",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "About where your heart is, not care or provision; to someone being evicted it reads as a rebuke for caring about money."
+  },
+  {
+   "ref": "1 Timothy 6:7",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Brought nothing and carry nothing out is a be-content message, not provision."
+  },
+  {
+   "ref": "1 Timothy 6:17",
+   "action": "retag",
+   "drop_themes": [
+    "money_worry"
+   ],
+   "reason": "Addressed to the rich about pride; no care or provision for someone in need."
+  }
+ ]
+}

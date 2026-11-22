@@ -1,0 +1,49 @@
+{
+ "about": "Hand-picked. The only verses shown when a query names a sensitive topic (sexual orientation, gender identity, pregnancy and pregnancy loss, disability, race, religion or none, caste, eating and body image). Chosen from pool verses still marked universal after the reviews: they affirm dignity, being known, not being forsaken, compassion and comfort. None is tagged guilt_repentance, temptation_self_control, forgiveness, family_parents, marriage or illness, and none has womb, breastfeeding, body or gender words, 'straight', a healing promise, sin, repent or cleanse wording, or creed-specific wording. Results are ranked within this list by the normal scorer. The Gita has only six: most of its universal verses teach detachment from desire, likes and dislikes, or evenness in dishonour, which read badly after such a disclosure, and its verses of being held and loved speak as Krishna ('Me') and so are not universal.",
+ "gita": [
+  {"ref": "2:40", "why": "No sincere effort is lost, and a little understanding guards against great fear."},
+  {"ref": "17:15", "why": "Words should not hurt: truthful, pleasant and helpful speech."},
+  {"ref": "18:30", "why": "Clear understanding knows what to fear and what not to fear."}
+ ],
+ "quran": [
+  {"ref": "2:115", "why": "Wherever you turn, God is there: no one is out of reach."},
+  {"ref": "3:150", "why": "God as protector and best of helpers."},
+  {"ref": "6:59", "why": "Not a leaf falls unknown: being fully known."},
+  {"ref": "17:70", "why": "Every child of Adam has been honoured: human dignity for all."},
+  {"ref": "20:25", "why": "A short prayer to relieve a troubled mind."},
+  {"ref": "20:46", "why": "Fear not; I am with you, hearing and seeing."},
+  {"ref": "26:62", "why": "Not alone: 'my Lord is with me; He will guide me.'"},
+  {"ref": "26:217", "why": "Trust in the Mighty, the Merciful."},
+  {"ref": "28:5", "why": "Favour is meant for those who were oppressed."},
+  {"ref": "28:24", "why": "An honest prayer of need after helping others."},
+  {"ref": "33:3", "why": "God is enough to rely on."},
+  {"ref": "42:28", "why": "Saving rain after despair: mercy spread out."},
+  {"ref": "57:4", "why": "God is with you wherever you are."},
+  {"ref": "65:3", "why": "Whoever trusts in God, He is enough for them."},
+  {"ref": "93:3", "why": "Your Lord has not forsaken you, nor does He hate you."},
+  {"ref": "94:5", "why": "With hardship comes ease."}
+ ],
+ "bible": [
+  {"ref": "Deuteronomy 31:8", "why": "You will not be failed or forsaken; do not fear."},
+  {"ref": "Leviticus 19:33", "why": "A stranger living among you is not to be mistreated."},
+  {"ref": "Psalms 9:9", "why": "A refuge for the oppressed in times of trouble."},
+  {"ref": "Psalms 18:28", "why": "Darkness will be lit up."},
+  {"ref": "Psalms 25:16", "why": "A prayer for mercy when you feel desolate and afflicted."},
+  {"ref": "Psalms 38:21", "why": "A prayer not to be forsaken or left far away."},
+  {"ref": "Psalms 46:1", "why": "A refuge and strength, a present help in trouble."},
+  {"ref": "Psalms 56:8", "why": "Every tear is seen and kept."},
+  {"ref": "Psalms 62:8", "why": "Pour out your heart: there is refuge."},
+  {"ref": "Psalms 94:19", "why": "Comfort when your thoughts crowd in."},
+  {"ref": "Psalms 139:1", "why": "You are searched and known."},
+  {"ref": "Psalms 139:7", "why": "There is nowhere you could go to be out of reach."},
+  {"ref": "Psalms 139:17", "why": "How precious are God's thoughts toward you."},
+  {"ref": "Psalms 145:9", "why": "Good to all, with mercy over everything made."},
+  {"ref": "Psalms 145:14", "why": "Those who fall are upheld and those bowed down are lifted."},
+  {"ref": "Isaiah 41:10", "why": "Fear not, you are not alone; you will be strengthened and upheld."},
+  {"ref": "Isaiah 54:10", "why": "Mountains may move, but kindness will not depart from you."},
+  {"ref": "Matthew 5:4", "why": "Those who mourn will be comforted."},
+  {"ref": "Luke 12:6", "why": "Not one sparrow is forgotten."},
+  {"ref": "Acts 10:34", "why": "God shows no partiality between people."},
+  {"ref": "Romans 12:15", "why": "Weep with those who weep."}
+ ]
+}
