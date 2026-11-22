@@ -483,7 +483,9 @@ def test_round_5_theme_detection_fixes(s, q, theme):
 def test_bible_marriage_speaks_to_either_spouse(s):
     marriage = {v["ref"] for v in s.books["bible"]["verses"] if "marriage" in v["themes"]}
     assert not marriage & {"Ephesians 5:25", "Colossians 3:19", "Proverbs 18:22", "Proverbs 31:28"}
-    assert len(marriage) >= 3
+    # Round 7 (judge 6) removed the last either-spouse verses ("Two are better than one", "the bond of perfectness"),
+    # so no book offers marriage any more.
+    assert not marriage and not any("marriage" in v["themes"] for b in BOOKS for v in s.books[b]["verses"])
 
 
 # ----- round 6: judge 5's set (spent after its one held-out run) and their paraphrases as regression tests -----
@@ -625,4 +627,4 @@ def test_round_6_retags_hold(s):
     gita = s.books["gita"]
     assert "suffering_endurance" not in gita["verses"][gita["index"]["2:56"]]["themes"]
     bible = s.books["bible"]
-    assert "marriage" not in bible["verses"][bible["index"]["Ecclesiastes 4:12"]]["themes"]
+    assert "Ecclesiastes 4:12" not in bible["index"]                     # round 6 dropped marriage, round 7 the verse

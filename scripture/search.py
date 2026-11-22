@@ -1,7 +1,19 @@
 """Advice search: real verses for an everyday situation, from a hand-reviewed pool.
 
-A visitor types a situation in modern English ("I got laid off and I'm scared
-about money") and gets verses from the Bhagavad Gita, the Quran and the Bible.
+Since round 7 the site works as "type, then pick a topic". A visitor types a
+situation in modern English ("I got laid off and I'm scared about money");
+suggest() answers with topics only (money_worry, fear_anxiety), never verses,
+or with a kind note and no topics if the message may be a crisis. Verses from
+the Bhagavad Gita, the Quran and the Bible appear only after the visitor taps a
+topic: topic() returns that topic's verses in the hand-set order. The site
+never shows a verse chosen from free text. Three blind reviews in a row found
+that keyword rules miss a few percent of crisis messages in unusual wording,
+and a verse picked for such a message can do harm; a topic list the visitor
+chooses from cannot hand them a verse they did not ask for.
+
+search(), described below, is the free-text verse search of rounds 4 to 6. It
+is kept only so the recorded eval history can be reproduced; the site does not
+use it.
 
 The search can only ever return verses from a hand-curated pool
 (search/pool/*.json). Every pool verse was chosen and read by a person, has
@@ -9,12 +21,12 @@ one or more themes (grief, money_worry, ...) and a one-line note on why it
 may help. A book offers a theme only if it has at least three verses for it.
 Nothing outside the pool can be shown.
 
-How a query is answered:
+How a message is read (steps 0 to 2 are shared by suggest() and search()):
 
 0. Only the first 500 characters of the query are read.
 1. Safety first (search/safety.json, hand-written).
-   - "crisis": no verses, no themes, no notes; the site shows a short kind
-     note (safety.json "crisis_message") instead. Two layers fire it:
+   - "crisis": no topics, no verses; the site shows a short kind note
+     (safety.json "crisis_message") instead. Two layers fire it:
      the crisis phrase lists (suicide, self-harm, abuse, harm to others),
      and a deliberately over-sensitive "distress" gate: rules that fire when
      a few words occur close together in any order ("pills" near "how
@@ -24,9 +36,10 @@ How a query is answered:
      bereavement goes to the grief theme instead.
    - "sensitive" (sexual orientation, gender, pregnancy, disability, race,
      religion, caste, eating and body image, mental health, addiction,
-     immigration, divorce): only verses from a short hand-picked list
-     (search/pool/sensitive_set.json), with the topic's gentle themes
-     (loneliness, self_worth, ...) added after the typed ones.
+     immigration, divorce): only topics with verses from a short
+     hand-picked list (search/pool/sensitive_set.json), under gentle labels,
+     with the topic's gentle themes (loneliness, self_worth, ...) added after
+     the typed ones; topic(sensitive=True) then shows only those verses.
    - otherwise "general".
 2. Themes. Hand-written phrases (search/themes.json) spot the themes of the
    query: "passed away" -> grief, "burnt out" -> overwork_rest. A longer
@@ -34,7 +47,14 @@ How a query is answered:
    A word with a one-letter typo of a theme word counts as it ("lonley").
    Themes scoring below min_theme_score are dropped; if grief matched, only
    grief is kept (exclusive_themes; grief counts at any score).
-3. Themes choose the verses. A verse can be shown only if it carries one
+3. suggest() offers up to 4 of these themes as topics, best first. If the
+   message has any first-person harm, plan, secrecy, age-under-18 or
+   adult-contact word (safety.json "suggest"), it never offers courage,
+   love, friendship, marriage, family or forgiveness, and at most 2 topics,
+   even if the gate did not fire. With no theme, category "none": the site
+   shows the full topic list (topics()).
+   search() (eval history only) instead lets the themes choose verses:
+   a verse can be shown only if it carries one
    of the query's themes; with no theme there are no verses (no_match; the
    site then offers the themes as chips: by_theme()). Verses are ordered by
    the best-ranked query theme they carry, then by the hand-set priority of
@@ -45,9 +65,10 @@ How a query is answered:
    hand-written bridge adds scripture words for modern ones).
 
 This matches topics in a hand-reviewed selection; it does not understand
-situations. Everything it needs
-is in search/artifacts/search.json (see search/FORMAT.md). Plain Python, no
-dependencies: run `python -m scripture.search "your situation"` to try it.
+situations. Everything it needs is in search/artifacts/search.json (see
+search/FORMAT.md). Plain Python, no dependencies: run
+`python -m scripture.search "your situation"` for the suggested topics and
+`python -m scripture.search --topic grief` for a topic's verses.
 """
 
 import json
@@ -58,6 +79,7 @@ from array import array
 from pathlib import Path
 
 BOOKS = ("gita", "quran", "bible")
+BOOK_NAMES = {"gita": "Bhagavad Gita", "quran": "Quran", "bible": "Bible"}
 ROOT = Path(__file__).resolve().parent.parent
 ARTIFACTS = ROOT / "search" / "artifacts"
 
@@ -252,6 +274,7 @@ class Searcher:
         safety = model["safety"]
         self.crisis_message = safety["crisis_message"]
         self.fuzzy = safety["fuzzy"]
+        self.emoji = safety.get("emoji", {})
         self.idioms = [compile_phrase(x) for x in safety["idioms"]]
         self.bereavement = [compile_phrase(x) for x in safety["bereavement"]]
         self.distress_window = safety["distress"]["window"]
@@ -262,6 +285,13 @@ class Searcher:
         # Sensitive-set verses a topic never shows ({"gita": ["2:40"]}), e.g. a verse that reads wrongly for abortion.
         self.sensitive_exclude = {t: {b: set(d.get("exclude", {}).get(b, ())) for b in BOOKS}
                                   for t, d in safety["sensitive"].items()}
+        # topic(sensitive=True) does not know which sensitive topic led there, so it leaves out every topic's excludes.
+        self.sensitive_exclude_any = {b: set().union(*(e[b] for e in self.sensitive_exclude.values())) for b in BOOKS}
+        sug = safety.get("suggest", {})
+        self.suggest_signals = [compile_phrase(x) for x in sug.get("signals", [])]
+        self.suggest_never = set(sug.get("never_after_signal", []))
+        self.suggest_max = sug.get("max_topics", 4)
+        self.suggest_max_signal = sug.get("max_topics_after_signal", self.suggest_max)
         self.books = {}
         row = 0
         for book in BOOKS:
@@ -290,13 +320,17 @@ class Searcher:
     def crisis_words(self, query):
         """words(spell_numbers(query)) with idioms and a third person's death blanked to "", then crisis typos fixed.
 
-        Numbers 1-17 typed as digits are spelled out first ("i'm 14" -> "i
-        fourteen"). Idioms ("killing it at work") and bereavement phrases ("my
+        A few emoji (safety.json "emoji": "🔫" -> "emojigun") are replaced by
+        a word first, then numbers 1-17 typed as digits are spelled out ("i'm
+        14" -> "i fourteen"). Idioms ("killing it at work") and bereavement phrases ("my
         dad passed away", "died by suicide") are matched on these words; every
         word they cover becomes "". Then each word of 5 or more letters one
         edit away from a `fuzzy` word becomes that word (the first in list order).
         """
-        toks = words(spell_numbers(query[:self.params["max_query_chars"]]))
+        query = query[:self.params["max_query_chars"]]
+        for ch, word in self.emoji.items():               # a few emoji that stand for a means of harm ("🔫")
+            query = query.replace(ch, f" {word} ")
+        toks = words(spell_numbers(query))
         out, tokset = list(toks), set(toks)
         for phrase in self.idioms + self.bereavement:
             for i in phrase_starts(toks, phrase, tokset):
@@ -446,7 +480,12 @@ class Searcher:
         return total
 
     def search(self, query, k=3):
-        """Top-k pool verses from each book. Only the first max_query_chars (500) characters are read.
+        """EVAL HISTORY ONLY, NOT USED BY THE SITE: top-k verses chosen from free text.
+
+        Kept so evals/search_eval.py can reproduce the recorded numbers of
+        rounds 4 to 6. The site never shows a verse chosen from free text: it
+        calls suggest() (topics only) and then topic() for the topic the
+        visitor taps. Only the first max_query_chars (500) characters are read.
 
         Returns {"category", "topic", "message", "no_match", "themes": [{"id",
         "score"}], "notes": [{"theme", "note"}], "results": {book: [hit, ...]}}.
@@ -490,26 +529,133 @@ class Searcher:
         out["no_match"] = not any(out["results"].values())
         return out
 
-    def by_theme(self, theme, k=3):
-        """Pool verses of one theme per book, for the theme chips.
+    # ----- what the site uses: suggest() then topic() -----
 
-        Verses with a hand-set priority for the theme come first (1 before
-        2 ...). The rest follow by score = 1 / (position of the theme in the
-        verse's list + 1), so verses that list the theme first come first;
-        ties keep pool order.
+    def suggest_signal(self, query):
+        """True if the message has any first-person harm, plan, secrecy, age-under-18 or adult-contact word.
+
+        Matched on crisis_words (so "i'm 14" and "🔫" count, and idioms and a
+        third person's death are blanked) with the phrases of safety.json
+        "suggest" "signals". Deliberately broad: it only makes suggest() offer
+        fewer topics.
         """
+        toks = self.crisis_words(query)
+        tset = set(toks)
+        return any(phrase_starts(toks, p, tset) for p in self.suggest_signals)
+
+    def suggest(self, query):
+        """Topics to offer for a typed message. The only free-text entry point the site uses; it never returns verses.
+
+        Returns {"category", "note", "topics": [{"id", "label", "blurb"}]}:
+        - "crisis" (a crisis phrase or the distress gate fired): note is the
+          kind crisis message and topics is empty;
+        - "sensitive": the message's themes and then the sensitive topic's
+          gentle themes, keeping only topics with sensitive-set verses, under
+          their gentle labels where they have one; the site then calls
+          topic(id, sensitive=True);
+        - "general": the message's themes as the theme matching ranks them
+          (selection_themes), keeping only topics some book offers;
+        - "none": nothing matched; topics is empty and the site shows the
+          full list (topics()).
+        If the message has a signal word (suggest_signal), the topics in
+        safety.json "suggest" "never_after_signal" (courage, love,
+        friendship, marriage, family, forgiveness) are never offered and at
+        most max_topics_after_signal (2) are; otherwise at most max_topics (4).
+        Only the first max_query_chars (500) characters are read.
+        """
+        query = query[:self.params["max_query_chars"]]
+        category, topic = self.classify(query)
+        if category == "crisis":
+            return {"category": "crisis", "note": self.crisis_message, "topics": []}
+        return self.offer(query, category, topic)
+
+    def offer(self, query, category, topic):
+        """suggest() after the safety check, for a "general" or "sensitive" message.
+
+        The benchmark also calls it for crisis messages, as if the gate had
+        missed them, to see what the suggestion layer alone would offer.
+        """
+        query = query[:self.params["max_query_chars"]]
+        sensitive = category == "sensitive"
+        ids = [t for t in self.selection_themes(query, category, topic) if self.topic_count(t, sensitive)]
+        cap = self.suggest_max
+        if self.suggest_signal(query):
+            ids = [t for t in ids if t not in self.suggest_never]
+            cap = self.suggest_max_signal
+        topics = [self._topic_label(t, sensitive) for t in ids[:cap]]
+        if not topics and not sensitive:
+            category = "none"
+        return {"category": category, "note": None, "topics": topics}
+
+    def topic(self, theme, k=None, sensitive=False):
+        """The verses of one topic per book, in the hand-set priority order: what the site shows after a tap.
+
+        Per book: verses with a hand-set priority for the topic first (1, 2,
+        ...), then by 1 / (position of the topic in the verse's list + 1),
+        then pool order; the first k (all if k is None). With sensitive=True
+        only sensitive-set verses (and none that any sensitive topic
+        excludes). Returns {"id", "label", "blurb", "note", "sensitive",
+        "books": {book: {"verses": [{"ref", "text", "why", "themes",
+        "priority"}], "nothing": None, or a sentence saying the book has no
+        verse for this topic}}}.
+        """
+        rows = self._theme_rows(theme, k, sensitive)
+        out = {**self._topic_label(theme, sensitive), "note": self.theme_info[theme].get("note"),
+               "sensitive": sensitive, "books": {}}
+        for book in BOOKS:
+            verses = []
+            for p, _, i in rows[book]:
+                v = self.books[book]["verses"][i]
+                verses.append({"ref": v["ref"], "text": v["text"], "why": v["why"], "themes": v["themes"],
+                               "priority": None if p == 1000 else p})
+            out["books"][book] = {"verses": verses, "nothing": None if verses else
+                                  f"The {BOOK_NAMES[book]} has no verse for this topic in the reviewed selection."}
+        return out
+
+    def topics(self):
+        """Every topic that has a verse in some book, with its label, blurb and verse counts per book.
+
+        "verses" counts what topic() shows, "sensitive_verses" what
+        topic(sensitive=True) shows. A theme with no verse left in any book
+        (marriage, since round 7) is not listed.
+        """
+        return [{**self._topic_label(t, False),
+                 "verses": {b: self.topic_count(t, False, b) for b in BOOKS},
+                 "sensitive_verses": {b: self.topic_count(t, True, b) for b in BOOKS}}
+                for t in self.theme_info if self.topic_count(t)]
+
+    def topic_count(self, theme, sensitive=False, book=None):
+        """How many verses topic() can show for a theme, in one book or in all of them."""
+        return sum(len(rows) for rows in self._theme_rows(theme, None, sensitive, [book] if book else BOOKS).values())
+
+    def _topic_label(self, theme, sensitive):
+        d = self.theme_info[theme]
+        if sensitive and "gentle_label" in d:
+            return {"id": theme, "label": d["gentle_label"], "blurb": d["gentle_blurb"]}
+        return {"id": theme, "label": d.get("label", d["name"]), "blurb": d.get("blurb", d["description"])}
+
+    def _theme_rows(self, theme, k, sensitive, books=BOOKS):
+        """{book: [(priority or 1000, score, pool index), ...]}, sorted, the first k (all if k is None)."""
         if theme not in self.theme_info:
             raise ValueError(f"unknown theme {theme!r}")
-        if not isinstance(k, int) or isinstance(k, bool) or k < 1:
+        if k is not None and (not isinstance(k, int) or isinstance(k, bool) or k < 1):
             raise ValueError(f"k must be a positive integer, got {k!r}")
         out = {}
-        for book in BOOKS:
+        for book in books:
             rows = [(v.get("priority", {}).get(theme, 1000), round4(1 / (v["themes"].index(theme) + 1)), i)
-                    for i, v in enumerate(self.books[book]["verses"]) if theme in v["themes"]]
+                    for i, v in enumerate(self.books[book]["verses"]) if theme in v["themes"]
+                    and (not sensitive or (v["sensitive"] and v["ref"] not in self.sensitive_exclude_any[book]))]
             rows.sort(key=lambda x: (x[0], -x[1], x[2]))
-            out[book] = [{**self._hit(book, i, s, {"themes": [theme], "words": []}), "theme": theme,
-                          "priority": None if p == 1000 else p} for p, s, i in rows[:k]]
+            out[book] = rows if k is None else rows[:k]
         return out
+
+    def by_theme(self, theme, k=3):
+        """topic()'s order in search()'s hit format (score, matched); kept for the fixtures and the eval history."""
+        if k is None:
+            raise ValueError("k must be a positive integer, got None")
+        rows = self._theme_rows(theme, k, False)
+        return {book: [{**self._hit(book, i, s, {"themes": [theme], "words": []}), "theme": theme,
+                        "priority": None if p == 1000 else p} for p, s, i in rows[book]] for book in BOOKS}
 
     def themes(self):
         """Every theme with its display name, description and pool verse count per book."""
@@ -570,27 +716,29 @@ def unit(v):
 
 def main(argv):
     if not argv:
-        print('usage: python -m scripture.search "describe your situation" [k]')
+        print('usage: python -m scripture.search "describe your situation"   # topics to tap (what the site shows)')
+        print('       python -m scripture.search --topic grief [--sensitive]    # the verses of one topic')
         return
-    k = int(argv[1]) if len(argv) > 1 else 3
-    res = Searcher.load().search(argv[0], k=k)
-    print(f'category: {res["category"]}' + (f' ({res["topic"]})' if res["topic"] else ""))
-    if res["category"] == "crisis":
-        print(res["message"])
+    s = Searcher.load()
+    if argv[0] == "--topic":
+        res = s.topic(argv[1], sensitive="--sensitive" in argv)
+        print(f'{res["label"]}: {res["blurb"]}' + (f'\n{res["note"]}' if res["note"] else ""))
+        for book in BOOKS:
+            print(f"\n== {BOOK_NAMES[book]} ==")
+            if res["books"][book]["nothing"]:
+                print("  " + res["books"][book]["nothing"])
+            for h in res["books"][book]["verses"]:
+                print(f'{h["ref"]:>18}  #{h["priority"] or "-"}  {h["text"]}')
+                print(f'{"":>20}why: {h["why"]}')
         return
-    print("themes: " + (", ".join(f'{t["id"]} {t["score"]:.2f}' for t in res["themes"]) or "none"))
-    for n in res["notes"]:
-        print(f'note ({n["theme"]}): {n["note"]}')
-    if res["no_match"]:
-        print("No theme in the pool fits these words. Try one of the themes.")
-        return
-    for book in BOOKS:
-        print(f"\n== {book} ==")
-        if not res["results"][book]:
-            print("  (nothing fitting in this book)")
-        for h in res["results"][book]:
-            print(f'{h["ref"]:>18}  {h["theme"]}#{h["priority"] or "-"}  {h["text"]}')
-            print(f'{"":>20}why: {h["why"]}  [{", ".join(h["matched"]["themes"] + [m["word"] for m in h["matched"]["words"]])}]')
+    res = s.suggest(argv[0])
+    print(f'category: {res["category"]}')
+    if res["note"]:
+        print(res["note"])
+    for t in res["topics"]:
+        print(f'  {t["id"]:<24} {t["label"]}: {t["blurb"]}')
+    if res["category"] == "none":
+        print("No topic fits these words; the site shows the full list of topics.")
 
 
 if __name__ == "__main__":

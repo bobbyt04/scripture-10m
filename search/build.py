@@ -460,6 +460,22 @@ FIXTURE_QUERIES = [
 FIXTURE_K = [("I got laid off and I'm scared about money", 1), ("my mother passed away", 5), ("I'm gay", 4),
              ("I feel burnt out", 2), ("I want to die", 7)]
 FIXTURE_THEMES = ["grief", "money_worry", "self_worth", "patience"]
+# suggest(), the site's only free-text entry point (round 7): crisis, sensitive, general, none, the suppression rule
+# after a signal word, typos, non-ASCII input, an emoji, and the 500-character cap (added in fixtures()).
+FIXTURE_SUGGEST = [
+    "I got laid off and I'm scared about money", "my best friend just stopped talking to me", "my mother passed away",
+    "I feel burnt out and my boss keeps yelling", "I want to forgive my brother", "I'm getting married next month",
+    "I want to die", "my husband hits me", "stocked up on sleeping tablets, just need the courage", "🙂🔫",
+    "a guy online wants to meet me, im 14", "i'm not crying for help, i've just decided. i want a verse about peace",
+    "I'm gay and my parents rejected me", "I lost the pregnancy last week", "my wife wants a divorce and i'm crushed",
+    "xyzzy", "", "the and of unto",
+    "i'm 14 and my best friend stopped talking to me", "i need the courage to tell my family",
+    "i want to forgive him for hurting me", "i love my family but i feel so alone at home",
+    "i'm so lonley these days", "i keep procrastinting", "我很难过 lonely", "naïve café owner, so stressed about money",
+    "my dog destroyed the couch, i could kill him", "my friend jumped off a building last week",
+]
+FIXTURE_TOPICS = [("grief", None, False), ("courage", None, False), ("self_worth", None, True), ("loneliness", 2, True),
+                  ("patience", 3, False), ("marriage", None, False)]
 FIXTURE_SIMILAR = [("bible", "Psalms 23:1"), ("quran", "94:5"), ("gita", "2:47")]
 FIXTURE_WORDS = ["I can't sleep, I'm scared & he won't call", "Don’t", "im ok, dont worry", "my friend's dog",
                  "it's 70 hour weeks", "WON'T", "ma'am isn't here", "naïve café", "can'tstop", "éwon't", "x_y can't",
@@ -485,9 +501,19 @@ def fixtures(s):
         return [[h["ref"], h["score"]] for h in rows]
     cases = [fixture_case(s, q) for q in FIXTURE_QUERIES] + [fixture_case(s, q, k) for q, k in FIXTURE_K]
     cases.append(fixture_case(s, "x " * 300 + "I want to die"))          # beyond 500 characters: not read
+    def topic_case(t, k, sens):
+        r = s.topic(t, k=k, sensitive=sens)
+        return {"theme": t, "k": k, "sensitive": sens, "label": r["label"], "blurb": r["blurb"], "note": r["note"],
+                "books": {b: {"verses": [[v["ref"], v["priority"]] for v in r["books"][b]["verses"]],
+                              "nothing": r["books"][b]["nothing"]} for b in BOOKS}}
     return {
-        "about": "Expected outputs of the committed artefacts, for testing a port. See search/FORMAT.md for every field.",
+        "about": ("Expected outputs of the committed artefacts, for testing a port. See search/FORMAT.md for every field. "
+                  "'suggest', 'topic' and 'topics' are the site contract; 'search' is kept for the eval history only."),
         "words": [[t, words(t)] for t in FIXTURE_WORDS],
+        "suggest": [{"query": q, "crisis_words": s.crisis_words(q), "signal": s.suggest_signal(q), **s.suggest(q)}
+                    for q in FIXTURE_SUGGEST + ["x " * 300 + "I want to die"]],
+        "topic": [topic_case(t, k, sens) for t, k, sens in FIXTURE_TOPICS],
+        "topics": s.topics(),
         "search": cases,
         "by_theme": [{"theme": t, "results": {b: [[h["ref"], h["score"], h["priority"]] for h in v]
                                               for b, v in s.by_theme(t, k=3).items()}} for t in FIXTURE_THEMES],

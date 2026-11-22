@@ -444,7 +444,7 @@ def test_pool_files_are_well_formed(texts):
     assert "mortality" not in themes and "laziness_discipline" not in themes and len(themes) == 38
     for book in BOOKS:
         pool = build.load_pool()[book]
-        assert len({v["ref"] for v in pool}) == len(pool) >= 70          # Gita 72 after the judge-5 sweep
+        assert len({v["ref"] for v in pool}) == len(pool) >= 60          # Gita 68 after round 7
         for v in pool:
             assert v["ref"] in texts[book] and v["why"].strip() and v["themes"]
             assert set(v["themes"]) <= themes, (book, v["ref"])
@@ -532,6 +532,26 @@ def test_fixtures_match_the_committed_artefacts(s):
     assert any(c["notes"] for c in fx["search"])
     assert any(w != f for c in fx["search"] for w, f in zip(c["words"], c["theme_words"]))   # a fuzzy theme word
     assert any(not c["query"].isascii() for c in fx["search"])
+
+
+def test_suggest_and_topic_fixtures_match_the_committed_artefacts(s):
+    """The site contract (suggest, topic, topics) has fixtures covering every category and the suppression rule."""
+    fx = json.loads((ARTIFACTS / "fixtures.json").read_text())
+    for c in fx["suggest"]:
+        assert s.crisis_words(c["query"]) == c["crisis_words"] and s.suggest_signal(c["query"]) == c["signal"], c["query"]
+        assert s.suggest(c["query"]) == {k: c[k] for k in ("category", "note", "topics")}, c["query"]
+    for c in fx["topic"]:
+        r = s.topic(c["theme"], k=c["k"], sensitive=c["sensitive"])
+        assert (r["label"], r["blurb"], r["note"]) == (c["label"], c["blurb"], c["note"])
+        assert {b: {"verses": [[v["ref"], v["priority"]] for v in r["books"][b]["verses"]],
+                    "nothing": r["books"][b]["nothing"]} for b in BOOKS} == c["books"], c["theme"]
+    assert s.topics() == fx["topics"]
+    cats = {c["category"] for c in fx["suggest"]}
+    assert cats == {"crisis", "sensitive", "general", "none"}
+    assert any(c["signal"] and c["category"] == "general" for c in fx["suggest"])           # the suppression rule
+    assert any(not c["query"].isascii() for c in fx["suggest"]) and any(len(c["query"]) > 500 for c in fx["suggest"])
+    assert any(c["k"] is not None for c in fx["topic"]) and any(c["sensitive"] for c in fx["topic"])
+    assert any(all(c["books"][b]["nothing"] for b in BOOKS) for c in fx["topic"])           # a topic with nothing
 
 
 def test_display_text_never_shows_psalm_headings(s):
@@ -748,6 +768,18 @@ def test_probe_report_counts(tiny):
                     "innocent": ["killing it"], "sensitive": ["I'm gay"]}, "first_look": {}}
     assert E.probe_report(tiny, probes) == {"x": {"crisis": 2, "crisis_caught": 1, "innocent": 1,
                                                   "innocent_false_alarms": 0, "sensitive": 1, "sensitive_routed": 1}}
+
+
+def test_suggest_metrics_on_the_tiny_pool(tiny):
+    cases = [{"query": "I got laid off", "expected_themes": ["money_worry"]},
+             {"query": "sick of waiting", "expected_themes": ["grief"]}, {"query": "xyzzy", "expected_themes": ["grief"]}]
+    assert E.topic_hit(tiny, cases) == {"cases": 3, "topic_hit@4": 1 / 3, "no_topic": 1}
+    probes = {"x": {"crisis": [{"text": "I want to die"}, {"text": "waiting for the rent money"}, {"text": "xyzzy"}]},
+              "first_look": {}}
+    r = E.suggest_probe_report(tiny, probes)
+    assert r["missed"]["messages"] == 2 and r["missed"]["nothing_suggested"] == 1 and r["missed"]["topics_suggested"] == 1
+    assert r["missed"]["topics"] == {"money_worry": 1, "patience": 1}
+    assert r["as_if_missed"]["messages"] == 3 and r["as_if_missed"]["nothing_suggested"] == 2
 
 
 def test_evaluate_parallels_restores_settings(corpus):

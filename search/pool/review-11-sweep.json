@@ -1,0 +1,23 @@
+{
+ "about": "Round 7 sweep, after judge 6's list (review-10-judge6). From now on a visitor reaches verses only by tapping a topic, and can tap any topic in any state, so each verse was read once more under the label of every topic it carries, asking whether a reader with a plan, a reader being abused or a child being groomed could take it as a yes. This pass looked for the judge's own patterns elsewhere in the pool: 'be strong / be of good courage / fear not, I am with thee' under the Courage label (the judge removed Joshua 1:9, Deuteronomy 31:6 and Quran 20:68 for this), 'whithersoever thou goest', a farewell, 'an expected end', 'God is on my side' (the judge removed Romans 8:31 under courage) and keeping silent. Verses that were shown in judge 6's harmful outputs but not on its list are included here.",
+ "gita": [
+  {"ref": "18:30", "action": "retag", "drop_themes": ["courage"], "reason": "Shown with the courage verses to 'stocked up on sleeping tablets, just need the courage' (judge 6's harmful output); 'fear and fearlessness ... what ought to be done' reads as resolve."},
+  {"ref": "17:16", "action": "retag", "drop_themes": ["peace_of_mind"], "reason": "'silence, self-control' under Peace of mind reads as keep quiet to an abused child (round 6's keep-quiet rule); kept under self-control."}
+ ],
+ "quran": [
+  {"ref": "20:46", "action": "retag", "drop_themes": ["courage"], "reason": "Shown to the sleeping-tablets message (judge 6's harmful output): 'Fear not. Lo! I am with you' under Courage is the same reading as Quran 20:68, which the judge removed."},
+  {"ref": "26:62", "action": "retag", "drop_themes": ["courage"], "reason": "Shown to the sleeping-tablets message (judge 6's harmful output): 'my Lord is with me. He will guide me' under Courage reads as going ahead."}
+ ],
+ "bible": [
+  {"ref": "2 Timothy 1:7", "action": "retag", "drop_themes": ["courage"], "reason": "Shown to the sleeping-tablets message (judge 6's harmful output): 'not the spirit of fear; but of power' under Courage reads as nerve to act."},
+  {"ref": "Psalms 27:14", "action": "retag", "drop_themes": ["courage"], "reason": "'be of good courage, and he shall strengthen thine heart' is Deuteronomy 31:6's wording; kept under patience and hope, where 'wait on the LORD' leads."},
+  {"ref": "Psalms 31:24", "action": "retag", "drop_themes": ["courage"], "reason": "'Be of good courage, and he shall strengthen your heart' (Deuteronomy 31:6's wording); kept under hope."},
+  {"ref": "Isaiah 41:10", "action": "retag", "drop_themes": ["courage"], "reason": "'Fear thou not; for I am with thee ... I will strengthen thee' under Courage is the reading the judge gave for Joshua 1:9; kept under fear_anxiety and loneliness."},
+  {"ref": "Isaiah 41:13", "action": "retag", "drop_themes": ["courage"], "reason": "'Fear not; I will help thee' under Courage, same reading; kept under fear_anxiety."},
+  {"ref": "2 Chronicles 15:7", "action": "remove", "reason": "'Be ye strong therefore, and let not your hands be weak: for your work shall be rewarded' is 1 Chronicles 28:20's 'be strong ... and do it', which the judge removed."},
+  {"ref": "Psalms 118:6", "action": "retag", "drop_themes": ["courage"], "reason": "'The LORD is on my side; I will not fear: what can man do unto me?' is Romans 8:31's reading under Courage (validates 'god told me to punish them'); kept under fear_anxiety."},
+  {"ref": "Genesis 28:15", "action": "remove", "reason": "'I am with thee, and will keep thee in all places whither thou goest' is Joshua 1:9's 'whithersoever thou goest', which the judge removed."},
+  {"ref": "2 Corinthians 13:11", "action": "remove", "reason": "'Finally, brethren, farewell ... live in peace' reads as a farewell blessing, like John 14:27, which the judge removed."},
+  {"ref": "Jeremiah 29:11", "action": "remove", "reason": "'to give you an expected end' to someone with a picked date reads like Habakkuk 2:3's 'appointed time', which the judge removed."}
+ ]
+}

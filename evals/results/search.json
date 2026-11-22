@@ -3,33 +3,33 @@
   "dev": {
    "cases": 33,
    "gita": {
-    "pairs": 23,
-    "hit@3": 0.6086956521739131
+    "pairs": 22,
+    "hit@3": 0.5909090909090909
    },
    "quran": {
     "pairs": 28,
     "hit@3": 0.7142857142857143
    },
    "bible": {
-    "pairs": 31,
-    "hit@3": 0.6451612903225806
+    "pairs": 29,
+    "hit@3": 0.6551724137931034
    },
    "overall": {
-    "pairs": 82,
-    "hit@3": 0.6585365853658537,
+    "pairs": 79,
+    "hit@3": 0.6582278481012658,
     "hit@3_ci95": [
-     0.537,
-     0.761
+     0.544,
+     0.771
     ]
    },
    "theme_accuracy": 0.9090909090909091,
-   "empty_book_rate": 0.1414141414141414,
+   "empty_book_rate": 0.15151515151515152,
    "empty_book_rate_per_book": {
-    "gita": 0.36363636363636365,
+    "gita": 0.3939393939393939,
     "quran": 0.06060606060606061,
     "bible": 0.0
    },
-   "key_verses_outside_pool": 857,
+   "key_verses_outside_pool": 882,
    "key_verses_total": 1230
   },
   "dev2": {
@@ -44,14 +44,14 @@
    },
    "bible": {
     "pairs": 17,
-    "hit@3": 0.7058823529411765
+    "hit@3": 0.6470588235294118
    },
    "overall": {
     "pairs": 42,
-    "hit@3": 0.5714285714285714,
+    "hit@3": 0.5476190476190477,
     "hit@3_ci95": [
-     0.419,
-     0.714
+     0.375,
+     0.707
     ]
    },
    "theme_accuracy": 0.8823529411764706,
@@ -61,39 +61,39 @@
     "quran": 0.058823529411764705,
     "bible": 0.0
    },
-   "key_verses_outside_pool": 348,
+   "key_verses_outside_pool": 362,
    "key_verses_total": 525
   },
   "dev3": {
    "cases": 40,
    "gita": {
-    "pairs": 24,
-    "hit@3": 0.5
+    "pairs": 23,
+    "hit@3": 0.4782608695652174
    },
    "quran": {
-    "pairs": 32,
-    "hit@3": 0.625
+    "pairs": 31,
+    "hit@3": 0.6451612903225806
    },
    "bible": {
-    "pairs": 40,
-    "hit@3": 0.7
+    "pairs": 38,
+    "hit@3": 0.6842105263157895
    },
    "overall": {
-    "pairs": 96,
-    "hit@3": 0.625,
+    "pairs": 92,
+    "hit@3": 0.6195652173913043,
     "hit@3_ci95": [
      0.511,
-     0.745
+     0.736
     ]
    },
    "theme_accuracy": 0.975,
-   "empty_book_rate": 0.19166666666666668,
+   "empty_book_rate": 0.21666666666666667,
    "empty_book_rate_per_book": {
-    "gita": 0.45,
+    "gita": 0.5,
     "quran": 0.1,
-    "bible": 0.025
+    "bible": 0.05
    },
-   "key_verses_outside_pool": 662,
+   "key_verses_outside_pool": 694,
    "key_verses_total": 1055
   },
   "blind_1": {
@@ -116,11 +116,11 @@
     "hit@3_ci95": null
    },
    "theme_accuracy": 0.92,
-   "empty_book_rate": 0.20666666666666667,
+   "empty_book_rate": 0.22666666666666666,
    "empty_book_rate_per_book": {
-    "gita": 0.58,
+    "gita": 0.6,
     "quran": 0.04,
-    "bible": 0.0
+    "bible": 0.04
    },
    "key_verses_outside_pool": 0,
    "key_verses_total": 0
@@ -145,9 +145,9 @@
     "hit@3_ci95": null
    },
    "theme_accuracy": 0.82,
-   "empty_book_rate": 0.18,
+   "empty_book_rate": 0.18666666666666668,
    "empty_book_rate_per_book": {
-    "gita": 0.44,
+    "gita": 0.46,
     "quran": 0.08,
     "bible": 0.02
    },
@@ -157,31 +157,31 @@
  },
  "ablation": {
   "themes, pool order": {
-   "hit@3": 0.45454545454545453,
+   "hit@3": 0.4460093896713615,
    "hit@3_ci95": [
-    0.382,
-    0.518
+    0.374,
+    0.514
    ],
    "theme_accuracy": 0.9333333333333333,
-   "empty_book_rate": 0.16666666666666666
+   "empty_book_rate": 0.1814814814814815
   },
   "+ BM25 tie break": {
-   "hit@3": 0.5727272727272728,
+   "hit@3": 0.5727699530516432,
    "hit@3_ci95": [
-    0.498,
-    0.645
+    0.495,
+    0.649
    ],
    "theme_accuracy": 0.9333333333333333,
-   "empty_book_rate": 0.16666666666666666
+   "empty_book_rate": 0.1814814814814815
   },
   "+ hand-set priority (final)": {
-   "hit@3": 0.6272727272727273,
+   "hit@3": 0.6197183098591549,
    "hit@3_ci95": [
-    0.551,
-    0.694
+    0.536,
+    0.69
    ],
    "theme_accuracy": 0.9333333333333333,
-   "empty_book_rate": 0.16666666666666666
+   "empty_book_rate": 0.1814814814814815
   }
  },
  "parallels": {
@@ -2097,7 +2097,7 @@
   },
   "fresh_1": {
    "crisis": 130,
-   "crisis_caught": 129,
+   "crisis_caught": 130,
    "innocent": 60,
    "innocent_false_alarms": 0,
    "bereavement": 40,
@@ -2105,7 +2105,7 @@
   },
   "fresh_2": {
    "crisis": 130,
-   "crisis_caught": 129,
+   "crisis_caught": 130,
    "innocent": 60,
    "innocent_false_alarms": 3,
    "bereavement": 40,
@@ -2113,7 +2113,7 @@
   },
   "fresh_3": {
    "crisis": 130,
-   "crisis_caught": 129,
+   "crisis_caught": 130,
    "innocent": 60,
    "innocent_false_alarms": 0,
    "bereavement": 40,
@@ -2128,6 +2128,16 @@
    "bereavement_false_alarms": 0,
    "sensitive": 50,
    "sensitive_routed": 36
+  },
+  "judge6_held_out": {
+   "crisis": 160,
+   "crisis_caught": 160,
+   "innocent": 60,
+   "innocent_false_alarms": 0,
+   "bereavement": 40,
+   "bereavement_false_alarms": 0,
+   "sensitive": 40,
+   "sensitive_routed": 28
   }
  },
  "probes_first_look": {
@@ -2146,6 +2156,78 @@
    "crisis_caught": 105,
    "bereavement_false_alarms": 2,
    "innocent_false_alarms": 2
+  }
+ },
+ "suggest": {
+  "topic_hit@4": {
+   "dev": {
+    "cases": 33,
+    "topic_hit@4": 0.9393939393939394,
+    "no_topic": 0
+   },
+   "dev2": {
+    "cases": 17,
+    "topic_hit@4": 0.9411764705882353,
+    "no_topic": 0
+   },
+   "dev3": {
+    "cases": 40,
+    "topic_hit@4": 0.925,
+    "no_topic": 3
+   },
+   "blind_1": {
+    "cases": 50,
+    "topic_hit@4": 0.92,
+    "no_topic": 3
+   },
+   "final_blind": {
+    "cases": 50,
+    "topic_hit@4": 0.94,
+    "no_topic": 1
+   }
+  },
+  "crisis_probes": {
+   "missed": {
+    "messages": 0,
+    "nothing_suggested": 0,
+    "topics_suggested": 0,
+    "topics": {},
+    "detail": []
+   },
+   "as_if_missed": {
+    "messages": 752,
+    "nothing_suggested": 402,
+    "topics_suggested": 350,
+    "topics": {
+     "doubt_faith": 43,
+     "self_worth": 37,
+     "parenting": 29,
+     "wisdom_learning": 27,
+     "temptation_self_control": 25,
+     "suffering_endurance": 24,
+     "anger": 24,
+     "peace_of_mind": 21,
+     "honesty": 20,
+     "fear_anxiety": 20,
+     "money_worry": 20,
+     "guilt_repentance": 19,
+     "justice_wronged": 16,
+     "overwork_rest": 15,
+     "loneliness": 14,
+     "patience": 14,
+     "hope": 12,
+     "illness": 12,
+     "failure": 10,
+     "kindness_strangers": 8,
+     "grief": 7,
+     "speech_gossip": 5,
+     "guidance_decisions": 5,
+     "generosity": 4,
+     "purpose": 4,
+     "change_uncertainty": 3,
+     "work_effort": 2
+    }
+   }
   }
  },
  "examples": [
@@ -2289,14 +2371,14 @@
       "in_answer_key": true
      },
      {
-      "ref": "Exodus 18:18",
-      "text": "Thou wilt surely wear away, both thou, and this people that is with thee: for this thing is too heavy for thee; thou art not able to perform it thyself alone.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Jeremiah 31:25",
       "text": "I have satiated the weary soul, and I have replenished every sorrowful soul.",
       "in_answer_key": false
+     },
+     {
+      "ref": "Matthew 11:30",
+      "text": "My yoke is easy, and my burden is light.",
+      "in_answer_key": true
      }
     ]
    }
@@ -2347,11 +2429,6 @@
     ],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Proverbs 15:17",
       "text": "Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.",
       "in_answer_key": false
@@ -2359,6 +2436,11 @@
      {
       "ref": "Proverbs 24:3",
       "text": "Through wisdom is an house builded; and by understanding it is established.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 68:5",
+      "text": "A father of the fatherless, and a judge of the widows, is God in his holy habitation.",
       "in_answer_key": false
      }
     ]
@@ -2439,11 +2521,6 @@
     "quran": [],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Proverbs 15:17",
       "text": "Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.",
       "in_answer_key": false
@@ -2451,6 +2528,11 @@
      {
       "ref": "Proverbs 24:3",
       "text": "Through wisdom is an house builded; and by understanding it is established.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 68:5",
+      "text": "A father of the fatherless, and a judge of the widows, is God in his holy habitation.",
       "in_answer_key": false
      }
     ]
@@ -2545,11 +2627,6 @@
     ],
     "bible": [
      {
-      "ref": "Jeremiah 29:11",
-      "text": "I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil",
-      "in_answer_key": true
-     },
-     {
       "ref": "Psalms 138:8",
       "text": "The LORD will perfect that which concerneth me: thy mercy, O LORD, endureth for ever: forsake not the works of thine own hands.",
       "in_answer_key": false
@@ -2558,6 +2635,11 @@
       "ref": "Philippians 1:6",
       "text": "Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ.",
       "in_answer_key": false
+     },
+     {
+      "ref": "Micah 6:8",
+      "text": "He hath shewed thee, O man, what is good; and what doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?",
+      "in_answer_key": true
      }
     ]
    }
@@ -2751,8 +2833,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "12:14",
-      "text": "Ever content, harmonious, with the self-controlled, resolute, with mind and Reason dedicated to Me, he, My devotee, is dear to Me.",
+      "ref": "12:10",
+      "text": "If also thou art not equal to constant practice, be intent on My service; performing actions for My sake, thou shalt attain perfection.",
       "in_answer_key": false
      }
     ],
@@ -2821,11 +2903,6 @@
     ],
     "bible": [
      {
-      "ref": "Joshua 1:9",
-      "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.",
-      "in_answer_key": true
-     },
-     {
       "ref": "Isaiah 43:19",
       "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
       "in_answer_key": false
@@ -2833,6 +2910,11 @@
      {
       "ref": "Deuteronomy 31:8",
       "text": "The LORD, he it is that doth go before thee; he will be with thee, he will not fail thee, neither forsake thee: fear not, neither be dismayed.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 16:9",
+      "text": "A man's heart deviseth his way: but the LORD directeth his steps.",
       "in_answer_key": false
      }
     ]
@@ -3112,11 +3194,6 @@
     ],
     "bible": [
      {
-      "ref": "Joshua 1:9",
-      "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Isaiah 43:19",
       "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
       "in_answer_key": false
@@ -3125,6 +3202,11 @@
       "ref": "Deuteronomy 31:8",
       "text": "The LORD, he it is that doth go before thee; he will be with thee, he will not fail thee, neither forsake thee: fear not, neither be dismayed.",
       "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 16:9",
+      "text": "A man's heart deviseth his way: but the LORD directeth his steps.",
+      "in_answer_key": true
      }
     ]
    }
@@ -3403,18 +3485,18 @@
     ],
     "bible": [
      {
-      "ref": "Colossians 3:14",
-      "text": "Above all these things put on charity, which is the bond of perfectness.",
+      "ref": "Proverbs 3:6",
+      "text": "In all thy ways acknowledge him, and he shall direct thy paths.",
       "in_answer_key": false
      },
      {
-      "ref": "Ecclesiastes 4:9",
-      "text": "Two are better than one; because they have a good reward for their labour.",
-      "in_answer_key": true
+      "ref": "James 1:5",
+      "text": "If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him.",
+      "in_answer_key": false
      },
      {
-      "ref": "Ecclesiastes 4:10",
-      "text": "If they fall, the one will lift up his fellow",
+      "ref": "Psalms 32:8",
+      "text": "I will instruct thee and teach thee in the way which thou shalt go: I will guide thee with mine eye.",
       "in_answer_key": false
      }
     ]
@@ -3432,11 +3514,6 @@
     "gita": [],
     "quran": [
      {
-      "ref": "60:7",
-      "text": "It may be that Allah will ordain love between you and those of them with whom ye are at enmity. Allah is Mighty, and Allah is Forgiving, Merciful.",
-      "in_answer_key": false
-     },
-     {
       "ref": "49:10",
       "text": "The believers are naught else than brothers. Therefore make peace between your brethren and observe your duty to Allah that haply ye may obtain mercy.",
       "in_answer_key": false
@@ -3445,22 +3522,27 @@
       "ref": "90:17",
       "text": "To be of those who believe and exhort one another to perseverance and exhort one another to pity.",
       "in_answer_key": false
+     },
+     {
+      "ref": "9:119",
+      "text": "O ye who believe! Be careful of your duty to Allah, and be with the truthful.",
+      "in_answer_key": false
      }
     ],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
+      "ref": "Proverbs 27:17",
+      "text": "Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.",
       "in_answer_key": false
      },
      {
-      "ref": "Ecclesiastes 4:10",
-      "text": "If they fall, the one will lift up his fellow",
+      "ref": "Proverbs 16:28",
+      "text": "A froward man soweth strife: and a whisperer separateth chief friends.",
       "in_answer_key": false
      },
      {
-      "ref": "Proverbs 27:9",
-      "text": "Ointment and perfume rejoice the heart: so doth the sweetness of a man's friend by hearty counsel.",
+      "ref": "Job 2:13",
+      "text": "They sat down with him upon the ground seven days and seven nights, and none spake a word unto him: for they saw that his grief was very great.",
       "in_answer_key": false
      }
     ]
@@ -3474,23 +3556,7 @@
     "pride_humility"
    ],
    "results": {
-    "gita": [
-     {
-      "ref": "15:5",
-      "text": "Without pride and delusion, victorious over the vice of attachment, dwelling constantly in the Self, desire pacified, liberated from the pairs of opposites known as pleasure and pain, they tread, undeluded, that indestructible path.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "6:7",
-      "text": "The higher Self of him who is Self-controlled and peaceful is uniform in cold and heat, pleasure and pain, as well as in honour and dishonour.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "14:24",
-      "text": "Balanced in pleasure and pain, self-reliant, to whom a lump of earth, a rock and gold are alike, the same to loved and unloved, firm, the same in censure and in praise.",
-      "in_answer_key": false
-     }
-    ],
+    "gita": [],
     "quran": [
      {
       "ref": "17:37",
@@ -3582,8 +3648,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "2 Chronicles 15:7",
-      "text": "Be ye strong therefore, and let not your hands be weak: for your work shall be rewarded.",
+      "ref": "Proverbs 22:29",
+      "text": "Seest thou a man diligent in his business? he shall stand before kings; he shall not stand before mean men.",
       "in_answer_key": false
      }
     ]
@@ -3965,11 +4031,6 @@
    "results": {
     "gita": [
      {
-      "ref": "6:25",
-      "text": "Little by little let him gain tranquillity, by means of Reason controlled by steadiness; having made the mind abide in the Self, let him not think of anything.",
-      "in_answer_key": true
-     },
-     {
       "ref": "6:35",
       "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
       "in_answer_key": false
@@ -3977,6 +4038,11 @@
      {
       "ref": "6:26",
       "text": "As often as the wavering and unsteady mind goeth forth, so often reining it in, let him bring it under the control of the Self.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "18:10",
+      "text": "The relinquisher pervaded by purity, intelligent and with doubts cut away, hateth not unpleasurable action nor is attached to pleasurable.",
       "in_answer_key": false
      }
     ],
@@ -4163,8 +4229,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "2 Chronicles 15:7",
-      "text": "Be ye strong therefore, and let not your hands be weak: for your work shall be rewarded.",
+      "ref": "Proverbs 13:11",
+      "text": "Wealth gotten by vanity shall be diminished: but he that gathereth by labour shall increase.",
       "in_answer_key": false
      }
     ]
@@ -4182,11 +4248,6 @@
     "quran": [],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Proverbs 15:17",
       "text": "Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.",
       "in_answer_key": false
@@ -4194,6 +4255,11 @@
      {
       "ref": "Proverbs 24:3",
       "text": "Through wisdom is an house builded; and by understanding it is established.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 68:5",
+      "text": "A father of the fatherless, and a judge of the widows, is God in his holy habitation.",
       "in_answer_key": false
      }
     ]
@@ -4354,13 +4420,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "John 14:27",
-      "text": "Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.",
-      "in_answer_key": true
-     },
-     {
       "ref": "Isaiah 26:3",
       "text": "Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 94:19",
+      "text": "In the multitude of my thoughts within me thy comforts delight my soul.",
       "in_answer_key": false
      }
     ]
@@ -4723,8 +4789,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "12:14",
-      "text": "Ever content, harmonious, with the self-controlled, resolute, with mind and Reason dedicated to Me, he, My devotee, is dear to Me.",
+      "ref": "12:10",
+      "text": "If also thou art not equal to constant practice, be intent on My service; performing actions for My sake, thou shalt attain perfection.",
       "in_answer_key": false
      }
     ],
@@ -4813,14 +4879,14 @@
       "in_answer_key": true
      },
      {
-      "ref": "John 14:27",
-      "text": "Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.",
-      "in_answer_key": true
-     },
-     {
       "ref": "Isaiah 26:3",
       "text": "Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.",
       "in_answer_key": true
+     },
+     {
+      "ref": "Psalms 94:19",
+      "text": "In the multitude of my thoughts within me thy comforts delight my soul.",
+      "in_answer_key": false
      }
     ]
    }
@@ -4854,11 +4920,6 @@
     ],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Proverbs 15:17",
       "text": "Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.",
       "in_answer_key": false
@@ -4866,6 +4927,11 @@
      {
       "ref": "Proverbs 24:3",
       "text": "Through wisdom is an house builded; and by understanding it is established.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 68:5",
+      "text": "A father of the fatherless, and a judge of the widows, is God in his holy habitation.",
       "in_answer_key": false
      }
     ]
@@ -5077,8 +5143,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "2 Chronicles 15:7",
-      "text": "Be ye strong therefore, and let not your hands be weak: for your work shall be rewarded.",
+      "ref": "Proverbs 13:11",
+      "text": "Wealth gotten by vanity shall be diminished: but he that gathereth by labour shall increase.",
       "in_answer_key": false
      }
     ]
@@ -5202,11 +5268,6 @@
     "gita": [],
     "quran": [
      {
-      "ref": "60:7",
-      "text": "It may be that Allah will ordain love between you and those of them with whom ye are at enmity. Allah is Mighty, and Allah is Forgiving, Merciful.",
-      "in_answer_key": false
-     },
-     {
       "ref": "49:10",
       "text": "The believers are naught else than brothers. Therefore make peace between your brethren and observe your duty to Allah that haply ye may obtain mercy.",
       "in_answer_key": true
@@ -5215,22 +5276,27 @@
       "ref": "90:17",
       "text": "To be of those who believe and exhort one another to perseverance and exhort one another to pity.",
       "in_answer_key": false
+     },
+     {
+      "ref": "9:119",
+      "text": "O ye who believe! Be careful of your duty to Allah, and be with the truthful.",
+      "in_answer_key": false
      }
     ],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
-      "in_answer_key": true
+      "ref": "Proverbs 27:17",
+      "text": "Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.",
+      "in_answer_key": false
      },
      {
-      "ref": "Ecclesiastes 4:10",
-      "text": "If they fall, the one will lift up his fellow",
-      "in_answer_key": true
+      "ref": "Proverbs 16:28",
+      "text": "A froward man soweth strife: and a whisperer separateth chief friends.",
+      "in_answer_key": false
      },
      {
-      "ref": "Proverbs 27:9",
-      "text": "Ointment and perfume rejoice the heart: so doth the sweetness of a man's friend by hearty counsel.",
+      "ref": "Job 2:13",
+      "text": "They sat down with him upon the ground seven days and seven nights, and none spake a word unto him: for they saw that his grief was very great.",
       "in_answer_key": false
      }
     ]
@@ -5246,23 +5312,7 @@
    "results": {
     "gita": [],
     "quran": [],
-    "bible": [
-     {
-      "ref": "Colossians 3:14",
-      "text": "Above all these things put on charity, which is the bond of perfectness.",
-      "in_answer_key": true
-     },
-     {
-      "ref": "Ecclesiastes 4:9",
-      "text": "Two are better than one; because they have a good reward for their labour.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "Ecclesiastes 4:10",
-      "text": "If they fall, the one will lift up his fellow",
-      "in_answer_key": false
-     }
-    ]
+    "bible": []
    }
   },
   {
@@ -5322,11 +5372,6 @@
     "quran": [],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Proverbs 15:17",
       "text": "Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.",
       "in_answer_key": false
@@ -5334,6 +5379,11 @@
      {
       "ref": "Proverbs 24:3",
       "text": "Through wisdom is an house builded; and by understanding it is established.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 68:5",
+      "text": "A father of the fatherless, and a judge of the widows, is God in his holy habitation.",
       "in_answer_key": false
      }
     ]
@@ -5593,23 +5643,7 @@
     "pride_humility"
    ],
    "results": {
-    "gita": [
-     {
-      "ref": "15:5",
-      "text": "Without pride and delusion, victorious over the vice of attachment, dwelling constantly in the Self, desire pacified, liberated from the pairs of opposites known as pleasure and pain, they tread, undeluded, that indestructible path.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "6:7",
-      "text": "The higher Self of him who is Self-controlled and peaceful is uniform in cold and heat, pleasure and pain, as well as in honour and dishonour.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "14:24",
-      "text": "Balanced in pleasure and pain, self-reliant, to whom a lump of earth, a rock and gold are alike, the same to loved and unloved, firm, the same in censure and in praise.",
-      "in_answer_key": false
-     }
-    ],
+    "gita": [],
     "quran": [
      {
       "ref": "17:37",
@@ -5814,13 +5848,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "17:3",
-      "text": "The faith of each is shaped to his own nature, O Bharata. The man consists of his faith; that which his faith is, he is even that.",
+      "ref": "9:29",
+      "text": "The same am I to all beings; there is none hateful to Me nor dear. They verily who worship Me with devotion, they are in Me, and I also in them.",
       "in_answer_key": false
      },
      {
-      "ref": "9:29",
-      "text": "The same am I to all beings; there is none hateful to Me nor dear. They verily who worship Me with devotion, they are in Me, and I also in them.",
+      "ref": "17:3",
+      "text": "The faith of each is shaped to his own nature, O Bharata. The man consists of his faith; that which his faith is, he is even that.",
       "in_answer_key": false
      }
     ],
@@ -5904,11 +5938,6 @@
     ],
     "bible": [
      {
-      "ref": "Jeremiah 29:11",
-      "text": "I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil",
-      "in_answer_key": true
-     },
-     {
       "ref": "Psalms 138:8",
       "text": "The LORD will perfect that which concerneth me: thy mercy, O LORD, endureth for ever: forsake not the works of thine own hands.",
       "in_answer_key": false
@@ -5917,6 +5946,11 @@
       "ref": "Philippians 1:6",
       "text": "Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ.",
       "in_answer_key": false
+     },
+     {
+      "ref": "Micah 6:8",
+      "text": "He hath shewed thee, O man, what is good; and what doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?",
+      "in_answer_key": true
      }
     ]
    }
@@ -5975,8 +6009,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "2 Chronicles 15:7",
-      "text": "Be ye strong therefore, and let not your hands be weak: for your work shall be rewarded.",
+      "ref": "Proverbs 22:29",
+      "text": "Seest thou a man diligent in his business? he shall stand before kings; he shall not stand before mean men.",
       "in_answer_key": false
      }
     ]
@@ -6096,23 +6130,7 @@
     "pride_humility"
    ],
    "results": {
-    "gita": [
-     {
-      "ref": "15:5",
-      "text": "Without pride and delusion, victorious over the vice of attachment, dwelling constantly in the Self, desire pacified, liberated from the pairs of opposites known as pleasure and pain, they tread, undeluded, that indestructible path.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "6:7",
-      "text": "The higher Self of him who is Self-controlled and peaceful is uniform in cold and heat, pleasure and pain, as well as in honour and dishonour.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "14:24",
-      "text": "Balanced in pleasure and pain, self-reliant, to whom a lump of earth, a rock and gold are alike, the same to loved and unloved, firm, the same in censure and in praise.",
-      "in_answer_key": true
-     }
-    ],
+    "gita": [],
     "quran": [
      {
       "ref": "17:37",
@@ -6238,11 +6256,6 @@
     ],
     "bible": [
      {
-      "ref": "Joshua 1:9",
-      "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.",
-      "in_answer_key": true
-     },
-     {
       "ref": "Isaiah 43:19",
       "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
       "in_answer_key": true
@@ -6251,6 +6264,11 @@
       "ref": "Deuteronomy 31:8",
       "text": "The LORD, he it is that doth go before thee; he will be with thee, he will not fail thee, neither forsake thee: fear not, neither be dismayed.",
       "in_answer_key": true
+     },
+     {
+      "ref": "Proverbs 16:9",
+      "text": "A man's heart deviseth his way: but the LORD directeth his steps.",
+      "in_answer_key": false
      }
     ]
    }
@@ -6323,11 +6341,6 @@
    "results": {
     "gita": [
      {
-      "ref": "6:25",
-      "text": "Little by little let him gain tranquillity, by means of Reason controlled by steadiness; having made the mind abide in the Self, let him not think of anything.",
-      "in_answer_key": false
-     },
-     {
       "ref": "6:35",
       "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
       "in_answer_key": false
@@ -6335,6 +6348,11 @@
      {
       "ref": "6:26",
       "text": "As often as the wavering and unsteady mind goeth forth, so often reining it in, let him bring it under the control of the Self.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "18:10",
+      "text": "The relinquisher pervaded by purity, intelligent and with doubts cut away, hateth not unpleasurable action nor is attached to pleasurable.",
       "in_answer_key": false
      }
     ],
@@ -6561,14 +6579,14 @@
       "in_answer_key": true
      },
      {
-      "ref": "Exodus 18:18",
-      "text": "Thou wilt surely wear away, both thou, and this people that is with thee: for this thing is too heavy for thee; thou art not able to perform it thyself alone.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Jeremiah 31:25",
       "text": "I have satiated the weary soul, and I have replenished every sorrowful soul.",
       "in_answer_key": false
+     },
+     {
+      "ref": "Matthew 11:30",
+      "text": "My yoke is easy, and my burden is light.",
+      "in_answer_key": true
      }
     ]
    }
@@ -6623,13 +6641,13 @@
       "in_answer_key": true
      },
      {
-      "ref": "John 14:27",
-      "text": "Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.",
+      "ref": "Isaiah 26:3",
+      "text": "Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.",
       "in_answer_key": true
      },
      {
-      "ref": "Isaiah 26:3",
-      "text": "Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.",
+      "ref": "Psalms 94:19",
+      "text": "In the multitude of my thoughts within me thy comforts delight my soul.",
       "in_answer_key": true
      }
     ]
@@ -6680,11 +6698,6 @@
     ],
     "bible": [
      {
-      "ref": "Joshua 1:9",
-      "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Isaiah 43:19",
       "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
       "in_answer_key": false
@@ -6692,6 +6705,11 @@
      {
       "ref": "Deuteronomy 31:8",
       "text": "The LORD, he it is that doth go before thee; he will be with thee, he will not fail thee, neither forsake thee: fear not, neither be dismayed.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 16:9",
+      "text": "A man's heart deviseth his way: but the LORD directeth his steps.",
       "in_answer_key": false
      }
     ]
@@ -7314,11 +7332,6 @@
     ],
     "bible": [
      {
-      "ref": "Joshua 1:9",
-      "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Isaiah 43:19",
       "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
       "in_answer_key": false
@@ -7326,6 +7339,11 @@
      {
       "ref": "Deuteronomy 31:8",
       "text": "The LORD, he it is that doth go before thee; he will be with thee, he will not fail thee, neither forsake thee: fear not, neither be dismayed.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 16:9",
+      "text": "A man's heart deviseth his way: but the LORD directeth his steps.",
       "in_answer_key": false
      }
     ]
@@ -7557,23 +7575,7 @@
    "results": {
     "gita": [],
     "quran": [],
-    "bible": [
-     {
-      "ref": "Colossians 3:14",
-      "text": "Above all these things put on charity, which is the bond of perfectness.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "Ecclesiastes 4:9",
-      "text": "Two are better than one; because they have a good reward for their labour.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "Ecclesiastes 4:10",
-      "text": "If they fall, the one will lift up his fellow",
-      "in_answer_key": false
-     }
-    ]
+    "bible": []
    }
   },
   {
@@ -7610,13 +7612,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "Exodus 18:18",
-      "text": "Thou wilt surely wear away, both thou, and this people that is with thee: for this thing is too heavy for thee; thou art not able to perform it thyself alone.",
+      "ref": "Jeremiah 31:25",
+      "text": "I have satiated the weary soul, and I have replenished every sorrowful soul.",
       "in_answer_key": false
      },
      {
-      "ref": "Jeremiah 31:25",
-      "text": "I have satiated the weary soul, and I have replenished every sorrowful soul.",
+      "ref": "Matthew 11:30",
+      "text": "My yoke is easy, and my burden is light.",
       "in_answer_key": false
      }
     ]
@@ -7701,13 +7703,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "Exodus 18:18",
-      "text": "Thou wilt surely wear away, both thou, and this people that is with thee: for this thing is too heavy for thee; thou art not able to perform it thyself alone.",
+      "ref": "Jeremiah 31:25",
+      "text": "I have satiated the weary soul, and I have replenished every sorrowful soul.",
       "in_answer_key": false
      },
      {
-      "ref": "Jeremiah 31:25",
-      "text": "I have satiated the weary soul, and I have replenished every sorrowful soul.",
+      "ref": "Matthew 11:30",
+      "text": "My yoke is easy, and my burden is light.",
       "in_answer_key": false
      }
     ]
@@ -7907,23 +7909,7 @@
     "pride_humility"
    ],
    "results": {
-    "gita": [
-     {
-      "ref": "15:5",
-      "text": "Without pride and delusion, victorious over the vice of attachment, dwelling constantly in the Self, desire pacified, liberated from the pairs of opposites known as pleasure and pain, they tread, undeluded, that indestructible path.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "6:7",
-      "text": "The higher Self of him who is Self-controlled and peaceful is uniform in cold and heat, pleasure and pain, as well as in honour and dishonour.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "14:24",
-      "text": "Balanced in pleasure and pain, self-reliant, to whom a lump of earth, a rock and gold are alike, the same to loved and unloved, firm, the same in censure and in praise.",
-      "in_answer_key": false
-     }
-    ],
+    "gita": [],
     "quran": [
      {
       "ref": "17:37",
@@ -8221,13 +8207,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "17:3",
-      "text": "The faith of each is shaped to his own nature, O Bharata. The man consists of his faith; that which his faith is, he is even that.",
+      "ref": "9:29",
+      "text": "The same am I to all beings; there is none hateful to Me nor dear. They verily who worship Me with devotion, they are in Me, and I also in them.",
       "in_answer_key": false
      },
      {
-      "ref": "9:29",
-      "text": "The same am I to all beings; there is none hateful to Me nor dear. They verily who worship Me with devotion, they are in Me, and I also in them.",
+      "ref": "17:3",
+      "text": "The faith of each is shaped to his own nature, O Bharata. The man consists of his faith; that which his faith is, he is even that.",
       "in_answer_key": false
      }
     ],
@@ -8287,8 +8273,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "12:14",
-      "text": "Ever content, harmonious, with the self-controlled, resolute, with mind and Reason dedicated to Me, he, My devotee, is dear to Me.",
+      "ref": "12:10",
+      "text": "If also thou art not equal to constant practice, be intent on My service; performing actions for My sake, thou shalt attain perfection.",
       "in_answer_key": false
      }
     ],
@@ -8374,11 +8360,6 @@
     ],
     "bible": [
      {
-      "ref": "Joshua 1:9",
-      "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Isaiah 43:19",
       "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
       "in_answer_key": false
@@ -8386,6 +8367,11 @@
      {
       "ref": "Deuteronomy 31:8",
       "text": "The LORD, he it is that doth go before thee; he will be with thee, he will not fail thee, neither forsake thee: fear not, neither be dismayed.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 16:9",
+      "text": "A man's heart deviseth his way: but the LORD directeth his steps.",
       "in_answer_key": false
      }
     ]
@@ -8469,13 +8455,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "Exodus 18:18",
-      "text": "Thou wilt surely wear away, both thou, and this people that is with thee: for this thing is too heavy for thee; thou art not able to perform it thyself alone.",
+      "ref": "Jeremiah 31:25",
+      "text": "I have satiated the weary soul, and I have replenished every sorrowful soul.",
       "in_answer_key": false
      },
      {
-      "ref": "Jeremiah 31:25",
-      "text": "I have satiated the weary soul, and I have replenished every sorrowful soul.",
+      "ref": "Matthew 11:30",
+      "text": "My yoke is easy, and my burden is light.",
       "in_answer_key": false
      }
     ]
@@ -8597,8 +8583,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "2 Chronicles 15:7",
-      "text": "Be ye strong therefore, and let not your hands be weak: for your work shall be rewarded.",
+      "ref": "Proverbs 13:11",
+      "text": "Wealth gotten by vanity shall be diminished: but he that gathereth by labour shall increase.",
       "in_answer_key": false
      }
     ]
@@ -8649,11 +8635,6 @@
     ],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Proverbs 15:17",
       "text": "Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.",
       "in_answer_key": false
@@ -8661,6 +8642,11 @@
      {
       "ref": "Proverbs 24:3",
       "text": "Through wisdom is an house builded; and by understanding it is established.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 68:5",
+      "text": "A father of the fatherless, and a judge of the widows, is God in his holy habitation.",
       "in_answer_key": false
      }
     ]
@@ -8694,11 +8680,6 @@
     ],
     "bible": [
      {
-      "ref": "Joshua 1:9",
-      "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Isaiah 43:19",
       "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
       "in_answer_key": false
@@ -8706,6 +8687,11 @@
      {
       "ref": "Deuteronomy 31:8",
       "text": "The LORD, he it is that doth go before thee; he will be with thee, he will not fail thee, neither forsake thee: fear not, neither be dismayed.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 16:9",
+      "text": "A man's heart deviseth his way: but the LORD directeth his steps.",
       "in_answer_key": false
      }
     ]
@@ -8756,11 +8742,6 @@
     ],
     "bible": [
      {
-      "ref": "Joshua 1:9",
-      "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Isaiah 43:19",
       "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
       "in_answer_key": false
@@ -8768,6 +8749,11 @@
      {
       "ref": "Deuteronomy 31:8",
       "text": "The LORD, he it is that doth go before thee; he will be with thee, he will not fail thee, neither forsake thee: fear not, neither be dismayed.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 16:9",
+      "text": "A man's heart deviseth his way: but the LORD directeth his steps.",
       "in_answer_key": false
      }
     ]
@@ -8784,18 +8770,18 @@
    "results": {
     "gita": [
      {
-      "ref": "15:5",
-      "text": "Without pride and delusion, victorious over the vice of attachment, dwelling constantly in the Self, desire pacified, liberated from the pairs of opposites known as pleasure and pain, they tread, undeluded, that indestructible path.",
+      "ref": "18:26",
+      "text": "Liberated from attachment, not egoistic, endued with firmness and confidence, unchanged by success or failure, that actor is called pure.",
       "in_answer_key": false
      },
      {
-      "ref": "6:7",
-      "text": "The higher Self of him who is Self-controlled and peaceful is uniform in cold and heat, pleasure and pain, as well as in honour and dishonour.",
+      "ref": "2:48",
+      "text": "Perform action, O Dhananjaya, dwelling in union with the divine, renouncing attachments and balanced evenly in success and failure: equilibrium is called yoga.",
       "in_answer_key": false
      },
      {
-      "ref": "14:24",
-      "text": "Balanced in pleasure and pain, self-reliant, to whom a lump of earth, a rock and gold are alike, the same to loved and unloved, firm, the same in censure and in praise.",
+      "ref": "2:47",
+      "text": "Thy business is with the action only, never with its fruits; so let not the fruit of action be thy motive, nor be thou to inaction attached.",
       "in_answer_key": false
      }
     ],
@@ -9345,23 +9331,7 @@
    "results": {
     "gita": [],
     "quran": [],
-    "bible": [
-     {
-      "ref": "Colossians 3:14",
-      "text": "Above all these things put on charity, which is the bond of perfectness.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "Ecclesiastes 4:9",
-      "text": "Two are better than one; because they have a good reward for their labour.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "Ecclesiastes 4:10",
-      "text": "If they fall, the one will lift up his fellow",
-      "in_answer_key": false
-     }
-    ]
+    "bible": []
    }
   },
   {
@@ -9587,8 +9557,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "2 Chronicles 15:7",
-      "text": "Be ye strong therefore, and let not your hands be weak: for your work shall be rewarded.",
+      "ref": "Deuteronomy 25:15",
+      "text": "Thou shalt have a perfect and just weight, a perfect and just measure shalt thou have: that thy days may be lengthened in the land which the LORD thy God giveth thee.",
       "in_answer_key": false
      }
     ]
@@ -9755,8 +9725,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "2 Chronicles 15:7",
-      "text": "Be ye strong therefore, and let not your hands be weak: for your work shall be rewarded.",
+      "ref": "Proverbs 21:5",
+      "text": "The thoughts of the diligent tend only to plenteousness; but of every one that is hasty only to want.",
       "in_answer_key": false
      }
     ]
@@ -9773,11 +9743,6 @@
     "gita": [],
     "quran": [
      {
-      "ref": "60:7",
-      "text": "It may be that Allah will ordain love between you and those of them with whom ye are at enmity. Allah is Mighty, and Allah is Forgiving, Merciful.",
-      "in_answer_key": false
-     },
-     {
       "ref": "49:10",
       "text": "The believers are naught else than brothers. Therefore make peace between your brethren and observe your duty to Allah that haply ye may obtain mercy.",
       "in_answer_key": false
@@ -9786,22 +9751,27 @@
       "ref": "90:17",
       "text": "To be of those who believe and exhort one another to perseverance and exhort one another to pity.",
       "in_answer_key": false
+     },
+     {
+      "ref": "9:119",
+      "text": "O ye who believe! Be careful of your duty to Allah, and be with the truthful.",
+      "in_answer_key": false
      }
     ],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
+      "ref": "Proverbs 27:17",
+      "text": "Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.",
       "in_answer_key": false
      },
      {
-      "ref": "Ecclesiastes 4:10",
-      "text": "If they fall, the one will lift up his fellow",
+      "ref": "Psalms 133:1",
+      "text": "Behold, how good and how pleasant it is for brethren to dwell together in unity!",
       "in_answer_key": false
      },
      {
-      "ref": "Proverbs 27:9",
-      "text": "Ointment and perfume rejoice the heart: so doth the sweetness of a man's friend by hearty counsel.",
+      "ref": "Job 2:13",
+      "text": "They sat down with him upon the ground seven days and seven nights, and none spake a word unto him: for they saw that his grief was very great.",
       "in_answer_key": false
      }
     ]
@@ -9927,11 +9897,6 @@
     "gita": [],
     "quran": [
      {
-      "ref": "60:7",
-      "text": "It may be that Allah will ordain love between you and those of them with whom ye are at enmity. Allah is Mighty, and Allah is Forgiving, Merciful.",
-      "in_answer_key": false
-     },
-     {
       "ref": "49:10",
       "text": "The believers are naught else than brothers. Therefore make peace between your brethren and observe your duty to Allah that haply ye may obtain mercy.",
       "in_answer_key": false
@@ -9940,22 +9905,27 @@
       "ref": "90:17",
       "text": "To be of those who believe and exhort one another to perseverance and exhort one another to pity.",
       "in_answer_key": false
+     },
+     {
+      "ref": "9:119",
+      "text": "O ye who believe! Be careful of your duty to Allah, and be with the truthful.",
+      "in_answer_key": false
      }
     ],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
+      "ref": "Proverbs 27:17",
+      "text": "Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.",
       "in_answer_key": false
      },
      {
-      "ref": "Ecclesiastes 4:10",
-      "text": "If they fall, the one will lift up his fellow",
+      "ref": "Proverbs 16:28",
+      "text": "A froward man soweth strife: and a whisperer separateth chief friends.",
       "in_answer_key": false
      },
      {
-      "ref": "Proverbs 27:9",
-      "text": "Ointment and perfume rejoice the heart: so doth the sweetness of a man's friend by hearty counsel.",
+      "ref": "Job 2:13",
+      "text": "They sat down with him upon the ground seven days and seven nights, and none spake a word unto him: for they saw that his grief was very great.",
       "in_answer_key": false
      }
     ]
@@ -9990,11 +9960,6 @@
     ],
     "bible": [
      {
-      "ref": "Joshua 1:9",
-      "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Isaiah 43:19",
       "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
       "in_answer_key": false
@@ -10002,6 +9967,11 @@
      {
       "ref": "Deuteronomy 31:8",
       "text": "The LORD, he it is that doth go before thee; he will be with thee, he will not fail thee, neither forsake thee: fear not, neither be dismayed.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 16:9",
+      "text": "A man's heart deviseth his way: but the LORD directeth his steps.",
       "in_answer_key": false
      }
     ]
@@ -10107,8 +10077,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "2 Chronicles 15:7",
-      "text": "Be ye strong therefore, and let not your hands be weak: for your work shall be rewarded.",
+      "ref": "Proverbs 22:29",
+      "text": "Seest thou a man diligent in his business? he shall stand before kings; he shall not stand before mean men.",
       "in_answer_key": false
      }
     ]
@@ -10251,11 +10221,6 @@
     ],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Proverbs 15:17",
       "text": "Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.",
       "in_answer_key": false
@@ -10263,6 +10228,11 @@
      {
       "ref": "Proverbs 24:3",
       "text": "Through wisdom is an house builded; and by understanding it is established.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 68:5",
+      "text": "A father of the fatherless, and a judge of the widows, is God in his holy habitation.",
       "in_answer_key": false
      }
     ]
@@ -10342,11 +10312,6 @@
     "quran": [],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Proverbs 15:17",
       "text": "Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.",
       "in_answer_key": false
@@ -10354,6 +10319,11 @@
      {
       "ref": "Proverbs 24:3",
       "text": "Through wisdom is an house builded; and by understanding it is established.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 68:5",
+      "text": "A father of the fatherless, and a judge of the widows, is God in his holy habitation.",
       "in_answer_key": false
      }
     ]
@@ -10617,11 +10587,6 @@
    "results": {
     "gita": [
      {
-      "ref": "6:25",
-      "text": "Little by little let him gain tranquillity, by means of Reason controlled by steadiness; having made the mind abide in the Self, let him not think of anything.",
-      "in_answer_key": false
-     },
-     {
       "ref": "6:35",
       "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
       "in_answer_key": false
@@ -10629,6 +10594,11 @@
      {
       "ref": "6:26",
       "text": "As often as the wavering and unsteady mind goeth forth, so often reining it in, let him bring it under the control of the Self.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "12:10",
+      "text": "If also thou art not equal to constant practice, be intent on My service; performing actions for My sake, thou shalt attain perfection.",
       "in_answer_key": false
      }
     ],
@@ -10680,11 +10650,6 @@
     "gita": [],
     "quran": [
      {
-      "ref": "60:7",
-      "text": "It may be that Allah will ordain love between you and those of them with whom ye are at enmity. Allah is Mighty, and Allah is Forgiving, Merciful.",
-      "in_answer_key": false
-     },
-     {
       "ref": "49:10",
       "text": "The believers are naught else than brothers. Therefore make peace between your brethren and observe your duty to Allah that haply ye may obtain mercy.",
       "in_answer_key": false
@@ -10693,22 +10658,27 @@
       "ref": "90:17",
       "text": "To be of those who believe and exhort one another to perseverance and exhort one another to pity.",
       "in_answer_key": false
+     },
+     {
+      "ref": "9:119",
+      "text": "O ye who believe! Be careful of your duty to Allah, and be with the truthful.",
+      "in_answer_key": false
      }
     ],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
+      "ref": "Proverbs 27:17",
+      "text": "Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.",
       "in_answer_key": false
      },
      {
-      "ref": "Ecclesiastes 4:10",
-      "text": "If they fall, the one will lift up his fellow",
+      "ref": "Proverbs 16:28",
+      "text": "A froward man soweth strife: and a whisperer separateth chief friends.",
       "in_answer_key": false
      },
      {
-      "ref": "Proverbs 27:9",
-      "text": "Ointment and perfume rejoice the heart: so doth the sweetness of a man's friend by hearty counsel.",
+      "ref": "Job 2:13",
+      "text": "They sat down with him upon the ground seven days and seven nights, and none spake a word unto him: for they saw that his grief was very great.",
       "in_answer_key": false
      }
     ]
@@ -10909,11 +10879,6 @@
     "quran": [],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Proverbs 15:17",
       "text": "Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.",
       "in_answer_key": false
@@ -10921,6 +10886,11 @@
      {
       "ref": "Proverbs 24:3",
       "text": "Through wisdom is an house builded; and by understanding it is established.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 68:5",
+      "text": "A father of the fatherless, and a judge of the widows, is God in his holy habitation.",
       "in_answer_key": false
      }
     ]
@@ -11078,18 +11048,18 @@
     ],
     "bible": [
      {
-      "ref": "Colossians 3:14",
-      "text": "Above all these things put on charity, which is the bond of perfectness.",
+      "ref": "Isaiah 41:10",
+      "text": "Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.",
       "in_answer_key": false
      },
      {
-      "ref": "Ecclesiastes 4:9",
-      "text": "Two are better than one; because they have a good reward for their labour.",
+      "ref": "1 Peter 5:7",
+      "text": "Casting all your care upon him; for he careth for you.",
       "in_answer_key": false
      },
      {
-      "ref": "Ecclesiastes 4:10",
-      "text": "If they fall, the one will lift up his fellow",
+      "ref": "Philippians 4:6",
+      "text": "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.",
       "in_answer_key": false
      }
     ]
@@ -11230,11 +11200,6 @@
     ],
     "bible": [
      {
-      "ref": "Jeremiah 29:11",
-      "text": "I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil",
-      "in_answer_key": false
-     },
-     {
       "ref": "Psalms 138:8",
       "text": "The LORD will perfect that which concerneth me: thy mercy, O LORD, endureth for ever: forsake not the works of thine own hands.",
       "in_answer_key": false
@@ -11242,6 +11207,11 @@
      {
       "ref": "Philippians 1:6",
       "text": "Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Micah 6:8",
+      "text": "He hath shewed thee, O man, what is good; and what doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?",
       "in_answer_key": false
      }
     ]
@@ -11276,11 +11246,6 @@
     ],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Proverbs 15:17",
       "text": "Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.",
       "in_answer_key": false
@@ -11288,6 +11253,11 @@
      {
       "ref": "Proverbs 24:3",
       "text": "Through wisdom is an house builded; and by understanding it is established.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 68:5",
+      "text": "A father of the fatherless, and a judge of the widows, is God in his holy habitation.",
       "in_answer_key": false
      }
     ]
@@ -11434,13 +11404,13 @@
       "in_answer_key": false
      },
      {
-      "ref": "Exodus 18:18",
-      "text": "Thou wilt surely wear away, both thou, and this people that is with thee: for this thing is too heavy for thee; thou art not able to perform it thyself alone.",
+      "ref": "Jeremiah 31:25",
+      "text": "I have satiated the weary soul, and I have replenished every sorrowful soul.",
       "in_answer_key": false
      },
      {
-      "ref": "Jeremiah 31:25",
-      "text": "I have satiated the weary soul, and I have replenished every sorrowful soul.",
+      "ref": "Matthew 11:30",
+      "text": "My yoke is easy, and my burden is light.",
       "in_answer_key": false
      }
     ]
@@ -11520,11 +11490,6 @@
     "gita": [],
     "quran": [
      {
-      "ref": "60:7",
-      "text": "It may be that Allah will ordain love between you and those of them with whom ye are at enmity. Allah is Mighty, and Allah is Forgiving, Merciful.",
-      "in_answer_key": false
-     },
-     {
       "ref": "49:10",
       "text": "The believers are naught else than brothers. Therefore make peace between your brethren and observe your duty to Allah that haply ye may obtain mercy.",
       "in_answer_key": false
@@ -11533,22 +11498,27 @@
       "ref": "90:17",
       "text": "To be of those who believe and exhort one another to perseverance and exhort one another to pity.",
       "in_answer_key": false
+     },
+     {
+      "ref": "9:119",
+      "text": "O ye who believe! Be careful of your duty to Allah, and be with the truthful.",
+      "in_answer_key": false
      }
     ],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
+      "ref": "Proverbs 27:17",
+      "text": "Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.",
       "in_answer_key": false
      },
      {
-      "ref": "Ecclesiastes 4:10",
-      "text": "If they fall, the one will lift up his fellow",
+      "ref": "Proverbs 16:28",
+      "text": "A froward man soweth strife: and a whisperer separateth chief friends.",
       "in_answer_key": false
      },
      {
-      "ref": "Proverbs 27:9",
-      "text": "Ointment and perfume rejoice the heart: so doth the sweetness of a man's friend by hearty counsel.",
+      "ref": "Job 2:13",
+      "text": "They sat down with him upon the ground seven days and seven nights, and none spake a word unto him: for they saw that his grief was very great.",
       "in_answer_key": false
      }
     ]
@@ -11566,11 +11536,6 @@
     "quran": [],
     "bible": [
      {
-      "ref": "Proverbs 17:17",
-      "text": "A friend loveth at all times, and a brother is born for adversity.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Proverbs 15:17",
       "text": "Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.",
       "in_answer_key": false
@@ -11578,6 +11543,11 @@
      {
       "ref": "Proverbs 24:3",
       "text": "Through wisdom is an house builded; and by understanding it is established.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Psalms 68:5",
+      "text": "A father of the fatherless, and a judge of the widows, is God in his holy habitation.",
       "in_answer_key": false
      }
     ]
@@ -11735,11 +11705,6 @@
     ],
     "bible": [
      {
-      "ref": "Joshua 1:9",
-      "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.",
-      "in_answer_key": false
-     },
-     {
       "ref": "Isaiah 43:19",
       "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
       "in_answer_key": false
@@ -11747,6 +11712,11 @@
      {
       "ref": "Deuteronomy 31:8",
       "text": "The LORD, he it is that doth go before thee; he will be with thee, he will not fail thee, neither forsake thee: fear not, neither be dismayed.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Proverbs 16:9",
+      "text": "A man's heart deviseth his way: but the LORD directeth his steps.",
       "in_answer_key": false
      }
     ]
@@ -11760,23 +11730,7 @@
     "pride_humility"
    ],
    "results": {
-    "gita": [
-     {
-      "ref": "15:5",
-      "text": "Without pride and delusion, victorious over the vice of attachment, dwelling constantly in the Self, desire pacified, liberated from the pairs of opposites known as pleasure and pain, they tread, undeluded, that indestructible path.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "6:7",
-      "text": "The higher Self of him who is Self-controlled and peaceful is uniform in cold and heat, pleasure and pain, as well as in honour and dishonour.",
-      "in_answer_key": false
-     },
-     {
-      "ref": "14:24",
-      "text": "Balanced in pleasure and pain, self-reliant, to whom a lump of earth, a rock and gold are alike, the same to loved and unloved, firm, the same in censure and in praise.",
-      "in_answer_key": false
-     }
-    ],
+    "gita": [],
     "quran": [
      {
       "ref": "17:37",
@@ -12025,11 +11979,6 @@
     ],
     "bible": [
      {
-      "ref": "Jeremiah 29:11",
-      "text": "I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil",
-      "in_answer_key": false
-     },
-     {
       "ref": "Psalms 138:8",
       "text": "The LORD will perfect that which concerneth me: thy mercy, O LORD, endureth for ever: forsake not the works of thine own hands.",
       "in_answer_key": false
@@ -12037,6 +11986,11 @@
      {
       "ref": "Philippians 1:6",
       "text": "Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "Micah 6:8",
+      "text": "He hath shewed thee, O man, what is good; and what doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?",
       "in_answer_key": false
      }
     ]
@@ -12053,11 +12007,6 @@
    "results": {
     "gita": [
      {
-      "ref": "6:25",
-      "text": "Little by little let him gain tranquillity, by means of Reason controlled by steadiness; having made the mind abide in the Self, let him not think of anything.",
-      "in_answer_key": false
-     },
-     {
       "ref": "6:35",
       "text": "Without doubt, O mighty-armed, the mind is hard to curb and restless; but it may be curbed by constant practice and by dispassion.",
       "in_answer_key": false
@@ -12065,6 +12014,11 @@
      {
       "ref": "6:26",
       "text": "As often as the wavering and unsteady mind goeth forth, so often reining it in, let him bring it under the control of the Self.",
+      "in_answer_key": false
+     },
+     {
+      "ref": "12:10",
+      "text": "If also thou art not equal to constant practice, be intent on My service; performing actions for My sake, thou shalt attain perfection.",
       "in_answer_key": false
      }
     ],
@@ -12169,8 +12123,8 @@
       "in_answer_key": false
      },
      {
-      "ref": "2 Chronicles 15:7",
-      "text": "Be ye strong therefore, and let not your hands be weak: for your work shall be rewarded.",
+      "ref": "Proverbs 22:29",
+      "text": "Seest thou a man diligent in his business? he shall stand before kings; he shall not stand before mean men.",
       "in_answer_key": false
      }
     ]

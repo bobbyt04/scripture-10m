@@ -3,17 +3,29 @@
 `python search/build.py --site` writes the files the website loads to
 `search/artifacts/`. They hold everything a port of the advice search (for
 example to JavaScript in the browser) needs, including the verse texts to
-show. The ranking is plain comparisons and double-precision arithmetic; no
+show. Everything is plain comparisons and double-precision arithmetic; no
 vectors are needed for it.
+
+**The site contract: type, then pick a topic.** The site never shows a
+verse chosen from free text. What a visitor types goes only to
+[`suggest(query)`](#8-suggestquery-the-only-free-text-entry-point) (steps
+0 to 5 and 8), which returns topics, never verses: a kind note with no
+topics for a possible crisis, gentle topics for a sensitive message, up to 4
+topics otherwise, or none (the site then shows the full list, `topics()`).
+Verses appear only after the visitor taps a topic:
+[`topic(id, k, sensitive)`](#9-topicid-knull-sensitivefalse-and-topics)
+returns them in the hand-set order. `search(query, k)` (steps 6, 7 and 10),
+which chose verses from free text, is kept in `scripture/search.py` for the
+eval history only; the site does not call it.
 
 | File | Size | Contents |
 |---|---|---|
-| `search.json` | 498 kB | The reviewed verse pool (display text, themes, hand-set priorities, note, BM25 terms), themes and their phrases, word rules, bridge, safety lists (crisis phrases, distress gate, bereavement and idiom blanks, sensitive topics, the crisis message), settings. |
-| `pool_vectors.i8` | 93 kB | `int8[P][D]`: one row per published pool verse (Gita, then Quran, then Bible, each in `pool` order), for `similar()`. |
+| `search.json` | 508 kB | The reviewed verse pool (display text, themes, hand-set priorities, note, BM25 terms), themes with their labels, blurbs and phrases, word rules, bridge, safety lists (crisis phrases, distress gate, bereavement and idiom blanks, emoji, sensitive topics, the suggestion signals, the crisis message), settings. |
+| `pool_vectors.i8` | 88 kB | `int8[P][D]`: one row per published pool verse (Gita, then Quran, then Bible, each in `pool` order), for `similar()`. |
 | `similarities.json` | 30 kB | The hand-reviewed cross-book parallels for the similarities page. |
-| `fixtures.json` | 151 kB | Expected outputs of 92 searches (several with k other than 3, the distress gate, bereavement, a stated age in digits, typos and non-ASCII input), 4 theme chips and 3 `similar()` calls with and without `sensitive_only`, for testing a port. |
+| `fixtures.json` | 179 kB | Expected outputs for testing a port: 29 `suggest()` calls (crisis, sensitive, general and none, the suppression rule, typos, non-ASCII input, an emoji, the 500-character cap), 6 `topic()` calls (with k, sensitive-only, a topic no book has), `topics()`; and, for the eval history, 92 `search()` calls, 4 `by_theme()` calls and 3 `similar()` calls with and without `sensitive_only`. |
 
-Total 772 kB. (The full-corpus model in `search/model/`, 6.6 MB, is used
+Total 804 kB. (The full-corpus model in `search/model/`, 6.6 MB, is used
 offline only: to propose parallels, score them, and give pool verses their
 vectors. The site never loads it.)
 
@@ -46,18 +58,25 @@ an all-zero row as zeros** (its cosine with anything is 0, never NaN).
   "bridge": {"stressed": ["troubled", ...], "laid off": [...], ...},
   "bridge_replace": ["job", ...],             bridge keys whose own word is not searched
   "themes": {
-    "grief": {"name": "Grief and loss", "description": "...", "note": "...",   note is optional
+    "grief": {"name": "Grief and loss", "description": "...",
+              "label": "Grief and loss", "blurb": "For missing someone who has died.",   what a visitor sees
+              "gentle_label": "Loss and comfort", "gentle_blurb": "...",   optional: shown for a sensitive message
+              "note": "...",                                                optional
               "phrases": ["passed away", "lost my mom|dad|...", ...]}, ...
   },
   "safety": {
     "fuzzy": ["suicide", "suicidal", "myself", "unalive"],
-    "crisis_message": "...",                  the kind note shown instead of verses (no phone numbers, by the owner's decision)
+    "crisis_message": "...",                  the kind note shown instead of topics (no phone numbers, by the owner's decision)
+    "emoji": {"🔫": "emojigun", "💊": "pills", ...},   read as words for the safety check only (step 3)
     "idioms": ["killing it", "cut back", ...],
     "bereavement": ["died by suicide", "lost my|our|his|her * to suicide|...", ...],
     "crisis": {"suicide": [phrase, ...], "self_harm": [...], "abuse": [...], "harm_to_others": [...]},
     "sensitive": {"sexuality_gender": {"themes": ["self_worth", ...], "phrases": [...]},
-                  "pregnancy": {..., "exclude": {"gita": ["2:40"]}}, ...},   exclude is optional (step 7)
-    "distress": {"window": 7, "rules": [rule, ...]}
+                  "pregnancy": {..., "exclude": {"gita": ["2:40"]}}, ...},   exclude is optional (steps 7 and 9)
+    "distress": {"window": 7, "rules": [rule, ...]},
+    "suggest": {"max_topics": 4, "max_topics_after_signal": 2,                    step 8
+                "never_after_signal": ["courage", "love_compassion", "friendship", "marriage", "family_parents", "forgiveness"],
+                "signals": ["hurt me|myself|us", "pills", "secret*", "fourteen|...", "online", ...]}
   },
   "pool": {
     "gita": [{"ref": "2:47", "text": "...", "themes": [...], "why": "...", "sensitive": false,
@@ -81,6 +100,9 @@ an all-zero row as zeros** (its cosine with anything is 0, never NaN).
   with filler words left out. A port does not need to rebuild it.
 - `sensitive` marks the hand-picked verses that are the only ones shown for
   sensitive topics (`search/pool/sensitive_set.json`).
+- A theme's `label` and `blurb` are hand-written for visitors; `name` and
+  `description` are the curators' wording (used in BM25 documents and by
+  `search()`).
 
 ## Step by step
 
@@ -134,7 +156,10 @@ position i if slot j matches word i + j for every slot.
 
 Let W = words(query).
 
-1. Crisis words C: let N = words(spell(query)), where spell(query) replaces
+1. Crisis words C: let N = words(spell(query)), where spell(query) first
+   replaces every character that is a key of `emoji` by a space, its word
+   and a space (in the order of `emoji`; "🙂🔫" gives `["emojigun"]`, since
+   other emoji are not letters and words drops them), and then replaces
    every maximal run of ASCII digits `[0-9]+` that is exactly one of "1" to
    "17" (no leading zero) by a space, its English word (one, two, ...,
    seventeen) and a space; other digits are left alone (and dropped by
@@ -229,7 +254,7 @@ tried even if it yields nothing). For each entry of its `try` list in order:
 5. keep the stem only if it now has at least 3 letters (this check comes
    last, after `undouble` and `add`).
 
-### 6. Expanding the query: `expand(query)`
+### 6. Expanding the query: `expand(query)` (search() only)
 
 Walk W left to right; Q is an ordered map term → (weight, source), and
 `add(term, weight, source)` sets Q[term] only if term is not none and weight
@@ -249,7 +274,7 @@ bridge key.
 
 Q only breaks ties between verses (step 7); it never chooses one.
 
-### 7. Choosing and ordering the verses, per book
+### 7. Choosing and ordering the verses, per book (search() only)
 
 If the category is crisis, stop: `results` are empty for every book,
 `themes` and `notes` are empty, `message` is `crisis_message` and `no_match`
@@ -292,8 +317,73 @@ crisis).
 agree to about 1e-12, so a different order is possible only for verses whose
 keys tie before rounding to within that, which the fixtures do not contain.
 
-### 8. `search(query, k=3)`
+### 8. `suggest(query)`: the only free-text entry point
 
+What the site calls with what a visitor typed. It never returns a verse, a
+ref or verse text:
+
+```
+{"category": "crisis" | "sensitive" | "general" | "none",
+ "note": null | crisis_message,
+ "topics": [{"id", "label", "blurb"}, ...]}
+```
+
+1. (category, topic) = classify(query) (step 3). If the category is crisis,
+   return `{"category": "crisis", "note": crisis_message, "topics": []}`.
+2. S = selection_themes (step 4), in its order: for a sensitive message the
+   typed themes and then the topic's gentle themes.
+3. Keep the themes of S that topic() can show something for: for a general
+   message, a theme with at least one verse in some book; for a sensitive
+   one, a theme with at least one `sensitive` verse in some book that no
+   sensitive topic's `exclude` lists (step 9).
+4. **Suppression.** If any phrase of `suggest.signals` matches the crisis
+   words C (step 3: emoji and digits 1 to 17 read as words, idioms and a
+   third person's death blanked; the signals are first-person harm, a plan
+   or farewell, secrecy, an age under 18, contact with an adult or a
+   stranger), drop the themes in `never_after_signal` (courage,
+   love_compassion, friendship, marriage, family_parents, forgiveness) and
+   keep at most `max_topics_after_signal` (2); otherwise keep at most
+   `max_topics` (4). This holds even when the gate did not fire; it is a
+   deliberately broad rule that only ever offers fewer topics.
+5. Each topic is `{id, label, blurb}`, from the theme's `label` and
+   `blurb`; for a sensitive message, from its `gentle_label` and
+   `gentle_blurb` where it has them.
+6. The category stays "general" or "sensitive"; a general message with no
+   topic left becomes "none" (the site then shows the full list,
+   `topics()`). `note` is null.
+
+### 9. `topic(id, k=null, sensitive=false)` and `topics()`
+
+What the site shows after a visitor taps a topic (with `sensitive=true` if
+it was suggested for a sensitive message). Per book, the verses whose themes
+include the topic; with `sensitive`, only verses marked `sensitive` whose ref
+is in no sensitive topic's `exclude` list for that book. Sort by: priority
+for this topic (1, 2, ...; none counts as 1000), then score = r(1 /
+(position of the topic in the verse's list + 1)) descending (r as in step
+7), then pool order; take the first k (all if k is null; otherwise k must be
+a positive integer). An unknown topic is an error.
+
+```
+{"id", "label", "blurb",                  gentle_label and gentle_blurb if sensitive and present
+ "note": null | the theme's note,
+ "sensitive": bool,
+ "books": {"gita": {"verses": [{"ref", "text", "why", "themes", "priority"}, ...],
+                    "nothing": null | "The Bhagavad Gita has no verse for this topic in the reviewed selection."},
+           "quran": {...}, "bible": {...}}}
+```
+
+`nothing` is null when the book has a verse, and otherwise says in so many
+words that it has none (with the book's name: "Bhagavad Gita", "Quran",
+"Bible").
+
+`topics()` lists, in `themes` order, every theme with at least one verse in
+some book: `{id, label, blurb, verses: {book: n}, sensitive_verses: {book:
+n}}`, where the counts are what topic() and topic(sensitive=true) show.
+
+### 10. `search(query, k=3)` (eval history only)
+
+**Not used by the site.** The free-text verse search of rounds 4 to 6,
+kept so the recorded benchmark numbers can be reproduced (steps 0 to 7).
 k must be a positive integer (booleans and floats are rejected); the same
 rule holds for `by_theme` and `similar`. It returns:
 
@@ -307,16 +397,14 @@ rule holds for `by_theme` and `similar`. It returns:
  "results": {"gita": [hit, ...], "quran": [...], "bible": [...]}}
 ```
 
-### 9. `by_theme(theme, k)`
+### 11. `by_theme(theme, k)`
 
-For the theme chips. Per book, the verses whose themes include the theme.
-Sort by: priority for this theme (1, 2, ...; none counts as 1000), then
-score = r(1 / (position of the theme in the verse's list + 1)) descending,
-then pool order; take k. Each hit has `theme` and `priority` as in step 7.
-A book that does not offer the theme returns nothing. An unknown theme is an
-error.
+topic()'s order (step 9, never sensitive-only) in search()'s hit format:
+each hit has ref, text, themes, why, `score` (the r(1 / (position + 1))
+above), `matched`, `theme` and `priority`. Kept for the fixtures and the
+eval history.
 
-### 10. `similar(book, ref, k, sensitive_only=false)`
+### 12. `similar(book, ref, k, sensitive_only=false)`
 
 The source must be a pool verse. Per book, every other pool verse (with
 `sensitive_only`, only verses marked `sensitive`; the source itself may be
@@ -327,7 +415,14 @@ score descending then pool order, take k.
 ## fixtures.json
 
 - `words`: `[text, words(text)]` pairs for step 1, including non-ASCII text.
-- `search`: for each case, `search(query, k)`:
+- `suggest`: for each case, `query`, `crisis_words` (C of step 3), `signal`
+  (whether a `suggest.signals` phrase matches C) and the exact result of
+  `suggest(query)` (`category`, `note`, `topics`).
+- `topic`: for each case, `theme`, `k`, `sensitive`, and of `topic(theme, k,
+  sensitive)` the `label`, `blurb`, `note` and per book `{"verses": [[ref,
+  priority], ...], "nothing"}`.
+- `topics`: the exact result of `topics()`.
+- `search` (eval history): for each case, `search(query, k)`:
   - `query`, `k`, `words` (W), `crisis_words` (C of step 3),
     `theme_words` (T of step 4);
   - `category`, `topic`, `message`, `no_match`;

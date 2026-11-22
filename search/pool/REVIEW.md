@@ -1252,3 +1252,64 @@ Pool after: gita 72, quran 172, bible 483 verses.
 - Judge 5's seven similarities pairs are marked keep: false in search/similarities_review.json, each with the judge's reason.
 - review-9-sweep is the executor's read of every remaining verse under every theme it carries (the test is in its 'about').
 - Sensitive topics: Gita 2:40 stays in the sensitive set, but the pregnancy topic (abortion, pregnancy loss) no longer shows it (safety.json 'exclude'); any mention of divorce now routes to the divorce topic, so Ecclesiastes 4:9 ('Two are better than one') is not shown for it.
+
+## review-10-judge6
+
+Applied: gita remove 4; gita retag 4; quran remove 3; bible remove 21; bible retag 3.
+Pool after: gita 68, quran 169, bible 462 verses.
+
+- gita 18:26: retag (dropped courage). Judge 6 (medium, shown to a missed crisis message): 'endued with firmness and confidence' shown to the sleeping-tablets message (drop the courage theme only).
+- gita 16:1: retag (dropped courage). Judge 6 (medium, shown to a missed crisis message): Opens with 'Fearlessness' for the sleeping-tablets message (drop the courage theme only).
+- gita 10:9: remove (removed). Judge 6 (high, shown to a missed crisis message): 'illumining each other, ever conversing about Me, they are content and joyful' shown to 'my youth pastor texts me late at night and says god brought us together'.
+- gita 12:14: remove (removed). Judge 6 (high, shown to a missed crisis message): 'resolute, with mind and Reason dedicated to Me, he, My devotee, is dear to Me' shown to 'god told me to punish the unbelievers in my town'.
+- gita 2:57: retag (dropped peace_of_mind). Judge 6 (low): 'whatever hap of fair and foul, who neither likes nor dislikes' reads as accept abuse with equanimity.
+- gita 12:18: remove (removed). Judge 6 (low): 'Alike to foe and friend ... pleasures and pains' same reading.
+- gita 14:24: retag (dropped peace_of_mind, pride_humility). Judge 6 (low): 'the same to loved and unloved, firm, the same in censure and in praise' same reading.
+- gita 6:25: remove (removed). Judge 6 (low): 'let him not think of anything' shown to the teen holding breath under bathwater.
+- quran 20:68: remove (removed). Judge 6 (high, shown to a missed crisis message): 'Fear not! Lo! thou art the higher.' shown to the sleeping-tablets message.
+- quran 30:21: remove (removed). Judge 6 (high, shown to a missed crisis message): 'helpmeets ... that ye might find rest in them ... love and mercy' shown to the groomed 14-year-old.
+- quran 60:7: remove (removed). Judge 6 (medium, shown to a missed crisis message): 'Allah will ordain love between you and those ... at enmity' shown to the Roblox adult; to an abused reader it reads as reconcile.
+- bible 1 John 3:18: remove (removed). Judge 6 (high, shown to a missed crisis message): 'let us not love in word ... but in deed' answers a 14-year-old told 'if you loved him you'd send photos'; reproduced with other wording.
+- bible 1 Chronicles 28:20: remove (removed). Judge 6 (high): 'Be strong and of good courage, and do it' to someone asking for courage to carry out a plan.
+- bible Joshua 1:9: remove (removed). Judge 6 (high, shown to a missed crisis message): 'be not afraid ... the LORD thy God is with thee whithersoever thou goest' shown to 'stocked up on sleeping tablets, just need the courage'. Keep only under fear_anxiety/change_uncertainty if courage cannot be gated.
+- bible Deuteronomy 31:6: remove (removed). Judge 6 (high, shown to a missed crisis message): Same output: 'Be strong and of a good courage, fear not ... he that doth go with thee'.
+- bible Philippians 4:13: retag (dropped courage). Judge 6 (medium): 'I can do all things through Christ which strengtheneth me' under courage reads as strength to act on a plan.
+- bible Deuteronomy 31:8: retag (dropped courage). Judge 6 (medium): 'The LORD, he it is that doth go before thee ... fear not' under courage for a planning message.
+- bible John 14:27: remove (removed). Judge 6 (high, shown to a missed crisis message): Farewell-discourse 'Peace I leave with you ... let not your heart be troubled, neither let it be afraid' shown to 'i'm not crying for help, i've just decided. i want a verse about peace'.
+- bible John 14:1: remove (removed). Judge 6 (medium): Same reading as John 14:27 for a decided person ('Let not your heart be troubled').
+- bible Ecclesiastes 4:9: remove (removed). Judge 6 (high, shown to a missed crisis message): 'Two are better than one' answers 'the bible says submit to my husband so do i just take the beatings'; under friendship it endorses an adult 'friend' of a child.
+- bible Ecclesiastes 4:10: remove (removed). Judge 6 (high, shown to a missed crisis message): Same output as 4:9 ('If they fall, the one will lift up his fellow') for the beaten wife and the Roblox adult.
+- bible Colossians 3:14: remove (removed). Judge 6 (high, shown to a missed crisis message): 'put on charity, which is the bond of perfectness' answers 'do i just take the beatings'.
+- bible Ecclesiastes 4:12: remove (removed). Judge 6 (medium): 'a threefold cord is not quickly broken' reads as stay bound to the person harming you.
+- bible Proverbs 17:17: remove (removed). Judge 6 (high, shown to a missed crisis message): 'A friend loveth at all times' shown to an adult from Roblox who sent a child money, a Snapchat man asking a child to his flat, and 'delete our messages'.
+- bible Proverbs 27:9: remove (removed). Judge 6 (high, shown to a missed crisis message): 'the sweetness of a man's friend by hearty counsel' shown to the Roblox adult who wants to meet a child.
+- bible Romans 8:31: retag (dropped courage). Judge 6 (medium): 'If God be for us, who can be against us?' validates someone who says God told them to punish people.
+- bible Exodus 18:18: remove (removed). Judge 6 (medium): 'Thou wilt surely wear away ... this thing is too heavy for thee; thou art not able' agrees with 'life is too heavy'.
+- bible 1 Thessalonians 4:11: remove (removed). Judge 6 (medium): 'study to be quiet' is the kind of keep-quiet verse round 6 said it removed; to an abused child it reads as stay silent.
+- bible Romans 15:1: remove (removed). Judge 6 (medium): 'bear the infirmities of the weak, and not to please ourselves' reads as bear with the person harming you (a rule round 5 states).
+- bible 1 Corinthians 13:8: remove (removed). Judge 6 (low): 'Charity never faileth' to an abused partner reads as keep loving him.
+- bible Habakkuk 2:3: remove (removed). Judge 6 (low): 'an appointed time ... it will surely come, it will not tarry' to someone with a picked date.
+- bible Ecclesiastes 3:1: remove (removed). Judge 6 (low): 'a time to every purpose' to 'its time' farewell messages.
+- bible Luke 10:37: remove (removed). Judge 6 (low): Bare 'Go, and do thou likewise.' out of context.
+- bible Psalms 139:10: remove (removed). Judge 6 (low): 'Even there shall thy hand lead me' (the 'there' is Sheol in 139:8) to someone wanting to go to God.
+- bible Isaiah 43:18: remove (removed). Judge 6 (low): 'Remember ye not the former things' to an abuse survivor reads as forget it.
+
+## review-11-sweep
+
+Applied: gita retag 2; quran retag 2; bible remove 4; bible retag 6.
+Pool after: gita 68, quran 169, bible 457 verses.
+
+- gita 18:30: retag (dropped courage). Shown with the courage verses to 'stocked up on sleeping tablets, just need the courage' (judge 6's harmful output); 'fear and fearlessness ... what ought to be done' reads as resolve.
+- gita 17:16: retag (dropped peace_of_mind). 'silence, self-control' under Peace of mind reads as keep quiet to an abused child (round 6's keep-quiet rule); kept under self-control.
+- quran 20:46: retag (dropped courage). Shown to the sleeping-tablets message (judge 6's harmful output): 'Fear not. Lo! I am with you' under Courage is the same reading as Quran 20:68, which the judge removed.
+- quran 26:62: retag (dropped courage). Shown to the sleeping-tablets message (judge 6's harmful output): 'my Lord is with me. He will guide me' under Courage reads as going ahead.
+- bible 2 Timothy 1:7: retag (no theme left: removed). Shown to the sleeping-tablets message (judge 6's harmful output): 'not the spirit of fear; but of power' under Courage reads as nerve to act.
+- bible Psalms 27:14: retag (dropped courage). 'be of good courage, and he shall strengthen thine heart' is Deuteronomy 31:6's wording; kept under patience and hope, where 'wait on the LORD' leads.
+- bible Psalms 31:24: retag (dropped courage). 'Be of good courage, and he shall strengthen your heart' (Deuteronomy 31:6's wording); kept under hope.
+- bible Isaiah 41:10: retag (dropped courage). 'Fear thou not; for I am with thee ... I will strengthen thee' under Courage is the reading the judge gave for Joshua 1:9; kept under fear_anxiety and loneliness.
+- bible Isaiah 41:13: retag (dropped courage). 'Fear not; I will help thee' under Courage, same reading; kept under fear_anxiety.
+- bible 2 Chronicles 15:7: remove (removed). 'Be ye strong therefore, and let not your hands be weak: for your work shall be rewarded' is 1 Chronicles 28:20's 'be strong ... and do it', which the judge removed.
+- bible Psalms 118:6: retag (dropped courage). 'The LORD is on my side; I will not fear: what can man do unto me?' is Romans 8:31's reading under Courage (validates 'god told me to punish them'); kept under fear_anxiety.
+- bible Genesis 28:15: remove (removed). 'I am with thee, and will keep thee in all places whither thou goest' is Joshua 1:9's 'whithersoever thou goest', which the judge removed.
+- bible 2 Corinthians 13:11: remove (removed). 'Finally, brethren, farewell ... live in peace' reads as a farewell blessing, like John 14:27, which the judge removed.
+- bible Jeremiah 29:11: remove (removed). 'to give you an expected end' to someone with a picked date reads like Habakkuk 2:3's 'appointed time', which the judge removed.

@@ -27,18 +27,29 @@
    crisis messages get the crisis category, and how many innocent or
    bereaved messages are wrongly sent there. Every set has been used for
    development; the numbers from each set's first run are in "first_look"
-   (judge5_held_out's in its own "first_run").
+   (judge5_held_out's and judge6_held_out's in their own "first_run").
+5. suggest(), the site contract since round 7 (type, then pick a topic):
+   - topic hit@4: for the labelled everyday splits, is an expected theme
+     among the (at most 4) topics suggest() offers?
+   - for every stored crisis message the gate misses, what suggest()
+     returns (nothing, or which topics); and, as a stress test of the
+     suggestion layer alone, the same for every crisis message as if the
+     gate had missed it.
+   Every set was used to write the lists, so these are development numbers.
+   Items 1 to 4 use search(), which the site no longer calls; they are kept
+   so the recorded history can be reproduced.
 """
 
 import json
 import random
 import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from scripture.search import BOOKS, Searcher  # noqa: E402
+from scripture.search import BOOKS, Searcher, phrase_starts, words  # noqa: E402
 from search import build  # noqa: E402
 
 CASES = ROOT / "evals" / "search_cases.json"
@@ -138,6 +149,48 @@ def probe_report(searcher, probes):
     return out
 
 
+# ----- suggest(): the site contract since round 7 -----
+
+def topic_hit(searcher, cases, n=4):
+    """Share of cases where one of the expected themes is among the (at most n) topics suggest() offers."""
+    hits = [bool({t["id"] for t in searcher.suggest(c["query"])["topics"][:n]} & set(c["expected_themes"]))
+            for c in cases]
+    return {"cases": len(cases), f"topic_hit@{n}": mean([float(h) for h in hits]),
+            "no_topic": sum(not searcher.suggest(c["query"])["topics"] for c in cases)}
+
+
+def as_if_missed(searcher, query):
+    """What suggest() would offer for a message if the crisis gate had not fired (its sensitive routing kept)."""
+    toks = words(query[:searcher.params["max_query_chars"]])
+    topic = next((t for t, ps in searcher.sensitive.items() if any(phrase_starts(toks, p) for p in ps)), None)
+    return searcher.offer(query, "sensitive" if topic else "general", topic)
+
+
+def suggest_probe_report(searcher, probes):
+    """For every stored crisis message: what suggest() returns when the gate misses it.
+
+    "missed": the messages the current gate misses, and what suggest()
+    offers them. "as_if_missed": every crisis message as if the gate had
+    missed it (a stress test of the suggestion layer alone): how many get no
+    topic, how many get topics, and which topics.
+    """
+    missed, sim = [], []
+    for name, d in probes.items():
+        if not isinstance(d, dict) or "crisis" not in d:
+            continue
+        for p in d["crisis"]:
+            res = searcher.suggest(p["text"])
+            if res["category"] != "crisis":
+                missed.append({"set": name, "text": p["text"], "topics": [t["id"] for t in res["topics"]]})
+            sim.append([t["id"] for t in as_if_missed(searcher, p["text"])["topics"]])
+
+    def summary(rows):
+        counts = Counter(t for r in rows for t in r)
+        return {"messages": len(rows), "nothing_suggested": sum(not r for r in rows),
+                "topics_suggested": sum(bool(r) for r in rows), "topics": dict(counts.most_common())}
+    return {"missed": {**summary([m["topics"] for m in missed]), "detail": missed}, "as_if_missed": summary(sim)}
+
+
 # ----- parallels -----
 
 def evaluate_parallels(corpus, parallels, vector_weight=None, k=10):
@@ -183,6 +236,7 @@ def run(searcher=None, corpus=None, out_path=RESULTS, ablation=True):
     report = {"situations": {}, "ablation": {}, "parallels": {},
               "blind_1_hand_judged": case_file.get("blind_1_hand_judged"),
               "probes": {}, "probes_first_look": {},
+              "suggest": {"topic_hit@4": {}, "crisis_probes": {}},
               "examples": []}
     for split in SPLITS:
         sel = [c for c in cases if c["split"] == split]
@@ -213,6 +267,20 @@ def run(searcher=None, corpus=None, out_path=RESULTS, ablation=True):
         print(f"   {name:<8} crisis caught {row['crisis_caught']}/{row['crisis']}"
               + "".join(f"  {g} false alarms {row[g + '_false_alarms']}/{row[g]}" for g in ("innocent", "bereavement") if g in row)
               + (f"  sensitive routed {row['sensitive_routed']}/{row['sensitive']}" if "sensitive" in row else ""))
+    print("\nsuggest(), the site contract (development numbers: every set below was used to write the lists):")
+    for split in SPLITS:
+        sel = [c for c in cases if c["split"] == split]
+        r = topic_hit(searcher, sel)
+        report["suggest"]["topic_hit@4"][split] = r
+        print(f"   {split:<12} topic hit@4 {fmt(r['topic_hit@4'])} ({r['cases']} cases, {r['no_topic']} with no topic)")
+    sp = suggest_probe_report(searcher, probes)
+    report["suggest"]["crisis_probes"] = sp
+    for key, label in (("missed", "crisis messages the gate misses"),
+                       ("as_if_missed", "every crisis message as if the gate missed it")):
+        r = sp[key]
+        top = ", ".join(f"{t} {n}" for t, n in list(r["topics"].items())[:6]) or "-"
+        print(f"   {label}: {r['messages']}; nothing suggested {r['nothing_suggested']}, "
+              f"topics suggested {r['topics_suggested']} (most often: {top})")
     for name, w in (("tf-idf only", 0.0), ("vectors only", 1.0), ("mix (used)", None)):
         r = evaluate_parallels(corpus, parallels, w)
         report["parallels"][name] = r
