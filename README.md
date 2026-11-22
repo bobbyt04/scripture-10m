@@ -9,3 +9,10 @@ Everything here is trained in this repo. No pre-trained models, no paid APIs.
 - **Generation**: a ~3M-parameter transformer, written by hand in PyTorch, that writes in each book's style.
 
 Work in progress. Each part lands as its own pull request.
+
+## Run the tests
+
+```bash
+pip install -r requirements-dev.txt
+python -m pytest -q
+```
