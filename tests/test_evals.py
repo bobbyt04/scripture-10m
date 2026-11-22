@@ -1,16 +1,12 @@
 """The n-gram baselines and the metrics in evals/metrics.py."""
 import math
 import random
-from types import SimpleNamespace
+from collections import Counter
 
 import pytest
-import torch
-from torch.nn import functional as F
 
-from evals.run import model_nll
-from evals.metrics import NGram, classify, complete_verses, memorisation, strip_tags, words
-
-ALPHABET = "abcdefgh .\n"
+from evals.metrics import (NGram, Source, classify, complete_verses, corrupt, markov_samples, memorisation,
+                           strip_tags, subsample, suffix_array, words)
 
 
 def wordy_text(seed, n_words, vocab=("the", "lord", "said", "unto", "him", "and", "behold", "fear")):
@@ -101,27 +97,74 @@ def test_classify_picks_the_matching_book():
 def test_text_helpers():
     sample = "<gita>Krishna said: Arise.\n<gita>The wise don't grie"
     assert strip_tags(sample) == "Krishna said: Arise.\nThe wise don't grie"
+    assert strip_tags("<quran>a\n<bible>b\n<gita>c<other>") == "a\nb\nc<other>"
     assert words(sample) == ["krishna", "said", "arise", "the", "wise", "don't", "grie"]
     assert complete_verses(sample) == ["Krishna said: Arise."]
 
 
-class Bigram(torch.nn.Module):
-    """Logits depend only on the current token, so the exact loss of any text is easy to compute."""
-
-    def __init__(self, vocab_size, block_size):
-        super().__init__()
-        self.cfg = SimpleNamespace(block_size=block_size)
-        self.table = torch.nn.Embedding(vocab_size, vocab_size)
-
-    def forward(self, idx):
-        assert idx.shape[1] <= self.cfg.block_size
-        return self.table(idx), None
+def test_restricted_counts_score_the_same():
+    train, val = wordy_text(6, 2000), wordy_text(7, 200)
+    full, small = NGram(train, 6, 30), NGram(train, 6, 30, only=val)
+    for a, b in zip(small.logprobs(val), full.logprobs(val)):
+        assert a == pytest.approx(b)
+    assert sum(len(c) for c in small.next[1:]) < sum(len(c) for c in full.next[1:])
 
 
-@pytest.mark.parametrize("length", [5, 9, 50, 51])
-def test_model_nll_scores_every_token_once(length):
-    torch.manual_seed(0)
-    model = Bigram(7, block_size=8)
-    ids = torch.randint(0, 7, (length,))
-    expected = F.cross_entropy(model.table(ids[:-1]), ids[1:]).item()
-    assert model_nll(model, ids, "cpu") == pytest.approx(expected, rel=1e-5)
+def test_logprobs_match_prob_for_every_order():
+    m = NGram(wordy_text(8, 1000), 4, 30)
+    text = "the lord said"
+    lps = m.logprobs(text)
+    assert len(lps) == 4 and all(len(lp) == len(text) - 1 for lp in lps)
+    for order in range(1, 5):
+        for i in range(1, len(text)):
+            assert lps[order - 1][i - 1] == pytest.approx(math.log(m.prob(text[max(0, i - 3) : i], text[i], order)))
+
+
+def test_suffix_array_is_sorted_suffixes():
+    rng = random.Random(0)
+    for text in ["banana", "aaaa", "abcab", "".join(rng.choice("ab ") for _ in range(300))]:
+        assert suffix_array(text).tolist() == sorted(range(len(text)), key=lambda i: text[i:])
+
+
+def test_source_answers_like_a_string():
+    rng = random.Random(1)
+    src = Source(TRAIN)
+    queries = ["", "the", "lord said", "zzz", TRAIN[100:160], TRAIN[100:160] + "q", TRAIN[-5:], "behold fear the"]
+    queries += [TRAIN[i : i + rng.randint(1, 30)] + rng.choice("abt ") for i in range(0, 2000, 37)]
+    for q in queries:
+        assert (q in src) == (q in TRAIN), q
+    generated = wordy_text(9, 80)
+    assert memorisation(generated, src, 20) == memorisation(generated, TRAIN, 20)
+
+
+def test_subsample_takes_whole_verses_up_to_size():
+    verses = [f"verse number {i}" for i in range(100)]
+    a = subsample(verses, 300, seed=0)
+    picked = a.split("\n")
+    assert all(v in verses for v in picked) and len(set(picked)) == len(picked)
+    assert 300 <= len(a) + 1 < 300 + len("verse number 99") + 1
+    assert subsample(verses, 300, seed=0) == a and subsample(verses, 300, seed=1) != a
+    assert subsample(verses, 10**6, seed=0) == "\n".join(verses)
+
+
+def test_markov_samples_follow_the_source_statistics():
+    rng = random.Random(0)
+    source = "ab" * 500 + "c" * 1000
+    uni = markov_samples(source, 1, 3000, 1, rng)[0]
+    counts = Counter(uni)
+    assert len(uni) == 3000 and set(uni) == {"a", "b", "c"}
+    assert counts["c"] / 3000 == pytest.approx(0.5, abs=0.05)
+    two = markov_samples(source, 2, 3000, 2, rng)
+    assert len(two) == 2 and two[0] != two[1]
+    bi = two[0]
+    seen = {source[i : i + 2] for i in range(len(source) - 1)}
+    assert all(bi[i : i + 2] in seen for i in range(len(bi) - 1))  # every step follows a seen pair
+    assert "ac" not in bi and "ba" in bi
+
+
+def test_corrupt_changes_about_the_given_share():
+    rng = random.Random(0)
+    text = ("abcdefghij" * 99 + "\n") * 10
+    out = corrupt(text, 0.1, ["X"], rng)
+    assert len(out) == len(text) and out.count("\n") == text.count("\n")
+    assert out.count("X") == pytest.approx(0.1 * len(text), rel=0.05)
