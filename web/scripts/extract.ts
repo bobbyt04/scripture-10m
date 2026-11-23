@@ -11,7 +11,7 @@ import { fileURLToPath } from "node:url";
 import { Searcher, type SearchData } from "../src/search/searcher.ts";
 import {
   adviceHistory, annotate, extractBlock, highlightPython, paramBreakdown, parseKjvErrors, parseLosses, summariseEvals,
-  tokenizeExample, type EvalJson, type RepoData, type Stats,
+  tokenizeExample, type EvalJson, type RepoData, type Stats, parseSample,
 } from "./repo-data.ts";
 
 const WEB = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -74,6 +74,7 @@ export function build(): RepoData {
   return {
     stats: readJson<Stats>("data/processed/stats.json"),
     kjvErrors: parseKjvErrors(read("data/SOURCES.md")),
+    samples: Object.fromEntries((["gita", "quran", "bible"] as const).map((b) => [b, parseSample(read(`samples/${b}.md`), `samples/${b}.md`)])) as RepoData["samples"],
     vocab,
     example: { ...EXAMPLE, text, tokens: tokenizeExample(vocab, EXAMPLE.book, text) },
     code: { file: MODEL_FILE, firstLine: block.firstLine, lines: highlightPython(block.lines), notes: annotate(block.lines, block.firstLine, NOTES) },

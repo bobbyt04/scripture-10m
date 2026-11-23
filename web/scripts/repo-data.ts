@@ -242,6 +242,18 @@ export interface Stats extends PerBook<{ verses: number; characters: number; cha
   charset: string;
 }
 
+export interface RecordedSample { file: string; seed: number; temperature: number; step: number; text: string }
+
+/** The first sample of a samples/<book>.md file: its seed, temperature, checkpoint step and generated text. */
+export function parseSample(md: string, file: string): RecordedSample {
+  const seed = md.match(/^## Seed (\d+)/m);
+  const temp = md.match(/--temperature ([0-9.]+)/);
+  const step = md.match(/\(step ([0-9,]+)\)/);
+  const text = md.match(/```text\n([\s\S]*?)\n```/);
+  if (!seed || !temp || !step || !text) throw new Error(`${file}: no seed, temperature, step or text block`);
+  return { file, seed: Number(seed[1]), temperature: Number(temp[1]), step: Number(step[1].replaceAll(",", "")), text: text[1] };
+}
+
 export interface RepoData {
   stats: Stats;
   kjvErrors: { text: string }[];
@@ -259,6 +271,8 @@ export interface RepoData {
   bookRun: { step: number; gitaCopied: number; gitaLongestRun: number; gitaLoss: number; bigramGitaLoss: number };
   evalCommit: string;
   advice: AdviceHistory;
+  /** A recorded sample per book: samples/<book>.md, seed 1 (tag only), shown before the model is loaded. */
+  samples: Record<Book, RecordedSample>;
 }
 
 // ------------------------------------------------------------------ the verse search's history (chapter 08)

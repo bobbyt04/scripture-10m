@@ -12,6 +12,11 @@ test("page loads without errors and without the model", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1, name: "Scripture-10M" })).toBeVisible();
   await expect(page.locator("#built-results")).toContainText("Scripture-10M");
+  // Before anything runs, the panel shows a recorded sample from samples/, labelled as such.
+  await expect(page.locator("[data-gen-label]")).toContainText("Recorded sample: samples/bible.md");
+  expect(await page.locator("[data-gen-output] .gen__line").count()).toBeGreaterThan(0);
+  await page.getByRole("button", { name: "Quran", exact: true }).click();
+  await expect(page.locator("[data-gen-label]")).toContainText("samples/quran.md");
   await page.waitForLoadState("networkidle");
   expect(modelRequests).toEqual([]); // the weights load only when the model is asked to write
   expect(errors).toEqual([]);
@@ -133,7 +138,7 @@ test("let the model write: downloads the model and streams labelled text", async
   expect(text.startsWith("And it came to pass")).toBe(true);
   expect(text.length).toBeGreaterThan("And it came to pass".length + 20);
   expect(urls.filter((u) => /came|pass/i.test(decodeURIComponent(u)))).toEqual([]);
-  await expect(gen.locator(".note").first()).toContainText("Machine-generated imitation, not scripture.");
+  await expect(gen.locator(".meta")).toContainText("machine-generated imitation, not scripture");
   await expect(page.locator("#ask button[type=submit]")).toHaveText("Write again");
   await page.getByRole("button", { name: "Find verses" }).click();
   await expect(page.locator("#ask-input")).toHaveValue("And it came to pass");
@@ -235,6 +240,6 @@ test.describe("one plain theme", () => {
       }).length;
       return { bg: b.backgroundColor, color: b.color, moving };
     });
-    expect(look).toEqual({ bg: "rgb(255, 255, 255)", color: "rgb(17, 17, 17)", moving: 0 });
+    expect(look).toEqual({ bg: "rgb(255, 255, 255)", color: "rgb(13, 13, 13)", moving: 0 });
   });
 });

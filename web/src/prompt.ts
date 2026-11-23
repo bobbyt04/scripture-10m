@@ -22,14 +22,16 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
   const counter = form.querySelector<HTMLElement>("[data-counter]")!;
   const submit = form.querySelector<HTMLButtonElement>("button[type=submit]")!;
   const modes = form.querySelectorAll<HTMLButtonElement>("[data-mode]");
-  const books = form.querySelectorAll<HTMLButtonElement>("[data-gen-book]");
-  const temp = form.querySelector<HTMLInputElement>("[data-gen-temp]")!;
-  const tempOut = form.querySelector<HTMLOutputElement>("[data-gen-temp-out]")!;
+  // The book tabs, the temperature slider and the "Run it live" button live in the model panel.
+  const books = gen.querySelectorAll<HTMLButtonElement>("[data-gen-book]");
+  const temp = gen.querySelector<HTMLInputElement>("[data-gen-temp]")!;
+  const tempOut = gen.querySelector<HTMLOutputElement>("[data-gen-temp-out]")!;
+  const runLive = gen.querySelector<HTMLButtonElement>("[data-gen-run]")!;
   temp.addEventListener("input", () => (tempOut.value = Number(temp.value).toFixed(1)));
   input.maxLength = MAX_INPUT_CHARS;
 
   let mode: Mode = "find";
-  let book: BookId = "gita";
+  let book = ([...books].find((b) => b.getAttribute("aria-pressed") === "true")?.dataset.genBook ?? "bible") as BookId;
   let phase: GenPhase = "idle";
   let writeLabel = "Write";
   const generator = mountGen((p, label) => {
@@ -60,8 +62,6 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
     form.querySelectorAll<HTMLElement>("[data-write-only], [data-note-write]").forEach((el) => (el.hidden = mode !== "write"));
     form.querySelector<HTMLElement>("[data-note-find]")!.hidden = mode !== "find";
     results.hidden = mode !== "find";
-    gen.hidden = mode !== "write";
-    if (mode === "find") generator.stop();
     input.placeholder = PLACEHOLDER[mode];
     update();
   }
@@ -70,7 +70,9 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
   books.forEach((b) => b.addEventListener("click", () => {
     book = b.dataset.genBook as BookId;
     books.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    generator.showSample(book);
   }));
+  generator.showSample(book);
   input.addEventListener("focus", () => ctl.warm(), { once: true });
   input.addEventListener("input", update);
   input.addEventListener("keydown", (e) => {
@@ -81,12 +83,10 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
   });
   const reveal = (el: HTMLElement) => el.scrollIntoView({ block: "start" });
   let checking = false;
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    if (mode === "find") return void ctl.submit(input.value);
+  /** Write with the panel's book and temperature, starting from `text`, after the crisis check. */
+  const write = async (text: string) => {
     if (phase === "writing") return generator.stop();
     if (checking || phase !== "idle") return;
-    const text = input.value.trim();
     checking = true;
     try {
       const note = text ? await crisisNote(text) : null;
@@ -97,7 +97,14 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
     } finally {
       checking = false;
     }
-    reveal(gen);
+    if (matchMedia("(max-width: 900px)").matches) reveal(gen);
+  };
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (mode === "find") void ctl.submit(input.value);
+    else void write(input.value.trim());
   });
+  // "Run it live" uses the typed text as the start only in "Let the model write"; a "Find verses" question is not a start.
+  runLive.addEventListener("click", () => void write(mode === "write" ? input.value.trim() : ""));
   update();
 }

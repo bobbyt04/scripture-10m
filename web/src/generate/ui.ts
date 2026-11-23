@@ -1,5 +1,7 @@
 import { BOOK_NAMES, type BookId } from "../advice/api.ts";
 import { h, prefersReducedMotion } from "../dom.ts";
+import type { RepoData } from "../../scripts/repo-data.ts";
+import repoJson from "../generated/repo.json";
 import manifest from "../model/manifest.json";
 import { CharTokenizer } from "../model/tokenizer.ts";
 import vocab from "../model/vocab.json";
@@ -39,6 +41,8 @@ export interface Generator {
   stop(): void;
   /** Show the crisis note in place of any text, and generate nothing. */
   note(text: string): void;
+  /** Before the first live run: show the recorded sample for a book (samples/<book>.md). */
+  showSample(book: BookId): void;
 }
 
 export type GenPhase = "idle" | "loading" | "writing";
@@ -54,6 +58,10 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
   const live = q<HTMLElement>("[data-gen-live]");
   const think = q<HTMLElement>("[data-gen-think]");
   const bars = q<HTMLElement>("[data-gen-bars]");
+  const label = q<HTMLElement>("[data-gen-label]");
+  const run = q<HTMLElement>("[data-gen-run]");
+  const samples = (repoJson as unknown as RepoData).samples;
+  let started = false;
 
   let worker: Worker | null = null;
   let ready = false;
@@ -70,14 +78,14 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
 
   const drawThink = (t: Think) => {
     think.hidden = false;
-    // One row per guess; the sampled one is bold. The bar is a plain grey rule as long as the probability.
+    // One row per guess: the character, a thin bar as long as its probability, the probability. The sampled one is black.
     bars.replaceChildren(...t.top.map((c) =>
-      h("tr", { class: `think__row${c.char === t.sampled ? " is-sampled" : ""}` },
-        h("td", { class: "think__char" }, showChar(c.char), c.char === t.sampled ? h("span", { class: "visually-hidden" }, " (sampled)") : null),
-        h("td", { class: "think__p" }, `${(100 * c.p).toFixed(1)}%`),
-        h("td", {}, h("span", { class: "think__bar", style: `width:${(100 * c.p).toFixed(1)}%` })))),
-    h("tr", { class: "think__rest" }, h("td", {}, "others"), h("td", { class: "think__p" }, `${(100 * t.rest).toFixed(1)}%`),
-      h("td", {}, t.top.some((c) => c.char === t.sampled) ? "" : `sampled ${showChar(t.sampled)}`)));
+      h("li", { class: `think__row${c.char === t.sampled ? " is-sampled" : ""}` },
+        h("span", { class: "think__char" }, showChar(c.char), c.char === t.sampled ? h("span", { class: "visually-hidden" }, " (sampled)") : null),
+        h("span", { class: "think__track", "aria-hidden": "true" }, h("span", { class: "think__bar", style: `width:${(100 * c.p).toFixed(1)}%` })),
+        h("span", { class: "think__p" }, `${(100 * c.p).toFixed(1)}%`))),
+    h("li", { class: "think__rest" }, `others ${(100 * t.rest).toFixed(1)}%`,
+      t.top.some((c) => c.char === t.sampled) ? "" : ` · sampled ${showChar(t.sampled)}`));
   };
 
   const draw = (generating: boolean) => {
@@ -148,6 +156,9 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
   };
 
   function begin() {
+    started = true;
+    run.hidden = true;
+    label.textContent = "Live, computed on your device.";
     const s = encodeStart(tok, book, typed);
     start = s.text;
     raw = "";
@@ -171,11 +182,25 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
     if (phase === "writing") send({ type: "stop" });
   };
 
+  function showSample(b: BookId) {
+    if (started) return;
+    const sm = samples[b];
+    output.dataset.book = b;
+    output.replaceChildren(...toLines(sm.text, b).map((l) =>
+      h("p", { class: "gen__line" }, l.switchedTo ? h("span", { class: "gen__switch" }, `switched to ${BOOK_NAMES[l.switchedTo]} style`) : null, l.text)));
+    label.replaceChildren("Recorded sample: ", h("a", { href: `https://github.com/bobbyt04/scripture-10m/blob/main/${sm.file}` }, sm.file),
+      `, seed ${sm.seed}, temperature ${sm.temperature}, step ${sm.step.toLocaleString("en-US")}.`);
+  }
+
   return {
     stop,
+    showSample,
     note(text: string) {
       if (phase !== "idle") return;
       start = raw = "";
+      started = true;
+      run.hidden = true;
+      label.textContent = "";
       rate.textContent = status.textContent = "";
       think.hidden = true;
       delete output.dataset.book;

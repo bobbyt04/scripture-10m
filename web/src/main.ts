@@ -10,7 +10,7 @@ import { mountPrompt } from "./prompt.ts";
 import { loadSimilarities } from "./similarities/api.ts";
 import { renderSimilarities } from "./similarities/view.ts";
 import { h } from "./dom.ts";
-import { renderStory } from "./story/story.ts";
+import { renderStats, renderStory } from "./story/story.ts";
 
 document.documentElement.classList.add("js");
 
@@ -23,6 +23,7 @@ mountPrompt(document.querySelector<HTMLFormElement>("#ask")!, results, gen, ctl,
     const s = await searchApi.suggest(text);
     return s.category === "crisis" ? s.note ?? "" : null;
   });
+renderStats(document.querySelector<HTMLElement>("[data-stats]")!);
 renderStory(document.querySelector<HTMLElement>("[data-story]")!);
 
 // A link to a section (/#built-failed) must land on it even though the chapters, the parallels and the fonts

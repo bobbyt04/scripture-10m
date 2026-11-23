@@ -14,7 +14,7 @@ function pairItem(p: Pair, theme: string): HTMLElement {
     p.verses.map((v) =>
       h("figure", { class: "verse" },
         h("blockquote", {}, v.text),
-        h("figcaption", {}, h("span", { class: "ref" }, `${BOOK_NAMES[v.book]} ${v.ref}`)))),
+        h("figcaption", {}, h("span", { class: "ref" }, v.book === "bible" ? v.ref : `${BOOK_NAMES[v.book]} ${v.ref}`)))),
     h("p", { class: "muted" }, p.idea, " ", h("small", {}, `${theme}; `, h("span", { "data-source": p.source }, SOURCE_LABEL[p.source]), ".")));
 }
 

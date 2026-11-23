@@ -23,88 +23,107 @@
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <header class="site-header">
-      <a href="#top" class="name">Scripture-10M</a>
-      <nav aria-label="Sections"><a href="#built">How it works</a> · <a href="#parallels">Parallels</a> · <a href="https://github.com/bobbyt04/scripture-10m">GitHub</a></nav>
+      <div class="wrap">
+        <a href="#top" class="brand">Scripture-10M</a>
+        <nav aria-label="Sections"><a href="#built-model">How it works</a><a href="#parallels">Parallels</a><a href="https://github.com/bobbyt04/scripture-10m">GitHub</a></nav>
+      </div>
     </header>
 
-    <main id="main">
-      <section id="top" aria-labelledby="hero-title">
-        <h1 id="hero-title">Scripture-10M</h1>
-        <p>
-          A {{paramsShort}}-parameter character-level transformer trained from scratch on the Bhagavad Gita, the Quran and
-          the Bible. It runs in your browser.
-        </p>
-        <form id="ask" class="ask" data-mode="find" novalidate>
-          <p class="modes" role="group" aria-label="Mode">
-            <button type="button" class="textlink" data-mode="find" aria-pressed="true">Find verses</button> |
-            <button type="button" class="textlink" data-mode="write" aria-pressed="false">Let the model write</button>
+    <main id="main" class="wrap">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero__left">
+          <h1 id="hero-title">Scripture-10M</h1>
+          <p class="lede">
+            A {{paramsShort}}-parameter character-level transformer trained from scratch on the Bhagavad Gita, the Quran
+            and the Bible. It runs in your browser.
           </p>
-          <textarea id="ask-input" rows="3" maxlength="500" autocomplete="off" aria-label="Your message"
-            placeholder="What’s on your mind?" aria-describedby="ask-note"></textarea>
-          <div class="controls">
-            <button type="submit" class="button" disabled>Find</button>
-            <span class="books-pick" role="group" aria-label="Book" data-write-only hidden>
-              <button type="button" class="textlink" data-gen-book="gita" aria-pressed="true">Gita</button> |
-              <button type="button" class="textlink" data-gen-book="quran" aria-pressed="false">Quran</button> |
-              <button type="button" class="textlink" data-gen-book="bible" aria-pressed="false">Bible</button>
+          <form id="ask" data-mode="find" novalidate>
+            <div class="box">
+              <textarea id="ask-input" rows="3" maxlength="500" autocomplete="off" aria-label="Your message"
+                placeholder="What’s on your mind?" aria-describedby="ask-note"></textarea>
+              <div class="bar">
+                <div class="seg" role="group" aria-label="Mode">
+                  <button type="button" data-mode="find" aria-pressed="true">Find verses</button>
+                  <button type="button" data-mode="write" aria-pressed="false">Let the model write</button>
+                </div>
+                <div class="bar__end">
+                  <span class="count" data-counter>0 / 500</span>
+                  <button type="submit" class="go" disabled>Find</button>
+                </div>
+              </div>
+            </div>
+            <p id="ask-note" class="note" data-note-find>
+              Returns real verses by topic. It does not understand you, and it is not advice. <a href="#why">Why?</a>
+            </p>
+            <p class="note" data-note-write hidden>
+              The model continues your text in the style of the book chosen on the right; leave the box empty to start
+              from the book’s tag.
+            </p>
+            <noscript><p class="note ask__noscript">This page needs JavaScript. Nothing you type is sent anywhere.</p></noscript>
+          </form>
+        </div>
+
+        <div class="panel" data-generate>
+          <div class="panel__head">
+            <b>The model, writing live</b>
+            <span class="tabs" role="group" aria-label="Book">
+              <button type="button" data-gen-book="gita" aria-pressed="false">Gita</button>
+              <button type="button" data-gen-book="quran" aria-pressed="false">Quran</button>
+              <button type="button" data-gen-book="bible" aria-pressed="true">Bible</button>
             </span>
-            <label class="temp" data-write-only hidden>temperature
+          </div>
+          <div class="progress" data-gen-progress role="progressbar" aria-label="Model download"
+            aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden><span data-gen-bar></span></div>
+          <div class="out" data-gen-output></div>
+          <div class="panel__run">
+            <span data-gen-label></span>
+            <button type="button" class="go go--quiet" data-gen-run>Run it live ({{modelSize}})</button>
+          </div>
+          <p class="panel__status" data-gen-status aria-live="polite"></p>
+          <div class="guess" data-gen-think hidden>
+            <h4>Next character</h4>
+            <ol class="think" role="list" data-gen-bars></ol>
+          </div>
+          <div class="meta">
+            <span data-gen-rate></span>
+            <label class="temp">temperature
               <input type="range" min="0.2" max="1.5" step="0.1" value="0.8" data-gen-temp aria-describedby="temp-hint" />
               <output data-gen-temp-out>0.8</output>
             </label>
+            <span>machine-generated imitation, not scripture</span>
             <span id="temp-hint" class="visually-hidden">Sampling temperature for the next run. Lower repeats more; higher invents more.</span>
-            <span class="count" data-counter>0 / 500</span>
           </div>
-          <p id="ask-note" class="note" data-note-find>
-            It matches what you type to reviewed verses by topic. It does not understand you, and it is not advice.
-            <a href="#why">Can the model answer questions?</a>
-          </p>
-          <p class="note" data-note-write hidden>
-            The model continues your text in the style of the chosen book, one character at a time, on your device. The
-            first run downloads {{modelSize}}.
-          </p>
-          <noscript><p class="note ask__noscript">This page needs JavaScript. Nothing you type is sent anywhere.</p></noscript>
-        </form>
-        <div id="ask-results" class="results" aria-live="polite"></div>
-        <div class="gen" data-generate hidden>
-          <p class="note">Machine-generated imitation, not scripture. <span class="rate" data-gen-rate></span></p>
-          <div class="progress" data-gen-progress role="progressbar" aria-label="Model download"
-            aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden><span data-gen-bar></span></div>
-          <div class="gen__output" data-gen-output><p class="muted">Pick a book, type a start or leave it empty, press Write.</p></div>
-          <p class="note" data-gen-status aria-live="polite"></p>
-          <table class="think" data-gen-think hidden>
-            <caption>Next character: the model’s top 5 at the latest step</caption>
-            <thead><tr><th scope="col">char</th><th scope="col">p</th><th scope="col"><span class="visually-hidden">bar</span></th></tr></thead>
-            <tbody data-gen-bars></tbody>
-          </table>
           <div class="visually-hidden" aria-live="polite" data-gen-live></div>
         </div>
       </section>
 
-      <section id="built" aria-labelledby="built-title">
-        <h2 id="built-title">How it works</h2>
-        <div data-story></div>
-      </section>
+      <div id="ask-results" class="results" aria-live="polite"></div>
 
-      <section id="parallels" aria-labelledby="parallels-title">
+      <div class="stats" data-stats></div>
+
+      <div id="built" data-story></div>
+
+      <section class="section" id="parallels" aria-labelledby="parallels-title">
         <h2 id="parallels-title">Parallel passages</h2>
         <div data-similarities></div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>
-        Code, data pipeline, training and evals: <a href="https://github.com/bobbyt04/scripture-10m">github.com/bobbyt04/scripture-10m</a>.
-        No pretrained weights, no external services, no tracking.
-      </p>
-      <p>
-        Translations: Bhagavad Gita, Annie Besant (4th ed., 1922, via Wikisource); Quran, Marmaduke Pickthall (1930, via
-        Project Gutenberg, public domain in the US since 2026); Bible, King James Version (eBible.org; public domain
-        outside the UK, where the Crown holds printing rights).
-        <a href="https://github.com/bobbyt04/scripture-10m/blob/main/data/SOURCES.md">Sources and licences</a>.
-        Fonts: Inter and Source Serif 4, SIL Open Font License 1.1 (<a href="/fonts/Inter-OFL.txt">Inter</a>,
-        <a href="/fonts/SourceSerif4-OFL.txt">Source Serif 4</a>).
-      </p>
+      <div class="wrap">
+        <p>
+          Code, data pipeline, training and evals: <a href="https://github.com/bobbyt04/scripture-10m">github.com/bobbyt04/scripture-10m</a>.
+          No pretrained weights, no external services, no tracking.
+        </p>
+        <p>
+          Translations: Bhagavad Gita, Annie Besant (4th ed., 1922, via Wikisource); Quran, Marmaduke Pickthall (1930,
+          via Project Gutenberg, public domain in the US since 2026); Bible, King James Version (eBible.org; public domain
+          outside the UK, where the Crown holds printing rights).
+          <a href="https://github.com/bobbyt04/scripture-10m/blob/main/data/SOURCES.md">Sources and licences</a>.
+          Fonts: Inter and Source Serif 4, SIL Open Font License 1.1 (<a href="/fonts/Inter-OFL.txt">Inter</a>,
+          <a href="/fonts/SourceSerif4-OFL.txt">Source Serif 4</a>).
+        </p>
+      </div>
     </footer>
   </body>
 </html>

@@ -21,15 +21,16 @@ const blob = (path: string) => `${REPO_URL}/blob/main/${path}`;
 const pct = (x: number, digits = 1) => `${(100 * x).toFixed(digits)}%`;
 const nats = (x: number) => x.toFixed(3);
 
+/** One section: the heading in the left column, the content in the right. */
 function section(id: string, title: string, ...body: (Node | null)[]): HTMLElement {
-  return h("section", { id }, h("h3", {}, title), ...body);
+  return h("section", { class: "section", id }, h("h2", {}, title), h("div", { class: "section__body" }, ...body));
 }
 
 const p = (...c: (Node | string)[]) => h("p", {}, ...c);
 const src = (path: string, label = path) => h("a", { href: blob(path) }, h("code", {}, label));
 const figure = (caption: (Node | string)[], ...content: Node[]) =>
   h("figure", {}, ...content, h("figcaption", {}, ...caption));
-const sub = (text: string) => h("h4", {}, text);
+const sub = (text: string) => h("h3", {}, text);
 const table = (label: string, head: (string | Node)[], rows: (string | Node)[][], cls = "") =>
   h("div", { class: "table-wrap", tabindex: "0", role: "region", "aria-label": label },
     h("table", { class: cls },
@@ -67,7 +68,7 @@ function modelSection(): HTMLElement {
       `Trained on ${fmtInt(verses)} verses.`),
     h("p", { id: "why" }, h("strong", {}, "Can it answer questions? "),
       "No. It predicts one character at a time, so it can imitate how these books sound, but it does not understand a question. ",
-      "The verses above are real ones looked up by topic; the model’s own text is only under “Let the model write”."),
+      "The verses the box returns are real ones looked up by topic; the model’s own text is only in the panel “The model, writing live”."),
     p("Attention is written out step by step rather than calling PyTorch’s built-in attention:"),
     codeBlock(),
     table("Where the parameters are", ["Part", "Parameters", "Share"],
@@ -281,6 +282,19 @@ function limitsSection(): HTMLElement {
     p(h("small", { class: "muted" }, `The browser uses int8 weights: mean validation loss ${manifest.val_loss_nats.float32.overall.toFixed(4)} → ${manifest.val_loss_nats.int8.overall.toFixed(4)} nats `,
       `(+${(manifest.val_loss_nats.int8.overall - manifest.val_loss_nats.float32.overall).toFixed(4)}). `,
       `Tests: ${fmtInt(testCounts.python.tests)} Python, ${fmtInt(testCounts.vitest.tests)} unit and ${fmtInt(testCounts.playwright.tests)} browser tests (`, src("web/scripts/count_tests.ts", "count_tests.ts"), ").")),
+  );
+}
+
+/** The four numbers under the hero, read from the eval results like everything else. */
+export function renderStats(root: HTMLElement): void {
+  const cfg = repo.params.config;
+  const bible = repo.evals.loss.bible;
+  const stat = (value: string, label: string) => h("div", { class: "stat" }, h("b", {}, value), h("span", {}, label));
+  root.replaceChildren(
+    stat(fmtInt(repo.params.total), "parameters"),
+    stat(`${cfg.n_layer} × ${cfg.n_head} × ${cfg.n_embd}`, "layers, heads, dims"),
+    stat(nats(bible.model.nats), `Bible validation loss (best n-gram, ${bible.baseline.name}: ${nats(bible.baseline.nats)})`),
+    stat(pct(repo.evals.memorisation.bible.generated.copied_from_any), "of generated Bible-style 50-character windows copied verbatim"),
   );
 }
 
