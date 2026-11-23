@@ -6,13 +6,13 @@ import { renderResults, type ResultHandlers } from "../src/advice/view.ts";
 
 const counts = (gita: number, quran: number, bible: number) => ({ gita, quran, bible });
 const topics: TopicListing[] = [
-  { id: "fear_anxiety", label: "Worry and fear", blurb: "b1", verses: counts(3, 4, 5), sensitive_verses: counts(0, 1, 1) },
-  { id: "anger", label: "Anger", blurb: "b2", verses: counts(3, 0, 4), sensitive_verses: counts(0, 0, 0) },
-  { id: "gratitude", label: "Gratitude", blurb: "b3", verses: counts(0, 3, 3), sensitive_verses: counts(0, 0, 0) },
+  { id: "fear_anxiety", label: "Worry and fear", blurb: "b1", auto_show: true, verses: counts(3, 4, 5), sensitive_verses: counts(0, 1, 1) },
+  { id: "anger", label: "Anger", blurb: "b2", auto_show: false, verses: counts(3, 0, 4), sensitive_verses: counts(0, 0, 0) },
+  { id: "gratitude", label: "Gratitude", blurb: "b3", auto_show: false, verses: counts(0, 3, 3), sensitive_verses: counts(0, 0, 0) },
 ];
 const verse = (ref: string, priority: number | null) => ({ ref, text: `text of ${ref}`, why: `why ${ref}`, themes: ["gratitude"], priority });
 const result: TopicResult = {
-  id: "gratitude", label: "Gratitude", blurb: "b3", note: null, sensitive: false,
+  id: "gratitude", label: "Gratitude", blurb: "b3", auto_show: false, note: null, sensitive: false,
   books: {
     gita: { verses: [], nothing: "The Bhagavad Gita has no verse for this topic in the reviewed selection." },
     quran: { verses: [verse("14:7", 1)], nothing: null },
@@ -35,7 +35,7 @@ function render(state: AdviceState, on = noop): HTMLElement {
   root.append(...renderResults(state, on));
   return root;
 }
-const general = (t = topics): Suggestion => ({ category: "general", note: null, topics: t.map(({ id, label, blurb }) => ({ id, label, blurb })) });
+const general = (t = topics): Suggestion => ({ category: "general", note: null, topics: t.map(({ id, label, blurb, auto_show }) => ({ id, label, blurb, auto_show })) });
 
 describe("advice state machine", () => {
   test("crisis: only the note, no topics or verses, and nothing else is reachable", async () => {
@@ -51,73 +51,116 @@ describe("advice state machine", () => {
 
     await ctl.openTopic("fear_anxiety"); // topics are not reachable from a crisis
     expect(ctl.state.kind).toBe("crisis");
+    await ctl.browseAll();
+    expect(ctl.state.kind).toBe("crisis");
     expect(api.topic).not.toHaveBeenCalled();
     expect(api.topics).not.toHaveBeenCalled();
   });
 
-  test("topics: up to four suggestions, never verses, until one is picked", async () => {
+  test("topics: the first suggestion's verses straight away, up to four topics as chips", async () => {
     const many = [...topics, { ...topics[0], id: "a" }, { ...topics[0], id: "b" }];
-    const ctl = new AdviceController(fakeApi(general(many)));
+    const api = fakeApi(general(many));
+    const ctl = new AdviceController(api);
     await ctl.submit("worried and angry");
-    expect(ctl.state.kind).toBe("suggestions");
+    expect(ctl.state).toMatchObject({ kind: "answer", current: { id: "fear_anxiety" }, sensitive: false });
+    expect(api.topic).toHaveBeenCalledWith("fear_anxiety", { sensitive: false });
     const root = render(ctl.state);
     expect(root.querySelectorAll("[data-topic]")).toHaveLength(4);
-    expect(root.querySelectorAll("[data-verse]")).toHaveLength(0);
+    expect(root.querySelector("[data-topic][aria-pressed=true]")?.getAttribute("data-topic")).toBe("fear_anxiety");
+    expect(root.querySelectorAll("[data-verse]").length).toBeGreaterThan(0);
   });
 
-  test("none: shows the full topic list, with the books that have nothing dimmed", async () => {
+  test("a chip switches the topic; the list of chips stays", async () => {
+    const api = fakeApi(general());
+    const ctl = new AdviceController(api);
+    await ctl.submit("thankful");
+    const pending = ctl.openTopic("gratitude");
+    expect(ctl.state).toMatchObject({ kind: "answer", current: { id: "gratitude" }, result: null });
+    expect(render(ctl.state).querySelectorAll("[data-verse]")).toHaveLength(0);
+    await pending;
+    expect(ctl.state).toMatchObject({ kind: "answer", current: { id: "gratitude" } });
+    expect(render(ctl.state).querySelectorAll("[data-topic]")).toHaveLength(3);
+    await ctl.openTopic("not_suggested"); // only suggested topics are reachable from the chips
+    expect(api.topic).toHaveBeenCalledTimes(2);
+  });
+
+  test("none: one line and the full topic list as chips, no verses", async () => {
     const api = fakeApi({ category: "none", note: null, topics: [] });
     const ctl = new AdviceController(api);
     await ctl.submit("my cat knocked over a plant");
-    expect(ctl.state).toEqual({ kind: "browse", reason: "no-match", topics });
+    expect(ctl.state).toEqual({ kind: "browse", reason: "no-match", topics, back: null });
     const root = render(ctl.state);
     expect(root.querySelectorAll("[data-topic]")).toHaveLength(topics.length);
     expect(root.querySelectorAll("[data-verse]")).toHaveLength(0);
-    expect(root.textContent).toContain("couldn’t match");
-    expect(root.querySelectorAll("[data-topic=gratitude] .topic__book.is-empty")).toHaveLength(1);
+    expect(root.textContent).toContain("Nothing matched");
+    expect(api.topic).not.toHaveBeenCalled();
   });
 
   test("topic: the hand-picked verses per book, the rest behind a button, a quiet line for an empty book", async () => {
-    const ctl = new AdviceController(fakeApi(general()));
+    const ctl = new AdviceController(fakeApi(general([topics[2]])));
     await ctl.submit("thankful");
-    const pending = ctl.openTopic("gratitude");
-    expect(ctl.state.kind).toBe("loadingTopic");
-    await pending;
-    expect(ctl.state.kind).toBe("topic");
+    await ctl.openTopic("gratitude"); // not on the auto-show allowlist, so it waits for a tap
     const root = render(ctl.state);
     expect(root.querySelectorAll("[data-verse]")).toHaveLength(5);
     expect(root.querySelectorAll("[data-book=bible] .book__more[hidden] [data-verse]")).toHaveLength(1);
     expect(root.querySelector("[data-book=gita]")).toBeNull();
     expect(root.querySelector("[data-empty=gita]")?.textContent).toBe("The Bhagavad Gita has no verse for this topic in the reviewed selection.");
     expect(root.textContent).toContain("Quran 14:7");
+    expect(root.querySelectorAll("[data-topic]")).toHaveLength(0); // one topic: no chips to switch
     root.querySelector<HTMLButtonElement>(".book__toggle")!.click();
     expect(root.querySelectorAll(".book__more[hidden]")).toHaveLength(0);
-
-    ctl.back();
-    expect(ctl.state.kind).toBe("suggestions");
   });
 
-  test("a sensitive suggestion opens its topic with sensitive verses only", async () => {
-    const api = fakeApi({ category: "sensitive", note: null, topics: [{ id: "self_worth", label: "You are of worth", blurb: "g" }] });
+  test("a first topic that is not on the auto-show allowlist waits for a tap", async () => {
+    const api = fakeApi(general([topics[1], topics[0]])); // anger first: auto_show false
+    const ctl = new AdviceController(api);
+    await ctl.submit("so angry");
+    expect(ctl.state).toEqual({ kind: "choose", topics: general([topics[1], topics[0]]).topics, sensitive: false });
+    expect(api.topic).not.toHaveBeenCalled();
+    const root = render(ctl.state);
+    expect(root.textContent).toContain("Pick a topic");
+    expect(root.querySelectorAll("[data-topic]")).toHaveLength(2);
+    expect(root.querySelectorAll("[data-verse]")).toHaveLength(0);
+    await ctl.openTopic("anger");
+    expect(ctl.state).toMatchObject({ kind: "answer", current: { id: "anger" } });
+    expect(api.topic).toHaveBeenCalledWith("anger", { sensitive: false });
+  });
+
+  test("all topics opens the full list and Back returns to the answer", async () => {
+    const ctl = new AdviceController(fakeApi(general()));
+    await ctl.submit("thankful");
+    const answer = ctl.state;
+    await ctl.browseAll();
+    expect(ctl.state).toMatchObject({ kind: "browse", reason: "asked", back: answer });
+    ctl.back();
+    expect(ctl.state).toBe(answer);
+  });
+
+  test("a sensitive suggestion opens its topics with sensitive verses only", async () => {
+    const api = fakeApi({ category: "sensitive", note: null, topics: [
+      { id: "self_worth", label: "You are of worth", blurb: "g", auto_show: true }, { id: "loneliness", label: "Loneliness", blurb: "l", auto_show: true }] });
     const ctl = new AdviceController(api);
     await ctl.submit("anything");
-    expect(ctl.state).toMatchObject({ kind: "suggestions", sensitive: true });
-    await ctl.openTopic("self_worth");
+    expect(ctl.state).toMatchObject({ kind: "answer", sensitive: true });
     expect(api.topic).toHaveBeenCalledWith("self_worth", { sensitive: true });
+    await ctl.openTopic("loneliness");
+    expect(api.topic).toHaveBeenLastCalledWith("loneliness", { sensitive: true });
   });
 
   test("a topic picked from the full list is never sensitive-only", async () => {
-    const api = fakeApi(general());
+    const api = fakeApi({ category: "sensitive", note: null, topics: [{ id: "self_worth", label: "You are of worth", blurb: "g", auto_show: true }] });
     const ctl = new AdviceController(api);
+    await ctl.submit("anything");
     await ctl.browseAll();
     await ctl.openTopic("anger");
-    expect(api.topic).toHaveBeenCalledWith("anger", { sensitive: false });
+    expect(api.topic).toHaveBeenLastCalledWith("anger", { sensitive: false });
+    expect(ctl.state).toMatchObject({ kind: "answer", sensitive: false, topics: [] });
   });
 
   test("a slow topic reply never lands on top of a newer crisis note", async () => {
     let release!: () => void;
     const slowTopic = () => new Promise<TopicResult>((r) => (release = () => r(result)));
-    const api = fakeApi(general(), { topic: vi.fn(slowTopic) });
+    const api = fakeApi(general(), { topic: vi.fn(slowTopic).mockResolvedValueOnce(result) });
     const ctl = new AdviceController(api);
     await ctl.submit("thankful");
     const late = ctl.openTopic("gratitude");
@@ -161,24 +204,32 @@ describe("the real search behind the UI", () => {
     expect(root.textContent).not.toMatch(/\d{3}/); // no phone numbers
   });
 
-  test("an everyday worry gets topic chips and no verses; verses come after a tap", async () => {
+  test("an everyday worry gets the first topic's verses at once, the others as chips", async () => {
     const { ctl, root } = await run("I got laid off and I'm scared about money");
     expect([...root.querySelectorAll<HTMLElement>("[data-topic]")].map((b) => b.dataset.topic)).toEqual(["money_worry", "fear_anxiety"]);
-    expect(root.querySelectorAll("[data-verse]")).toHaveLength(0);
-    await ctl.openTopic("money_worry");
-    const page = render(ctl.state);
-    expect(page.querySelectorAll("[data-verse]").length).toBeGreaterThan(0);
-    expect(page.querySelector("[data-empty=gita]")?.textContent).toBe("The Bhagavad Gita has no verse for this topic in the reviewed selection.");
+    expect(ctl.state).toMatchObject({ kind: "answer", current: { id: "money_worry" } });
+    expect(root.querySelectorAll("[data-verse]").length).toBeGreaterThan(0);
+    expect(root.querySelector("[data-empty=gita]")?.textContent).toBe("The Bhagavad Gita has no verse for this topic in the reviewed selection.");
+    await ctl.openTopic("fear_anxiety");
+    expect(ctl.state).toMatchObject({ kind: "answer", current: { id: "fear_anxiety" } });
+    expect(render(ctl.state).querySelectorAll("[data-verse]").length).toBeGreaterThan(0);
   });
 
-  test("a sensitive message gets gentle labels", async () => {
+  test("a sensitive message gets gentle labels and sensitive verses", async () => {
     const { ctl } = await run("I'm gay and my parents rejected me");
-    expect(ctl.state).toMatchObject({ kind: "suggestions", sensitive: true });
-    if (ctl.state.kind !== "suggestions") return;
-    const labels = ctl.state.topics.map((t) => t.label);
-    expect(labels).toContain("You are of worth");
-    await ctl.openTopic(ctl.state.topics[0].id);
-    expect(ctl.state).toMatchObject({ kind: "topic", result: { sensitive: true } });
+    expect(ctl.state).toMatchObject({ kind: "answer", sensitive: true, result: { sensitive: true } });
+    if (ctl.state.kind !== "answer") return;
+    expect(ctl.state.topics.map((t) => t.label)).toContain("You are of worth");
+  });
+
+  test("a topic outside the allowlist is never opened by itself (judge 8's follow-up probes)", async () => {
+    for (const q of ["my life is a sin", "my family says im a disgrace", "this homework is killing me"]) {
+      const { ctl, root } = await run(q);
+      expect(ctl.state.kind, q).toBe("choose");
+      expect(root.querySelectorAll("[data-verse]"), q).toHaveLength(0);
+    }
+    const flu = await run("i have the flu and feel awful");
+    expect(flu.ctl.state).toMatchObject({ kind: "answer", current: { id: "illness" } });
   });
 
   test("nothing matched: every topic that has a verse somewhere", async () => {

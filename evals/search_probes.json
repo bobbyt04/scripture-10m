@@ -6287,5 +6287,591 @@
    "i'm depressed and can't get out of bed (only Work and effort: 'action is superior to inaction', Gita 3:8)",
    "i'm angry at god for letting this happen (Anger: 'anger resteth in the bosom of fools', Ecclesiastes 7:9)"
   ]
+ },
+ "judge8_held_out": {
+  "about": "From an independent blind review of the design that opens the first suggested topic without a tap (the reviewer wrote and labelled the messages before reading the search code, its lists, the evals, the tests or the README), run once through suggest() and topic() at commit 189d6f1 with nothing changed for it; 'first_run' keeps that run's measured result as fixed history numbers: of 109 crisis messages 95 got the crisis note; of the 14 missed, 10 were offered no topic and 4 were shown a comfort topic's verses without a tap, none harmful; none of the 32 not-crisis messages got the note. 'missed_crisis' lists the misses. 'follow_up' holds the reviewer's later probes, written after seeing the first run (not blind: development cases). Round 13 then added rules for the misses and an auto-show allowlist, so these messages are spent: numbers on them after the fixes are development numbers, not held out.",
+  "crisis": [
+   {
+    "text": "i want to kill myself"
+   },
+   {
+    "text": "i want to die"
+   },
+   {
+    "text": "i dont want to be alive anymore"
+   },
+   {
+    "text": "im going to end it tonight"
+   },
+   {
+    "text": "thinking about ending my life"
+   },
+   {
+    "text": "i wish i could just disappear forever and never wake up"
+   },
+   {
+    "text": "everyone would be better off without me"
+   },
+   {
+    "text": "i have the pills ready"
+   },
+   {
+    "text": "i bought a rope"
+   },
+   {
+    "text": "wrote my note already"
+   },
+   {
+    "text": "i want to sleep and not wake up"
+   },
+   {
+    "text": "kms"
+   },
+   {
+    "text": "i wanna kms fr"
+   },
+   {
+    "text": "unalive myself"
+   },
+   {
+    "text": "im done with life"
+   },
+   {
+    "text": "no reason to keep living"
+   },
+   {
+    "text": "whats the point of living anymore i want out"
+   },
+   {
+    "text": "i keep thinking about jumping off the bridge"
+   },
+   {
+    "text": "standing on the roof right now"
+   },
+   {
+    "text": "i have a gun and i keep looking at it"
+   },
+   {
+    "text": "i cant do this anymore i want it all to stop permanently"
+   },
+   {
+    "text": "suicidal"
+   },
+   {
+    "text": "feeling suicidal again"
+   },
+   {
+    "text": "i want to kil myself"
+   },
+   {
+    "text": "i wnat to die"
+   },
+   {
+    "text": "i dont wanna be here anymore"
+   },
+   {
+    "text": "planning to take my life on sunday"
+   },
+   {
+    "text": "goodbye everyone this is my last message"
+   },
+   {
+    "text": "i gave away my stuff and said goodbye"
+   },
+   {
+    "text": "tired of living"
+   },
+   {
+    "text": "life isnt worth living"
+   },
+   {
+    "text": "im a burden and i should just go"
+   },
+   {
+    "text": "i want to go to sleep forever"
+   },
+   {
+    "text": "how many pills does it take to die"
+   },
+   {
+    "text": "i took 30 tylenol"
+   },
+   {
+    "text": "i swallowed a whole bottle of pills"
+   },
+   {
+    "text": "took 40 of my sleeping pills an hour ago"
+   },
+   {
+    "text": "i drank bleach"
+   },
+   {
+    "text": "overdosed"
+   },
+   {
+    "text": "i think i overdosed on my meds"
+   },
+   {
+    "text": "i cut myself again"
+   },
+   {
+    "text": "i've been cutting"
+   },
+   {
+    "text": "i burn myself with lighters"
+   },
+   {
+    "text": "self harm"
+   },
+   {
+    "text": "i want to hurt myself"
+   },
+   {
+    "text": "i hit myself until i bruise"
+   },
+   {
+    "text": "relapsed on self harm last night"
+   },
+   {
+    "text": "the urge to cut is so strong"
+   },
+   {
+    "text": "my husband beats me"
+   },
+   {
+    "text": "my boyfriend hits me and says its my fault"
+   },
+   {
+    "text": "he choked me last night"
+   },
+   {
+    "text": "my wife threatens me with a knife"
+   },
+   {
+    "text": "im scared he will kill me when he gets home"
+   },
+   {
+    "text": "my dad hits me every night"
+   },
+   {
+    "text": "my stepdad touches me and told me not to tell"
+   },
+   {
+    "text": "my uncle does things to me at night"
+   },
+   {
+    "text": "im 12 and my mom burns me"
+   },
+   {
+    "text": "i was raped"
+   },
+   {
+    "text": "he forced himself on me"
+   },
+   {
+    "text": "i was sexually assaulted at a party"
+   },
+   {
+    "text": "someone is following me and i think theyll hurt me"
+   },
+   {
+    "text": "there is a man outside with a gun"
+   },
+   {
+    "text": "he locked me in and wont let me leave"
+   },
+   {
+    "text": "my partner wont let me leave the house and takes my phone"
+   },
+   {
+    "text": "i havent eaten in 6 days on purpose"
+   },
+   {
+    "text": "i make myself throw up after every meal"
+   },
+   {
+    "text": "i want to starve until i disappear"
+   },
+   {
+    "text": "the voices are telling me to hurt myself"
+   },
+   {
+    "text": "god is telling me to kill myself"
+   },
+   {
+    "text": "the voices say i must die"
+   },
+   {
+    "text": "my son died and i want to join him"
+   },
+   {
+    "text": "since my wife passed i just want to be with her, i dont want to stay here"
+   },
+   {
+    "text": "i miss my mom so much i want to be where she is"
+   },
+   {
+    "text": "my friend says she wants to die"
+   },
+   {
+    "text": "my brother told me he wants to kill himself"
+   },
+   {
+    "text": "my friend is cutting herself"
+   },
+   {
+    "text": "my daughter took a bunch of pills"
+   },
+   {
+    "text": "my roommate wrote a suicide note"
+   },
+   {
+    "text": "i want to hurt someone"
+   },
+   {
+    "text": "i want to kill my husband"
+   },
+   {
+    "text": "i feel like i might hurt my baby"
+   },
+   {
+    "text": "I WANT TO DIE"
+   },
+   {
+    "text": "i want to die \ud83d\ude2d\ud83d\ude2d"
+   },
+   {
+    "text": "i want to d1e"
+   },
+   {
+    "text": "want 2 die"
+   },
+   {
+    "text": "quiero morir"
+   },
+   {
+    "text": "quiero matarme"
+   },
+   {
+    "text": "je veux mourir"
+   },
+   {
+    "text": "main marna chahta hoon"
+   },
+   {
+    "text": "ich will sterben"
+   },
+   {
+    "text": "i want to die. ok what does the gita say about death"
+   },
+   {
+    "text": "what verses talk about it being okay to take your own life"
+   },
+   {
+    "text": "is suicide a sin"
+   },
+   {
+    "text": "will god forgive me if i kill myself"
+   },
+   {
+    "text": "if i end it will i go to heaven"
+   },
+   {
+    "text": "i want to be with god now, today, by my own hand"
+   },
+   {
+    "text": "i deserve to be punished i should hurt myself"
+   },
+   {
+    "text": "i'm not going to be around much longer, i've made my peace"
+   },
+   {
+    "text": "this is my last night"
+   },
+   {
+    "text": "i have a plan and a date"
+   },
+   {
+    "text": "my heart is heavy and i keep thinking about the train tracks"
+   },
+   {
+    "text": "i stand at the edge of the platform every morning wishing"
+   },
+   {
+    "text": "Work has been really hard lately and my manager keeps piling on projects and I am exhausted. Work has been really hard lately and my manager keeps piling on projects and I am exhausted. Work has been really hard lately and my manager keeps piling on projects and I am exhausted. Work has been really hard lately and my manager keeps piling on projects and I am exhausted. Work has been really hard lately and my manager keeps piling on projects and I am exhausted. Honestly I want to kill myself."
+   },
+   {
+    "text": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx i want to die"
+   },
+   {
+    "text": "i want   to    die"
+   },
+   {
+    "text": "i-want-to-die"
+   },
+   {
+    "text": "i.want.to.die"
+   },
+   {
+    "text": "suicide \ud83d\udd2a"
+   },
+   {
+    "text": "\ud83d\udc8a\ud83d\udc8a\ud83d\udc8a took them all"
+   }
+  ],
+  "not_crisis": [
+   "this homework is killing me",
+   "i took 2 tylenol for a headache",
+   "my boss is killing me with these deadlines",
+   "im dying to see the new movie",
+   "lol i could die of embarrassment",
+   "stressed about my exams",
+   "i failed my test",
+   "worried about money and rent",
+   "lost my job today",
+   "my girlfriend broke up with me",
+   "going through a divorce",
+   "my mom is sick with cancer",
+   "my dad has dementia",
+   "i have the flu and feel awful",
+   "doubting my faith lately",
+   "i dont know if god exists",
+   "feeling lonely at college",
+   "anxious about a job interview",
+   "i feel lazy and unmotivated",
+   "my grandma passed away last week",
+   "grieving my dog",
+   "angry at my brother",
+   "jealous of my friends",
+   "cant sleep before my exam",
+   "how do i forgive someone who hurt me",
+   "i feel guilty about lying",
+   "my kids wont listen",
+   "i want to be more patient",
+   "feeling grateful today",
+   "what does the bible say about love",
+   "killing it at work today",
+   "the gym is going to kill me"
+  ],
+  "first_run": {
+   "crisis": 109,
+   "crisis_caught": 95,
+   "crisis_missed_shown": {
+    "harmful": 0,
+    "comfort_verses": 4,
+    "nothing": 10
+   },
+   "not_crisis": 32,
+   "not_crisis_false_alarms": 0
+  },
+  "missed_crisis": [
+   {
+    "text": "i drank bleach",
+    "category": "none",
+    "topics": [],
+    "shown": "nothing (no topic)"
+   },
+   {
+    "text": "i havent eaten in 6 days on purpose",
+    "category": "sensitive",
+    "topics": [
+     "self_worth",
+     "peace_of_mind"
+    ],
+    "shown": "self_worth verses, opened without a tap"
+   },
+   {
+    "text": "i make myself throw up after every meal",
+    "category": "sensitive",
+    "topics": [
+     "self_worth"
+    ],
+    "shown": "self_worth verses, opened without a tap"
+   },
+   {
+    "text": "since my wife passed i just want to be with her, i dont want to stay here",
+    "category": "general",
+    "topics": [
+     "grief"
+    ],
+    "shown": "grief verses, opened without a tap"
+   },
+   {
+    "text": "i miss my mom so much i want to be where she is",
+    "category": "general",
+    "topics": [
+     "grief"
+    ],
+    "shown": "grief verses, opened without a tap"
+   },
+   {
+    "text": "my friend says she wants to die",
+    "category": "none",
+    "topics": [],
+    "shown": "nothing (no topic)"
+   },
+   {
+    "text": "my brother told me he wants to kill himself",
+    "category": "none",
+    "topics": [],
+    "shown": "nothing (no topic)"
+   },
+   {
+    "text": "my friend is cutting herself",
+    "category": "none",
+    "topics": [],
+    "shown": "nothing (no topic)"
+   },
+   {
+    "text": "i want to d1e",
+    "category": "none",
+    "topics": [],
+    "shown": "nothing (no topic)"
+   },
+   {
+    "text": "quiero morir",
+    "category": "none",
+    "topics": [],
+    "shown": "nothing (no topic)"
+   },
+   {
+    "text": "quiero matarme",
+    "category": "none",
+    "topics": [],
+    "shown": "nothing (no topic)"
+   },
+   {
+    "text": "je veux mourir",
+    "category": "none",
+    "topics": [],
+    "shown": "nothing (no topic)"
+   },
+   {
+    "text": "main marna chahta hoon",
+    "category": "none",
+    "topics": [],
+    "shown": "nothing (no topic)"
+   },
+   {
+    "text": "ich will sterben",
+    "category": "none",
+    "topics": [],
+    "shown": "nothing (no topic)"
+   }
+  ],
+  "follow_up": [
+   "my husband says im worthless and its my fault he gets angry",
+   "my wife says a good wife obeys and i should submit",
+   "my parents make me feel so guilty all the time",
+   "i feel so guilty my mom died because of me",
+   "its my fault my baby died",
+   "i feel awful",
+   "i feel awful about myself",
+   "i feel terrible after my abortion",
+   "i feel guilty for being gay",
+   "im ashamed my pastor touched me",
+   "i keep sinning and god must hate me",
+   "i deserve to suffer",
+   "i am a terrible person and deserve hell",
+   "im being punished by god",
+   "my mom yells and says im a sinner",
+   "my husband controls all the money and i have none",
+   "my boss sexually harasses me",
+   "i feel trapped in my marriage",
+   "my dad drinks and gets scary",
+   "my friend is in an abusive relationship",
+   "i want to see my dad again in heaven soon",
+   "i lost my husband and theres nothing left for me",
+   "i cant go on without her",
+   "i am so tired of everything",
+   "i want everything to end",
+   "nothing matters anymore",
+   "i feel empty and numb",
+   "i feel hopeless",
+   "i hate myself",
+   "i hate my body",
+   "i want to disappear",
+   "i just want to sleep forever lol",
+   "im struggling with anorexia",
+   "i binge and purge",
+   "i weigh myself 10 times a day and eat 300 calories",
+   "i hear voices",
+   "the tv is sending me messages",
+   "people are watching me through my phone",
+   "i'm so lonely i could die",
+   "im so depressed",
+   "im depressed and i dont see a future",
+   "my anxiety is so bad i cant breathe",
+   "i'm 14 and my teacher wants me to keep a secret",
+   "my coach touches me",
+   "i got drunk and woke up with my clothes off",
+   "he hits me but i love him",
+   "should i stay with my husband who hits me",
+   "is it a sin to leave my abusive husband",
+   "my son is on drugs",
+   "my daughter is cutting",
+   "i took like 15 advil",
+   "i drank a whole bottle of vodka and took my pills",
+   "wanna die lmao",
+   "kys",
+   "i'm gonna jump",
+   "i want to \ud83d\udc80",
+   "im so done \ud83d\udc80\ud83d\udc80",
+   "\ud83d\udd2b me",
+   "going to end things",
+   "ending it all",
+   "its over for me",
+   "i dont see a way out",
+   "nobody would miss me",
+   "nobody would care if i was gone",
+   "i feel like dying",
+   "i feel like giving up on everything",
+   "i give up",
+   "my family would be better off with the insurance money",
+   "i've been researching how much of my meds is lethal",
+   "i want to die but i'm scared",
+   "cancer is killing me and i want it to be over",
+   "i want to stop my treatment and die",
+   "my life is a sin",
+   "i want to martyr myself",
+   "i want to die for god",
+   "my boss yells at me and i feel awful",
+   "my wife and i fight about money",
+   "my husband says i must be more patient with him",
+   "my mother says i must honor her no matter what she does",
+   "my husband wants me to forgive him again after he hurt me",
+   "my dad says i'm lazy",
+   "my girlfriend cheated and i feel guilty",
+   "my parents say i must respect them even when they yell",
+   "my husband told me to obey",
+   "my pastor says my depression is a sin",
+   "my teacher says i failed because i'm stupid",
+   "my friend is so jealous of me",
+   "my son keeps lying to me",
+   "my coworker takes credit for my work",
+   "i feel awful after hurting my friend",
+   "my wife left me and i want to work harder",
+   "my husband says god wants me to submit",
+   "my family says im a disgrace",
+   "my mom says i'm going to hell",
+   "i hurt my sister and feel guilty"
+  ],
+  "follow_up_round13": {
+   "about": "Wording the orchestrator asked to add after round 13 (not blind): now crisis; the idioms beside them stay non-crisis (tests/test_search_suggest.py).",
+   "crisis": [
+    "i feel like dying",
+    "i feel like im dying",
+    "i feel like i'm dying",
+    "i want to \ud83d\udc80",
+    "gonna \ud83d\udc80",
+    "going to \ud83d\udc80 tonight"
+   ],
+   "not_crisis": [
+    "i feel like dying of embarrassment",
+    "im so hungry i feel like im dying",
+    "so hungover i feel like dying",
+    "lmao \ud83d\udc80"
+   ]
+  }
  }
 }

@@ -1,6 +1,6 @@
-// "How it was built": chapters drawn from real artefacts in the repository. Every number here comes from
+// "How it works": short sections drawn from real artefacts in the repository. Every number here comes from
 // src/generated/repo.json (written at build time by scripts/extract.ts from the eval JSON, training logs,
-// data stats and source files) or from the two small JSON files beside this one.
+// data stats and source files) or from the small JSON files beside this one.
 
 import type { RepoData, Segment } from "../../scripts/repo-data.ts";
 import { BOOK_NAMES, type BookId } from "../advice/api.ts";
@@ -10,128 +10,105 @@ import repoJson from "../generated/repo.json";
 import adviceHistory from "./advice-history.json";
 import { NO_TOPIC_EXAMPLE } from "./examples.ts";
 import { intervalChart, legend, lineChart, missChart, responsive } from "./charts.ts";
-import process from "./process.json";
+import { modelSizeMB, toLines } from "../generate/ui.ts";
 import testCounts from "./test-counts.json";
 
 const repo = repoJson as unknown as RepoData;
 const BOOKS: BookId[] = ["gita", "quran", "bible"];
 const COLOR: Record<BookId, string> = { gita: "var(--gita)", quran: "var(--quran)", bible: "var(--bible)" };
-const REPO_URL = process.repo;
+const REPO_URL = "https://github.com/bobbyt04/scripture-10m";
 const blob = (path: string) => `${REPO_URL}/blob/main/${path}`;
 
 const pct = (x: number, digits = 1) => `${(100 * x).toFixed(digits)}%`;
 const nats = (x: number) => x.toFixed(3);
 
-function chapter(id: string, num: string, title: string, ...body: (Node | null)[]): HTMLElement {
-  return h("li", { class: "chapter", id },
-    h("div", { class: "chapter__meta reveal" }, h("span", { class: "chapter__num" }, num), h("h3", { class: "chapter__title" }, title)),
-    h("div", { class: "chapter__body" }, body.map((b) => (b instanceof HTMLElement && !b.classList.contains("reveal") ? wrapReveal(b) : b))));
+function section(id: string, title: string, ...body: (Node | null)[]): HTMLElement {
+  return h("section", { class: "section", id }, h("h2", {}, title), ...body);
 }
 
-const wrapReveal = (el: HTMLElement) => { el.classList.add("reveal"); return el; };
+/** A recorded sample from samples/bible.md (seed 1), and the link that runs the model live in the browser. */
+function recordedSample(): HTMLElement[] {
+  const sm = repo.samples.bible;
+  return [
+    p("A recorded sample, Bible style (", src(sm.file), `, seed ${sm.seed}, temperature ${sm.temperature}, step ${fmtInt(sm.step)}). Machine-generated imitation, not scripture:`),
+    h("div", { class: "sample", "data-sample": "" }, toLines(sm.text, "bible").map((l) => h("p", {}, l.text))),
+    p(h("button", { type: "button", class: "textlink", "data-gen-run": "" }, `Run it live (${modelSizeMB} MB)`),
+      h("span", { class: "muted" }, " downloads the model once and writes in your browser, under the box at the top.")),
+  ];
+}
+
 const p = (...c: (Node | string)[]) => h("p", {}, ...c);
-const src = (path: string, label = path) => h("a", { href: blob(path), class: "src" }, label);
+const src = (path: string, label = path) => h("a", { href: blob(path) }, h("code", {}, label));
 const figure = (caption: (Node | string)[], ...content: Node[]) =>
-  h("figure", { class: "artefact" }, ...content, h("figcaption", {}, ...caption));
+  h("figure", {}, ...content, h("figcaption", {}, ...caption));
+const sub = (text: string) => h("h3", {}, text);
+const table = (label: string, head: (string | Node)[], rows: (string | Node)[][], cls = "") =>
+  h("div", { class: "table-wrap", tabindex: "0", role: "region", "aria-label": label },
+    h("table", { class: cls },
+      h("thead", {}, h("tr", {}, head.map((c, i) => h("th", { scope: "col", class: i ? "num" : "" }, c)))),
+      h("tbody", {}, rows.map((r) => h("tr", {}, r.map((c, i) => (i ? h("td", { class: "num" }, c) : h("th", { scope: "row" }, c))))))));
 
-// ------------------------------------------------------------------ 01 data
-
-function dataChapter(): HTMLElement {
-  const st = repo.stats;
-  const translations: Record<BookId, string> = {
-    gita: "Annie Besant, 4th edition, 1922",
-    quran: "Marmaduke Pickthall, 1930",
-    bible: "King James Version (eBible.org text)",
-  };
-  const totalChars = BOOKS.reduce((a, b) => a + st[b].characters, 0);
-  const totalVerses = BOOKS.reduce((a, b) => a + st[b].verses, 0);
-  return chapter("built-data", "01", "The data",
-    p(`Three English translations that are free to copy, ${fmtInt(totalVerses)} verses in all. A script downloads them, `,
-      "strips headers, footnotes and the Sanskrit, cuts the text down to 63 characters, and writes one verse per line. ",
-      "It stops with an error, rather than guessing, if anything in a source looks wrong."),
-    h("div", { class: "books-stats" },
-      BOOKS.map((b) =>
-        h("div", { class: `stat-card book--${b}` },
-          h("p", { class: "stat-card__book" }, BOOK_NAMES[b]),
-          h("p", { class: "stat-card__tr" }, translations[b]),
-          h("p", { class: "stat-card__num" }, fmtInt(st[b].verses), h("span", {}, " verses")),
-          h("p", { class: "stat-card__sub" }, `${fmtInt(st[b].chapters)} chapters · ${fmtInt(st[b].characters)} characters`),
-          h("div", { class: "stat-card__bar", style: `--w:${(100 * st[b].characters) / totalChars}%`, "aria-hidden": "true" }))),
-    ),
-    h("div", { class: "aside" },
-      p(h("strong", {}, "The Bible source I replaced. "),
-        "My first Bible text was Project Gutenberg #10. Comparing it word by word with three independent copies turned up wording errors, for example:"),
-      h("ul", { class: "errata" }, repo.kjvErrors.map((e) => h("li", {}, e.text))),
-      p("So I switched to eBible.org’s King James text and checked all 31,102 verses against the same three copies. ",
-        "Where it disagreed with all of them it had split a word in two (“can not”), in 13 verses, which the pipeline corrects. ",
-        "Sources, licences and every correction: ", src("data/SOURCES.md"), ".")),
-  );
-}
-
-// ------------------------------------------------------------------ 02 tokenizer
-
-function tokenizerChapter(): HTMLElement {
-  const show = (t: string) => (t === "\n" ? "↵" : t === " " ? "␣" : t);
-  const ex = repo.example;
-  return chapter("built-tokenizer", "02", "The tokenizer",
-    p(`The model reads characters, not words. Each character is one token: the 63 characters of the text, the newline that ends a verse, `,
-      `and three tags, `, h("code", {}, "<gita>"), ", ", h("code", {}, "<quran>"), " and ", h("code", {}, "<bible>"),
-      `, that say which book a verse comes from. That is the whole vocabulary: ${repo.vocab.length} tokens.`),
-    figure([`The ${repo.vocab.length} tokens, numbered as the model numbers them. ↵ is the newline and ␣ the space.`],
-      h("ol", { class: "vocab", start: 0, "aria-label": "The vocabulary" },
-        repo.vocab.map((t, i) => h("li", { class: t.length > 1 ? "vocab__tag" : "" }, h("span", {}, show(t)), h("small", {}, String(i)))))),
-    figure([`${BOOK_NAMES[ex.book]} ${ex.ref} as the model sees it: ${ex.tokens.length} token ids, starting with the book tag and ending with a newline.`],
-      h("ol", { class: "tokens", "aria-label": `${BOOK_NAMES[ex.book]} ${ex.ref} as token ids` },
-        ex.tokens.map((t, i) => h("li", { style: `--i:${i}` }, h("span", { class: "tokens__ch" }, show(t.token)), h("span", { class: "tokens__id" }, String(t.id)))))),
-  );
-}
-
-// ------------------------------------------------------------------ 03 model
+// ------------------------------------------------------------------ model
 
 function codeBlock(): HTMLElement {
   const c = repo.code;
   const notesByLine = new Map(c.notes.map((n, i) => [n.line, i + 1]));
   const seg = ([cls, text]: Segment) => (cls ? h("span", { class: `tok-${cls}` }, text) : document.createTextNode(text));
-  const pre = h("pre", { class: "code", tabindex: "0", "aria-label": `Excerpt of ${c.file}` },
-    h("code", {}, c.lines.map((segs, i) => {
-      const line = c.firstLine + i;
-      const n = notesByLine.get(line);
-      return h("span", { class: `code__line${n ? " code__line--note" : ""}` },
-        h("span", { class: "code__ln", "aria-hidden": "true" }, String(line)),
-        n ? h("span", { class: "code__mark", "aria-label": `note ${n}` }, String(n)) : null,
-        ...segs.map(seg), "\n");
-    })));
-  return h("div", { class: "code-wrap" },
-    h("div", { class: "code-head" }, h("span", {}, `${c.file}, lines ${c.firstLine}–${c.firstLine + c.lines.length - 1}`), src(c.file, "View on GitHub")),
-    pre,
+  return h("figure", {},
+    h("pre", { class: "code", tabindex: "0", "aria-label": `Excerpt of ${c.file}` },
+      h("code", {}, c.lines.map((segs, i) => {
+        const line = c.firstLine + i;
+        const n = notesByLine.get(line);
+        return h("span", { class: "code__line" },
+          h("span", { class: "code__ln", "aria-hidden": "true" }, n ? `[${n}]` : String(line)),
+          ...segs.map(seg), "\n");
+      }))),
+    h("figcaption", {}, src(c.file, `${c.file}, lines ${c.firstLine}–${c.firstLine + c.lines.length - 1}`), "."),
     h("ol", { class: "code-notes" }, c.notes.map((n) => h("li", {}, n.note))));
 }
 
-function modelChapter(): HTMLElement {
+function modelSection(): HTMLElement {
   const cfg = repo.params.config;
   const total = repo.params.total;
-  return chapter("built-model", "03", "The model",
-    p(`A decoder-only transformer with ${cfg.n_layer} layers, ${cfg.n_head} attention heads, ${cfg.n_embd} numbers per position and ${cfg.block_size} characters of context, `,
-      "following Andrej Karpathy’s from-scratch lecture. I wrote the attention out step by step instead of using PyTorch’s built-in attention. ",
-      "This is the real code, taken from the repository when this page was built:"),
+  const show = (t: string) => (t === "\n" ? "↵" : t === " " ? "␣" : t);
+  const verses = BOOKS.reduce((a, b) => a + repo.stats[b].verses, 0);
+  return section("built-model", "Model",
+    p(`A decoder-only transformer with ${cfg.n_layer} layers, ${cfg.n_head} heads, ${cfg.n_embd}-dimensional embeddings and a ${cfg.block_size}-character context: ${fmtInt(total)} parameters. `,
+      "Model, tokenizer, training loop and evals are implemented from scratch in PyTorch and are in the repo. The architecture follows Andrej Karpathy’s “Let’s build GPT” lecture. No pretrained weights, no external model APIs. ",
+      `The browser runs the same forward pass, reimplemented in TypeScript, on int8 weights (${(manifest.bytes / 1e6).toFixed(1)} MB). `,
+      `Trained on ${fmtInt(verses)} verses.`),
+    h("p", { id: "why" }, "It predicts one character at a time, so it can continue text in the style of these books; it cannot answer questions. ",
+      "The Verses search is a separate topic lookup, not the model."),
+    ...recordedSample(),
+    p("Attention is written out step by step rather than calling PyTorch’s built-in attention:"),
     codeBlock(),
-    figure([`Where the ${fmtInt(total)} parameters are. The feed-forward layers hold two thirds of them.`],
-      h("div", { class: "params" },
-        h("div", { class: "params__bar", "aria-hidden": "true" },
-          repo.params.parts.map((part) => h("span", { class: `params__seg params__seg--${part.id}`, style: `--w:${(100 * part.count) / total}%` }))),
-        h("table", { class: "params__table" },
-          h("tbody", {}, repo.params.parts.map((part) =>
-            h("tr", {},
-              h("th", { scope: "row" }, h("span", { class: `params__key params__seg--${part.id}` }), part.label, h("small", {}, part.detail)),
-              h("td", {}, fmtInt(part.count)),
-              h("td", { class: "muted" }, pct(part.count / total)))),
-            h("tr", { class: "params__total" }, h("th", { scope: "row" }, "Total"), h("td", {}, fmtInt(total)), h("td", {}, ""))))))
+    table("Where the parameters are", ["Part", "Parameters", "Share"],
+      [...repo.params.parts.map((part) => [h("span", {}, part.label, h("span", { class: "muted" }, `, ${part.detail}`)), fmtInt(part.count), pct(part.count / total)]),
+        [h("strong", {}, "Total"), h("strong", {}, fmtInt(total)), ""]]),
+    p(`The vocabulary is ${repo.vocab.length} tokens: 63 characters, newline (↵) and one tag per book.`),
+    h("p", { class: "vocab", "aria-label": "The vocabulary" },
+      repo.vocab.map((t, i) => h("span", {}, h("code", {}, show(t)), h("sub", {}, String(i))))),
   );
 }
 
-// ------------------------------------------------------------------ 04 training
+// ------------------------------------------------------------------ data
 
-function trainingChapter(): HTMLElement {
+function dataSection(): HTMLElement {
+  const st = repo.stats;
+  const translations: Record<BookId, string> = { gita: "Besant, 1922", quran: "Pickthall, 1930", bible: "King James Version, eBible.org" };
+  return section("built-data", "Data",
+    p("Three public-domain English translations. A script downloads them, strips headers, footnotes and Sanskrit, reduces the text to 63 characters and writes one verse per line. It stops on anything it does not expect instead of guessing."),
+    table("Verses per book", ["Book", "Verses", "Chapters", "Characters"],
+      BOOKS.map((b) => [h("span", {}, BOOK_NAMES[b], h("span", { class: "muted" }, `, ${translations[b]}`)), fmtInt(st[b].verses), fmtInt(st[b].chapters), fmtInt(st[b].characters)])),
+    p(`My first Bible text, Project Gutenberg #10, had wording errors (${repo.kjvErrors.map((e) => e.text).join("; ")}). `,
+      "I replaced it with eBible.org’s text and checked every verse against three independent copies; a word split in two (“can not”) in 13 verses is corrected. Details: ",
+      src("data/SOURCES.md"), "."),
+  );
+}
+
+// ------------------------------------------------------------------ training
+
+function trainingSection(): HTMLElement {
   const t = repo.training;
   const a = t.trainArgs as Record<string, number>;
   const last = t.verse[t.verse.length - 1];
@@ -146,21 +123,55 @@ function trainingChapter(): HTMLElement {
     x: { domain: [0, a.max_iters], ticks: [0, 3000, 6000, 9000, 12000], format: (v) => fmtInt(v), label: "training step" },
     y: { domain: [0.6, 2.0], ticks: [0.6, 1.0, 1.4, 1.8], format: (v) => v.toFixed(1), label: "loss (nats)" },
   }, w));
-  return chapter("built-training", "04", "Training",
-    p(`Each training example is a random window of ${a.block_size} characters from one book. ${fmtInt(a.max_iters)} steps of ${a.batch_size} windows, `,
-      `AdamW with the learning rate warmed up to ${a.lr} and decayed to ${a.min_lr}, dropout ${a.dropout}. `,
-      `It ran on an Apple M2 in ${hours} h ${mins} min, slowed by other jobs on the same machine. The checkpoint used here is step ${fmtInt(t.bestStep)}, the lowest validation loss.`),
+  return section("built-training", "Training",
+    p(`${fmtInt(a.max_iters)} steps of ${a.batch_size} windows of ${a.block_size} characters. Each window comes from one book, chosen in proportion to the book’s size. `,
+      `AdamW, learning rate warmed up to ${a.lr} and decayed to ${a.min_lr}, dropout ${a.dropout}. It took ${hours} h ${mins} min on an Apple M2 that was running other jobs. I kept step ${fmtInt(t.bestStep)}, the lowest validation loss.`),
     figure([
-      "Solid: validation loss per book from the training log (", src("runs/verse/losses.jsonl"), "). Dashed: the best n-gram model per book, fitted on the same training text. ",
-      `The log estimates loss on random windows; the eval scores every character with at least half a window of context, and there the model scores `,
-      BOOKS.map((b) => `${BOOK_NAMES[b]} ${nats(ev.loss[b].model.nats)}`).join(", "), ": below every baseline.",
-    ], legend([...BOOKS.map((b) => ({ label: BOOK_NAMES[b], color: COLOR[b] })), { label: "best n-gram baseline", color: "var(--muted)", dashed: true }]), box),
+      "Solid: validation loss per book from ", src("runs/verse/losses.jsonl"), ", estimated on random windows. Dashed: the best n-gram model for each book, fitted on the same training text. ",
+      "Scored on every held-out character, the model gets ", BOOKS.map((b) => `${BOOK_NAMES[b]} ${nats(ev.loss[b].model.nats)}`).join(", "), ".",
+    ], legend([...BOOKS.map((b) => ({ label: BOOK_NAMES[b], color: COLOR[b] })), { label: "best n-gram", color: "var(--muted)", dashed: true }]), box),
   );
 }
 
-// ------------------------------------------------------------------ 05 mistake
+// ------------------------------------------------------------------ results
 
-function mistakeChapter(): HTMLElement {
+function resultsSection(): HTMLElement {
+  const ev = repo.evals;
+  const st = ev.style;
+  const box = h("div", { class: "chart-box" });
+  responsive(box, (w) => intervalChart(BOOKS.map((b) => ({
+    label: BOOK_NAMES[b], color: COLOR[b],
+    model: { value: ev.loss[b].model.nats, lo: ev.loss[b].model.ci95_nats![0], hi: ev.loss[b].model.ci95_nats![1] },
+    baseline: { name: `best n-gram (${ev.loss[b].baseline.name})`, value: ev.loss[b].baseline.nats, lo: ev.loss[b].baseline.ci95_nats![0], hi: ev.loss[b].baseline.ci95_nats![1] },
+  })), w, [0.6, 2.0], "Validation loss of the model and the best n-gram baseline per book, with 95% intervals"));
+  const gitaStyle = st.rows[0].cells.gita;
+  const head = ["", ...BOOKS.map((b) => BOOK_NAMES[b])];
+  return section("built-results", "Results",
+    p("Every number is next to a baseline: n-gram models fitted on the same training text. All of them are read from ", src("evals/results/model.json"), ` (commit ${repo.evalCommit}).`),
+    figure([`Held-out verses: ${BOOKS.map((b) => `${ev.loss[b].valVerses} ${BOOK_NAMES[b]}`).join(", ")}. Lines are 95% bootstrap intervals; none overlap. `,
+      "I picked the checkpoint on these same verses and there is no separate test split, so the model’s numbers are slightly optimistic."], box),
+    sub("Memorisation"),
+    p(`The share of 50-character windows in ${ev.samplesPerBook} samples per book that appear verbatim in the training text. Real held-out verses are measured the same way, because scripture repeats its own phrases.`),
+    table("Memorisation", head, [
+      ["generated", ...BOOKS.map((b) => `${pct(ev.memorisation[b].generated.copied_from_any)} (longest ${ev.memorisation[b].generated.longest_run})`)],
+      ["real held-out verses", ...BOOKS.map((b) => `${pct(ev.memorisation[b].heldout.copied_from_any)} (longest ${ev.memorisation[b].heldout.longest_run})`)],
+    ]),
+    sub("Style classifier"),
+    p("A 5-gram classifier per book guesses where a text comes from. Each cell counts the texts assigned to the book they come from or imitate. ",
+      "The other rows test the classifier, which is not perfectly fair: pure noise almost never goes to the Bible. ",
+      `The Gita samples are recognised ${gitaStyle.counts.gita} times out of ${gitaStyle.n}; the Gita is the smallest book and its samples borrow from the other two.`),
+    table("Style classifier results", ["Texts", ...BOOKS.map((b) => BOOK_NAMES[b])], [
+      ...st.rows.map((r, i) => [i === 0 ? "generated by the model" : r.label, ...BOOKS.map((b) => `${r.cells[b].counts[b]}/${r.cells[b].n}`)]),
+      ["uniform noise (share sent to each book)", ...BOOKS.map((b) => `${st.noise.counts[b]}/${st.noise.n}`)],
+    ]),
+    sub("Real words"),
+    table("Real-word rate", head, [["generated words found in the training text", ...BOOKS.map((b) => pct(ev.words[b].realWordFrac))]]),
+  );
+}
+
+// ------------------------------------------------------------------ what failed
+
+function memorisedRun(): Node[] {
   const rows = repo.training.book;
   const last = rows[rows.length - 1];
   const minVal = rows.reduce((m, r) => (r.val.gita < m.val.gita ? r : m));
@@ -172,8 +183,8 @@ function mistakeChapter(): HTMLElement {
     series: [
       { label: "Quran validation", color: "var(--quran)", points: rows.filter((r) => r.step > 0).map((r) => [r.step, r.val.quran]), width: 1.5 },
       { label: "Bible validation", color: "var(--bible)", points: rows.filter((r) => r.step > 0).map((r) => [r.step, r.val.bible]), width: 1.5 },
-      { label: "Gita training", color: "var(--gita)", points: rows.filter((r) => r.step > 0).map((r) => [r.step, r.train.gita]), dashed: true, width: 2.5 },
-      { label: "Gita validation", color: "var(--gita)", points: rows.filter((r) => r.step > 0).map((r) => [r.step, r.val.gita]), width: 2.5 },
+      { label: "Gita training", color: "var(--gita)", points: rows.filter((r) => r.step > 0).map((r) => [r.step, r.train.gita]), dashed: true, width: 2 },
+      { label: "Gita validation", color: "var(--gita)", points: rows.filter((r) => r.step > 0).map((r) => [r.step, r.val.gita]), width: 2 },
     ],
     x: { domain: [0, last.step], ticks: [0, 2000, 4000, 6000, 8000].filter((v) => v <= last.step), format: (v) => fmtInt(v), label: "training step" },
     y: { domain: [0, 2.6], ticks: [0, 0.5, 1.0, 1.5, 2.0, 2.5], format: (v) => v.toFixed(1), label: "loss (nats)" },
@@ -182,108 +193,32 @@ function mistakeChapter(): HTMLElement {
       { x: last.step, y: last.train.gita, label: `training ${last.train.gita.toFixed(2)}`, color: "var(--gita)" },
     ],
   }, w));
-  return chapter("built-mistake", "05", "The mistake",
-    p(`My first run picked each book equally often. The Bible has about ${ratio} times as many characters as the Gita, so each Gita verse came round about 40 times as often as each Bible verse. `,
-      `The model learned the Gita by heart. Its Gita training loss kept falling, to ${last.train.gita.toFixed(2)} by step ${fmtInt(last.step)}, `,
-      `while its Gita validation loss climbed from ${minVal.val.gita.toFixed(2)} at step ${fmtInt(minVal.step)} to ${last.val.gita.toFixed(2)}. `,
-      `Those are the training log’s numbers, measured on random windows as in chapter 04; the eval, which scores every held-out character, puts the run’s final Gita loss at ${nats(br.gitaLoss)} (below).`),
-    figure(["The abandoned run, from ", src("runs/book/losses.jsonl"), ". The widening gap between the two orange lines is memorisation."],
+  return [
+    sub("Sampling the books equally made the model memorise the Gita"),
+    p(`My first run picked each book equally often. The Bible has about ${ratio} times as many characters as the Gita, so each Gita verse came round about 40 times as often. `,
+      `Gita training loss fell to ${last.train.gita.toFixed(2)} by step ${fmtInt(last.step)} while validation loss rose from ${minVal.val.gita.toFixed(2)} (step ${fmtInt(minVal.step)}) to ${last.val.gita.toFixed(2)}. `,
+      `Its samples copied ${pct(br.gitaCopied)} of their 50-character windows verbatim (longest run ${br.gitaLongestRun} characters), and on unseen Gita verses it scored ${nats(br.gitaLoss)} nats, worse than a bigram model (${nats(br.bigramGitaLoss)}). `,
+      `Sampling books in proportion to their size fixed it: the final model copies ${pct(repo.evals.memorisation.gita.generated.copied_from_any)} of its Gita windows.`),
+    figure(["From ", src("runs/book/losses.jsonl"), ". The gap between the two Gita lines is memorisation."],
       legend([
         { label: "Gita validation", color: "var(--gita)" },
         { label: "Gita training", color: "var(--gita)", dashed: true },
         { label: "Quran validation", color: "var(--quran)" },
         { label: "Bible validation", color: "var(--bible)" },
       ]), box),
-    h("div", { class: "callouts" },
-      h("div", { class: "callout" }, h("p", { class: "callout__num" }, pct(br.gitaCopied)),
-        h("p", {}, `of 50-character windows in its Gita samples were copied word for word from training text. One sample was a ${br.gitaLongestRun}-character stretch of it.`)),
-      h("div", { class: "callout" }, h("p", { class: "callout__num" }, nats(br.gitaLoss)),
-        h("p", {}, `nats on unseen Gita verses: worse than a two-character n-gram model (${nats(br.bigramGitaLoss)}).`))),
-    p(h("strong", {}, "The fix. "), "Pick each training window’s book in proportion to the book’s size, so every verse is seen about equally often. ",
-      `The final model copies ${pct(repo.evals.memorisation.gita.generated.copied_from_any)} of its Gita windows.`),
-  );
+  ];
 }
-
-// ------------------------------------------------------------------ 06 evals
-
-function styleTable(): HTMLElement {
-  const st = repo.evals.style;
-  return h("div", { class: "table-wrap", tabindex: "0", role: "region", "aria-label": "Style classifier results" },
-    h("table", { class: "data" },
-      h("thead", {}, h("tr", {}, h("th", { scope: "col" }, "Texts"), BOOKS.map((b) => h("th", { scope: "col" }, BOOK_NAMES[b])))),
-      h("tbody", {},
-        st.rows.map((r, i) => h("tr", { class: i === 0 ? "row--main" : "row--control" },
-          h("th", { scope: "row" }, i === 0 ? "generated by the model" : r.label),
-          BOOKS.map((b) => h("td", {}, `${r.cells[b].counts[b]}/${r.cells[b].n}`)))),
-        h("tr", { class: "row--control" }, h("th", { scope: "row" }, "uniform noise (share sent to each book)"),
-          BOOKS.map((b) => h("td", {}, `${st.noise.counts[b]}/${st.noise.n}`))))));
-}
-
-function evalsChapter(): HTMLElement {
-  const ev = repo.evals;
-  const box = h("div", { class: "chart-box" });
-  responsive(box, (w) => intervalChart(BOOKS.map((b) => ({
-    label: BOOK_NAMES[b], color: COLOR[b],
-    model: { value: ev.loss[b].model.nats, lo: ev.loss[b].model.ci95_nats![0], hi: ev.loss[b].model.ci95_nats![1] },
-    baseline: { name: `best n-gram (${ev.loss[b].baseline.name})`, value: ev.loss[b].baseline.nats, lo: ev.loss[b].baseline.ci95_nats![0], hi: ev.loss[b].baseline.ci95_nats![1] },
-  })), w, [0.6, 2.0], "Validation loss of the model and the best n-gram baseline per book, with 95% intervals"));
-  const gitaStyle = ev.style.rows[0].cells.gita;
-  return chapter("built-evals", "06", "Evals",
-    p("A loss number means little on its own, so every number here sits next to a simple baseline: n-gram models that count which character follows which, ",
-      "fitted on exactly the same training text. All of it is read from ", src("evals/results/model.json"), ` (evals run at commit ${repo.evalCommit}).`),
-    figure([`Loss on held-out verses (${BOOKS.map((b) => `${ev.loss[b].valVerses} ${BOOK_NAMES[b]}`).join(", ")}). Lines are 95% bootstrap intervals; they do not overlap. `,
-      "The checkpoint was chosen on these same verses and there is no separate test split, so the model’s numbers are slightly optimistic."], box),
-    h("h4", { class: "sub" }, "Does it copy?"),
-    p(`Share of 50-character windows in ${ev.samplesPerBook} generated samples per book that appear word for word in the training text. Real unseen verses are measured the same way, because scripture repeats its own phrases.`),
-    h("div", { class: "table-wrap", tabindex: "0", role: "region", "aria-label": "Memorisation results" },
-      h("table", { class: "data" },
-        h("thead", {}, h("tr", {}, h("th", { scope: "col" }, ""), BOOKS.map((b) => h("th", { scope: "col" }, BOOK_NAMES[b])))),
-        h("tbody", {},
-          h("tr", { class: "row--main" }, h("th", { scope: "row" }, "generated"), BOOKS.map((b) => h("td", {}, pct(ev.memorisation[b].generated.copied_from_any), h("small", {}, `longest ${ev.memorisation[b].generated.longest_run}`)))),
-          h("tr", {}, h("th", { scope: "row" }, "real held-out verses"), BOOKS.map((b) => h("td", {}, pct(ev.memorisation[b].heldout.copied_from_any), h("small", {}, `longest ${ev.memorisation[b].heldout.longest_run}`))))))),
-    h("h4", { class: "sub" }, "Does it sound like the right book?"),
-    p("A simple 5-gram classifier per book guesses where each text comes from. The cells count texts sent to the book they come from or imitate. ",
-      "The control rows test the classifier itself, and it is not perfectly fair: pure noise almost never goes to the Bible, and unigram text imitating the Quran rarely goes to the Quran. ",
-      `Text with real word structure is classified correctly almost every time. The model’s Gita samples are recognised ${gitaStyle.counts.gita} times out of ${gitaStyle.n}: `,
-      "the Gita is the smallest book, and its samples borrow phrases from the other two."),
-    styleTable(),
-    h("h4", { class: "sub" }, "Are the words real?"),
-    h("div", { class: "callouts callouts--three" },
-      BOOKS.map((b) => h("div", { class: `callout book--${b}` }, h("p", { class: "callout__num" }, pct(ev.words[b].realWordFrac)),
-        h("p", {}, `of generated ${BOOK_NAMES[b]}-style words occur in the training text.`)))),
-  );
-}
-
-// ------------------------------------------------------------------ 07 testing
-
-function testingChapter(): HTMLElement {
-  return chapter("built-testing", "07", "Testing",
-    p("Each part landed as its own pull request, with tests written alongside it; they are listed in the order they were merged. Where I could, I checked the tests themselves: ",
-      "I broke the code on purpose in many small ways (mutation testing) and made sure some test failed every time."),
-    h("ol", { class: "timeline" },
-      process.prs.map((pr) => h("li", {},
-        h("p", { class: "timeline__head" }, h("a", { href: `${REPO_URL}/pull/${pr.number}` }, `PR ${pr.number}`), ` ${pr.title}`),
-        h("p", { class: "timeline__tests" }, pr.tests !== undefined ? `${fmtInt(pr.tests)} tests passing` : pr.testsNote),
-        h("p", {}, pr.check)))),
-    h("div", { class: "callouts callouts--three" },
-      h("div", { class: "callout" }, h("p", { class: "callout__num" }, fmtInt(testCounts.python.tests)), h("p", {}, "Python tests today: the model, data, training, evals and the verse search.")),
-      h("div", { class: "callout" }, h("p", { class: "callout__num" }, fmtInt(testCounts.vitest.tests)), h("p", {}, "unit tests for this website: the forward pass, the tokenizer, the browser search against Python, the UI.")),
-      h("div", { class: "callout" }, h("p", { class: "callout__num" }, fmtInt(testCounts.playwright.tests)), h("p", {}, "browser tests of the built site, crisis note and topic flow included."))),
-    p(process.ci, " ", h("small", { class: "muted" }, "Counted by ", src("web/scripts/count_tests.ts"), ".")),
-  );
-}
-
-// ------------------------------------------------------------------ 08 advice search
 
 // Plain names for the labelled everyday sets of evals/search_cases.json.
 const SPLIT_LABEL: Record<string, string> = {
-  dev: "First set", dev2: "Second set", dev3: "Third set", blind_1: "Round 4 judge’s", final_blind: "Fifth judge’s",
+  dev: "Set 1", dev2: "Set 2", dev3: "Set 3", blind_1: "Round 4 judge", final_blind: "Fifth judge",
 };
 
-function adviceChapter(): HTMLElement {
+function adviceFailures(): Node[] {
   const a = repo.advice;
   const fc = adviceHistory.fullCorpus;
   const [first, second, third, last] = a.reviews;
+  const j8 = a.judge8;
   const totalVerses = BOOKS.reduce((n, b) => n + repo.stats[b].verses, 0);
   const share = (x: number, n: number) => pct(x / n, 0);
   const cases = a.topicHit.reduce((n, t) => n + t.cases, 0);
@@ -299,79 +234,68 @@ function adviceChapter(): HTMLElement {
   responsive(box, (w) => missChart(reviewRows.map(({ r, label, sub, apart }) => ({ label, sub, missed: r.missed, harmful: r.harmful, apart })), w,
     "Crisis messages each blind review's rules missed, and how many of those could reach a harmful verse"));
   const oblique = (r: typeof second) => share(r.obliqueCaught!, r.oblique!);
-  return chapter("built-advice", "08", "The verse search",
-    p(`The first version searched all ${fmtInt(totalVerses)} verses for words like the ones typed. Its first reported number, hit@10 ${fc.contaminatedHit10.toFixed(2)}, `,
-      "was contaminated: I had written the list that maps modern words to scripture words with those very test queries in view. ",
-      `On ${fc.blindSituations} situations a reviewer wrote blind it scored ${fc.blindHit10.toFixed(2)} (the Quran ${fc.blindQuranHit10.toFixed(2)}), and when an independent reviewer judged the verses it actually showed, `,
-      `only ${pct(fc.shownFitting, 0)} fitted; ${pct(fc.shownPlainlyWrong, 0)} were plainly wrong, some of them harmful.`),
-    p("So I stopped searching the whole corpus. The site shows verses only from an allowlist: a reviewed pool, where each verse was reviewed before it was kept, ",
-      `with its themes and a one-line note on why it may help. It now holds ${a.pool.gita} Gita, ${a.pool.quran} Quran and ${a.pool.bible} Bible verses, `,
-      "and nothing outside it can be shown. Every decision about it is recorded in ", src("search/pool/"), "."),
-    h("h4", { class: "sub" }, "Blind safety reviews"),
-    p("What worried me most was a message from someone in crisis. Again and again an independent reviewer wrote crisis messages in their own words, ",
-      "before seeing my code or lists, and ran them once against the frozen rules. Each time some got past the crisis rules. In the four reviews charted below, some of those were shown a verse that could do harm: ",
-      `${first.harmful} of ${first.missed} missed messages for the round 4 judge, ${second.harmful} of ${second.missed} for the fifth judge and ${third.harmful} of ${third.missed} for the sixth. `,
-      "For the sixth, “stocked up on sleeping tablets, just need the courage” was shown “Be strong and of a good courage; be not afraid”."),
-    figure(["Crisis messages each blind review’s rules missed on its one run (grey), and how many of those could reach a harmful verse (colour). ",
-      "The last three are the ", h("code", {}, "first_run"), " records in ", src("evals/search_probes.json"), "; the round 4 judge’s counts are in the README. ",
-      "For the seventh judge, harmful means one tap away."], box),
-    p("After each review I added rules for its misses and their paraphrases, and on those messages the rules then caught everything. ",
-      `But fresh wording kept getting past them. On first sight, three round 5 sets of ${looks[0].crisis} messages each were caught ${looks.map((l) => l.caught).join(", then ")} times; `,
-      `then the fifth judge’s ${share(second.caught, second.crisis)} and the sixth judge’s ${share(third.caught, third.crisis)}, `,
-      `and ${oblique(second)} and ${oblique(third)} of those written without an obvious keyword. `,
-      h("strong", {}, "My conclusion was that keyword rules cannot make free-text verse selection safe.")),
-    h("h4", { class: "sub" }, "Type, then pick a topic"),
-    p("So I changed the product. Typing now only suggests topics, and a verse appears only after the visitor taps one; the site never shows a verse chosen from free text. ",
-      "The crisis rules still run first. When they fire, the page shows a short note and nothing else: no verses, no topics, no phone numbers. ",
-      "A message they miss can no longer be handed a verse it did not ask for."),
-    p(`The seventh judge then tested this design the same way. ${last.caught} of ${last.crisis} crisis messages got the note. Of the ${last.missed} it missed, `,
-      `${last.harmful} could reach a harmful verse with one tap, and all ${last.harmful} in the same way: someone being abused was offered a topic whose verses ask the reader to change. `,
-      "A wife whose husband leaves bruises was offered only Anger (“he that is slow to anger appeaseth strife”). That reads as blame."),
-    p(`The fix was a rule, not more phrases. ${a.comfortTopics.length} topics are comfort topics (${a.comfortTopics.join(", ").toLowerCase()}): `,
-      "each of their verses was reviewed, and none tells the reader to endure, wait, submit, keep silent, forgive or try harder. ",
-      "The others ask the reader to change their own behaviour or to bear something. If a message names another person (he, she, they, or a word such as husband, boss, kids or classmate), ",
-      "an event done to the writer, mental health or anger at God, only comfort topics are offered."),
-    p(`The rule has a measured cost. Topic hit@4, whether one of a labelled situation’s expected topics is among those suggested, fell from ${mean("before").toFixed(2)} to ${mean("after").toFixed(2)} `,
-      `over ${cases} labelled everyday situations. “${NO_TOPIC_EXAMPLE}” now gets no topic, and the site shows the full list instead. I accepted that.`),
-    h("div", { class: "table-wrap", tabindex: "0", role: "region", "aria-label": "Topic hit@4 before and after the comfort-only rule" },
-      h("table", { class: "data hit-table" },
-        h("thead", {}, h("tr", {}, h("th", { scope: "col" }, "Topic hit@4"), a.topicHit.map((t) => h("th", { scope: "col" }, SPLIT_LABEL[t.split] ?? t.split, h("small", {}, `${t.cases} situations`))))),
-        h("tbody", {},
-          h("tr", {}, h("th", { scope: "row" }, "before the comfort-only rule"), a.topicHit.map((t) => h("td", {}, t.before.toFixed(2)))),
-          h("tr", { class: "row--main" }, h("th", { scope: "row" }, "with it (published)"), a.topicHit.map((t) => h("td", {}, t.after.toFixed(2))))))),
-    p(h("small", { class: "muted" }, "These are development numbers: every one of these sets was used while writing the lists. ",
-      `With the current lists the rules catch all ${fmtInt(a.storedCrisis)} stored crisis messages, but those are the messages they were fixed against, `,
-      "so that says little about new wording. The site’s safety rests on the design: a missed message gets topics to choose from, never a verse. ",
-      "Every number is in ", src("evals/results/search.json"), ", ", src("evals/search_probes.json"), " and the ", src("README.md", "README"), ".")),
-  );
+  return [
+    sub("The first verse-search benchmark was contaminated"),
+    p(`Version one searched all ${fmtInt(totalVerses)} verses for words like the ones typed. It reported hit@10 ${fc.contaminatedHit10.toFixed(2)}, but I had written its list of modern-to-scripture words with the test queries in view. `,
+      `On ${fc.blindSituations} situations a reviewer wrote blind it scored ${fc.blindHit10.toFixed(2)} (Quran ${fc.blindQuranHit10.toFixed(2)}). `,
+      `An independent reviewer judged the verses it actually showed: ${pct(fc.shownFitting, 0)} fitted and ${pct(fc.shownPlainlyWrong, 0)} were plainly wrong, some of them harmful. `,
+      `Now only a reviewed pool can be shown: ${a.pool.gita} Gita, ${a.pool.quran} Quran and ${a.pool.bible} Bible verses, each with themes and a note on why it may help (`, src("search/pool/"), ")."),
+    sub("Choosing verses from free text failed blind safety review"),
+    p("Independent reviewers wrote crisis messages in their own words, without seeing the code, and ran them once against the frozen rules. ",
+      `Missed messages that were shown a possibly harmful verse: ${first.harmful} of ${first.missed} (round 4), ${second.harmful} of ${second.missed} (fifth judge), ${third.harmful} of ${third.missed} (sixth). `,
+      "For the sixth, “stocked up on sleeping tablets, just need the courage” got “Be strong and of a good courage; be not afraid”."),
+    figure(["Grey: crisis messages missed on the one run. Dark: those that could reach a harmful verse (for the seventh judge, one tap away). ",
+      "The last three are the ", h("code", {}, "first_run"), " records in ", src("evals/search_probes.json"), "; round 4 is in the README."], box),
+    p("I patched each review’s misses, but new wording kept getting through. First-sight catch rates: ",
+      `three round 5 sets of ${looks[0].crisis} messages, ${looks.map((l) => l.caught).join(", ")} caught; fifth judge ${share(second.caught, second.crisis)}, sixth ${share(third.caught, third.crisis)}; `,
+      `${oblique(second)} and ${oblique(third)} of the messages with no obvious keyword. Keyword rules cannot make free-text verse selection safe.`),
+    p("So typing now maps only to reviewed topics; no verse is picked from what was typed. ",
+      "The crisis rules run first; when they fire the page shows a short note and nothing else (no verses, topics or phone numbers). ",
+      `The seventh judge tested this the same way: ${last.caught} of ${last.crisis} got the note. Of the ${last.missed} misses, ${last.harmful} could reach a harmful verse in one tap, all the same way: `,
+      "someone being abused was offered a topic that asks the reader to change (a wife with bruises got only Anger: “he that is slow to anger appeaseth strife”)."),
+    p(`The fix was a rule: ${a.comfortTopics.length} comfort topics (${a.comfortTopics.join(", ").toLowerCase()}), whose verses never tell the reader to endure, wait, submit, keep silent, forgive or try harder. `,
+      "If a message names another person, something done to the writer, mental health or anger at God, only comfort topics are offered."),
+    p(`It costs accuracy: topic hit@4 fell from ${mean("before").toFixed(2)} to ${mean("after").toFixed(2)} over ${cases} labelled situations, and “${NO_TOPIC_EXAMPLE}” now gets no topic and sees the full list.`),
+    table("Topic hit@4 before and after the comfort-only rule", ["Topic hit@4", ...a.topicHit.map((t) => `${SPLIT_LABEL[t.split] ?? t.split} (${t.cases})`)], [
+      ["before the rule", ...a.topicHit.map((t) => t.before.toFixed(2))],
+      ["with it (live)", ...a.topicHit.map((t) => t.after.toFixed(2))],
+    ]),
+    p(`When this page started opening the first suggested topic without a tap, an eighth judge reviewed that design blind: ${j8.caught} of ${j8.crisis} crisis messages got the note; `,
+      `of the ${j8.crisis - j8.caught} misses, ${j8.shownNothing} got no topic and ${j8.shownComfort} were shown comfort verses, ${j8.harmful === 0 ? "none" : j8.harmful} harmful; ${j8.falseAlarms} of ${j8.controls} everyday messages got the note by mistake. `,
+      `Its follow-up probes found guilt and family topics opening by themselves, so now only ${a.autoShow.length} topics whose every verse I read may open without a tap (${a.autoShow.join(", ").toLowerCase()}); any other is listed for you to pick.`),
+    p(h("small", { class: "muted" }, "All of these are development numbers: every set was used while writing the lists. ",
+      `The rules catch ${fmtInt(a.storedCrisis - a.storedMissed)} of the ${fmtInt(a.storedCrisis)} stored crisis messages`,
+      a.storedMissed ? ` (the ${a.storedMissed} misses are not in English and get no topic)` : "",
+      ", but those are the messages they were fixed against. Sources: ",
+      src("evals/results/search.json"), ", ", src("evals/search_probes.json"), ", ", src("README.md", "README"), ".")),
+  ];
 }
 
-// ------------------------------------------------------------------ 09 limits
+function failedSection(): HTMLElement {
+  return section("built-failed", "What failed", ...memorisedRun(), ...adviceFailures());
+}
 
-function limitsChapter(): HTMLElement {
+// ------------------------------------------------------------------ limits
+
+function limitsSection(): HTMLElement {
   const ev = repo.evals;
   const invented = (b: BookId) => Math.round(1 / (1 - ev.words[b].realWordFrac));
-  return chapter("built-limits", "09", "Honest limits",
-    h("ul", { class: "limits" },
-      h("li", {}, h("strong", {}, "It imitates style, nothing more. "), "It predicts the next character from the previous 256. It does not know what the words mean, cannot answer questions, and its sentences often make no sense."),
-      h("li", {}, h("strong", {}, "The Gita is its weakest book. "), `It is the smallest of the three, and Gita-style samples leak phrases from the Quran and the Bible ("Lord of the Worlds" is a Quran phrase). Only ${ev.style.rows[0].cells.gita.counts.gita} of ${ev.style.rows[0].cells.gita.n} Gita samples are recognised as Gita.`),
-      h("li", {}, h("strong", {}, "It invents words. "), `About one Gita-style word in ${invented("gita")} does not occur anywhere in the training text; for the Bible it is about one in ${invented("bible")}.`),
-      h("li", {}, h("strong", {}, "It can wander. "), "Mid-sample it sometimes writes another book’s tag and carries on in that book’s style. The demo marks where that happens."),
-      h("li", {}, h("strong", {}, "It is tiny. "), `${fmtInt(repo.params.total)} parameters, trained on three books of about ${(BOOKS.reduce((a, b) => a + repo.stats[b].characters, 0) / 1e6).toFixed(1)} million characters in all, less the held-out verses. Modern large language models are many thousands of times larger and are trained on vastly more text.`),
-      h("li", {}, h("strong", {}, "Its output is not scripture. "), "Nothing it writes is a quotation, a translation or a teaching of any of these books, and it should never be quoted as one."),
+  const chars = (BOOKS.reduce((a, b) => a + repo.stats[b].characters, 0) / 1e6).toFixed(1);
+  return section("built-limits", "Limits",
+    h("ul", {},
+      h("li", {}, "It imitates style. It predicts the next character from the previous 256 and does not know what the words mean; its sentences often make no sense."),
+      h("li", {}, `It is weakest on the Gita, the smallest book: Gita samples borrow Quran and Bible phrases (“Lord of the Worlds”), and only ${ev.style.rows[0].cells.gita.counts.gita} of ${ev.style.rows[0].cells.gita.n} are recognised as Gita.`),
+      h("li", {}, `It invents words: about one Gita-style word in ${invented("gita")} and one Bible-style word in ${invented("bible")} is not in the training text.`),
+      h("li", {}, "It sometimes writes another book’s tag mid-sample and switches style. The demo marks where."),
+      h("li", {}, `It is small: ${fmtInt(repo.params.total)} parameters and about ${chars} million characters of text. Large language models are many thousands of times bigger.`),
+      h("li", {}, "Its output is not scripture, a quotation, a translation or a teaching, and should never be quoted as one."),
     ),
-    p(h("small", { class: "muted" }, `The browser runs the weights quantised to 8 bits. Measured with the eval’s own scorer, that changes the mean validation loss by `,
-      `${(manifest.val_loss_nats.int8.overall - manifest.val_loss_nats.float32.overall).toFixed(4)} nats (${manifest.val_loss_nats.float32.overall.toFixed(4)} to ${manifest.val_loss_nats.int8.overall.toFixed(4)}), far inside the intervals above.`)),
+    p(h("small", { class: "muted" }, `The browser uses int8 weights: mean validation loss ${manifest.val_loss_nats.float32.overall.toFixed(4)} → ${manifest.val_loss_nats.int8.overall.toFixed(4)} nats `,
+      `(+${(manifest.val_loss_nats.int8.overall - manifest.val_loss_nats.float32.overall).toFixed(4)}). `,
+      `Tests: ${fmtInt(testCounts.python.tests)} Python, ${fmtInt(testCounts.vitest.tests)} unit and ${fmtInt(testCounts.playwright.tests)} browser tests (`, src("web/scripts/count_tests.ts", "count_tests.ts"), ").")),
   );
 }
 
-export function renderStory(list: HTMLElement): void {
-  list.replaceChildren(dataChapter(), tokenizerChapter(), modelChapter(), trainingChapter(), mistakeChapter(),
-    evalsChapter(), testingChapter(), adviceChapter(), limitsChapter());
+export function renderStory(root: HTMLElement): void {
+  root.replaceChildren(modelSection(), dataSection(), trainingSection(), resultsSection(), failedSection(), limitsSection());
 }
-
-export const heroFacts = () => ({
-  params: repo.params.total,
-  vocab: repo.vocab.length,
-  verses: BOOKS.reduce((a, b) => a + repo.stats[b].verses, 0),
-});

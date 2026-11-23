@@ -154,12 +154,14 @@
     {
      "id": "money_worry",
      "label": "Money worries",
-     "blurb": "For debt, bills and money stress."
+     "blurb": "For debt, bills and money stress.",
+     "auto_show": true
     },
     {
      "id": "fear_anxiety",
      "label": "Worry and fear",
-     "blurb": "For when worry or fear takes hold."
+     "blurb": "For when worry or fear takes hold.",
+     "auto_show": true
     }
    ]
   },
@@ -197,7 +199,8 @@
     {
      "id": "grief",
      "label": "Grief and loss",
-     "blurb": "For missing someone who has died."
+     "blurb": "For missing someone who has died.",
+     "auto_show": true
     }
    ]
   },
@@ -371,12 +374,14 @@
     {
      "id": "loneliness",
      "label": "You are not alone",
-     "blurb": "Verses on being known and not forsaken."
+     "blurb": "Verses on being known and not forsaken.",
+     "auto_show": true
     },
     {
      "id": "self_worth",
      "label": "You are of worth",
-     "blurb": "Verses on dignity and being valued."
+     "blurb": "Verses on dignity and being valued.",
+     "auto_show": true
     }
    ]
   },
@@ -398,12 +403,14 @@
     {
      "id": "grief",
      "label": "Loss and comfort",
-     "blurb": "Verses to keep you company after a loss."
+     "blurb": "Verses to keep you company after a loss.",
+     "auto_show": true
     },
     {
      "id": "hope",
      "label": "Hope",
-     "blurb": "Verses for hard days."
+     "blurb": "Verses for hard days.",
+     "auto_show": true
     }
    ]
   },
@@ -427,17 +434,20 @@
     {
      "id": "self_worth",
      "label": "You are of worth",
-     "blurb": "Verses on dignity and being valued."
+     "blurb": "Verses on dignity and being valued.",
+     "auto_show": true
     },
     {
      "id": "loneliness",
      "label": "You are not alone",
-     "blurb": "Verses on being known and not forsaken."
+     "blurb": "Verses on being known and not forsaken.",
+     "auto_show": true
     },
     {
      "id": "hope",
      "label": "Hope",
-     "blurb": "Verses for hard days."
+     "blurb": "Verses for hard days.",
+     "auto_show": true
     }
    ]
   },
@@ -554,7 +564,8 @@
     {
      "id": "loneliness",
      "label": "Loneliness",
-     "blurb": "For feeling alone or left out."
+     "blurb": "For feeling alone or left out.",
+     "auto_show": true
     }
    ]
   },
@@ -575,7 +586,8 @@
     {
      "id": "loneliness",
      "label": "Loneliness",
-     "blurb": "For feeling alone or left out."
+     "blurb": "For feeling alone or left out.",
+     "auto_show": true
     }
    ]
   },
@@ -605,7 +617,8 @@
     {
      "id": "loneliness",
      "label": "Loneliness",
-     "blurb": "For feeling alone or left out."
+     "blurb": "For feeling alone or left out.",
+     "auto_show": true
     }
    ]
   },
@@ -629,12 +642,14 @@
     {
      "id": "fear_anxiety",
      "label": "Worry and fear",
-     "blurb": "For when worry or fear takes hold."
+     "blurb": "For when worry or fear takes hold.",
+     "auto_show": true
     },
     {
      "id": "money_worry",
      "label": "Money worries",
-     "blurb": "For debt, bills and money stress."
+     "blurb": "For debt, bills and money stress.",
+     "auto_show": true
     }
    ]
   },
@@ -677,7 +692,8 @@
     {
      "id": "grief",
      "label": "Grief and loss",
-     "blurb": "For missing someone who has died."
+     "blurb": "For missing someone who has died.",
+     "auto_show": true
     }
    ]
   },
@@ -719,7 +735,8 @@
     {
      "id": "anger",
      "label": "Anger",
-     "blurb": "For anger that is hard to hold."
+     "blurb": "For anger that is hard to hold.",
+     "auto_show": false
     }
    ]
   },
@@ -743,7 +760,8 @@
     {
      "id": "doubt_faith",
      "label": "Doubt and faith",
-     "blurb": "For feeling far from God, or unsure."
+     "blurb": "For feeling far from God, or unsure.",
+     "auto_show": true
     }
    ]
   },
@@ -768,12 +786,14 @@
     {
      "id": "self_worth",
      "label": "You are of worth",
-     "blurb": "Verses on dignity and being valued."
+     "blurb": "Verses on dignity and being valued.",
+     "auto_show": true
     },
     {
      "id": "hope",
      "label": "Hope",
-     "blurb": "Verses for hard days."
+     "blurb": "Verses for hard days.",
+     "auto_show": true
     }
    ]
   },
@@ -797,7 +817,8 @@
     {
      "id": "guilt_repentance",
      "label": "Guilt and starting again",
-     "blurb": "For regret, and making a fresh start."
+     "blurb": "For regret, and making a fresh start.",
+     "auto_show": false
     }
    ]
   },
@@ -988,17 +1009,20 @@
     {
      "id": "self_worth",
      "label": "You are of worth",
-     "blurb": "Verses on dignity and being valued."
+     "blurb": "Verses on dignity and being valued.",
+     "auto_show": true
     },
     {
      "id": "love_compassion",
      "label": "Loved and cared for",
-     "blurb": "Verses on being loved as you are."
+     "blurb": "Verses on being loved as you are.",
+     "auto_show": false
     },
     {
      "id": "loneliness",
      "label": "You are not alone",
-     "blurb": "Verses on being known and not forsaken."
+     "blurb": "Verses on being known and not forsaken.",
+     "auto_show": true
     }
    ]
   },
@@ -1648,6 +1672,7 @@
    "id": "grief",
    "label": "Grief and loss",
    "blurb": "For missing someone who has died.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 7,
@@ -1663,6 +1688,7 @@
    "id": "fear_anxiety",
    "label": "Worry and fear",
    "blurb": "For when worry or fear takes hold.",
+   "auto_show": true,
    "verses": {
     "gita": 3,
     "quran": 12,
@@ -1678,6 +1704,7 @@
    "id": "anger",
    "label": "Anger",
    "blurb": "For anger that is hard to hold.",
+   "auto_show": false,
    "verses": {
     "gita": 6,
     "quran": 3,
@@ -1693,6 +1720,7 @@
    "id": "forgiveness",
    "label": "Forgiveness",
    "blurb": "On wanting to forgive, or to be forgiven.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 3,
@@ -1708,6 +1736,7 @@
    "id": "guilt_repentance",
    "label": "Guilt and starting again",
    "blurb": "For regret, and making a fresh start.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 12,
@@ -1723,6 +1752,7 @@
    "id": "money_worry",
    "label": "Money worries",
    "blurb": "For debt, bills and money stress.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 6,
@@ -1738,6 +1768,7 @@
    "id": "work_effort",
    "label": "Work and effort",
    "blurb": "On doing your work well.",
+   "auto_show": false,
    "verses": {
     "gita": 18,
     "quran": 17,
@@ -1753,6 +1784,7 @@
    "id": "overwork_rest",
    "label": "Burnout",
    "blurb": "For exhaustion and needing a break.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 6,
@@ -1768,6 +1800,7 @@
    "id": "purpose",
    "label": "Purpose and meaning",
    "blurb": "For feeling without direction.",
+   "auto_show": false,
    "verses": {
     "gita": 4,
     "quran": 3,
@@ -1783,6 +1816,7 @@
    "id": "patience",
    "label": "Waiting",
    "blurb": "For waiting on things to change.",
+   "auto_show": false,
    "verses": {
     "gita": 4,
     "quran": 0,
@@ -1798,6 +1832,7 @@
    "id": "gratitude",
    "label": "Gratitude",
    "blurb": "On giving thanks for what is good.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 13,
@@ -1813,6 +1848,7 @@
    "id": "pride_humility",
    "label": "Pride and humility",
    "blurb": "On ego and staying humble.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 7,
@@ -1828,6 +1864,7 @@
    "id": "envy_contentment",
    "label": "Envy and contentment",
    "blurb": "For comparing yourself and wanting more.",
+   "auto_show": false,
    "verses": {
     "gita": 6,
     "quran": 4,
@@ -1843,6 +1880,7 @@
    "id": "temptation_self_control",
    "label": "Habits and self-control",
    "blurb": "For cravings, habits and giving in.",
+   "auto_show": false,
    "verses": {
     "gita": 12,
     "quran": 0,
@@ -1858,6 +1896,7 @@
    "id": "loneliness",
    "label": "Loneliness",
    "blurb": "For feeling alone or left out.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 9,
@@ -1873,6 +1912,7 @@
    "id": "family_parents",
    "label": "Family",
    "blurb": "On parents, brothers, sisters and relatives.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 0,
@@ -1888,6 +1928,7 @@
    "id": "parenting",
    "label": "Raising children",
    "blurb": "On being a parent.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 4,
@@ -1903,6 +1944,7 @@
    "id": "friendship",
    "label": "Friendship",
    "blurb": "On friends and falling out.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 4,
@@ -1918,6 +1960,7 @@
    "id": "illness",
    "label": "Illness and healing",
    "blurb": "For sickness, pain and waiting for news.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 3,
@@ -1933,6 +1976,7 @@
    "id": "doubt_faith",
    "label": "Doubt and faith",
    "blurb": "For feeling far from God, or unsure.",
+   "auto_show": true,
    "verses": {
     "gita": 6,
     "quran": 4,
@@ -1948,6 +1992,7 @@
    "id": "hope",
    "label": "Hope",
    "blurb": "For hard days that need encouragement.",
+   "auto_show": true,
    "verses": {
     "gita": 3,
     "quran": 9,
@@ -1963,6 +2008,7 @@
    "id": "justice_wronged",
    "label": "Being treated unfairly",
    "blurb": "For being cheated, bullied or mistreated.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 13,
@@ -1978,6 +2024,7 @@
    "id": "honesty",
    "label": "Honesty",
    "blurb": "On telling the truth.",
+   "auto_show": false,
    "verses": {
     "gita": 4,
     "quran": 14,
@@ -1993,6 +2040,7 @@
    "id": "generosity",
    "label": "Generosity",
    "blurb": "On giving and helping others.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 18,
@@ -2008,6 +2056,7 @@
    "id": "kindness_strangers",
    "label": "Kindness to others",
    "blurb": "On neighbours, strangers and newcomers.",
+   "auto_show": false,
    "verses": {
     "gita": 8,
     "quran": 18,
@@ -2023,6 +2072,7 @@
    "id": "courage",
    "label": "Courage",
    "blurb": "For facing everyday fears.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 3,
@@ -2038,6 +2088,7 @@
    "id": "guidance_decisions",
    "label": "Making decisions",
    "blurb": "For not knowing which way to choose.",
+   "auto_show": false,
    "verses": {
     "gita": 3,
     "quran": 6,
@@ -2053,6 +2104,7 @@
    "id": "failure",
    "label": "Failure and setbacks",
    "blurb": "For mistakes and things that went wrong.",
+   "auto_show": false,
    "verses": {
     "gita": 4,
     "quran": 5,
@@ -2068,6 +2120,7 @@
    "id": "success",
    "label": "Success",
    "blurb": "On doing well and staying grounded.",
+   "auto_show": false,
    "verses": {
     "gita": 4,
     "quran": 5,
@@ -2083,6 +2136,7 @@
    "id": "change_uncertainty",
    "label": "Change and the unknown",
    "blurb": "For new beginnings and an uncertain future.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 5,
@@ -2098,6 +2152,7 @@
    "id": "love_compassion",
    "label": "Love and compassion",
    "blurb": "On mercy, kindness and care.",
+   "auto_show": false,
    "verses": {
     "gita": 6,
     "quran": 4,
@@ -2113,6 +2168,7 @@
    "id": "speech_gossip",
    "label": "Words and gossip",
    "blurb": "On gossip and speaking kindly.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 13,
@@ -2128,6 +2184,7 @@
    "id": "wisdom_learning",
    "label": "Wisdom and learning",
    "blurb": "On study and growing wiser.",
+   "auto_show": false,
    "verses": {
     "gita": 6,
     "quran": 13,
@@ -2143,6 +2200,7 @@
    "id": "peace_of_mind",
    "label": "Peace of mind",
    "blurb": "For a restless or racing mind.",
+   "auto_show": false,
    "verses": {
     "gita": 18,
     "quran": 9,
@@ -2158,6 +2216,7 @@
    "id": "suffering_endurance",
    "label": "Hard times",
    "blurb": "For hardship and holding on.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 4,
@@ -2173,10 +2232,11 @@
    "id": "self_worth",
    "label": "Self-worth",
    "blurb": "For feeling not good enough.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 5,
-    "bible": 21
+    "bible": 20
    },
    "sensitive_verses": {
     "gita": 0,
@@ -2405,7 +2465,7 @@
       "Philippians 4:19",
       "money_worry",
       1,
-      11.5168,
+      11.5155,
       [
        "money_worry"
       ],
@@ -2419,7 +2479,7 @@
       "Psalms 23:1",
       "money_worry",
       2,
-      4.6477,
+      4.6472,
       [
        "money_worry"
       ],
@@ -2431,7 +2491,7 @@
       "Matthew 6:26",
       "money_worry",
       3,
-      4.738,
+      4.7373,
       [
        "fear_anxiety",
        "money_worry"
@@ -2611,7 +2671,7 @@
       "Deuteronomy 31:8",
       "loneliness",
       1,
-      4.4812,
+      4.4808,
       [
        "loneliness"
       ],
@@ -2751,7 +2811,7 @@
       "Isaiah 40:29",
       "overwork_rest",
       2,
-      10.4625,
+      10.4614,
       [
        "overwork_rest"
       ],
@@ -2765,7 +2825,7 @@
       "Jeremiah 31:25",
       "overwork_rest",
       4,
-      7.2544,
+      7.2536,
       [
        "overwork_rest"
       ],
@@ -2778,7 +2838,7 @@
       "Matthew 11:30",
       "overwork_rest",
       5,
-      3.3212,
+      3.3209,
       [
        "overwork_rest"
       ],
@@ -2912,7 +2972,7 @@
       "Proverbs 15:17",
       "family_parents",
       3,
-      3.3949,
+      3.3944,
       [
        "family_parents"
       ],
@@ -2924,7 +2984,7 @@
       "Proverbs 24:3",
       "family_parents",
       4,
-      3.889,
+      3.8884,
       [
        "family_parents"
       ],
@@ -2936,7 +2996,7 @@
       "Psalms 68:5",
       "family_parents",
       null,
-      7.4632,
+      7.4624,
       [
        "family_parents"
       ],
@@ -3154,7 +3214,7 @@
       "Isaiah 41:10",
       "fear_anxiety",
       1,
-      4.4916,
+      4.4911,
       [
        "fear_anxiety"
       ],
@@ -3167,7 +3227,7 @@
       "1 Peter 5:7",
       "fear_anxiety",
       2,
-      4.3605,
+      4.3601,
       [
        "fear_anxiety"
       ],
@@ -3180,7 +3240,7 @@
       "Philippians 4:6",
       "fear_anxiety",
       3,
-      12.473,
+      12.4712,
       [
        "fear_anxiety"
       ],
@@ -3396,7 +3456,7 @@
       "Matthew 5:4",
       "grief",
       2,
-      5.756,
+      5.7557,
       [
        "grief"
       ],
@@ -3585,7 +3645,7 @@
       "Psalms 138:8",
       "purpose",
       2,
-      4.6701,
+      4.6694,
       [
        "purpose"
       ],
@@ -3598,7 +3658,7 @@
       "Philippians 1:6",
       "purpose",
       3,
-      5.598,
+      5.5973,
       [
        "purpose"
       ],
@@ -3611,7 +3671,7 @@
       "Micah 6:8",
       "purpose",
       4,
-      2.339,
+      2.3386,
       [
        "purpose"
       ],
@@ -3786,7 +3846,7 @@
       "1 Timothy 6:6",
       "envy_contentment",
       3,
-      2.94,
+      2.9397,
       [
        "envy_contentment"
       ],
@@ -3798,7 +3858,7 @@
       "Galatians 6:4",
       "envy_contentment",
       4,
-      2.3892,
+      2.3888,
       [
        "envy_contentment"
       ],
@@ -3810,7 +3870,7 @@
       "Proverbs 14:30",
       "envy_contentment",
       5,
-      3.8428,
+      3.8424,
       [
        "envy_contentment"
       ],
@@ -3957,7 +4017,7 @@
       "Proverbs 22:29",
       "work_effort",
       null,
-      5.3902,
+      5.3896,
       [
        "work_effort"
       ],
@@ -4218,7 +4278,7 @@
       "Psalms 107:1",
       "gratitude",
       1,
-      4.9433,
+      4.9429,
       [
        "gratitude"
       ],
@@ -4230,7 +4290,7 @@
       "1 Thessalonians 5:18",
       "gratitude",
       2,
-      5.3824,
+      5.3821,
       [
        "gratitude"
       ],
@@ -4370,7 +4430,7 @@
       "1 John 1:9",
       "guilt_repentance",
       1,
-      12.2414,
+      12.2402,
       [
        "guilt_repentance"
       ],
@@ -4384,7 +4444,7 @@
       "Psalms 51:10",
       "guilt_repentance",
       3,
-      2.2289,
+      2.2285,
       [
        "guilt_repentance"
       ],
@@ -4396,7 +4456,7 @@
       "2 Corinthians 5:17",
       "guilt_repentance",
       4,
-      2.4128,
+      2.4124,
       [
        "guilt_repentance"
       ],
@@ -4576,7 +4636,7 @@
       "Philippians 4:7",
       "peace_of_mind",
       1,
-      8.5324,
+      8.5316,
       [
        "peace_of_mind"
       ],
@@ -4590,7 +4650,7 @@
       "Isaiah 26:3",
       "peace_of_mind",
       3,
-      7.0172,
+      7.0168,
       [
        "peace_of_mind"
       ],
@@ -4603,7 +4663,7 @@
       "Psalms 94:19",
       "peace_of_mind",
       5,
-      4.0325,
+      4.032,
       [
        "peace_of_mind"
       ],
@@ -4785,7 +4845,7 @@
       "Ephesians 4:25",
       "honesty",
       2,
-      8.6,
+      8.5992,
       [
        "honesty"
       ],
@@ -4798,7 +4858,7 @@
       "John 8:32",
       "honesty",
       3,
-      4.9528,
+      4.9526,
       [
        "honesty"
       ],
@@ -5232,7 +5292,7 @@
       "Isaiah 40:29",
       "overwork_rest",
       2,
-      10.4625,
+      10.4614,
       [
        "overwork_rest"
       ],
@@ -5246,7 +5306,7 @@
       "Jeremiah 31:25",
       "overwork_rest",
       4,
-      7.2544,
+      7.2536,
       [
        "overwork_rest"
       ],
@@ -5259,7 +5319,7 @@
       "Matthew 11:30",
       "overwork_rest",
       5,
-      3.3212,
+      3.3209,
       [
        "overwork_rest"
       ],
@@ -5541,7 +5601,7 @@
       "Proverbs 27:17",
       "friendship",
       5,
-      3.675,
+      3.6745,
       [
        "friendship"
       ],
@@ -5553,7 +5613,7 @@
       "Proverbs 16:28",
       "friendship",
       null,
-      5.1372,
+      5.1367,
       [
        "friendship"
       ],
@@ -5565,7 +5625,7 @@
       "Job 2:13",
       "friendship",
       null,
-      3.1545,
+      3.154,
       [
        "friendship"
       ],
@@ -5731,7 +5791,7 @@
       "Isaiah 41:10",
       "fear_anxiety",
       1,
-      1.8145,
+      1.8142,
       [
        "fear_anxiety"
       ],
@@ -5743,7 +5803,7 @@
       "1 Peter 5:7",
       "fear_anxiety",
       2,
-      2.2623,
+      2.2621,
       [
        "fear_anxiety"
       ],
@@ -5755,7 +5815,7 @@
       "Philippians 4:6",
       "fear_anxiety",
       3,
-      5.4396,
+      5.4389,
       [
        "fear_anxiety"
       ],
@@ -6073,7 +6133,7 @@
       "Psalms 139:14",
       "self_worth",
       1,
-      2.822,
+      2.8217,
       [
        "self_worth"
       ],
@@ -6229,7 +6289,7 @@
       "Mark 9:24",
       "doubt_faith",
       1,
-      1.4852,
+      1.4851,
       [
        "doubt_faith"
       ],
@@ -6241,7 +6301,7 @@
       "Psalms 145:18",
       "doubt_faith",
       2,
-      1.878,
+      1.8778,
       [
        "doubt_faith"
       ],
@@ -6503,7 +6563,7 @@
       "Psalms 42:11",
       "doubt_faith",
       3,
-      2.4503,
+      2.4501,
       [
        "doubt_faith"
       ],
@@ -6840,7 +6900,7 @@
       "Psalms 37:24",
       "failure",
       1,
-      4.159,
+      4.1586,
       [
        "failure"
       ],
@@ -6852,7 +6912,7 @@
       "Micah 7:8",
       "failure",
       2,
-      4.0021,
+      4.0017,
       [
        "failure"
       ],
@@ -6864,7 +6924,7 @@
       "Psalms 145:14",
       "failure",
       3,
-      4.3286,
+      4.3283,
       [
        "failure"
       ],
@@ -8495,7 +8555,7 @@
       "Psalms 90:17",
       "success",
       2,
-      4.436,
+      4.4357,
       [
        "success"
       ],
@@ -8507,7 +8567,7 @@
       "Psalms 127:1",
       "success",
       3,
-      2.1061,
+      2.1058,
       [
        "success"
       ],
@@ -8666,7 +8726,7 @@
       "Isaiah 40:29",
       "overwork_rest",
       2,
-      10.4625,
+      10.4614,
       [
        "overwork_rest"
       ],
@@ -8680,7 +8740,7 @@
       "Jeremiah 31:25",
       "overwork_rest",
       4,
-      7.2544,
+      7.2536,
       [
        "overwork_rest"
       ],
@@ -8693,7 +8753,7 @@
       "Matthew 11:30",
       "overwork_rest",
       5,
-      3.3212,
+      3.3209,
       [
        "overwork_rest"
       ],
@@ -9677,7 +9737,7 @@
       "Isaiah 41:10",
       "fear_anxiety",
       1,
-      1.8145,
+      1.8142,
       [
        "fear_anxiety"
       ],
@@ -9689,7 +9749,7 @@
       "1 Peter 5:7",
       "fear_anxiety",
       2,
-      2.2623,
+      2.2621,
       [
        "fear_anxiety"
       ],
@@ -9701,7 +9761,7 @@
       "Philippians 4:6",
       "fear_anxiety",
       3,
-      5.4396,
+      5.4389,
       [
        "fear_anxiety"
       ],
@@ -9829,7 +9889,7 @@
       "Psalms 107:1",
       "gratitude",
       1,
-      4.9433,
+      4.9429,
       [
        "gratitude"
       ],
@@ -9841,7 +9901,7 @@
       "1 Thessalonians 5:18",
       "gratitude",
       2,
-      5.3824,
+      5.3821,
       [
        "gratitude"
       ],
@@ -9953,7 +10013,7 @@
       "Deuteronomy 31:8",
       "loneliness",
       1,
-      4.4812,
+      4.4808,
       [
        "loneliness"
       ],
@@ -10157,7 +10217,7 @@
       "Psalms 107:1",
       "gratitude",
       1,
-      4.9433,
+      4.9429,
       [
        "gratitude"
       ],
@@ -10169,7 +10229,7 @@
       "1 Thessalonians 5:18",
       "gratitude",
       2,
-      5.3824,
+      5.3821,
       [
        "gratitude"
       ],
@@ -10660,7 +10720,7 @@
       "Matthew 5:4",
       "grief",
       2,
-      5.756,
+      5.7557,
       [
        "grief"
       ],
@@ -11066,7 +11126,7 @@
       "Matthew 5:4",
       "grief",
       2,
-      5.756,
+      5.7557,
       [
        "grief"
       ],
@@ -11670,7 +11730,7 @@
       "2 Corinthians 9:7",
       "generosity",
       1,
-      3.1845,
+      3.1841,
       [
        "generosity"
       ],
@@ -11682,7 +11742,7 @@
       "Acts 20:35",
       "generosity",
       2,
-      3.3024,
+      3.302,
       [
        "generosity"
       ],
@@ -11694,7 +11754,7 @@
       "Proverbs 11:25",
       "generosity",
       3,
-      5.6959,
+      5.6953,
       [
        "generosity"
       ],
@@ -11844,7 +11904,7 @@
       "1 John 1:9",
       "forgiveness",
       3,
-      7.0018,
+      7.0012,
       [
        "forgiveness"
       ],
@@ -11866,7 +11926,7 @@
       "Ephesians 4:32",
       "forgiveness",
       null,
-      6.8673,
+      6.8666,
       [
        "forgiveness"
       ],
@@ -12196,7 +12256,7 @@
       "Psalms 62:8",
       "fear_anxiety",
       null,
-      1.6829,
+      1.6826,
       [
        "fear_anxiety",
        "grief"
@@ -12209,7 +12269,7 @@
       "Isaiah 41:10",
       "fear_anxiety",
       null,
-      2.6771,
+      2.6769,
       [
        "fear_anxiety"
       ],
@@ -12221,7 +12281,7 @@
       "Deuteronomy 31:8",
       "fear_anxiety",
       null,
-      2.6375,
+      2.6373,
       [
        "fear_anxiety"
       ],
@@ -12401,7 +12461,7 @@
       "Philippians 4:19",
       "money_worry",
       1,
-      11.5168,
+      11.5155,
       [
        "money_worry"
       ],
@@ -12549,7 +12609,7 @@
       "Matthew 5:4",
       "grief",
       2,
-      5.756,
+      5.7557,
       [
        "grief"
       ],
@@ -12815,7 +12875,7 @@
       "Isaiah 40:29",
       "overwork_rest",
       2,
-      10.4625,
+      10.4614,
       [
        "overwork_rest"
       ],
@@ -12829,7 +12889,7 @@
       "Jeremiah 31:25",
       "overwork_rest",
       4,
-      7.2544,
+      7.2536,
       [
        "overwork_rest"
       ],

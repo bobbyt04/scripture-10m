@@ -1,9 +1,14 @@
 import { BOOK_NAMES, type BookId } from "../advice/api.ts";
-import { h } from "../dom.ts";
+import { h, prefersReducedMotion } from "../dom.ts";
 import manifest from "../model/manifest.json";
-import type { WorkerReply, WorkerRequest } from "./worker.ts";
+import { CharTokenizer } from "../model/tokenizer.ts";
+import vocab from "../model/vocab.json";
+import { encodeStart, MAX_START_CHARS } from "./start.ts";
+import type { Think, WorkerReply, WorkerRequest } from "./worker.ts";
 
 const MAX_TOKENS = 400;
+/** The "watch it think" bars are redrawn at most this often (less with reduced motion), so drawing never slows the text. */
+const thinkEveryMs = () => (prefersReducedMotion() ? 600 : 120);
 const TAG = /^<(gita|quran|bible)>/;
 
 export const modelSizeMB = (manifest.bytes / 1e6).toFixed(1);
@@ -18,64 +23,85 @@ export function toLines(raw: string, book: BookId): { text: string; switchedTo: 
   });
 }
 
+/** A token as the visitor sees it in the bars: space and newline get visible symbols. */
+export const showChar = (c: string) => (c === " " ? "␣" : c === "\n" ? "↵" : c);
+
 /** What the visitor reads when loading or generating fails; the technical reason goes in data-error. */
 export function errorMessage(modelLoaded: boolean): string {
   return modelLoaded
-    ? "The model stopped unexpectedly. Press Generate to try again."
+    ? "The model stopped unexpectedly. Press Write to try again."
     : "The model could not be downloaded completely. Check your connection and press Try again.";
 }
 
-export function mountGenerate(root: HTMLElement): void {
+export interface Generator {
+  /** Start writing in the style of `book`, or stop if it is already writing. Loads the model on first use. */
+  toggle(book: BookId, temperature: number, typed: string): void;
+  stop(): void;
+  /** Show the crisis note in place of any text, and generate nothing. */
+  note(text: string): void;
+}
+
+export type GenPhase = "idle" | "loading" | "writing";
+
+/** The generation panel. `onPhase` tells the prompt box what its button should say and do. */
+export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, label: string) => void,
+  onRate: (text: string) => void = () => {}): Generator {
   const q = <T extends Element>(sel: string) => root.querySelector<T>(sel)!;
-  const button = q<HTMLButtonElement>("[data-gen-start]");
-  const stop = q<HTMLButtonElement>("[data-gen-stop]");
-  const temp = q<HTMLInputElement>("[data-gen-temp]");
-  const tempOut = q<HTMLOutputElement>("[data-gen-temp-out]");
   const progress = q<HTMLElement>("[data-gen-progress]");
   const bar = q<HTMLElement>("[data-gen-bar]");
-  const progressText = q<HTMLElement>("[data-gen-progress-text]");
   const output = q<HTMLElement>("[data-gen-output]");
+  const rate = q<HTMLElement>("[data-gen-rate]");
   const status = q<HTMLElement>("[data-gen-status]");
   const live = q<HTMLElement>("[data-gen-live]");
-  const sizeEls = root.querySelectorAll<HTMLElement>("[data-model-size]");
-  sizeEls.forEach((el) => (el.textContent = `${modelSizeMB} MB`));
+  const think = q<HTMLElement>("[data-gen-think]");
+  const bars = q<HTMLElement>("[data-gen-bars]");
 
   let worker: Worker | null = null;
   let ready = false;
-  let busy = false;
+  let phase: GenPhase = "idle";
   let raw = "";
   let book: BookId = "gita";
   let announced = 0;
+  let t0 = 0;
+  let temperature = 0.8;
+  let typed = "";
+  let start = "";
+  const tok = new CharTokenizer(vocab);
+  let thinkDrawn = 0;
 
-  const selectedBook = () => (root.querySelector<HTMLInputElement>("input[name=gen-book]:checked")?.value ?? "gita") as BookId;
-  const showTemp = () => (tempOut.value = Number(temp.value).toFixed(1));
-  temp.addEventListener("input", showTemp);
-  showTemp();
+  const drawThink = (t: Think) => {
+    think.hidden = false;
+    // One row per guess: the character, a thin bar as long as its probability, the probability. The sampled row is black.
+    bars.replaceChildren(...t.top.map((c) =>
+      h("tr", { class: `think__row${c.char === t.sampled ? " is-sampled" : ""}` },
+        h("td", { class: "think__char" }, showChar(c.char), c.char === t.sampled ? h("span", { class: "visually-hidden" }, " (sampled)") : null),
+        h("td", { class: "think__barcell", "aria-hidden": "true" }, h("span", { class: "think__bar", style: `width:${(100 * c.p).toFixed(1)}%` })),
+        h("td", { class: "think__p" }, `${(100 * c.p).toFixed(1)}%`))),
+    h("tr", { class: "think__rest" }, h("td", { colspan: "3" }, `others ${(100 * t.rest).toFixed(1)}%`,
+      t.top.some((c) => c.char === t.sampled) ? "" : ` · sampled ${showChar(t.sampled)}`)));
+  };
 
   const draw = (generating: boolean) => {
-    const lines = toLines(raw, book);
+    // The visitor's start has no line break, so it is always the beginning of the first line.
+    const lines = toLines(start + raw, book);
     output.replaceChildren(...lines.map((l, i) =>
       h("p", { class: "gen__line" },
         l.switchedTo ? h("span", { class: "gen__switch" }, `switched to ${BOOK_NAMES[l.switchedTo]} style`) : null,
-        l.text,
+        i === 0 && start ? [h("strong", { class: "gen__start", "data-gen-start": "", title: "your text" }, start), l.text.slice(start.length)] : l.text,
         generating && i === lines.length - 1 ? h("span", { class: "gen__caret", "aria-hidden": "true" }) : null)));
     if (generating && lines.length === 0) output.append(h("p", { class: "gen__line" }, h("span", { class: "gen__caret", "aria-hidden": "true" })));
     // announce finished lines only, never single characters
     const done = raw.split("\n").length - 1;
     if (done > announced) {
-      const finished = toLines(raw.split("\n").slice(announced, done).join("\n"), book);
+      const finished = toLines((start + raw).split("\n").slice(announced, done).join("\n"), book);
       live.textContent = finished.map((l) => l.text).join(" ");
       announced = done;
     }
   };
 
-  const setBusy = (b: boolean) => {
-    busy = b;
-    button.hidden = b;
-    stop.hidden = !b;
-    root.querySelectorAll<HTMLInputElement>("input[name=gen-book]").forEach((r) => (r.disabled = b));
-    if (b) stop.focus();
-    else if (document.activeElement === stop || document.activeElement === document.body) button.focus();
+  const setPhase = (p: GenPhase, label: string) => {
+    phase = p;
+    onPhase(p, label);
   };
 
   const send = (m: WorkerRequest) => worker!.postMessage(m);
@@ -83,74 +109,101 @@ export function mountGenerate(root: HTMLElement): void {
   const onMessage = (e: MessageEvent<WorkerReply>) => {
     const m = e.data;
     if (m.type === "progress") {
-      const pct = Math.min(100, (100 * m.loaded) / m.total);
-      bar.style.transform = `scaleX(${pct / 100})`;
-      progress.setAttribute("aria-valuenow", String(Math.round(pct)));
-      progressText.textContent = `Downloading the model: ${(m.loaded / 1e6).toFixed(1)} of ${(m.total / 1e6).toFixed(1)} MB`;
+      const frac = Math.min(1, m.loaded / m.total);
+      bar.style.transform = `scaleX(${frac})`;
+      progress.setAttribute("aria-valuenow", String(Math.round(100 * frac)));
+      status.textContent = `Downloading the model: ${(m.loaded / 1e6).toFixed(1)} / ${(m.total / 1e6).toFixed(1)} MB`;
     } else if (m.type === "ready") {
       ready = true;
       progress.hidden = true;
-      progressText.textContent = "";
-      button.disabled = false;
-      setBusy(true);
-      start();
+      begin();
     } else if (m.type === "text") {
       raw += m.text;
+      const secs = (performance.now() - t0) / 1000;
+      const perSec = secs > 0.2 ? String(Math.round(raw.length / secs)) : "–";
+      rate.textContent = `${raw.length} chars · ${perSec} chars/s · temperature ${temperature.toFixed(1)}`;
+      onRate(`${perSec} chars/s`);
       draw(true);
+      const now = performance.now();
+      if (m.think && now - thinkDrawn >= thinkEveryMs()) {
+        thinkDrawn = now;
+        drawThink(m.think);
+      }
     } else if (m.type === "done") {
       draw(false);
-      setBusy(false);
+      setPhase("idle", "Write again");
       const secs = m.ms / 1000;
-      const rate = m.tokens / secs;
-      status.textContent = `${m.tokens} characters in ${secs.toFixed(1)} s (${rate.toFixed(0)} per second), computed on your device.` +
-        (m.stopped ? " Stopped early." : "");
-      root.dataset.tokensPerSecond = rate.toFixed(1);
+      const perSec = m.tokens / secs;
+      rate.textContent = `${m.tokens} chars · ${perSec.toFixed(0)} chars/s · temperature ${temperature.toFixed(1)} · ${secs.toFixed(1)} s on your device`;
+      if (m.stopped) status.textContent = [status.textContent, "Stopped."].filter(Boolean).join(" ");
+      root.dataset.tokensPerSecond = perSec.toFixed(1);
       live.textContent = m.stopped ? "Stopped." : "Finished.";
-      button.textContent = "Generate again";
     } else if (m.type === "error") {
-      button.disabled = false;
-      setBusy(false);
       progress.hidden = true;
-      progressText.textContent = "";
       status.textContent = errorMessage(ready);
       status.dataset.error = m.message;
       if (!ready) {
         worker?.terminate();
         worker = null;
-        button.textContent = "Try again";
       }
+      setPhase("idle", ready ? "Write" : "Try again");
     }
   };
 
-  function start() {
-    book = selectedBook();
+  function begin() {
+    rate.parentElement!.hidden = false;
+    const s = encodeStart(tok, book, typed);
+    start = s.text;
     raw = "";
     announced = 0;
-    status.textContent = "";
+    status.textContent = [
+      s.dropped ? `${s.dropped} character${s.dropped === 1 ? "" : "s"} the model doesn’t know ${s.dropped === 1 ? "was" : "were"} left out.` : "",
+      s.cut ? `Only the first ${MAX_START_CHARS} characters are used.` : "",
+    ].filter(Boolean).join(" ");
+    rate.textContent = "";
     delete status.dataset.error;
+    delete root.dataset.tokensPerSecond;
     output.dataset.book = book;
     draw(true);
+    setPhase("writing", "Stop");
+    t0 = performance.now();
     const seed = crypto.getRandomValues(new Uint32Array(1))[0];
-    send({ type: "generate", book, temperature: Number(temp.value), maxTokens: MAX_TOKENS, seed });
+    send({ type: "generate", prompt: s.ids, temperature, maxTokens: MAX_TOKENS, seed });
   }
 
-  button.addEventListener("click", () => {
-    if (busy || button.disabled) return;
-    if (ready) {
-      setBusy(true);
-      return start();
-    }
-    button.disabled = true;
-    if (!worker) {
-      worker = new Worker(new URL("./worker.ts", import.meta.url), { type: "module" });
-      worker.onmessage = onMessage;
-      worker.onerror = () => onMessage(new MessageEvent("message", { data: { type: "error", message: "the model worker failed to start" } }));
-    }
-    progress.hidden = false;
-    bar.style.transform = "scaleX(0)";
-    progressText.textContent = `Downloading the model: 0 of ${modelSizeMB} MB`;
-    status.textContent = "";
-    send({ type: "load", url: `${import.meta.env.BASE_URL}${manifest.file}`, bytes: manifest.bytes, sha256: manifest.sha256 });
-  });
-  stop.addEventListener("click", () => send({ type: "stop" }));
+  const stop = () => {
+    if (phase === "writing") send({ type: "stop" });
+  };
+
+  return {
+    stop,
+    note(text: string) {
+      if (phase !== "idle") return;
+      start = raw = "";
+      rate.textContent = status.textContent = "";
+      think.hidden = true;
+      rate.parentElement!.hidden = true;
+      delete output.dataset.book;
+      output.replaceChildren(h("p", { class: "crisis", "data-crisis": "" }, text));
+    },
+    toggle(b: BookId, temp: number, text: string) {
+      if (phase === "writing") return stop();
+      if (phase === "loading") return;
+      book = b;
+      temperature = temp;
+      typed = text;
+      if (ready) return begin();
+      setPhase("loading", "Loading…");
+      if (!worker) {
+        worker = new Worker(new URL("./worker.ts", import.meta.url), { type: "module" });
+        worker.onmessage = onMessage;
+        worker.onerror = () => onMessage(new MessageEvent("message", { data: { type: "error", message: "the model worker failed to start" } }));
+      }
+      progress.hidden = false;
+      bar.style.transform = "scaleX(0)";
+      status.textContent = `Downloading the model: 0 / ${modelSizeMB} MB`;
+      delete status.dataset.error;
+      send({ type: "load", url: `${import.meta.env.BASE_URL}${manifest.file}`, bytes: manifest.bytes, sha256: manifest.sha256 });
+    },
+  };
 }

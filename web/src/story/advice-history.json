@@ -1,5 +1,5 @@
 {
-  "about": "Numbers in chapter 08 that the repository records only in prose. Every other number in the chapter is read at build time from evals/search_probes.json, evals/search_cases.json, evals/results/search.json and search/artifacts/search.json (see scripts/repo-data.ts, adviceHistory).",
+  "about": "Numbers in the 'What failed' chapter that the repository records only in prose. Every other number in the chapter is read at build time from evals/search_probes.json, evals/search_cases.json, evals/results/search.json and search/artifacts/search.json (see scripts/repo-data.ts, adviceHistory).",
   "fullCorpus": {
     "contaminatedHit10": 0.57,
     "blindSituations": 40,

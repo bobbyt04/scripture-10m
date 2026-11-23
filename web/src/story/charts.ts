@@ -1,6 +1,4 @@
-// Hand-drawn SVG charts. Colours come from CSS custom properties, so they follow light and dark mode.
-// Lines are revealed left to right by a clip rectangle when their chapter scrolls into view (see .reveal in
-// the CSS); with prefers-reduced-motion they are simply drawn.
+// SVG charts drawn without a library. Colours come from CSS custom properties (muted book colours, greys).
 
 import { h, s } from "../dom.ts";
 

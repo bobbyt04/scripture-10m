@@ -442,7 +442,7 @@
 {"ref": "1 Peter 4:10", "themes": ["purpose", "generosity"], "universal": true, "why": "Use whatever gift you have received to serve others."},
 {"ref": "1 Peter 5:7", "themes": ["fear_anxiety"], "universal": true, "why": "Cast all your cares on him, for he cares for you.", "priority": {"fear_anxiety": 2}},
 {"ref": "1 John 1:9", "themes": ["guilt_repentance", "forgiveness"], "universal": false, "why": "If we confess our wrongs, he is faithful to forgive and cleanse us.", "priority": {"guilt_repentance": 1, "forgiveness": 3}},
-{"ref": "1 John 3:20", "themes": ["guilt_repentance", "self_worth"], "universal": false, "why": "Even when our heart condemns us, God is greater than our heart.", "trim": "For ", "priority": {"guilt_repentance": 5}},
+{"ref": "1 John 3:20", "themes": ["guilt_repentance"], "universal": false, "why": "Even when our heart condemns us, God is greater than our heart.", "trim": "For ", "priority": {"guilt_repentance": 5}},
 {"ref": "1 John 4:8", "themes": ["love_compassion"], "universal": true, "why": "God is love."},
 {"ref": "1 John 4:16", "themes": ["love_compassion"], "universal": true, "why": "Whoever lives in love lives in God.", "trim": "And "},
 {"ref": "Revelation 21:5", "themes": ["hope", "change_uncertainty"], "universal": false, "why": "Behold, I make all things new.", "trim": "And he that sat upon the throne said, ", "trim_end": " And he said unto me, Write: for these words are true and faithful."}

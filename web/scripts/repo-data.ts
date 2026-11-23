@@ -242,6 +242,18 @@ export interface Stats extends PerBook<{ verses: number; characters: number; cha
   charset: string;
 }
 
+export interface RecordedSample { file: string; seed: number; temperature: number; step: number; text: string }
+
+/** The first sample of a samples/<book>.md file: its seed, temperature, checkpoint step and generated text. */
+export function parseSample(md: string, file: string): RecordedSample {
+  const seed = md.match(/^## Seed (\d+)/m);
+  const temp = md.match(/--temperature ([0-9.]+)/);
+  const step = md.match(/\(step ([0-9,]+)\)/);
+  const text = md.match(/```text\n([\s\S]*?)\n```/);
+  if (!seed || !temp || !step || !text) throw new Error(`${file}: no seed, temperature, step or text block`);
+  return { file, seed: Number(seed[1]), temperature: Number(temp[1]), step: Number(step[1].replaceAll(",", "")), text: text[1] };
+}
+
 export interface RepoData {
   stats: Stats;
   kjvErrors: { text: string }[];
@@ -259,6 +271,8 @@ export interface RepoData {
   bookRun: { step: number; gitaCopied: number; gitaLongestRun: number; gitaLoss: number; bigramGitaLoss: number };
   evalCommit: string;
   advice: AdviceHistory;
+  /** A recorded sample per book: samples/<book>.md, seed 1 (tag only), shown before the model is loaded. */
+  samples: Record<Book, RecordedSample>;
 }
 
 // ------------------------------------------------------------------ the verse search's history (chapter 08)
@@ -284,10 +298,28 @@ export interface AdviceHistory {
   /** The round-4 judge's verdict on every verse the full search showed for 50 everyday situations. */
   round4Fitting: number;
   storedCrisis: number;
+  /** Stored crisis messages the current rules miss (the eighth judge's messages not in English). */
+  storedMissed: number;
+  /** The eighth judge's one blind run of the auto-show design, before round 13 changed anything. */
+  judge8: { crisis: number; caught: number; shownComfort: number; shownNothing: number; harmful: number; controls: number; falseAlarms: number };
+  /** Every topic the site may open without a tap (themes.json "auto_show"), by label. */
+  autoShow: string[];
   topicHit: { split: string; cases: number; before: number; after: number }[];
   pool: Record<Book, number>;
   comfortTopics: string[];
   topicCount: number;
+}
+
+interface Judge8Run {
+  crisis: number; crisis_caught: number; not_crisis: number; not_crisis_false_alarms: number;
+  crisis_missed_shown: { harmful: number; comfort_verses: number; nothing: number };
+}
+
+function judge8Run(r: Judge8Run | undefined): AdviceHistory["judge8"] {
+  if (!r) throw new Error("search_probes.json: no judge8_held_out.first_run");
+  return { crisis: r.crisis, caught: r.crisis_caught, shownComfort: r.crisis_missed_shown.comfort_verses,
+    shownNothing: r.crisis_missed_shown.nothing, harmful: r.crisis_missed_shown.harmful, controls: r.not_crisis,
+    falseAlarms: r.not_crisis_false_alarms };
 }
 
 interface ProbeRun {
@@ -302,8 +334,8 @@ interface ProbeRun {
 export function adviceHistory(
   probes: Record<string, { crisis?: unknown[]; first_run?: ProbeRun; about?: string }> & { first_look?: unknown },
   cases: { blind_1_hand_judged: { overall: { fitting: number } } },
-  results: { suggest: { "topic_hit@4": Record<string, { cases: number; "topic_hit@4": number }>; crisis_probes: { as_if_missed: { messages: number } } } },
-  site: { pool: Record<Book, unknown[]>; themes: Record<string, { kind?: string; label?: string }> },
+  results: { suggest: { "topic_hit@4": Record<string, { cases: number; "topic_hit@4": number }>; crisis_probes: { as_if_missed: { messages: number }; missed: { messages: number } } } },
+  site: { pool: Record<Book, unknown[]>; themes: Record<string, { kind?: string; label?: string; auto_show?: boolean }> },
   topicCount: number,
   prose: { firstReview: { crisisCaught: number; harmful: number }; topicHitBeforeComfortOnly: Record<string, number | string> },
 ): AdviceHistory {
@@ -337,6 +369,9 @@ export function adviceHistory(
     firstLook,
     round4Fitting: cases.blind_1_hand_judged.overall.fitting,
     storedCrisis: results.suggest.crisis_probes.as_if_missed.messages,
+    storedMissed: results.suggest.crisis_probes.missed.messages,
+    judge8: judge8Run(probes.judge8_held_out?.first_run as Judge8Run | undefined),
+    autoShow: Object.values(site.themes).filter((t) => t.auto_show).map((t) => t.label ?? ""),
     topicHit,
     pool: { gita: site.pool.gita.length, quran: site.pool.quran.length, bible: site.pool.bible.length },
     comfortTopics: Object.values(site.themes).filter((t) => t.kind === "comfort").map((t) => t.label ?? ""),

@@ -6,15 +6,16 @@ example to JavaScript in the browser) needs, including the verse texts to
 show. Everything is plain comparisons and double-precision arithmetic; no
 vectors are needed for it.
 
-**The site contract: type, then pick a topic.** The site never shows a
+**The site contract: type, then a topic.** The site never shows a
 verse chosen from free text. What a visitor types goes only to
 [`suggest(query)`](#8-suggestquery-the-only-free-text-entry-point) (steps
 0 to 5 and 8), which returns topics, never verses: a kind note with no
 topics for a possible crisis, gentle topics for a sensitive message, up to 4
 topics otherwise, or none (the site then shows the full list, `topics()`).
-Verses appear only after the visitor taps a topic:
-[`topic(id, k, sensitive)`](#9-topicid-knull-sensitivefalse-and-topics)
-returns them in the hand-set order. `search(query, k)` (steps 6, 7 and 10),
+Verses come only from
+[`topic(id, k, sensitive)`](#9-topicid-knull-sensitivefalse-and-topics),
+in the hand-set order: for the first suggested topic straight away if its
+`auto_show` is true (round 13), otherwise after the visitor taps a topic. `search(query, k)` (steps 6, 7 and 10),
 which chose verses from free text, is kept in `scripture/search.py` for the
 eval history only; the site does not call it.
 
@@ -61,6 +62,7 @@ an all-zero row as zeros** (its cosine with anything is 0, never NaN).
     "grief": {"name": "Grief and loss", "description": "...",
               "label": "Grief and loss", "blurb": "For missing someone who has died.",   what a visitor sees
               "kind": "comfort",                    "comfort" or "self_directed" (step 8)
+              "auto_show": true,                    optional: the site may open this topic without a tap (steps 8 and 9)
               "gentle_label": "Loss and comfort", "gentle_blurb": "...",   optional: shown for a sensitive message
               "note": "...",                                                optional
               "phrases": ["passed away", "lost my mom|dad|...", ...]}, ...
@@ -75,6 +77,7 @@ an all-zero row as zeros** (its cosine with anything is 0, never NaN).
     "sensitive": {"sexuality_gender": {"themes": ["self_worth", ...], "phrases": [...]},
                   "pregnancy": {..., "exclude": {"gita": ["2:40"]}}, ...},   exclude is optional (steps 7 and 9)
     "distress": {"window": 7, "rules": [rule, ...]},
+    "unblanked": {"window": 12, "rules": [rule, ...]},   distress rules read on W, before blanking (step 3)
     "suggest": {"max_topics": 4, "max_topics_after_signal": 2,                    step 8
                 "min_sensitive_verses": 3,
                 "never_after_signal": ["courage", "love_compassion", "friendship", "marriage", "family_parents", "forgiveness"],
@@ -181,7 +184,13 @@ Let W = words(query).
 1. Crisis words C: let N = words(spell(query)), where spell(query) first
    replaces every character that is a key of `emoji` by a space, its word
    and a space (in the order of `emoji`; "🙂🔫" gives `["emojigun"]`, since
-   other emoji are not letters and words drops them), and then replaces
+   other emoji are not letters and words drops them), then lower-cases the
+   text and (round 13) replaces each match of
+   `(?<![a-z0-9_])([0-9]{1,3}) *(?:calories|calorie|cals|cal|kcal)(?![a-z0-9_])`
+   whose number is at most 800 by " fewcalories ", and each `1`, `3` or `0`
+   that directly follows a letter `a`-`z` by `i`, `e` or `o` ("d1e" gives
+   "die"; a digit that follows a digit or starts the text is kept, so "took
+   30 tylenol" is unchanged), and then replaces
    every maximal run of ASCII digits `[0-9]+` by a space, a word and a
    space: its English word (one, two, ..., seventeen) if it is exactly one
    of "1" to "17" (no leading zero), otherwise the word `num`. So "i'm 14"
@@ -203,9 +212,13 @@ Let W = words(query).
 2. If any crisis phrase matches C → `("crisis", topic)`, the first topic in
    file order with a match.
 3. Else if any distress rule fires on C → `("crisis", "distress")`.
-4. Else if any sensitive phrase matches **W** (not N) → `("sensitive", topic)`, the
+4. Else if any `unblanked` rule fires on **W** (window `unblanked.window`) →
+   `("crisis", "distress")`. These read the message before idioms and
+   bereavement are blanked: "since my wife passed i just want to be with
+   her", "i want to die for god".
+5. Else if any sensitive phrase matches **W** (not N) → `("sensitive", topic)`, the
    first topic in file order.
-5. Else `("general", null)`.
+6. Else `("general", null)`.
 
 **Distress rules.** A rule is a string: groups separated by ` + `; a group
 lists alternative phrases separated by `, `; after the groups come vetoes,
@@ -348,8 +361,14 @@ ref or verse text:
 ```
 {"category": "crisis" | "sensitive" | "general" | "none",
  "note": null | crisis_message,
- "topics": [{"id", "label", "blurb"}, ...]}
+ "topics": [{"id", "label", "blurb", "auto_show"}, ...]}
 ```
+
+`auto_show` is true if the theme has `"auto_show": true` and, for a
+sensitive message, is also a comfort topic. The site opens the first topic
+without a tap only when its `auto_show` is true; otherwise it lists the
+topics and waits for a tap. `topic()` and `topics()` carry the same field
+(for `topics()`, as for a message that is not sensitive).
 
 1. (category, topic) = classify(query) (step 3). If the category is crisis,
    return `{"category": "crisis", "note": crisis_message, "topics": []}`.
@@ -416,7 +435,7 @@ for this topic (1, 2, ...; none counts as 1000), then score = r(1 /
 a positive integer). An unknown topic is an error.
 
 ```
-{"id", "label", "blurb",                  gentle_label and gentle_blurb if sensitive and present
+{"id", "label", "blurb", "auto_show",     gentle_label and gentle_blurb if sensitive and present
  "note": null | the theme's note,
  "sensitive": bool,
  "books": {"gita": {"verses": [{"ref", "text", "why", "themes", "priority"}, ...],
