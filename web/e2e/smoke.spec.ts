@@ -12,11 +12,11 @@ test("page loads without errors and without the model", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1, name: "Scripture-10M" })).toBeVisible();
   await expect(page.locator("#built-results")).toContainText("Scripture-10M");
-  // Before anything runs, the panel shows a recorded sample from samples/, labelled as such.
-  await expect(page.locator("[data-gen-label]")).toContainText("Recorded sample: samples/bible.md");
-  expect(await page.locator("[data-gen-output] .gen__line").count()).toBeGreaterThan(0);
-  await page.getByRole("button", { name: "Quran", exact: true }).click();
-  await expect(page.locator("[data-gen-label]")).toContainText("samples/quran.md");
+  // Before anything runs, the live slot is hidden; the Model section shows a recorded sample, labelled as such.
+  await expect(page.locator("[data-generate]")).toBeHidden();
+  await expect(page.locator("#built-model")).toContainText("A recorded sample, Bible style (samples/bible.md, seed 1");
+  expect(await page.locator("[data-sample] p").count()).toBeGreaterThan(0);
+  await expect(page.locator("[data-gen-run]")).toHaveText(/^Run it live \(\d+\.\d MB\)$/);
   await page.waitForLoadState("networkidle");
   expect(modelRequests).toEqual([]); // the weights load only when the model is asked to write
   expect(errors).toEqual([]);
@@ -127,7 +127,7 @@ test("let the model write: downloads the model and streams labelled text", async
   await expect(gen.locator(".think__rest")).toContainText("others");
   // A full run is 400 characters; on a busy machine that can outlast the test, so it is stopped after 60.
   await expect.poll(async () => (await page.locator("[data-gen-output]").innerText()).length, { timeout: 100_000 }).toBeGreaterThan(60);
-  await expect(page.locator("#ask button[type=submit]")).toHaveText("Stop");
+  await expect(page.locator("#ask button[type=submit]")).toHaveAttribute("aria-label", "Stop");
   await page.locator("#ask button[type=submit]").click();
   await expect(gen).toHaveAttribute("data-tokens-per-second", /\d/);
   await expect(gen.locator("[data-gen-status]")).toHaveText("Stopped.");
@@ -139,7 +139,7 @@ test("let the model write: downloads the model and streams labelled text", async
   expect(text.length).toBeGreaterThan("And it came to pass".length + 20);
   expect(urls.filter((u) => /came|pass/i.test(decodeURIComponent(u)))).toEqual([]);
   await expect(gen.locator(".meta")).toContainText("machine-generated imitation, not scripture");
-  await expect(page.locator("#ask button[type=submit]")).toHaveText("Write again");
+  await expect(page.locator("#ask button[type=submit]")).toHaveAttribute("aria-label", "Write again");
   await page.getByRole("button", { name: "Find verses" }).click();
   await expect(page.locator("#ask-input")).toHaveValue("And it came to pass");
 });
@@ -156,7 +156,7 @@ test("let the model write: crisis text gets the note and the model does not writ
   await expect(note).toContainText("This page will not show verses for what you wrote.");
   await expect(page.locator("[data-gen-output] .gen__line")).toHaveCount(0);
   await expect(page.locator(".think__row")).toHaveCount(0);
-  await expect(page.locator("#ask button[type=submit]")).toHaveText("Write");
+  await expect(page.locator("#ask button[type=submit]")).toHaveAttribute("aria-label", "Write");
   expect(modelRequests).toEqual([]);
   expect(new URL(page.url()).search).toBe("");
 });

@@ -10,21 +10,21 @@ import { mountPrompt } from "./prompt.ts";
 import { loadSimilarities } from "./similarities/api.ts";
 import { renderSimilarities } from "./similarities/view.ts";
 import { h } from "./dom.ts";
-import { renderStats, renderStory } from "./story/story.ts";
+import { renderStory } from "./story/story.ts";
 
 document.documentElement.classList.add("js");
 
 const ctl = new AdviceController(searchApi);
 const results = document.querySelector<HTMLElement>("#ask-results")!;
 const gen = document.querySelector<HTMLElement>("[data-generate]")!;
+renderStory(document.querySelector<HTMLElement>("[data-story]")!); // before mountPrompt, which wires its "Run it live" link
 mountResults(results, ctl);
 mountPrompt(document.querySelector<HTMLFormElement>("#ask")!, results, gen, ctl, (onPhase) => mountGenerate(gen, onPhase),
   async (text) => {
     const s = await searchApi.suggest(text);
     return s.category === "crisis" ? s.note ?? "" : null;
   });
-renderStats(document.querySelector<HTMLElement>("[data-stats]")!);
-renderStory(document.querySelector<HTMLElement>("[data-story]")!);
+
 
 // A link to a section (/#built-failed) must land on it even though the chapters, the parallels and the fonts
 // arrive after the browser's first scroll. Re-scroll as each arrives, until the reader scrolls themselves.

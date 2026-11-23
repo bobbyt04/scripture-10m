@@ -1,7 +1,7 @@
 {
   "about": "Written by web/scripts/count_tests.ts; each count is what the command lists.",
   "python": {
-    "tests": 3389,
+    "tests": 3406,
     "command": "python -m pytest --collect-only -q"
   },
   "vitest": {

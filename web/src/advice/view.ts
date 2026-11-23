@@ -52,7 +52,7 @@ function verses(r: TopicResult): Node[] {
   const empty = BOOKS.filter((b) => r.books[b].verses.length === 0);
   return [
     r.note ? h("p", { class: "muted" }, r.note) : null,
-    h("div", { class: "books" }, BOOKS.filter((b) => r.books[b].verses.length > 0).map((b) => bookSection(b, r.books[b].verses))),
+    ...BOOKS.filter((b) => r.books[b].verses.length > 0).map((b) => bookSection(b, r.books[b].verses)),
     ...empty.map((b) => h("p", { class: "muted", "data-empty": b }, r.books[b].nothing)),
   ].filter((n) => n !== null);
 }
