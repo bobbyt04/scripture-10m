@@ -5,20 +5,17 @@ import type { Pair, Similarities } from "./api.ts";
 const PAGE = 6;
 
 export const SOURCE_LABEL: Record<Pair["source"], string> = {
-  "model, reviewed": "Word statistics, then reviewed",
-  "hand-listed": "Hand-listed, then reviewed",
+  "model, reviewed": "proposed by word statistics, then reviewed",
+  "hand-listed": "from a manually compiled list, then reviewed",
 };
 
-function pairCard(p: Pair, theme: string): HTMLElement {
+function pairItem(p: Pair, theme: string): HTMLElement {
   return h("article", { class: "pair", "data-pair": "" },
-    h("p", { class: "pair__theme" }, theme),
-    h("div", { class: "pair__cols" },
-      p.verses.map((v) =>
-        h("figure", { class: `pair__verse book--${v.book}` },
-          h("figcaption", {}, h("span", { class: "pair__book" }, BOOK_NAMES[v.book]), h("span", { class: "pair__ref" }, v.ref)),
-          h("blockquote", {}, v.text)))),
-    h("p", { class: "pair__idea" }, p.idea),
-    h("p", { class: "pair__source", "data-source": p.source }, SOURCE_LABEL[p.source]));
+    p.verses.map((v) =>
+      h("figure", { class: "verse" },
+        h("blockquote", {}, v.text),
+        h("figcaption", {}, h("span", { class: "ref" }, `${BOOK_NAMES[v.book]} ${v.ref}`)))),
+    h("p", { class: "muted" }, p.idea, " ", h("small", {}, `${theme}; `, h("span", { "data-source": p.source }, SOURCE_LABEL[p.source]), ".")));
 }
 
 export function renderSimilarities(root: HTMLElement, data: Similarities): void {
@@ -26,31 +23,31 @@ export function renderSimilarities(root: HTMLElement, data: Similarities): void 
   const fromModel = all.filter((r) => r.p.source === "model, reviewed").length;
   let filter = "All";
   let shown = PAGE;
-  const list = h("div", { class: "pairs" });
-  const more = h("button", { type: "button", class: "button button--quiet" });
-  const status = h("p", { class: "pairs__status", "aria-live": "polite" });
-  const chips = h("div", { class: "chips", role: "group", "aria-label": "Filter by theme" });
+  const list = h("div", {});
+  const more = h("button", { type: "button", class: "button" });
+  const status = h("span", { class: "muted", "aria-live": "polite" });
+  const select = h("select", { "aria-label": "Theme" },
+    h("option", { value: "All" }, `All themes (${all.length})`),
+    data.themes.map((t) => h("option", { value: t.name }, `${t.name} (${t.pairs.length})`)));
 
   const draw = () => {
     const rows = all.filter((r) => filter === "All" || r.theme === filter);
-    list.replaceChildren(...rows.slice(0, shown).map((r) => pairCard(r.p, r.theme)));
+    list.replaceChildren(...rows.slice(0, shown).map((r) => pairItem(r.p, r.theme)));
     const left = rows.length - Math.min(shown, rows.length);
     more.hidden = left === 0;
     more.textContent = `Show ${Math.min(PAGE, left)} more`;
     status.textContent = `${Math.min(shown, rows.length)} of ${rows.length}`;
-    for (const c of chips.querySelectorAll("button")) c.setAttribute("aria-pressed", String(c.dataset.theme === filter));
   };
-  const chip = (name: string, n: number) => h("button", {
-    type: "button", class: "chip", "data-theme": name,
-    onclick: () => { filter = name; shown = PAGE; draw(); },
-  }, name, h("span", { class: "chip__n" }, String(n)));
-  chips.append(chip("All", all.length), ...data.themes.map((t) => chip(t.name, t.pairs.length)));
+  select.addEventListener("change", () => { filter = select.value; shown = PAGE; draw(); });
   more.addEventListener("click", () => { shown += PAGE; draw(); });
   root.replaceChildren(
-    h("p", { class: "pairs__about" },
-      `${all.length} pairs, all reviewed. ${fromModel} from word statistics built in this repo: ${data.kept} kept of `,
-      `${fmtInt(data.candidates_proposed)} proposed (${Math.round(100 * data.kept_fraction)}%). ${all.length - fromModel} from a `,
-      `hand-written list of known parallels (${data.hand_listed_left_out} left out).`),
-    chips, list, h("div", { class: "pairs__more" }, status, more));
+    h("p", {}, `${all.length} pairs of passages that tell the same story or teach the same thing in two of the books.`),
+    h("p", {}, h("label", {}, "Theme: ", select)),
+    list,
+    h("p", { class: "pairs__more" }, more, " ", status),
+    h("p", { class: "note" },
+      `${fromModel} pairs come from word statistics built in this repo: ${data.kept} of the ${fmtInt(data.candidates_proposed)} candidates it proposed `,
+      `(${Math.round(100 * data.kept_fraction)}%) were kept after review. The other ${all.length - fromModel} come from a manually compiled list of known parallels, `,
+      `reviewed the same way (${data.hand_listed_left_out} left out).`));
   draw();
 }

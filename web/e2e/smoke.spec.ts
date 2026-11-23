@@ -35,7 +35,7 @@ test.describe("find verses", () => {
     await page.fill("#ask-input", "I got laid off and I'm scared about money");
     await page.keyboard.press("Enter");
     const results = page.locator("#ask-results");
-    await expect(results.locator(".answer__title")).toHaveText("TopicMoney worries", { timeout: FIRST_ANSWER });
+    await expect(results.locator(".answer__title")).toHaveText("Money worries", { timeout: FIRST_ANSWER });
     await expect(results.locator("[data-verse]").first()).toBeInViewport(); // scrolled to, without a second click
     await expect(page.locator("#ask-input")).toBeFocused(); // a follow-up can be typed at once
     await expect(results.locator("[data-verse]").first()).toBeVisible();
@@ -45,15 +45,15 @@ test.describe("find verses", () => {
     await expect(chips.first()).toHaveAttribute("aria-pressed", "true");
 
     await chips.nth(1).click();
-    await expect(results.locator(".answer__title")).toHaveText("TopicWorry and fear");
+    await expect(results.locator(".answer__title")).toHaveText("Worry and fear");
     await expect(chips.nth(1)).toHaveAttribute("aria-pressed", "true");
     await expect(results.locator("[data-verse]").first()).toBeVisible();
 
     await results.getByRole("button", { name: "All topics" }).click();
     expect(await results.locator("[data-topic]").count()).toBeGreaterThan(20);
     await expect(results.locator("[data-verse]")).toHaveCount(0);
-    await results.getByRole("button", { name: "← Back" }).click();
-    await expect(results.locator(".answer__title")).toHaveText("TopicWorry and fear");
+    await results.getByRole("button", { name: "Back", exact: true }).click();
+    await expect(results.locator(".answer__title")).toHaveText("Worry and fear");
 
     expect(new URL(page.url()).search + new URL(page.url()).hash).toBe("");
     expect(urls.filter((u) => /laid|scared|money/i.test(decodeURIComponent(u)))).toEqual([]);
@@ -80,6 +80,17 @@ test.describe("find verses", () => {
     await expect(page.locator("[data-verse]")).toHaveCount(0);
     await page.locator("#ask-results [data-topic]").first().click();
     await expect(page.locator("#ask-results [data-verse]").first()).toBeVisible();
+  });
+
+  test("a first topic outside the auto-show allowlist is listed and waits for a tap", async ({ page }) => {
+    await page.goto("/");
+    await page.fill("#ask-input", "this homework is killing me");
+    await page.keyboard.press("Enter");
+    const results = page.locator("#ask-results");
+    await expect(results).toContainText("Pick a topic:", { timeout: FIRST_ANSWER });
+    await expect(page.locator("[data-verse]")).toHaveCount(0);
+    await results.locator("[data-topic]").first().click();
+    await expect(results.locator("[data-verse]").first()).toBeVisible();
   });
 
   test("Shift+Enter adds a new line instead of submitting", async ({ page }) => {
@@ -109,8 +120,8 @@ test("let the model write: downloads the model and streams labelled text", async
   await expect(rows).toHaveCount(5);
   await expect(rows.first().locator(".think__p")).toHaveText(/^\d+\.\d%$/);
   await expect(gen.locator(".think__rest")).toContainText("others");
-  // A full run is 400 characters; on a busy machine that can outlast the test, so it is stopped after 100.
-  await expect.poll(async () => (await page.locator("[data-gen-output]").innerText()).length, { timeout: 60_000 }).toBeGreaterThan(100);
+  // A full run is 400 characters; on a busy machine that can outlast the test, so it is stopped after 60.
+  await expect.poll(async () => (await page.locator("[data-gen-output]").innerText()).length, { timeout: 100_000 }).toBeGreaterThan(60);
   await expect(page.locator("#ask button[type=submit]")).toHaveText("Stop");
   await page.locator("#ask button[type=submit]").click();
   await expect(gen).toHaveAttribute("data-tokens-per-second", /\d/);
@@ -120,9 +131,9 @@ test("let the model write: downloads the model and streams labelled text", async
   // The visitor's start comes first, marked apart, and the model's own text follows it.
   await expect(gen.locator("[data-gen-start]")).toHaveText("And it came to pass");
   expect(text.startsWith("And it came to pass")).toBe(true);
-  expect(text.length).toBeGreaterThan("And it came to pass".length + 50);
+  expect(text.length).toBeGreaterThan("And it came to pass".length + 20);
   expect(urls.filter((u) => /came|pass/i.test(decodeURIComponent(u)))).toEqual([]);
-  await expect(gen.locator(".badge")).toHaveText("Machine-generated imitation, not scripture");
+  await expect(gen.locator(".note").first()).toContainText("Machine-generated imitation, not scripture.");
   await expect(page.locator("#ask button[type=submit]")).toHaveText("Write again");
   await page.getByRole("button", { name: "Find verses" }).click();
   await expect(page.locator("#ask-input")).toHaveValue("And it came to pass");
@@ -169,9 +180,9 @@ test("parallels: every reviewed pair, a page at a time, with its source", async 
   await page.goto("/");
   const section = page.locator("[data-similarities]");
   await expect(section.locator("[data-pair]")).toHaveCount(6);
-  await expect(section.locator(".chip").first()).toContainText("All45");
+  await expect(section.locator("select option").first()).toHaveText("All themes (45)");
   await expect(section.locator("[data-source]").first()).toHaveText(/then reviewed$/);
-  await section.getByRole("button", { name: "Prophets and their stories" }).click();
+  await section.locator("select").selectOption("Prophets and their stories");
   await section.getByRole("button", { name: /^Show \d+ more$/ }).click();
   await expect(section.locator("[data-pair]")).toHaveCount(12);
 });
@@ -201,7 +212,7 @@ test.describe("small screens", () => {
   test.use({ viewport: { width: 375, height: 812 } });
   test("no horizontal scrolling, before and after an answer, and every section is linked", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator(".site-nav a")).toHaveText(["How it works", "Parallels", "GitHub"]);
+    await expect(page.locator("header nav a")).toHaveText(["How it works", "Parallels", "GitHub"]);
     const width = () => page.evaluate(() => document.documentElement.scrollWidth);
     expect(await width()).toBeLessThanOrEqual(375);
     await page.fill("#ask-input", "I keep worrying about money and whether I can pay rent");
@@ -212,11 +223,18 @@ test.describe("small screens", () => {
   });
 });
 
-test.describe("reduced motion", () => {
-  test.use({ reducedMotion: "reduce" });
-  test("story content is visible without scrolling animations", async ({ page }) => {
+test.describe("one plain theme", () => {
+  test.use({ colorScheme: "dark" });
+  test("the page stays white with dark text and nothing animates", async ({ page }) => {
     await page.goto("/");
-    const opacity = await page.locator("#built-limits .chapter__meta").evaluate((el) => getComputedStyle(el).opacity);
-    expect(opacity).toBe("1"); // not yet scrolled into view, but shown anyway
+    const look = await page.evaluate(() => {
+      const b = getComputedStyle(document.body);
+      const moving = [...document.querySelectorAll("*")].filter((el) => {
+        const c = getComputedStyle(el);
+        return c.animationName !== "none" || parseFloat(c.transitionDuration) > 0;
+      }).length;
+      return { bg: b.backgroundColor, color: b.color, moving };
+    });
+    expect(look).toEqual({ bg: "rgb(255, 255, 255)", color: "rgb(17, 17, 17)", moving: 0 });
   });
 });

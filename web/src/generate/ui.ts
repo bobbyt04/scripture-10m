@@ -70,13 +70,14 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
 
   const drawThink = (t: Think) => {
     think.hidden = false;
+    // One row per guess; the sampled one is bold. The bar is a plain grey rule as long as the probability.
     bars.replaceChildren(...t.top.map((c) =>
-      h("li", { class: `think__row${c.char === t.sampled ? " is-sampled" : ""}` },
-        h("span", { class: "think__char" }, showChar(c.char)),
-        h("span", { class: "think__bar", style: `--p:${c.p.toFixed(4)}` }),
-        h("span", { class: "think__p" }, `${(100 * c.p).toFixed(1)}%`))),
-    h("li", { class: "think__rest" }, `others ${(100 * t.rest).toFixed(1)}%`,
-      t.top.some((c) => c.char === t.sampled) ? null : ` · sampled ${showChar(t.sampled)}`));
+      h("tr", { class: `think__row${c.char === t.sampled ? " is-sampled" : ""}` },
+        h("td", { class: "think__char" }, showChar(c.char), c.char === t.sampled ? h("span", { class: "visually-hidden" }, " (sampled)") : null),
+        h("td", { class: "think__p" }, `${(100 * c.p).toFixed(1)}%`),
+        h("td", {}, h("span", { class: "think__bar", style: `width:${(100 * c.p).toFixed(1)}%` })))),
+    h("tr", { class: "think__rest" }, h("td", {}, "others"), h("td", { class: "think__p" }, `${(100 * t.rest).toFixed(1)}%`),
+      h("td", {}, t.top.some((c) => c.char === t.sampled) ? "" : `sampled ${showChar(t.sampled)}`)));
   };
 
   const draw = (generating: boolean) => {
@@ -85,7 +86,7 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
     output.replaceChildren(...lines.map((l, i) =>
       h("p", { class: "gen__line" },
         l.switchedTo ? h("span", { class: "gen__switch" }, `switched to ${BOOK_NAMES[l.switchedTo]} style`) : null,
-        i === 0 && start ? [h("mark", { class: "gen__start", "data-gen-start": "" }, start), l.text.slice(start.length)] : l.text,
+        i === 0 && start ? [h("strong", { class: "gen__start", "data-gen-start": "", title: "your text" }, start), l.text.slice(start.length)] : l.text,
         generating && i === lines.length - 1 ? h("span", { class: "gen__caret", "aria-hidden": "true" }) : null)));
     if (generating && lines.length === 0) output.append(h("p", { class: "gen__line" }, h("span", { class: "gen__caret", "aria-hidden": "true" })));
     // announce finished lines only, never single characters
@@ -178,7 +179,7 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
       rate.textContent = status.textContent = "";
       think.hidden = true;
       delete output.dataset.book;
-      output.replaceChildren(h("div", { class: "crisis", "data-crisis": "" }, h("p", {}, text)));
+      output.replaceChildren(h("p", { class: "crisis", "data-crisis": "" }, text));
     },
     toggle(b: BookId, temp: number, text: string) {
       if (phase === "writing") return stop();

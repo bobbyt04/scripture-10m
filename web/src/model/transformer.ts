@@ -1,4 +1,4 @@
-// The Scripture-10M forward pass, written out by hand to mirror scripture/model.py, for one token at a
+// The Scripture-10M forward pass, implemented from scratch to mirror scripture/model.py, for one token at a
 // time with a key-value cache. Weights are float32 arrays in PyTorch's layout (a Linear weight is
 // [out, in], so y = W x + b). No dropout: this is inference only.
 

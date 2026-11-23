@@ -13,28 +13,25 @@ const repo = JSON.parse(readFileSync(here("../src/generated/repo.json"), "utf8")
 const params = `${(repo.params.total / 1e6).toFixed(1)}M`;
 
 const css = `
-@font-face { font-family: "Serif"; font-weight: 200 900; src: url(data:font/woff2;base64,${font("source-serif-4/files/source-serif-4-latin-wght-normal.woff2")}) format("woff2"); }
 @font-face { font-family: "Sans"; font-weight: 100 900; src: url(data:font/woff2;base64,${font("inter/files/inter-latin-wght-normal.woff2")}) format("woff2"); }
 html, body { margin: 0; }
-body { background: #0a0a0a; color: #ededed; font-family: "Sans"; }
+body { background: #fff; color: #111; font-family: "Sans"; }
 `;
 
 const og = `<style>${css}
-.card { box-sizing: border-box; width: 1200px; height: 630px; padding: 84px 96px; display: flex; flex-direction: column; justify-content: space-between; }
-.eyebrow { font-family: ui-monospace, Menlo, monospace; font-size: 24px; letter-spacing: 0.06em; text-transform: uppercase; color: #a1a1a1; margin: 0; }
-h1 { font-weight: 650; font-size: 136px; letter-spacing: -0.055em; margin: 18px 0 0; }
-.lede { font-size: 34px; line-height: 1.4; color: #a1a1a1; max-width: 960px; margin: 0; }
-.books { display: flex; gap: 36px; font-size: 28px; color: #ededed; }
-.books span::before { content: ""; display: inline-block; width: 16px; height: 16px; border-radius: 50%; margin-right: 12px; background: var(--c); }
+.card { box-sizing: border-box; width: 1200px; height: 630px; padding: 96px 104px; border-bottom: 12px solid #e2e2e2; }
+h1 { font-weight: 600; font-size: 96px; letter-spacing: -0.02em; margin: 0 0 40px; }
+p { font-size: 38px; line-height: 1.4; color: #333; max-width: 960px; margin: 0 0 28px; }
+.mono { font-family: ui-monospace, Menlo, monospace; font-size: 28px; color: #595959; }
 </style>
 <div class="card">
-  <div><p class="eyebrow">${repo.params.total.toLocaleString("en-US")} params · ${repo.params.config.n_layer} layers · character-level</p><h1>Scripture-10M</h1></div>
-  <p class="lede">A ${params}-parameter transformer, trained from scratch. It runs in your browser.</p>
-  <div class="books"><span style="--c:#f59e0b">Bhagavad Gita</span><span style="--c:#34d399">Quran</span><span style="--c:#60a5fa">Bible</span></div>
+  <h1>Scripture-10M</h1>
+  <p>A ${params}-parameter character-level transformer trained from scratch on the Bhagavad Gita, the Quran and the Bible. It runs in your browser.</p>
+  <p class="mono">${repo.params.total.toLocaleString("en-US")} parameters · ${repo.params.config.n_layer} layers · ${repo.params.config.block_size}-character context</p>
 </div>`;
 
 const icon = `<style>${css}
-.icon { width: 180px; height: 180px; background: #0a0a0a; color: #ffffff; display: grid; place-items: center; font-size: 116px; font-weight: 650; letter-spacing: -0.04em; line-height: 1; padding-bottom: 8px; box-sizing: border-box; }
+.icon { width: 180px; height: 180px; background: #fff; color: #111; display: grid; place-items: center; font-size: 120px; font-weight: 600; line-height: 1; padding-bottom: 8px; box-sizing: border-box; border: 6px solid #d0d0d0; }
 </style><div class="icon">S</div>`;
 
 const browser = await chromium.launch(process.env.CHROMIUM ? {} : { channel: "chrome" });

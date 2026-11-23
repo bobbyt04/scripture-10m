@@ -24,7 +24,7 @@ export function encodeStart(tok: CharTokenizer, book: BookId, typed: string): St
   let cut = 0;
   // Line breaks become spaces: a newline ends a verse, and the visitor means one running start.
   for (const ch of typed.replace(/\s+/g, " ").trimStart()) {
-    // Only single characters count; "<gita>" typed by hand stays text (and "<" is not in the vocabulary).
+    // Only single characters count; "<gita>" typed literally stays text (and "<" is not in the vocabulary).
     if (!tok.tokens.includes(ch) || [...ch].length !== 1 || ch === "\n") dropped++;
     else if (text.length >= MAX_START_CHARS) cut++;
     else text += ch;

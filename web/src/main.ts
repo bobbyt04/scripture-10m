@@ -44,20 +44,7 @@ function showParallels(): void {
     .then((d) => renderSimilarities(parallels, d))
     .catch(() => parallels.replaceChildren(h("p", { class: "pairs__error", role: "alert" },
       "The parallels could not be loaded. ",
-      h("button", { type: "button", class: "link-button", onclick: () => showParallels() }, "Try again"))))
+      h("button", { type: "button", class: "textlink", onclick: () => showParallels() }, "Try again"))))
     .finally(landOnHash);
 }
 showParallels();
-
-// Reveal chapters as they scroll into view. With reduced motion the CSS shows everything at once.
-const io = typeof IntersectionObserver === "function"
-  ? new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) {
-        e.target.classList.add("is-visible");
-        io?.unobserve(e.target);
-      }
-    }
-  }, { rootMargin: "0px 0px -12% 0px", threshold: 0.08 })
-  : null;
-document.querySelectorAll(".reveal").forEach((el) => (io ? io.observe(el) : el.classList.add("is-visible")));

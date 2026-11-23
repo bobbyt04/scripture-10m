@@ -11,16 +11,8 @@ function repoNumbers(): Plugin {
     transformIndexHtml(html) {
       const repo = JSON.parse(readFileSync(new URL("./src/generated/repo.json", import.meta.url), "utf8"));
       const manifest = JSON.parse(readFileSync(new URL("./src/model/manifest.json", import.meta.url), "utf8"));
-      const books = ["gita", "quran", "bible"] as const;
       const values: Record<string, string> = {
-        params: repo.params.total.toLocaleString("en-US"),
         paramsShort: `${(repo.params.total / 1e6).toFixed(1)}M`,
-        vocab: String(repo.vocab.length),
-        layers: String(repo.params.config.n_layer),
-        heads: String(repo.params.config.n_head),
-        dims: String(repo.params.config.n_embd),
-        context: String(repo.params.config.block_size),
-        verses: books.reduce((a: number, b) => a + repo.stats[b].verses, 0).toLocaleString("en-US"),
         modelSize: `${(manifest.bytes / 1e6).toFixed(1)} MB`,
         siteUrl: SITE_URL,
       };

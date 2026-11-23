@@ -1,4 +1,4 @@
-// Sampling on top of the hand-written forward pass, as in ScriptureLM.generate_stream (temperature, no top-k).
+// Sampling on top of the forward pass in transformer.ts, as in ScriptureLM.generate_stream (temperature, no top-k).
 
 import type { Transformer } from "./transformer.ts";
 

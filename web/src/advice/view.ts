@@ -29,7 +29,7 @@ function verseItem(b: BookId, v: TopicVerse): HTMLElement {
     h("figcaption", {}, h("span", { class: "ref" }, refLabel(b, v)), " ", v.why));
 }
 
-/** One book's verses: the hand-picked first ones (at least three), the rest behind a button. */
+/** One book's verses: the manually prioritised first ones (at least three), the rest behind a button. */
 function bookSection(b: BookId, verses: TopicVerse[]): HTMLElement {
   const first = Math.max(3, verses.filter((v) => v.priority !== null).length);
   const rest = verses.slice(first);

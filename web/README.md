@@ -1,6 +1,6 @@
 # Scripture-10M website
 
-A single static page: one prompt box with two modes (find verses by topic, or let the trained model write in a
+A single plain static page: one prompt box with two modes (find verses by topic, or let the trained model write in a
 book's style, in the browser), the story of how it was built, and the parallels. Vite and TypeScript, no UI framework, no ML library, no analytics.
 Fonts (Inter, Source Serif 4) are self-hosted from npm packages.
 
@@ -29,11 +29,11 @@ Every script first runs `node scripts/extract.ts` (Node 22.18 or later, for Type
 
 The parameter breakdown is computed from the model config and must add up to `params` in `model.json`.
 `src/story/advice-history.json` (the "What failed" numbers recorded only in the README, with sources) is the only
-hand-written data; `src/story/test-counts.json` is written by a script (below).
+manually written data; `src/story/test-counts.json` is written by a script (below).
 
 ## The model in the browser
 
-`src/model/` is a hand-written forward pass of `scripture/model.py`: token and position embeddings,
+`src/model/` is a from-scratch TypeScript forward pass of `scripture/model.py`: token and position embeddings,
 pre-LayerNorm blocks with causal multi-head attention and an exact-GELU MLP, a key-value cache, and
 temperature sampling. It runs in a Web Worker (`src/generate/worker.ts`) and streams characters to the page.
 The weights (`public/model/*.bin`) are fetched only when the visitor switches to "Let the model write" and
@@ -41,7 +41,7 @@ presses Write. The model continues from the book's tag followed by whatever the 
 (`src/generate/start.ts`: characters outside the 67-token vocabulary are dropped and counted, line breaks become
 spaces, and the start is capped at 120 characters so it fits well inside the 256-character window); an empty box
 starts from the tag. Before the model writes, the typed text goes through the search's own `suggest()`, and a
-crisis result shows the same note instead of any generated text. A "creativity" slider sets the sampling
+crisis result shows the same note instead of any generated text. A "temperature" slider sets the sampling
 temperature (0.2 to 1.5, default 0.8) for the next run. While it writes, the page shows the five most likely next
 characters with their probabilities and marks the one sampled: `topChoices()` in `src/model/generate.ts` applies
 the same temperature softmax that `sampleToken()` draws from, to the last step of each ~24 ms slice the worker
@@ -92,9 +92,10 @@ shared the machine. Older phones will be slower.
 
 `src/search/searcher.ts` is a plain TypeScript port of the site contract of `scripture/search.py`, following
 `search/FORMAT.md` steps 0 to 5, 8 and 9: `suggest(text)` (a crisis note only; gentle topics for a sensitive
-message; up to four topics; or none), `topic(id, {sensitive})` and `topics()`. Typing never selects a verse: when `suggest()` returns topics,
-the page opens the first suggested topic (exactly as tapping it would, with its `sensitive` flag) and shows the
-others as chips (`src/advice/state.ts`).
+message; up to four topics; or none), `topic(id, {sensitive})` and `topics()`. Typing never selects a verse: when `suggest()` returns topics
+and the first has `auto_show` (an allowlist in `search/themes.json`), the page opens it (exactly as tapping it would,
+with its `sensitive` flag) and lists the others; otherwise it lists the topics and waits for a tap
+(`src/advice/state.ts`).
 
 `scripts/extract.ts` writes its data at build time: `src/generated/search.json` is
 `search/artifacts/search.json` without what only the eval-history `search()` reads (BM25 terms, the bridge,

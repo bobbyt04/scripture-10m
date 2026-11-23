@@ -3,7 +3,6 @@
 // after the same crisis check the search runs. Nothing typed is put in the URL or sent anywhere.
 
 import { MAX_INPUT_CHARS, type BookId } from "./advice/api.ts";
-import { prefersReducedMotion } from "./dom.ts";
 import { MAX_START_CHARS } from "./generate/start.ts";
 import type { AdviceController } from "./advice/state.ts";
 import type { Generator, GenPhase } from "./generate/ui.ts";
@@ -80,8 +79,7 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
       if (!submit.disabled) form.requestSubmit();
     }
   });
-  const reveal = (el: HTMLElement) =>
-    el.scrollIntoView({ block: "start", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+  const reveal = (el: HTMLElement) => el.scrollIntoView({ block: "start" });
   let checking = false;
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
