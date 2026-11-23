@@ -1,10 +1,11 @@
 import { BOOK_NAMES, type BookId } from "../advice/api.ts";
-import { h } from "../dom.ts";
+import { h, prefersReducedMotion } from "../dom.ts";
 import manifest from "../model/manifest.json";
-import type { WorkerReply, WorkerRequest } from "./worker.ts";
+import type { Think, WorkerReply, WorkerRequest } from "./worker.ts";
 
 const MAX_TOKENS = 400;
-const TEMPERATURE = 0.8;
+/** The "watch it think" bars are redrawn at most this often (less with reduced motion), so drawing never slows the text. */
+const thinkEveryMs = () => (prefersReducedMotion() ? 600 : 120);
 const TAG = /^<(gita|quran|bible)>/;
 
 export const modelSizeMB = (manifest.bytes / 1e6).toFixed(1);
@@ -19,6 +20,9 @@ export function toLines(raw: string, book: BookId): { text: string; switchedTo: 
   });
 }
 
+/** A token as the visitor sees it in the bars: space and newline get visible symbols. */
+export const showChar = (c: string) => (c === " " ? "␣" : c === "\n" ? "↵" : c);
+
 /** What the visitor reads when loading or generating fails; the technical reason goes in data-error. */
 export function errorMessage(modelLoaded: boolean): string {
   return modelLoaded
@@ -28,7 +32,7 @@ export function errorMessage(modelLoaded: boolean): string {
 
 export interface Generator {
   /** Start writing in the style of `book`, or stop if it is already writing. Loads the model on first use. */
-  toggle(book: BookId): void;
+  toggle(book: BookId, temperature: number): void;
   stop(): void;
 }
 
@@ -43,6 +47,8 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
   const rate = q<HTMLElement>("[data-gen-rate]");
   const status = q<HTMLElement>("[data-gen-status]");
   const live = q<HTMLElement>("[data-gen-live]");
+  const think = q<HTMLElement>("[data-gen-think]");
+  const bars = q<HTMLElement>("[data-gen-bars]");
 
   let worker: Worker | null = null;
   let ready = false;
@@ -51,6 +57,19 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
   let book: BookId = "gita";
   let announced = 0;
   let t0 = 0;
+  let temperature = 0.8;
+  let thinkDrawn = 0;
+
+  const drawThink = (t: Think) => {
+    think.hidden = false;
+    bars.replaceChildren(...t.top.map((c) =>
+      h("li", { class: `think__row${c.char === t.sampled ? " is-sampled" : ""}` },
+        h("span", { class: "think__char" }, showChar(c.char)),
+        h("span", { class: "think__bar", style: `--p:${c.p.toFixed(4)}` }),
+        h("span", { class: "think__p" }, `${(100 * c.p).toFixed(1)}%`))),
+    h("li", { class: "think__rest" }, `others ${(100 * t.rest).toFixed(1)}%`,
+      t.top.some((c) => c.char === t.sampled) ? null : ` · sampled ${showChar(t.sampled)}`));
+  };
 
   const draw = (generating: boolean) => {
     const lines = toLines(raw, book);
@@ -92,6 +111,11 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
       const secs = (performance.now() - t0) / 1000;
       rate.textContent = `${raw.length} chars · ${secs > 0.2 ? Math.round(raw.length / secs) : "–"} chars/s`;
       draw(true);
+      const now = performance.now();
+      if (m.think && now - thinkDrawn >= thinkEveryMs()) {
+        thinkDrawn = now;
+        drawThink(m.think);
+      }
     } else if (m.type === "done") {
       draw(false);
       setPhase("idle", "Write again");
@@ -125,7 +149,7 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
     setPhase("writing", "Stop");
     t0 = performance.now();
     const seed = crypto.getRandomValues(new Uint32Array(1))[0];
-    send({ type: "generate", book, temperature: TEMPERATURE, maxTokens: MAX_TOKENS, seed });
+    send({ type: "generate", book, temperature, maxTokens: MAX_TOKENS, seed });
   }
 
   const stop = () => {
@@ -134,10 +158,11 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
 
   return {
     stop,
-    toggle(b: BookId) {
+    toggle(b: BookId, temp: number) {
       if (phase === "writing") return stop();
       if (phase === "loading") return;
       book = b;
+      temperature = temp;
       if (ready) return start();
       setPhase("loading", "Loading…");
       if (!worker) {

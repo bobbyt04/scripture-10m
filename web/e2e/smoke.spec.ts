@@ -97,12 +97,23 @@ test("let the model write: downloads the model and streams labelled text", async
   await expect(page.locator("#ask-input")).toHaveValue("");
   await expect(page.locator("#ask-input")).toHaveAttribute("placeholder", /ignores typed text/);
   await page.getByRole("button", { name: "Bible" }).click();
+  await page.locator("[data-gen-temp]").fill("1.2");
+  await expect(page.locator("[data-gen-temp-out]")).toHaveText("1.2");
   await page.locator("#ask button[type=submit]").click();
   const gen = page.locator("[data-generate]");
   await expect(gen.locator("[data-gen-rate]")).toContainText("chars/s", { timeout: 110_000 }); // live rate while streaming
-  await expect(gen).toHaveAttribute("data-tokens-per-second", /\d/, { timeout: 110_000 });
+  // Watch it think: the five most likely next characters with their probabilities, from the worker's softmax.
+  const rows = gen.locator(".think__row");
+  await expect(rows).toHaveCount(5);
+  await expect(rows.first().locator(".think__p")).toHaveText(/^\d+\.\d%$/);
+  await expect(gen.locator(".think__rest")).toContainText("others");
+  // A full run is 400 characters; on a busy machine that can outlast the test, so it is stopped after 100.
+  await expect.poll(async () => (await page.locator("[data-gen-output]").innerText()).length, { timeout: 60_000 }).toBeGreaterThan(100);
+  await expect(page.locator("#ask button[type=submit]")).toHaveText("Stop");
+  await page.locator("#ask button[type=submit]").click();
+  await expect(gen).toHaveAttribute("data-tokens-per-second", /\d/);
+  await expect(gen.locator("[data-gen-status]")).toHaveText("Stopped.");
   const text = await page.locator("[data-gen-output]").innerText();
-  expect(text.length).toBeGreaterThan(200);
   expect(text).not.toMatch(/<(gita|quran|bible)>/);
   await expect(gen.locator(".badge")).toHaveText("Machine-generated imitation, not scripture");
   await expect(page.locator("#ask button[type=submit]")).toHaveText("Write again");

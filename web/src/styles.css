@@ -246,7 +246,28 @@ html:not(.js) .modes { display: none; }
 
 /* ---------------------------------------------------------------- generation */
 
-.gen { border: 1px solid var(--line); border-radius: 18px; background: var(--surface); overflow: hidden; max-width: 780px; }
+.gen { border: 1px solid var(--line); border-radius: 18px; background: var(--surface); overflow: hidden; max-width: 960px; }
+.gen__body { display: grid; }
+@media (min-width: 760px) { .gen__body { grid-template-columns: minmax(0, 1fr) 230px; } .think { border-left: 1px solid var(--line); border-top: 0 !important; } }
+
+.think { padding: 16px 18px; border-top: 1px solid var(--line); font-size: 0.8rem; }
+.think__label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.think__bars { display: grid; gap: 5px; }
+.think__row { display: grid; grid-template-columns: 2.6em 1fr 3.4em; align-items: center; gap: 8px; color: var(--muted); }
+.think__char { font-family: var(--mono); text-align: center; border: 1px solid var(--line); border-radius: 5px; padding: 0 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.think__bar { height: 6px; border-radius: 999px; background: linear-gradient(90deg, var(--line-strong) calc(var(--p) * 100%), transparent 0) var(--surface-2); }
+.think__p { font-family: var(--mono); text-align: right; font-variant-numeric: tabular-nums; }
+.think__row.is-sampled { color: var(--text); }
+.think__row.is-sampled .think__char { border-color: var(--book, var(--text)); }
+.think__row.is-sampled .think__bar { background: linear-gradient(90deg, var(--book, var(--text)) calc(var(--p) * 100%), transparent 0) var(--surface-2); }
+.think__rest { font-family: var(--mono); color: var(--muted); font-size: 0.72rem; margin-top: 4px; }
+.gen:has([data-book="gita"]) .think { --book: var(--gita); }
+.gen:has([data-book="quran"]) .think { --book: var(--quran); }
+.gen:has([data-book="bible"]) .think { --book: var(--bible); }
+
+.temp { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--muted); padding: 0 6px; }
+.temp input { width: 96px; accent-color: var(--text); }
+.temp output { font-family: var(--mono); font-size: 0.8rem; color: var(--text); min-width: 2em; }
 .gen__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; padding: 12px 18px; border-bottom: 1px solid var(--line); }
 .badge { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text); }
 .badge::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-right: 8px; vertical-align: 1px; }

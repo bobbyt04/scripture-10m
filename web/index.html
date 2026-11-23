@@ -61,6 +61,11 @@
               <button type="button" class="book-pick book--gita" data-gen-book="gita" aria-pressed="true">Gita</button>
               <button type="button" class="book-pick book--quran" data-gen-book="quran" aria-pressed="false">Quran</button>
               <button type="button" class="book-pick book--bible" data-gen-book="bible" aria-pressed="false">Bible</button>
+              <label class="temp">creativity
+                <input type="range" min="0.2" max="1.5" step="0.1" value="0.8" data-gen-temp aria-describedby="temp-hint" />
+                <output data-gen-temp-out>0.8</output>
+              </label>
+              <span id="temp-hint" class="visually-hidden">Sampling temperature for the next run. Lower repeats more; higher invents more.</span>
             </div>
             <p id="ask-note" class="ask__note" data-note-find>
               Matches what you type to reviewed verses by topic. It does not understand you, and it is not advice.
@@ -82,8 +87,14 @@
             </div>
             <div class="progress" data-gen-progress role="progressbar" aria-label="Model download"
               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden><span data-gen-bar></span></div>
-            <div class="gen__output" data-gen-output>
-              <p class="gen__placeholder">Pick a book, press Write.</p>
+            <div class="gen__body">
+              <div class="gen__output" data-gen-output>
+                <p class="gen__placeholder">Pick a book, press Write.</p>
+              </div>
+              <aside class="think" data-gen-think aria-label="The model's top five guesses for the next character" hidden>
+                <p class="think__label">Next character: top 5 guesses</p>
+                <ol class="think__bars" role="list" data-gen-bars></ol>
+              </aside>
             </div>
             <p class="gen__status" data-gen-status aria-live="polite"></p>
             <div class="visually-hidden" aria-live="polite" data-gen-live></div>

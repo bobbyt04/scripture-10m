@@ -20,6 +20,9 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
   const submit = form.querySelector<HTMLButtonElement>("button[type=submit]")!;
   const modes = form.querySelectorAll<HTMLButtonElement>("[data-mode]");
   const books = form.querySelectorAll<HTMLButtonElement>("[data-gen-book]");
+  const temp = form.querySelector<HTMLInputElement>("[data-gen-temp]")!;
+  const tempOut = form.querySelector<HTMLOutputElement>("[data-gen-temp-out]")!;
+  temp.addEventListener("input", () => (tempOut.value = Number(temp.value).toFixed(1)));
   input.maxLength = MAX_INPUT_CHARS;
 
   let mode: Mode = "find";
@@ -31,6 +34,7 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
     phase = p;
     writeLabel = label;
     books.forEach((b) => (b.disabled = p !== "idle"));
+    temp.disabled = p !== "idle";
     update();
   });
 
@@ -84,7 +88,7 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (mode === "find") void ctl.submit(input.value);
-    else generator.toggle(book);
+    else generator.toggle(book, Number(temp.value));
   });
   update();
 }

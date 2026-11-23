@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { errorMessage, toLines } from "../src/generate/ui.ts";
+import { errorMessage, showChar, toLines } from "../src/generate/ui.ts";
 import { verifyDownload } from "../src/generate/verify.ts";
 
 describe("display of generated text", () => {
@@ -11,6 +11,10 @@ describe("display of generated text", () => {
       { text: "<gi", switchedTo: null },
     ]);
     expect(lines.every((l) => !/\d/.test(l.text))).toBe(true);
+  });
+
+  test("shows space and newline as visible symbols in the guess bars", () => {
+    expect([" ", "\n", "a", "<bible>"].map(showChar)).toEqual(["␣", "↵", "a", "<bible>"]);
   });
 
   test("flags a switch to another book's style", () => {

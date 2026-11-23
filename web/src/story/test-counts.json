@@ -5,7 +5,7 @@
     "command": "python -m pytest --collect-only -q"
   },
   "vitest": {
-    "tests": 141,
+    "tests": 143,
     "command": "npx vitest run (in web/)"
   },
   "playwright": {

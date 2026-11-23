@@ -38,6 +38,26 @@ export interface GenerateOptions {
   maxNewTokens: number;
   temperature: number;
   random: () => number;
+  /** Called with the logits of each step just before the next token is sampled from them. */
+  onLogits?: (logits: Float32Array) => void;
+}
+
+/**
+ * The k most likely next tokens under the same temperature softmax that sampleToken draws from, and the
+ * probability left for all the others (so the k probabilities and `rest` sum to 1).
+ */
+export function topChoices(logits: Float32Array, temperature: number, k: number): { top: { id: number; p: number }[]; rest: number } {
+  let max = -Infinity;
+  for (const v of logits) if (v > max) max = v;
+  const probs = new Float64Array(logits.length);
+  let sum = 0;
+  for (let i = 0; i < logits.length; i++) {
+    probs[i] = temperature <= 0 ? (logits[i] === max ? 1 : 0) : Math.exp((logits[i] - max) / temperature);
+    sum += probs[i];
+  }
+  const ids = Array.from(probs.keys()).sort((a, b) => probs[b] - probs[a]).slice(0, k);
+  const top = ids.map((id) => ({ id, p: probs[id] / sum }));
+  return { top, rest: Math.max(0, 1 - top.reduce((a, t) => a + t.p, 0)) };
 }
 
 /**
@@ -55,6 +75,7 @@ export function* generate(model: Transformer, prompt: readonly number[], opts: G
   let logits: Float32Array = new Float32Array(0);
   for (const id of history) logits = model.step(id);
   for (let i = 0; i < opts.maxNewTokens; i++) {
+    opts.onLogits?.(logits);
     const next = sampleToken(logits, opts.temperature, opts.random);
     history.push(next);
     yield next;

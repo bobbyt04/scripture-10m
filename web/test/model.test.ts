@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { beforeAll, describe, expect, test } from "vitest";
 import { parseModel, type ModelWeights } from "../src/model/format.ts";
-import { generate, sampleToken, seededRandom } from "../src/model/generate.ts";
+import { generate, sampleToken, seededRandom, topChoices } from "../src/model/generate.ts";
 import { CharTokenizer } from "../src/model/tokenizer.ts";
 import { Transformer } from "../src/model/transformer.ts";
 import manifest from "../src/model/manifest.json";
@@ -96,6 +96,28 @@ describe("generation", () => {
     expect(a.length).toBe(300);
     expect(run()).toEqual(a);
     expect(a.every((id) => id >= 0 && id < tok.vocabSize)).toBe(true);
+  });
+
+  test("the top-5 guesses shown while writing are the sampling softmax: they and the rest sum to 1", () => {
+    const tok = new CharTokenizer(vocab);
+    for (const temperature of [0.2, 0.8, 1.5]) {
+      let shown: ReturnType<typeof topChoices> | null = null;
+      const it = generate(model, tok.encode("<gita>"), {
+        maxNewTokens: 40, temperature, random: seededRandom(3),
+        onLogits: (l) => (shown = topChoices(l, temperature, 5)),
+      });
+      for (const id of it) {
+        const c = shown!;
+        expect(c.top).toHaveLength(5);
+        expect(c.top.reduce((a, t) => a + t.p, 0) + c.rest).toBeCloseTo(1, 9);
+        expect(c.top.every((t, i) => t.p >= 0 && (i === 0 || t.p <= c.top[i - 1].p))).toBe(true);
+        expect(id >= 0 && id < tok.vocabSize && vocab.includes(tok.decode([id]))).toBe(true);
+      }
+    }
+    const two = topChoices(new Float32Array([0, Math.log(3)]), 1, 5); // probabilities 1/4 and 3/4
+    expect(two.top.map((t) => t.id)).toEqual([1, 0]);
+    expect(two.top[0].p).toBeCloseTo(0.75, 6); // log(3) is stored as float32
+    expect(two.rest).toBeCloseTo(0, 9);
   });
 
   test("temperature sampling follows the softmax", () => {
