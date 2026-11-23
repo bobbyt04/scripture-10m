@@ -3,10 +3,10 @@
 // the search's crisis check runs on typed text in both. Nothing typed is put in the URL or sent anywhere.
 
 import { MAX_INPUT_CHARS, type BookId } from "./advice/api.ts";
-import { prefersReducedMotion } from "./dom.ts";
+import { h, prefersReducedMotion } from "./dom.ts";
 import { MAX_START_CHARS } from "./generate/start.ts";
 import type { AdviceController } from "./advice/state.ts";
-import type { Generator, GenPhase } from "./generate/ui.ts";
+import { looksLikeQuestion, type Generator, type GenPhase } from "./generate/ui.ts";
 
 type Mode = "find" | "write";
 
@@ -27,34 +27,35 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
   const modes = form.querySelectorAll<HTMLButtonElement>("[data-mode]");
   // The book choice and temperature sit under the box in Model mode; "Run it live" is in the write-up's Model section.
   const books = form.querySelectorAll<HTMLButtonElement>("[data-gen-book]");
+  const examples = form.querySelectorAll<HTMLButtonElement>("[data-gen-example]");
   const temp = form.querySelector<HTMLInputElement>("[data-gen-temp]")!;
   const tempOut = form.querySelector<HTMLOutputElement>("[data-gen-temp-out]")!;
+  const hint = gen.querySelector<HTMLElement>("[data-gen-hint]");
   const runLive = document.querySelector<HTMLButtonElement>("[data-gen-run]");
   temp.addEventListener("input", () => (tempOut.value = Number(temp.value).toFixed(1)));
   input.maxLength = MAX_INPUT_CHARS;
 
   let mode = (form.dataset.mode === "find" ? "find" : "write") as Mode;
-  let book = ([...books].find((b) => b.getAttribute("aria-pressed") === "true")?.dataset.genBook ?? "gita") as BookId;
+  let book = ([...books].find((b) => b.getAttribute("aria-pressed") === "true")?.dataset.genBook ?? "bible") as BookId;
   let phase: GenPhase = "idle";
-  let writeLabel = "Write";
+  let writeLabel = "Continue";
   let checking = false;
   let genStarted = false;
   const generator = mountGen((p, label) => {
     phase = p;
     writeLabel = label;
     books.forEach((b) => (b.disabled = p !== "idle"));
+    examples.forEach((b) => (b.disabled = p !== "idle"));
     temp.disabled = p !== "idle";
     if (p !== "writing") liveRate.textContent = "";
     update();
   }, (text) => (liveRate.textContent = phase === "writing" ? text : ""));
 
-  const ARROW = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  const SQUARE = '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2" fill="currentColor"/></svg>';
   function update() {
     counter.textContent = `${input.value.length} / ${mode === "find" ? MAX_INPUT_CHARS : MAX_START_CHARS}`;
-    const writing = mode === "write" && phase === "writing";
-    submit.setAttribute("aria-label", mode === "find" ? "Find" : writeLabel);
-    submit.innerHTML = writing ? SQUARE : ARROW;
+    const label = mode === "find" ? "Find" : writeLabel;
+    submit.setAttribute("aria-label", label);
+    submit.textContent = mode === "write" && phase === "idle" && writeLabel === "Continue again" ? "Continue" : label;
     submit.disabled = mode === "find" ? input.value.trim().length === 0 : phase === "loading";
     composer.classList.toggle("is-busy", mode === "write" && phase !== "idle");
   }
@@ -115,10 +116,20 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
     applyMode();
   }
 
+  const setBook = (next: BookId) => {
+    book = next;
+    books.forEach((x) => x.setAttribute("aria-pressed", String(x.dataset.genBook === next)));
+  };
   modes.forEach((b) => b.addEventListener("click", () => setMode(b.dataset.mode as Mode)));
-  books.forEach((b) => b.addEventListener("click", () => {
-    book = b.dataset.genBook as BookId;
-    books.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+  books.forEach((b) => b.addEventListener("click", () => setBook(b.dataset.genBook as BookId)));
+  examples.forEach((b) => b.addEventListener("click", () => {
+    if (phase !== "idle") return;
+    const text = b.dataset.genExample ?? "";
+    const targetBook = b.dataset.genExampleBook as BookId | undefined;
+    if (targetBook) setBook(targetBook);
+    input.value = text;
+    update();
+    void write(text);
   }));
   input.addEventListener("focus", () => ctl.warm(), { once: true });
   input.addEventListener("input", update);
@@ -138,6 +149,27 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
       const note = text ? await crisisNote(text) : null;
       genStarted = true;
       gen.hidden = false;
+      if (hint) {
+        if (note === null && looksLikeQuestion(text)) {
+          hint.replaceChildren(
+            "This is a 10M-parameter autocomplete model, not a chatbot—it only continues your words in scripture style. Looking for real verses? ",
+            h("button", {
+              type: "button",
+              class: "textlink",
+              onclick: () => {
+                generator.stop();
+                setMode("find");
+                void ctl.submit(input.value);
+              },
+            }, "Switch to Verses"),
+            ".",
+          );
+          hint.hidden = false;
+        } else {
+          hint.hidden = true;
+          hint.replaceChildren();
+        }
+      }
       if (note !== null) generator.note(note);
       else generator.toggle(book, Number(temp.value), text);
     } catch {

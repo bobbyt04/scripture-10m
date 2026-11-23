@@ -26,10 +26,18 @@ export function toLines(raw: string, book: BookId): { text: string; switchedTo: 
 /** A token as the visitor sees it in the bars: space and newline get visible symbols. */
 export const showChar = (c: string) => (c === " " ? "␣" : c === "\n" ? "↵" : c);
 
+const QUESTION_START = /^(is|are|was|were|do|does|did|can|could|will|would|should|what|why|how|who|where|when)\b/i;
+
+/** True when a visitor typed a question into Model mode instead of a sentence start. */
+export function looksLikeQuestion(text: string): boolean {
+  const s = text.trim();
+  return s.length > 0 && (s.endsWith("?") || QUESTION_START.test(s));
+}
+
 /** What the visitor reads when loading or generating fails; the technical reason goes in data-error. */
 export function errorMessage(modelLoaded: boolean): string {
   return modelLoaded
-    ? "The model stopped unexpectedly. Press Write to try again."
+    ? "The model stopped unexpectedly. Press Continue to try again."
     : "The model could not be downloaded completely. Check your connection and press Try again.";
 }
 
@@ -60,10 +68,10 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
   let ready = false;
   let phase: GenPhase = "idle";
   let raw = "";
-  let book: BookId = "gita";
+  let book: BookId = "bible";
   let announced = 0;
   let t0 = 0;
-  let temperature = 0.8;
+  let temperature = 0.6;
   let typed = "";
   let start = "";
   const tok = new CharTokenizer(vocab);
@@ -131,7 +139,7 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
       }
     } else if (m.type === "done") {
       draw(false);
-      setPhase("idle", "Write again");
+      setPhase("idle", "Continue again");
       const secs = m.ms / 1000;
       const perSec = m.tokens / secs;
       rate.textContent = `${m.tokens} chars · ${perSec.toFixed(0)} chars/s · temperature ${temperature.toFixed(1)} · ${secs.toFixed(1)} s on your device`;
@@ -146,7 +154,7 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
         worker?.terminate();
         worker = null;
       }
-      setPhase("idle", ready ? "Write" : "Try again");
+      setPhase("idle", ready ? "Continue" : "Try again");
     }
   };
 

@@ -146,7 +146,7 @@ test("let the model write: downloads the model and streams labelled text", async
   expect(text.length).toBeGreaterThan("And it came to pass".length + 20);
   expect(urls.filter((u) => /came|pass/i.test(decodeURIComponent(u)))).toEqual([]);
   await expect(gen.locator(".meta")).toContainText("machine-generated imitation, not scripture");
-  await expect(page.locator("#ask button[type=submit]")).toHaveAttribute("aria-label", "Write again");
+  await expect(page.locator("#ask button[type=submit]")).toHaveAttribute("aria-label", "Continue again");
   await page.getByRole("button", { name: "Verses", exact: true }).click();
   await expect(page.locator("#ask-input")).toHaveValue("And it came to pass");
   await expect(page.locator("#ask-input")).toHaveAttribute("placeholder", "A worry or a topic: money, grief, a hard decision");
@@ -163,7 +163,7 @@ test("let the model write: crisis text gets the note and the model does not writ
   await expect(note).toContainText("This page will not show verses for what you wrote.");
   await expect(page.locator("[data-gen-output] .gen__line")).toHaveCount(0);
   await expect(page.locator(".think__row")).toHaveCount(0);
-  await expect(page.locator("#ask button[type=submit]")).toHaveAttribute("aria-label", "Write");
+  await expect(page.locator("#ask button[type=submit]")).toHaveAttribute("aria-label", "Continue");
   expect(modelRequests).toEqual([]);
   expect(new URL(page.url()).search).toBe("");
 });

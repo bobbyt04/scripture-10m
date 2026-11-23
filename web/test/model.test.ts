@@ -120,12 +120,14 @@ describe("generation", () => {
     expect(two.rest).toBeCloseTo(0, 9);
   });
 
-  test("temperature sampling follows the softmax", () => {
+  test("temperature sampling follows the softmax and topP trims the tail", () => {
     const logits = new Float32Array([0, Math.log(3)]); // probabilities 1/4 and 3/4
     const rnd = seededRandom(1);
     let ones = 0;
     for (let i = 0; i < 20000; i++) ones += sampleToken(logits, 1, rnd);
     expect(ones / 20000).toBeCloseTo(0.75, 1);
     expect(sampleToken(logits, 0, rnd)).toBe(1);
+    // With topP=0.5, only the top token (p=0.75 >= 0.5) stays in the nucleus.
+    for (let i = 0; i < 50; i++) expect(sampleToken(logits, 1, rnd, 0.5)).toBe(1);
   });
 });
