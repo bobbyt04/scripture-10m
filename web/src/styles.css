@@ -68,7 +68,8 @@ select { border: 1px solid var(--line); border-radius: 4px; background: var(--bg
 /* hero */
 .hero { max-width: 1100px; margin: 0 auto; padding: 72px 24px 56px; text-align: center; }
 h1 { font-size: clamp(56px, 11vw, 144px); font-weight: 700; letter-spacing: -0.05em; line-height: 0.95; }
-.lede { font-size: clamp(17px, 2vw, 20px); line-height: 1.5; color: var(--muted); max-width: 34em; margin: 24px auto 40px; }
+.lede { font-size: clamp(17px, 2vw, 20px); line-height: 1.5; color: var(--muted); max-width: 34em; margin: 24px auto 12px; }
+.byline { font-size: 15px; color: var(--muted); margin: 0 auto 40px; }
 #ask { max-width: 720px; margin: 0 auto; text-align: left; }
 .modes { display: flex; justify-content: center; gap: 24px; margin: 0 0 12px; }
 html:not(.js) .modes { display: none; }
@@ -209,7 +210,8 @@ thead .num { font-family: var(--sans); }
   .col, .hero { padding-left: 16px; padding-right: 16px; }
   .site-header { padding: 14px 16px; }
   .hero { padding-top: 40px; padding-bottom: 40px; }
-  .lede { margin: 18px auto 28px; }
+  .lede { margin: 18px auto 10px; }
+  .byline { margin: 0 auto 28px; }
   .modes { gap: 20px; }
   .live-rate { position: static; display: block; text-align: right; line-height: 1.4; }
 }
