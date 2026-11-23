@@ -5,8 +5,8 @@ import type { Pair, Similarities } from "./api.ts";
 const PAGE = 6;
 
 export const SOURCE_LABEL: Record<Pair["source"], string> = {
-  "model, reviewed": "Proposed by word statistics built in this repo, then reviewed",
-  "hand-listed": "From a hand-written list of known parallels, then reviewed",
+  "model, reviewed": "Word statistics, then reviewed",
+  "hand-listed": "Hand-listed, then reviewed",
 };
 
 function pairCard(p: Pair, theme: string): HTMLElement {
@@ -37,7 +37,7 @@ export function renderSimilarities(root: HTMLElement, data: Similarities): void 
     const left = rows.length - Math.min(shown, rows.length);
     more.hidden = left === 0;
     more.textContent = `Show ${Math.min(PAGE, left)} more`;
-    status.textContent = `Showing ${Math.min(shown, rows.length)} of ${rows.length} pairs${filter === "All" ? "" : ` in ${filter}`}.`;
+    status.textContent = `${Math.min(shown, rows.length)} of ${rows.length}`;
     for (const c of chips.querySelectorAll("button")) c.setAttribute("aria-pressed", String(c.dataset.theme === filter));
   };
   const chip = (name: string, n: number) => h("button", {
@@ -48,10 +48,9 @@ export function renderSimilarities(root: HTMLElement, data: Similarities): void 
   more.addEventListener("click", () => { shown += PAGE; draw(); });
   root.replaceChildren(
     h("p", { class: "pairs__about" },
-      `${all.length} pairs. ${fromModel} were proposed by word statistics built in this repo, then reviewed: `,
-      `of the ${fmtInt(data.candidates_proposed)} candidate pairs the statistics proposed, ${data.kept} (${Math.round(100 * data.kept_fraction)}%) `,
-      `are kept as real parallels in story or teaching after several rounds of review. The other ${all.length - fromModel} come from a `,
-      `hand-written list of known parallels, reviewed the same way (${data.hand_listed_left_out} were left out).`),
+      `${all.length} pairs, all reviewed. ${fromModel} from word statistics built in this repo: ${data.kept} kept of `,
+      `${fmtInt(data.candidates_proposed)} proposed (${Math.round(100 * data.kept_fraction)}%). ${all.length - fromModel} from a `,
+      `hand-written list of known parallels (${data.hand_listed_left_out} left out).`),
     chips, list, h("div", { class: "pairs__more" }, status, more));
   draw();
 }

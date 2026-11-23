@@ -1,13 +1,14 @@
-// The advice section's state machine. It has no DOM code, so it can be tested on its own.
+// The answer area's state machine. It has no DOM code, so it can be tested on its own.
 //
-//   idle --submit--> suggesting --> crisis            (note only; nothing else is reachable)
-//                               \-> suggestions --pick--> loadingTopic --> topic
-//                               \-> browse (nothing matched: every topic) --pick--> ...
-//   any non-busy state --browseAll--> browse;  topic --back--> where it came from
+//   idle --submit--> suggesting --> crisis   (note only; nothing else is reachable)
+//                               \-> answer   (topics matched: the first topic's verses, the others as chips)
+//                               \-> browse   (nothing matched: every topic)
+//   answer --pick a chip--> answer;  answer/idle --browseAll--> browse --pick--> answer
 //
-// Verses exist only in the topic state, which is reached only by picking a topic from a list. Every request
-// carries a number; a reply that arrives after a newer request started is dropped, so a slow topic can never
-// appear on top of a crisis note.
+// Verses come only from topic(), for a topic that suggest() returned or that is in the full list. A sensitive
+// suggestion opens its topics with {sensitive: true}; a topic picked from the full list never does. Every
+// request carries a number; a reply that arrives after a newer request started is dropped, so a slow topic can
+// never appear on top of a crisis note.
 
 import { MAX_INPUT_CHARS, type AdviceApi, type TopicLabel, type TopicListing, type TopicResult } from "./api.ts";
 
@@ -15,14 +16,12 @@ export type AdviceState =
   | { kind: "idle" }
   | { kind: "suggesting"; query: string }
   | { kind: "crisis"; note: string }
-  /** sensitive: the topics carry gentle labels and open with topic(id, {sensitive: true}). */
-  | { kind: "suggestions"; query: string; topics: TopicLabel[]; sensitive: boolean }
-  | { kind: "browse"; reason: "no-match" | "asked"; topics: TopicListing[] }
-  | { kind: "loadingTopic"; topic: TopicLabel; back: ListState }
-  | { kind: "topic"; result: TopicResult; back: ListState }
+  /** topics: the suggested topics shown as chips; result is null while `current` loads. */
+  | { kind: "answer"; topics: TopicLabel[]; sensitive: boolean; current: TopicLabel; result: TopicResult | null }
+  | { kind: "browse"; reason: "no-match" | "asked"; topics: TopicListing[]; back: AnswerState | null }
   | { kind: "error"; message: string };
 
-type ListState = Extract<AdviceState, { kind: "suggestions" | "browse" }>;
+export type AnswerState = Extract<AdviceState, { kind: "answer" }>;
 
 export class AdviceController {
   private s: AdviceState = { kind: "idle" };
@@ -65,42 +64,53 @@ export class AdviceController {
     }
   }
 
+  /** Suggest topics for the text and, when there are some, open the first one straight away. */
   async submit(text: string): Promise<void> {
     const query = text.trim().slice(0, MAX_INPUT_CHARS);
     if (!query) return;
     await this.run({ kind: "suggesting", query }, async () => {
       const s = await this.api.suggest(query);
-      return { s, all: s.category === "none" ? await this.api.topics() : [] };
-    }, ({ s, all }): AdviceState => {
-      switch (s.category) {
-        case "crisis":
-          return { kind: "crisis", note: s.note ?? "" };
-        case "none":
-          return { kind: "browse", reason: "no-match", topics: all };
-        default:
-          return { kind: "suggestions", query, topics: s.topics.slice(0, 4), sensitive: s.category === "sensitive" };
+      if (s.category === "crisis") return { kind: "crisis", note: s.note ?? "" } as const;
+      const topics = s.topics.slice(0, 4);
+      if (s.category === "none" || topics.length === 0) {
+        return { kind: "browse", reason: "no-match", topics: await this.api.topics(), back: null } as const;
       }
-    });
+      const sensitive = s.category === "sensitive";
+      const result = await this.api.topic(topics[0].id, { sensitive });
+      return { kind: "answer", topics, sensitive, current: topics[0], result } as const;
+    }, (next): AdviceState => next);
   }
 
   async browseAll(): Promise<void> {
-    if (this.s.kind === "suggesting" || this.s.kind === "loadingTopic") return;
-    await this.run(null, () => this.api.topics(), (topics): AdviceState => ({ kind: "browse", reason: "asked", topics }));
+    const s = this.s;
+    if (s.kind === "suggesting" || s.kind === "crisis" || s.kind === "browse") return;
+    const back = s.kind === "answer" && s.result ? s : null;
+    await this.run(null, () => this.api.topics(), (topics): AdviceState => ({ kind: "browse", reason: "asked", topics, back }));
   }
 
+  /** Open a topic: one of the answer's chips, or one from the full list. */
   async openTopic(id: string): Promise<void> {
     const s = this.s;
-    if (s.kind !== "suggestions" && s.kind !== "browse") return; // topics are only reachable from a list
-    const topic = s.topics.find((t) => t.id === id);
-    if (!topic) return;
-    const sensitive = s.kind === "suggestions" && s.sensitive;
-    await this.run({ kind: "loadingTopic", topic, back: s }, () => this.api.topic(id, { sensitive }),
-      (result): AdviceState => ({ kind: "topic", result, back: s }));
+    let next: AnswerState;
+    if (s.kind === "answer") {
+      const current = s.topics.find((t) => t.id === id);
+      if (!current) return;
+      next = { ...s, current, result: null };
+    } else if (s.kind === "browse") {
+      const current = s.topics.find((t) => t.id === id);
+      if (!current) return;
+      next = { kind: "answer", topics: [], sensitive: false, current, result: null };
+    } else {
+      return; // topics are only reachable from a list
+    }
+    await this.run(next, () => this.api.topic(id, { sensitive: next.sensitive }),
+      (result): AdviceState => ({ ...next, result }));
   }
 
+  /** From the full list, return to the answer it was opened from. */
   back(): void {
     const s = this.s;
-    if (s.kind === "topic" || s.kind === "loadingTopic") {
+    if (s.kind === "browse" && s.back) {
       this.request++;
       this.set(s.back);
     }

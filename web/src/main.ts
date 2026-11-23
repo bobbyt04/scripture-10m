@@ -4,8 +4,9 @@ import "./styles.css";
 
 import { searchApi } from "./advice/api.ts";
 import { AdviceController } from "./advice/state.ts";
-import { mountAdvice } from "./advice/view.ts";
+import { mountResults } from "./advice/view.ts";
 import { mountGenerate } from "./generate/ui.ts";
+import { mountPrompt } from "./prompt.ts";
 import { loadSimilarities } from "./similarities/api.ts";
 import { renderSimilarities } from "./similarities/view.ts";
 import { h } from "./dom.ts";
@@ -13,12 +14,14 @@ import { renderStory } from "./story/story.ts";
 
 document.documentElement.classList.add("js");
 
-mountAdvice(document.querySelector<HTMLFormElement>("#ask")!, document.querySelector<HTMLElement>("#ask-results")!,
-  new AdviceController(searchApi));
-mountGenerate(document.querySelector<HTMLElement>("[data-generate]")!);
+const ctl = new AdviceController(searchApi);
+const results = document.querySelector<HTMLElement>("#ask-results")!;
+const gen = document.querySelector<HTMLElement>("[data-generate]")!;
+mountResults(results, ctl);
+mountPrompt(document.querySelector<HTMLFormElement>("#ask")!, results, gen, ctl, (onPhase) => mountGenerate(gen, onPhase));
 renderStory(document.querySelector<HTMLElement>("[data-story]")!);
 
-// A link to a section (/#built-advice) must land on it even though the chapters, the parallels and the fonts
+// A link to a section (/#built-failed) must land on it even though the chapters, the parallels and the fonts
 // arrive after the browser's first scroll. Re-scroll as each arrives, until the reader scrolls themselves.
 let readerScrolled = false;
 for (const ev of ["wheel", "touchmove", "keydown", "mousedown"]) {
@@ -41,10 +44,6 @@ function showParallels(): void {
     .finally(landOnHash);
 }
 showParallels();
-
-// The compact menu on small screens closes once a section is picked.
-document.querySelectorAll<HTMLAnchorElement>(".site-menu a").forEach((a) =>
-  a.addEventListener("click", () => a.closest("details")?.removeAttribute("open")));
 
 // Reveal chapters as they scroll into view. With reduced motion the CSS shows everything at once.
 const io = typeof IntersectionObserver === "function"

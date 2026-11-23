@@ -1,8 +1,8 @@
 // The contract between the advice UI and the verse-topic search (search/FORMAT.md steps 8 and 9).
 //
 // Typing only ever leads to topics: suggest() returns a crisis note, gentle topics for a sensitive message, up
-// to four topics, or none. Verses come only from topic(), after the visitor taps one. The search data (about
-// 370 kB, 100 kB compressed) is loaded the first time it is needed, not with the page.
+// to four topics, or none. Verses come only from topic(), for a topic suggest() returned or one from the full
+// list. The search data (about 370 kB, 100 kB compressed) is loaded the first time it is needed, not with the page.
 
 import { Searcher, type SearchData, type Suggestion, type TopicListing, type TopicResult } from "../search/searcher.ts";
 

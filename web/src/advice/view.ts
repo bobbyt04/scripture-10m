@@ -1,5 +1,5 @@
 import { h, prefersReducedMotion } from "../dom.ts";
-import { BOOKS, BOOK_NAMES, MAX_INPUT_CHARS, type BookId, type TopicLabel, type TopicListing, type TopicVerse } from "./api.ts";
+import { BOOKS, BOOK_NAMES, type BookId, type TopicLabel, type TopicResult, type TopicVerse } from "./api.ts";
 import type { AdviceController, AdviceState } from "./state.ts";
 
 export interface ResultHandlers {
@@ -9,26 +9,16 @@ export interface ResultHandlers {
 }
 
 const TRANSLATION: Record<BookId, string> = { gita: "Besant, 1922", quran: "Pickthall, 1930", bible: "King James Version" };
-const SHORT: Record<BookId, string> = { gita: "Gita", quran: "Quran", bible: "Bible" };
 
-/** A topic button. In the full list, three dots show which books have verses for it. */
-function topicList(topics: (TopicLabel | TopicListing)[], on: ResultHandlers): HTMLElement {
-  return h("ul", { class: "topic-list", role: "list" },
-    topics.map((t) => {
-      const counts = "verses" in t ? t.verses : null;
-      return h("li", {},
-        h("button", { type: "button", class: "topic", "data-topic": t.id, onclick: () => on.openTopic(t.id) },
-          h("span", { class: "topic__label" }, t.label),
-          h("span", { class: "topic__blurb" }, t.blurb),
-          counts ? h("span", { class: "topic__books" },
-            BOOKS.map((b) => h("span", { class: `topic__book book--${b}${counts[b] ? "" : " is-empty"}` }, SHORT[b])),
-            h("span", { class: "visually-hidden" }, `: ${BOOKS.map((b) => `${counts[b]} ${SHORT[b]}`).join(", ")} verses`)) : null,
-          h("span", { class: "topic__arrow", "aria-hidden": "true" }, "→")));
-    }));
+function chips(topics: TopicLabel[], current: string | null, on: ResultHandlers): HTMLElement {
+  return h("ul", { class: "chips", role: "list" },
+    topics.map((t) => h("li", {},
+      h("button", { type: "button", class: "chip", "data-topic": t.id, title: t.blurb, "aria-pressed": String(t.id === current),
+        onclick: () => on.openTopic(t.id) }, t.label))));
 }
 
-const browseLink = (on: ResultHandlers, text = "Browse all topics") =>
-  h("button", { type: "button", class: "link-button", "data-browse": "", onclick: () => on.browseAll() }, text);
+const quiet = (text: string, onclick: () => void, attrs: Record<string, string> = {}) =>
+  h("button", { type: "button", class: "link-button", onclick, ...attrs }, text);
 
 const refLabel = (b: BookId, v: TopicVerse) => (b === "bible" ? v.ref : `${BOOK_NAMES[b]} ${v.ref}`);
 
@@ -48,7 +38,7 @@ function bookSection(b: BookId, verses: TopicVerse[]): HTMLElement {
       onclick: (e: Event) => {
         more.hidden = false;
         (e.currentTarget as HTMLElement).remove();
-      } }, `Show ${rest.length} more from the ${BOOK_NAMES[b]}`)
+      } }, `${rest.length} more`)
     : null;
   return h("section", { class: `book book--${b}`, "aria-label": BOOK_NAMES[b], "data-book": b },
     h("h3", { class: "book__name" }, BOOK_NAMES[b], h("span", { class: "book__tr" }, TRANSLATION[b])),
@@ -57,117 +47,72 @@ function bookSection(b: BookId, verses: TopicVerse[]): HTMLElement {
     button);
 }
 
+function verses(r: TopicResult): Node[] {
+  const full = BOOKS.filter((b) => r.books[b].verses.length > 0);
+  const empty = BOOKS.filter((b) => r.books[b].verses.length === 0);
+  return [
+    r.note ? h("p", { class: "topic-note" }, r.note) : null,
+    h("div", { class: `books books--${full.length}` }, full.map((b) => bookSection(b, r.books[b].verses))),
+    empty.length ? h("div", { class: "books-none" },
+      empty.map((b) => h("p", { class: `book-none book--${b}`, "data-empty": b }, r.books[b].nothing))) : null,
+  ].filter((n) => n !== null);
+}
+
+const status = (text: string) => h("p", { class: "results__status" }, h("span", { class: "dots", "aria-hidden": "true" }), text);
+
 /** The results area for one state. Pure apart from the handlers it wires up; tests render it directly. */
 export function renderResults(state: AdviceState, on: ResultHandlers): Node[] {
   switch (state.kind) {
     case "idle":
-      return [h("p", { class: "results__hint" }, "Nothing is sent anywhere: the search runs in your browser. ", browseLink(on))];
+      return [];
     case "suggesting":
-      return [h("p", { class: "results__status" }, h("span", { class: "dots", "aria-hidden": "true" }), "Looking for topics…")];
+      return [status("Searching…")];
     case "crisis":
       return [h("div", { class: "crisis", "data-crisis": "" }, h("p", {}, state.note))];
-    case "suggestions":
-      if (state.topics.length === 0) {
-        return [h("p", { class: "results__hint" }, "I have no topic to suggest for this. ", browseLink(on))];
-      }
+    case "answer": {
+      const others = state.topics.length > 1 ? chips(state.topics, state.current.id, on) : null;
       return [
-        h("h2", { class: "results__title", tabindex: "-1", "data-focus": "" }, "Topics that may fit"),
-        h("p", { class: "results__hint" }, "Pick one to read verses on it from each book."),
-        topicList(state.topics, on),
-        h("p", { class: "results__more" }, "Not quite it? ", browseLink(on)),
+        h("div", { class: "answer__head" },
+          h("p", { class: "answer__kicker" }, "Topic"),
+          h("h2", { class: "answer__title", tabindex: "-1", "data-focus": "" }, state.current.label),
+          h("p", { class: "answer__blurb" }, state.current.blurb)),
+        h("div", { class: "answer__nav" }, others, quiet("All topics", on.browseAll, { "data-browse": "" })),
+        ...(state.result ? verses(state.result) : [status("Loading verses…")]),
       ];
+    }
     case "browse":
       return [
-        h("h2", { class: "results__title", tabindex: "-1", "data-focus": "" },
-          state.reason === "no-match" ? "I couldn’t match that to a topic" : "All topics"),
-        h("p", { class: "results__hint" }, state.reason === "no-match"
-          ? "Here is every topic instead. Pick the one closest to what you mean; a book with a hollow dot has no verse for it."
-          : "Every topic with verses in the reviewed selection. A book with a hollow dot has none for that topic."),
-        topicList(state.topics, on),
-      ];
-    case "loadingTopic":
-      return [
-        h("button", { type: "button", class: "link-button back", onclick: () => on.back() }, "← Topics"),
-        h("h2", { class: "results__title" }, state.topic.label),
-        h("p", { class: "results__status" }, h("span", { class: "dots", "aria-hidden": "true" }), "Loading verses…"),
-      ];
-    case "topic": {
-      const r = state.result;
-      const full = BOOKS.filter((b) => r.books[b].verses.length > 0);
-      const empty = BOOKS.filter((b) => r.books[b].verses.length === 0);
-      return [
-        h("button", { type: "button", class: "link-button back", onclick: () => on.back() }, "← Topics"),
-        h("h2", { class: "results__title", tabindex: "-1", "data-focus": "" }, r.label),
-        h("p", { class: "results__hint" }, r.blurb),
-        r.note ? h("p", { class: "topic-note" }, r.note) : null,
-        h("div", { class: `books books--${full.length}` }, full.map((b) => bookSection(b, r.books[b].verses))),
-        empty.length ? h("div", { class: "books-none" },
-          empty.map((b) => h("p", { class: `book-none book--${b}`, "data-empty": b }, r.books[b].nothing))) : null,
+        h("p", { class: "answer__line", tabindex: "-1", "data-focus": "" },
+          state.reason === "no-match" ? "Nothing matched. Pick a topic:" : "All topics:"),
+        chips(state.topics, null, on),
+        state.back ? quiet("← Back", on.back) : null,
       ].filter((n) => n !== null);
-    }
     case "error":
       return [h("p", { class: "results__error", role: "alert" }, state.message)];
   }
 }
 
-/** Wire the static form in index.html to the controller. */
-export function mountAdvice(form: HTMLFormElement, results: HTMLElement, ctl: AdviceController): void {
-  const input = form.querySelector("textarea")!;
-  const counter = form.querySelector<HTMLElement>("[data-counter]")!;
-  const submit = form.querySelector<HTMLButtonElement>("button[type=submit]")!;
-  input.maxLength = MAX_INPUT_CHARS;
-
-  const updateCount = () => {
-    counter.textContent = `${input.value.length} / ${MAX_INPUT_CHARS}`;
-    submit.disabled = input.value.trim().length === 0;
-  };
-  input.addEventListener("focus", () => ctl.warm(), { once: true });
-  input.addEventListener("input", updateCount);
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !e.shiftKey && !e.isComposing) {
-      e.preventDefault();
-      form.requestSubmit();
-    }
-  });
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    void ctl.submit(input.value);
-  });
-  updateCount();
-
-  // Opening a topic adds a browser history entry, so the Back button (or gesture) returns to the topic list
-  // instead of leaving the page. The URL does not change.
-  let restoring = false;
-  const ownEntry = () => typeof history.state?.adviceTopic === "string";
+/** Draw the controller's state into the results area. */
+export function mountResults(results: HTMLElement, ctl: AdviceController): void {
   const handlers: ResultHandlers = {
     openTopic: (id) => void ctl.openTopic(id),
     browseAll: () => void ctl.browseAll(),
-    back: () => (ownEntry() ? history.back() : ctl.back()),
+    back: () => ctl.back(),
   };
-  window.addEventListener("popstate", (e: PopStateEvent) => {
-    const st = ctl.state;
-    if (st.kind === "topic" || st.kind === "loadingTopic") {
-      ctl.back();
-    } else if (typeof e.state?.adviceTopic === "string" && (st.kind === "suggestions" || st.kind === "browse")) {
-      restoring = true; // Forward again: reopen the topic without adding another entry
-      void ctl.openTopic(e.state.adviceTopic);
-      restoring = false;
-    }
-  });
   let prev: AdviceState["kind"] = "idle";
   const render = (s: AdviceState) => {
-    if (s.kind === "loadingTopic" && prev !== "loadingTopic" && prev !== "topic" && !restoring) {
-      history.pushState({ adviceTopic: s.topic.id }, "");
-    }
     results.replaceChildren(...renderResults(s, handlers));
     results.dataset.state = s.kind;
-    // Move focus only when the reader navigated (opened a topic, went back, asked for the list); new
-    // suggestions are announced by the live region instead, so typing is never interrupted.
-    const navigated = s.kind === "topic" || (s.kind === "browse" && s.reason === "asked") ||
-      ((s.kind === "suggestions" || s.kind === "browse") && (prev === "topic" || prev === "loadingTopic"));
-    if (navigated) {
+    // Replay the reveal only when a new answer appears, not while a topic's verses load.
+    const fresh = s.kind !== prev || (s.kind === "answer" && s.result !== null);
+    if (fresh && !prefersReducedMotion()) {
+      results.classList.remove("is-new");
+      void results.offsetWidth;
+      results.classList.add("is-new");
+    }
+    // Move focus only when the reader navigated within the answer; a new answer is announced by the live region.
+    if ((s.kind === "browse" && s.reason === "asked") || (s.kind === "answer" && prev === "browse")) {
       results.querySelector<HTMLElement>("[data-focus]")?.focus({ preventScroll: true });
-      results.scrollIntoView?.({ block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
     }
     prev = s.kind;
   };

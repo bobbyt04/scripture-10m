@@ -1,7 +1,7 @@
 # Scripture-10M website
 
-A single static page: the verse-topic search, the parallels, the trained model generating text in the
-browser, and the story of how it was built. Vite and TypeScript, no UI framework, no ML library, no analytics.
+A single static page: one prompt box with two modes (find verses by topic, or let the trained model write in a
+book's style, in the browser), the story of how it was built, and the parallels. Vite and TypeScript, no UI framework, no ML library, no analytics.
 Fonts (Inter, Source Serif 4) are self-hosted from npm packages.
 
 ```bash
@@ -28,8 +28,7 @@ Every script first runs `node scripts/extract.ts` (Node 22.18 or later, for Type
   is matched to a line of code, and the build fails if the code changes under it.
 
 The parameter breakdown is computed from the model config and must add up to `params` in `model.json`.
-`src/story/process.json` (how each pull request was checked, copied from the PR descriptions) and
-`src/story/advice-history.json` (the chapter 08 numbers recorded only in the README, with sources) are the only
+`src/story/advice-history.json` (the "What failed" numbers recorded only in the README, with sources) is the only
 hand-written data; `src/story/test-counts.json` is written by a script (below).
 
 ## The model in the browser
@@ -37,7 +36,8 @@ hand-written data; `src/story/test-counts.json` is written by a script (below).
 `src/model/` is a hand-written forward pass of `scripture/model.py`: token and position embeddings,
 pre-LayerNorm blocks with causal multi-head attention and an exact-GELU MLP, a key-value cache, and
 temperature sampling. It runs in a Web Worker (`src/generate/worker.ts`) and streams characters to the page.
-The weights (`public/model/*.bin`) are fetched only when the visitor presses Generate.
+The weights (`public/model/*.bin`) are fetched only when the visitor switches to "Let the model write" and
+presses Write. The model starts from the book's tag; it takes no typed prompt.
 
 The model has 256 learned positions. PyTorch's `generate` crops to the newest 256 tokens and recomputes every
 step; the browser instead rebuilds its cache from the newest 128 tokens when the window fills. The two are
@@ -84,8 +84,9 @@ shared the machine. Older phones will be slower.
 
 `src/search/searcher.ts` is a plain TypeScript port of the site contract of `scripture/search.py`, following
 `search/FORMAT.md` steps 0 to 5, 8 and 9: `suggest(text)` (a crisis note only; gentle topics for a sensitive
-message; up to four topics; or none), `topic(id, {sensitive})` and `topics()`. Typing never shows a verse;
-verses appear only after a topic is tapped (`src/advice/state.ts`).
+message; up to four topics; or none), `topic(id, {sensitive})` and `topics()`. Typing never selects a verse: when `suggest()` returns topics,
+the page opens the first suggested topic (exactly as tapping it would, with its `sensitive` flag) and shows the
+others as chips (`src/advice/state.ts`).
 
 `scripts/extract.ts` writes its data at build time: `src/generated/search.json` is
 `search/artifacts/search.json` without what only the eval-history `search()` reads (BM25 terms, the bridge,
@@ -100,9 +101,9 @@ comfort cue) for about 4,700 messages: every stored probe and situation, theme a
 and seeded variants with odd Unicode, digits, emoji, typos and text past the 500-character cap; plus
 `topics()` and `topic()` for every theme, sensitive or not.
 
-Chapter 08 reads the review numbers from `evals/search_probes.json`, `evals/search_cases.json` and
+The "What failed" chapter reads the review numbers from `evals/search_probes.json`, `evals/search_cases.json` and
 `evals/results/search.json`; the few that exist only in the README are in `src/story/advice-history.json`,
-each with its source. The Testing chapter's totals are in `src/story/test-counts.json`, written by
+each with its source. The test totals on the page are in `src/story/test-counts.json`, written by
 `node scripts/count_tests.ts` (set `PYTHON` to an interpreter with PyTorch; under Rosetta use
 `PYTHON="arch -arm64 ../.venv/bin/python"`).
 
