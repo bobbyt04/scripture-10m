@@ -18,7 +18,11 @@ const ctl = new AdviceController(searchApi);
 const results = document.querySelector<HTMLElement>("#ask-results")!;
 const gen = document.querySelector<HTMLElement>("[data-generate]")!;
 mountResults(results, ctl);
-mountPrompt(document.querySelector<HTMLFormElement>("#ask")!, results, gen, ctl, (onPhase) => mountGenerate(gen, onPhase));
+mountPrompt(document.querySelector<HTMLFormElement>("#ask")!, results, gen, ctl, (onPhase) => mountGenerate(gen, onPhase),
+  async (text) => {
+    const s = await searchApi.suggest(text);
+    return s.category === "crisis" ? s.note ?? "" : null;
+  });
 renderStory(document.querySelector<HTMLElement>("[data-story]")!);
 
 // A link to a section (/#built-failed) must land on it even though the chapters, the parallels and the fonts

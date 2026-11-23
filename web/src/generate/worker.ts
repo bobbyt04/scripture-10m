@@ -10,7 +10,8 @@ import vocab from "../model/vocab.json";
 
 export type WorkerRequest =
   | { type: "load"; url: string; bytes: number; sha256: string }
-  | { type: "generate"; book: "gita" | "quran" | "bible"; temperature: number; maxTokens: number; seed: number }
+  /** prompt: the book tag and the visitor's typed start, as token ids (see start.ts). */
+  | { type: "generate"; prompt: number[]; temperature: number; maxTokens: number; seed: number }
   | { type: "stop" };
 
 export type WorkerReply =
@@ -67,7 +68,7 @@ async function run(req: Extract<WorkerRequest, { type: "generate" }>): Promise<v
   const t0 = performance.now();
   // Only the last step of each slice is shown, so its logits are kept and turned into probabilities when posted.
   let last: Float32Array = new Float32Array(0);
-  const it = generate(model, tok.encode(`<${req.book}>`), {
+  const it = generate(model, req.prompt, {
     maxNewTokens: req.maxTokens, temperature: req.temperature, random: seededRandom(req.seed),
     onLogits: (l) => (last = l),
   });

@@ -1,6 +1,39 @@
 import { describe, expect, test } from "vitest";
 import { errorMessage, showChar, toLines } from "../src/generate/ui.ts";
+import { encodeStart, MAX_START_CHARS } from "../src/generate/start.ts";
 import { verifyDownload } from "../src/generate/verify.ts";
+import { CharTokenizer } from "../src/model/tokenizer.ts";
+import vocab from "../src/model/vocab.json";
+
+describe("the visitor's typed start", () => {
+  const tok = new CharTokenizer(vocab);
+
+  test("is the book tag followed by the typed characters", () => {
+    const s = encodeStart(tok, "quran", "And lo, the");
+    expect(s.ids[0]).toBe(tok.id("<quran>"));
+    expect(tok.decode(s.ids)).toBe("<quran>And lo, the");
+    expect(s).toMatchObject({ text: "And lo, the", dropped: 0, cut: 0 });
+  });
+
+  test("an empty box starts from the tag alone", () => {
+    expect(encodeStart(tok, "gita", "   ")).toEqual({ ids: [tok.id("<gita>")], text: "", dropped: 0, cut: 0 });
+  });
+
+  test("drops characters the model has no token for, and counts them", () => {
+    const s = encodeStart(tok, "bible", "Café 2024 🙂 <bible> ok");
+    expect(s.text).toBe("Caf   bible ok");
+    expect(s.dropped).toBe(8); // é, 2, 0, 2, 4, the emoji, < and >
+    expect(s.ids.slice(1).every((id) => tok.tokens[id].length === 1)).toBe(true); // a typed tag never becomes a tag
+  });
+
+  test("turns line breaks into spaces and caps the start well inside the 256-character window", () => {
+    expect(encodeStart(tok, "gita", "one\ntwo").text).toBe("one two");
+    const long = encodeStart(tok, "gita", "a".repeat(MAX_START_CHARS + 30));
+    expect(long.text).toHaveLength(MAX_START_CHARS);
+    expect(long.cut).toBe(30);
+    expect(long.ids.length).toBeLessThanOrEqual(128);
+  });
+});
 
 describe("display of generated text", () => {
   test("drops book tags and keeps one line per generated verse, with no verse numbers", () => {

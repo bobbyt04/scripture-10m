@@ -1,8 +1,10 @@
 // The prompt box in the hero. Two modes share it: "Find verses" sends the text to the verse-topic search (in
-// the browser); "Let the model write" ignores the text and asks the model for a book's style. Nothing typed is
-// put in the URL or sent anywhere.
+// the browser); "Let the model write" gives the text to the model as the start of a passage in a book's style,
+// after the same crisis check the search runs. Nothing typed is put in the URL or sent anywhere.
 
 import { MAX_INPUT_CHARS, type BookId } from "./advice/api.ts";
+import { prefersReducedMotion } from "./dom.ts";
+import { MAX_START_CHARS } from "./generate/start.ts";
 import type { AdviceController } from "./advice/state.ts";
 import type { Generator, GenPhase } from "./generate/ui.ts";
 
@@ -10,11 +12,13 @@ type Mode = "find" | "write";
 
 const PLACEHOLDER: Record<Mode, string> = {
   find: "What’s on your mind?",
-  write: "No prompt: the model ignores typed text. Pick a book, press Write.",
+  write: "Start a sentence, or leave empty.",
 };
 
 export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HTMLElement,
-  ctl: AdviceController, mountGen: (onPhase: (p: GenPhase, label: string) => void) => Generator): void {
+  ctl: AdviceController, mountGen: (onPhase: (p: GenPhase, label: string) => void) => Generator,
+  /** The crisis note for this text, or null: the search's own suggest(), run before the model writes. */
+  crisisNote: (text: string) => Promise<string | null>): void {
   const input = form.querySelector("textarea")!;
   const counter = form.querySelector<HTMLElement>("[data-counter]")!;
   const submit = form.querySelector<HTMLButtonElement>("button[type=submit]")!;
@@ -29,7 +33,6 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
   let book: BookId = "gita";
   let phase: GenPhase = "idle";
   let writeLabel = "Write";
-  let findText = "";
   const generator = mountGen((p, label) => {
     phase = p;
     writeLabel = label;
@@ -39,7 +42,7 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
   });
 
   function update() {
-    counter.textContent = `${input.value.length} / ${MAX_INPUT_CHARS}`;
+    counter.textContent = `${input.value.length} / ${mode === "find" ? MAX_INPUT_CHARS : MAX_START_CHARS}`;
     if (mode === "find") {
       submit.textContent = "Find";
       submit.disabled = input.value.trim().length === 0;
@@ -59,15 +62,7 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
     form.querySelector<HTMLElement>("[data-note-find]")!.hidden = mode !== "find";
     results.hidden = mode !== "find";
     gen.hidden = mode !== "write";
-    if (mode === "write") {
-      findText = input.value;
-      input.value = "";
-      input.readOnly = true;
-    } else {
-      generator.stop();
-      input.value = findText;
-      input.readOnly = false;
-    }
+    if (mode === "find") generator.stop();
     input.placeholder = PLACEHOLDER[mode];
     update();
   }
@@ -85,10 +80,26 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
       if (!submit.disabled) form.requestSubmit();
     }
   });
-  form.addEventListener("submit", (e) => {
+  const reveal = (el: HTMLElement) =>
+    el.scrollIntoView({ block: "start", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+  let checking = false;
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    if (mode === "find") void ctl.submit(input.value);
-    else generator.toggle(book, Number(temp.value));
+    if (mode === "find") return void ctl.submit(input.value);
+    if (phase === "writing") return generator.stop();
+    if (checking || phase !== "idle") return;
+    const text = input.value.trim();
+    checking = true;
+    try {
+      const note = text ? await crisisNote(text) : null;
+      if (note !== null) generator.note(note);
+      else generator.toggle(book, Number(temp.value), text);
+    } catch {
+      generator.note("Something went wrong. Please try again.");
+    } finally {
+      checking = false;
+    }
+    reveal(gen);
   });
   update();
 }

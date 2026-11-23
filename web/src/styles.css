@@ -198,13 +198,13 @@ html:not(.js) .modes { display: none; }
 .results.is-new .book:nth-child(2) { animation-delay: 0.22s; }
 .results.is-new .book:nth-child(3) { animation-delay: 0.3s; }
 
-.answer__head { text-align: center; max-width: 640px; margin: 0 auto; }
-.answer__kicker { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
-.answer__title { font-size: clamp(1.6rem, 3.6vw, 2.2rem); line-height: 1.15; letter-spacing: -0.03em; }
+.results, .gen { scroll-margin-top: 68px; }
+.answer__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 0 0 12px; }
+.answer__kicker { font-family: var(--mono); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-right: 8px; }
+.answer__title { font-size: 1.1rem; line-height: 1.3; letter-spacing: -0.015em; margin-right: 6px; }
 .answer__title:focus, .answer__line:focus { outline: none; }
-.answer__blurb { color: var(--muted); margin: 8px 0 0; }
-.answer__nav { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 16px; margin: 22px 0 36px; }
-.answer__nav .chips { margin: 0; }
+.answer__bar .chips { margin: 0; }
+.answer__bar .chip { padding: 4px 12px; font-size: 0.84rem; }
 .answer__line { text-align: center; color: var(--muted); margin-bottom: 18px; }
 .results > .chips { justify-content: center; max-width: 900px; margin: 0 auto 20px; }
 .results > .link-button { display: block; margin: 0 auto; }
@@ -224,14 +224,14 @@ html:not(.js) .modes { display: none; }
 }
 .crisis p { margin: 0; }
 
-.topic-note { max-width: 640px; margin: 0 auto 28px; text-align: center; color: var(--muted); font-size: 0.92rem; }
+.topic-note { margin: 0 0 12px; color: var(--muted); font-size: 0.88rem; }
 .books { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
 @media (min-width: 760px) {
   .books--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .books--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-.book { background: var(--bg); padding: clamp(20px, 3vw, 28px); min-width: 0; }
-.book__name { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; font-size: 0.92rem; letter-spacing: -0.01em; margin-bottom: 20px; }
+.book { background: var(--bg); padding: clamp(16px, 3vw, 26px); min-width: 0; }
+.book__name { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; font-size: 0.92rem; letter-spacing: -0.01em; margin-bottom: 14px; }
 .book__name::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--book); align-self: center; }
 .book__tr { font-weight: 400; color: var(--muted); font-size: 0.82rem; }
 .book__toggle { margin-top: 4px; }
@@ -282,6 +282,8 @@ html:not(.js) .modes { display: none; }
 .gen__output[data-book="quran"] { --book: var(--quran); }
 .gen__output[data-book="bible"] { --book: var(--bible); }
 .gen__line { margin: 0 0 0.6em; }
+.gen__start { background: color-mix(in srgb, var(--book, var(--accent)) 14%, transparent); color: var(--text); border-radius: 3px; padding: 0 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.gen .crisis { margin: 0; font-family: var(--sans); font-size: 1rem; }
 .gen__placeholder { color: var(--muted); font-family: var(--sans); font-size: 0.95rem; }
 .gen__switch { display: inline-block; font-family: var(--sans); font-size: 0.72rem; color: var(--muted); border: 1px dashed var(--line-strong); border-radius: 999px; padding: 1px 8px; margin-right: 8px; vertical-align: 2px; }
 .gen__caret { display: inline-block; width: 0.5em; height: 1.05em; margin-left: 2px; background: currentColor; vertical-align: -0.15em; opacity: 0.6; }

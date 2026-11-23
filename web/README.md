@@ -37,7 +37,11 @@ hand-written data; `src/story/test-counts.json` is written by a script (below).
 pre-LayerNorm blocks with causal multi-head attention and an exact-GELU MLP, a key-value cache, and
 temperature sampling. It runs in a Web Worker (`src/generate/worker.ts`) and streams characters to the page.
 The weights (`public/model/*.bin`) are fetched only when the visitor switches to "Let the model write" and
-presses Write. The model starts from the book's tag; it takes no typed prompt. A "creativity" slider sets the sampling
+presses Write. The model continues from the book's tag followed by whatever the visitor typed
+(`src/generate/start.ts`: characters outside the 67-token vocabulary are dropped and counted, line breaks become
+spaces, and the start is capped at 120 characters so it fits well inside the 256-character window); an empty box
+starts from the tag. Before the model writes, the typed text goes through the search's own `suggest()`, and a
+crisis result shows the same note instead of any generated text. A "creativity" slider sets the sampling
 temperature (0.2 to 1.5, default 0.8) for the next run. While it writes, the page shows the five most likely next
 characters with their probabilities and marks the one sampled: `topChoices()` in `src/model/generate.ts` applies
 the same temperature softmax that `sampleToken()` draws from, to the last step of each ~24 ms slice the worker

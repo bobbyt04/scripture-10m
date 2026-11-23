@@ -70,13 +70,13 @@ export function renderResults(state: AdviceState, on: ResultHandlers): Node[] {
     case "crisis":
       return [h("div", { class: "crisis", "data-crisis": "" }, h("p", {}, state.note))];
     case "answer": {
+      // One compact row above the first verse: the topic, the other suggested topics, and the full list.
       const others = state.topics.length > 1 ? chips(state.topics, state.current.id, on) : null;
       return [
-        h("div", { class: "answer__head" },
-          h("p", { class: "answer__kicker" }, "Topic"),
-          h("h2", { class: "answer__title", tabindex: "-1", "data-focus": "" }, state.current.label),
-          h("p", { class: "answer__blurb" }, state.current.blurb)),
-        h("div", { class: "answer__nav" }, others, quiet("All topics", on.browseAll, { "data-browse": "" })),
+        h("div", { class: "answer__bar" },
+          h("h2", { class: "answer__title", tabindex: "-1", "data-focus": "", title: state.current.blurb },
+            h("span", { class: "answer__kicker" }, "Topic"), state.current.label),
+          others, quiet("All topics", on.browseAll, { "data-browse": "" })),
         ...(state.result ? verses(state.result) : [status("Loading verses…")]),
       ];
     }
@@ -110,7 +110,11 @@ export function mountResults(results: HTMLElement, ctl: AdviceController): void 
       void results.offsetWidth;
       results.classList.add("is-new");
     }
-    // Move focus only when the reader navigated within the answer; a new answer is announced by the live region.
+    // A fresh answer is scrolled into view, but focus stays in the text box so a follow-up can be typed; the
+    // live region announces it. Focus moves only when the reader navigated within the answer.
+    if (prev === "suggesting" && s.kind !== "suggesting") {
+      results.scrollIntoView({ block: "start", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+    }
     if ((s.kind === "browse" && s.reason === "asked") || (s.kind === "answer" && prev === "browse")) {
       results.querySelector<HTMLElement>("[data-focus]")?.focus({ preventScroll: true });
     }

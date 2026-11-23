@@ -1,6 +1,9 @@
 import { BOOK_NAMES, type BookId } from "../advice/api.ts";
 import { h, prefersReducedMotion } from "../dom.ts";
 import manifest from "../model/manifest.json";
+import { CharTokenizer } from "../model/tokenizer.ts";
+import vocab from "../model/vocab.json";
+import { encodeStart, MAX_START_CHARS } from "./start.ts";
 import type { Think, WorkerReply, WorkerRequest } from "./worker.ts";
 
 const MAX_TOKENS = 400;
@@ -32,8 +35,10 @@ export function errorMessage(modelLoaded: boolean): string {
 
 export interface Generator {
   /** Start writing in the style of `book`, or stop if it is already writing. Loads the model on first use. */
-  toggle(book: BookId, temperature: number): void;
+  toggle(book: BookId, temperature: number, typed: string): void;
   stop(): void;
+  /** Show the crisis note in place of any text, and generate nothing. */
+  note(text: string): void;
 }
 
 export type GenPhase = "idle" | "loading" | "writing";
@@ -58,6 +63,9 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
   let announced = 0;
   let t0 = 0;
   let temperature = 0.8;
+  let typed = "";
+  let start = "";
+  const tok = new CharTokenizer(vocab);
   let thinkDrawn = 0;
 
   const drawThink = (t: Think) => {
@@ -72,17 +80,18 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
   };
 
   const draw = (generating: boolean) => {
-    const lines = toLines(raw, book);
+    // The visitor's start has no line break, so it is always the beginning of the first line.
+    const lines = toLines(start + raw, book);
     output.replaceChildren(...lines.map((l, i) =>
       h("p", { class: "gen__line" },
         l.switchedTo ? h("span", { class: "gen__switch" }, `switched to ${BOOK_NAMES[l.switchedTo]} style`) : null,
-        l.text,
+        i === 0 && start ? [h("mark", { class: "gen__start", "data-gen-start": "" }, start), l.text.slice(start.length)] : l.text,
         generating && i === lines.length - 1 ? h("span", { class: "gen__caret", "aria-hidden": "true" }) : null)));
     if (generating && lines.length === 0) output.append(h("p", { class: "gen__line" }, h("span", { class: "gen__caret", "aria-hidden": "true" })));
     // announce finished lines only, never single characters
     const done = raw.split("\n").length - 1;
     if (done > announced) {
-      const finished = toLines(raw.split("\n").slice(announced, done).join("\n"), book);
+      const finished = toLines((start + raw).split("\n").slice(announced, done).join("\n"), book);
       live.textContent = finished.map((l) => l.text).join(" ");
       announced = done;
     }
@@ -105,7 +114,7 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
     } else if (m.type === "ready") {
       ready = true;
       progress.hidden = true;
-      start();
+      begin();
     } else if (m.type === "text") {
       raw += m.text;
       const secs = (performance.now() - t0) / 1000;
@@ -122,7 +131,7 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
       const secs = m.ms / 1000;
       const perSec = m.tokens / secs;
       rate.textContent = `${m.tokens} chars · ${perSec.toFixed(0)} chars/s · ${secs.toFixed(1)} s on your device`;
-      status.textContent = m.stopped ? "Stopped." : "";
+      if (m.stopped) status.textContent = [status.textContent, "Stopped."].filter(Boolean).join(" ");
       root.dataset.tokensPerSecond = perSec.toFixed(1);
       live.textContent = m.stopped ? "Stopped." : "Finished.";
     } else if (m.type === "error") {
@@ -137,10 +146,15 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
     }
   };
 
-  function start() {
+  function begin() {
+    const s = encodeStart(tok, book, typed);
+    start = s.text;
     raw = "";
     announced = 0;
-    status.textContent = "";
+    status.textContent = [
+      s.dropped ? `${s.dropped} character${s.dropped === 1 ? "" : "s"} the model doesn’t know ${s.dropped === 1 ? "was" : "were"} left out.` : "",
+      s.cut ? `Only the first ${MAX_START_CHARS} characters are used.` : "",
+    ].filter(Boolean).join(" ");
     rate.textContent = "";
     delete status.dataset.error;
     delete root.dataset.tokensPerSecond;
@@ -149,7 +163,7 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
     setPhase("writing", "Stop");
     t0 = performance.now();
     const seed = crypto.getRandomValues(new Uint32Array(1))[0];
-    send({ type: "generate", book, temperature, maxTokens: MAX_TOKENS, seed });
+    send({ type: "generate", prompt: s.ids, temperature, maxTokens: MAX_TOKENS, seed });
   }
 
   const stop = () => {
@@ -158,12 +172,21 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
 
   return {
     stop,
-    toggle(b: BookId, temp: number) {
+    note(text: string) {
+      if (phase !== "idle") return;
+      start = raw = "";
+      rate.textContent = status.textContent = "";
+      think.hidden = true;
+      delete output.dataset.book;
+      output.replaceChildren(h("div", { class: "crisis", "data-crisis": "" }, h("p", {}, text)));
+    },
+    toggle(b: BookId, temp: number, text: string) {
       if (phase === "writing") return stop();
       if (phase === "loading") return;
       book = b;
       temperature = temp;
-      if (ready) return start();
+      typed = text;
+      if (ready) return begin();
       setPhase("loading", "Loading…");
       if (!worker) {
         worker = new Worker(new URL("./worker.ts", import.meta.url), { type: "module" });

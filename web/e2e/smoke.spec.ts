@@ -35,7 +35,9 @@ test.describe("find verses", () => {
     await page.fill("#ask-input", "I got laid off and I'm scared about money");
     await page.keyboard.press("Enter");
     const results = page.locator("#ask-results");
-    await expect(results.locator(".answer__title")).toHaveText("Money worries", { timeout: FIRST_ANSWER });
+    await expect(results.locator(".answer__title")).toHaveText("TopicMoney worries", { timeout: FIRST_ANSWER });
+    await expect(results.locator("[data-verse]").first()).toBeInViewport(); // scrolled to, without a second click
+    await expect(page.locator("#ask-input")).toBeFocused(); // a follow-up can be typed at once
     await expect(results.locator("[data-verse]").first()).toBeVisible();
     await expect(page.locator("[data-empty=gita]")).toHaveText("The Bhagavad Gita has no verse for this topic in the reviewed selection.");
     const chips = results.locator("[data-topic]");
@@ -43,7 +45,7 @@ test.describe("find verses", () => {
     await expect(chips.first()).toHaveAttribute("aria-pressed", "true");
 
     await chips.nth(1).click();
-    await expect(results.locator(".answer__title")).toHaveText("Worry and fear");
+    await expect(results.locator(".answer__title")).toHaveText("TopicWorry and fear");
     await expect(chips.nth(1)).toHaveAttribute("aria-pressed", "true");
     await expect(results.locator("[data-verse]").first()).toBeVisible();
 
@@ -51,7 +53,7 @@ test.describe("find verses", () => {
     expect(await results.locator("[data-topic]").count()).toBeGreaterThan(20);
     await expect(results.locator("[data-verse]")).toHaveCount(0);
     await results.getByRole("button", { name: "← Back" }).click();
-    await expect(results.locator(".answer__title")).toHaveText("Worry and fear");
+    await expect(results.locator(".answer__title")).toHaveText("TopicWorry and fear");
 
     expect(new URL(page.url()).search + new URL(page.url()).hash).toBe("");
     expect(urls.filter((u) => /laid|scared|money/i.test(decodeURIComponent(u)))).toEqual([]);
@@ -92,10 +94,10 @@ test.describe("find verses", () => {
 
 test("let the model write: downloads the model and streams labelled text", async ({ page }) => {
   await page.goto("/");
-  await page.fill("#ask-input", "kept for later");
   await page.getByRole("button", { name: "Let the model write" }).click();
-  await expect(page.locator("#ask-input")).toHaveValue("");
-  await expect(page.locator("#ask-input")).toHaveAttribute("placeholder", /ignores typed text/);
+  await expect(page.locator("#ask-input")).toHaveAttribute("placeholder", "Start a sentence, or leave empty.");
+  const urls = watchRequests(page);
+  await page.fill("#ask-input", "And it came to pass");
   await page.getByRole("button", { name: "Bible" }).click();
   await page.locator("[data-gen-temp]").fill("1.2");
   await expect(page.locator("[data-gen-temp-out]")).toHaveText("1.2");
@@ -115,10 +117,32 @@ test("let the model write: downloads the model and streams labelled text", async
   await expect(gen.locator("[data-gen-status]")).toHaveText("Stopped.");
   const text = await page.locator("[data-gen-output]").innerText();
   expect(text).not.toMatch(/<(gita|quran|bible)>/);
+  // The visitor's start comes first, marked apart, and the model's own text follows it.
+  await expect(gen.locator("[data-gen-start]")).toHaveText("And it came to pass");
+  expect(text.startsWith("And it came to pass")).toBe(true);
+  expect(text.length).toBeGreaterThan("And it came to pass".length + 50);
+  expect(urls.filter((u) => /came|pass/i.test(decodeURIComponent(u)))).toEqual([]);
   await expect(gen.locator(".badge")).toHaveText("Machine-generated imitation, not scripture");
   await expect(page.locator("#ask button[type=submit]")).toHaveText("Write again");
   await page.getByRole("button", { name: "Find verses" }).click();
-  await expect(page.locator("#ask-input")).toHaveValue("kept for later");
+  await expect(page.locator("#ask-input")).toHaveValue("And it came to pass");
+});
+
+test("let the model write: crisis text gets the note and the model does not write", async ({ page }) => {
+  const modelRequests: string[] = [];
+  page.on("request", (r) => { if (r.url().includes("/model/")) modelRequests.push(r.url()); });
+  await page.goto("/");
+  await page.getByRole("button", { name: "Let the model write" }).click();
+  await page.fill("#ask-input", "I want to end my life");
+  await page.keyboard.press("Enter");
+  const note = page.locator("[data-generate] [data-crisis]");
+  await expect(note).toBeVisible({ timeout: FIRST_ANSWER });
+  await expect(note).toContainText("This page will not show verses for what you wrote.");
+  await expect(page.locator("[data-gen-output] .gen__line")).toHaveCount(0);
+  await expect(page.locator(".think__row")).toHaveCount(0);
+  await expect(page.locator("#ask button[type=submit]")).toHaveText("Write");
+  expect(modelRequests).toEqual([]);
+  expect(new URL(page.url()).search).toBe("");
 });
 
 test.describe("without JavaScript", () => {
@@ -183,6 +207,7 @@ test.describe("small screens", () => {
     await page.fill("#ask-input", "I keep worrying about money and whether I can pay rent");
     await page.keyboard.press("Enter");
     await expect(page.locator("#ask-results [data-verse]").first()).toBeVisible({ timeout: FIRST_ANSWER });
+    await expect(page.locator("#ask-results [data-verse]").first()).toBeInViewport();
     expect(await width()).toBeLessThanOrEqual(375);
   });
 });
