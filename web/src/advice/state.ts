@@ -1,9 +1,10 @@
 // The answer area's state machine. It has no DOM code, so it can be tested on its own.
 //
 //   idle --submit--> suggesting --> crisis   (note only; nothing else is reachable)
-//                               \-> answer   (topics matched: the first topic's verses, the others as chips)
+//                               \-> answer   (the first topic is on the auto-show allowlist: its verses at once)
+//                               \-> choose   (topics matched, but the first may not open by itself: pick one)
 //                               \-> browse   (nothing matched: every topic)
-//   answer --pick a chip--> answer;  answer/idle --browseAll--> browse --pick--> answer
+//   choose/answer --pick--> answer;  answer/idle --browseAll--> browse --pick--> answer
 //
 // Verses come only from topic(), for a topic that suggest() returned or that is in the full list. A sensitive
 // suggestion opens its topics with {sensitive: true}; a topic picked from the full list never does. Every
@@ -18,6 +19,8 @@ export type AdviceState =
   | { kind: "crisis"; note: string }
   /** topics: the suggested topics shown as chips; result is null while `current` loads. */
   | { kind: "answer"; topics: TopicLabel[]; sensitive: boolean; current: TopicLabel; result: TopicResult | null }
+  /** The suggested topics, none opened: the first is not on the auto-show allowlist (themes.json "auto_show"). */
+  | { kind: "choose"; topics: TopicLabel[]; sensitive: boolean }
   | { kind: "browse"; reason: "no-match" | "asked"; topics: TopicListing[]; back: AnswerState | null }
   | { kind: "error"; message: string };
 
@@ -64,7 +67,7 @@ export class AdviceController {
     }
   }
 
-  /** Suggest topics for the text and, when there are some, open the first one straight away. */
+  /** Suggest topics for the text and, when the first may open by itself (auto_show), open it straight away. */
   async submit(text: string): Promise<void> {
     const query = text.trim().slice(0, MAX_INPUT_CHARS);
     if (!query) return;
@@ -76,6 +79,7 @@ export class AdviceController {
         return { kind: "browse", reason: "no-match", topics: await this.api.topics(), back: null } as const;
       }
       const sensitive = s.category === "sensitive";
+      if (!topics[0].auto_show) return { kind: "choose", topics, sensitive } as const;
       const result = await this.api.topic(topics[0].id, { sensitive });
       return { kind: "answer", topics, sensitive, current: topics[0], result } as const;
     }, (next): AdviceState => next);
@@ -92,10 +96,10 @@ export class AdviceController {
   async openTopic(id: string): Promise<void> {
     const s = this.s;
     let next: AnswerState;
-    if (s.kind === "answer") {
+    if (s.kind === "answer" || s.kind === "choose") {
       const current = s.topics.find((t) => t.id === id);
       if (!current) return;
-      next = { ...s, current, result: null };
+      next = { kind: "answer", topics: s.topics, sensitive: s.sensitive, current, result: null };
     } else if (s.kind === "browse") {
       const current = s.topics.find((t) => t.id === id);
       if (!current) return;

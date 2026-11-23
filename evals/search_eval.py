@@ -138,7 +138,7 @@ def probe_report(searcher, probes):
             continue
         crisis = [p["text"] for p in d["crisis"]]
         row = {"crisis": len(crisis), "crisis_caught": sum(searcher.classify(q)[0] == "crisis" for q in crisis)}
-        for g in ("innocent", "bereavement"):
+        for g in ("innocent", "bereavement", "not_crisis"):
             if g in d:
                 row[g] = len(d[g])
                 row[g + "_false_alarms"] = sum(searcher.classify(q)[0] == "crisis" for q in d[g])

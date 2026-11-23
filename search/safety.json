@@ -1,5 +1,5 @@
 {
- "_about": "Hand-written. Sorts each query before any verse is chosen (search/FORMAT.md step 3). 'crisis': no verses, no themes, no notes; the site shows 'crisis_message' (no phone numbers, by the owner's decision). Two layers fire it: the 'crisis' phrase lists (suicide, self-harm, abuse, harm to others) and the deliberately over-sensitive 'distress' gate, whose rules fire when a few words occur close together in any order ('pills' near 'how many', 'he' near 'grabs me', 'better off' near 'without me'); when in doubt it fires. Before either is matched, the words of every 'idioms' phrase ('killing it at work', 'cut back on sugar') and every 'bereavement' phrase (a third person's death: 'my dad passed away', 'died by suicide', 'lost my brother to an overdose') are blanked, and a word of 5+ letters one edit away from a 'fuzzy' word is read as that word ('suicdie' -> 'suicide'). Bereavement thus reaches the grief theme, while anything else in the message ('and i want to die too') is still read. 'sensitive': identity, body, health and life-circumstance topics; only verses of search/pool/sensitive_set.json can be returned, with the topic's gentle themes added after any themes the visitor typed. Phrases use the syntax of search/themes.json; distress rules are described in search/FORMAT.md. The lists were developed against the probe sets in evals/search_probes.json and are tested in both directions. 'suggest' (round 7, used only by suggest()): if a message has any of the 'signals' (first-person harm, a plan, secrecy, an age under 18, contact with an adult or a stranger), the topics in 'never_after_signal' are never offered and at most 'max_topics_after_signal' topics are, even if the gate did not fire. 'emoji' maps a few emoji to words before the crisis words are read ('🔫' -> 'emojigun'). 'comfort_only_cues' (round 8, used only by suggest()): if a message has any of these phrases (another person: a third-person pronoun or a person word; an event done to the writer: 'something happened', 'said no', 'made me'; mental-health wording; anger at God), only the topics whose search/themes.json 'kind' is 'comfort' are offered, never a self_directed one. They are matched on the message's words, not on the crisis words. Round 9: numbers typed in digits are read as words for the safety check (1 to 17 spelled out, any other number as 'num', so 'took 30 tylenol' can be read); 'min_sensitive_verses': a gentle topic is offered for a sensitive message only if it has at least that many sensitive verses; 'safeguard_exempt': if no theme phrase matches a message and no topic is offered, a 'signals' phrase that is not in this list sends it to the crisis note instead of the full topic list (the exempt ones also occur in everyday idioms such as 'killed it last night').",
+ "_about": "Hand-written. Sorts each query before any verse is chosen (search/FORMAT.md step 3). 'crisis': no verses, no themes, no notes; the site shows 'crisis_message' (no phone numbers, by the owner's decision). Two layers fire it: the 'crisis' phrase lists (suicide, self-harm, abuse, harm to others) and the deliberately over-sensitive 'distress' gate, whose rules fire when a few words occur close together in any order ('pills' near 'how many', 'he' near 'grabs me', 'better off' near 'without me'); when in doubt it fires. Before either is matched, the words of every 'idioms' phrase ('killing it at work', 'cut back on sugar') and every 'bereavement' phrase (a third person's death: 'my dad passed away', 'died by suicide', 'lost my brother to an overdose') are blanked, and a word of 5+ letters one edit away from a 'fuzzy' word is read as that word ('suicdie' -> 'suicide'). Bereavement thus reaches the grief theme, while anything else in the message ('and i want to die too') is still read. 'sensitive': identity, body, health and life-circumstance topics; only verses of search/pool/sensitive_set.json can be returned, with the topic's gentle themes added after any themes the visitor typed. Phrases use the syntax of search/themes.json; distress rules are described in search/FORMAT.md. The lists were developed against the probe sets in evals/search_probes.json and are tested in both directions. 'suggest' (round 7, used only by suggest()): if a message has any of the 'signals' (first-person harm, a plan, secrecy, an age under 18, contact with an adult or a stranger), the topics in 'never_after_signal' are never offered and at most 'max_topics_after_signal' topics are, even if the gate did not fire. 'emoji' maps a few emoji to words before the crisis words are read ('🔫' -> 'emojigun'). 'comfort_only_cues' (round 8, used only by suggest()): if a message has any of these phrases (another person: a third-person pronoun or a person word; an event done to the writer: 'something happened', 'said no', 'made me'; mental-health wording; anger at God), only the topics whose search/themes.json 'kind' is 'comfort' are offered, never a self_directed one. They are matched on the message's words, not on the crisis words. Round 9: numbers typed in digits are read as words for the safety check (1 to 17 spelled out, any other number as 'num', so 'took 30 tylenol' can be read); 'min_sensitive_verses': a gentle topic is offered for a sensitive message only if it has at least that many sensitive verses; 'safeguard_exempt': if no theme phrase matches a message and no topic is offered, a 'signals' phrase that is not in this list sends it to the crisis note instead of the full topic list (the exempt ones also occur in everyday idioms such as 'killed it last night'). Round 13 (judge 8): phrases and distress rules for swallowed poison, 'no way out', 'nobody would miss me', 'it is over for me', dying for God, someone else at risk ('she wants to die', 'kill himself', 'my daughter is cutting'), eating-disorder behaviour (not eating for days on purpose, making oneself throw up, binge and purge, anorexia, bulimia, and 'fewcalories', which crisis_words writes for 800 calories or fewer, with a daily or weighing word); and 'unblanked': rules matched on the message's own words, before idioms and bereavement are blanked, so wanting to be with someone who has died is caught although 'my wife passed' is blanked, and 'die for god' although the idiom 'to die for' is.",
  "fuzzy": [
   "suicide",
   "suicidal",
@@ -448,7 +448,15 @@
    "done with * life thing",
    "if anyone finds this",
    "whoever finds this",
-   "to whoever finds"
+   "to whoever finds",
+   "nobody|noone would|will miss me",
+   "no one would|will miss me",
+   "martyr myself",
+   "die a martyr",
+   "its over for me",
+   "it is over for me",
+   "its all over for me",
+   "it is all over for me"
   ],
   "self_harm": [
    "cut|cutting|cuts myself",
@@ -490,7 +498,10 @@
    "do not deserve to eat",
    "not let myself eat",
    "covered in lines",
-   "pain is the only thing"
+   "pain is the only thing",
+   "make|made|making myself throw up",
+   "make|made|making myself vomit|puke|purge",
+   "binge|binging|bingeing and purge|purging"
   ],
   "abuse": [
    "he|she|husband|wife|boyfriend|girlfriend|bf|gf|partner|fiance|fiancee|dad|father|mom|mum|mother|stepfather|stepdad|stepmother|stepmom|stepbrother|parents|brother|sister|uncle|aunt|grandfather|grandpa|cousin|teacher|coach|boss|priest|pastor|imam|neighbor|neighbour|ex hits|hit|beats|beat|slaps|slapped|punches|punched|kicks|kicked|chokes|choked|strangles|strangled|abuses|abused|rapes|raped|molests|molested|hurts|threatens|threatened|shoves|shoved me|us",
@@ -1443,7 +1454,19 @@
    "~8 decided|decide|deciding, made up my mind, mind is made up, final, goodbye|goodbyes, bye, ready, it is time, its time, this is it + my|the last|final week|weekend|day|days|night|month|birthday|christmas|summer|year|morning|evening|thanksgiving|eid|diwali ! at|of|in|before job|work|school|college|uni|university|office|company|semester|term|vacation|holiday|trip|camp|internship|contract|exams|exam|finals|class|classes|course|training|season|tour|shift|placement|rotation ! at|of|in|before my|the|this job|work|school|college|uni|university|office|company|semester|term|vacation|holiday|trip|camp|internship|contract|exams|exam|finals|class|classes|course|training|season|tour|shift|placement|rotation",
    "will be my|the last|final week|weekend|day|days|night|month|birthday|christmas|summer|year|morning|evening|thanksgiving|eid|diwali, going to be my|the last|final week|weekend|day|days|night|month|birthday|christmas|summer|year|morning|evening|thanksgiving|eid|diwali, gonna be my|the last|final week|weekend|day|days|night|month|birthday|christmas|summer|year|morning|evening|thanksgiving|eid|diwali, last|final week|weekend|day|days|night|month|birthday|christmas|summer|year|morning|evening|thanksgiving|eid|diwali alive|ever|breathing, last|final week|weekend|day|days|night|month|birthday|christmas|summer|year|morning|evening|thanksgiving|eid|diwali on earth ! at|of|in|before job|work|school|college|uni|university|office|company|semester|term|vacation|holiday|trip|camp|internship|contract|exams|exam|finals|class|classes|course|training|season|tour|shift|placement|rotation ! at|of|in|before my|the|this job|work|school|college|uni|university|office|company|semester|term|vacation|holiday|trip|camp|internship|contract|exams|exam|finals|class|classes|course|training|season|tour|shift|placement|rotation",
    "~8 will not|wont|never see|be|make, not going to see|be|make, not gonna see|be|make + another|next week|weekend|day|days|night|month|birthday|christmas|summer|year|morning|evening|thanksgiving|eid|diwali, here for|by|at|on christmas|my|thanksgiving|eid|diwali|new, it to my|christmas|thanksgiving|next ! job|work|school|vacation|trip|visit|flight|concert|party|game|meeting ! he|she|they|mom|mum|dad|grandma|grandpa|granny|nan|nana|grandmother|grandfather|husband|wife|father|mother|brother|sister|friend|son|daughter|dog|cat will|wont|never|is",
-   "~6 time|ready|want|wanna|going|gonna|longing|longs + go|come|going|coming home to god|allah|jesus|heaven|lord, go|come|going|coming home to the|my lord|god|maker|creator|father ! for christmas|dinner|eid|thanksgiving|diwali|easter|the|a|holiday|holidays|visit ! church|mosque|temple|service"
+   "~6 time|ready|want|wanna|going|gonna|longing|longs + go|come|going|coming home to god|allah|jesus|heaven|lord, go|come|going|coming home to the|my lord|god|maker|creator|father ! for christmas|dinner|eid|thanksgiving|diwali|easter|the|a|holiday|holidays|visit ! church|mosque|temple|service",
+   "~6 drank|drink|drinking|swallowed|swallow|swallowing|ate|took|chugged|downed + bleach|antifreeze|pesticide|weedkiller|cyanide, drain cleaner, rat poison, weed killer ! hair ! clothes ! laundry ! towels ! smell ! spill* ! spilt",
+   "no way out, not see a way out, not see any way out, see no way out ! escape room ! maze ! contract ! parking ! car park ! lease ! building ! stadium",
+   "~6 want|wanna|wish|need|long + be where + she is, he is, they are",
+   "~8 see|meet|hold|hug + heaven, other side + soon|tonight|today|shortly, can not wait",
+   "~4 do not, never + want|wanna + stay + here ! job ! house ! city ! town ! school ! country ! apartment ! hotel ! party ! class ! company ! team ! area ! place ! relationship ! marriage",
+   "he|she|they + want|wants|wanted|wanting + to die ! embarrassment ! laughing ! at home ! peacefully ! in peace ! old ! young ! hero",
+   "kill|killing|end|ending + himself|herself|themselves",
+   "~6 cut|cutting|cuts|harm|harming|hurting|starve|starving + himself|herself|themselves ! shaving ! accident ! accidentally ! cooking ! chopping ! paper ! playing ! fell ! hair",
+   "daughter|son|kid|child|teen|friend|sister|brother|girlfriend|boyfriend + is|been|started|keeps|still + cutting ! hair ! coupons ! class ! school ! carbs ! sugar ! grass ! back ! corners ! ties ! costs ! weight ! teeth ! wood ! paper ! out ! cake ! cloth ! fabric ! tree ! lawn",
+   "~8 not eaten, not eating, stopped eating, not eat, starving myself, starve myself + days, weeks, on purpose, purpose ! fast ! fasting ! ramadan ! lent ! surgery ! flu ! sick ! colonoscopy ! busy ! procedure ! lunch ! breakfast",
+   "~6 fewcalories + a day, per day, daily, today, all day, weigh|weighing, only, just ! breakfast ! lunch ! dinner ! snack ! meal ! burned ! burn ! workout ! run ! walk",
+   "anorexia|anorexic|bulimia|bulimic ! recovering ! recovery ! recovered ! years ago ! used to ! survivor ! awareness ! documentary"
   ]
  },
  "emoji": {
@@ -1986,6 +2009,13 @@
    "meet",
    "photos",
    "pictures"
+  ]
+ },
+ "unblanked": {
+  "window": 12,
+  "rules": [
+   "passed|died|death|dead|gone|lost|funeral|buried|heaven + be with her|him|them|mom|mum|dad|husband|wife|son|daughter|baby|brother|sister|grandma|grandpa, be where she|he|they ! for the funeral ! at the funeral ! to the funeral ! hospital ! comfort ! support ! look after ! take care",
+   "~4 die|dying + for + god|allah|jesus|christ|religion, my faith, the cause"
   ]
  }
 }

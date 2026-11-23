@@ -345,9 +345,18 @@ def test_probe_innocent_and_bereaved_messages_are_not_crisis(s, q):
     assert (s.classify(q)[0] == "crisis") == want_crisis, q
 
 
+# Round 13 (judge 8): eating-disorder behaviour now gets the crisis note instead of gentle topics. These earlier
+# sensitive probes describe that behaviour, so they move to the note by design.
+ROUND13_EATING_NOW_CRISIS = {"i haven't eaten properly in weeks, i'm trying to get thin", "i make myself throw up after meals",
+                             "i hate my body and havent eaten properly in weeks", "i binge and purge and i feel so ashamed"}
+
+
 @pytest.mark.parametrize("q", PROBES["blind_1"]["sensitive"])
 def test_probe_sensitive_messages_route_to_the_sensitive_set(s, pool_refs, q):
     res = s.search(q)
+    if q in ROUND13_EATING_NOW_CRISIS:
+        assert res["category"] == "crisis", q
+        return
     assert res["category"] == "sensitive", q
     check(s, pool_refs, res)
 
@@ -526,12 +535,13 @@ def test_a_death_gets_grief_verses(s, q):
 @pytest.mark.parametrize("q", JUDGE5["sensitive"])
 def test_judge5_sensitive_messages_only_get_allowed_verses(s, pool_refs, q):
     res = s.search(q)
-    assert res["category"] != "crisis", q
+    assert (res["category"] == "crisis") == (q in ROUND13_EATING_NOW_CRISIS), q
     check(s, pool_refs, res)
 
 
 def test_judge5_sensitive_routing_does_not_regress(s):
-    assert sum(s.classify(q)[0] == "sensitive" for q in JUDGE5["sensitive"]) >= 36       # 34 at the first run
+    # 34 at the first run, 36 later; 35 since round 13 sends one eating-disorder message to the crisis note.
+    assert sum(s.classify(q)[0] == "sensitive" for q in JUDGE5["sensitive"]) >= 35
 
 
 @pytest.mark.parametrize("q", [

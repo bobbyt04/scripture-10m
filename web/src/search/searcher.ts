@@ -21,6 +21,7 @@ export interface ThemeData {
   label?: string;
   blurb?: string;
   kind?: "comfort" | "self_directed";
+  auto_show?: boolean;
   gentle_label?: string;
   gentle_blurb?: string;
   note?: string;
@@ -52,6 +53,8 @@ export interface SearchData {
     crisis: Record<string, string[]>;
     sensitive: Record<string, { themes: string[]; phrases: string[]; exclude?: Partial<Record<BookId, string[]>> }>;
     distress: { window: number; rules: string[] };
+    /** Rules read on the message's own words, before idioms and bereavement are blanked (round 13). */
+    unblanked?: { window: number; rules: string[] };
     suggest: { max_topics: number; max_topics_after_signal: number; min_sensitive_verses: number;
       never_after_signal: string[]; comfort_only_cues: Record<string, string[]>; signals: string[];
       safeguard_exempt: string[] };
@@ -61,7 +64,8 @@ export interface SearchData {
 
 // ------------------------------------------------------------------ what it returns (FORMAT.md steps 8 and 9)
 
-export interface TopicLabel { id: string; label: string; blurb: string }
+/** auto_show: the site may open this topic without a tap (themes.json "auto_show"; for a sensitive message, comfort topics only). */
+export interface TopicLabel { id: string; label: string; blurb: string; auto_show: boolean }
 
 export interface Suggestion {
   category: "crisis" | "sensitive" | "general" | "none";
@@ -136,6 +140,19 @@ const NUMBER_WORDS = new Map(
 /** Each run of ASCII digits becomes " <word> ": its English word if it is exactly 1 to 17 (no leading zero), else "num". */
 function spellNumbers(text: string): string {
   return text.replace(/[0-9]+/g, (m) => ` ${NUMBER_WORDS.get(m) ?? "num"} `);
+}
+
+const LEET: Record<string, string> = { "1": "i", "3": "e", "0": "o" };
+
+/**
+ * For the safety check only, before spellNumbers: the text in lower case, with a calorie count of 800 or less
+ * ("300 calories") written " fewcalories ", and a 1, 3 or 0 right after a letter a-z read as i, e or o ("d1e").
+ * A digit that starts a run of digits is left alone, so "took 30 tylenol" reads as before.
+ */
+function unmask(text: string): string {
+  const t = text.toLowerCase().replace(/(?<![a-z0-9_])([0-9]{1,3}) *(?:calories|calorie|cals|cal|kcal)(?![a-z0-9_])/g,
+    (m, n: string) => (Number(n) <= 800 ? " fewcalories " : m));
+  return t.replace(/(?<=[a-z])[130]/g, (c) => LEET[c]);
 }
 
 // ------------------------------------------------------------------ step 2: phrases
@@ -235,6 +252,7 @@ export class Searcher {
   private readonly emoji: [string, string][];
   private readonly blanks: Phrase[];
   private readonly distress: Rule[];
+  private readonly unblanked: Rule[];
   private readonly crisis: [string, Phrase[]][];
   private readonly sensitive: [string, Phrase[]][];
   private readonly sensitiveExcludeAny: Record<BookId, Set<string>>;
@@ -266,6 +284,7 @@ export class Searcher {
     this.emoji = Object.entries(s.emoji);
     this.blanks = [...s.idioms, ...s.bereavement].map(compilePhrase);
     this.distress = s.distress.rules.map(compileRule);
+    this.unblanked = (s.unblanked?.rules ?? []).map(compileRule);
     this.crisis = Object.entries(s.crisis).map(([t, ps]) => [t, ps.map(compilePhrase)]);
     this.sensitive = Object.entries(s.sensitive).map(([t, d]) => [t, d.phrases.map(compilePhrase)]);
     // topic(sensitive=true) does not know which sensitive topic led there, so it leaves out every topic's excludes.
@@ -294,7 +313,7 @@ export class Searcher {
   crisisWords(query: string): string[] {
     let q = this.cap(query);
     for (const [ch, word] of this.emoji) q = q.replaceAll(ch, ` ${word} `);
-    const toks = words(spellNumbers(q));
+    const toks = words(spellNumbers(unmask(q)));
     const out = [...toks];
     const tokset = new Set(toks);
     for (const ph of this.blanks) {
@@ -312,6 +331,9 @@ export class Searcher {
     if (this.distress.some((r) => ruleFires(c, r, this.d.safety.distress.window, cset))) return ["crisis", "distress"];
     const w = words(q);
     const wset = new Set(w);
+    // Read on the message's own words, before idioms and bereavement are blanked ("since my wife passed i just
+    // want to be with her", "die for god").
+    if (this.unblanked.some((r) => ruleFires(w, r, this.d.safety.unblanked!.window, wset))) return ["crisis", "distress"];
     for (const [topic, phrases] of this.sensitive) if (anyMatch(w, phrases, wset)) return ["sensitive", topic];
     return ["general", null];
   }
@@ -478,8 +500,9 @@ export class Searcher {
 
   private label(theme: string, sensitive: boolean): TopicLabel {
     const d = this.d.themes[theme];
-    if (sensitive && d.gentle_label !== undefined) return { id: theme, label: d.gentle_label, blurb: d.gentle_blurb! };
-    return { id: theme, label: d.label ?? d.name, blurb: d.blurb ?? d.description };
+    const auto_show = Boolean(d.auto_show) && (!sensitive || this.comfortTopics.has(theme));
+    if (sensitive && d.gentle_label !== undefined) return { id: theme, label: d.gentle_label, blurb: d.gentle_blurb!, auto_show };
+    return { id: theme, label: d.label ?? d.name, blurb: d.blurb ?? d.description, auto_show };
   }
 
   /** Per book: [priority or 1000, score, pool index], sorted, the first k (all if k is null). */

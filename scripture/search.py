@@ -123,6 +123,22 @@ def spell_numbers(text):
     return re.sub(r"[0-9]+", lambda m: f" {NUMBER_WORDS.get(m.group(), 'num')} ", text)
 
 
+LEET = {"1": "i", "3": "e", "0": "o"}
+
+
+def unmask(text):
+    """For the safety check only, before spell_numbers: the text in lower case, with a calorie count of 800 or
+    less ("300 calories") written " fewcalories ", and a 1, 3 or 0 right after a letter a-z read as i, e or o
+    ("d1e" -> "die").
+
+    A digit that starts a run of digits is left alone, so "took 30 tylenol" and "took 2 tylenol" read as before.
+    Only ASCII letters and digits count as neighbours, so a port gets the same answer for any text.
+    """
+    text = re.sub(r"(?<![a-z0-9_])([0-9]{1,3}) *(?:calories|calorie|cals|cal|kcal)(?![a-z0-9_])",
+                  lambda m: " fewcalories " if int(m.group(1)) <= 800 else m.group(0), text.lower())
+    return re.sub(r"(?<=[a-z])[130]", lambda m: LEET[m.group()], text)
+
+
 class Lexicon:
     """Stopwords, irregular forms and suffix rules (all data, from search/lexicon.json)."""
 
@@ -290,6 +306,9 @@ class Searcher:
         self.bereavement = [compile_phrase(x) for x in safety["bereavement"]]
         self.distress_window = safety["distress"]["window"]
         self.distress = [compile_rule(r) for r in safety["distress"]["rules"]]
+        unblanked = safety.get("unblanked", {"window": 0, "rules": []})
+        self.unblanked_window = unblanked["window"]
+        self.unblanked = [compile_rule(r) for r in unblanked["rules"]]
         self.crisis = {t: [compile_phrase(x) for x in ps] for t, ps in safety["crisis"].items()}
         self.sensitive = {t: [compile_phrase(x) for x in d["phrases"]] for t, d in safety["sensitive"].items()}
         self.sensitive_themes = {t: d["themes"] for t, d in safety["sensitive"].items()}
@@ -349,7 +368,7 @@ class Searcher:
         query = query[:self.params["max_query_chars"]]
         for ch, word in self.emoji.items():               # a few emoji that stand for a means of harm ("🔫")
             query = query.replace(ch, f" {word} ")
-        toks = words(spell_numbers(query))
+        toks = words(spell_numbers(unmask(query)))
         out, tokset = list(toks), set(toks)
         for phrase in self.idioms + self.bereavement:
             for i in phrase_starts(toks, phrase, tokset):
@@ -368,6 +387,10 @@ class Searcher:
             return "crisis", "distress"
         toks = words(query)
         tset = set(toks)
+        # Rules read on the message's own words, before idioms and bereavement are blanked ("since my wife passed
+        # i just want to be with her", "die for god").
+        if any(rule_fires(toks, r, self.unblanked_window, tset) for r in self.unblanked):
+            return "crisis", "distress"
         for topic, phrases in self.sensitive.items():
             if any(phrase_starts(toks, p, tset) for p in phrases):
                 return "sensitive", topic
@@ -690,9 +713,12 @@ class Searcher:
 
     def _topic_label(self, theme, sensitive):
         d = self.theme_info[theme]
+        # auto_show: the site may open this topic without a tap (themes.json "auto_show"); for a sensitive
+        # message only a comfort topic may be.
+        auto = bool(d.get("auto_show")) and (not sensitive or theme in self.comfort_topics)
         if sensitive and "gentle_label" in d:
-            return {"id": theme, "label": d["gentle_label"], "blurb": d["gentle_blurb"]}
-        return {"id": theme, "label": d.get("label", d["name"]), "blurb": d.get("blurb", d["description"])}
+            return {"id": theme, "label": d["gentle_label"], "blurb": d["gentle_blurb"], "auto_show": auto}
+        return {"id": theme, "label": d.get("label", d["name"]), "blurb": d.get("blurb", d["description"]), "auto_show": auto}
 
     def _theme_rows(self, theme, k, sensitive, books=BOOKS):
         """{book: [(priority or 1000, score, pool index), ...]}, sorted, the first k (all if k is None)."""

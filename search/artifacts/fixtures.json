@@ -154,12 +154,14 @@
     {
      "id": "money_worry",
      "label": "Money worries",
-     "blurb": "For debt, bills and money stress."
+     "blurb": "For debt, bills and money stress.",
+     "auto_show": true
     },
     {
      "id": "fear_anxiety",
      "label": "Worry and fear",
-     "blurb": "For when worry or fear takes hold."
+     "blurb": "For when worry or fear takes hold.",
+     "auto_show": true
     }
    ]
   },
@@ -197,7 +199,8 @@
     {
      "id": "grief",
      "label": "Grief and loss",
-     "blurb": "For missing someone who has died."
+     "blurb": "For missing someone who has died.",
+     "auto_show": true
     }
    ]
   },
@@ -371,12 +374,14 @@
     {
      "id": "loneliness",
      "label": "You are not alone",
-     "blurb": "Verses on being known and not forsaken."
+     "blurb": "Verses on being known and not forsaken.",
+     "auto_show": true
     },
     {
      "id": "self_worth",
      "label": "You are of worth",
-     "blurb": "Verses on dignity and being valued."
+     "blurb": "Verses on dignity and being valued.",
+     "auto_show": true
     }
    ]
   },
@@ -398,12 +403,14 @@
     {
      "id": "grief",
      "label": "Loss and comfort",
-     "blurb": "Verses to keep you company after a loss."
+     "blurb": "Verses to keep you company after a loss.",
+     "auto_show": true
     },
     {
      "id": "hope",
      "label": "Hope",
-     "blurb": "Verses for hard days."
+     "blurb": "Verses for hard days.",
+     "auto_show": true
     }
    ]
   },
@@ -427,17 +434,20 @@
     {
      "id": "self_worth",
      "label": "You are of worth",
-     "blurb": "Verses on dignity and being valued."
+     "blurb": "Verses on dignity and being valued.",
+     "auto_show": true
     },
     {
      "id": "loneliness",
      "label": "You are not alone",
-     "blurb": "Verses on being known and not forsaken."
+     "blurb": "Verses on being known and not forsaken.",
+     "auto_show": true
     },
     {
      "id": "hope",
      "label": "Hope",
-     "blurb": "Verses for hard days."
+     "blurb": "Verses for hard days.",
+     "auto_show": true
     }
    ]
   },
@@ -554,7 +564,8 @@
     {
      "id": "loneliness",
      "label": "Loneliness",
-     "blurb": "For feeling alone or left out."
+     "blurb": "For feeling alone or left out.",
+     "auto_show": true
     }
    ]
   },
@@ -575,7 +586,8 @@
     {
      "id": "loneliness",
      "label": "Loneliness",
-     "blurb": "For feeling alone or left out."
+     "blurb": "For feeling alone or left out.",
+     "auto_show": true
     }
    ]
   },
@@ -605,7 +617,8 @@
     {
      "id": "loneliness",
      "label": "Loneliness",
-     "blurb": "For feeling alone or left out."
+     "blurb": "For feeling alone or left out.",
+     "auto_show": true
     }
    ]
   },
@@ -629,12 +642,14 @@
     {
      "id": "fear_anxiety",
      "label": "Worry and fear",
-     "blurb": "For when worry or fear takes hold."
+     "blurb": "For when worry or fear takes hold.",
+     "auto_show": true
     },
     {
      "id": "money_worry",
      "label": "Money worries",
-     "blurb": "For debt, bills and money stress."
+     "blurb": "For debt, bills and money stress.",
+     "auto_show": true
     }
    ]
   },
@@ -677,7 +692,8 @@
     {
      "id": "grief",
      "label": "Grief and loss",
-     "blurb": "For missing someone who has died."
+     "blurb": "For missing someone who has died.",
+     "auto_show": true
     }
    ]
   },
@@ -719,7 +735,8 @@
     {
      "id": "anger",
      "label": "Anger",
-     "blurb": "For anger that is hard to hold."
+     "blurb": "For anger that is hard to hold.",
+     "auto_show": false
     }
    ]
   },
@@ -743,7 +760,8 @@
     {
      "id": "doubt_faith",
      "label": "Doubt and faith",
-     "blurb": "For feeling far from God, or unsure."
+     "blurb": "For feeling far from God, or unsure.",
+     "auto_show": true
     }
    ]
   },
@@ -768,12 +786,14 @@
     {
      "id": "self_worth",
      "label": "You are of worth",
-     "blurb": "Verses on dignity and being valued."
+     "blurb": "Verses on dignity and being valued.",
+     "auto_show": true
     },
     {
      "id": "hope",
      "label": "Hope",
-     "blurb": "Verses for hard days."
+     "blurb": "Verses for hard days.",
+     "auto_show": true
     }
    ]
   },
@@ -797,7 +817,8 @@
     {
      "id": "guilt_repentance",
      "label": "Guilt and starting again",
-     "blurb": "For regret, and making a fresh start."
+     "blurb": "For regret, and making a fresh start.",
+     "auto_show": false
     }
    ]
   },
@@ -988,17 +1009,20 @@
     {
      "id": "self_worth",
      "label": "You are of worth",
-     "blurb": "Verses on dignity and being valued."
+     "blurb": "Verses on dignity and being valued.",
+     "auto_show": true
     },
     {
      "id": "love_compassion",
      "label": "Loved and cared for",
-     "blurb": "Verses on being loved as you are."
+     "blurb": "Verses on being loved as you are.",
+     "auto_show": false
     },
     {
      "id": "loneliness",
      "label": "You are not alone",
-     "blurb": "Verses on being known and not forsaken."
+     "blurb": "Verses on being known and not forsaken.",
+     "auto_show": true
     }
    ]
   },
@@ -1648,6 +1672,7 @@
    "id": "grief",
    "label": "Grief and loss",
    "blurb": "For missing someone who has died.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 7,
@@ -1663,6 +1688,7 @@
    "id": "fear_anxiety",
    "label": "Worry and fear",
    "blurb": "For when worry or fear takes hold.",
+   "auto_show": true,
    "verses": {
     "gita": 3,
     "quran": 12,
@@ -1678,6 +1704,7 @@
    "id": "anger",
    "label": "Anger",
    "blurb": "For anger that is hard to hold.",
+   "auto_show": false,
    "verses": {
     "gita": 6,
     "quran": 3,
@@ -1693,6 +1720,7 @@
    "id": "forgiveness",
    "label": "Forgiveness",
    "blurb": "On wanting to forgive, or to be forgiven.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 3,
@@ -1708,6 +1736,7 @@
    "id": "guilt_repentance",
    "label": "Guilt and starting again",
    "blurb": "For regret, and making a fresh start.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 12,
@@ -1723,6 +1752,7 @@
    "id": "money_worry",
    "label": "Money worries",
    "blurb": "For debt, bills and money stress.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 6,
@@ -1738,6 +1768,7 @@
    "id": "work_effort",
    "label": "Work and effort",
    "blurb": "On doing your work well.",
+   "auto_show": false,
    "verses": {
     "gita": 18,
     "quran": 17,
@@ -1753,6 +1784,7 @@
    "id": "overwork_rest",
    "label": "Burnout",
    "blurb": "For exhaustion and needing a break.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 6,
@@ -1768,6 +1800,7 @@
    "id": "purpose",
    "label": "Purpose and meaning",
    "blurb": "For feeling without direction.",
+   "auto_show": false,
    "verses": {
     "gita": 4,
     "quran": 3,
@@ -1783,6 +1816,7 @@
    "id": "patience",
    "label": "Waiting",
    "blurb": "For waiting on things to change.",
+   "auto_show": false,
    "verses": {
     "gita": 4,
     "quran": 0,
@@ -1798,6 +1832,7 @@
    "id": "gratitude",
    "label": "Gratitude",
    "blurb": "On giving thanks for what is good.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 13,
@@ -1813,6 +1848,7 @@
    "id": "pride_humility",
    "label": "Pride and humility",
    "blurb": "On ego and staying humble.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 7,
@@ -1828,6 +1864,7 @@
    "id": "envy_contentment",
    "label": "Envy and contentment",
    "blurb": "For comparing yourself and wanting more.",
+   "auto_show": false,
    "verses": {
     "gita": 6,
     "quran": 4,
@@ -1843,6 +1880,7 @@
    "id": "temptation_self_control",
    "label": "Habits and self-control",
    "blurb": "For cravings, habits and giving in.",
+   "auto_show": false,
    "verses": {
     "gita": 12,
     "quran": 0,
@@ -1858,6 +1896,7 @@
    "id": "loneliness",
    "label": "Loneliness",
    "blurb": "For feeling alone or left out.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 9,
@@ -1873,6 +1912,7 @@
    "id": "family_parents",
    "label": "Family",
    "blurb": "On parents, brothers, sisters and relatives.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 0,
@@ -1888,6 +1928,7 @@
    "id": "parenting",
    "label": "Raising children",
    "blurb": "On being a parent.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 4,
@@ -1903,6 +1944,7 @@
    "id": "friendship",
    "label": "Friendship",
    "blurb": "On friends and falling out.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 4,
@@ -1918,6 +1960,7 @@
    "id": "illness",
    "label": "Illness and healing",
    "blurb": "For sickness, pain and waiting for news.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 3,
@@ -1933,6 +1976,7 @@
    "id": "doubt_faith",
    "label": "Doubt and faith",
    "blurb": "For feeling far from God, or unsure.",
+   "auto_show": true,
    "verses": {
     "gita": 6,
     "quran": 4,
@@ -1948,6 +1992,7 @@
    "id": "hope",
    "label": "Hope",
    "blurb": "For hard days that need encouragement.",
+   "auto_show": true,
    "verses": {
     "gita": 3,
     "quran": 9,
@@ -1963,6 +2008,7 @@
    "id": "justice_wronged",
    "label": "Being treated unfairly",
    "blurb": "For being cheated, bullied or mistreated.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 13,
@@ -1978,6 +2024,7 @@
    "id": "honesty",
    "label": "Honesty",
    "blurb": "On telling the truth.",
+   "auto_show": false,
    "verses": {
     "gita": 4,
     "quran": 14,
@@ -1993,6 +2040,7 @@
    "id": "generosity",
    "label": "Generosity",
    "blurb": "On giving and helping others.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 18,
@@ -2008,6 +2056,7 @@
    "id": "kindness_strangers",
    "label": "Kindness to others",
    "blurb": "On neighbours, strangers and newcomers.",
+   "auto_show": false,
    "verses": {
     "gita": 8,
     "quran": 18,
@@ -2023,6 +2072,7 @@
    "id": "courage",
    "label": "Courage",
    "blurb": "For facing everyday fears.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 3,
@@ -2038,6 +2088,7 @@
    "id": "guidance_decisions",
    "label": "Making decisions",
    "blurb": "For not knowing which way to choose.",
+   "auto_show": false,
    "verses": {
     "gita": 3,
     "quran": 6,
@@ -2053,6 +2104,7 @@
    "id": "failure",
    "label": "Failure and setbacks",
    "blurb": "For mistakes and things that went wrong.",
+   "auto_show": false,
    "verses": {
     "gita": 4,
     "quran": 5,
@@ -2068,6 +2120,7 @@
    "id": "success",
    "label": "Success",
    "blurb": "On doing well and staying grounded.",
+   "auto_show": false,
    "verses": {
     "gita": 4,
     "quran": 5,
@@ -2083,6 +2136,7 @@
    "id": "change_uncertainty",
    "label": "Change and the unknown",
    "blurb": "For new beginnings and an uncertain future.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 5,
@@ -2098,6 +2152,7 @@
    "id": "love_compassion",
    "label": "Love and compassion",
    "blurb": "On mercy, kindness and care.",
+   "auto_show": false,
    "verses": {
     "gita": 6,
     "quran": 4,
@@ -2113,6 +2168,7 @@
    "id": "speech_gossip",
    "label": "Words and gossip",
    "blurb": "On gossip and speaking kindly.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 13,
@@ -2128,6 +2184,7 @@
    "id": "wisdom_learning",
    "label": "Wisdom and learning",
    "blurb": "On study and growing wiser.",
+   "auto_show": false,
    "verses": {
     "gita": 6,
     "quran": 13,
@@ -2143,6 +2200,7 @@
    "id": "peace_of_mind",
    "label": "Peace of mind",
    "blurb": "For a restless or racing mind.",
+   "auto_show": false,
    "verses": {
     "gita": 18,
     "quran": 9,
@@ -2158,6 +2216,7 @@
    "id": "suffering_endurance",
    "label": "Hard times",
    "blurb": "For hardship and holding on.",
+   "auto_show": false,
    "verses": {
     "gita": 0,
     "quran": 4,
@@ -2173,6 +2232,7 @@
    "id": "self_worth",
    "label": "Self-worth",
    "blurb": "For feeling not good enough.",
+   "auto_show": true,
    "verses": {
     "gita": 0,
     "quran": 5,

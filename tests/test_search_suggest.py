@@ -17,12 +17,14 @@ from search import build
 PROBES = json.loads((build.ROOT / "evals" / "search_probes.json").read_text())
 JUDGE6 = PROBES["judge6_held_out"]
 JUDGE7 = PROBES["judge7_held_out"]
+JUDGE8 = PROBES["judge8_held_out"]
 CASES = build.load_json(build.ROOT / "evals" / "search_cases.json")
 SAFETY = build.load_json(build.SAFETY)
 NEVER = set(SAFETY["suggest"]["never_after_signal"])
 THEMES = build.load_json(build.THEMES)
 COMFORT = {k for k, v in THEMES.items() if not k.startswith("_") and v["kind"] == "comfort"}
 SELF_DIRECTED = {k for k, v in THEMES.items() if not k.startswith("_") and v["kind"] == "self_directed"}
+AUTO_SHOW = {k for k, v in THEMES.items() if not k.startswith("_") and v.get("auto_show")}
 
 
 @pytest.fixture(scope="module")
@@ -45,7 +47,9 @@ def check_suggest(s, leak, q, res):
     ids = [t["id"] for t in res["topics"]]
     assert len(set(ids)) == len(ids)
     for t in res["topics"]:
-        assert set(t) == {"id", "label", "blurb"} and t["label"] and t["blurb"], (q, t)
+        assert set(t) == {"id", "label", "blurb", "auto_show"} and t["label"] and t["blurb"], (q, t)
+        # The site opens a topic without a tap only if it is on the allowlist, and for a sensitive message only a comfort one.
+        assert t["auto_show"] == (t["id"] in AUTO_SHOW and (res["category"] != "sensitive" or t["id"] in COMFORT)), (q, t)
         assert s.topic_count(t["id"], res["category"] == "sensitive") > 0, (q, t)     # a tap always shows something
         if res["category"] == "sensitive":
             assert s.topic_count(t["id"], True) >= SAFETY["suggest"]["min_sensitive_verses"], (q, t)
@@ -168,7 +172,8 @@ def test_judge6_bereaved_messages_are_offered_grief(s, leak, q):
                          + [x["query"] for x in CASES["judge6_blind_hand_judged"]["situations"]])
 def test_judge6_innocent_sensitive_and_everyday_messages_are_not_crisis(s, leak, q):
     res = s.suggest(q)
-    assert res["category"] != "crisis", q
+    # Round 13: eating-disorder behaviour gets the crisis note (tests/test_search_safety.py ROUND13_EATING_NOW_CRISIS).
+    assert (res["category"] == "crisis") == (q == "i binge and purge and i feel so ashamed"), q
     check_suggest(s, leak, q, res)
 
 
@@ -428,7 +433,7 @@ def test_round_8_near_misses_do_not_fire(s, q):
 def test_topic_follows_the_hand_set_order_and_says_when_a_book_has_nothing(s):
     for theme in s.theme_info:
         res = s.topic(theme)
-        assert set(res) == {"id", "label", "blurb", "note", "sensitive", "books"} and res["id"] == theme
+        assert set(res) == {"id", "label", "blurb", "auto_show", "note", "sensitive", "books"} and res["id"] == theme
         old = s.by_theme(theme, k=1000)
         for book in BOOKS:
             got = res["books"][book]
@@ -472,7 +477,7 @@ def test_topics_lists_every_topic_with_a_verse(s):
     assert ids == [t for t in s.theme_info if s.topic_count(t)]
     assert "marriage" not in ids                                     # no verse left in any book since round 7
     for t in listed:
-        assert set(t) == {"id", "label", "blurb", "verses", "sensitive_verses"}
+        assert set(t) == {"id", "label", "blurb", "auto_show", "verses", "sensitive_verses"}
         assert sum(t["verses"].values()) > 0
         assert all(t["sensitive_verses"][b] <= t["verses"][b] for b in BOOKS)
 
@@ -603,3 +608,81 @@ def test_gentle_topics_need_three_sensitive_verses(s):
     res = s.suggest("I'm gay and I feel like a failure")
     assert res["category"] == "sensitive" and res["topics"]
     assert "failure" not in {t["id"] for t in res["topics"]} and 0 < s.topic_count("failure", True) < 3
+
+
+# ----- judge 8: the design that opens the first suggested topic without a tap (round 13) -----
+
+def test_judge8_first_run_numbers_are_kept_as_history():
+    fr = JUDGE8["first_run"]
+    assert (fr["crisis"], fr["crisis_caught"], fr["crisis_missed_shown"]) == (109, 95, {"harmful": 0, "comfort_verses": 4, "nothing": 10})
+    assert (fr["not_crisis"], fr["not_crisis_false_alarms"]) == (32, 0)
+    assert len(JUDGE8["missed_crisis"]) == 14
+
+
+# The five judge 8 crisis messages the rules still miss: not English. They are offered no topic, so the site
+# shows the full list and no verse.
+JUDGE8_NOT_ENGLISH = {"quiero morir", "quiero matarme", "je veux mourir", "main marna chahta hoon", "ich will sterben"}
+
+
+@pytest.mark.parametrize("q", [p["text"] for p in JUDGE8["crisis"]])
+def test_judge8_crisis_messages_get_the_crisis_note(s, leak, q):
+    res = s.suggest(q)
+    if q in JUDGE8_NOT_ENGLISH:
+        assert res == {"category": "none", "note": None, "topics": []}, q
+        return
+    assert res["category"] == "crisis", q
+    check_suggest(s, leak, q, res)
+
+
+@pytest.mark.parametrize("q", JUDGE8["not_crisis"])
+def test_judge8_controls_are_not_crisis(s, leak, q):
+    res = s.suggest(q)
+    assert res["category"] != "crisis", q
+    check_suggest(s, leak, q, res)
+
+
+@pytest.mark.parametrize("q", [
+    # judge 8's misses and follow-up probes (not blind), and the round 13 rules they led to
+    "i drank bleach", "i havent eaten in 6 days on purpose", "i make myself throw up after every meal",
+    "since my wife passed i just want to be with her, i dont want to stay here", "i miss my mom so much i want to be where she is",
+    "my friend says she wants to die", "my brother told me he wants to kill himself", "my friend is cutting herself",
+    "i want to d1e", "i want to see my dad again in heaven soon", "nobody would miss me", "i dont see a way out",
+    "its over for me", "i want to die for god", "i want to martyr myself", "my daughter is cutting",
+    "im struggling with anorexia", "i binge and purge", "i weigh myself 10 times a day and eat 300 calories",
+])
+def test_round13_crisis_wording_gets_the_note(s, q):
+    assert s.suggest(q)["category"] == "crisis", q
+
+
+@pytest.mark.parametrize("q", [
+    "this homework is killing me", "i took 2 tylenol for a headache", "im dying to see the new movie", "killing it at work today",
+    "this cake is to die for", "he cut himself shaving", "my daughter is cutting her hair", "my son is cutting the grass",
+    "she wants to die of embarrassment", "no way out of this contract", "i dont want to stay here in this job",
+    "recovering from anorexia and its hard around holidays", "i eat 1500 calories a day to lose weight",
+    "i havent eaten all day ive been so busy", "my grandma passed and i drove to be with her at the hospital",
+    "i love her and want to be with her", "win10 keeps crashing",
+])
+def test_round13_near_misses_are_not_crisis(s, q):
+    assert s.suggest(q)["category"] != "crisis", q
+
+
+def test_round13_unmask_keeps_the_number_rules():
+    from scripture.search import unmask
+    assert unmask("i want to d1e") == "i want to die" and unmask("H3ll0") == "hello"
+    assert unmask("took 30 tylenol") == "took 30 tylenol" and unmask("took 2 tylenol") == "took 2 tylenol"
+    assert unmask("300 calories") == " fewcalories " and unmask("1500 calories") == "1500 calories"
+
+
+def test_only_allowlisted_topics_open_by_themselves(s):
+    assert AUTO_SHOW == {"grief", "fear_anxiety", "loneliness", "illness", "doubt_faith", "hope", "self_worth",
+                         "money_worry", "overwork_rest", "change_uncertainty"}
+    assert not AUTO_SHOW & ({"guilt_repentance", "family_parents", "parenting", "anger", "forgiveness"} | NEVER)
+    # judge 8's follow-up probes that showed verses without a tap: now a choice, or a fitting topic
+    for q in ["my life is a sin", "my family says im a disgrace", "this homework is killing me"]:
+        res = s.suggest(q)
+        assert res["topics"] and not res["topics"][0]["auto_show"], (q, res)
+    flu = s.suggest("i have the flu and feel awful")
+    assert [t["id"] for t in flu["topics"]] == ["illness"] and flu["topics"][0]["auto_show"]
+    # a sensitive message opens only a comfort topic by itself
+    gay = s.suggest("I'm gay and my parents rejected me")
+    assert gay["category"] == "sensitive" and all(t["auto_show"] == (t["id"] in COMFORT) for t in gay["topics"])
