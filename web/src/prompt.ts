@@ -1,28 +1,31 @@
-// The prompt box in the hero. Two modes share it: "Find verses" sends the text to the verse-topic search (in
-// the browser); "Let the model write" gives the text to the model as the start of a passage in a book's style,
-// after the same crisis check the search runs. Nothing typed is put in the URL or sent anywhere.
+// The prompt box in the hero. Two modes share it. "Model" (the default) gives the typed text to the model as the
+// start of a passage in a book's style; "Verses" sends it to the verse-topic search. Both run in the browser, and
+// the search's crisis check runs on typed text in both. Nothing typed is put in the URL or sent anywhere.
 
 import { MAX_INPUT_CHARS, type BookId } from "./advice/api.ts";
+import { prefersReducedMotion } from "./dom.ts";
 import { MAX_START_CHARS } from "./generate/start.ts";
 import type { AdviceController } from "./advice/state.ts";
 import type { Generator, GenPhase } from "./generate/ui.ts";
 
 type Mode = "find" | "write";
 
-const PLACEHOLDER: Record<Mode, string> = {
-  find: "What’s on your mind?",
-  write: "Start a sentence, or leave empty.",
-};
+/** Starts the Model placeholder types out, one after another (a single static one with reduced motion). */
+export const EXAMPLE_STARTS = ["In the beginning", "O Arjuna,", "And when they came", "Blessed are", "Say: He is"];
+const FIND_PLACEHOLDER = "A worry or a topic: money, grief, a hard decision";
 
 export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HTMLElement,
-  ctl: AdviceController, mountGen: (onPhase: (p: GenPhase, label: string) => void) => Generator,
+  ctl: AdviceController,
+  mountGen: (onPhase: (p: GenPhase, label: string) => void, onRate: (text: string) => void) => Generator,
   /** The crisis note for this text, or null: the search's own suggest(), run before the model writes. */
   crisisNote: (text: string) => Promise<string | null>): void {
   const input = form.querySelector("textarea")!;
+  const composer = form.querySelector<HTMLElement>(".composer")!;
   const counter = form.querySelector<HTMLElement>("[data-counter]")!;
+  const liveRate = form.querySelector<HTMLElement>("[data-live-rate]")!;
   const submit = form.querySelector<HTMLButtonElement>("button[type=submit]")!;
   const modes = form.querySelectorAll<HTMLButtonElement>("[data-mode]");
-  // The book choice and temperature sit under the box in write mode; "Run it live" is in the write-up's Model section.
+  // The book choice and temperature sit under the box in Model mode; "Run it live" is in the write-up's Model section.
   const books = form.querySelectorAll<HTMLButtonElement>("[data-gen-book]");
   const temp = form.querySelector<HTMLInputElement>("[data-gen-temp]")!;
   const tempOut = form.querySelector<HTMLOutputElement>("[data-gen-temp-out]")!;
@@ -30,39 +33,86 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
   temp.addEventListener("input", () => (tempOut.value = Number(temp.value).toFixed(1)));
   input.maxLength = MAX_INPUT_CHARS;
 
-  let mode: Mode = "find";
+  let mode = (form.dataset.mode === "find" ? "find" : "write") as Mode;
   let book = ([...books].find((b) => b.getAttribute("aria-pressed") === "true")?.dataset.genBook ?? "gita") as BookId;
   let phase: GenPhase = "idle";
   let writeLabel = "Write";
+  let checking = false;
+  let genStarted = false;
   const generator = mountGen((p, label) => {
     phase = p;
     writeLabel = label;
     books.forEach((b) => (b.disabled = p !== "idle"));
     temp.disabled = p !== "idle";
+    if (p !== "writing") liveRate.textContent = "";
     update();
-  });
+  }, (text) => (liveRate.textContent = phase === "writing" ? text : ""));
 
   const ARROW = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const SQUARE = '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2" fill="currentColor"/></svg>';
   function update() {
     counter.textContent = `${input.value.length} / ${mode === "find" ? MAX_INPUT_CHARS : MAX_START_CHARS}`;
-    const stop = mode === "write" && phase === "writing";
+    const writing = mode === "write" && phase === "writing";
     submit.setAttribute("aria-label", mode === "find" ? "Find" : writeLabel);
-    submit.innerHTML = stop ? SQUARE : ARROW;
+    submit.innerHTML = writing ? SQUARE : ARROW;
     submit.disabled = mode === "find" ? input.value.trim().length === 0 : phase === "loading";
+    composer.classList.toggle("is-busy", mode === "write" && phase !== "idle");
   }
 
-  function setMode(next: Mode) {
-    if (next === mode) return;
-    mode = next;
+  // ----- the Model placeholder: example starts typed out one character at a time, with a blinking caret
+  let typer: number | undefined;
+  const stopTyping = () => { clearTimeout(typer); typer = undefined; };
+  function typeExamples() {
+    stopTyping();
+    if (mode !== "write") return;
+    if (prefersReducedMotion()) { input.placeholder = EXAMPLE_STARTS[0]; return; }
+    let i = 0, n = 0, blink = 0;
+    const tick = () => {
+      if (mode !== "write" || document.activeElement === input || input.value) {
+        input.placeholder = EXAMPLE_STARTS[i];
+        typer = window.setTimeout(tick, 400); // paused while the box has focus or text
+        return;
+      }
+      const s = EXAMPLE_STARTS[i];
+      if (n < s.length) {
+        n++;
+        input.placeholder = s.slice(0, n) + "|";
+        typer = window.setTimeout(tick, 70);
+      } else if (blink < 6) {
+        blink++;
+        input.placeholder = s + (blink % 2 ? "" : "|");
+        typer = window.setTimeout(tick, 450);
+      } else {
+        i = (i + 1) % EXAMPLE_STARTS.length;
+        n = 0;
+        blink = 0;
+        input.placeholder = "|";
+        typer = window.setTimeout(tick, 300);
+      }
+    };
+    tick();
+  }
+
+  function applyMode() {
     form.dataset.mode = mode;
     modes.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.mode === mode)));
     form.querySelectorAll<HTMLElement>("[data-write-only], [data-note-write]").forEach((el) => (el.hidden = mode !== "write"));
     form.querySelector<HTMLElement>("[data-note-find]")!.hidden = mode !== "find";
+    input.setAttribute("aria-describedby", mode === "find" ? "ask-note" : "ask-note-write");
     results.hidden = mode !== "find";
     gen.hidden = mode !== "write" || !genStarted;
-    input.placeholder = PLACEHOLDER[mode];
+    if (mode === "find") {
+      stopTyping();
+      input.placeholder = FIND_PLACEHOLDER;
+    } else {
+      typeExamples();
+    }
     update();
+  }
+  function setMode(next: Mode) {
+    if (next === mode) return;
+    mode = next;
+    applyMode();
   }
 
   modes.forEach((b) => b.addEventListener("click", () => setMode(b.dataset.mode as Mode)));
@@ -79,9 +129,7 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
     }
   });
   const reveal = (el: HTMLElement) => el.scrollIntoView({ block: "start" });
-  let checking = false;
-  let genStarted = false;
-  /** Write with the panel's book and temperature, starting from `text`, after the crisis check. */
+  /** Write with the chosen book and temperature, starting from `text`, after the crisis check. */
   const write = async (text: string) => {
     if (phase === "writing") return generator.stop();
     if (checking || phase !== "idle") return;
@@ -104,11 +152,11 @@ export function mountPrompt(form: HTMLFormElement, results: HTMLElement, gen: HT
     if (mode === "find") void ctl.submit(input.value);
     else void write(input.value.trim());
   });
-  // "Run it live" switches to "Let the model write" and starts from the typed text there (a "Find verses" question is not a start).
+  // "Run it live" switches to Model mode and starts from the typed text there (a Verses query is not a start).
   runLive?.addEventListener("click", () => {
     const start = mode === "write" ? input.value.trim() : "";
     setMode("write");
     void write(start);
   });
-  update();
+  applyMode();
 }

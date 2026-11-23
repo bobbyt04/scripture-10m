@@ -44,7 +44,8 @@ export interface Generator {
 export type GenPhase = "idle" | "loading" | "writing";
 
 /** The generation panel. `onPhase` tells the prompt box what its button should say and do. */
-export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, label: string) => void): Generator {
+export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, label: string) => void,
+  onRate: (text: string) => void = () => {}): Generator {
   const q = <T extends Element>(sel: string) => root.querySelector<T>(sel)!;
   const progress = q<HTMLElement>("[data-gen-progress]");
   const bar = q<HTMLElement>("[data-gen-bar]");
@@ -119,7 +120,9 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
     } else if (m.type === "text") {
       raw += m.text;
       const secs = (performance.now() - t0) / 1000;
-      rate.textContent = `${raw.length} chars · ${secs > 0.2 ? Math.round(raw.length / secs) : "–"} chars/s · temperature ${temperature.toFixed(1)}`;
+      const perSec = secs > 0.2 ? String(Math.round(raw.length / secs)) : "–";
+      rate.textContent = `${raw.length} chars · ${perSec} chars/s · temperature ${temperature.toFixed(1)}`;
+      onRate(`${perSec} chars/s`);
       draw(true);
       const now = performance.now();
       if (m.think && now - thinkDrawn >= thinkEveryMs()) {

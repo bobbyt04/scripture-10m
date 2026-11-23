@@ -34,37 +34,37 @@
           A {{paramsShort}}-parameter character-level transformer trained from scratch on the Bhagavad Gita, the Quran and
           the Bible. It runs in your browser.
         </p>
-        <form id="ask" data-mode="find" novalidate>
+        <form id="ask" data-mode="write" novalidate>
           <p class="modes" role="group" aria-label="Mode">
-            <button type="button" data-mode="find" aria-pressed="true">Find verses</button>
-            <button type="button" data-mode="write" aria-pressed="false">Let the model write</button>
+            <button type="button" data-mode="write" aria-pressed="true">Model</button>
+            <button type="button" data-mode="find" aria-pressed="false">Verses</button>
           </p>
           <div class="composer">
-            <textarea id="ask-input" rows="2" maxlength="500" autocomplete="off" aria-label="Your message"
-              placeholder="What’s on your mind?" aria-describedby="ask-note"></textarea>
-            <span class="count" data-counter>0 / 500</span>
-            <button type="submit" class="send" aria-label="Find" disabled><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <textarea id="ask-input" rows="2" maxlength="500" autocomplete="off" aria-label="Your text"
+              placeholder="In the beginning" aria-describedby="ask-note-write"></textarea>
+            <span class="count" data-counter>0 / 120</span>
+            <button type="submit" class="send" aria-label="Write" disabled><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <span class="composer__progress" aria-hidden="true"></span>
           </div>
-          <p class="write-row" data-write-only hidden>
-            <span role="group" aria-label="Book">
-              <button type="button" class="textlink" data-gen-book="gita" aria-pressed="true">Gita</button> ·
-              <button type="button" class="textlink" data-gen-book="quran" aria-pressed="false">Quran</button> ·
-              <button type="button" class="textlink" data-gen-book="bible" aria-pressed="false">Bible</button>
-            </span>
-            <label class="temp">temperature
-              <input type="range" min="0.2" max="1.5" step="0.1" value="0.8" data-gen-temp aria-describedby="temp-hint" />
-              <output data-gen-temp-out>0.8</output>
-            </label>
-            <span id="temp-hint" class="visually-hidden">Sampling temperature for the next run. Lower repeats more; higher invents more.</span>
+          <div class="under">
+            <p class="write-row" data-write-only>
+              <span role="group" aria-label="Book">
+                <button type="button" class="textlink" data-gen-book="gita" aria-pressed="true">Gita</button> ·
+                <button type="button" class="textlink" data-gen-book="quran" aria-pressed="false">Quran</button> ·
+                <button type="button" class="textlink" data-gen-book="bible" aria-pressed="false">Bible</button>
+              </span>
+              <label class="temp">temperature
+                <input type="range" min="0.2" max="1.5" step="0.1" value="0.8" data-gen-temp aria-describedby="temp-hint" />
+                <output data-gen-temp-out>0.8</output>
+              </label>
+              <span id="temp-hint" class="visually-hidden">Sampling temperature for the next run. Lower repeats more; higher invents more.</span>
+            </p>
+            <span class="live-rate" data-live-rate aria-hidden="true"></span>
+          </div>
+          <p id="ask-note-write" class="note" data-note-write>
+            Start a sentence. The model finishes it in the style of the book you pick. Runs on your device; first run downloads {{modelSize}}.
           </p>
-          <p id="ask-note" class="note" data-note-find>
-            It matches what you type to reviewed verses by topic. It does not understand you, and it is not advice.
-            <a href="#why">Can the model answer questions?</a>
-          </p>
-          <p class="note" data-note-write hidden>
-            The model continues your text in the style of the chosen book, one character at a time, on your device; leave
-            the box empty to start from the book’s tag. The first run downloads {{modelSize}}.
-          </p>
+          <p id="ask-note" class="note" data-note-find hidden>Looks up real verses by topic. Not advice.</p>
           <noscript><p class="note ask__noscript">This page needs JavaScript. Nothing you type is sent anywhere.</p></noscript>
         </form>
       </section>

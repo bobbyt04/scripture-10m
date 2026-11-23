@@ -37,6 +37,7 @@ test.describe("find verses", () => {
     await page.waitForLoadState("networkidle");
     expect(searchData).toEqual([]); // the search data loads on first use, not with the page
     const urls = watchRequests(page);
+    await page.getByRole("button", { name: "Verses", exact: true }).click();
     await page.fill("#ask-input", "I got laid off and I'm scared about money");
     await page.keyboard.press("Enter");
     const results = page.locator("#ask-results");
@@ -66,6 +67,7 @@ test.describe("find verses", () => {
 
   test("a crisis message renders the note and zero verses or topics", async ({ page }) => {
     await page.goto("/");
+    await page.getByRole("button", { name: "Verses", exact: true }).click();
     await page.fill("#ask-input", "I want to end my life");
     await page.keyboard.press("Enter");
     const note = page.locator("[data-crisis]");
@@ -78,6 +80,7 @@ test.describe("find verses", () => {
 
   test("a message that matches nothing says so and lists every topic, with no verses", async ({ page }) => {
     await page.goto("/");
+    await page.getByRole("button", { name: "Verses", exact: true }).click();
     await page.fill("#ask-input", "my cat knocked a plant off the shelf");
     await page.keyboard.press("Enter");
     await expect(page.locator("#ask-results")).toContainText("Nothing matched.", { timeout: FIRST_ANSWER });
@@ -89,6 +92,7 @@ test.describe("find verses", () => {
 
   test("a first topic outside the auto-show allowlist is listed and waits for a tap", async ({ page }) => {
     await page.goto("/");
+    await page.getByRole("button", { name: "Verses", exact: true }).click();
     await page.fill("#ask-input", "this homework is killing me");
     await page.keyboard.press("Enter");
     const results = page.locator("#ask-results");
@@ -105,21 +109,24 @@ test.describe("find verses", () => {
     await page.keyboard.type("second");
     await expect(page.locator("#ask-input")).toHaveValue("first line\nsecond");
     await expect(page.locator("#ask-results")).toBeEmpty();
+    await expect(page.locator("[data-generate]")).toBeHidden();
   });
 });
 
 test("let the model write: downloads the model and streams labelled text", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "Let the model write" }).click();
-  await expect(page.locator("#ask-input")).toHaveAttribute("placeholder", "Start a sentence, or leave empty.");
+  // The model is the default mode; its placeholder types out example starts.
+  await expect(page.getByRole("button", { name: "Model", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await expect.poll(() => page.locator("#ask-input").getAttribute("placeholder")).toMatch(/^(In the beginning|O Arjuna,|And when they came|Blessed are|Say: He is)/);
   const urls = watchRequests(page);
-  await page.fill("#ask-input", "And it came to pass");
-  await page.getByRole("button", { name: "Bible" }).click();
+  await page.getByRole("button", { name: "Bible", exact: true }).click();
   await page.locator("[data-gen-temp]").fill("1.2");
   await expect(page.locator("[data-gen-temp-out]")).toHaveText("1.2");
-  await page.locator("#ask button[type=submit]").click();
+  await page.fill("#ask-input", "And it came to pass");
+  await page.keyboard.press("Enter");
   const gen = page.locator("[data-generate]");
   await expect(gen.locator("[data-gen-rate]")).toContainText("chars/s", { timeout: 110_000 }); // live rate while streaming
+  await expect(page.locator("[data-live-rate]")).toHaveText(/^(\d+|–) chars\/s$/); // and under the box
   // Watch it think: the five most likely next characters with their probabilities, from the worker's softmax.
   const rows = gen.locator(".think__row");
   await expect(rows).toHaveCount(5);
@@ -140,16 +147,16 @@ test("let the model write: downloads the model and streams labelled text", async
   expect(urls.filter((u) => /came|pass/i.test(decodeURIComponent(u)))).toEqual([]);
   await expect(gen.locator(".meta")).toContainText("machine-generated imitation, not scripture");
   await expect(page.locator("#ask button[type=submit]")).toHaveAttribute("aria-label", "Write again");
-  await page.getByRole("button", { name: "Find verses" }).click();
+  await page.getByRole("button", { name: "Verses", exact: true }).click();
   await expect(page.locator("#ask-input")).toHaveValue("And it came to pass");
+  await expect(page.locator("#ask-input")).toHaveAttribute("placeholder", "A worry or a topic: money, grief, a hard decision");
 });
 
 test("let the model write: crisis text gets the note and the model does not write", async ({ page }) => {
   const modelRequests: string[] = [];
   page.on("request", (r) => { if (r.url().includes("/model/")) modelRequests.push(r.url()); });
   await page.goto("/");
-  await page.getByRole("button", { name: "Let the model write" }).click();
-  await page.fill("#ask-input", "I want to end my life");
+  await page.fill("#ask-input", "I want to end my life"); // the default mode is the model
   await page.keyboard.press("Enter");
   const note = page.locator("[data-generate] [data-crisis]");
   await expect(note).toBeVisible({ timeout: FIRST_ANSWER });
@@ -220,6 +227,7 @@ test.describe("small screens", () => {
     await expect(page.locator("header nav a")).toHaveText(["How it works", "Parallels", "GitHub"]);
     const width = () => page.evaluate(() => document.documentElement.scrollWidth);
     expect(await width()).toBeLessThanOrEqual(375);
+    await page.getByRole("button", { name: "Verses", exact: true }).click();
     await page.fill("#ask-input", "I keep worrying about money and whether I can pay rent");
     await page.keyboard.press("Enter");
     await expect(page.locator("#ask-results [data-verse]").first()).toBeVisible({ timeout: FIRST_ANSWER });
@@ -230,13 +238,13 @@ test.describe("small screens", () => {
 
 test.describe("one plain theme", () => {
   test.use({ colorScheme: "dark" });
-  test("the page stays white with dark text and nothing animates", async ({ page }) => {
+  test("the page stays white with dark text and nothing animates at rest", async ({ page }) => {
     await page.goto("/");
     const look = await page.evaluate(() => {
       const b = getComputedStyle(document.body);
       const moving = [...document.querySelectorAll("*")].filter((el) => {
         const c = getComputedStyle(el);
-        return c.animationName !== "none" || parseFloat(c.transitionDuration) > 0;
+        return c.animationName !== "none";
       }).length;
       return { bg: b.backgroundColor, color: b.color, moving };
     });

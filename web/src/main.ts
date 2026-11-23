@@ -19,7 +19,7 @@ const results = document.querySelector<HTMLElement>("#ask-results")!;
 const gen = document.querySelector<HTMLElement>("[data-generate]")!;
 renderStory(document.querySelector<HTMLElement>("[data-story]")!); // before mountPrompt, which wires its "Run it live" link
 mountResults(results, ctl);
-mountPrompt(document.querySelector<HTMLFormElement>("#ask")!, results, gen, ctl, (onPhase) => mountGenerate(gen, onPhase),
+mountPrompt(document.querySelector<HTMLFormElement>("#ask")!, results, gen, ctl, (onPhase, onRate) => mountGenerate(gen, onPhase, onRate),
   async (text) => {
     const s = await searchApi.suggest(text);
     return s.category === "crisis" ? s.note ?? "" : null;
