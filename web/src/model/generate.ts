@@ -14,8 +14,8 @@ export function seededRandom(seed: number): () => number {
   };
 }
 
-/** Pick the next token. temperature <= 0 means greedy (argmax). */
-export function sampleToken(logits: Float32Array, temperature: number, random: () => number): number {
+/** Pick the next token. temperature <= 0 means greedy (argmax). topP < 1 trims the low-probability tail. */
+export function sampleToken(logits: Float32Array, temperature: number, random: () => number, topP = 1): number {
   let best = 0;
   for (let i = 1; i < logits.length; i++) if (logits[i] > logits[best]) best = i;
   if (temperature <= 0) return best;
@@ -25,6 +25,24 @@ export function sampleToken(logits: Float32Array, temperature: number, random: (
   for (let i = 0; i < logits.length; i++) {
     probs[i] = Math.exp((logits[i] - max) / temperature);
     sum += probs[i];
+  }
+  if (topP > 0 && topP < 1) {
+    const order = Array.from(probs.keys()).sort((a, b) => probs[b] - probs[a]);
+    const cutoff = topP * sum;
+    let kept = 0;
+    let n = 0;
+    for (const idx of order) {
+      kept += probs[idx];
+      n++;
+      if (kept >= cutoff) break;
+    }
+    let r = random() * kept;
+    for (let i = 0; i < n; i++) {
+      const idx = order[i];
+      r -= probs[idx];
+      if (r < 0) return idx;
+    }
+    return order[0];
   }
   let r = random() * sum;
   for (let i = 0; i < probs.length; i++) {
@@ -38,6 +56,8 @@ export interface GenerateOptions {
   maxNewTokens: number;
   temperature: number;
   random: () => number;
+  /** Nucleus sampling threshold (0 < topP <= 1). Defaults to 1 (full softmax). */
+  topP?: number;
   /** Called with the logits of each step just before the next token is sampled from them. */
   onLogits?: (logits: Float32Array) => void;
 }
@@ -76,7 +96,7 @@ export function* generate(model: Transformer, prompt: readonly number[], opts: G
   for (const id of history) logits = model.step(id);
   for (let i = 0; i < opts.maxNewTokens; i++) {
     opts.onLogits?.(logits);
-    const next = sampleToken(logits, opts.temperature, opts.random);
+    const next = sampleToken(logits, opts.temperature, opts.random, opts.topP ?? 1);
     history.push(next);
     yield next;
     if (i === opts.maxNewTokens - 1) break;

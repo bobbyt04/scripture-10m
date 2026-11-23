@@ -62,6 +62,10 @@ async function load(url: string, expected: number, sha256: string): Promise<void
   post({ type: "ready", ms: performance.now() - t0 });
 }
 
+const TOP_P = 0.9;
+/** Once this many characters have been generated, stop at the next sentence boundary rather than mid-word. */
+const MIN_SENTENCE_STOP_CHARS = 260;
+
 async function run(req: Extract<WorkerRequest, { type: "generate" }>): Promise<void> {
   if (!model) throw new Error("model not loaded");
   stopRequested = false;
@@ -69,7 +73,7 @@ async function run(req: Extract<WorkerRequest, { type: "generate" }>): Promise<v
   // Only the last step of each slice is shown, so its logits are kept and turned into probabilities when posted.
   let last: Float32Array = new Float32Array(0);
   const it = generate(model, req.prompt, {
-    maxNewTokens: req.maxTokens, temperature: req.temperature, random: seededRandom(req.seed),
+    maxNewTokens: req.maxTokens, temperature: req.temperature, topP: TOP_P, random: seededRandom(req.seed),
     onLogits: (l) => (last = l),
   });
   const think = (id: number): Think => {
@@ -80,8 +84,10 @@ async function run(req: Extract<WorkerRequest, { type: "generate" }>): Promise<v
   let pending = "";
   let sliceStart = performance.now();
   for (const id of it) {
-    pending += tok.decode([id]);
+    const ch = tok.decode([id]);
+    pending += ch;
     n++;
+    if (n >= MIN_SENTENCE_STOP_CHARS && (ch === "." || ch === "!" || ch === "?" || ch === "\n")) break;
     if (performance.now() - sliceStart > 24) {
       post({ type: "text", text: pending, think: think(id) });
       pending = "";

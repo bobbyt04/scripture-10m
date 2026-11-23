@@ -45,26 +45,32 @@
             <textarea id="ask-input" rows="2" maxlength="500" autocomplete="off" aria-label="Your text"
               placeholder="In the beginning" aria-describedby="ask-note-write"></textarea>
             <span class="count" data-counter>0 / 120</span>
-            <button type="submit" class="send" aria-label="Write" disabled><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="submit" class="send" aria-label="Continue" disabled>Continue</button>
             <span class="composer__progress" aria-hidden="true"></span>
           </div>
           <div class="under">
             <p class="write-row" data-write-only>
               <span role="group" aria-label="Book">
-                <button type="button" class="textlink" data-gen-book="gita" aria-pressed="true">Gita</button> ·
+                <button type="button" class="textlink" data-gen-book="bible" aria-pressed="true">Bible</button> ·
                 <button type="button" class="textlink" data-gen-book="quran" aria-pressed="false">Quran</button> ·
-                <button type="button" class="textlink" data-gen-book="bible" aria-pressed="false">Bible</button>
+                <button type="button" class="textlink" data-gen-book="gita" aria-pressed="false">Gita</button>
               </span>
               <label class="temp">temperature
-                <input type="range" min="0.2" max="1.5" step="0.1" value="0.8" data-gen-temp aria-describedby="temp-hint" />
-                <output data-gen-temp-out>0.8</output>
+                <input type="range" min="0.2" max="1.5" step="0.1" value="0.6" data-gen-temp aria-describedby="temp-hint" />
+                <output data-gen-temp-out>0.6</output>
               </label>
               <span id="temp-hint" class="visually-hidden">Sampling temperature for the next run. Lower repeats more; higher invents more.</span>
+            </p>
+            <p class="examples" data-write-only>
+              Try:
+              <button type="button" class="textlink" data-gen-example="In the beginning" data-gen-example-book="bible">In the beginning</button> ·
+              <button type="button" class="textlink" data-gen-example="Say: He is" data-gen-example-book="quran">Say: He is</button> ·
+              <button type="button" class="textlink" data-gen-example="O Arjuna," data-gen-example-book="gita">O Arjuna,</button>
             </p>
             <span class="live-rate" data-live-rate aria-hidden="true"></span>
           </div>
           <p id="ask-note-write" class="note" data-note-write>
-            Start a sentence. The model finishes it in the style of the book you pick. Runs on your device; first run downloads {{modelSize}}.
+            Start a sentence (not a question). The model predicts the next characters in the style of the book you pick. Runs on your device; first run downloads {{modelSize}}.
           </p>
           <p id="ask-note" class="note" data-note-find hidden>Looks up real verses by topic. Not advice.</p>
           <noscript><p class="note ask__noscript">This page needs JavaScript. Nothing you type is sent anywhere.</p></noscript>
@@ -76,12 +82,13 @@
         <div class="gen" data-generate hidden>
           <div class="progress" data-gen-progress role="progressbar" aria-label="Model download"
             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden><span data-gen-bar></span></div>
-          <div class="gen__output" data-gen-output></div>
-          <p class="note" data-gen-status aria-live="polite"></p>
+          <p class="gen__hint" data-gen-hint hidden></p>
           <table class="think" data-gen-think hidden>
             <caption>Next character, top 5</caption>
             <tbody data-gen-bars></tbody>
           </table>
+          <div class="gen__output" data-gen-output></div>
+          <p class="note" data-gen-status aria-live="polite"></p>
           <p class="meta"><span data-gen-rate></span> · machine-generated imitation, not scripture</p>
           <div class="visually-hidden" aria-live="polite" data-gen-live></div>
         </div>

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { errorMessage, showChar, toLines } from "../src/generate/ui.ts";
+import { errorMessage, looksLikeQuestion, showChar, toLines } from "../src/generate/ui.ts";
 import { encodeStart, MAX_START_CHARS } from "../src/generate/start.ts";
 import { verifyDownload } from "../src/generate/verify.ts";
 import { CharTokenizer } from "../src/model/tokenizer.ts";
@@ -52,6 +52,13 @@ describe("display of generated text", () => {
 
   test("flags a switch to another book's style", () => {
     expect(toLines("first\n<bible>And it came to pass", "gita")[1]).toEqual({ text: "And it came to pass", switchedTo: "bible" });
+  });
+
+  test("detects questions typed into Model mode", () => {
+    expect(looksLikeQuestion("Is god good")).toBe(true);
+    expect(looksLikeQuestion("Why do bad things happen?")).toBe(true);
+    expect(looksLikeQuestion("In the beginning")).toBe(false);
+    expect(looksLikeQuestion("O Arjuna,")).toBe(false);
   });
 });
 
