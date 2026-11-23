@@ -686,3 +686,24 @@ def test_only_allowlisted_topics_open_by_themselves(s):
     # a sensitive message opens only a comfort topic by itself
     gay = s.suggest("I'm gay and my parents rejected me")
     assert gay["category"] == "sensitive" and all(t["auto_show"] == (t["id"] in COMFORT) for t in gay["topics"])
+
+
+# Round 13 follow-up (not blind): "feel like dying" and the skull emoji after "want to" / "gonna", with idiom vetoes.
+@pytest.mark.parametrize("q", ["i feel like dying", "i feel like im dying", "i feel like i'm dying", "i want to 💀",
+                               "gonna 💀", "going to 💀 tonight", "i want 💀"])
+def test_round13_followup_crisis_wording_gets_the_note(s, q):
+    assert s.suggest(q)["category"] == "crisis", q
+
+
+@pytest.mark.parametrize("q", ["i feel like dying of embarrassment", "im so hungry i feel like im dying",
+                               "this heat, i feel like im dying", "so hungover i feel like dying", "so bored i feel like dying",
+                               "i laughed so hard i feel like dying", "lmao 💀", "that joke 💀💀", "im dying to see the new movie"])
+def test_round13_followup_idioms_are_not_crisis(s, q):
+    assert s.suggest(q)["category"] != "crisis", q
+
+
+def test_self_worth_never_opens_on_a_condemnation_verse(s):
+    # 1 John 3:20 ("if our heart condemn us") left self-worth in review-13-judge8; it stays under guilt.
+    refs = [v["ref"] for v in s.topic("self_worth")["books"]["bible"]["verses"]]
+    assert "1 John 3:20" not in refs
+    assert "1 John 3:20" in [v["ref"] for v in s.topic("guilt_repentance")["books"]["bible"]["verses"]]

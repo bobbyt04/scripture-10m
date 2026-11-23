@@ -1,0 +1,8 @@
+{
+ "about": "Round 13 (after judge 8). Self-worth is on the auto-show allowlist (search/themes.json 'auto_show'), so its verses can appear without a tap. 1 John 3:20 ('if our heart condemn us') can read as condemnation to someone who already feels worthless; it leaves self-worth and stays under guilt and starting again, which never opens without a tap.",
+ "gita": [],
+ "quran": [],
+ "bible": [
+  {"ref": "1 John 3:20", "action": "retag", "drop_themes": ["self_worth"], "reason": "Auto-show read: 'if our heart condemn us' can read as condemnation when shown without a tap; kept under guilt_repentance."}
+ ]
+}

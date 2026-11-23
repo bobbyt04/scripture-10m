@@ -1360,3 +1360,10 @@ Pool after: gita 67, quran 162, bible 447 verses.
 - bible Lamentations 3:25: retag (dropped hope). Comfort pass: God is good 'unto them that wait for him' makes goodness depend on waiting; kept under patience.
 - bible Isaiah 58:10: retag (dropped hope). Comfort pass: 'If thou draw out thy soul to the hungry ... then shall thy light rise' makes hope depend on doing more; kept under generosity.
 - bible Proverbs 4:18: retag (dropped hope). Comfort pass: 'The path of the just' makes hope depend on being just; kept under purpose.
+
+## review-13-judge8
+
+Applied: bible retag 1.
+Pool after: gita 67, quran 162, bible 447 verses.
+
+- bible 1 John 3:20: retag (dropped self_worth). Auto-show read: 'if our heart condemn us' can read as condemnation when shown without a tap; kept under guilt_repentance.

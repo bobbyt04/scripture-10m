@@ -6855,6 +6855,23 @@
    "my family says im a disgrace",
    "my mom says i'm going to hell",
    "i hurt my sister and feel guilty"
-  ]
+  ],
+  "follow_up_round13": {
+   "about": "Wording the orchestrator asked to add after round 13 (not blind): now crisis; the idioms beside them stay non-crisis (tests/test_search_suggest.py).",
+   "crisis": [
+    "i feel like dying",
+    "i feel like im dying",
+    "i feel like i'm dying",
+    "i want to \ud83d\udc80",
+    "gonna \ud83d\udc80",
+    "going to \ud83d\udc80 tonight"
+   ],
+   "not_crisis": [
+    "i feel like dying of embarrassment",
+    "im so hungry i feel like im dying",
+    "so hungover i feel like dying",
+    "lmao \ud83d\udc80"
+   ]
+  }
  }
 }
