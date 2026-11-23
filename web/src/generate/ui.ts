@@ -151,6 +151,7 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
   };
 
   function begin() {
+    rate.parentElement!.hidden = false;
     const s = encodeStart(tok, book, typed);
     start = s.text;
     raw = "";
@@ -181,6 +182,7 @@ export function mountGenerate(root: HTMLElement, onPhase: (phase: GenPhase, labe
       start = raw = "";
       rate.textContent = status.textContent = "";
       think.hidden = true;
+      rate.parentElement!.hidden = true;
       delete output.dataset.book;
       output.replaceChildren(h("p", { class: "crisis", "data-crisis": "" }, text));
     },
